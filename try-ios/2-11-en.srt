@@ -1,0 +1,200 @@
+﻿1
+00:00:00,890 --> 00:00:02,690
+All right, so let's take
+another look at this
+
+2
+00:00:02,690 --> 00:00:03,800
+code we have here.
+
+3
+00:00:03,800 --> 00:00:06,650
+In the viewDidLoad we declare
+two buttons, then we have the
+
+4
+00:00:06,650 --> 00:00:08,650
+buttonPressed method.
+
+5
+00:00:08,650 --> 00:00:11,210
+There's a couple things that
+kind of suck about this code.
+
+6
+00:00:11,210 --> 00:00:13,792
+I'm going to let Mr. Higgie
+point them out.
+
+7
+00:00:13,792 --> 00:00:17,260
+We're doing a comparison
+on the button title.
+
+8
+00:00:17,260 --> 00:00:17,830
+Right.
+
+9
+00:00:17,830 --> 00:00:20,720
+We're doing a comparison on a
+title, which may not be the
+
+10
+00:00:20,720 --> 00:00:23,030
+safest thing to do.
+
+11
+00:00:23,030 --> 00:00:25,892
+There's going to be a better
+way to do that comparison.
+
+12
+00:00:25,892 --> 00:00:29,100
+The variable names are awful.
+
+13
+00:00:29,100 --> 00:00:32,280
+Right, and the variable names
+don't really say what they
+
+14
+00:00:32,280 --> 00:00:35,110
+do-- we've got first button
+and second button.
+
+15
+00:00:35,110 --> 00:00:36,920
+So let's fix that right now.
+
+16
+00:00:39,720 --> 00:00:41,100
+The first thing that we're
+going to do to clean this
+
+17
+00:00:41,100 --> 00:00:42,460
+stuff up is inside of our
+
+18
+00:00:42,460 --> 00:00:45,370
+ViewController.h, our header file.
+
+19
+00:00:45,370 --> 00:00:47,810
+We're going to declare
+two properties,
+
+20
+00:00:47,810 --> 00:00:49,990
+for each of our UIButtons.
+
+21
+00:00:49,990 --> 00:00:52,340
+This is a pretty common pattern
+you'll see in iOS
+
+22
+00:00:52,340 --> 00:00:56,450
+applications, where all the
+different subviews we declare
+
+23
+00:00:56,450 --> 00:00:59,550
+as properties on the
+ViewController they're going
+
+24
+00:00:59,550 --> 00:01:01,790
+to be displayed in.
+
+25
+00:01:01,790 --> 00:01:05,480
+So we have our 50button, our
+100button, then inside of
+
+26
+00:01:05,480 --> 00:01:08,770
+our ViewController.m,
+here's the old code.
+
+27
+00:01:08,770 --> 00:01:12,930
+Let's go ahead and revise it
+to use these @properties.
+
+28
+00:01:12,930 --> 00:01:17,430
+All we have to do is use
+self.fiftyPercentButton in
+
+29
+00:01:17,430 --> 00:01:20,160
+many different places, as
+well as doing that with
+
+30
+00:01:20,160 --> 00:01:22,470
+self.hundredPercentButton
+for the other button.
+
+31
+00:01:22,470 --> 00:01:24,090
+But I'm not going to
+show you that.
+
+32
+00:01:24,090 --> 00:01:26,100
+Now how do we improve
+the conditional?
+
+33
+00:01:26,100 --> 00:01:28,820
+Here's our conditional, where
+we're comparing two strings.
+
+34
+00:01:28,820 --> 00:01:31,640
+Well now that our entire class
+has access to these UIButton
+
+35
+00:01:31,640 --> 00:01:37,110
+properties, we can use those to
+check to see if the sender
+
+36
+00:01:37,110 --> 00:01:40,960
+is equal to the 50button.
+
+37
+00:01:40,960 --> 00:01:44,220
+In case you're wondering, that
+isEqual method comes from NS
+
+38
+00:01:44,220 --> 00:01:48,440
+object, which all objects
+in iOS inherit from.
+
+39
+00:01:48,440 --> 00:01:52,160
+It's the most root object.
+
+40
+00:01:52,160 --> 00:01:53,920
+Much cleaner.
+
+41
+00:01:53,920 --> 00:01:55,950
+Now it's time for you to clean
+up some of your code.
+
+42
+00:01:55,950 --> 00:01:57,200
+And I'll see you
+in level three.
+
+43
+00:00:00,000 --> 00:00:00,000
+00:01:57,200 --> 00:01:59,148

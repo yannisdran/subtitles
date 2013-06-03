@@ -1,0 +1,296 @@
+﻿1
+00:00:00,360 --> 00:00:02,850
+As you saw with the previous
+challenge, you logged out the
+
+2
+00:00:02,850 --> 00:00:05,800
+JSON object that was coming back
+from the internet, and it
+
+3
+00:00:05,800 --> 00:00:07,940
+probably looked something
+like this.
+
+4
+00:00:07,940 --> 00:00:11,510
+Kind of looks a lot like the
+JSON, except in this case
+
+5
+00:00:11,510 --> 00:00:14,960
+we've got equal signs
+and semicolons.
+
+6
+00:00:14,960 --> 00:00:16,960
+Wonder what sort of
+object that is?
+
+7
+00:00:16,960 --> 00:00:21,720
+Well, if we call class on that
+object, we simply get back
+
+8
+00:00:21,720 --> 00:00:23,942
+that it's an NSDictionary.
+
+9
+00:00:23,942 --> 00:00:26,353
+NSDictionary is a key
+value store, kind
+
+10
+00:00:26,353 --> 00:00:27,520
+of like a Ruby Hash.
+
+11
+00:00:27,520 --> 00:00:29,000
+You're right, Mr. Higgie.
+
+12
+00:00:29,000 --> 00:00:31,690
+It's a key value store, kind
+of like a Ruby Hash.
+
+13
+00:00:31,690 --> 00:00:34,240
+Or if you're familiar with
+JavaScript, it's like a
+
+14
+00:00:34,240 --> 00:00:36,590
+JavaScript object.
+
+15
+00:00:36,590 --> 00:00:39,030
+If you want to look at all of
+the helper methods that come
+
+16
+00:00:39,030 --> 00:00:41,730
+along with that NSDictionary
+class, you can sort of click
+
+17
+00:00:41,730 --> 00:00:43,040
+the button below.
+
+18
+00:00:43,040 --> 00:00:46,230
+There's a bunch of utility
+methods, including the allKeys
+
+19
+00:00:46,230 --> 00:00:49,370
+message, which is going to
+return you all of the keys for
+
+20
+00:00:49,370 --> 00:00:51,690
+this NSDictionary.
+
+21
+00:00:51,690 --> 00:00:54,620
+We could also call allValues,
+which is going to return to
+
+22
+00:00:54,620 --> 00:00:56,260
+you all the values.
+
+23
+00:00:56,260 --> 00:00:59,790
+And of course if we want to
+reference a particular value
+
+24
+00:00:59,790 --> 00:01:02,420
+by using its key, we can do
+something like this, and
+
+25
+00:01:02,420 --> 00:01:04,060
+specify the key that
+corresponds to the
+
+26
+00:01:04,060 --> 00:01:05,099
+value that we want.
+
+27
+00:01:05,099 --> 00:01:08,290
+In this case it would print out
+first name is Gregg, and
+
+28
+00:01:08,290 --> 00:01:10,740
+if we wanted to get memberSince,
+we could simply
+
+29
+00:01:10,740 --> 00:01:13,460
+get the value this way.
+
+30
+00:01:13,460 --> 00:01:15,210
+To complete our networking
+code and keep things
+
+31
+00:01:15,210 --> 00:01:18,060
+organized, we're going to add a
+property to the profile view
+
+32
+00:01:18,060 --> 00:01:20,640
+controller, which is
+a NSDictionary.
+
+33
+00:01:20,640 --> 00:01:23,120
+This is where we're going to
+store the NSDictionary object
+
+34
+00:01:23,120 --> 00:01:25,870
+we get back from our request,
+so that we can use it
+
+35
+00:01:25,870 --> 00:01:27,860
+elsewhere inside of our class.
+
+36
+00:01:27,860 --> 00:01:30,060
+Then inside of our
+ProfileViewController we're
+
+37
+00:01:30,060 --> 00:01:31,590
+going to store our NSDictionary
+
+38
+00:01:31,590 --> 00:01:33,410
+inside of this property.
+
+39
+00:01:33,410 --> 00:01:35,680
+Then we're going to call a new
+method we're about to create,
+
+40
+00:01:35,680 --> 00:01:39,310
+called requestSuccessful,
+that'll use this NSDictionary
+
+41
+00:01:39,310 --> 00:01:41,070
+to print out the right
+values to the screen.
+
+42
+00:01:44,540 --> 00:01:46,110
+Let's jump into that
+method and see
+
+43
+00:01:46,110 --> 00:01:47,600
+what we need to implement.
+
+44
+00:01:47,600 --> 00:01:50,920
+So if we just pull over our
+code from previous levels
+
+45
+00:01:50,920 --> 00:01:52,940
+where we define the
+ProfileViewController, we
+
+46
+00:01:52,940 --> 00:01:54,370
+would have the image.
+
+47
+00:01:54,370 --> 00:01:55,620
+And we'd have the UILabel.
+
+48
+00:01:55,620 --> 00:01:58,700
+This is our old code but we need
+to change it to load in
+
+49
+00:01:58,700 --> 00:02:01,080
+the code that we just got
+from the internet.
+
+50
+00:02:01,080 --> 00:02:02,470
+To do this it's pretty simple.
+
+51
+00:02:02,470 --> 00:02:05,900
+We simply need to reference
+self.userprofile and send in
+
+52
+00:02:05,900 --> 00:02:08,850
+the proper key to get back
+the proper value.
+
+53
+00:02:08,850 --> 00:02:11,790
+Then down in our name label,
+we need to combine two
+
+54
+00:02:11,790 --> 00:02:12,710
+different values--
+
+55
+00:02:12,710 --> 00:02:14,520
+the first name and last name.
+
+56
+00:02:14,520 --> 00:02:16,100
+We can do that by using the
+
+57
+00:02:16,100 --> 00:02:19,380
+stringwithformat from NSString.
+
+58
+00:02:19,380 --> 00:02:23,500
+So here you can see that we're
+sending in a string as well as
+
+59
+00:02:23,500 --> 00:02:27,470
+the data from our user
+profile dictionary.
+
+60
+00:02:27,470 --> 00:02:28,690
+Now it's time for you
+to finish the
+
+61
+00:02:28,690 --> 00:02:32,240
+RequestSuccessfulMethod by
+referencing the proper values
+
+62
+00:02:32,240 --> 00:02:34,170
+from the user profile.
+
+63
+00:02:34,170 --> 00:02:35,420
+Good luck.
+
+64
+00:00:00,000 --> 00:00:00,000
+00:02:35,420 --> 00:02:35,900

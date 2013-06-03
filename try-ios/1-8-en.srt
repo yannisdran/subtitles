@@ -1,0 +1,490 @@
+﻿1
+00:00:00,780 --> 00:00:01,530
+Welcome back.
+
+2
+00:00:01,530 --> 00:00:04,022
+Now before we move on, let's
+review the code that we've
+
+3
+00:00:04,022 --> 00:00:05,730
+written in our app delegate.
+
+4
+00:00:05,730 --> 00:00:10,210
+So here, up at the top, we have
+our bounds, we have our
+
+5
+00:00:10,210 --> 00:00:14,290
+window, we have our
+UIViewController.
+
+6
+00:00:14,290 --> 00:00:17,220
+Then we have our view.
+
+7
+00:00:17,220 --> 00:00:20,080
+And then finally we set the
+rootViewController.
+
+8
+00:00:20,080 --> 00:00:23,020
+And send the message,
+makeKeyAndVisible, and log out
+
+9
+00:00:23,020 --> 00:00:26,242
+the size of the screen.
+
+10
+00:00:26,242 --> 00:00:28,740
+This code needs to
+be refactored!
+
+11
+00:00:28,740 --> 00:00:30,280
+Oh you're right, Mr. Higgie.
+
+12
+00:00:30,280 --> 00:00:33,260
+There's a bunch of stuff that we
+can do to factor this code.
+
+13
+00:00:33,260 --> 00:00:36,890
+And if we look back at our
+file system, we'll notice
+
+14
+00:00:36,890 --> 00:00:39,500
+there's a file there called
+ViewController.
+
+15
+00:00:39,500 --> 00:00:42,020
+If we look inside the
+ViewController.h we'll see
+
+16
+00:00:42,020 --> 00:00:44,310
+that it declares a class called
+ViewController, which
+
+17
+00:00:44,310 --> 00:00:47,980
+has a parent class of
+UIViewController.
+
+18
+00:00:47,980 --> 00:00:50,530
+This is a pretty common pattern
+in iOS applications.
+
+19
+00:00:50,530 --> 00:00:54,080
+When we need a class to have a
+custom behavior, we'll often
+
+20
+00:00:54,080 --> 00:00:56,770
+subclass it and then
+add that behavior.
+
+21
+00:00:56,770 --> 00:00:59,830
+Often we say superclass instead
+of parent class.
+
+22
+00:00:59,830 --> 00:01:02,190
+Oh, you're right, Mr. Higgie.
+
+23
+00:01:02,190 --> 00:01:06,680
+Often we say superclass instead
+of parent class.
+
+24
+00:01:06,680 --> 00:01:09,400
+You'll see them both used.
+
+25
+00:01:09,400 --> 00:01:10,870
+Let's move that file over.
+
+26
+00:01:10,870 --> 00:01:13,980
+And now, if we look inside our
+AppDelegate.h, we'll see that
+
+27
+00:01:13,980 --> 00:01:18,220
+it already included this
+ViewController class, and it
+
+28
+00:01:18,220 --> 00:01:19,780
+has an @property.
+
+29
+00:01:19,780 --> 00:01:22,400
+So every time we declare an
+AppDelegate, well, it's going
+
+30
+00:01:22,400 --> 00:01:24,100
+to have a ViewController.
+
+31
+00:01:24,100 --> 00:01:26,870
+And also insider our
+AppDelegate.m, it's already
+
+32
+00:01:26,870 --> 00:01:28,820
+imported the ViewController
+for us so that we
+
+33
+00:01:28,820 --> 00:01:31,170
+can use this class.
+
+34
+00:01:31,170 --> 00:01:34,260
+Now let's jump back to our
+old code and refactor it.
+
+35
+00:01:34,260 --> 00:01:37,680
+So rather than creating our own
+UIViewController, we're
+
+36
+00:01:37,680 --> 00:01:40,150
+simply going to use the
+ViewController property with
+
+37
+00:01:40,150 --> 00:01:41,880
+self.viewController.
+
+38
+00:01:41,880 --> 00:01:43,360
+Then we simply call self.
+
+39
+00:01:43,360 --> 00:01:45,620
+when we're setting the view
+for this ViewController.
+
+40
+00:01:45,620 --> 00:01:46,940
+And again self.
+
+41
+00:01:46,940 --> 00:01:47,860
+when we're setting the
+
+42
+00:01:47,860 --> 00:01:51,250
+routeViewController on our window.
+
+43
+00:01:51,250 --> 00:01:54,570
+Our paintbrush is in charge of
+taking the paint and putting
+
+44
+00:01:54,570 --> 00:01:56,130
+it on to the canvas.
+
+45
+00:01:56,130 --> 00:01:59,240
+In the same way, our
+ViewController is in charge of
+
+46
+00:01:59,240 --> 00:02:03,790
+taking the views and painting
+the views onto our window.
+
+47
+00:02:03,790 --> 00:02:07,170
+So our view here in the
+AppDelegate really needs to be
+
+48
+00:02:07,170 --> 00:02:09,090
+inside of the ViewController.
+
+49
+00:02:09,090 --> 00:02:12,048
+So let's do that now.
+
+50
+00:02:12,048 --> 00:02:12,810
+Woah, woah, woah.
+
+51
+00:02:12,810 --> 00:02:15,310
+A bunch of code moved around
+there, don't freak out.
+
+52
+00:02:15,310 --> 00:02:17,890
+Here we are inside of our
+ViewController.m.
+
+53
+00:02:17,890 --> 00:02:19,890
+We just moved some code over.
+
+54
+00:02:19,890 --> 00:02:22,730
+Inside of there we have
+a loadView method.
+
+55
+00:02:22,730 --> 00:02:24,420
+And this is called the
+first time the
+
+56
+00:02:24,420 --> 00:02:26,280
+view property is accessed.
+
+57
+00:02:26,280 --> 00:02:27,730
+Inside there the only
+thing we need to
+
+58
+00:02:27,730 --> 00:02:30,990
+change is call self.view.
+
+59
+00:02:30,990 --> 00:02:33,580
+Then, inside of viewDidLoad
+method, which is
+
+60
+00:02:33,580 --> 00:02:34,800
+called after loadView--
+
+61
+00:02:34,800 --> 00:02:37,810
+typically this is where you
+would put all of your buttons
+
+62
+00:02:37,810 --> 00:02:39,930
+and labels, which we'll
+get to later--
+
+63
+00:02:39,930 --> 00:02:41,840
+you'll also notice in here
+that we're sending the
+
+64
+00:02:41,840 --> 00:02:46,610
+viewDidLoad message into super,
+meaning our superclass,
+
+65
+00:02:46,610 --> 00:02:47,910
+or the parent class.
+
+66
+00:02:47,910 --> 00:02:50,030
+It's important to do this in
+case there's set up that it
+
+67
+00:02:50,030 --> 00:02:51,630
+needs to do too.
+
+68
+00:02:51,630 --> 00:02:54,090
+And if we take a look back at
+out AppDelegate.m now that
+
+69
+00:02:54,090 --> 00:02:57,190
+we've refactored, we'll notice
+that there's no mention of the
+
+70
+00:02:57,190 --> 00:02:58,830
+view inside of it.
+
+71
+00:03:02,030 --> 00:03:02,554
+Much better.
+
+72
+00:03:02,554 --> 00:03:05,820
+It's not good to have views
+in your AppDelegate.
+
+73
+00:03:05,820 --> 00:03:09,180
+Right, it's usually not good to
+have views inside of your
+
+74
+00:03:09,180 --> 00:03:10,270
+AppDelegate.
+
+75
+00:03:10,270 --> 00:03:13,620
+We want to encapsulate those
+inside of our ViewControllers.
+
+76
+00:03:16,130 --> 00:03:18,510
+So our application so
+far-- we've got the
+
+77
+00:03:18,510 --> 00:03:20,080
+window up at the top.
+
+78
+00:03:20,080 --> 00:03:22,800
+Windows can have multiple
+ViewControllers, which we'll
+
+79
+00:03:22,800 --> 00:03:24,490
+see in the next level.
+
+80
+00:03:24,490 --> 00:03:25,720
+Usually each ViewController
+
+81
+00:03:25,720 --> 00:03:28,380
+encapsulates a piece of behavior.
+
+82
+00:03:28,380 --> 00:03:31,070
+Then each of those
+ViewControllers has a single
+
+83
+00:03:31,070 --> 00:03:34,200
+view, which we use to
+draw things on.
+
+84
+00:03:34,200 --> 00:03:36,900
+One of those ViewControllers
+is the rootViewController,
+
+85
+00:03:36,900 --> 00:03:40,900
+which is the one that gets
+displayed onto the screen.
+
+86
+00:03:40,900 --> 00:03:43,030
+So we're building iPhone
+applications, but what good is
+
+87
+00:03:43,030 --> 00:03:44,960
+an app, if we can't
+interact with it.
+
+88
+00:03:44,960 --> 00:03:47,740
+So in our next task let's figure
+out how to make it do
+
+89
+00:03:47,740 --> 00:03:49,570
+something when we touch
+the screen.
+
+90
+00:03:49,570 --> 00:03:52,710
+As you remember from earlier,
+ViewController, inherits from
+
+91
+00:03:52,710 --> 00:03:54,610
+UIViewController.
+
+92
+00:03:54,610 --> 00:03:59,690
+Well UIViewController inherits
+from UIResponder, which is an
+
+93
+00:03:59,690 --> 00:04:02,110
+interface for responding
+to events.
+
+94
+00:04:02,110 --> 00:04:06,270
+Our view also inherits
+from UIResponder.
+
+95
+00:04:06,270 --> 00:04:09,390
+UIResponder gives us
+a bunch of methods.
+
+96
+00:04:09,390 --> 00:04:12,460
+If we implement these methods
+inside of our ViewController
+
+97
+00:04:12,460 --> 00:04:15,010
+or View, those will
+get called when we
+
+98
+00:04:15,010 --> 00:04:16,899
+interact with the screen.
+
+99
+00:04:16,899 --> 00:04:18,410
+Now back in our ViewController,
+we're going to
+
+100
+00:04:18,410 --> 00:04:21,600
+implement the touchesBegan
+withEvent method.
+
+101
+00:04:21,600 --> 00:04:25,020
+And now this is going to get
+called whenever we begin to
+
+102
+00:04:25,020 --> 00:04:28,036
+touch our iPhone screen.
+
+103
+00:04:28,036 --> 00:04:29,770
+And that's all there is to it.
+
+104
+00:04:29,770 --> 00:04:32,060
+Now it's time for you to try
+this in the challenges.
+
+105
+00:04:32,060 --> 00:04:33,310
+And I'll see you on level two.
+
+106
+00:00:00,000 --> 00:00:00,000
+00:04:33,310 --> 00:04:36,802

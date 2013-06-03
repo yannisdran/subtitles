@@ -1,0 +1,651 @@
+﻿1
+00:00:01,020 --> 00:00:01,350
+Hello.
+
+2
+00:00:01,350 --> 00:00:04,220
+I'm Gregg Pollack, and you're
+watching Try iOS Level Two,
+
+3
+00:00:04,220 --> 00:00:06,890
+where we're going to be talking
+about subviews.
+
+4
+00:00:06,890 --> 00:00:09,840
+In this level, we'll be creating
+some buttons, some
+
+5
+00:00:09,840 --> 00:00:13,990
+labels, making the buttons work,
+making multiple buttons
+
+6
+00:00:13,990 --> 00:00:16,230
+on the screen, and then finally,
+cleaning up our code.
+
+7
+00:00:16,230 --> 00:00:18,250
+So let's jump into it.
+
+8
+00:00:18,250 --> 00:00:21,850
+So back in level one, we had
+a window or a canvas.
+
+9
+00:00:21,850 --> 00:00:24,610
+We also had a ViewController
+represented here by the
+
+10
+00:00:24,610 --> 00:00:25,670
+paintbrush.
+
+11
+00:00:25,670 --> 00:00:28,580
+And then finally, we had a
+View, which is the paint,
+
+12
+00:00:28,580 --> 00:00:30,920
+which gets painted
+onto our window.
+
+13
+00:00:30,920 --> 00:00:33,410
+If we had a screen that looked
+something like this, the view
+
+14
+00:00:33,410 --> 00:00:36,950
+in our case is that beautiful
+yellow background.
+
+15
+00:00:36,950 --> 00:00:38,530
+But how do we add buttons
+like the Click Me
+
+16
+00:00:38,530 --> 00:00:40,180
+button you see here?
+
+17
+00:00:40,180 --> 00:00:44,110
+Well, we do this by adding
+subviews onto our views.
+
+18
+00:00:44,110 --> 00:00:46,230
+So this button here
+is a subview.
+
+19
+00:00:46,230 --> 00:00:48,410
+And we're going to figure
+out how to create one
+
+20
+00:00:48,410 --> 00:00:49,750
+of those right now.
+
+21
+00:00:49,750 --> 00:00:52,580
+So here we are back in our
+ViewController. m in our
+
+22
+00:00:52,580 --> 00:00:54,010
+viewDidLoad method.
+
+23
+00:00:54,010 --> 00:00:55,560
+We set the background color.
+
+24
+00:00:55,560 --> 00:00:59,840
+And now we're going to create
+a UI button, just like so.
+
+25
+00:00:59,840 --> 00:01:02,610
+When we a create UI button, we
+tell it what type of button.
+
+26
+00:01:02,610 --> 00:01:05,880
+In this case, the
+UIButtonTypeRoundedRect, which
+
+27
+00:01:05,880 --> 00:01:08,480
+is the most standard iPhone
+button that you've definitely
+
+28
+00:01:08,480 --> 00:01:10,050
+seen before.
+
+29
+00:01:10,050 --> 00:01:12,600
+You might notice that when we
+declare this UI button, we
+
+30
+00:01:12,600 --> 00:01:15,790
+don't have to allocate memory
+for it or instantiate.
+
+31
+00:01:15,790 --> 00:01:18,865
+But some classes we
+have to do this.
+
+32
+00:01:18,865 --> 00:01:22,420
+The best way to figure out
+whether you do or you don't is
+
+33
+00:01:22,420 --> 00:01:24,440
+to simply look at the
+documentation.
+
+34
+00:01:24,440 --> 00:01:27,240
+Under the video, you should see
+a link which will bring
+
+35
+00:01:27,240 --> 00:01:30,610
+you to more documentation
+about a UI button.
+
+36
+00:01:30,610 --> 00:01:33,690
+And really what this means is
+that it's still getting
+
+37
+00:01:33,690 --> 00:01:35,450
+allocated and initialized.
+
+38
+00:01:35,450 --> 00:01:38,610
+But, well, the iOS is
+doing it for you.
+
+39
+00:01:38,610 --> 00:01:41,170
+Next, we need to send them
+the button frame.
+
+40
+00:01:41,170 --> 00:01:44,080
+We do this by creating another
+one of those CGRects.
+
+41
+00:01:44,080 --> 00:01:45,800
+And we send in four
+parameters.
+
+42
+00:01:45,800 --> 00:01:50,470
+The first is the x parameter,
+then the y, then the width,
+
+43
+00:01:50,470 --> 00:01:51,500
+and the height.
+
+44
+00:01:51,500 --> 00:01:54,000
+And we'll explain this in
+more detail in a minute.
+
+45
+00:01:54,000 --> 00:01:56,880
+Then, we can set the
+button title.
+
+46
+00:01:56,880 --> 00:01:59,260
+And we also need to send
+in the parameter
+
+47
+00:01:59,260 --> 00:02:01,820
+forState:UIControlStateNormal.
+
+48
+00:02:01,820 --> 00:02:03,460
+So what we're saying
+here is, what does
+
+49
+00:02:03,460 --> 00:02:06,180
+the button say normally?
+
+50
+00:02:06,180 --> 00:02:11,420
+And then lastly, we add the UI
+button as a subview onto our
+
+51
+00:02:11,420 --> 00:02:15,110
+ViewController's
+existing view.
+
+52
+00:02:15,110 --> 00:02:16,040
+So, sweet.
+
+53
+00:02:16,040 --> 00:02:16,960
+Here's our iPhone.
+
+54
+00:02:16,960 --> 00:02:18,080
+There's our button.
+
+55
+00:02:18,080 --> 00:02:19,365
+We can click it.
+
+56
+00:02:19,365 --> 00:02:22,470
+It doesn't do anything
+yet, but well,
+
+57
+00:02:22,470 --> 00:02:25,140
+that's our first subview.
+
+58
+00:02:25,140 --> 00:02:26,120
+Cool.
+
+59
+00:02:26,120 --> 00:02:29,200
+Now let's go into this code in
+a little more depth, starting
+
+60
+00:02:29,200 --> 00:02:31,780
+with when we declare
+our button.
+
+61
+00:02:31,780 --> 00:02:34,050
+In case you're wondering, if we
+look in the documentation,
+
+62
+00:02:34,050 --> 00:02:38,440
+we would see that UIButton
+inherits from UIView.
+
+63
+00:02:38,440 --> 00:02:40,110
+It's a type of view.
+
+64
+00:02:40,110 --> 00:02:44,230
+And UIView, as we saw in the
+previous level, inherits from
+
+65
+00:02:44,230 --> 00:02:45,760
+UIResponder.
+
+66
+00:02:45,760 --> 00:02:46,860
+Now there's a couple
+different types of
+
+67
+00:02:46,860 --> 00:02:48,360
+buttons that we can create.
+
+68
+00:02:48,360 --> 00:02:50,570
+Here is the RoundedRect.
+
+69
+00:02:50,570 --> 00:02:52,920
+Here's the detailed
+disclosure.
+
+70
+00:02:52,920 --> 00:02:56,940
+TypeInfoLight, TypeInfoDark,
+and TypeContactAdd.
+
+71
+00:02:56,940 --> 00:02:58,690
+So we can create all these
+different types of buttons
+
+72
+00:02:58,690 --> 00:03:00,300
+pretty easily.
+
+73
+00:03:00,300 --> 00:03:02,110
+The next line of code we're
+going to look at
+
+74
+00:03:02,110 --> 00:03:03,810
+is setting the frame.
+
+75
+00:03:03,810 --> 00:03:07,300
+And as we mentioned, it sets the
+x, y, width, and height.
+
+76
+00:03:07,300 --> 00:03:11,120
+But when we're talking about x,
+y, how do we plot that onto
+
+77
+00:03:11,120 --> 00:03:13,570
+our iOS device frame?
+
+78
+00:03:13,570 --> 00:03:18,570
+Well, basically 0,0 is in the
+top left-hand corner.
+
+79
+00:03:18,570 --> 00:03:21,830
+So if we're plotting this button
+at 100, 100, well, it's
+
+80
+00:03:21,830 --> 00:03:25,110
+going to use those points to
+figure out where it goes.
+
+81
+00:03:25,110 --> 00:03:31,970
+And then, it is 100 points wide
+and 44 points in height.
+
+82
+00:03:31,970 --> 00:03:34,350
+So there's our button.
+
+83
+00:03:34,350 --> 00:03:34,700
+And--
+
+84
+00:03:34,700 --> 00:03:38,340
+You must be wondering
+what points are.
+
+85
+00:03:38,340 --> 00:03:38,860
+Yeah.
+
+86
+00:03:38,860 --> 00:03:41,410
+You're probably wondering
+what points are.
+
+87
+00:03:41,410 --> 00:03:42,880
+You're probably wondering
+why I'm not
+
+88
+00:03:42,880 --> 00:03:44,780
+talking in terms of pixels.
+
+89
+00:03:44,780 --> 00:03:46,940
+Well, allow me to explain.
+
+90
+00:03:46,940 --> 00:03:50,850
+With a Non Retina iPhone, one
+1 point is equal to 1 pixel,
+
+91
+00:03:50,850 --> 00:03:53,020
+so you can kind of use
+them interchangeably.
+
+92
+00:03:53,020 --> 00:03:55,495
+So the size here for a
+Non Retina iPhone in
+
+93
+00:03:55,495 --> 00:03:57,560
+points is 320 by 480.
+
+94
+00:03:57,560 --> 00:04:01,310
+And that same size in pixels
+is 320 by 480.
+
+95
+00:04:01,310 --> 00:04:04,080
+It's the same, because it's
+a one to one relationship.
+
+96
+00:04:04,080 --> 00:04:07,480
+However, when we have an iPhone
+4 with a Retina screen,
+
+97
+00:04:07,480 --> 00:04:12,230
+1 point is equal to 4 pixels.
+
+98
+00:04:12,230 --> 00:04:16,010
+So the points remain the same,
+which allow us to plot things
+
+99
+00:04:16,010 --> 00:04:18,180
+using the same coordinate system
+no matter what device
+
+100
+00:04:18,180 --> 00:04:19,160
+we're using.
+
+101
+00:04:19,160 --> 00:04:20,899
+However, when it comes
+to pixels--
+
+102
+00:04:20,899 --> 00:04:23,030
+well, it's going to be
+double the number of
+
+103
+00:04:23,030 --> 00:04:25,580
+pixels in each direction.
+
+104
+00:04:25,580 --> 00:04:28,310
+Now, you might be wondering
+where the iPhone 5 fits in.
+
+105
+00:04:28,310 --> 00:04:31,120
+Well, the iPhone 5 has the
+same pixel density
+
+106
+00:04:31,120 --> 00:04:33,170
+as the iPhone 4.
+
+107
+00:04:33,170 --> 00:04:36,960
+So in this case, it actually has
+more points because it's
+
+108
+00:04:36,960 --> 00:04:41,610
+taller, and the pixels are
+the same sort of multiple
+
+109
+00:04:41,610 --> 00:04:44,200
+as the iPhone 4.
+
+110
+00:04:44,200 --> 00:04:46,500
+Next up, we set this
+button title.
+
+111
+00:04:46,500 --> 00:04:49,440
+As we mentioned, it sets the
+title that gets displayed
+
+112
+00:04:49,440 --> 00:04:50,690
+normally on the button.
+
+113
+00:04:50,690 --> 00:04:53,040
+Well, if we wanted to change the
+title when the button gets
+
+114
+00:04:53,040 --> 00:04:56,660
+pressed, we could send this
+message in again with the
+
+115
+00:04:56,660 --> 00:04:59,540
+parameter
+UIControlStateHighlighted,
+
+116
+00:04:59,540 --> 00:05:02,450
+which we'll be doing in
+the challenges later.
+
+117
+00:05:02,450 --> 00:05:05,850
+And lastly, we're going to add
+our button as a subview onto
+
+118
+00:05:05,850 --> 00:05:07,920
+our view controller's view.
+
+119
+00:05:07,920 --> 00:05:11,310
+And as you can imagine, you
+might want to have multiple
+
+120
+00:05:11,310 --> 00:05:14,470
+subviews on top of your view if
+you want multiple buttons
+
+121
+00:05:14,470 --> 00:05:16,300
+or say, a label.
+
+122
+00:05:16,300 --> 00:05:18,150
+Let's add a label.
+
+123
+00:05:18,150 --> 00:05:20,760
+Just like we have a UI button
+class, we also have a helper
+
+124
+00:05:20,760 --> 00:05:23,180
+class called UILabel.
+
+125
+00:05:23,180 --> 00:05:26,390
+And we can initialize it by
+sending in the x, y, width,
+
+126
+00:05:26,390 --> 00:05:28,500
+and the height.
+
+127
+00:05:28,500 --> 00:05:32,520
+Then we can set the
+text on the label.
+
+128
+00:05:32,520 --> 00:05:34,640
+And finally, add it
+as a subview.
+
+129
+00:05:34,640 --> 00:05:38,165
+And this is what we would get.
+
+130
+00:05:38,165 --> 00:05:41,010
+What's with the white background
+on UILable?
+
+131
+00:05:41,010 --> 00:05:42,410
+Good point, Mr. Higgie.
+
+132
+00:05:42,410 --> 00:05:46,090
+I was wondering this myself when
+I first put this label on
+
+133
+00:05:46,090 --> 00:05:46,550
+the screen.
+
+134
+00:05:46,550 --> 00:05:48,890
+Why is there a white
+background there?
+
+135
+00:05:48,890 --> 00:05:51,500
+We can get rid of the white
+background pretty easily,
+
+136
+00:05:51,500 --> 00:05:54,770
+simply by specifying the
+background color equal to
+
+137
+00:05:54,770 --> 00:05:57,200
+UIColor clearColor.
+
+138
+00:05:57,200 --> 00:05:59,845
+And it does what you
+expect it to.
+
+139
+00:05:59,845 --> 00:06:01,095
+Much better.
+
+140
+00:00:00,000 --> 00:00:00,000
+00:06:01,095 --> 00:06:01,820

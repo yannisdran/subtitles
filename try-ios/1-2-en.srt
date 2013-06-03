@@ -1,0 +1,420 @@
+﻿1
+00:00:01,870 --> 00:00:02,200
+Hello.
+
+2
+00:00:02,200 --> 00:00:05,730
+I'm Gregg Pollack, and you're
+watching Level 1 of Try iOS.
+
+3
+00:00:05,730 --> 00:00:08,420
+You're going to need to know a
+little bit of Objective C to
+
+4
+00:00:08,420 --> 00:00:09,870
+get through this tutorial.
+
+5
+00:00:09,870 --> 00:00:12,720
+If you haven't seen Objective C
+before, see the Objective C
+
+6
+00:00:12,720 --> 00:00:16,059
+Primer, which you should find
+the link below this video.
+
+7
+00:00:16,059 --> 00:00:19,550
+Once you've done that, come
+back, and we'll get going.
+
+8
+00:00:19,550 --> 00:00:21,800
+In this level, we're going to
+be going over starting your
+
+9
+00:00:21,800 --> 00:00:24,640
+first iPhone project, the
+Application Delegate.
+
+10
+00:00:24,640 --> 00:00:26,710
+We'll be building our
+first iPhone app.
+
+11
+00:00:26,710 --> 00:00:28,910
+Finally, how to draw on our
+screen, and then we're going
+
+12
+00:00:28,910 --> 00:00:32,110
+to be refactoring some code to
+make it a little bit cleaner.
+
+13
+00:00:32,110 --> 00:00:35,240
+Along the way, we're going to
+have Mr. Higgie to keep us
+
+14
+00:00:35,240 --> 00:00:38,830
+company, as you see here.
+
+15
+00:00:38,830 --> 00:00:42,230
+And as he says, you don't need
+any Xcode to run this.
+
+16
+00:00:42,230 --> 00:00:43,210
+You don't need a Mac.
+
+17
+00:00:43,210 --> 00:00:45,690
+You don't need to install Xcode
+to do this tutorial.
+
+18
+00:00:45,690 --> 00:00:47,810
+However, if you do have
+Xcode installed--
+
+19
+00:00:47,810 --> 00:00:52,050
+Xcode, by the way, is how you
+develop iOS applications--
+
+20
+00:00:52,050 --> 00:00:53,660
+you can follow along.
+
+21
+00:00:53,660 --> 00:00:55,580
+So we'll show you how
+to build what we're
+
+22
+00:00:55,580 --> 00:00:56,630
+building inside Xcode.
+
+23
+00:00:56,630 --> 00:00:58,390
+But like I said, you
+don't have to.
+
+24
+00:00:58,390 --> 00:01:01,220
+You can code right along
+in the browser.
+
+25
+00:01:01,220 --> 00:01:03,560
+Our first iPhone application
+is going to do two things.
+
+26
+00:01:03,560 --> 00:01:05,410
+It's going to have a background
+color, and we're
+
+27
+00:01:05,410 --> 00:01:07,920
+going to be able to click to
+change the transparency.
+
+28
+00:01:07,920 --> 00:01:09,630
+So let's go ahead and
+show you what that's
+
+29
+00:01:09,630 --> 00:01:10,650
+going to look like.
+
+30
+00:01:10,650 --> 00:01:13,420
+So as you can see here, as I
+click the screen, it's going
+
+31
+00:01:13,420 --> 00:01:16,410
+to change its transparency
+levels so it'll get brighter
+
+32
+00:01:16,410 --> 00:01:19,540
+and darker.
+
+33
+00:01:19,540 --> 00:01:22,120
+I compare learning how to build
+iOS applications to
+
+34
+00:01:22,120 --> 00:01:24,740
+maybe learning how to
+drive a submarine.
+
+35
+00:01:24,740 --> 00:01:27,000
+If I were to sit you down at
+the navigator's seat and I
+
+36
+00:01:27,000 --> 00:01:30,130
+were to teach you all the
+different knobs and levers and
+
+37
+00:01:30,130 --> 00:01:33,170
+instrumentation, well, we
+wouldn't be diving for a long
+
+38
+00:01:33,170 --> 00:01:35,390
+time, because there's
+a lot to learn.
+
+39
+00:01:35,390 --> 00:01:37,380
+There's also a lot to learn
+in iOS development.
+
+40
+00:01:37,380 --> 00:01:39,880
+So as we go through this
+tutorial, we're going to be
+
+41
+00:01:39,880 --> 00:01:41,820
+ignoring certain knobs
+and levers.
+
+42
+00:01:41,820 --> 00:01:43,680
+Some of the code's going
+to look intimidating,
+
+43
+00:01:43,680 --> 00:01:45,230
+but don't freak out.
+
+44
+00:01:45,230 --> 00:01:47,550
+We're going to simply go through
+it so we can get you
+
+45
+00:01:47,550 --> 00:01:49,950
+building iOS apps in no time.
+
+46
+00:01:49,950 --> 00:01:52,130
+And those little details, well,
+you'll come back to
+
+47
+00:01:52,130 --> 00:01:55,470
+later and learn as you become
+a better iOS developer.
+
+48
+00:01:55,470 --> 00:01:57,910
+As I mentioned, you don't need
+Xcode to do this tutorial.
+
+49
+00:01:57,910 --> 00:02:00,615
+But if you already have it
+installed, here is how you
+
+50
+00:02:00,615 --> 00:02:03,030
+would create a new project for
+what we're about to build.
+
+51
+00:02:03,030 --> 00:02:06,520
+After creating a new project,
+you would select a Single View
+
+52
+00:02:06,520 --> 00:02:07,620
+Application.
+
+53
+00:02:07,620 --> 00:02:09,350
+You can give it any name
+that you want.
+
+54
+00:02:09,350 --> 00:02:11,290
+Here we're calling
+it AlphaTouch.
+
+55
+00:02:11,290 --> 00:02:13,930
+And here are the files that
+it would create for you.
+
+56
+00:02:13,930 --> 00:02:17,020
+Notice we have some dot h files,
+which are header files
+
+57
+00:02:17,020 --> 00:02:20,130
+in C; and some dot m files,
+where we put our
+
+58
+00:02:20,130 --> 00:02:21,410
+implementation.
+
+59
+00:02:21,410 --> 00:02:23,340
+The first file we're going
+to jump into is our
+
+60
+00:02:23,340 --> 00:02:26,030
+AppDelegate.m.
+
+61
+00:02:26,030 --> 00:02:28,080
+Inside this file we have a bunch
+of methods which are
+
+62
+00:02:28,080 --> 00:02:31,110
+called at different points in
+our application lifecycle.
+
+63
+00:02:31,110 --> 00:02:33,410
+There's only one that we're
+going to look into for now
+
+64
+00:02:33,410 --> 00:02:36,640
+called application:
+didFinishLaunchingWithOptions,
+
+65
+00:02:36,640 --> 00:02:39,870
+which gets called when our
+application is launched.
+
+66
+00:02:39,870 --> 00:02:41,890
+Here's what the method
+definition looks like.
+
+67
+00:02:41,890 --> 00:02:45,900
+It's large and intimidating, as
+are many Objective C method
+
+68
+00:02:45,900 --> 00:02:47,300
+definitions.
+
+69
+00:02:47,300 --> 00:02:50,130
+Sometimes we're going to list
+this on two different lines.
+
+70
+00:02:50,130 --> 00:02:51,930
+So here you can see the
+same method but
+
+71
+00:02:51,930 --> 00:02:53,730
+listed on two lines.
+
+72
+00:02:53,730 --> 00:02:54,890
+Here's the different
+parts of it.
+
+73
+00:02:54,890 --> 00:02:56,797
+We have the method name, which
+is
+
+74
+00:02:56,797 --> 00:02:59,100
+application:didFinishLaunchingWithOptions.
+
+75
+00:02:59,100 --> 00:03:01,310
+We have the parameter types, and
+then finally we have the
+
+76
+00:03:01,310 --> 00:03:03,980
+two different parameter names
+which get sent in when we call
+
+77
+00:03:03,980 --> 00:03:05,600
+this method.
+
+78
+00:03:05,600 --> 00:03:08,730
+In our new application, well,
+there's not much inside of
+
+79
+00:03:08,730 --> 00:03:12,040
+that method except for a return
+YES, which basically
+
+80
+00:03:12,040 --> 00:03:15,440
+means we want to continue
+launching the application.
+
+81
+00:03:15,440 --> 00:03:18,650
+Now, remember, back in that
+primer, you should have seen
+
+82
+00:03:18,650 --> 00:03:20,190
+an NSLog function.
+
+83
+00:03:20,190 --> 00:03:22,860
+That's how we log out
+to the console.
+
+84
+00:03:22,860 --> 00:03:24,840
+In this next challenge, you're
+simply going to take that
+
+85
+00:03:24,840 --> 00:03:28,020
+NSLog function, and you're going
+to put it inside the
+
+86
+00:03:28,020 --> 00:03:30,600
+application:
+didFinishLaunchingWithOptions
+
+87
+00:03:30,600 --> 00:03:32,490
+and see if you can get something
+printing out when you launch
+
+88
+00:03:32,490 --> 00:03:33,740
+your iPhone app.

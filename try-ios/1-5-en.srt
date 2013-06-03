@@ -1,0 +1,479 @@
+﻿1
+00:00:00,910 --> 00:00:01,320
+Good job.
+
+2
+00:00:01,320 --> 00:00:02,990
+You just built your
+first iPhone app.
+
+3
+00:00:02,990 --> 00:00:05,050
+Before we go on though, we need
+to think a little bit
+
+4
+00:00:05,050 --> 00:00:08,650
+about what does an artist
+need to paint?
+
+5
+00:00:08,650 --> 00:00:11,020
+No really, what does an
+artist need to paint?
+
+6
+00:00:11,020 --> 00:00:12,650
+Well there's three different
+things--
+
+7
+00:00:12,650 --> 00:00:17,310
+you've got your canvas, you have
+your paintbrush, and then
+
+8
+00:00:17,310 --> 00:00:20,940
+you have your paint.
+
+9
+00:00:20,940 --> 00:00:24,140
+Now we're going to ask the
+question, what does an iOS app
+
+10
+00:00:24,140 --> 00:00:26,510
+need to draw something?
+
+11
+00:00:26,510 --> 00:00:27,760
+Well it's pretty similar.
+
+12
+00:00:27,760 --> 00:00:31,930
+You need the window, we
+need a viewController,
+
+13
+00:00:31,930 --> 00:00:33,990
+and we need the view.
+
+14
+00:00:33,990 --> 00:00:36,270
+And their functions
+kind of resemble
+
+15
+00:00:36,270 --> 00:00:38,010
+what the artist needs.
+
+16
+00:00:38,010 --> 00:00:40,170
+Now let's jump into the code
+and see how to create our
+
+17
+00:00:40,170 --> 00:00:42,440
+window, viewController,
+and view.
+
+18
+00:00:42,440 --> 00:00:44,880
+So here we are back in
+our AppDelegate file.
+
+19
+00:00:44,880 --> 00:00:46,410
+Here's our first method call.
+
+20
+00:00:46,410 --> 00:00:48,820
+If you're coming from a
+different language, we're used
+
+21
+00:00:48,820 --> 00:00:52,320
+to calling methods on objects.
+
+22
+00:00:52,320 --> 00:00:56,070
+We don't use that terminology in
+Objective C. We simply say
+
+23
+00:00:56,070 --> 00:00:58,040
+that we're sending a message.
+
+24
+00:00:58,040 --> 00:00:59,960
+So sending a message
+is equivalent
+
+25
+00:00:59,960 --> 00:01:02,850
+to calling a method.
+
+26
+00:01:02,850 --> 00:01:06,360
+So here, we're sending the
+message, main screen, into the
+
+27
+00:01:06,360 --> 00:01:08,750
+UIScreen class.
+
+28
+00:01:08,750 --> 00:01:10,580
+We're going to store
+that inside a
+
+29
+00:01:10,580 --> 00:01:12,570
+variable called screen.
+
+30
+00:01:12,570 --> 00:01:15,400
+Then we're going to send the
+bounds message into that
+
+31
+00:01:15,400 --> 00:01:18,690
+screen object, which is going to
+return for us the bounds of
+
+32
+00:01:18,690 --> 00:01:19,800
+the screen.
+
+33
+00:01:19,800 --> 00:01:22,250
+The bounds of the screen is
+simply an object that contains
+
+34
+00:01:22,250 --> 00:01:26,060
+the screen's width and the
+height of our iOS application.
+
+35
+00:01:26,060 --> 00:01:29,890
+We're going to store the
+bounds inside a CGRect.
+
+36
+00:01:29,890 --> 00:01:33,280
+And then using a log message,
+we can log out how high and
+
+37
+00:01:33,280 --> 00:01:36,750
+how wide our screen is
+using this command.
+
+38
+00:01:36,750 --> 00:01:41,010
+In this case, it's telling us
+that our screen is 480 tall
+
+39
+00:01:41,010 --> 00:01:43,780
+and 320 wide.
+
+40
+00:01:43,780 --> 00:01:45,730
+In case you want to learn more
+about the methods that we're
+
+41
+00:01:45,730 --> 00:01:48,270
+using in this class, underneath
+the video there
+
+42
+00:01:48,270 --> 00:01:51,020
+should be buttons that you
+should be able to press to
+
+43
+00:01:51,020 --> 00:01:53,690
+look at the documentation behind
+each of these classes,
+
+44
+00:01:53,690 --> 00:01:57,394
+and learn more about the
+properties and its methods.
+
+45
+00:01:57,394 --> 00:02:00,920
+Do we really need the
+screen variable?
+
+46
+00:02:00,920 --> 00:02:03,880
+Actually, Mr. Higgie, we don't
+need that screen variable.
+
+47
+00:02:03,880 --> 00:02:05,600
+That's a good observation.
+
+48
+00:02:05,600 --> 00:02:08,009
+We can write those two lines
+in one, so let's
+
+49
+00:02:08,009 --> 00:02:09,479
+combine them together.
+
+50
+00:02:09,479 --> 00:02:11,990
+So here we're sending the main
+screen message into UIScreen
+
+51
+00:02:11,990 --> 00:02:16,670
+and what gets returned, we send
+in the bound message too.
+
+52
+00:02:16,670 --> 00:02:18,250
+It's a little simpler.
+
+53
+00:02:18,250 --> 00:02:22,290
+Next, we need to create our
+UIWindow, or our canvas.
+
+54
+00:02:22,290 --> 00:02:24,490
+Here we're going to allocate
+memory for it, and initialize
+
+55
+00:02:24,490 --> 00:02:28,050
+it with the frame size set to
+the bounds of the screen,
+
+56
+00:02:28,050 --> 00:02:29,030
+which we just retrieved.
+
+57
+00:02:29,030 --> 00:02:31,630
+We'll then store that inside
+of our window variable.
+
+58
+00:02:31,630 --> 00:02:34,020
+And we'll use this little canvas
+icon here on the left
+
+59
+00:02:34,020 --> 00:02:38,070
+to remind us that that's where
+we built our window.
+
+60
+00:02:38,070 --> 00:02:40,720
+This is already a property!
+
+61
+00:02:40,720 --> 00:02:42,050
+You're right, Mr. Higgie.
+
+62
+00:02:42,050 --> 00:02:43,910
+This is already a property.
+
+63
+00:02:43,910 --> 00:02:45,760
+You're probably wondering
+what he means by that.
+
+64
+00:02:45,760 --> 00:02:49,890
+Well if we look inside the
+AppDelegate.h file, we would
+
+65
+00:02:49,890 --> 00:02:53,090
+see that there's a property in
+here called window, which is
+
+66
+00:02:53,090 --> 00:02:54,020
+an instance variable.
+
+67
+00:02:54,020 --> 00:02:57,600
+Meaning every time we create an
+object from this class, we
+
+68
+00:02:57,600 --> 00:02:59,230
+get this variable to use.
+
+69
+00:02:59,230 --> 00:03:02,350
+So back down in our
+AppDelegate.m we can just use
+
+70
+00:03:02,350 --> 00:03:05,290
+self.window, because we have
+that instance variable.
+
+71
+00:03:08,090 --> 00:03:11,090
+The next thing we need to build
+our iPhone app is to
+
+72
+00:03:11,090 --> 00:03:14,220
+call makeKeyAndVisible
+on our window.
+
+73
+00:03:14,220 --> 00:03:16,790
+This means it's going to receive
+all keyboard events
+
+74
+00:03:16,790 --> 00:03:18,440
+and all non-touch events.
+
+75
+00:03:18,440 --> 00:03:20,200
+And if we built this
+application, we get an error
+
+76
+00:03:20,200 --> 00:03:23,660
+message that says we need
+a root view controller.
+
+77
+00:03:23,660 --> 00:03:26,870
+So our next step, we need to
+create that ViewController
+
+78
+00:03:26,870 --> 00:03:30,260
+object, which is represented
+here by our paint brush.
+
+79
+00:03:30,260 --> 00:03:33,950
+Our UIViewController is going
+to be called colorTouchVC.
+
+80
+00:03:33,950 --> 00:03:36,320
+That's our variable name, and
+we're simply going to allocate
+
+81
+00:03:36,320 --> 00:03:38,080
+some memory for it,
+and initialize it.
+
+82
+00:03:38,080 --> 00:03:41,010
+Then we'll set this
+ViewController equal to our
+
+83
+00:03:41,010 --> 00:03:42,950
+rootViewController
+on the window.
+
+84
+00:03:42,950 --> 00:03:46,700
+This is basically telling the
+window to use this paint
+
+85
+00:03:46,700 --> 00:03:51,560
+brush, or view controller,
+to draw the view.
+
+86
+00:03:51,560 --> 00:03:53,940
+Now it needs some paint
+to put on our canvas.
+
+87
+00:03:53,940 --> 00:03:56,360
+So let's create the view here.
+
+88
+00:03:56,360 --> 00:03:59,100
+We're going to allocate memory
+for it and initialize it with
+
+89
+00:03:59,100 --> 00:04:02,510
+our viewRect, which is basically
+the entire bounds of
+
+90
+00:04:02,510 --> 00:04:03,550
+the screen.
+
+91
+00:04:03,550 --> 00:04:08,050
+Then we simply set the .view
+property on our view
+
+92
+00:04:08,050 --> 00:04:10,800
+controller equal to that view.
+
+93
+00:04:13,480 --> 00:04:15,670
+Now we can start coloring
+on the screen.
+
+94
+00:04:15,670 --> 00:04:18,850
+We're going to do that by simply
+setting the background
+
+95
+00:04:18,850 --> 00:04:21,100
+color of our view.
+
+96
+00:04:21,100 --> 00:04:23,380
+We do that by sending
+in a UIColor.
+
+97
+00:04:23,380 --> 00:04:25,020
+And there's a bunch of different
+colors you can use
+
+98
+00:04:25,020 --> 00:04:28,690
+here, and methods that you can
+use to create a UIColor and
+
+99
+00:04:28,690 --> 00:04:30,970
+set the background color.
+
+100
+00:04:30,970 --> 00:04:33,980
+Now it's time for you to jump
+into the challenges, and start
+
+101
+00:04:33,980 --> 00:04:36,320
+building iPhone apps with pretty
+background colors.
+
+102
+00:00:00,000 --> 00:00:00,000
+00:04:36,320 --> 00:04:37,954

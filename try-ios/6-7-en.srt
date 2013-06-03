@@ -1,0 +1,238 @@
+﻿1
+00:00:01,180 --> 00:00:02,890
+Here's the feed view table
+view controller, which you
+
+2
+00:00:02,890 --> 00:00:04,460
+helped us build.
+
+3
+00:00:04,460 --> 00:00:07,240
+How might we load data from the
+internet to populate the
+
+4
+00:00:07,240 --> 00:00:08,460
+latest photos?
+
+5
+00:00:08,460 --> 00:00:11,260
+Well here's the URL that we
+might use, and here's the data
+
+6
+00:00:11,260 --> 00:00:12,822
+that might get returned.
+
+7
+00:00:12,822 --> 00:00:16,129
+That's an NSArray of
+NSDictionaries.
+
+8
+00:00:16,129 --> 00:00:17,590
+You're right, Mr. Higgie.
+
+9
+00:00:17,590 --> 00:00:19,990
+We can see the brackets here,
+which tell us it's probably
+
+10
+00:00:19,990 --> 00:00:23,860
+going to be an NSArray
+of NSDictonaries.
+
+11
+00:00:23,860 --> 00:00:27,400
+So to get the data that we want
+out of this NSArray, we
+
+12
+00:00:27,400 --> 00:00:30,440
+first need to give it the index
+of the array that we
+
+13
+00:00:30,440 --> 00:00:34,840
+want, and then the key for the
+value that we want from the
+
+14
+00:00:34,840 --> 00:00:36,070
+NSDictionary.
+
+15
+00:00:36,070 --> 00:00:38,060
+So in this case we would
+get back image one.
+
+16
+00:00:38,060 --> 00:00:42,270
+If we sent this in, we
+would get image two.
+
+17
+00:00:42,270 --> 00:00:46,500
+And if we sent this in, with the
+detail key, we would get
+
+18
+00:00:46,500 --> 00:00:50,270
+back, some bright stars here.
+
+19
+00:00:50,270 --> 00:00:52,780
+Just like we did before with
+the ProfileViewController,
+
+20
+00:00:52,780 --> 00:00:55,680
+we're going to specify a
+property to store what comes
+
+21
+00:00:55,680 --> 00:00:57,530
+back from our AF networking
+library.
+
+22
+00:00:57,530 --> 00:01:00,150
+In this case it's going to
+be an NSArray of photos.
+
+23
+00:01:00,150 --> 00:01:02,200
+So we're going to
+specify that.
+
+24
+00:01:02,200 --> 00:01:04,629
+Then inside the
+FeedViewController we have our
+
+25
+00:01:04,629 --> 00:01:06,620
+AF JSON Request Operation.
+
+26
+00:01:06,620 --> 00:01:09,090
+Inside there we're simply going
+to set this property.
+
+27
+00:01:09,090 --> 00:01:11,370
+Then unlike our previous
+example, we need
+
+28
+00:01:11,370 --> 00:01:13,820
+to redraw the table.
+
+29
+00:01:13,820 --> 00:01:17,430
+This basically goes through and
+redraws each table cell.
+
+30
+00:01:17,430 --> 00:01:20,010
+Because we've loaded this data
+from the internet, we need to
+
+31
+00:01:20,010 --> 00:01:22,940
+go back and redraw each cell
+with this new data.
+
+32
+00:01:22,940 --> 00:01:25,300
+Then we specify what to
+do on failure, and
+
+33
+00:01:25,300 --> 00:01:28,620
+finally start the operation.
+
+34
+00:01:28,620 --> 00:01:31,410
+In order for your table view to
+use this data that we just
+
+35
+00:01:31,410 --> 00:01:34,170
+fetched using AF networking,
+there's a couple things we
+
+36
+00:01:34,170 --> 00:01:34,730
+need to do.
+
+37
+00:01:34,730 --> 00:01:37,040
+And we're going to leave them
+to you in the challenges.
+
+38
+00:01:37,040 --> 00:01:38,390
+Here are the steps.
+
+39
+00:01:38,390 --> 00:01:40,790
+First, we're going to have to
+revise the number of rows in
+
+40
+00:01:40,790 --> 00:01:44,300
+section to return the number
+of photos from the array.
+
+41
+00:01:44,300 --> 00:01:48,110
+Then, we have to revise the
+cellForRowIndexPath so that it
+
+42
+00:01:48,110 --> 00:01:51,700
+accesses the particular
+NSDictionary, from what we got
+
+43
+00:01:51,700 --> 00:01:52,840
+returned from the internet.
+
+44
+00:01:52,840 --> 00:01:57,090
+And then lastly, we have to
+revise didSelectRowIndexPath
+
+45
+00:01:57,090 --> 00:01:59,130
+so it'll pass the proper
+values to our
+
+46
+00:01:59,130 --> 00:02:01,470
+PhotoViewController,
+and display it
+
+47
+00:02:01,470 --> 00:02:04,150
+big, full on the screen.
+
+48
+00:02:04,150 --> 00:02:04,925
+Good luck.
+
+49
+00:02:04,925 --> 00:02:07,377
+Once you complete all of these,
+you'll see the app in
+
+50
+00:02:07,377 --> 00:02:08,627
+action, you lucky duck.
+
+51
+00:00:00,000 --> 00:00:00,000
+00:02:08,627 --> 00:02:10,199

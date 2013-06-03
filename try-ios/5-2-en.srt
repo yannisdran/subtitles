@@ -1,0 +1,566 @@
+﻿1
+00:00:01,560 --> 00:00:04,030
+You're watching Try iOS, and
+this is level five, where
+
+2
+00:00:04,030 --> 00:00:06,990
+we're going to be going over
+table view controllers.
+
+3
+00:00:06,990 --> 00:00:10,350
+In this level, we're going to
+introduce you to UITableView,
+
+4
+00:00:10,350 --> 00:00:13,610
+figure out how to get data
+inside of the cells inside
+
+5
+00:00:13,610 --> 00:00:16,920
+your TableViews, figure out
+how to push to another
+
+6
+00:00:16,920 --> 00:00:20,830
+controller by tapping on a cell,
+and then finally, how to
+
+7
+00:00:20,830 --> 00:00:23,960
+change the TableView style.
+
+8
+00:00:23,960 --> 00:00:26,230
+UITableViews are really
+common in iPhone apps.
+
+9
+00:00:26,230 --> 00:00:28,030
+You can see them just
+about everywhere.
+
+10
+00:00:28,030 --> 00:00:30,950
+Here's a couple examples
+of UITableViews.
+
+11
+00:00:30,950 --> 00:00:35,124
+It's hard to find a non-game
+app that doesn't contain at
+
+12
+00:00:35,124 --> 00:00:36,970
+least one UITableView.
+
+13
+00:00:36,970 --> 00:00:37,720
+Yeah.
+
+14
+00:00:37,720 --> 00:00:39,760
+They're all over the place.
+
+15
+00:00:39,760 --> 00:00:42,940
+If we wanted an app which just
+has a UITableViewController,
+
+16
+00:00:42,940 --> 00:00:45,900
+we would have the window review
+controller just have
+
+17
+00:00:45,900 --> 00:00:48,490
+the TableView just
+like so, and that
+
+18
+00:00:48,490 --> 00:00:51,900
+UITableViewController, as you
+might imagine, inherits from
+
+19
+00:00:51,900 --> 00:00:54,830
+the superclass UIViewController.
+
+20
+00:00:54,830 --> 00:00:57,370
+Then, inside of that
+TableViewController, we have
+
+21
+00:00:57,370 --> 00:00:59,920
+to use a UITableView.
+
+22
+00:00:59,920 --> 00:01:03,140
+And then, for the different
+cells in the table, we use
+
+23
+00:01:03,140 --> 00:01:05,190
+UITableViewCells.
+
+24
+00:01:05,190 --> 00:01:08,130
+So on this window, each one of
+the cities you see here,
+
+25
+00:01:08,130 --> 00:01:09,380
+they're each UITableViewCells.
+
+26
+00:01:12,100 --> 00:01:14,930
+So let's create our first
+UITableViewController class by
+
+27
+00:01:14,930 --> 00:01:18,250
+creating a new file, and a
+new Objective C class.
+
+28
+00:01:18,250 --> 00:01:20,540
+We're going to call it
+FeedTableViewController, and
+
+29
+00:01:20,540 --> 00:01:23,960
+it's a subclass of
+UITableViewController.
+
+30
+00:01:23,960 --> 00:01:26,150
+That's going to create two files
+for us, which are going
+
+31
+00:01:26,150 --> 00:01:28,820
+to have some boilerplate
+code, which we need
+
+32
+00:01:28,820 --> 00:01:30,430
+to display our table.
+
+33
+00:01:30,430 --> 00:01:32,930
+Let's take a look back
+at our AppDelegate.m.
+
+34
+00:01:32,930 --> 00:01:34,720
+Here's where we have
+FeedViewController that we
+
+35
+00:01:34,720 --> 00:01:37,610
+wrap in a
+UINavigationController.
+
+36
+00:01:37,610 --> 00:01:39,100
+So let's get rid of that.
+
+37
+00:01:39,100 --> 00:01:42,170
+Let's replace that with the
+feedTableViewController.
+
+38
+00:01:42,170 --> 00:01:45,080
+First, we need to import
+the proper file.
+
+39
+00:01:45,080 --> 00:01:47,340
+Then, we're going to instantiate
+it, and we're
+
+40
+00:01:47,340 --> 00:01:50,660
+going to initialize it with
+a TableViewStyle.
+
+41
+00:01:50,660 --> 00:01:52,500
+In this case, we're going
+to call it Plain.
+
+42
+00:01:52,500 --> 00:01:55,080
+There's also a group style
+option, which you're going to
+
+43
+00:01:55,080 --> 00:01:56,730
+play around with in
+the challenges.
+
+44
+00:01:56,730 --> 00:01:59,030
+Then we're going to send in this
+feedTableViewController
+
+45
+00:01:59,030 --> 00:02:00,280
+into our NavigationController.
+
+46
+00:02:03,270 --> 00:02:05,500
+As I mentioned before, these two
+files that it creates for
+
+47
+00:02:05,500 --> 00:02:07,410
+us have a lot of boilerplate
+code.
+
+48
+00:02:07,410 --> 00:02:09,850
+However, there are three methods
+that we want to pay
+
+49
+00:02:09,850 --> 00:02:11,009
+attention to.
+
+50
+00:02:11,009 --> 00:02:14,050
+The first is the number of
+sections in TableView, which
+
+51
+00:02:14,050 --> 00:02:16,470
+returns the number
+of sections.
+
+52
+00:02:16,470 --> 00:02:19,440
+If we don't have any sections,
+then we just put one.
+
+53
+00:02:19,440 --> 00:02:21,180
+We're going to have
+one section.
+
+54
+00:02:21,180 --> 00:02:24,140
+Then we have tableView:number
+OfRowsInSection, and this
+
+55
+00:02:24,140 --> 00:02:27,850
+method returns the number of
+rows or cells for our table.
+
+56
+00:02:27,850 --> 00:02:29,260
+And then lastly, there's
+
+57
+00:02:29,260 --> 00:02:30,510
+tableView: cellForRowAtIndexPath.
+
+58
+00:02:31,990 --> 00:02:35,320
+This is going to get called
+every time your application
+
+59
+00:02:35,320 --> 00:02:37,230
+needs to draw the cell.
+
+60
+00:02:37,230 --> 00:02:40,670
+So it's going to be called for
+each cell in your table.
+
+61
+00:02:40,670 --> 00:02:42,630
+Let's go ahead and implement
+these methods inside our
+
+62
+00:02:42,630 --> 00:02:44,270
+FeedTableViewController.
+
+63
+00:02:44,270 --> 00:02:46,380
+So here, we're only going
+to have one section.
+
+64
+00:02:46,380 --> 00:02:48,360
+So we just return one.
+
+65
+00:02:48,360 --> 00:02:50,470
+Then we're going to
+have five rows.
+
+66
+00:02:50,470 --> 00:02:52,730
+So we just say return five.
+
+67
+00:02:52,730 --> 00:02:56,060
+And before we jump into this
+last one, we need to
+
+68
+00:02:56,060 --> 00:02:58,960
+understand a little bit more
+about how cells work in our
+
+69
+00:02:58,960 --> 00:03:00,420
+tableViews.
+
+70
+00:03:00,420 --> 00:03:03,980
+Here's a very basic TableView,
+which has a bunch of cells,
+
+71
+00:03:03,980 --> 00:03:07,510
+each which tells us which
+row number it's in.
+
+72
+00:03:07,510 --> 00:03:11,630
+Now, so it rendered out row
+zero through row 10.
+
+73
+00:03:11,630 --> 00:03:13,855
+And for each of those,
+it created a cell.
+
+74
+00:03:13,855 --> 00:03:17,860
+It allocated the memory and
+created a cell for us.
+
+75
+00:03:17,860 --> 00:03:21,420
+Now, if we scroll down, let's
+say three rows, we need to
+
+76
+00:03:21,420 --> 00:03:25,010
+obviously render out
+11, 12, and 13.
+
+77
+00:03:25,010 --> 00:03:28,590
+Is it going to allocate the
+memory for more cells?
+
+78
+00:03:28,590 --> 00:03:29,250
+No.
+
+79
+00:03:29,250 --> 00:03:32,120
+What it's going to do is it's
+going to grab cells that fell
+
+80
+00:03:32,120 --> 00:03:33,020
+off the screen--
+
+81
+00:03:33,020 --> 00:03:35,370
+in this case, zero,
+one, and two--
+
+82
+00:03:35,370 --> 00:03:39,550
+and it's going to reuse them to
+create row 11, 12, and 13,
+
+83
+00:03:39,550 --> 00:03:44,330
+which is going to save us some
+memory and make it faster.
+
+84
+00:03:44,330 --> 00:03:46,470
+With this information, let's
+jump back into the
+
+85
+00:03:46,470 --> 00:03:50,470
+tableView:cellForRowAtIndexPath
+method, which, as I mentioned,
+
+86
+00:03:50,470 --> 00:03:52,580
+is going to get called
+every time we draw a
+
+87
+00:03:52,580 --> 00:03:55,080
+cell into our table.
+
+88
+00:03:55,080 --> 00:03:56,700
+So here it is.
+
+89
+00:03:56,700 --> 00:03:59,980
+First, we're going to check to
+see if there's any cells that
+
+90
+00:03:59,980 --> 00:04:01,020
+we can reuse.
+
+91
+00:04:01,020 --> 00:04:03,040
+So as you can see from this
+message,
+
+92
+00:04:03,040 --> 00:04:04,290
+dequeueReusableCellWithIdentifier.
+
+93
+00:04:05,950 --> 00:04:10,140
+So it's going to see if we have
+a reusable cell that has
+
+94
+00:04:10,140 --> 00:04:13,460
+an identifier of Title
+that we can reuse.
+
+95
+00:04:13,460 --> 00:04:17,120
+If it does not, if it returns
+nil, then we're going to
+
+96
+00:04:17,120 --> 00:04:20,660
+allocate the memory for a
+new one and use that.
+
+97
+00:04:20,660 --> 00:04:23,060
+And finally, we're going to
+return that cell so that it
+
+98
+00:04:23,060 --> 00:04:26,120
+can be rendered into
+our table.
+
+99
+00:04:26,120 --> 00:04:27,760
+Here's a quick demonstration
+where we
+
+100
+00:04:27,760 --> 00:04:29,620
+can see this in action.
+
+101
+00:04:29,620 --> 00:04:32,290
+So when we first load up this
+page, it allocates the memory
+
+102
+00:04:32,290 --> 00:04:33,720
+for each of these cells.
+
+103
+00:04:33,720 --> 00:04:37,220
+But as soon as we start
+scrolling, we can see that
+
+104
+00:04:37,220 --> 00:04:39,540
+each of these cells is getting
+creative with that reuse
+
+105
+00:04:39,540 --> 00:04:40,430
+identifier.
+
+106
+00:04:40,430 --> 00:04:42,640
+It's reusing the
+existing cells.
+
+107
+00:04:42,640 --> 00:04:46,030
+And as we scroll up a little
+bit, we can see that it's
+
+108
+00:04:46,030 --> 00:04:47,160
+reusing them.
+
+109
+00:04:47,160 --> 00:04:50,070
+If we scroll down, as the ones
+at the top of the page scroll
+
+110
+00:04:50,070 --> 00:04:53,065
+off, they get reused at the
+bottom as we scroll down.
+
+111
+00:04:57,920 --> 00:04:59,810
+How do we set the
+text for a cell?
+
+112
+00:04:59,810 --> 00:05:02,190
+Well, if we look at the
+documentation for UITableView,
+
+113
+00:05:02,190 --> 00:05:05,510
+we can see that it has a
+textLabel, which, of course,
+
+114
+00:05:05,510 --> 00:05:08,340
+big surprise, is a UILabel.
+
+115
+00:05:08,340 --> 00:05:12,300
+UILabel, like we saw earlier,
+has a text property.
+
+116
+00:05:12,300 --> 00:05:16,030
+And so we can simply set that
+text label by just doing this,
+
+117
+00:05:16,030 --> 00:05:17,970
+as you see here.
+
+118
+00:05:17,970 --> 00:05:21,530
+Now it's time for you to get
+into the challenges and make
+
+119
+00:05:21,530 --> 00:05:22,970
+some tables and some cells.
+
+120
+00:00:00,000 --> 00:00:00,000
+00:05:22,970 --> 00:05:24,396

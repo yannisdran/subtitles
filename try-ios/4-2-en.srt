@@ -1,0 +1,398 @@
+﻿1
+00:00:01,180 --> 00:00:01,550
+Hello.
+
+2
+00:00:01,550 --> 00:00:02,390
+I'm Gregg Pollack.
+
+3
+00:00:02,390 --> 00:00:04,010
+And you're watching Try iOS.
+
+4
+00:00:04,010 --> 00:00:06,200
+This is level four, where we're
+going to be going over
+
+5
+00:00:06,200 --> 00:00:10,320
+UINavigationController
+and custom buttons.
+
+6
+00:00:10,320 --> 00:00:11,740
+Our topics look something
+like this.
+
+7
+00:00:11,740 --> 00:00:14,570
+We're going to start out with
+UINavigationController, then
+
+8
+00:00:14,570 --> 00:00:17,810
+figure out how to do custom
+buttons, how to create custom
+
+9
+00:00:17,810 --> 00:00:19,970
+View Controllers on the fly.
+
+10
+00:00:19,970 --> 00:00:23,170
+And then finally, we'll figure
+out how to use both navigation
+
+11
+00:00:23,170 --> 00:00:26,610
+and TabBar Controllers
+together.
+
+12
+00:00:26,610 --> 00:00:28,600
+How else can we navigate
+ViewControllers?
+
+13
+00:00:28,600 --> 00:00:31,410
+Well, let's pop open another app
+and see if we can figure
+
+14
+00:00:31,410 --> 00:00:32,900
+out how they do it.
+
+15
+00:00:32,900 --> 00:00:36,010
+Here inside of our settings
+iPhone app, you can see we
+
+16
+00:00:36,010 --> 00:00:38,380
+maybe have the
+SettingsViewController.
+
+17
+00:00:38,380 --> 00:00:40,650
+Then, maybe also when we
+click on something, the
+
+18
+00:00:40,650 --> 00:00:43,100
+GeneralViewController for
+the general settings.
+
+19
+00:00:43,100 --> 00:00:45,550
+And then you have the
+AboutViewController.
+
+20
+00:00:45,550 --> 00:00:47,260
+You can probably see where
+this is going.
+
+21
+00:00:47,260 --> 00:00:49,500
+Here's a quick video, where
+you can see where in the
+
+22
+00:00:49,500 --> 00:00:51,920
+SettingsController, we'll
+click on General.
+
+23
+00:00:51,920 --> 00:00:54,610
+That pushes control to the
+GeneralViewController.
+
+24
+00:00:54,610 --> 00:00:58,270
+And that pushes control to
+the AboutViewControl.
+
+25
+00:00:58,270 --> 00:01:01,740
+It's almost like we're pushing
+and popping from a stack of
+
+26
+00:01:01,740 --> 00:01:02,890
+ViewControllers.
+
+27
+00:01:02,890 --> 00:01:03,800
+Look up at the top there.
+
+28
+00:01:03,800 --> 00:01:04,599
+Settings.
+
+29
+00:01:04,599 --> 00:01:07,110
+Now we're in General.
+
+30
+00:01:07,110 --> 00:01:08,180
+Now we're in About.
+
+31
+00:01:08,180 --> 00:01:11,950
+And it remembers where
+we came from.
+
+32
+00:01:11,950 --> 00:01:14,470
+So it remembers that the
+settings is where we started,
+
+33
+00:01:14,470 --> 00:01:17,790
+so we can pop those other
+ViewControllers off of our
+
+34
+00:01:17,790 --> 00:01:20,430
+virtual stack.
+
+35
+00:01:20,430 --> 00:01:22,890
+Let's jump back into our code
+from the previous level, where
+
+36
+00:01:22,890 --> 00:01:25,350
+we were using the
+tabBarController.
+
+37
+00:01:25,350 --> 00:01:28,250
+And let's revise it to use
+the NavigationController.
+
+38
+00:01:28,250 --> 00:01:30,100
+So let's take away the tabBar.
+
+39
+00:01:30,100 --> 00:01:31,530
+And now what we're going
+to do is create a
+
+40
+00:01:31,530 --> 00:01:33,500
+UINavigationController.
+
+41
+00:01:33,500 --> 00:01:36,160
+And you'll notice here we
+initialize it by sending in
+
+42
+00:01:36,160 --> 00:01:38,200
+our FeedViewController.
+
+43
+00:01:38,200 --> 00:01:41,240
+Then, when we go to set our
+window.rootViewController, we
+
+44
+00:01:41,240 --> 00:01:43,700
+just set it equal to our new
+NavigationController.
+
+45
+00:01:47,240 --> 00:01:49,060
+Now if we go to our application,
+we would see
+
+46
+00:01:49,060 --> 00:01:50,250
+something that looks
+like this.
+
+47
+00:01:50,250 --> 00:01:52,450
+You can see that title
+bar across the top.
+
+48
+00:01:52,450 --> 00:01:56,070
+And it actually defaulted to
+Feed, which is just the name
+
+49
+00:01:56,070 --> 00:01:57,490
+of the ViewController.
+
+50
+00:01:57,490 --> 00:01:59,800
+FeedViewController, so it took
+Feed and assumed that was the
+
+51
+00:01:59,800 --> 00:02:01,630
+name, and put it
+up at the top.
+
+52
+00:02:01,630 --> 00:02:02,650
+Pretty cool.
+
+53
+00:02:02,650 --> 00:02:06,360
+Now if we wanted to push to
+another ViewController, we
+
+54
+00:02:06,360 --> 00:02:09,160
+would use this piece of code
+you see here, where we push
+
+55
+00:02:09,160 --> 00:02:12,130
+onto our stack another
+ViewController.
+
+56
+00:02:12,130 --> 00:02:14,780
+So now that we're in our
+FeedViewController, how might
+
+57
+00:02:14,780 --> 00:02:18,370
+we create a button that
+then pushes to our
+
+58
+00:02:18,370 --> 00:02:20,800
+FavoritesViewController?
+
+59
+00:02:20,800 --> 00:02:22,320
+To do this, we're going
+to jump into our
+
+60
+00:02:22,320 --> 00:02:23,570
+FeedViewController.
+
+61
+00:02:23,570 --> 00:02:26,310
+And inside viewDidLoad under our
+background color, we're going
+
+62
+00:02:26,310 --> 00:02:29,240
+to create a UI button.
+
+63
+00:02:29,240 --> 00:02:31,630
+This should all look
+very familiar.
+
+64
+00:02:31,630 --> 00:02:33,360
+Then we're going to add a
+target to the Favorites
+
+65
+00:02:33,360 --> 00:02:36,070
+button, so that when somebody
+presses this button, it calls
+
+66
+00:02:36,070 --> 00:02:38,680
+the new showFavorites
+method, which we are
+
+67
+00:02:38,680 --> 00:02:40,430
+now about to define.
+
+68
+00:02:40,430 --> 00:02:43,510
+Inside showFavorites, we're
+going to instantiate a new
+
+69
+00:02:43,510 --> 00:02:45,510
+FavoritesViewController.
+
+70
+00:02:45,510 --> 00:02:47,910
+Then, since our
+FeedViewController is wrapped
+
+71
+00:02:47,910 --> 00:02:50,680
+in a NavigationController,
+we can call
+
+72
+00:02:50,680 --> 00:02:54,900
+self.navigationController, get
+a hold of it, and then send a
+
+73
+00:02:54,900 --> 00:02:58,170
+message, pushViewController,
+and then push our
+
+74
+00:02:58,170 --> 00:03:01,250
+FavoritesViewController
+onto our stack.
+
+75
+00:03:01,250 --> 00:03:03,620
+If we built and ran the
+application, here's what it
+
+76
+00:03:03,620 --> 00:03:05,120
+would look like.
+
+77
+00:03:05,120 --> 00:03:07,260
+So we start out in the
+FeedViewController.
+
+78
+00:03:07,260 --> 00:03:09,950
+And when we press the button,
+we're pushed to the
+
+79
+00:03:09,950 --> 00:03:11,340
+FavoritesViewController.
+
+80
+00:03:11,340 --> 00:03:15,130
+But it remembers that our first
+ViewController was the
+
+81
+00:03:15,130 --> 00:03:18,360
+FeedViewController, so we can
+navigate easily back and forth
+
+82
+00:03:18,360 --> 00:03:19,610
+between the two.
+
+83
+00:03:22,120 --> 00:03:23,980
+Now it's time for you to
+play around with the
+
+84
+00:03:23,980 --> 00:03:25,230
+NavigationController.
+
+85
+00:00:00,000 --> 00:00:00,000
+00:03:25,230 --> 00:03:26,978

@@ -1,0 +1,375 @@
+﻿1
+00:00:01,020 --> 00:00:01,760
+So we've got buttons.
+
+2
+00:00:01,760 --> 00:00:03,790
+But how do we make
+them do stuff?
+
+3
+00:00:03,790 --> 00:00:05,230
+How do we make them work?
+
+4
+00:00:05,230 --> 00:00:08,240
+Well if we look into the
+UIButton hierarchy, we would
+
+5
+00:00:08,240 --> 00:00:11,160
+see that UIButton inherits
+from UIControl, and then
+
+6
+00:00:11,160 --> 00:00:13,790
+UIView, and then UIResponder.
+
+7
+00:00:13,790 --> 00:00:17,370
+And it's that UIControl
+class which allows us
+
+8
+00:00:17,370 --> 00:00:19,290
+to convey user intent.
+
+9
+00:00:19,290 --> 00:00:20,920
+If we looked inside of
+that documentation--
+
+10
+00:00:20,920 --> 00:00:23,560
+which you can, of course, by
+pressing the button below--
+
+11
+00:00:23,560 --> 00:00:25,315
+we would find a method called
+addTarget:action
+
+12
+00:00:25,315 --> 00:00:26,565
+:forControlEvents:.
+
+13
+00:00:28,420 --> 00:00:32,020
+And we use this on the UIButton
+object to listen for
+
+14
+00:00:32,020 --> 00:00:35,080
+particular events and call
+methods, when events happen.
+
+15
+00:00:37,910 --> 00:00:39,200
+We don't have to define
+the method.
+
+16
+00:00:39,200 --> 00:00:41,040
+But the declaration of the
+method itself looks
+
+17
+00:00:41,040 --> 00:00:42,390
+something like this.
+
+18
+00:00:42,390 --> 00:00:44,920
+We can tell because it has that
+minus symbol, that it's
+
+19
+00:00:44,920 --> 00:00:46,450
+an instance method.
+
+20
+00:00:46,450 --> 00:00:48,960
+So we can call that
+on our UIButton.
+
+21
+00:00:48,960 --> 00:00:52,280
+The controlEvents, that last
+parameter, is the event we
+
+22
+00:00:52,280 --> 00:00:55,400
+want to be listening
+for on our button.
+
+23
+00:00:55,400 --> 00:00:58,740
+Then the target parameter is a
+target object that we want to
+
+24
+00:00:58,740 --> 00:01:03,910
+send a message into, when it
+gets pressed or whatnot.
+
+25
+00:01:03,910 --> 00:01:07,530
+And the action is the message we
+want to send on the target,
+
+26
+00:01:07,530 --> 00:01:10,600
+when the event gets triggered.
+
+27
+00:01:10,600 --> 00:01:12,530
+So let's go ahead and implement
+this method.
+
+28
+00:01:12,530 --> 00:01:15,130
+Back in our ViewController,
+we're going to declare a new
+
+29
+00:01:15,130 --> 00:01:18,180
+method called buttonPressed,
+which we want to get called
+
+30
+00:01:18,180 --> 00:01:20,150
+when the button is pressed.
+
+31
+00:01:20,150 --> 00:01:22,380
+And we're simply going to log
+out when it gets pressed.
+
+32
+00:01:22,380 --> 00:01:25,640
+And then randomize the alpha
+transparency on the view, kind
+
+33
+00:01:25,640 --> 00:01:27,560
+of like we did in level one.
+
+34
+00:01:27,560 --> 00:01:30,160
+If we wanted to call our newly
+created method from inside of
+
+35
+00:01:30,160 --> 00:01:33,920
+our ViewController, we would
+call self, and send in the
+
+36
+00:01:33,920 --> 00:01:38,090
+message
+buttonPressed:firstButton.
+
+37
+00:01:38,090 --> 00:01:40,140
+This is the call we want
+to happen when
+
+38
+00:01:40,140 --> 00:01:42,050
+the event gets triggered.
+
+39
+00:01:42,050 --> 00:01:43,860
+So now let's hook this
+all together.
+
+40
+00:01:43,860 --> 00:01:48,310
+Back in our viewDidLoad, on our
+firstButton, we're going
+
+41
+00:01:48,310 --> 00:01:50,920
+to call that method you saw
+on the previous slide.
+
+42
+00:01:50,920 --> 00:01:54,650
+The event we want to listen
+for is TouchUpInside.
+
+43
+00:01:54,650 --> 00:01:58,140
+So whenever we get done touching
+the button, and our
+
+44
+00:01:58,140 --> 00:02:02,190
+finger goes up, we want
+to trigger an event.
+
+45
+00:02:02,190 --> 00:02:06,480
+When it gets triggered, we want
+to send a message to the
+
+46
+00:02:06,480 --> 00:02:07,680
+ViewController.
+
+47
+00:02:07,680 --> 00:02:12,380
+So here we're sending in self,
+and the method we want to call
+
+48
+00:02:12,380 --> 00:02:15,470
+is buttonPressed.
+
+49
+00:02:15,470 --> 00:02:17,130
+You might be wondering
+what that selector,
+
+50
+00:02:17,130 --> 00:02:18,750
+that @selector is.
+
+51
+00:02:18,750 --> 00:02:23,440
+That's simply how, in Objective
+C, we send in method names as
+
+52
+00:02:23,440 --> 00:02:24,560
+parameters.
+
+53
+00:02:24,560 --> 00:02:26,100
+We wrap them in a selector.
+
+54
+00:02:29,260 --> 00:02:31,830
+One last thing before we see
+our button in action.
+
+55
+00:02:31,830 --> 00:02:34,740
+Since we are writing C, we need
+to jump back into the
+
+56
+00:02:34,740 --> 00:02:37,030
+ViewController.h,
+the header file.
+
+57
+00:02:37,030 --> 00:02:40,180
+And since we declared a method,
+we need to declare it
+
+58
+00:02:40,180 --> 00:02:44,442
+as part of the interface,
+here.
+
+59
+00:02:44,442 --> 00:02:47,430
+And now if we run our app, we
+can see right here that every
+
+60
+00:02:47,430 --> 00:02:51,630
+time we click the button, it
+changes our transparency.
+
+61
+00:02:51,630 --> 00:02:53,020
+And it outputs this log.
+
+62
+00:02:55,750 --> 00:02:57,770
+There are a bunch of different
+UIControl events that
+
+63
+00:02:57,770 --> 00:02:59,120
+we can listen to.
+
+64
+00:02:59,120 --> 00:03:01,400
+And here's a list of
+a bunch of them.
+
+65
+00:03:01,400 --> 00:03:04,990
+So a lot of these have to do
+with touching, or editing, or
+
+66
+00:03:04,990 --> 00:03:06,810
+if you want to listen to all
+these events you can do that
+
+67
+00:03:06,810 --> 00:03:09,670
+with some of these
+at the bottom.
+
+68
+00:03:09,670 --> 00:03:12,270
+Just like you can add a subview
+to a view, you can
+
+69
+00:03:12,270 --> 00:03:13,990
+also remove one.
+
+70
+00:03:13,990 --> 00:03:16,030
+And I want to show you how to do
+that before we get into the
+
+71
+00:03:16,030 --> 00:03:17,080
+challenges.
+
+72
+00:03:17,080 --> 00:03:20,610
+So if we want to remove the
+button right after it got
+
+73
+00:03:20,610 --> 00:03:23,320
+pressed, the buttonPressed
+method gets called.
+
+74
+00:03:23,320 --> 00:03:25,770
+We can simply call
+sender, sender in
+
+75
+00:03:25,770 --> 00:03:27,650
+this case is the UIButton.
+
+76
+00:03:27,650 --> 00:03:29,570
+As you can see, it gets
+passed in when
+
+77
+00:03:29,570 --> 00:03:30,920
+this method gets called.
+
+78
+00:03:30,920 --> 00:03:33,660
+And we can send the
+removeFromSuperview message on
+
+79
+00:03:33,660 --> 00:03:34,910
+it, so it removes itself.
+
+80
+00:00:00,000 --> 00:00:00,000
+00:03:34,910 --> 00:03:37,410

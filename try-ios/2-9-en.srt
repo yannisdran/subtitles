@@ -1,0 +1,234 @@
+﻿1
+00:00:00,800 --> 00:00:01,630
+Welcome back.
+
+2
+00:00:01,630 --> 00:00:03,960
+Now let's jump back into our
+iPhone app, and this time
+
+3
+00:00:03,960 --> 00:00:05,850
+we're going to have two
+different buttons.
+
+4
+00:00:05,850 --> 00:00:07,810
+You'll notice here, our first
+button we're now setting a
+
+5
+00:00:07,810 --> 00:00:10,340
+title called Make 50
+
+6
+00:00:10,340 --> 00:00:12,930
+And we're going to have a second
+button that has the
+
+7
+00:00:12,930 --> 00:00:15,060
+title Make 100
+
+8
+00:00:15,060 --> 00:00:17,150
+The thing to notice here is that
+they're both calling the
+
+9
+00:00:17,150 --> 00:00:20,170
+same method when they're
+pressed--
+
+10
+00:00:20,170 --> 00:00:21,710
+the buttonPressed method.
+
+11
+00:00:21,710 --> 00:00:22,985
+So here we are.
+
+12
+00:00:26,926 --> 00:00:29,370
+But they both do
+the same thing.
+
+13
+00:00:29,370 --> 00:00:32,040
+Yeah, you're right,
+Mr. Higgie.
+
+14
+00:00:32,040 --> 00:00:33,340
+They both do the same thing.
+
+15
+00:00:33,340 --> 00:00:34,260
+We need to fix that.
+
+16
+00:00:34,260 --> 00:00:36,310
+So how might we fix that?
+
+17
+00:00:36,310 --> 00:00:38,880
+Well, inside of our
+buttonPressed method, we might
+
+18
+00:00:38,880 --> 00:00:40,240
+have a conditional.
+
+19
+00:00:40,240 --> 00:00:42,090
+We need to figure out what
+that conditional is.
+
+20
+00:00:42,090 --> 00:00:43,370
+Obviously this isn't it.
+
+21
+00:00:43,370 --> 00:00:46,690
+We need to figure out how to
+make it to check if it is the
+
+22
+00:00:46,690 --> 00:00:50,340
+50button that got sent
+in, or the 100
+
+23
+00:00:50,340 --> 00:00:52,340
+So if it's the 50button, we're
+going to set the alpha
+
+24
+00:00:52,340 --> 00:00:57,340
+to 0.5, and then otherwise it's
+going to be just one.
+
+25
+00:00:57,340 --> 00:00:59,110
+So how do we build
+that conditional?
+
+26
+00:00:59,110 --> 00:01:02,170
+Well, you might want to jump
+into the documentation and see
+
+27
+00:01:02,170 --> 00:01:03,300
+what we can find.
+
+28
+00:01:03,300 --> 00:01:06,210
+So if we look in the UIButton
+documentation, we might find
+
+29
+00:01:06,210 --> 00:01:10,050
+that it has a titleLabel
+property that
+
+30
+00:01:10,050 --> 00:01:11,430
+we have access to.
+
+31
+00:01:11,430 --> 00:01:13,870
+So that's the beginning of our
+conditional down here at the
+
+32
+00:01:13,870 --> 00:01:16,010
+bottom, sender.titleLabel.
+
+33
+00:01:16,010 --> 00:01:19,390
+And if you look in the
+documentation for UILabel, we
+
+34
+00:01:19,390 --> 00:01:22,450
+can see that UILabel has
+a text property.
+
+35
+00:01:22,450 --> 00:01:24,050
+So that's the next part.
+
+36
+00:01:24,050 --> 00:01:25,790
+And that returns an NSString.
+
+37
+00:01:25,790 --> 00:01:28,990
+So if we look in the NSString
+documentation, we might see
+
+38
+00:01:28,990 --> 00:01:33,620
+that it has a method called
+isEqualToString, which takes
+
+39
+00:01:33,620 --> 00:01:35,460
+two strings to see
+if they're equal.
+
+40
+00:01:35,460 --> 00:01:39,870
+So we can write the rest of
+our conditional like so.
+
+41
+00:01:39,870 --> 00:01:42,950
+Then bring that back in to our
+buttonPressed method, and
+
+42
+00:01:42,950 --> 00:01:44,240
+hopefully it'll work.
+
+43
+00:01:44,240 --> 00:01:47,270
+So now if we build and compile
+this application, and we run
+
+44
+00:01:47,270 --> 00:01:51,510
+it, we can see that when we
+click make 50, it makes it 50
+
+45
+00:01:51,510 --> 00:01:52,730
+transparent.
+
+46
+00:01:52,730 --> 00:01:57,302
+And when we click 100 120720t makes
+it completely opaque.
+
+47
+00:01:57,302 --> 00:01:59,230
+Groovy buttons.
+
+48
+00:01:59,230 --> 00:02:01,440
+And even Mr. Higgie likes it.
+
+49
+00:02:01,440 --> 00:02:03,950
+Now let's use this information
+in the challenges to make two
+
+50
+00:02:03,950 --> 00:02:05,740
+different buttons work as
+they're supposed to.
+
+51
+00:00:00,000 --> 00:00:00,000
+00:02:05,740 --> 00:02:06,990

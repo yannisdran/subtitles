@@ -1,0 +1,175 @@
+﻿1
+00:00:01,200 --> 00:00:02,230
+So we have a table.
+
+2
+00:00:02,230 --> 00:00:04,810
+And we need to load some
+data into the table.
+
+3
+00:00:04,810 --> 00:00:06,630
+And well, we have
+a list of items.
+
+4
+00:00:06,630 --> 00:00:10,240
+So obviously we might want to
+load that data from an array.
+
+5
+00:00:10,240 --> 00:00:12,680
+Let's review NSArray.
+
+6
+00:00:12,680 --> 00:00:14,890
+So to create an NSArray of
+strings, we would do
+
+7
+00:00:14,890 --> 00:00:17,440
+something like that.
+
+8
+00:00:17,440 --> 00:00:20,880
+Then to reference values from
+that array we simply just
+
+9
+00:00:20,880 --> 00:00:22,530
+specify the index.
+
+10
+00:00:22,530 --> 00:00:25,570
+In this case we're reading out
+the second object, which is
+
+11
+00:00:25,570 --> 00:00:27,040
+going to print out Eric.
+
+12
+00:00:27,040 --> 00:00:29,200
+We can also send in a
+variable to get the
+
+13
+00:00:29,200 --> 00:00:30,900
+index for that array.
+
+14
+00:00:30,900 --> 00:00:35,270
+In this case, the fourth object
+in the array, or John.
+
+15
+00:00:35,270 --> 00:00:38,460
+To determine how many elements
+are in an array, we simply use
+
+16
+00:00:38,460 --> 00:00:40,240
+the count property.
+
+17
+00:00:40,240 --> 00:00:42,170
+This is going to be really
+useful when we need to tell
+
+18
+00:00:42,170 --> 00:00:45,500
+our table how many
+cells are in it.
+
+19
+00:00:45,500 --> 00:00:48,500
+If we're dealing with an array,
+we can simply return
+
+20
+00:00:48,500 --> 00:00:50,860
+the count of items
+in that array.
+
+21
+00:00:50,860 --> 00:00:53,230
+One more method that's really
+useful that we can declare
+
+22
+00:00:53,230 --> 00:00:56,060
+inside our
+FeedTableViewController is
+
+23
+00:00:56,060 --> 00:00:58,900
+tableview  didSelectRowAtIndexPath.
+
+24
+00:00:58,900 --> 00:01:02,550
+So didSelect- this gets called
+whenever you tap
+
+25
+00:01:02,550 --> 00:01:04,420
+on one of the cells.
+
+26
+00:01:04,420 --> 00:01:07,320
+And the index path parameter
+tells you which
+
+27
+00:01:07,320 --> 00:01:08,730
+cell has been tapped.
+
+28
+00:01:08,730 --> 00:01:12,150
+If we call .row it's going
+to give you back an integer,
+
+29
+00:01:12,150 --> 00:01:15,060
+which represents the index
+of that tapped cell.
+
+30
+00:01:15,060 --> 00:01:17,730
+We can also call
+indexPath.section if you want
+
+31
+00:01:17,730 --> 00:01:21,350
+to figure out which section
+that cell is in.
+
+32
+00:01:21,350 --> 00:01:23,120
+So in the challenges coming
+up, we're going
+
+33
+00:01:23,120 --> 00:01:25,020
+to give you an array.
+
+34
+00:01:25,020 --> 00:01:27,050
+You're going to use that
+array, to populate the
+
+35
+00:01:27,050 --> 00:01:28,700
+different cells of table.
+
+36
+00:01:28,700 --> 00:01:32,530
+And then to figure out which
+cell has been tapped.
+
+37
+00:01:32,530 --> 00:01:33,780
+Good luck.
+
+38
+00:00:00,000 --> 00:00:00,000
+00:01:33,780 --> 00:01:35,127

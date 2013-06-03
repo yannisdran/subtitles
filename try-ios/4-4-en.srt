@@ -1,0 +1,380 @@
+﻿1
+00:00:00,580 --> 00:00:04,262
+Now, let's jump back into our
+Favorites View Controller.
+
+2
+00:00:04,262 --> 00:00:06,742
+Wouldn't it be nice if clicking
+that button linked to
+
+3
+00:00:06,742 --> 00:00:07,740
+a bigger image?
+
+4
+00:00:07,740 --> 00:00:09,640
+It would be nice, Mr. Higgie.
+
+5
+00:00:09,640 --> 00:00:12,200
+How might we do that so when
+we click on that button it
+
+6
+00:00:12,200 --> 00:00:14,700
+brings us to a full
+view image?
+
+7
+00:00:14,700 --> 00:00:17,620
+And is that image in another
+view controller?
+
+8
+00:00:17,620 --> 00:00:19,700
+And how do we push
+that onto the
+
+9
+00:00:19,700 --> 00:00:23,250
+Navigation Controller stack?
+
+10
+00:00:23,250 --> 00:00:25,430
+So if we jump back into the
+Favorites View Controller, as
+
+11
+00:00:25,430 --> 00:00:29,410
+we did before, we can see here
+we are creating a UIImageView.
+
+12
+00:00:29,410 --> 00:00:33,370
+Instead of that, we're going
+to create a UIButton.
+
+13
+00:00:33,370 --> 00:00:36,750
+This button is of type custom.
+
+14
+00:00:36,750 --> 00:00:39,610
+We're then going to set the
+image for this button for
+
+15
+00:00:39,610 --> 00:00:41,040
+State Normal.
+
+16
+00:00:41,040 --> 00:00:45,470
+But we also have to set the
+image for State Highlighted.
+
+17
+00:00:45,470 --> 00:00:47,860
+We have to do this because
+it's a custom button.
+
+18
+00:00:47,860 --> 00:00:51,130
+You might be able to derive from
+these two lines of code
+
+19
+00:00:51,130 --> 00:00:53,880
+how you might have a custom
+press state for a button.
+
+20
+00:00:53,880 --> 00:00:55,830
+So you might have one image--
+what it looks like when it's
+
+21
+00:00:55,830 --> 00:00:57,950
+not pressed, another
+image when it's
+
+22
+00:00:57,950 --> 00:01:00,280
+highlighted or pressed.
+
+23
+00:01:00,280 --> 00:01:02,510
+We then have to set the
+frame of the button.
+
+24
+00:01:02,510 --> 00:01:05,519
+And then finally, we're going to
+add an action so that when
+
+25
+00:01:05,519 --> 00:01:09,340
+somebody touches this button, it
+calls a method called show
+
+26
+00:01:09,340 --> 00:01:12,210
+zoomed picture, which we're
+going to define in a moment.
+
+27
+00:01:12,210 --> 00:01:16,240
+So now, we have a button
+that looks like this.
+
+28
+00:01:16,240 --> 00:01:20,180
+And we need to figure out how
+to send control to another
+
+29
+00:01:20,180 --> 00:01:20,910
+view controller.
+
+30
+00:01:20,910 --> 00:01:22,910
+So we need to create another
+view controller which displays
+
+31
+00:01:22,910 --> 00:01:24,520
+the image in a full size.
+
+32
+00:01:24,520 --> 00:01:26,448
+Do we need to create
+another subclass?
+
+33
+00:01:26,448 --> 00:01:30,040
+But hold your horses, you don't
+need another subclass!
+
+34
+00:01:30,040 --> 00:01:30,510
+Oh.
+
+35
+00:01:30,510 --> 00:01:33,180
+Mr. Higgie says we don't
+need another subclass.
+
+36
+00:01:33,180 --> 00:01:34,230
+And we don't.
+
+37
+00:01:34,230 --> 00:01:37,470
+We can create a UI View
+Controller on the fly.
+
+38
+00:01:37,470 --> 00:01:39,820
+Let me show you what I mean.
+
+39
+00:01:39,820 --> 00:01:42,350
+So inside our Favorites View
+Controller, here's our show
+
+40
+00:01:42,350 --> 00:01:44,120
+zoomed picture method.
+
+41
+00:01:44,120 --> 00:01:46,560
+Inside there, we're simply going
+to create a new view
+
+42
+00:01:46,560 --> 00:01:49,100
+controller which is
+not subclassed.
+
+43
+00:01:49,100 --> 00:01:52,140
+We're going to set the frame to
+the entire view frame, set
+
+44
+00:01:52,140 --> 00:01:54,210
+the title, which will show
+at the top of our view
+
+45
+00:01:54,210 --> 00:01:54,810
+controller.
+
+46
+00:01:54,810 --> 00:01:56,030
+Then we need the image.
+
+47
+00:01:56,030 --> 00:01:58,830
+So we create an image, just like
+we did before, and add
+
+48
+00:01:58,830 --> 00:02:02,210
+that as a subview into our new
+Image View Controller.
+
+49
+00:02:02,210 --> 00:02:05,740
+Finally, we grab our Navigation
+Controller and push
+
+50
+00:02:05,740 --> 00:02:08,360
+onto our stack the new
+Image View Controller
+
+51
+00:02:08,360 --> 00:02:10,039
+that we just created.
+
+52
+00:02:10,039 --> 00:02:12,060
+If we build and run our
+application, here's what it
+
+53
+00:02:12,060 --> 00:02:12,860
+looks like.
+
+54
+00:02:12,860 --> 00:02:14,970
+So we start in the
+FeedViewController, push to
+
+55
+00:02:14,970 --> 00:02:17,960
+the Favorites, and
+then push to our
+
+56
+00:02:17,960 --> 00:02:21,660
+tryiosImageViewController,
+just like that.
+
+57
+00:02:21,660 --> 00:02:25,120
+And it remembers which one is
+previous in the stack so that
+
+58
+00:02:25,120 --> 00:02:27,510
+we can navigate back and
+forth pretty easily.
+
+59
+00:02:27,510 --> 00:02:29,910
+So we know about the Tab Bar
+Controller and about the
+
+60
+00:02:29,910 --> 00:02:32,080
+Navigation Controller, but
+how might we use the
+
+61
+00:02:32,080 --> 00:02:34,060
+two at the same time?
+
+62
+00:02:34,060 --> 00:02:36,460
+Well, here we have our
+basic profile view.
+
+63
+00:02:36,460 --> 00:02:40,560
+What we do is we wrap that
+inside the Profile Navigation
+
+64
+00:02:40,560 --> 00:02:43,310
+Controller, which gives us
+that bar at the top.
+
+65
+00:02:43,310 --> 00:02:46,950
+And then we're going to wrap
+that inside the Tab Bar
+
+66
+00:02:46,950 --> 00:02:50,050
+Controller like you see here.
+
+67
+00:02:50,050 --> 00:02:52,820
+In our code, what is that
+going to look like?
+
+68
+00:02:52,820 --> 00:02:55,480
+Well, first we have our Profile
+View Controller.
+
+69
+00:02:55,480 --> 00:02:58,380
+We wrap that inside of our
+Navigation Controller just
+
+70
+00:02:58,380 --> 00:02:59,450
+like we did a moment ago.
+
+71
+00:02:59,450 --> 00:03:03,900
+Then we'll create our window,
+then instantiate our Tab Bar
+
+72
+00:03:03,900 --> 00:03:07,870
+Controller and set the View
+Controllers for that to Tab
+
+73
+00:03:07,870 --> 00:03:10,822
+Bar Controller and set that Tab
+Bar Controller as the root
+
+74
+00:03:10,822 --> 00:03:12,880
+view so it gets displayed.
+
+75
+00:03:12,880 --> 00:03:15,150
+So here's what it ends up
+looking like with both the Tab
+
+76
+00:03:15,150 --> 00:03:18,940
+Bar and the Navigation
+View Controllers.
+
+77
+00:03:18,940 --> 00:03:21,240
+Where did your other tabs go?
+
+78
+00:03:21,240 --> 00:03:23,360
+Oh, Mr. Higgie's right.
+
+79
+00:03:23,360 --> 00:03:24,830
+We lost our other tabs.
+
+80
+00:03:24,830 --> 00:03:27,380
+Well, maybe we'll leave that
+you do in the challenges.
+
+81
+00:00:00,000 --> 00:00:00,000
+00:03:27,380 --> 00:03:29,367

@@ -1,0 +1,251 @@
+﻿1
+00:00:00,590 --> 00:00:01,650
+Welcome back.
+
+2
+00:00:01,650 --> 00:00:02,890
+Here's our AppDelegate again.
+
+3
+00:00:02,890 --> 00:00:05,940
+And the code in here, well, it's
+starting to feel a little
+
+4
+00:00:05,940 --> 00:00:06,680
+bit cluttered.
+
+5
+00:00:06,680 --> 00:00:09,040
+You need to create
+FeedViewController to
+
+6
+00:00:09,040 --> 00:00:10,930
+encapsulate the behavior.
+
+7
+00:00:10,930 --> 00:00:12,450
+Right, Mr. Higgie.
+
+8
+00:00:12,450 --> 00:00:16,420
+We need to encapsulate all of
+the behavior inside of a
+
+9
+00:00:16,420 --> 00:00:17,390
+ViewController.
+
+10
+00:00:17,390 --> 00:00:21,500
+Remember back in level one we
+had a ViewController class?
+
+11
+00:00:21,500 --> 00:00:24,590
+Just like that, we need to
+create some classes here,
+
+12
+00:00:24,590 --> 00:00:27,480
+maybe one called
+FeedViewController.
+
+13
+00:00:27,480 --> 00:00:29,930
+To do that, if you're in Xcode,
+you're going to go up,
+
+14
+00:00:29,930 --> 00:00:32,290
+and you're going to
+select New File.
+
+15
+00:00:32,290 --> 00:00:35,150
+Then you're going to select
+Objective C Class.
+
+16
+00:00:35,150 --> 00:00:37,690
+Then you'll specify the name of
+this class-- in this case,
+
+17
+00:00:37,690 --> 00:00:39,040
+FeedViewController.
+
+18
+00:00:39,040 --> 00:00:42,530
+And it's important that you
+specify the subclass of this
+
+19
+00:00:42,530 --> 00:00:45,580
+class, because it's going to
+create some boilerplate code
+
+20
+00:00:45,580 --> 00:00:48,560
+for you inside of that subclass
+that we're creating.
+
+21
+00:00:48,560 --> 00:00:50,070
+These are the files that will be
+created, FeedViewController
+
+22
+00:00:50,070 --> 00:00:52,120
+dot m and dot h.
+
+23
+00:00:52,120 --> 00:00:55,230
+And it'll also add this file to
+be compiled when you build
+
+24
+00:00:55,230 --> 00:00:56,480
+the application.
+
+25
+00:00:58,850 --> 00:01:01,485
+So now let's go back into the
+old code, and let's refactor
+
+26
+00:01:01,485 --> 00:01:03,360
+it to use this
+FeedViewController that we
+
+27
+00:01:03,360 --> 00:01:04,319
+just created.
+
+28
+00:01:04,319 --> 00:01:06,160
+We need to do two things here.
+
+29
+00:01:06,160 --> 00:01:09,550
+First, we need to import the new
+class, and then we need to
+
+30
+00:01:09,550 --> 00:01:10,330
+use the new class.
+
+31
+00:01:10,330 --> 00:01:11,880
+So let's do that.
+
+32
+00:01:11,880 --> 00:01:13,900
+So here's our import line
+at the top, import
+
+33
+00:01:13,900 --> 00:01:15,870
+FeedViewController.h.
+
+34
+00:01:15,870 --> 00:01:18,370
+And then we just simply use
+FeedViewController,
+
+35
+00:01:18,370 --> 00:01:19,410
+FeedViewController.
+
+36
+00:01:19,410 --> 00:01:21,380
+And that's all there
+really is to it.
+
+37
+00:01:21,380 --> 00:01:24,990
+However, now we need to move
+the ViewController behavior
+
+38
+00:01:24,990 --> 00:01:26,670
+into this FeedViewController.
+
+39
+00:01:26,670 --> 00:01:29,280
+So those are those two lines
+right there at the bottom.
+
+40
+00:01:32,330 --> 00:01:33,720
+So here's the FeedViewController
+that was
+
+41
+00:01:33,720 --> 00:01:36,950
+created for us, and it gives us
+this initialization method
+
+42
+00:01:36,950 --> 00:01:39,140
+that is really quite ugly.
+
+43
+00:01:39,140 --> 00:01:42,300
+This is one of those submarine
+knobs and instrumentation.
+
+44
+00:01:42,300 --> 00:01:43,360
+You can just ignore it.
+
+45
+00:01:43,360 --> 00:01:44,410
+Don't try to understand it.
+
+46
+00:01:44,410 --> 00:01:48,440
+Just understand that inside of
+this if conditional is where
+
+47
+00:01:48,440 --> 00:01:50,460
+you put your custom
+implementation.
+
+48
+00:01:50,460 --> 00:01:52,790
+Namely, here we're going
+to put the title
+
+49
+00:01:52,790 --> 00:01:55,580
+and the tabBar image.
+
+50
+00:01:55,580 --> 00:01:58,020
+Then inside of our viewDidLoad
+at the bottom, that's where we
+
+51
+00:01:58,020 --> 00:02:00,830
+can put our background color and
+create additional subviews
+
+52
+00:02:00,830 --> 00:02:02,150
+if we'd like.
+
+53
+00:02:02,150 --> 00:02:04,610
+Now it's time for you to finish
+up our refactoring, and
+
+54
+00:02:04,610 --> 00:02:05,860
+I'll see you in a minute.
+
+55
+00:00:00,000 --> 00:00:00,000
+00:02:05,860 --> 00:02:07,084

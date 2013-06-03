@@ -1,0 +1,564 @@
+﻿1
+00:00:01,400 --> 00:00:03,710
+One more section before we get
+done with level three.
+
+2
+00:00:03,710 --> 00:00:07,130
+What we want to do here is
+build out our profile.
+
+3
+00:00:07,130 --> 00:00:09,790
+So we might want to display not
+only the profile image,
+
+4
+00:00:09,790 --> 00:00:13,570
+but the name, city, biography,
+and member since.
+
+5
+00:00:13,570 --> 00:00:16,320
+So here we are back in our
+ProfileViewController.
+
+6
+00:00:16,320 --> 00:00:18,090
+There's the image
+we just created.
+
+7
+00:00:18,090 --> 00:00:19,270
+That's our old code.
+
+8
+00:00:19,270 --> 00:00:22,290
+Let's first make this a smaller
+profile image to make
+
+9
+00:00:22,290 --> 00:00:23,690
+some room for the text that
+we're going to be
+
+10
+00:00:23,690 --> 00:00:25,390
+putting on the page.
+
+11
+00:00:25,390 --> 00:00:28,550
+One way we can do that is by
+setting the frame equal to a
+
+12
+00:00:28,550 --> 00:00:33,320
+CG rectangle, where we specify
+the x-y width and height.
+
+13
+00:00:33,320 --> 00:00:33,690
+Cool.
+
+14
+00:00:33,690 --> 00:00:36,620
+So now this is what our screen
+currently looks like with our
+
+15
+00:00:36,620 --> 00:00:37,850
+picture up there.
+
+16
+00:00:37,850 --> 00:00:41,770
+Now we need to add some more
+views, maybe a UILabel,
+
+17
+00:00:41,770 --> 00:00:45,450
+another UILabel for city, a
+UITextView for biography
+
+18
+00:00:45,450 --> 00:00:48,940
+because, well, it's going to be
+a paragraph of information,
+
+19
+00:00:48,940 --> 00:00:52,670
+and then another UILabel
+for member since.
+
+20
+00:00:52,670 --> 00:00:55,490
+So jumping back into our
+ProfileViewController, here's
+
+21
+00:00:55,490 --> 00:00:57,130
+our UILabel.
+
+22
+00:00:57,130 --> 00:00:58,980
+This code should
+look familiar.
+
+23
+00:00:58,980 --> 00:01:05,010
+Then a city label, and then our
+UITextView, which is new.
+
+24
+00:01:05,010 --> 00:01:07,120
+And we're going to initialize
+it by sending
+
+25
+00:01:07,120 --> 00:01:08,490
+in rectangle again.
+
+26
+00:01:08,490 --> 00:01:10,760
+Then we can set the
+font because we
+
+27
+00:01:10,760 --> 00:01:12,340
+want a smaller font.
+
+28
+00:01:12,340 --> 00:01:16,160
+By default, a UITextView is
+editable, so we want to set it
+
+29
+00:01:16,160 --> 00:01:17,390
+to not be editable.
+
+30
+00:01:17,390 --> 00:01:18,840
+So we'll send in no.
+
+31
+00:01:18,840 --> 00:01:22,300
+And then we add the text and
+add it as a subview.
+
+32
+00:01:22,300 --> 00:01:26,326
+Lastly, we're going to add
+the memberSince UILabel.
+
+33
+00:01:26,326 --> 00:01:27,510
+And that's about it.
+
+34
+00:01:27,510 --> 00:01:29,730
+So now if we go back into
+our view, it looks
+
+35
+00:01:29,730 --> 00:01:30,660
+something like this.
+
+36
+00:01:30,660 --> 00:01:31,910
+And if we--
+
+37
+00:01:34,220 --> 00:01:35,850
+Where did member since go?
+
+38
+00:01:35,850 --> 00:01:40,770
+Yeah, Mr. Higgie, where did
+our member since go?
+
+39
+00:01:40,770 --> 00:01:42,850
+It's sort of getting hidden
+behind there, and for some
+
+40
+00:01:42,850 --> 00:01:45,470
+reason, we can't scroll
+down to see it.
+
+41
+00:01:45,470 --> 00:01:49,460
+Well, that's because we need to
+learn about UIScrollView.
+
+42
+00:01:49,460 --> 00:01:52,390
+It's pretty common in lots of
+iOS applications to have a big
+
+43
+00:01:52,390 --> 00:01:55,380
+screen worth of data, and you
+can scroll down to see the
+
+44
+00:01:55,380 --> 00:01:55,880
+rest of it.
+
+45
+00:01:55,880 --> 00:01:58,090
+Sometimes you can scroll
+vertically, sometimes even
+
+46
+00:01:58,090 --> 00:01:59,440
+horizontally.
+
+47
+00:01:59,440 --> 00:02:01,050
+So we need to implement
+a scroll view to
+
+48
+00:02:01,050 --> 00:02:02,320
+be able to do that.
+
+49
+00:02:02,320 --> 00:02:05,140
+So the first step is to declare
+a property in our
+
+50
+00:02:05,140 --> 00:02:08,240
+header file called
+UIScrollView.
+
+51
+00:02:08,240 --> 00:02:10,740
+And inside of our
+ProfileViewController, we're
+
+52
+00:02:10,740 --> 00:02:14,540
+going to initialize that
+scrollView, set it to the
+
+53
+00:02:14,540 --> 00:02:17,760
+bounds of the view that we're
+putting it inside.
+
+54
+00:02:17,760 --> 00:02:19,900
+Now we need to set
+the content size.
+
+55
+00:02:19,900 --> 00:02:22,020
+And this is probably
+going to be bigger
+
+56
+00:02:22,020 --> 00:02:23,150
+than the frame, right?
+
+57
+00:02:23,150 --> 00:02:26,360
+Because we want to be able to
+scroll down to other items.
+
+58
+00:02:26,360 --> 00:02:31,110
+So we need to specify in here
+the content size for the total
+
+59
+00:02:31,110 --> 00:02:32,480
+amount of space we want
+to be able to
+
+60
+00:02:32,480 --> 00:02:35,090
+scroll within the frame.
+
+61
+00:02:35,090 --> 00:02:36,400
+How do we figure that out?
+
+62
+00:02:36,400 --> 00:02:38,010
+Well, one way to figure
+that out is to
+
+63
+00:02:38,010 --> 00:02:40,790
+look at the last UILabel.
+
+64
+00:02:40,790 --> 00:02:44,350
+We can see here that the
+y-coordinate is 440, and its
+
+65
+00:02:44,350 --> 00:02:46,980
+total height is 40.
+
+66
+00:02:46,980 --> 00:02:50,640
+So if we add these together,
+we're going to get the total
+
+67
+00:02:50,640 --> 00:02:53,890
+content size that we want to
+be able to scroll down to.
+
+68
+00:02:53,890 --> 00:02:57,860
+In this case, it's 480.
+
+69
+00:02:57,860 --> 00:02:59,190
+The next thing we have to
+change inside of our
+
+70
+00:02:59,190 --> 00:03:02,200
+ProfileViewController is
+whenever we go to add
+
+71
+00:03:02,200 --> 00:03:05,410
+subviews, instead of adding them
+to the view controller's
+
+72
+00:03:05,410 --> 00:03:08,280
+main view, we're going
+to add these sub views
+
+73
+00:03:08,280 --> 00:03:10,800
+into our scroll view.
+
+74
+00:03:10,800 --> 00:03:14,060
+Here we add biography as a
+subview to scroll view.
+
+75
+00:03:14,060 --> 00:03:16,940
+Then lastly, we're going to want
+to add the scroll view
+
+76
+00:03:16,940 --> 00:03:21,120
+itself as a subview on to our
+main ViewController view.
+
+77
+00:03:25,450 --> 00:03:27,990
+So here we are back
+in our app.
+
+78
+00:03:27,990 --> 00:03:29,900
+Now we can scroll.
+
+79
+00:03:29,900 --> 00:03:32,072
+Hey, wait a second.
+
+80
+00:03:32,072 --> 00:03:33,524
+Where did we go wrong?
+
+81
+00:03:33,524 --> 00:03:35,460
+The scroll doesn't stick!
+
+82
+00:03:35,460 --> 00:03:35,900
+You see that?
+
+83
+00:03:35,900 --> 00:03:38,410
+We're scrolling up, but
+it's not sticking.
+
+84
+00:03:38,410 --> 00:03:39,870
+For some reason, we can't
+scroll down to
+
+85
+00:03:39,870 --> 00:03:42,690
+that and let go.
+
+86
+00:03:42,690 --> 00:03:44,410
+I wonder what went wrong.
+
+87
+00:03:44,410 --> 00:03:46,130
+Well, in order to figure that
+out, we need to understand a
+
+88
+00:03:46,130 --> 00:03:49,950
+little bit about how things
+get resized inside iOS.
+
+89
+00:03:49,950 --> 00:03:52,530
+So inside of our
+ProfileViewController, it's
+
+90
+00:03:52,530 --> 00:03:54,970
+320 by 460.
+
+91
+00:03:54,970 --> 00:03:57,760
+You might be wondering why
+it's 460 and not 480.
+
+92
+00:03:57,760 --> 00:04:01,350
+Well, that's because the time
+and your cell carrier little
+
+93
+00:04:01,350 --> 00:04:03,730
+line at the top, that
+takes up 20 points.
+
+94
+00:04:03,730 --> 00:04:07,230
+So that's why this
+is 320 by 460.
+
+95
+00:04:07,230 --> 00:04:09,190
+Then we're setting the
+scrollView's frame to the same
+
+96
+00:04:09,190 --> 00:04:11,990
+as the profileViewController's
+frame.
+
+97
+00:04:11,990 --> 00:04:14,560
+This needs to go inside the
+tabBarController, which has a
+
+98
+00:04:14,560 --> 00:04:16,839
+320 by 460 frame.
+
+99
+00:04:16,839 --> 00:04:19,800
+When the profileViewController
+gets displayed inside the tab
+
+100
+00:04:19,800 --> 00:04:24,550
+bar, the profileViewController
+by default gets resized to 320
+
+101
+00:04:24,550 --> 00:04:26,650
+by 411, as you would hope.
+
+102
+00:04:26,650 --> 00:04:31,600
+However, the scrollView
+does not get resized.
+
+103
+00:04:31,600 --> 00:04:34,730
+We need some way of telling
+the scrollView to resize
+
+104
+00:04:34,730 --> 00:04:38,180
+itself when the view that
+it's in gets resized.
+
+105
+00:04:38,180 --> 00:04:42,710
+We can do this by specifying
+the autoresizingMask on the
+
+106
+00:04:42,710 --> 00:04:44,420
+scrollView, which we're
+setting here to
+
+107
+00:04:44,420 --> 00:04:46,780
+be a flexible height.
+
+108
+00:04:46,780 --> 00:04:49,020
+Here are a bunch of other resize
+settings that you might
+
+109
+00:04:49,020 --> 00:04:49,920
+want to use.
+
+110
+00:04:49,920 --> 00:04:52,680
+Sometimes you might even want
+to use two at the same time,
+
+111
+00:04:52,680 --> 00:04:54,960
+in the case where you have a
+view that you want to be
+
+112
+00:04:54,960 --> 00:04:57,610
+flexible both for height
+and width.
+
+113
+00:04:57,610 --> 00:05:00,160
+This is useful if you're
+switching an app into
+
+114
+00:05:00,160 --> 00:05:01,650
+landscape view, for example.
+
+115
+00:05:05,934 --> 00:05:07,720
+So here we are again.
+
+116
+00:05:07,720 --> 00:05:13,215
+And now we can scroll,
+and it sticks.
+
+117
+00:05:13,215 --> 00:05:16,540
+Scrolly goodness!
+
+118
+00:05:16,540 --> 00:05:19,070
+Awesome.
+
+119
+00:05:19,070 --> 00:05:22,170
+Now it's time for you to add
+another UILabel to the profile
+
+120
+00:05:22,170 --> 00:05:23,540
+and adjust the scrollView
+accordingly.
+
+121
+00:00:00,000 --> 00:00:00,000
+00:05:23,540 --> 00:05:25,292

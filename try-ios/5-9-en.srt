@@ -1,0 +1,264 @@
+﻿1
+00:00:01,040 --> 00:00:02,620
+So now you know how
+to determine which
+
+2
+00:00:02,620 --> 00:00:04,590
+cell has been tapped.
+
+3
+00:00:04,590 --> 00:00:07,810
+But how do we use that
+information to then push to
+
+4
+00:00:07,810 --> 00:00:11,310
+another ViewController which
+will then display that image?
+
+5
+00:00:11,310 --> 00:00:13,590
+To do this it's going to
+take a couple steps.
+
+6
+00:00:13,590 --> 00:00:17,310
+First we're going to create a
+PhotoViewController class.
+
+7
+00:00:17,310 --> 00:00:21,030
+Inside of that it's going to
+have an @property which stores
+
+8
+00:00:21,030 --> 00:00:23,740
+the imageFileName which is--
+we're going to figure out by
+
+9
+00:00:23,740 --> 00:00:26,730
+looking at the table which
+cell was pressed.
+
+10
+00:00:26,730 --> 00:00:30,200
+Then we're going to create a
+UIImageView to show the image
+
+11
+00:00:30,200 --> 00:00:31,890
+in that ViewController.
+
+12
+00:00:31,890 --> 00:00:35,710
+And finally we'll modify
+our TableView's
+
+13
+00:00:35,710 --> 00:00:39,270
+didSelectRowAtIndexPath method
+so that it creates this
+
+14
+00:00:39,270 --> 00:00:43,730
+ViewController, sets the file
+name that we want to show, and
+
+15
+00:00:43,730 --> 00:00:47,020
+then uses the navigation
+controller to display that new
+
+16
+00:00:47,020 --> 00:00:49,800
+ViewController.
+
+17
+00:00:49,800 --> 00:00:50,260
+All right.
+
+18
+00:00:50,260 --> 00:00:52,150
+So let's create a
+PhotoViewController.
+
+19
+00:00:52,150 --> 00:00:53,200
+We've done this before.
+
+20
+00:00:53,200 --> 00:00:54,900
+We go and create a new file.
+
+21
+00:00:54,900 --> 00:00:56,680
+It's an Objective C Class.
+
+22
+00:00:56,680 --> 00:01:00,730
+And it's a UIViewController,
+creates two files for us.
+
+23
+00:01:00,730 --> 00:01:01,800
+Pretty simple.
+
+24
+00:01:01,800 --> 00:01:03,920
+Now we need to define
+that property.
+
+25
+00:01:03,920 --> 00:01:06,690
+So inside the
+PhotoViewController.h, we
+
+26
+00:01:06,690 --> 00:01:10,740
+define a string, which
+is the imageFileName
+
+27
+00:01:10,740 --> 00:01:12,210
+that we want to display.
+
+28
+00:01:12,210 --> 00:01:14,800
+Then inside of the
+PhotoViewController, inside
+
+29
+00:01:14,800 --> 00:01:17,470
+the viewDidLoad, we're going to
+create a UIImageView, which
+
+30
+00:01:17,470 --> 00:01:19,700
+will display in the middle
+of the screen, and
+
+31
+00:01:19,700 --> 00:01:20,950
+add that as a subview.
+
+32
+00:01:24,840 --> 00:01:27,900
+Our last step is to jump back
+into our TableViewController
+
+33
+00:01:27,900 --> 00:01:30,710
+in the didSelectRowAtIndexPath
+method.
+
+34
+00:01:30,710 --> 00:01:32,940
+Inside there, we're going
+to instantiate a
+
+35
+00:01:32,940 --> 00:01:34,810
+PhotoViewController.
+
+36
+00:01:34,810 --> 00:01:38,140
+Then we're going to set the
+imageFileName based on the
+
+37
+00:01:38,140 --> 00:01:42,370
+index path that was sent in, and
+then finally we're going
+
+38
+00:01:42,370 --> 00:01:46,070
+to push control to that
+ViewController using our
+
+39
+00:01:46,070 --> 00:01:47,320
+navigationController.
+
+40
+00:01:49,610 --> 00:01:51,860
+That's all there is to it, and
+I know you must be eager to
+
+41
+00:01:51,860 --> 00:01:52,750
+play around with it.
+
+42
+00:01:52,750 --> 00:01:55,400
+But before we go there, let's
+take a moment to talk about
+
+43
+00:01:55,400 --> 00:01:57,290
+different cell styles.
+
+44
+00:01:57,290 --> 00:02:00,060
+So here we're using the
+CellStyleDefault, but there's
+
+45
+00:02:00,060 --> 00:02:02,430
+a couple other ones that
+you should know about.
+
+46
+00:02:02,430 --> 00:02:03,150
+So here we have
+
+47
+00:02:03,150 --> 00:02:06,230
+CellStyleValue1, Value2, and Subtitle.
+
+48
+00:02:06,230 --> 00:02:09,650
+And on the left side, you can
+see how these are displayed.
+
+49
+00:02:09,650 --> 00:02:11,890
+You already know how to
+set the textLabel.
+
+50
+00:02:11,890 --> 00:02:13,980
+To set the detailTextLabel,
+you would do
+
+51
+00:02:13,980 --> 00:02:15,350
+something like this.
+
+52
+00:02:15,350 --> 00:02:17,870
+And then finally, if you
+wanted to set a image
+
+53
+00:02:17,870 --> 00:02:20,260
+thumbnail on the left side, you
+would use the syntax I'm
+
+54
+00:02:20,260 --> 00:02:23,240
+showing here.
+
+55
+00:02:23,240 --> 00:02:25,130
+Now it's time for you to build
+out the rest of our
+
+56
+00:02:25,130 --> 00:02:26,380
+FeedTableViewController.
+
+57
+00:00:00,000 --> 00:00:00,000
+00:02:26,380 --> 00:02:28,887
