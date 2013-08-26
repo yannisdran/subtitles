@@ -1,0 +1,493 @@
+1
+00:00:00,000 --> 00:00:02,090
+
+2
+00:00:02,090 --> 00:00:05,100
+Now that we've learned the
+fundamentals of color theory,
+
+3
+00:00:05,100 --> 00:00:07,590
+we need to start building
+a color scheme.
+
+4
+00:00:07,590 --> 00:00:11,320
+And a color scheme is four or
+five colors built into your
+
+5
+00:00:11,320 --> 00:00:12,230
+style guide.
+
+6
+00:00:12,230 --> 00:00:14,870
+These colors will be applied
+to different elements
+
+7
+00:00:14,870 --> 00:00:18,770
+throughout your application,
+such as buttons, text color,
+
+8
+00:00:18,770 --> 00:00:21,640
+or backgrounds.
+
+9
+00:00:21,640 --> 00:00:24,260
+The first decision you have to
+make when creating a color
+
+10
+00:00:24,260 --> 00:00:27,580
+scheme is to choose
+a base color.
+
+11
+00:00:27,580 --> 00:00:30,610
+And the base color is the
+foundational color from which
+
+12
+00:00:30,610 --> 00:00:33,530
+the rest of the color scheme
+will be built out.
+
+13
+00:00:33,530 --> 00:00:36,610
+When selecting a base color,
+you have to realize that
+
+14
+00:00:36,610 --> 00:00:39,620
+different colors create
+different moods.
+
+15
+00:00:39,620 --> 00:00:41,860
+And this plays itself out
+in the world around
+
+16
+00:00:41,860 --> 00:00:43,780
+us on a daily basis.
+
+17
+00:00:43,780 --> 00:00:45,640
+Have you ever seen
+this before?
+
+18
+00:00:45,640 --> 00:00:47,540
+A doctor's office painted red.
+
+19
+00:00:47,540 --> 00:00:49,680
+I'd venture to say you
+probably haven't.
+
+20
+00:00:49,680 --> 00:00:51,910
+And that's because red is
+the color of passion or
+
+21
+00:00:51,910 --> 00:00:55,260
+excitement, not the cool,
+calming colors that you'd
+
+22
+00:00:55,260 --> 00:00:57,360
+expect from a doctor's office.
+
+23
+00:00:57,360 --> 00:00:58,360
+Or how about this?
+
+24
+00:00:58,360 --> 00:01:02,580
+A science fiction movie poster
+that uses hot pink typography.
+
+25
+00:01:02,580 --> 00:01:04,879
+It's much more suited for
+the My Little Pony
+
+26
+00:01:04,879 --> 00:01:07,470
+movie than Star Trek.
+
+27
+00:01:07,470 --> 00:01:10,970
+So, exactly what moods does
+each color create?
+
+28
+00:01:10,970 --> 00:01:12,520
+Let's walk through them.
+
+29
+00:01:12,520 --> 00:01:16,770
+Red is the color of heat,
+passion, and excitement.
+
+30
+00:01:16,770 --> 00:01:19,640
+And it easily grabs attention
+and evokes a
+
+31
+00:01:19,640 --> 00:01:22,430
+certain speed and energy.
+
+32
+00:01:22,430 --> 00:01:25,420
+Orange is the color of
+warmth and vitality.
+
+33
+00:01:25,420 --> 00:01:29,510
+And it is associated with
+reliability and playfulness.
+
+34
+00:01:29,510 --> 00:01:33,120
+Yellow is the color of optimism
+or creativity and
+
+35
+00:01:33,120 --> 00:01:36,490
+represents sunshine, cheer,
+and happiness.
+
+36
+00:01:36,490 --> 00:01:41,590
+Green is the color of serenity
+or health and connotes growth,
+
+37
+00:01:41,590 --> 00:01:44,400
+nature, and freshness.
+
+38
+00:01:44,400 --> 00:01:49,450
+Blue is the color of security,
+truth, and stability and
+
+39
+00:01:49,450 --> 00:01:54,420
+implies loyalty, reliability,
+and open communication.
+
+40
+00:01:54,420 --> 00:01:58,140
+Purple is the color of
+spirituality, intelligence,
+
+41
+00:01:58,140 --> 00:02:03,440
+and wealth and can also mean
+royal, sentimental, creative,
+
+42
+00:02:03,440 --> 00:02:05,920
+and sophisticated.
+
+43
+00:02:05,920 --> 00:02:09,780
+Pink is the color of youthful
+intensity and conveys energy,
+
+44
+00:02:09,780 --> 00:02:11,740
+fun, and excitement.
+
+45
+00:02:11,740 --> 00:02:15,420
+And brown is the color of
+durability or class, and
+
+46
+00:02:15,420 --> 00:02:20,360
+represents age, stability,
+and relaxation.
+
+47
+00:02:20,360 --> 00:02:25,370
+Black is a color of power or
+drama, and it's serious, bold,
+
+48
+00:02:25,370 --> 00:02:26,490
+and strong.
+
+49
+00:02:26,490 --> 00:02:29,970
+And white is the color of
+simplicity and cleanliness.
+
+50
+00:02:29,970 --> 00:02:34,220
+And its message is youthful,
+mild, and pure.
+
+51
+00:02:34,220 --> 00:02:36,720
+You must always remember to
+keep culture in mind when
+
+52
+00:02:36,720 --> 00:02:38,230
+choosing a base color.
+
+53
+00:02:38,230 --> 00:02:42,670
+For instance, red in Western
+societies, as we've talked
+
+54
+00:02:42,670 --> 00:02:45,180
+about, conveys an intensity
+or energy.
+
+55
+00:02:45,180 --> 00:02:48,990
+But in China, it's the color of
+good luck, whereas in South
+
+56
+00:02:48,990 --> 00:02:51,260
+Africa, it's the color
+of mourning.
+
+57
+00:02:51,260 --> 00:02:56,630
+And in Russian contexts, it's
+associated with communism.
+
+58
+00:02:56,630 --> 00:02:59,270
+Once you've selected a base
+color, it's time to build out
+
+59
+00:02:59,270 --> 00:03:01,140
+the rest of your color scheme.
+
+60
+00:03:01,140 --> 00:03:04,050
+And there are multiple different
+methods you can use
+
+61
+00:03:04,050 --> 00:03:07,050
+to determine what that color
+scheme will look like.
+
+62
+00:03:07,050 --> 00:03:09,350
+Let's dive into a
+couple of those.
+
+63
+00:03:09,350 --> 00:03:13,170
+A monochromatic color scheme is
+a color scheme in which all
+
+64
+00:03:13,170 --> 00:03:16,290
+of the colors have the same
+hue, and they vary in
+
+65
+00:03:16,290 --> 00:03:18,410
+saturation and lightness.
+
+66
+00:03:18,410 --> 00:03:21,550
+To use this, you'd start with
+your base color, which you see
+
+67
+00:03:21,550 --> 00:03:26,110
+here in the middle, and create
+four different colors, keeping
+
+68
+00:03:26,110 --> 00:03:28,990
+the hue constant and only
+changing the saturation and
+
+69
+00:03:28,990 --> 00:03:30,450
+brightness.
+
+70
+00:03:30,450 --> 00:03:34,210
+Monochromatic color schemes are
+the easiest to create and
+
+71
+00:03:34,210 --> 00:03:36,320
+work very well together.
+
+72
+00:03:36,320 --> 00:03:38,390
+But they often lack
+the versatility
+
+73
+00:03:38,390 --> 00:03:40,810
+of other color schemes.
+
+74
+00:03:40,810 --> 00:03:42,240
+The next color scheme
+that we're going
+
+75
+00:03:42,240 --> 00:03:44,700
+to look at is analogous.
+
+76
+00:03:44,700 --> 00:03:47,650
+An analogous color scheme,
+similar to the monochromatic
+
+77
+00:03:47,650 --> 00:03:50,330
+color scheme, has colors
+that vary in
+
+78
+00:03:50,330 --> 00:03:52,150
+saturation and lightness.
+
+79
+00:03:52,150 --> 00:03:55,240
+However, instead of the hue
+remaining constant, the hue
+
+80
+00:03:55,240 --> 00:03:59,450
+both increases and decreases,
+showing the colors adjacent to
+
+81
+00:03:59,450 --> 00:04:01,740
+it on the color wheel.
+
+82
+00:04:01,740 --> 00:04:05,460
+A complementary color scheme
+also varies in saturation and
+
+83
+00:04:05,460 --> 00:04:09,540
+lightness, but differs in that
+it has colors of the same hue
+
+84
+00:04:09,540 --> 00:04:13,060
+to the base color and colors
+of the opposite hue to the
+
+85
+00:04:13,060 --> 00:04:15,470
+base color on the color wheel.
+
+86
+00:04:15,470 --> 00:04:18,459
+To find the colors opposite
+hue, visualize it
+
+87
+00:04:18,459 --> 00:04:20,230
+on the color wheel.
+
+88
+00:04:20,230 --> 00:04:24,960
+Look to the exact opposite, or
+180 degrees away from that
+
+89
+00:04:24,960 --> 00:04:28,030
+color, and you'll find
+the opposite.
+
+90
+00:04:28,030 --> 00:04:30,820
+These are just three of the
+methods that you can use when
+
+91
+00:04:30,820 --> 00:04:32,550
+putting together
+a color scheme.
+
+92
+00:04:32,550 --> 00:04:33,790
+There are so many more.
+
+93
+00:04:33,790 --> 00:04:36,700
+Take the time to research and
+learn about all of the
+
+94
+00:04:36,700 --> 00:04:38,480
+different color schemes
+available.
+
+95
+00:04:38,480 --> 00:04:42,240
+Know that while a color scheme
+can be objectively correct, it
+
+96
+00:04:42,240 --> 00:04:43,930
+can still be ugly.
+
+97
+00:04:43,930 --> 00:04:46,480
+For instance, this complementary
+color scheme
+
+98
+00:04:46,480 --> 00:04:50,200
+uses very strange purples and
+greens that would not actually
+
+99
+00:04:50,200 --> 00:04:53,060
+look good together
+on a website.
+
+100
+00:04:53,060 --> 00:04:55,700
+When implementing color schemes,
+know that they don't
+
+101
+00:04:55,700 --> 00:04:57,330
+need to be perfect.
+
+102
+00:04:57,330 --> 00:05:00,580
+You can use these methods,
+such as complementary or
+
+103
+00:05:00,580 --> 00:05:06,530
+analogous, as a base and tweak
+as needed to fit your project.
+
+104
+00:05:06,530 --> 00:05:08,600
+Now it's time for you to try
+creating color schemes.
+
+105
+00:05:08,600 --> 00:05:11,980

@@ -1,0 +1,307 @@
+1
+00:00:00,000 --> 00:00:02,060
+
+2
+00:00:02,060 --> 00:00:04,600
+In this last video on layout,
+we're going to start by
+
+3
+00:00:04,600 --> 00:00:08,580
+talking about white space, and
+white space is the empty space
+
+4
+00:00:08,580 --> 00:00:12,020
+around elements that can
+increase readability and
+
+5
+00:00:12,020 --> 00:00:14,390
+create an air of elegance.
+
+6
+00:00:14,390 --> 00:00:17,570
+White space doesn't necessarily
+have to be white.
+
+7
+00:00:17,570 --> 00:00:21,410
+Even on images with a strong
+focal point, the plain area
+
+8
+00:00:21,410 --> 00:00:25,210
+around it is considered
+white space.
+
+9
+00:00:25,210 --> 00:00:28,620
+White space in the design of a
+website with a lot of content
+
+10
+00:00:28,620 --> 00:00:32,630
+can draw the user in without
+overwhelming them.
+
+11
+00:00:32,630 --> 00:00:36,020
+Using white space at a high
+level between major elements
+
+12
+00:00:36,020 --> 00:00:39,710
+in the design is essential,
+but only if nuanced white
+
+13
+00:00:39,710 --> 00:00:43,050
+space between different elements
+within individual
+
+14
+00:00:43,050 --> 00:00:46,730
+containers exists as well.
+
+15
+00:00:46,730 --> 00:00:50,530
+Finally, a good design is a
+balanced design, and balance
+
+16
+00:00:50,530 --> 00:00:53,090
+is the equal distribution
+of visual weight
+
+17
+00:00:53,090 --> 00:00:55,080
+throughout the design.
+
+18
+00:00:55,080 --> 00:00:58,470
+Designs that are not balanced
+make us uncomfortable and can
+
+19
+00:00:58,470 --> 00:01:00,890
+have quite the disturbing
+effect.
+
+20
+00:01:00,890 --> 00:01:03,650
+There are many different ways
+to incorporate balance into
+
+21
+00:01:03,650 --> 00:01:06,860
+your website, and one
+of them is symmetry.
+
+22
+00:01:06,860 --> 00:01:09,460
+Designs that need a more
+stable and strong
+
+23
+00:01:09,460 --> 00:01:11,450
+organizational structure
+tend to
+
+24
+00:01:11,450 --> 00:01:14,470
+incorporate a lot of symmetry.
+
+25
+00:01:14,470 --> 00:01:16,030
+This is the Envy Labs site.
+
+26
+00:01:16,030 --> 00:01:18,880
+You'll notice it uses a lot of
+symmetry, because we're trying
+
+27
+00:01:18,880 --> 00:01:21,800
+to portray a sense of stability
+and trust that will
+
+28
+00:01:21,800 --> 00:01:23,980
+win us new projects.
+
+29
+00:01:23,980 --> 00:01:27,360
+In the Beanstalk website,
+there's an overall pattern of
+
+30
+00:01:27,360 --> 00:01:31,110
+symmetry that creates
+a sense of balance.
+
+31
+00:01:31,110 --> 00:01:33,950
+Notice that the imagery does
+not have to be in exact
+
+32
+00:01:33,950 --> 00:01:36,920
+reflection to be symmetrical.
+
+33
+00:01:36,920 --> 00:01:39,250
+Incorporating symmetry
+into your design
+
+34
+00:01:39,250 --> 00:01:41,180
+is inherently balanced.
+
+35
+00:01:41,180 --> 00:01:45,010
+However, introducing
+asymmetrical elements is
+
+36
+00:01:45,010 --> 00:01:49,560
+effective in drawing attention
+and breaking monotony, though
+
+37
+00:01:49,560 --> 00:01:52,070
+it must still be balanced
+on the page.
+
+38
+00:01:52,070 --> 00:01:53,930
+Let me show you what I mean.
+
+39
+00:01:53,930 --> 00:01:57,400
+Here, we have an unrepeated
+large element that creates
+
+40
+00:01:57,400 --> 00:02:02,590
+asymmetry to grab attention and
+create visual hierarchy
+
+41
+00:02:02,590 --> 00:02:05,750
+but, by adhering it to the
+grid, brings a sense of
+
+42
+00:02:05,750 --> 00:02:09,500
+balance and order to the page.
+
+43
+00:02:09,500 --> 00:02:13,720
+Here's an example of asymmetry
+demanding attention, creating
+
+44
+00:02:13,720 --> 00:02:17,480
+intrigue, and introducing white
+space, and the density
+
+45
+00:02:17,480 --> 00:02:21,160
+on the other side of the page
+gives it a sense of balance.
+
+46
+00:02:21,160 --> 00:02:23,140
+All of the principles that
+we've talked about here
+
+47
+00:02:23,140 --> 00:02:25,180
+contribute to a sense
+of balance.
+
+48
+00:02:25,180 --> 00:02:29,980
+Size, color, contrast, alignment
+to the grid, white
+
+49
+00:02:29,980 --> 00:02:34,400
+space, or lack thereof, also
+known as density, and symmetry
+
+50
+00:02:34,400 --> 00:02:37,850
+all work together to
+create balance.
+
+51
+00:02:37,850 --> 00:02:40,570
+It's important to design
+with intentionality.
+
+52
+00:02:40,570 --> 00:02:44,840
+If you can't defend the typeface
+or the color or the
+
+53
+00:02:44,840 --> 00:02:47,560
+grid that you've chosen to
+use for your project in a
+
+54
+00:02:47,560 --> 00:02:49,730
+conversational manner,
+it probably
+
+55
+00:02:49,730 --> 00:02:51,570
+isn't the right choice.
+
+56
+00:02:51,570 --> 00:02:55,240
+Be able to know and talk about
+why you make all the decisions
+
+57
+00:02:55,240 --> 00:02:56,810
+that you made.
+
+58
+00:02:56,810 --> 00:03:01,330
+One final note about design:
+experiment often.
+
+59
+00:03:01,330 --> 00:03:05,260
+The first solution is
+rarely the best one.
+
+60
+00:03:05,260 --> 00:03:09,020
+Don't rush the process and keep
+trying different things
+
+61
+00:03:09,020 --> 00:03:12,080
+until you come up with the
+best possible solution to
+
+62
+00:03:12,080 --> 00:03:15,110
+whatever design challenge
+you are facing.
+
+63
+00:03:15,110 --> 00:03:17,080
+Now, it's time for a few
+more challenges.
+
+64
+00:03:17,080 --> 00:03:18,330
+Good luck.
+
+65
+00:03:18,330 --> 00:03:20,044

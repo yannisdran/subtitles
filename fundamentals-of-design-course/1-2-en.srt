@@ -1,0 +1,565 @@
+1
+00:00:00,000 --> 00:00:02,009
+
+2
+00:00:02,009 --> 00:00:04,700
+Once we've selected a font, the
+next thing we need to do
+
+3
+00:00:04,700 --> 00:00:07,130
+is set the sizes in
+our style guide.
+
+4
+00:00:07,130 --> 00:00:10,100
+Before we talk about that, I
+want you to take a look at
+
+5
+00:00:10,100 --> 00:00:11,750
+these two objects.
+
+6
+00:00:11,750 --> 00:00:14,780
+Think to yourself, how would
+you describe these?
+
+7
+00:00:14,780 --> 00:00:17,700
+Would you say, a blue
+and a green square?
+
+8
+00:00:17,700 --> 00:00:20,460
+Or maybe a big and
+a small square?
+
+9
+00:00:20,460 --> 00:00:23,320
+Chances are that the first thing
+that came to mind was
+
+10
+00:00:23,320 --> 00:00:25,740
+not simply two squares.
+
+11
+00:00:25,740 --> 00:00:28,800
+And this is because humans
+create relationships.
+
+12
+00:00:28,800 --> 00:00:30,850
+It's how we process things.
+
+13
+00:00:30,850 --> 00:00:35,000
+We relate this to that in order
+to understand them.
+
+14
+00:00:35,000 --> 00:00:37,900
+We can use this to our advantage
+when designing by
+
+15
+00:00:37,900 --> 00:00:40,330
+creating visual hierarchy.
+
+16
+00:00:40,330 --> 00:00:43,820
+Establishing visual
+relationships between elements
+
+17
+00:00:43,820 --> 00:00:47,530
+on the page is going to allow
+your users to more quickly
+
+18
+00:00:47,530 --> 00:00:49,630
+process the information.
+
+19
+00:00:49,630 --> 00:00:53,090
+For example, let's say you've
+got an informative site
+
+20
+00:00:53,090 --> 00:00:56,610
+promoting a new twist on a
+traditional, every day item - 
+
+21
+00:00:56,610 --> 00:00:58,200
+dipping sauce.
+
+22
+00:00:58,200 --> 00:01:00,190
+You might have something
+like this.
+
+23
+00:01:00,190 --> 00:01:03,890
+You could have a design that
+uses large, handwritten type,
+
+24
+00:01:03,890 --> 00:01:07,540
+and life-like photographic
+elements strewn about in an
+
+25
+00:01:07,540 --> 00:01:11,360
+apparently chaotic manner in
+order to add visual intrigue
+
+26
+00:01:11,360 --> 00:01:13,060
+to a mundane item.
+
+27
+00:01:13,060 --> 00:01:15,670
+What's significant about this
+site is that it uses
+
+28
+00:01:15,670 --> 00:01:19,710
+differences in size to draw the
+eye naturally from large
+
+29
+00:01:19,710 --> 00:01:23,170
+elements down to the small
+elements, which helps the user
+
+30
+00:01:23,170 --> 00:01:25,990
+more easily process
+the information.
+
+31
+00:01:25,990 --> 00:01:27,790
+Take, for instance,
+this paragraph.
+
+32
+00:01:27,790 --> 00:01:30,880
+The amount of text isn't really
+all that much, but if
+
+33
+00:01:30,880 --> 00:01:33,720
+this is the first thing I see
+when I come to your website,
+
+34
+00:01:33,720 --> 00:01:34,970
+I'm leaving.
+
+35
+00:01:34,970 --> 00:01:38,060
+There's no visual indicator
+that allows me to quickly
+
+36
+00:01:38,060 --> 00:01:40,610
+assess what the rest of
+the content is about.
+
+37
+00:01:40,610 --> 00:01:43,900
+In order to really understand
+it, I have to read all of it,
+
+38
+00:01:43,900 --> 00:01:46,040
+which is more of a time
+commitment than you can
+
+39
+00:01:46,040 --> 00:01:48,670
+realistically expect
+from your users.
+
+40
+00:01:48,670 --> 00:01:51,790
+Let's look at the same block
+of text, but establish some
+
+41
+00:01:51,790 --> 00:01:53,710
+visual relationships.
+
+42
+00:01:53,710 --> 00:01:57,480
+By taking the first phrase and
+creating a headline out of it,
+
+43
+00:01:57,480 --> 00:02:00,790
+we've created some variance that
+gives the user something
+
+44
+00:02:00,790 --> 00:02:02,300
+to latch onto.
+
+45
+00:02:02,300 --> 00:02:05,400
+Now, instead of reading the
+entire paragraph, they can
+
+46
+00:02:05,400 --> 00:02:08,820
+simply read the headline and
+understand what the rest of
+
+47
+00:02:08,820 --> 00:02:11,500
+the paragraph is about.
+
+48
+00:02:11,500 --> 00:02:14,650
+So if you remember from the
+first video, we're working
+
+49
+00:02:14,650 --> 00:02:17,080
+towards creating
+a style guide.
+
+50
+00:02:17,080 --> 00:02:20,580
+And as you can see here, the
+style guide already has some
+
+51
+00:02:20,580 --> 00:02:22,360
+variances in size.
+
+52
+00:02:22,360 --> 00:02:24,150
+So how did we get there?
+
+53
+00:02:24,150 --> 00:02:27,460
+Where do we start when it comes
+to making typographical
+
+54
+00:02:27,460 --> 00:02:30,310
+size decisions?
+
+55
+00:02:30,310 --> 00:02:32,180
+We start with body copy.
+
+56
+00:02:32,180 --> 00:02:35,060
+This is a little bit tricky to
+navigate, because there is no
+
+57
+00:02:35,060 --> 00:02:39,170
+golden standard for what size
+your body copy font should be.
+
+58
+00:02:39,170 --> 00:02:42,970
+For example, this well respected
+creative journal
+
+59
+00:02:42,970 --> 00:02:47,190
+uses body copy at 16 pixels.
+
+60
+00:02:47,190 --> 00:02:52,830
+However, this well respected
+designer uses 26 pixels for
+
+61
+00:02:52,830 --> 00:02:54,570
+his body copy.
+
+62
+00:02:54,570 --> 00:02:59,240
+Personally, I think huge type
+is annoying, especially when
+
+63
+00:02:59,240 --> 00:03:02,470
+viewing on a browser that's not
+the full vertical height
+
+64
+00:03:02,470 --> 00:03:04,710
+of the screen.
+
+65
+00:03:04,710 --> 00:03:06,950
+For this course, we're going to
+be suggesting that you use
+
+66
+00:03:06,950 --> 00:03:11,120
+16 pixel body copy font,
+although each case needs to be
+
+67
+00:03:11,120 --> 00:03:12,340
+weighed individually.
+
+68
+00:03:12,340 --> 00:03:15,310
+Different contexts, different
+websites will call for
+
+69
+00:03:15,310 --> 00:03:17,500
+different font sizes.
+
+70
+00:03:17,500 --> 00:03:20,660
+Once we've established the body
+copy size, everything
+
+71
+00:03:20,660 --> 00:03:22,610
+else is set relative to that.
+
+72
+00:03:22,610 --> 00:03:25,530
+The next decision you'll need
+to make is the size of the
+
+73
+00:03:25,530 --> 00:03:29,890
+headline, which can be anywhere
+from 200% to 300% of
+
+74
+00:03:29,890 --> 00:03:31,150
+the body copy.
+
+75
+00:03:31,150 --> 00:03:34,460
+Everything else can be set
+relatively in between there.
+
+76
+00:03:34,460 --> 00:03:38,400
+The b-head is at 150% of
+the body copy, and the
+
+77
+00:03:38,400 --> 00:03:42,200
+navigational text is the same
+size as the body copy.
+
+78
+00:03:42,200 --> 00:03:45,750
+Your byline text should be
+smaller than your body copy by
+
+79
+00:03:45,750 --> 00:03:49,260
+2 to 4 pixels, or about 75%.
+
+80
+00:03:49,260 --> 00:03:52,030
+Once you've got your type sizes
+set, it's time to move
+
+81
+00:03:52,030 --> 00:03:53,116
+on to leading.
+
+82
+00:03:53,116 --> 00:03:56,310
+Leading is the amount of space
+between lines of text.
+
+83
+00:03:56,310 --> 00:03:59,770
+It's measured from baseline to
+baseline, and as you can see
+
+84
+00:03:59,770 --> 00:04:03,930
+here, a baseline is the line
+where the majority of the font
+
+85
+00:04:03,930 --> 00:04:08,630
+ends, with the exception of
+characters like y, p, or g,
+
+86
+00:04:08,630 --> 00:04:11,190
+that have what is known
+as a descender that
+
+87
+00:04:11,190 --> 00:04:14,870
+goes below the baseline.
+
+88
+00:04:14,870 --> 00:04:17,200
+Leading that is too large
+negatively affects
+
+89
+00:04:17,200 --> 00:04:21,290
+readability, as the eye has to
+move further between lines of
+
+90
+00:04:21,290 --> 00:04:24,200
+text, and can easily get lost.
+
+91
+00:04:24,200 --> 00:04:27,460
+On the other side, leading that
+is too small can create a
+
+92
+00:04:27,460 --> 00:04:31,500
+cramped or claustrophobic feel
+that rushes the reader, and
+
+93
+00:04:31,500 --> 00:04:33,780
+generally makes them
+feel uncomfortable.
+
+94
+00:04:33,780 --> 00:04:36,810
+Remember, it's about visual
+relationships.
+
+95
+00:04:36,810 --> 00:04:39,520
+Establishing a proper
+relationship between the text
+
+96
+00:04:39,520 --> 00:04:42,810
+and the space around it is
+going to increase user
+
+97
+00:04:42,810 --> 00:04:44,380
+engagement.
+
+98
+00:04:44,380 --> 00:04:49,380
+Good leading is around 120% to
+150% of the body copy size.
+
+99
+00:04:49,380 --> 00:04:51,670
+Luckily for us, we don't
+have to do the math.
+
+100
+00:04:51,670 --> 00:04:54,880
+By using the CSS property line-
+height and setting it
+
+101
+00:04:54,880 --> 00:04:59,150
+relatively to 1.5 will ensure
+that no matter what the font
+
+102
+00:04:59,150 --> 00:05:03,600
+size is, that the line height
+will always be 150% of that.
+
+103
+00:05:03,600 --> 00:05:06,440
+
+104
+00:05:06,440 --> 00:05:10,160
+Another visual hierarchy tool at
+your disposal is using bold
+
+105
+00:05:10,160 --> 00:05:12,200
+or italic weights.
+
+106
+00:05:12,200 --> 00:05:15,890
+Using these different weights
+can add emphasis and intrigue
+
+107
+00:05:15,890 --> 00:05:17,090
+to your design.
+
+108
+00:05:17,090 --> 00:05:20,740
+However, using too much bold
+can muddy your hierarchy.
+
+109
+00:05:20,740 --> 00:05:24,510
+It's almost as if everything is
+screaming at you at once.
+
+110
+00:05:24,510 --> 00:05:26,910
+Also, make sure your
+bold or italics
+
+111
+00:05:26,910 --> 00:05:29,550
+compliment the natural value.
+
+112
+00:05:29,550 --> 00:05:33,100
+For instance, the eye naturally
+expects the headline
+
+113
+00:05:33,100 --> 00:05:37,600
+to be bolder than the body copy,
+so by using a thin font
+
+114
+00:05:37,600 --> 00:05:41,530
+for your headline and a bold
+font for your body copy,
+
+115
+00:05:41,530 --> 00:05:43,710
+you're going to confuse
+the user.
+
+116
+00:05:43,710 --> 00:05:46,880
+When using bold or italic
+weights, stick to a less is
+
+117
+00:05:46,880 --> 00:05:49,210
+more approach that will really
+enhance your hierarchy.
+
+118
+00:05:49,210 --> 00:05:52,310
+
+119
+00:05:52,310 --> 00:05:54,750
+Now you can try your hand
+at these concepts in the
+
+120
+00:05:54,750 --> 00:05:56,000
+challenges.
+
+121
+00:05:56,000 --> 00:05:56,930

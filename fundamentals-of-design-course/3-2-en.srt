@@ -1,0 +1,286 @@
+1
+00:00:00,000 --> 00:00:02,050
+
+2
+00:00:02,050 --> 00:00:04,840
+Now that you've learned how to
+order elements on the page,
+
+3
+00:00:04,840 --> 00:00:08,460
+it's time to talk about how to
+align them to a grid, which is
+
+4
+00:00:08,460 --> 00:00:10,730
+the structural guideline
+for organizing
+
+5
+00:00:10,730 --> 00:00:12,880
+elements on the page.
+
+6
+00:00:12,880 --> 00:00:16,580
+It is made up of a system of
+horizontal and vertical lines
+
+7
+00:00:16,580 --> 00:00:19,700
+where the vertical lines create
+columns with gutters in
+
+8
+00:00:19,700 --> 00:00:22,860
+between them that are used to
+proportionally distribute
+
+9
+00:00:22,860 --> 00:00:26,420
+elements across the page, and the
+horizontal lines are used
+
+10
+00:00:26,420 --> 00:00:29,490
+to create a baseline for text
+that should be equal to the
+
+11
+00:00:29,490 --> 00:00:30,610
+line height.
+
+12
+00:00:30,610 --> 00:00:32,610
+Though baselines are
+really difficult to
+
+13
+00:00:32,610 --> 00:00:34,180
+implement on the web -
+
+14
+00:00:34,180 --> 00:00:36,620
+the browser support
+just isn't there -
+
+15
+00:00:36,620 --> 00:00:40,030
+use them in Photoshop or another
+graphics software as a
+
+16
+00:00:40,030 --> 00:00:42,640
+reference when designing,
+and do what you can
+
+17
+00:00:42,640 --> 00:00:44,800
+to carry them through.
+
+18
+00:00:44,800 --> 00:00:48,270
+The Apple store uses a grid
+system to organize all of
+
+19
+00:00:48,270 --> 00:00:49,620
+their content.
+
+20
+00:00:49,620 --> 00:00:53,410
+When we overlay a system of
+vertical lines, we can see
+
+21
+00:00:53,410 --> 00:00:57,760
+quite plainly the columns and
+the gutters that they're using
+
+22
+00:00:57,760 --> 00:00:59,010
+to organize everything.
+
+23
+00:00:59,010 --> 00:01:01,180
+
+24
+00:01:01,180 --> 00:01:04,060
+Grids come in many different
+shapes and sizes.
+
+25
+00:01:04,060 --> 00:01:08,100
+The 960 grid system used to be
+standard, but more and more
+
+26
+00:01:08,100 --> 00:01:11,380
+websites are leaving
+behind fixed grids.
+
+27
+00:01:11,380 --> 00:01:12,800
+What do I mean by that?
+
+28
+00:01:12,800 --> 00:01:16,930
+With a fixed grid, the browser
+can get bigger or smaller, and
+
+29
+00:01:16,930 --> 00:01:19,200
+the grid will remain constant.
+
+30
+00:01:19,200 --> 00:01:22,720
+But with a fluid grid, it grows
+or shrinks with the
+
+31
+00:01:22,720 --> 00:01:26,580
+browser window, and columns are
+either added or dropped to
+
+32
+00:01:26,580 --> 00:01:29,500
+better serve that size.
+
+33
+00:01:29,500 --> 00:01:32,600
+For simplicity's sake, in this
+course, we're going to be
+
+34
+00:01:32,600 --> 00:01:34,450
+using a fixed grid.
+
+35
+00:01:34,450 --> 00:01:37,380
+Get used to working with a grid
+here, but really do your
+
+36
+00:01:37,380 --> 00:01:41,880
+research and implement a fluid
+grid in the wild, wild web.
+
+37
+00:01:41,880 --> 00:01:45,120
+You can use the grid to break
+down your site into more
+
+38
+00:01:45,120 --> 00:01:46,660
+manageable chunks.
+
+39
+00:01:46,660 --> 00:01:52,980
+For instance, here we have six
+columns grouped into halves, or
+
+40
+00:01:52,980 --> 00:01:57,310
+four columns grouped into thirds
+or, further still,
+
+41
+00:01:57,310 --> 00:01:58,965
+three columns grouped
+into quarters.
+
+42
+00:01:58,965 --> 00:02:02,230
+
+43
+00:02:02,230 --> 00:02:05,260
+We can see that the Apple
+store uses all three.
+
+44
+00:02:05,260 --> 00:02:09,070
+The very top row is broken down
+into quarters with three
+
+45
+00:02:09,070 --> 00:02:11,380
+columns per element.
+
+46
+00:02:11,380 --> 00:02:15,260
+The second row is broken into
+thirds with the main element
+
+47
+00:02:15,260 --> 00:02:18,680
+using up 2/3 of the width
+and the other
+
+48
+00:02:18,680 --> 00:02:20,920
+element using one third.
+
+49
+00:02:20,920 --> 00:02:24,180
+Underneath that, we have six
+columns grouped together to
+
+50
+00:02:24,180 --> 00:02:27,950
+create halves and so
+on and so forth.
+
+51
+00:02:27,950 --> 00:02:31,020
+We can take all the elements
+from the previous challenge
+
+52
+00:02:31,020 --> 00:02:34,750
+and lay them out on the grid,
+giving order to the chaos.
+
+53
+00:02:34,750 --> 00:02:37,480
+And the grid is versatile
+enough to accept all the
+
+54
+00:02:37,480 --> 00:02:39,300
+layouts we've made.
+
+55
+00:02:39,300 --> 00:02:42,810
+Also, avoid clutter by
+respecting the gutters.
+
+56
+00:02:42,810 --> 00:02:48,140
+Don't put design elements or
+type in between the columns.
+
+57
+00:02:48,140 --> 00:02:51,320
+Remember, we're establishing
+visual relationships on behalf
+
+58
+00:02:51,320 --> 00:02:52,520
+of the user.
+
+59
+00:02:52,520 --> 00:02:55,940
+And by adhering to the grid,
+we're creating relationships
+
+60
+00:02:55,940 --> 00:03:00,620
+between elements that make the
+content easier to consume.
+
+61
+00:03:00,620 --> 00:03:02,280
+Now, try working with
+the grid yourself.
+
+62
+00:03:02,280 --> 00:03:04,919

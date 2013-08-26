@@ -1,0 +1,513 @@
+1
+00:00:00,000 --> 00:00:01,840
+
+2
+00:00:01,840 --> 00:00:02,160
+[SINGING]
+
+3
+00:00:02,160 --> 00:00:04,730
+Learn to use fonts
+with typography.
+
+4
+00:00:04,730 --> 00:00:08,109
+A style guide helps
+visual hierarchy.
+
+5
+00:00:08,109 --> 00:00:13,700
+With HSL build a color scheme,
+and add a page layout to
+
+6
+00:00:13,700 --> 00:00:14,600
+complete the scene.
+
+7
+00:00:14,600 --> 00:00:18,050
+Combine these topics, and
+you will find the
+
+8
+00:00:18,050 --> 00:00:19,970
+Fundamentals of Design.
+
+9
+00:00:19,970 --> 00:00:24,590
+
+10
+00:00:24,590 --> 00:00:27,030
+You're watching the
+Fundamentals of Design.
+
+11
+00:00:27,030 --> 00:00:29,850
+These next few videos, we're
+going to be going over color
+
+12
+00:00:29,850 --> 00:00:33,810
+and how to incorporate them
+into your website or app.
+
+13
+00:00:33,810 --> 00:00:36,470
+Let's start with some
+basic color theory.
+
+14
+00:00:36,470 --> 00:00:39,180
+There are two types of color:
+
+15
+00:00:39,180 --> 00:00:43,300
+color you can touch, like the
+skin of an apple, and then
+
+16
+00:00:43,300 --> 00:00:46,100
+there's color you can't touch,
+like the projected light
+
+17
+00:00:46,100 --> 00:00:47,880
+coming from a monitor.
+
+18
+00:00:47,880 --> 00:00:51,280
+Color you can touch is called
+subtractive color, and color
+
+19
+00:00:51,280 --> 00:00:55,530
+you can't touch is called
+additive color.
+
+20
+00:00:55,530 --> 00:00:58,760
+Subtractive color is controlled
+using the CMYK
+
+21
+00:00:58,760 --> 00:00:59,720
+color space.
+
+22
+00:00:59,720 --> 00:01:03,390
+You may have noticed that your
+printer at home has four basic
+
+23
+00:01:03,390 --> 00:01:04,629
+ink cartridges -
+
+24
+00:01:04,629 --> 00:01:09,180
+cyan, magenta, yellow,
+and black.
+
+25
+00:01:09,180 --> 00:01:15,440
+And in theory, all of these
+colors mixed create black.
+
+26
+00:01:15,440 --> 00:01:19,060
+Additive color is controlled
+using the RGB color spectrum,
+
+27
+00:01:19,060 --> 00:01:22,040
+which stands for red,
+green, and blue.
+
+28
+00:01:22,040 --> 00:01:25,420
+And in theory, all colors
+mix to yield white.
+
+29
+00:01:25,420 --> 00:01:28,070
+Because we're dealing primarily
+with web design,
+
+30
+00:01:28,070 --> 00:01:31,140
+we're going to be dealing with
+the RGB color space.
+
+31
+00:01:31,140 --> 00:01:33,790
+Humans don't process color
+in the terms of
+
+32
+00:01:33,790 --> 00:01:35,130
+red, green, and blue.
+
+33
+00:01:35,130 --> 00:01:39,350
+We actually process things in
+the terms of HSL, which stands
+
+34
+00:01:39,350 --> 00:01:43,470
+for hue, saturation,
+and lightness.
+
+35
+00:01:43,470 --> 00:01:46,660
+Hue is best visualized
+on a color wheel.
+
+36
+00:01:46,660 --> 00:01:50,090
+You start at zero degrees, which
+is red, and as you move
+
+37
+00:01:50,090 --> 00:01:53,600
+around the circle, you get
+to different colors.
+
+38
+00:01:53,600 --> 00:01:57,170
+Each degree correlates
+to a different color.
+
+39
+00:01:57,170 --> 00:02:02,590
+120 degrees is green, and 240
+degrees is blue, perfectly
+
+40
+00:02:02,590 --> 00:02:06,770
+encapsulating the entire
+RGB color space.
+
+41
+00:02:06,770 --> 00:02:09,979
+The S stands for saturation,
+which is the difference
+
+42
+00:02:09,979 --> 00:02:11,700
+between a color and gray.
+
+43
+00:02:11,700 --> 00:02:16,570
+A hue at 100% saturation is the
+most vibrant forum that
+
+44
+00:02:16,570 --> 00:02:20,690
+color, where at 0% is gray.
+
+45
+00:02:20,690 --> 00:02:23,980
+And lightness is the amount
+of light in a color.
+
+46
+00:02:23,980 --> 00:02:29,560
+A hue at 100% lightness
+is white and at 0%
+
+47
+00:02:29,560 --> 00:02:31,670
+lightness is black.
+
+48
+00:02:31,670 --> 00:02:36,920
+And 50% lightness is the most
+vibrant form of that hue.
+
+49
+00:02:36,920 --> 00:02:40,350
+For example, let's say we've got
+a color where the hue is
+
+50
+00:02:40,350 --> 00:02:43,930
+zero degrees, the saturation
+is 100%, and the
+
+51
+00:02:43,930 --> 00:02:45,860
+lightness is 50%.
+
+52
+00:02:45,860 --> 00:02:49,200
+This is the most pure form of
+red that we can get in HSL
+
+53
+00:02:49,200 --> 00:02:50,980
+color space.
+
+54
+00:02:50,980 --> 00:02:55,440
+But what happens if we increase
+the lightness to 75%?
+
+55
+00:02:55,440 --> 00:02:58,920
+We actually get a color that
+has more white in it, more
+
+56
+00:02:58,920 --> 00:03:03,870
+light in it, and so therefore
+is more of a pink color.
+
+57
+00:03:03,870 --> 00:03:06,900
+In the same way, if we were to
+decrease the lightness, we're
+
+58
+00:03:06,900 --> 00:03:09,890
+adding more black into that
+color, and we're actually
+
+59
+00:03:09,890 --> 00:03:12,560
+getting a much darker red.
+
+60
+00:03:12,560 --> 00:03:15,570
+So now if we bring the lightness
+back up to its
+
+61
+00:03:15,570 --> 00:03:19,320
+original 50% and instead of
+messing with the lightness, we
+
+62
+00:03:19,320 --> 00:03:23,860
+drop the saturation down to 25%,
+we get a very muted or
+
+63
+00:03:23,860 --> 00:03:26,910
+pastel red color.
+
+64
+00:03:26,910 --> 00:03:30,250
+And from there, if I were to
+completely reverse the hue to
+
+65
+00:03:30,250 --> 00:03:36,450
+be 180 degrees, we actually get
+a muted teal-ish color.
+
+66
+00:03:36,450 --> 00:03:39,080
+The HSL color space can be
+visualized as a three
+
+67
+00:03:39,080 --> 00:03:40,960
+dimensional cylinder.
+
+68
+00:03:40,960 --> 00:03:43,710
+Let's walk through each
+one of the dimensions.
+
+69
+00:03:43,710 --> 00:03:45,640
+The first one is hue.
+
+70
+00:03:45,640 --> 00:03:49,320
+As we talked about earlier, as
+you move around the circle,
+
+71
+00:03:49,320 --> 00:03:50,210
+the hue changes.
+
+72
+00:03:50,210 --> 00:03:52,770
+Each degree is a different
+color.
+
+73
+00:03:52,770 --> 00:03:54,900
+The second one is saturation.
+
+74
+00:03:54,900 --> 00:03:57,560
+If you visualize it as starting
+in the middle and the
+
+75
+00:03:57,560 --> 00:04:01,320
+core of the cylinder and moving
+towards the outsides,
+
+76
+00:04:01,320 --> 00:04:04,650
+the saturation increases
+or decreases.
+
+77
+00:04:04,650 --> 00:04:07,240
+And the third dimension is
+lightness, which starts at the
+
+78
+00:04:07,240 --> 00:04:10,750
+bottom of the cylinder and moves
+up to the top, being
+
+79
+00:04:10,750 --> 00:04:14,500
+black at the bottom and
+white at the top.
+
+80
+00:04:14,500 --> 00:04:17,170
+It's very inconvenient to view
+this three dimensional
+
+81
+00:04:17,170 --> 00:04:21,279
+color space on a 2D monitor,
+so usually a hue saturation
+
+82
+00:04:21,279 --> 00:04:24,510
+wheel and a brightness slider
+does the trick.
+
+83
+00:04:24,510 --> 00:04:26,520
+Let's look at these in action.
+
+84
+00:04:26,520 --> 00:04:30,810
+For example, if I were to select
+a color that has 240
+
+85
+00:04:30,810 --> 00:04:33,980
+degrees in hue and 100% for the
+
+86
+00:04:33,980 --> 00:04:37,160
+saturation, it would be here.
+
+87
+00:04:37,160 --> 00:04:40,800
+And if I were to set the
+lightness at 50%, I get this
+
+88
+00:04:40,800 --> 00:04:43,795
+color, which is the purest
+form of blue in
+
+89
+00:04:43,795 --> 00:04:45,950
+the RGB color space.
+
+90
+00:04:45,950 --> 00:04:50,560
+If I were to decrease the
+saturation, the hue saturation
+
+91
+00:04:50,560 --> 00:04:54,440
+selector would move in towards
+the middle of the circle.
+
+92
+00:04:54,440 --> 00:04:58,010
+And leaving the lightness slider
+at 50% creates a more
+
+93
+00:04:58,010 --> 00:05:00,220
+muted blue.
+
+94
+00:05:00,220 --> 00:05:04,310
+Now, if I leave the hue and
+saturation where it was at and
+
+95
+00:05:04,310 --> 00:05:08,180
+increase the lightness slider,
+I'm adding more white into the
+
+96
+00:05:08,180 --> 00:05:13,100
+color, and I actually get
+a very pastel purple.
+
+97
+00:05:13,100 --> 00:05:15,220
+You may have noticed that in
+this course, we're using the
+
+98
+00:05:15,220 --> 00:05:19,030
+HSL color space, where L
+stands for lightness.
+
+99
+00:05:19,030 --> 00:05:21,660
+If you were to open up Photoshop
+or any other
+
+100
+00:05:21,660 --> 00:05:25,090
+application that has a color
+picker, you would probably see
+
+101
+00:05:25,090 --> 00:05:29,560
+the HSB color space, the
+B being brightness.
+
+102
+00:05:29,560 --> 00:05:31,430
+So what's the difference?
+
+103
+00:05:31,430 --> 00:05:36,540
+The difference is that with
+lightness at 100%,
+
+104
+00:05:36,540 --> 00:05:38,100
+the color is white.
+
+105
+00:05:38,100 --> 00:05:41,330
+But with the brightness at 100%,
+the color is simply the
+
+106
+00:05:41,330 --> 00:05:42,680
+most vibrant form of that hue.
+
+107
+00:05:42,680 --> 00:05:45,870
+
+108
+00:05:45,870 --> 00:05:48,610
+It's time for you to try your
+hand at mixing colors in these
+
+109
+00:05:48,610 --> 00:05:49,860
+different color spaces.
+
+110
+00:05:49,860 --> 00:05:53,113

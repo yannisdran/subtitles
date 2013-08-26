@@ -1,0 +1,404 @@
+1
+00:00:00,000 --> 00:00:01,380
+
+2
+00:00:01,380 --> 00:00:01,840
+[SINGING]
+
+3
+00:00:01,840 --> 00:00:04,700
+Learn to use fonts
+with typography.
+
+4
+00:00:04,700 --> 00:00:08,160
+A style guide helps
+visual hierarchy.
+
+5
+00:00:08,160 --> 00:00:11,320
+With HSL, build a
+color scheme.
+
+6
+00:00:11,320 --> 00:00:14,600
+And add a page layout to
+complete the scene.
+
+7
+00:00:14,600 --> 00:00:18,050
+Combine these topics, and
+you will find the
+
+8
+00:00:18,050 --> 00:00:19,560
+fundamentals of design.
+
+9
+00:00:19,560 --> 00:00:24,460
+
+10
+00:00:24,460 --> 00:00:25,600
+You're watching part
+three of the
+
+11
+00:00:25,600 --> 00:00:27,290
+Fundamentals of Design course.
+
+12
+00:00:27,290 --> 00:00:30,060
+In the next few videos, we're
+going to be walking through
+
+13
+00:00:30,060 --> 00:00:32,509
+different layout concepts.
+
+14
+00:00:32,509 --> 00:00:36,760
+Layout is fundamentally an
+exercise in visual hierarchy.
+
+15
+00:00:36,760 --> 00:00:40,970
+Yet again, you arrange the
+elements on the page to direct
+
+16
+00:00:40,970 --> 00:00:43,420
+and engage the user's eye.
+
+17
+00:00:43,420 --> 00:00:46,660
+Let's look at some of the basic
+elements of a website
+
+18
+00:00:46,660 --> 00:00:49,160
+and how they might be laid
+out on the page.
+
+19
+00:00:49,160 --> 00:00:52,720
+Because English is read from
+left to right and top to
+
+20
+00:00:52,720 --> 00:00:56,990
+bottom, users generally start in
+the upper left hand corner
+
+21
+00:00:56,990 --> 00:01:00,320
+of the page and move
+out from there.
+
+22
+00:01:00,320 --> 00:01:03,270
+So a good place to start is by
+placing your logo or your
+
+23
+00:01:03,270 --> 00:01:05,860
+brand in the upper
+left hand corner.
+
+24
+00:01:05,860 --> 00:01:09,860
+It's important to note that a
+brand is not just a logo, and
+
+25
+00:01:09,860 --> 00:01:14,460
+that every pixel on the page
+should reinforce your brand.
+
+26
+00:01:14,460 --> 00:01:18,570
+But including a logo is
+a great first step.
+
+27
+00:01:18,570 --> 00:01:21,220
+Once you've placed your logo
+on the page, it's time to
+
+28
+00:01:21,220 --> 00:01:23,120
+place your navigation.
+
+29
+00:01:23,120 --> 00:01:26,440
+Because navigation varies so
+much from site to site, there
+
+30
+00:01:26,440 --> 00:01:30,080
+are no real set guidelines
+on how to place it.
+
+31
+00:01:30,080 --> 00:01:33,280
+It's all about making something
+complex as simple
+
+32
+00:01:33,280 --> 00:01:35,990
+and consistent as possible.
+
+33
+00:01:35,990 --> 00:01:39,550
+Navigations can be horizontal
+or vertical.
+
+34
+00:01:39,550 --> 00:01:42,950
+For instance, horizontal is
+ideal for navigations with
+
+35
+00:01:42,950 --> 00:01:44,200
+only a few items.
+
+36
+00:01:44,200 --> 00:01:46,790
+
+37
+00:01:46,790 --> 00:01:51,800
+However, vertical works well,
+in a similar fashion.
+
+38
+00:01:51,800 --> 00:01:55,540
+Vertical really excels when
+you've got a lot of nested
+
+39
+00:01:55,540 --> 00:01:59,750
+pages, though if you drop your
+horizontal navigation below
+
+40
+00:01:59,750 --> 00:02:05,770
+the logo, a tiered system with
+lots of items works as well.
+
+41
+00:02:05,770 --> 00:02:09,650
+Both layouts are great for drop
+downs or fly outs, such
+
+42
+00:02:09,650 --> 00:02:13,650
+as Amazon's vertical fly out
+navigation that works really
+
+43
+00:02:13,650 --> 00:02:21,120
+well and ESPN's great horizontal
+drop down menu.
+
+44
+00:02:21,120 --> 00:02:24,100
+It's important to note that
+vertical navigation isn't
+
+45
+00:02:24,100 --> 00:02:25,600
+really used all that much.
+
+46
+00:02:25,600 --> 00:02:28,640
+And while it does work, make
+sure you've got a really good
+
+47
+00:02:28,640 --> 00:02:30,230
+reason to use it.
+
+48
+00:02:30,230 --> 00:02:32,970
+Once you've got your logo and
+your navigation placed, it's
+
+49
+00:02:32,970 --> 00:02:34,970
+time to place your
+main content.
+
+50
+00:02:34,970 --> 00:02:39,840
+And the main content can be
+placed under a horizontal nav
+
+51
+00:02:39,840 --> 00:02:43,610
+or next to a vertical nav.
+
+52
+00:02:43,610 --> 00:02:46,730
+Whatever you do, make sure that
+the content within the
+
+53
+00:02:46,730 --> 00:02:51,230
+main content container
+reinforces the hierarchy.
+
+54
+00:02:51,230 --> 00:02:52,980
+So, what exactly does
+that mean?
+
+55
+00:02:52,980 --> 00:02:55,600
+The eye will follow directional
+cues of elements
+
+56
+00:02:55,600 --> 00:02:57,010
+on the page.
+
+57
+00:02:57,010 --> 00:03:00,350
+So make sure that all those
+directional cues are pointing
+
+58
+00:03:00,350 --> 00:03:01,660
+to your content.
+
+59
+00:03:01,660 --> 00:03:05,090
+For instance, you can see here
+this businessman on this photo
+
+60
+00:03:05,090 --> 00:03:07,780
+is looking away from
+the main content.
+
+61
+00:03:07,780 --> 00:03:10,470
+So the user's eye is going to
+start in the upper left hand
+
+62
+00:03:10,470 --> 00:03:13,530
+corner, and as it moves down,
+it's going to notice the
+
+63
+00:03:13,530 --> 00:03:17,730
+businessman and where he's
+looking and follow it off the
+
+64
+00:03:17,730 --> 00:03:20,960
+page and not engaging
+with your content.
+
+65
+00:03:20,960 --> 00:03:24,230
+To improve upon this, if the
+businessman was looking at the
+
+66
+00:03:24,230 --> 00:03:27,870
+content, you'd start in the
+upper left hand corner and
+
+67
+00:03:27,870 --> 00:03:31,490
+move down, notice where he's
+looking, and be encouraged to
+
+68
+00:03:31,490 --> 00:03:34,210
+engage with the rest of
+the content more.
+
+69
+00:03:34,210 --> 00:03:37,970
+We can make this even better
+by making the content first
+
+70
+00:03:37,970 --> 00:03:41,410
+and the directional cues
+reinforce that content.
+
+71
+00:03:41,410 --> 00:03:44,850
+So here we start with the logo,
+and as our eye moves, we
+
+72
+00:03:44,850 --> 00:03:46,960
+directly engage with
+the content.
+
+73
+00:03:46,960 --> 00:03:50,390
+And if, by chance, our eye was
+to bounce far to the right,
+
+74
+00:03:50,390 --> 00:03:53,030
+the directional cues
+of that image lead
+
+75
+00:03:53,030 --> 00:03:55,560
+us back to the content.
+
+76
+00:03:55,560 --> 00:03:58,640
+Secondary content should be
+smaller and relegated to the
+
+77
+00:03:58,640 --> 00:04:02,060
+side, though it can also be
+broken up into chunks and
+
+78
+00:04:02,060 --> 00:04:04,580
+placed underneath the
+main content.
+
+79
+00:04:04,580 --> 00:04:07,470
+And finally, the footer anchors
+the page and provides
+
+80
+00:04:07,470 --> 00:04:10,360
+quick hit information that
+your user might need
+
+81
+00:04:10,360 --> 00:04:11,510
+quick access to.
+
+82
+00:04:11,510 --> 00:04:14,240
+And no matter what the layout
+is, the footer should always
+
+83
+00:04:14,240 --> 00:04:15,719
+span the entire width
+of the page.
+
+84
+00:04:15,719 --> 00:04:19,339
+
+85
+00:04:19,339 --> 00:04:21,550
+Alright, now it's time for you to start
+putting together some layouts.
+
+86
+00:04:21,550 --> 00:04:25,516
