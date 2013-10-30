@@ -1,0 +1,537 @@
+﻿1
+00:00:00,560 --> 00:00:01,025
+[SINGING]
+
+2
+00:00:01,025 --> 00:00:04,220
+From the labyrinth of loops to
+the variable valley, we'll see
+
+3
+00:00:04,220 --> 00:00:05,895
+the cliffs of value first.
+JavaScript's
+
+4
+00:00:05,895 --> 00:00:07,170
+right up your alley.
+
+5
+00:00:07,170 --> 00:00:10,490
+Built-ins Bluff, Files Falls,
+Array Archipelago.
+
+6
+00:00:10,490 --> 00:00:12,680
+Declarations in a desert
+where you'll find out
+
+7
+00:00:12,680 --> 00:00:13,670
+how far you'll go.
+
+8
+00:00:13,670 --> 00:00:14,500
+Learn the program.
+
+9
+00:00:14,500 --> 00:00:15,320
+Take a ride.
+
+10
+00:00:15,320 --> 00:00:15,990
+Buy a ticket.
+
+11
+00:00:15,990 --> 00:00:16,340
+Step inside.
+
+12
+00:00:16,340 --> 00:00:18,084
+All aboard -
+
+13
+00:00:18,084 --> 00:00:20,070
+you're at the station to
+increase your education.
+
+14
+00:00:20,070 --> 00:00:21,240
+Bon voyage and skinny dip -
+
+15
+00:00:21,240 --> 00:00:23,820
+as long as functions you
+don't skimp on this - The
+
+16
+00:00:23,820 --> 00:00:27,700
+JavaScript Road Trip.
+
+17
+00:00:32,450 --> 00:00:33,630
+So, variables are pretty
+cool, right?
+
+18
+00:00:33,630 --> 00:00:35,390
+I hope you enjoyed Level Two.
+
+19
+00:00:35,390 --> 00:00:37,780
+But who wants to code in the
+console all day long?
+
+20
+00:00:37,780 --> 00:00:38,320
+Not me.
+
+21
+00:00:38,320 --> 00:00:38,860
+Not you.
+
+22
+00:00:38,860 --> 00:00:41,830
+We need a way to build some
+JavaScript source files and
+
+23
+00:00:41,830 --> 00:00:43,810
+run them inside our HTML code.
+
+24
+00:00:43,810 --> 00:00:47,140
+So, here comes level three:
+Files Falls.
+
+25
+00:00:47,140 --> 00:00:48,390
+Don't jump.
+
+26
+00:00:50,800 --> 00:00:53,060
+At the end of the last level,
+we started talking about a
+
+27
+00:00:53,060 --> 00:00:56,410
+system of trains, in which some
+were running and some
+
+28
+00:00:56,410 --> 00:00:57,520
+were not running.
+
+29
+00:00:57,520 --> 00:01:01,440
+Our goal for this level is to
+print out a list of trains
+
+30
+00:01:01,440 --> 00:01:03,280
+that are running.
+
+31
+00:01:03,280 --> 00:01:06,420
+So, let's say for the sake of
+consistency that our trains
+
+32
+00:01:06,420 --> 00:01:10,670
+are numbered according to
+who's running first.
+
+33
+00:01:10,670 --> 00:01:13,720
+And then thereafter, the trains
+that are not running
+
+34
+00:01:13,720 --> 00:01:15,320
+are numbered later.
+
+35
+00:01:15,320 --> 00:01:18,010
+So here in our images, we see
+that we have trains 1
+
+36
+00:01:18,010 --> 00:01:21,400
+through 8 that are running
+and trains 9 through 12,
+
+37
+00:01:21,400 --> 00:01:22,900
+which are not running today.
+
+38
+00:01:27,070 --> 00:01:30,410
+We have a relatively easy way to
+print these messages out on
+
+39
+00:01:30,410 --> 00:01:31,340
+our console.
+
+40
+00:01:31,340 --> 00:01:33,220
+We can just concatenate
+a few strings
+
+41
+00:01:33,220 --> 00:01:34,830
+together with some values.
+
+42
+00:01:34,830 --> 00:01:37,850
+And we can get statements like
+"Train #1 is running,"
+
+43
+00:01:37,850 --> 00:01:41,450
+"Train #2 is running,"
+"Train #3 is running."
+
+44
+00:01:41,450 --> 00:01:44,070
+And then we would do a whole
+bunch of that and realize that
+
+45
+00:01:44,070 --> 00:01:46,940
+none of it gets printed out
+in our user's browser.
+
+46
+00:01:46,940 --> 00:01:50,000
+We need a way to be able to
+convey the messages that we
+
+47
+00:01:50,000 --> 00:01:53,330
+want to display to our customers
+in their browser.
+
+48
+00:01:53,330 --> 00:01:55,470
+And that's why we need
+a JavaScript file.
+
+49
+00:01:58,060 --> 00:02:02,270
+A JavaScript file is for running
+our written JavaScript
+
+50
+00:02:02,270 --> 00:02:05,360
+code in somebody
+else's browser.
+
+51
+00:02:05,360 --> 00:02:08,350
+Here we have an index.html
+file.
+
+52
+00:02:08,350 --> 00:02:12,105
+Inside, you'll see some common
+HTML code with some common
+
+53
+00:02:12,105 --> 00:02:13,910
+HTML elements.
+
+54
+00:02:13,910 --> 00:02:19,000
+Once the user's browser loads
+this HTML code, we want it to
+
+55
+00:02:19,000 --> 00:02:21,990
+execute some JavaScript code.
+
+56
+00:02:21,990 --> 00:02:26,070
+To do this, we'll use a script
+tag inside the HTML code.
+
+57
+00:02:26,070 --> 00:02:31,060
+And that script tag will tell
+the HTML file which JavaScript
+
+58
+00:02:31,060 --> 00:02:34,680
+file contains the code
+that we want to run.
+
+59
+00:02:34,680 --> 00:02:37,400
+You'll notice inside the script
+tag that we have an SRC
+
+60
+00:02:37,400 --> 00:02:41,980
+keyword that's being assigned
+to the file trains.js.
+
+61
+00:02:41,980 --> 00:02:46,880
+That is our JavaScript file for
+this particular system.
+
+62
+00:02:46,880 --> 00:02:50,180
+Notice also that you need to
+turn off the script tag inside
+
+63
+00:02:50,180 --> 00:02:53,410
+your HTML so that the
+HTML file knows when
+
+64
+00:02:53,410 --> 00:02:54,760
+your script tag ends.
+
+65
+00:02:59,270 --> 00:03:03,370
+So now what is inside
+that trains.js file?
+
+66
+00:03:03,370 --> 00:03:05,190
+Well, it's our JavaScript
+code, of course.
+
+67
+00:03:05,190 --> 00:03:08,340
+We want to build a file of
+JavaScript code that can be
+
+68
+00:03:08,340 --> 00:03:11,480
+used every time a user
+opens our website.
+
+69
+00:03:11,480 --> 00:03:14,210
+To create this file, you can
+use any text-based editor,
+
+70
+00:03:14,210 --> 00:03:16,840
+like TextEdit or Notepad.
+
+71
+00:03:16,840 --> 00:03:19,870
+Inside that file, we're going to
+produce all the JavaScript
+
+72
+00:03:19,870 --> 00:03:22,990
+code that we want our user's
+browser to execute when it
+
+73
+00:03:22,990 --> 00:03:25,830
+reaches the script tag
+inside the HTML code.
+
+74
+00:03:29,100 --> 00:03:31,160
+So now, we have an index.html
+file, and we
+
+75
+00:03:31,160 --> 00:03:33,150
+have a trains.js file.
+
+76
+00:03:33,150 --> 00:03:35,240
+And we want to give you a little
+bit of file structure
+
+77
+00:03:35,240 --> 00:03:39,090
+here, so that you can keep
+your website organized.
+
+78
+00:03:39,090 --> 00:03:40,830
+Let's see where we can
+add our files in
+
+79
+00:03:40,830 --> 00:03:43,230
+an appropriate location.
+
+80
+00:03:43,230 --> 00:03:46,920
+So here we have a root folder
+for our entire website.
+
+81
+00:03:46,920 --> 00:03:48,650
+Everything about our website
+is contained
+
+82
+00:03:48,650 --> 00:03:50,480
+within our root folder.
+
+83
+00:03:50,480 --> 00:03:53,860
+And inside that root folder,
+meaning in the same directory,
+
+84
+00:03:53,860 --> 00:03:58,230
+we have an index.html file
+and our trains.js file.
+
+85
+00:03:58,230 --> 00:04:02,770
+Since our script tag has a
+source that reads trains.js,
+
+86
+00:04:02,770 --> 00:04:06,710
+our trains.js file needs to be
+in the exact same directory as
+
+87
+00:04:06,710 --> 00:04:08,510
+our index.html file.
+
+88
+00:04:12,550 --> 00:04:15,180
+Many websites, however will keep
+all of their JavaScript
+
+89
+00:04:15,180 --> 00:04:17,450
+files in one convenient
+location.
+
+90
+00:04:17,450 --> 00:04:20,310
+We want to be able to stay
+organized as you code.
+
+91
+00:04:20,310 --> 00:04:23,580
+So here you can see a root
+folder that contains the
+
+92
+00:04:23,580 --> 00:04:27,370
+index.html file, but also
+scripts folder.
+
+93
+00:04:27,370 --> 00:04:30,830
+And inside the scripts folder
+is our trains.js.
+
+94
+00:04:30,830 --> 00:04:33,830
+Now, how would we show that in
+our source link inside the
+
+95
+00:04:33,830 --> 00:04:35,850
+index.html file?
+
+96
+00:04:35,850 --> 00:04:39,720
+You can see here that we have
+the scripts file listed first,
+
+97
+00:04:39,720 --> 00:04:43,560
+followed by a forward slash
+and then trains.js.
+
+98
+00:04:43,560 --> 00:04:46,220
+What does that say to
+the index.html file?
+
+99
+00:04:46,220 --> 00:04:49,600
+It says first go down to the
+scripts folder, and there you
+
+100
+00:04:49,600 --> 00:04:50,850
+will find trains.js.
+
+101
+00:04:55,610 --> 00:04:59,640
+What happens if the files are
+really far apart, like nowhere
+
+102
+00:04:59,640 --> 00:05:00,720
+near each other?
+
+103
+00:05:00,720 --> 00:05:04,230
+Well, we can still find a way to
+stay organized as we code,
+
+104
+00:05:04,230 --> 00:05:06,640
+but we have to be a little bit
+more detailed inside of our
+
+105
+00:05:06,640 --> 00:05:10,250
+source links and incorporate a
+little bit different syntax.
+
+106
+00:05:10,250 --> 00:05:11,520
+So here we've got
+a root folder.
+
+107
+00:05:11,520 --> 00:05:16,120
+But now, our index.html file
+is in its own folder called
+
+108
+00:05:16,120 --> 00:05:18,710
+pages, because it's one of
+the pages of our website.
+
+109
+00:05:18,710 --> 00:05:22,630
+And our scripts contains
+trains.js.
+
+110
+00:05:22,630 --> 00:05:25,570
+So how do we show this
+in our source link?
+
+111
+00:05:25,570 --> 00:05:28,500
+Well, we need what's called
+a double dot notation.
+
+112
+00:05:28,500 --> 00:05:33,100
+That signals to the browser to
+go up a folder first and then
+
+113
+00:05:33,100 --> 00:05:35,930
+go down to the scripts file and
+then find the trains.js
+
+114
+00:05:35,930 --> 00:05:37,550
+file there.
+

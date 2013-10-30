@@ -1,0 +1,463 @@
+﻿1
+00:00:02,240 --> 00:00:05,170
+We can store anything inside
+of JavaScript variables.
+
+2
+00:00:05,170 --> 00:00:08,260
+Up until now we've been using
+numbers, but we can also store
+
+3
+00:00:08,260 --> 00:00:10,530
+strings inside of variables.
+
+4
+00:00:10,530 --> 00:00:13,070
+Here we have a welcome variable
+as well as a safety
+
+5
+00:00:13,070 --> 00:00:14,250
+tip variable.
+
+6
+00:00:14,250 --> 00:00:17,490
+We can use both of those
+variables that contain strings
+
+7
+00:00:17,490 --> 00:00:21,080
+in concatenation with a new line
+character to produce a
+
+8
+00:00:21,080 --> 00:00:24,525
+specifically formatted string in
+the output on the console.
+
+9
+00:00:29,440 --> 00:00:32,150
+If our variable contains a
+string, we can use the
+
+10
+00:00:32,150 --> 00:00:35,900
+.length property to access the
+length of that string instead
+
+11
+00:00:35,900 --> 00:00:38,380
+of typing the entire
+string out.
+
+12
+00:00:38,380 --> 00:00:41,840
+Here you can see our variable
+longString, with a string that
+
+13
+00:00:41,840 --> 00:00:43,940
+I wouldn't want to retype
+every time.
+
+14
+00:00:43,940 --> 00:00:47,090
+And if we use the .length
+property on longString, we can
+
+15
+00:00:47,090 --> 00:00:50,130
+see it returns the value
+49 as the length.
+
+16
+00:00:53,620 --> 00:00:56,190
+We can also compare string
+lengths using the length
+
+17
+00:00:56,190 --> 00:00:58,010
+property and a comparator.
+
+18
+00:00:58,010 --> 00:01:00,720
+So if we made two variables
+here, longWordoOne and
+
+19
+00:01:00,720 --> 00:01:03,540
+longWordTwo, and they're both
+huge and we don't want to
+
+20
+00:01:03,540 --> 00:01:06,400
+count each one or compare which
+one is longer, we can
+
+21
+00:01:06,400 --> 00:01:10,420
+use the greater than operator
+to ask whether the length of
+
+22
+00:01:10,420 --> 00:01:12,900
+the first string is greater
+than the length
+
+23
+00:01:12,900 --> 00:01:14,180
+of the second string.
+
+24
+00:01:14,180 --> 00:01:16,810
+When we use the .length
+property on two variables,
+
+25
+00:01:16,810 --> 00:01:18,570
+we're comparing two numbers.
+
+26
+00:01:18,570 --> 00:01:22,160
+And here we get a result of
+false, because longWordOne is
+
+27
+00:01:22,160 --> 00:01:23,460
+not longer than longWordTwo.
+
+28
+00:01:27,400 --> 00:01:30,570
+Now, JavaScript strings have
+a way of finding specific
+
+29
+00:01:30,570 --> 00:01:33,100
+characters within that string.
+
+30
+00:01:33,100 --> 00:01:36,230
+Each position inside a string
+has a numbered index that
+
+31
+00:01:36,230 --> 00:01:38,460
+begins from zero.
+
+32
+00:01:38,460 --> 00:01:40,440
+Here we have a variable
+called sentence.
+
+33
+00:01:40,440 --> 00:01:43,920
+And inside is a sentence,
+a very long string.
+
+34
+00:01:43,920 --> 00:01:47,300
+You can see that the index
+zero, we have the capital
+
+35
+00:01:47,300 --> 00:01:50,330
+letter A. You want to think of
+index numbers as being a
+
+36
+00:01:50,330 --> 00:01:53,190
+certain distance away from
+the starting character.
+
+37
+00:01:53,190 --> 00:01:55,460
+And thus, the first character in
+a string is
+
+38
+00:01:55,460 --> 00:01:58,200
+zero away from itself.
+
+39
+00:01:58,200 --> 00:02:00,150
+Then you can see at index
+eight that we
+
+40
+00:02:00,150 --> 00:02:01,840
+have a lowercase 's'.
+
+41
+00:02:01,840 --> 00:02:05,010
+At index 28, we have
+a space character.
+
+42
+00:02:05,010 --> 00:02:08,320
+That's right, spaces
+are characters, too.
+
+43
+00:02:08,320 --> 00:02:11,910
+And then in the very last index,
+index 42, we have an
+
+44
+00:02:11,910 --> 00:02:13,590
+exclamation point.
+
+45
+00:02:13,590 --> 00:02:16,650
+Now, if we took the length of
+the sentence variable using
+
+46
+00:02:16,650 --> 00:02:20,530
+the .length property,
+JavaScript will return a 43.
+
+47
+00:02:20,530 --> 00:02:21,020
+What?
+
+48
+00:02:21,020 --> 00:02:21,840
+Why?
+
+49
+00:02:21,840 --> 00:02:25,530
+We just said that the last
+character was index 42.
+
+50
+00:02:25,530 --> 00:02:28,430
+That's because string positions
+are zero-based.
+
+51
+00:02:28,430 --> 00:02:32,900
+And so there will always be one
+less index then the total
+
+52
+00:02:32,900 --> 00:02:34,300
+length of the string.
+
+53
+00:02:40,170 --> 00:02:44,360
+Another cool helper method for
+strings is the charAt method.
+
+54
+00:02:44,360 --> 00:02:48,490
+If you place in index inside the
+parentheses of the charAt
+
+55
+00:02:48,490 --> 00:02:52,580
+method, JavaScript will return
+the character that's exactly
+
+56
+00:02:52,580 --> 00:02:54,670
+at that index for you.
+
+57
+00:02:54,670 --> 00:02:56,730
+So you can see that the
+11th index would
+
+58
+00:02:56,730 --> 00:02:59,720
+contain the letter b.
+
+59
+00:02:59,720 --> 00:03:03,590
+The 31st index would contain
+a space character.
+
+60
+00:03:03,590 --> 00:03:07,470
+And JavaScript will return a
+space to you, surrounded by
+
+61
+00:03:07,470 --> 00:03:09,600
+two quotation marks.
+
+62
+00:03:09,600 --> 00:03:12,260
+And at the 42nd index, we
+can see that we get the
+
+63
+00:03:12,260 --> 00:03:13,510
+exclamation point.
+
+64
+00:03:16,430 --> 00:03:19,200
+Variables are essentially the
+foundation of programming.
+
+65
+00:03:19,200 --> 00:03:20,910
+They help us organize
+our data.
+
+66
+00:03:20,910 --> 00:03:24,280
+And we're able to create very
+powerful and complex and
+
+67
+00:03:24,280 --> 00:03:26,980
+flexible messages
+using variables,
+
+68
+00:03:26,980 --> 00:03:28,910
+which can be modified.
+
+69
+00:03:28,910 --> 00:03:31,900
+Let's say that we were designing
+a train system, and
+
+70
+00:03:31,900 --> 00:03:35,200
+we have a certain amount of
+operational trains out of a
+
+71
+00:03:35,200 --> 00:03:37,120
+certain amount of
+total trains.
+
+72
+00:03:37,120 --> 00:03:40,470
+Let's see how we can make a
+message to print to the user
+
+73
+00:03:40,470 --> 00:03:43,270
+at the console about
+how many running
+
+74
+00:03:43,270 --> 00:03:45,570
+trains there are today.
+
+75
+00:03:45,570 --> 00:03:48,460
+If we wanted to make our message
+using these particular
+
+76
+00:03:48,460 --> 00:03:51,820
+variables, we could do
+trainsOperational concatenated
+
+77
+00:03:51,820 --> 00:03:56,170
+with out of, then the variable
+total trains, and then the
+
+78
+00:03:56,170 --> 00:03:57,790
+operating status message.
+
+79
+00:03:57,790 --> 00:04:02,160
+Together, those would produce
+8 out of 12 trains are
+
+80
+00:04:02,160 --> 00:04:03,340
+operational today.
+
+81
+00:04:03,340 --> 00:04:06,270
+Now, say we had to run the train
+system message again the
+
+82
+00:04:06,270 --> 00:04:09,070
+next day, but there was a
+different amount of trains
+
+83
+00:04:09,070 --> 00:04:10,480
+that were operational.
+
+84
+00:04:10,480 --> 00:04:11,380
+Too easy -
+
+85
+00:04:11,380 --> 00:04:14,160
+we can change the
+trainsOperational variable to
+
+86
+00:04:14,160 --> 00:04:15,790
+a value of 10.
+
+87
+00:04:15,790 --> 00:04:18,950
+And now, when the message gets
+printed out to the user, we
+
+88
+00:04:18,950 --> 00:04:22,340
+get 10 out of 12 trains
+are operational today.
+
+89
+00:04:28,150 --> 00:04:29,840
+That's it for the variables
+section.
+
+90
+00:04:29,840 --> 00:04:31,360
+We're going to release
+you to the hounds in
+
+91
+00:04:31,360 --> 00:04:32,520
+the challenge section.
+
+92
+00:04:32,520 --> 00:04:35,600
+Good luck, and we'll see you
+in the next section.
+
+93
+00:04:35,600 --> 00:04:38,915
+We can even use dollar scores -
+dollar scores.
+
+94
+00:04:38,915 --> 00:04:40,165
+That's a lot of whistles ... [pfft!]
+
+95
+00:04:41,083 --> 00:04:43,830
+... if you know what I mean.
+
+96
+00:04:43,830 --> 00:04:45,610
+Long wood two -
+
+97
+00:04:45,610 --> 00:04:46,860
+long wood.
+
+98
+00:04:49,490 --> 00:04:51,450
+I might have had three beers.
+
+99
+00:04:51,450 --> 00:04:52,820
+It is a Road Trip after all. [laughing]
+

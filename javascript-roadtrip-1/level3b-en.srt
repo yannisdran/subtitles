@@ -1,0 +1,628 @@
+﻿1
+00:00:03,950 --> 00:00:06,210
+Cool, now we know where
+our files are.
+
+2
+00:00:06,210 --> 00:00:07,360
+And we know how to make them.
+
+3
+00:00:07,360 --> 00:00:09,770
+So let's see if we can put some
+JavaScript code in our
+
+4
+00:00:09,770 --> 00:00:13,360
+trains.js file and get
+something to execute.
+
+5
+00:00:13,360 --> 00:00:15,990
+Let's put a few console-style
+expressions inside our
+
+6
+00:00:15,990 --> 00:00:19,980
+trains.js file just to see if
+we get a good response from
+
+7
+00:00:19,980 --> 00:00:21,910
+our compiler.
+
+8
+00:00:21,910 --> 00:00:23,280
+Uh oh, error -
+
+9
+00:00:23,280 --> 00:00:24,090
+what's up?
+
+10
+00:00:24,090 --> 00:00:28,350
+Well, compiler does not like
+how we have entered our
+
+11
+00:00:28,350 --> 00:00:30,120
+statements into the file.
+
+12
+00:00:30,120 --> 00:00:33,230
+We need something a little
+different so it can understand
+
+13
+00:00:33,230 --> 00:00:36,540
+our file representation.
+
+14
+00:00:36,540 --> 00:00:39,120
+We have to have a way to
+differentiate between the
+
+15
+00:00:39,120 --> 00:00:41,100
+statements themselves.
+
+16
+00:00:41,100 --> 00:00:43,140
+So here's our console
+entry, right?
+
+17
+00:00:43,140 --> 00:00:45,460
+If we were declaring a variable
+for trainsOperational
+
+18
+00:00:45,460 --> 00:00:47,870
+we would just declare it and
+say that it equals 8.
+
+19
+00:00:47,870 --> 00:00:50,760
+And it would be ready to go and
+everything would be great.
+
+20
+00:00:50,760 --> 00:00:54,170
+But if we put multiple console
+statements to execute inside
+
+21
+00:00:54,170 --> 00:00:57,900
+one file, the compiler looks
+at it like this--
+
+22
+00:00:57,900 --> 00:01:00,700
+which is just back to back
+garbage nonsense.
+
+23
+00:01:00,700 --> 00:01:03,860
+And it has no idea where your
+statement begins, where it
+
+24
+00:01:03,860 --> 00:01:05,300
+ends, or what to do.
+
+25
+00:01:05,300 --> 00:01:08,600
+So, we need a way to tell the
+compiler, we're done making
+
+26
+00:01:08,600 --> 00:01:11,060
+this particular statement.
+
+27
+00:01:11,060 --> 00:01:12,500
+Enter the semicolon.
+
+28
+00:01:12,500 --> 00:01:14,540
+Semicolon is very cool.
+
+29
+00:01:14,540 --> 00:01:16,110
+We like it.
+
+30
+00:01:16,110 --> 00:01:19,130
+So here we have what a normal
+console entry would be for our
+
+31
+00:01:19,130 --> 00:01:20,700
+trainsOperational variable.
+
+32
+00:01:20,700 --> 00:01:22,820
+And the only thing we would
+need to do to tell the
+
+33
+00:01:22,820 --> 00:01:26,650
+compiler in a file that we are
+done making that statement is
+
+34
+00:01:26,650 --> 00:01:29,590
+to throw a semicolon right on
+the end of that statement.
+
+35
+00:01:29,590 --> 00:01:32,780
+It says, "Hey, we're done with
+this particular expression.
+
+36
+00:01:32,780 --> 00:01:36,590
+Go ahead and do that before even
+looking at the next one."
+
+37
+00:01:36,590 --> 00:01:39,670
+So now if we had a wootForSemicolons
+file and put all of
+
+38
+00:01:39,670 --> 00:01:41,990
+our statements in there, each
+of them separated by a
+
+39
+00:01:41,990 --> 00:01:46,080
+semicolon, we would get
+a fantastic blank.
+
+40
+00:01:46,080 --> 00:01:46,540
+What?!
+
+41
+00:01:46,540 --> 00:01:47,340
+What's going on?
+
+42
+00:01:47,340 --> 00:01:49,640
+Why didn't we get anything?
+
+43
+00:01:49,640 --> 00:01:52,220
+We just put all that stuff in
+there with our semicolons.
+
+44
+00:01:52,220 --> 00:01:54,640
+It executed the statements
+just fine.
+
+45
+00:01:54,640 --> 00:01:56,090
+But we got nothing.
+
+46
+00:01:56,090 --> 00:01:59,330
+And that's because everything
+that happened with those
+
+47
+00:01:59,330 --> 00:02:03,090
+statements happened inside the
+compiler and the compiler
+
+48
+00:02:03,090 --> 00:02:05,920
+never printed anything
+out for the user.
+
+49
+00:02:05,920 --> 00:02:09,590
+We need a way to get the results
+of our computations in
+
+50
+00:02:09,590 --> 00:02:13,630
+the compiler out to the user.
+
+51
+00:02:13,630 --> 00:02:16,590
+So, in order to print from a file
+to the console, we'll use
+
+52
+00:02:16,590 --> 00:02:20,110
+this cool method called the
+console.log method.
+
+53
+00:02:20,110 --> 00:02:23,070
+It's going to output the result
+of your code operations
+
+54
+00:02:23,070 --> 00:02:25,830
+from your file to the console.
+
+55
+00:02:25,830 --> 00:02:28,410
+So, let's say in our train system
+we had 12 total trains,
+
+56
+00:02:28,410 --> 00:02:33,560
+as we know, but we also have
+today 8 operational trains.
+
+57
+00:02:33,560 --> 00:02:35,550
+If we wanted to build a message
+for the user on the
+
+58
+00:02:35,550 --> 00:02:39,160
+console that told them how many
+running trains we have
+
+59
+00:02:39,160 --> 00:02:42,750
+today, we could use the
+console.log method and place
+
+60
+00:02:42,750 --> 00:02:46,700
+an expression that builds a
+string inside its parameters.
+
+61
+00:02:46,700 --> 00:02:50,630
+This would log out, or print,
+the contents of the string it
+
+62
+00:02:50,630 --> 00:02:52,320
+to the browser's console.
+
+63
+00:02:52,320 --> 00:02:55,530
+And notice that there are no
+more quotation marks around
+
+64
+00:02:55,530 --> 00:02:57,130
+that string.
+
+65
+00:02:57,130 --> 00:02:59,220
+Now we can place any expression
+that we want inside
+
+66
+00:02:59,220 --> 00:03:00,700
+of a console.log method.
+
+67
+00:03:00,700 --> 00:03:03,720
+We can even ask if the
+trainsOperational is equal to
+
+68
+00:03:03,720 --> 00:03:05,000
+the totalTrains.
+
+69
+00:03:05,000 --> 00:03:08,005
+And since it's not, console.log
+will say, false.
+
+70
+00:03:12,230 --> 00:03:16,360
+So, now we kind of have a way to
+get our messages printed to
+
+71
+00:03:16,360 --> 00:03:19,400
+the screen so that the user can
+see them, and they won't
+
+72
+00:03:19,400 --> 00:03:22,270
+stay just inside the
+compiler itself.
+
+73
+00:03:22,270 --> 00:03:26,130
+We can use console.log inside of
+our trains.js file to print
+
+74
+00:03:26,130 --> 00:03:27,630
+out every running train.
+
+75
+00:03:27,630 --> 00:03:30,440
+So, let's do that.
+
+76
+00:03:30,440 --> 00:03:33,550
+Here's every last one of
+the running trains.
+
+77
+00:03:33,550 --> 00:03:36,950
+Wow, and let's see
+what we get.
+
+78
+00:03:36,950 --> 00:03:39,820
+Every single one prints
+in order.
+
+79
+00:03:39,820 --> 00:03:43,310
+And we see exactly how many
+trains are running and which
+
+80
+00:03:43,310 --> 00:03:44,590
+ones are running.
+
+81
+00:03:47,510 --> 00:03:50,570
+So here we have our
+index.html file.
+
+82
+00:03:50,570 --> 00:03:54,630
+And we know that references
+our trains.js - JavaScript
+
+83
+00:03:54,630 --> 00:03:55,670
+source file.
+
+84
+00:03:55,670 --> 00:03:59,800
+And if we open our index.html
+file we can see the generic
+
+85
+00:03:59,800 --> 00:04:02,670
+JavaScript express header
+that we stuck into
+
+86
+00:04:02,670 --> 00:04:04,420
+our HTML file before.
+
+87
+00:04:04,420 --> 00:04:07,730
+But we don't see any of our
+running train printouts.
+
+88
+00:04:07,730 --> 00:04:08,710
+Why is that?
+
+89
+00:04:08,710 --> 00:04:10,640
+We put our semicolons
+in, right?
+
+90
+00:04:10,640 --> 00:04:14,280
+Well, remember that our
+console.log method prints its
+
+91
+00:04:14,280 --> 00:04:16,750
+messages only to the console.
+
+92
+00:04:16,750 --> 00:04:19,600
+So, all would we do here to see
+our results is go up to the
+
+93
+00:04:19,600 --> 00:04:22,440
+menu and open our JavaScript
+console, which we
+
+94
+00:04:22,440 --> 00:04:24,260
+already know how to do.
+
+95
+00:04:24,260 --> 00:04:27,010
+And there on the left you can
+see our running train
+
+96
+00:04:27,010 --> 00:04:30,886
+printouts exactly as we
+wanted them to be.
+
+97
+00:04:30,886 --> 00:04:33,620
+You might ask what these
+notations are over here on the
+
+98
+00:04:33,620 --> 00:04:35,880
+right hand side of our log.
+
+99
+00:04:35,880 --> 00:04:37,460
+And that would be an
+excellent question.
+
+100
+00:04:37,460 --> 00:04:41,680
+These are indicators that show
+which files caused the current
+
+101
+00:04:41,680 --> 00:04:46,540
+line of output on the left
+along with the exact line
+
+102
+00:04:46,540 --> 00:04:49,370
+within the file that
+caused the output.
+
+103
+00:04:49,370 --> 00:04:51,860
+This is very useful when you
+have a lot of code in a source
+
+104
+00:04:51,860 --> 00:04:54,470
+file, or even multiple source
+files, and you need to
+
+105
+00:04:54,470 --> 00:04:59,490
+pinpoint how or why certain
+printouts appeared.
+
+106
+00:04:59,490 --> 00:05:02,890
+Now we have combined semicolons
+and the console.log
+
+107
+00:05:02,890 --> 00:05:06,400
+method to produce each message
+for each train.
+
+108
+00:05:06,400 --> 00:05:09,800
+And you can see that the console
+obeys conveniently and
+
+109
+00:05:09,800 --> 00:05:11,940
+produces every single message
+that we wanted.
+
+110
+00:05:15,230 --> 00:05:17,650
+So, let's look at our current
+train status system.
+
+111
+00:05:17,650 --> 00:05:21,140
+We have an index.html
+file that will load
+
+112
+00:05:21,140 --> 00:05:22,600
+all of the HTML code.
+
+113
+00:05:22,600 --> 00:05:24,660
+And once it's loaded it
+will go and fetch
+
+114
+00:05:24,660 --> 00:05:26,620
+the trains.js file.
+
+115
+00:05:26,620 --> 00:05:30,470
+And inside that trains.js file
+it will execute a whole bunch
+
+116
+00:05:30,470 --> 00:05:33,370
+of our JavaScript code to
+get our trains messages
+
+117
+00:05:33,370 --> 00:05:36,460
+printed to the user.
+
+118
+00:05:36,460 --> 00:05:37,410
+Guess what?
+
+119
+00:05:37,410 --> 00:05:39,220
+This code kind of sucks, too.
+
+120
+00:05:39,220 --> 00:05:40,600
+Whomp, whomp.
+
+121
+00:05:40,600 --> 00:05:41,610
+Why?
+
+122
+00:05:41,610 --> 00:05:44,740
+Because what if there
+were 124 trains?
+
+123
+00:05:44,740 --> 00:05:47,550
+Would you want to type every
+single one of those
+
+124
+00:05:47,550 --> 00:05:50,650
+console.log log messages into
+your trains.js file?
+
+125
+00:05:50,650 --> 00:05:52,400
+I think not.
+
+126
+00:05:52,400 --> 00:05:56,840
+And we need a way to solve this
+repetitive code issue.
+
+127
+00:05:56,840 --> 00:05:59,380
+And that will be in
+the next section.
+
+128
+00:05:59,380 --> 00:06:00,630
+See you soon.
+
+129
+00:06:02,683 --> 00:06:03,017
+[BEEP BEEP]
+
+130
+00:06:07,080 --> 00:06:09,214
+TM of pbbt -
+
+131
+00:06:09,214 --> 00:06:09,670
+[BEEP BEEP]
+
+132
+00:06:09,670 --> 00:06:13,710
+That can be used multiple
+times, every time.
+
+133
+00:06:13,710 --> 00:06:15,030
+Multiple times?
+
+134
+00:06:15,030 --> 00:06:15,380
+[BEEP BEEP]
+
+135
+00:06:15,380 --> 00:06:16,730
+So how do we show, show, show--
+

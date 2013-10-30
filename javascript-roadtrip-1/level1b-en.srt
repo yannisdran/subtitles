@@ -1,0 +1,491 @@
+1
+00:00:01,720 --> 00:00:03,240
+Next we have strings.
+
+2
+00:00:03,240 --> 00:00:06,820
+Strings are JavaScript's way
+of handling and storing and
+
+3
+00:00:06,820 --> 00:00:09,270
+processing flat text.
+
+4
+00:00:09,270 --> 00:00:11,670
+In order to signal to JavaScript
+that we want to
+
+5
+00:00:11,670 --> 00:00:14,990
+process some flat text, we
+need to use a pair of
+
+6
+00:00:14,990 --> 00:00:18,220
+quotation marks surroundings
+some text as we enter the
+
+7
+00:00:18,220 --> 00:00:20,680
+string into the console.
+
+8
+00:00:20,680 --> 00:00:24,560
+Here you can see two different
+strings, "Raindrops On Roses"
+
+9
+00:00:24,560 --> 00:00:26,120
+and "Whiskers On Kittens".
+
+10
+00:00:26,120 --> 00:00:29,740
+When we surround the text with
+quotation marks, JavaScript
+
+11
+00:00:29,740 --> 00:00:32,840
+recognizes it as a string and
+then returns the string right
+
+12
+00:00:32,840 --> 00:00:34,320
+back to us.
+
+13
+00:00:34,320 --> 00:00:38,550
+We can also use the plus
+operator uniquely with strings
+
+14
+00:00:38,550 --> 00:00:40,780
+in a process called
+concatenation.
+
+15
+00:00:40,780 --> 00:00:44,610
+Concatenation places strings
+together inside of one string
+
+16
+00:00:44,610 --> 00:00:47,560
+and returns one master
+string at the end.
+
+17
+00:00:47,560 --> 00:00:51,440
+Here you can see "Raindrops On
+Roses" concatenated with
+
+18
+00:00:51,440 --> 00:00:56,290
+another string that says space
+and space, concatenated with
+
+19
+00:00:56,290 --> 00:00:59,530
+another string that says
+"Whiskers On Kittens".
+
+20
+00:00:59,530 --> 00:01:01,750
+As a result, we get
+"Raindrops On Roses
+
+21
+00:01:01,750 --> 00:01:03,000
+And Whiskers On Kittens".
+
+22
+00:01:07,050 --> 00:01:10,530
+Now, it's time for a few
+of my favorite … strings.
+
+23
+00:01:10,530 --> 00:01:13,570
+Concatenation will also work
+with numbers and their
+
+24
+00:01:13,570 --> 00:01:15,530
+expressions, too.
+
+25
+00:01:15,530 --> 00:01:17,770
+In this first example, we can
+see that when we try to
+
+26
+00:01:17,770 --> 00:01:21,740
+concatenate "The meaning of life
+is" with the value "42", we
+
+27
+00:01:21,740 --> 00:01:24,410
+get a perfectly valid string
+at the end, but it's not
+
+28
+00:01:24,410 --> 00:01:27,300
+formatted exactly like
+we would want.
+
+29
+00:01:27,300 --> 00:01:30,880
+It seems to be that we're
+missing a space.
+
+30
+00:01:30,880 --> 00:01:34,400
+Since concatenation does not
+provide a space for you, all
+
+31
+00:01:34,400 --> 00:01:37,200
+we need to do to fix this is
+place a space inside the very
+
+32
+00:01:37,200 --> 00:01:38,450
+first string.
+
+33
+00:01:41,620 --> 00:01:45,190
+We can also concatenate
+expressions into strings.
+
+34
+00:01:45,190 --> 00:01:49,100
+However, expressions will get
+evaluated by the console.
+
+35
+00:01:49,100 --> 00:01:53,830
+As you see here with 0.75,
+3/4 got evaluated.
+
+36
+00:01:53,830 --> 00:01:56,320
+In order to fix that, we
+actually need to place the
+
+37
+00:01:56,320 --> 00:02:00,030
+expression inside of the string
+so we get the flat text
+
+38
+00:02:00,030 --> 00:02:05,580
+of "3/4" instead of 0.75.
+
+39
+00:02:05,580 --> 00:02:08,160
+When working with strings,
+you'll need some special
+
+40
+00:02:08,160 --> 00:02:11,370
+characters to achieve some
+specific formatting.
+
+41
+00:02:11,370 --> 00:02:14,220
+Here in this example, you can
+see a  \t, which
+
+42
+00:02:14,220 --> 00:02:18,010
+represents an advancement
+to the next tab stop.
+
+43
+00:02:18,010 --> 00:02:20,520
+Here, in the output, you can
+see that the \t's
+
+44
+00:02:20,520 --> 00:02:23,810
+have disappeared, and in their
+place is an advancement to the
+
+45
+00:02:23,810 --> 00:02:27,750
+next tab stop inside
+the string?
+
+46
+00:02:27,750 --> 00:02:29,670
+What if we needed double
+quotation marks
+
+47
+00:02:29,670 --> 00:02:30,980
+inside of our string.
+
+48
+00:02:30,980 --> 00:02:33,250
+Well, the console looks at
+double quotation marks as
+
+49
+00:02:33,250 --> 00:02:34,910
+beginning or ending a string.
+
+50
+00:02:34,910 --> 00:02:38,740
+So we need a special way of
+escaping that double quotation
+
+51
+00:02:38,740 --> 00:02:41,190
+mark, and so we use a backslash
+before quotation
+
+52
+00:02:41,190 --> 00:02:43,320
+mark in that case as well.
+
+53
+00:02:43,320 --> 00:02:46,370
+In our output result, we can
+see that we have a set of
+
+54
+00:02:46,370 --> 00:02:49,380
+double quotation marks
+inside the string.
+
+55
+00:02:52,560 --> 00:02:54,660
+What if we want a backslash
+inside of a string?
+
+56
+00:02:54,660 --> 00:02:57,280
+Well, since it's a special
+character, we need to use a
+
+57
+00:02:57,280 --> 00:03:01,450
+double backslash to produce just
+one backslash inside of
+
+58
+00:03:01,450 --> 00:03:02,770
+the string.
+
+59
+00:03:02,770 --> 00:03:05,550
+Following that, we have
+a \ n that
+
+60
+00:03:05,550 --> 00:03:07,670
+represents a new line.
+
+61
+00:03:07,670 --> 00:03:10,940
+You can see in the output here,
+that the string is split
+
+62
+00:03:10,940 --> 00:03:13,820
+up across multiple lines because
+of the 
+.
+
+63
+00:03:17,090 --> 00:03:19,470
+This is by no means an
+exhaustive compilation of
+
+64
+00:03:19,470 --> 00:03:22,350
+special characters for use in
+string formatting, and you can
+
+65
+00:03:22,350 --> 00:03:24,770
+research the rest
+on the internet.
+
+66
+00:03:24,770 --> 00:03:27,560
+Sometimes we'd like to compare
+strings for alphabetical
+
+67
+00:03:27,560 --> 00:03:29,820
+ordering or for matching
+strings.
+
+68
+00:03:29,820 --> 00:03:33,060
+JavaScript allows us to compare
+strings with specific
+
+69
+00:03:33,060 --> 00:03:34,640
+comparators.
+
+70
+00:03:34,640 --> 00:03:38,160
+We can use the double equal
+sign to compare "The Wright
+
+71
+00:03:38,160 --> 00:03:41,200
+Brothers" with "The Wright
+Brothers", which returns a
+
+72
+00:03:41,200 --> 00:03:46,210
+truth value because those
+strings are exactly the same.
+
+73
+00:03:46,210 --> 00:03:48,250
+We can see that if we use double
+equal on "The Wright
+
+74
+00:03:48,250 --> 00:03:50,760
+Brothers" and "Super Mario
+Brothers", that we would get a
+
+75
+00:03:50,760 --> 00:03:52,530
+false value, because
+those strings are
+
+76
+00:03:52,530 --> 00:03:54,320
+not at all the same.
+
+77
+00:03:54,320 --> 00:03:55,760
+Now, here's a tricky one.
+
+78
+00:03:55,760 --> 00:03:59,520
+If we see "The Wright Brothers"
+compared with "the wright
+
+79
+00:03:59,520 --> 00:04:03,670
+brothers" in a not equal
+situation, this will return a
+
+80
+00:04:03,670 --> 00:04:05,530
+truth value.
+
+81
+00:04:05,530 --> 00:04:08,470
+The reason that is is because
+those strings are not exactly
+
+82
+00:04:08,470 --> 00:04:11,350
+the same because JavaScript
+is case sensitive
+
+83
+00:04:11,350 --> 00:04:12,810
+with regard to strings.
+
+84
+00:04:12,810 --> 00:04:14,060
+So, they are not equal.
+
+85
+00:04:17,740 --> 00:04:21,120
+We can also access the length
+of strings using the .
+
+86
+00:04:21,120 --> 00:04:22,540
+length property.
+
+87
+00:04:22,540 --> 00:04:25,570
+You can see here that if we
+have a super long English
+
+88
+00:04:25,570 --> 00:04:28,450
+word,
+"antidisestablishmentarianism",
+
+89
+00:04:28,450 --> 00:04:31,030
+and we use the  .length
+property, that the JavaScript
+
+90
+00:04:31,030 --> 00:04:36,540
+console would return a very
+nice value to us of 28.
+
+91
+00:04:36,540 --> 00:04:39,460
+And again, when we used "One
+Fish, Two Fish, Red Fish, Blue
+
+92
+00:04:39,460 --> 00:04:42,130
+Fish", if we used the .length
+property on that,
+
+93
+00:04:42,130 --> 00:04:44,690
+JavaScript will return a 39.
+
+94
+00:04:44,690 --> 00:04:47,830
+Now, what's really important
+here is that the .length
+
+95
+00:04:47,830 --> 00:04:51,130
+property will calculate all of
+the spaces and all of the
+
+96
+00:04:51,130 --> 00:04:55,340
+punctuation in determining
+your length.
+
+97
+00:04:55,340 --> 00:04:57,820
+Now, it's time for you to use
+your brand new JavaScript
+
+98
+00:04:57,820 --> 00:04:59,730
+skills in the challenges
+section.
+
+99
+00:04:59,730 --> 00:05:01,000
+We'll see you in the next one.
+
+100
+00:05:07,550 --> 00:05:08,320
+Backslash.
+
+101
+00:05:08,320 --> 00:05:11,220
+Multiple, multiple special
+characters for use for string
+
+102
+00:05:11,220 --> 00:05:11,550
+formatting.
+
+103
+00:05:11,550 --> 00:05:12,990
+I don't know why you're saying that word twice
+[Laughing in background]
+

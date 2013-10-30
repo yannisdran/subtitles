@@ -1,0 +1,649 @@
+﻿1
+00:00:00,000 --> 00:00:03,120
+Hi everyone, and welcome to
+the JavaScript Road Trip.
+
+2
+00:00:03,120 --> 00:00:04,820
+If you've ever surfed the
+internet before -
+
+3
+00:00:04,820 --> 00:00:05,860
+and who hasn't -
+
+4
+00:00:05,860 --> 00:00:08,480
+chances are you've run
+thousands, if not millions, of
+
+5
+00:00:08,480 --> 00:00:10,660
+lines of JavaScript code.
+
+6
+00:00:10,660 --> 00:00:13,270
+Now although JavaScript is
+primarily designed for
+
+7
+00:00:13,270 --> 00:00:16,400
+interactive web pages, in this
+tutorial, we'll be focused
+
+8
+00:00:16,400 --> 00:00:18,980
+primarily on the fundamental
+building blocks of the
+
+9
+00:00:18,980 --> 00:00:22,240
+JavaScript language itself, so
+that later, you'll be able to
+
+10
+00:00:22,240 --> 00:00:24,820
+engage with more advanced
+frameworks like jQuery.
+
+11
+00:00:24,820 --> 00:00:26,730
+Now in this first course on
+the Road Trip, we'll be
+
+12
+00:00:26,730 --> 00:00:28,790
+looking at the fundamental
+building blocks of the
+
+13
+00:00:28,790 --> 00:00:31,880
+JavaScript language, including
+how to manipulate values with
+
+14
+00:00:31,880 --> 00:00:35,180
+operators, as well as how to
+create and store those values
+
+15
+00:00:35,180 --> 00:00:39,360
+inside variables, and then how
+to find, and create, and run
+
+16
+00:00:39,360 --> 00:00:42,250
+JavaScript source files
+within HTML code.
+
+17
+00:00:42,250 --> 00:00:43,910
+And with that, all aboard!
+
+18
+00:00:43,910 --> 00:00:45,490
+It's time to start your
+journey on the
+
+19
+00:00:45,490 --> 00:00:46,790
+JavaScript road trip.
+
+20
+00:00:46,790 --> 00:00:47,090
+[SINGING]
+
+21
+00:00:47,090 --> 00:00:50,740
+From the labyrinth of loops to
+the variable valley, we'll see
+
+22
+00:00:50,740 --> 00:00:52,140
+the cliffs of value first.
+
+23
+00:00:52,140 --> 00:00:53,690
+JavaScript's right
+up your alley.
+
+24
+00:00:53,690 --> 00:00:57,010
+Built-in bluffs, files falls,
+array, archipelago.
+
+25
+00:00:57,010 --> 00:00:59,190
+Declarations in a desert,
+where you'll find out
+
+26
+00:00:59,190 --> 00:01:00,190
+how far you'll go.
+
+27
+00:01:00,190 --> 00:01:01,010
+Learn the program.
+
+28
+00:01:01,010 --> 00:01:01,680
+Take a ride.
+
+29
+00:01:01,680 --> 00:01:02,550
+Buy a ticket.
+
+30
+00:01:02,550 --> 00:01:03,640
+Step inside.
+
+31
+00:01:03,640 --> 00:01:05,424
+All aboard, you're
+at the station to
+
+32
+00:01:05,424 --> 00:01:06,580
+increase your education.
+
+33
+00:01:06,580 --> 00:01:09,350
+Bon voyage and skinny dip! As
+long as functions you don't
+
+34
+00:01:09,350 --> 00:01:14,210
+skimp on this, the JavaScript ...
+Road Trip.
+
+35
+00:01:20,730 --> 00:01:21,380
+Hey, road trippers.
+
+36
+00:01:21,380 --> 00:01:22,680
+Welcome to Level 1 -
+
+37
+00:01:22,680 --> 00:01:24,260
+The Cliffs of Value.
+
+38
+00:01:24,260 --> 00:01:26,180
+Get ready to learn
+about numbers,
+
+39
+00:01:26,180 --> 00:01:27,550
+operators, and strings.
+
+40
+00:01:30,710 --> 00:01:33,030
+There are two symbols that we'd
+like to be familiar with
+
+41
+00:01:33,030 --> 00:01:34,910
+as we move through
+this course.
+
+42
+00:01:34,910 --> 00:01:38,100
+The first is the greater than
+symbol, which represents the
+
+43
+00:01:38,100 --> 00:01:39,300
+JavaScript prompt.
+
+44
+00:01:39,300 --> 00:01:42,650
+Here, we will place the code
+that will actually be entered
+
+45
+00:01:42,650 --> 00:01:44,080
+into the console.
+
+46
+00:01:44,080 --> 00:01:46,230
+The arrow that follows
+that is what gets
+
+47
+00:01:46,230 --> 00:01:48,430
+returned from the code.
+
+48
+00:01:48,430 --> 00:01:49,610
+The JavaScript language
+
+49
+00:01:49,610 --> 00:01:51,880
+automatically recognizes numbers.
+
+50
+00:01:51,880 --> 00:01:55,540
+So you can see that if we
+entered a 24 into the console,
+
+51
+00:01:55,540 --> 00:01:58,270
+the console will return
+24 right back to us.
+
+52
+00:01:58,270 --> 00:02:00,510
+The same goes for
+decimal values.
+
+53
+00:02:00,510 --> 00:02:06,610
+If we entered 3.14, we'd also
+see a 3.14 come right back.
+
+54
+00:02:06,610 --> 00:02:08,919
+Let's try to do some
+math in JavaScript.
+
+55
+00:02:08,919 --> 00:02:11,995
+There are common operations that
+the console will accept.
+
+56
+00:02:11,995 --> 00:02:14,066
+The first one is addition.
+
+57
+00:02:14,066 --> 00:02:19,920
+The second one is subtraction
+The third is multiplication.
+
+58
+00:02:19,920 --> 00:02:21,680
+Next, we have division.
+
+59
+00:02:21,680 --> 00:02:24,200
+And then, we have a special
+operator that you see a lot in
+
+60
+00:02:24,200 --> 00:02:26,510
+computer programming
+called the modulus.
+
+61
+00:02:26,510 --> 00:02:31,050
+Modulus will return the
+remainder after division.
+
+62
+00:02:31,050 --> 00:02:35,440
+You can see there that if we
+divide 43 by 10, even though
+
+63
+00:02:35,440 --> 00:02:38,320
+it goes in four times, the
+remainder from that
+
+64
+00:02:38,320 --> 00:02:42,090
+operation is 3.
+
+65
+00:02:42,090 --> 00:02:44,310
+Along with the basic operations,
+JavaScript
+
+66
+00:02:44,310 --> 00:02:47,880
+recognizes the standard order of
+operations in mathematics.
+
+67
+00:02:47,880 --> 00:02:50,440
+You may remember this by
+the familiar acronym -
+
+68
+00:02:50,440 --> 00:02:54,400
+Parentheses, Exponents,
+Multiplication, Division,
+
+69
+00:02:54,400 --> 00:02:57,720
+Addition, and Subtraction,
+or PEMDAS.
+
+70
+00:02:57,720 --> 00:03:00,450
+We can see here that if we enter
+an expression into the
+
+71
+00:03:00,450 --> 00:03:04,470
+JavaScript console, the first
+thing that would be evaluated
+
+72
+00:03:04,470 --> 00:03:07,380
+is the parentheses that
+contains 5 plus 7.
+
+73
+00:03:07,380 --> 00:03:08,820
+That would become a 12.
+
+74
+00:03:08,820 --> 00:03:14,270
+And then that 12 would be
+multiplied by 3 to get 36.
+
+75
+00:03:14,270 --> 00:03:16,640
+Here's another longer
+expression.
+
+76
+00:03:16,640 --> 00:03:18,990
+We can see that we'd hit
+the parentheses first.
+
+77
+00:03:18,990 --> 00:03:22,440
+The 3 times 4 becoming a 12, and
+the rest of the expression
+
+78
+00:03:22,440 --> 00:03:23,920
+coming down.
+
+79
+00:03:23,920 --> 00:03:27,090
+Followed by that, we would
+tackle the 12 divided by 2,
+
+80
+00:03:27,090 --> 00:03:28,730
+which becomes a 6.
+
+81
+00:03:28,730 --> 00:03:31,470
+And, then we would do straight
+addition and subtraction, left
+
+82
+00:03:31,470 --> 00:03:34,450
+to right, to produce a 9.
+
+83
+00:03:34,450 --> 00:03:36,850
+In this third expression, we
+see some negative numbers.
+
+84
+00:03:36,850 --> 00:03:39,020
+JavaScript recognizes
+those too.
+
+85
+00:03:39,020 --> 00:03:41,810
+And the first thing we would
+tackle here is the negative 5
+
+86
+00:03:41,810 --> 00:03:44,050
+times 6 inside the
+parentheses.
+
+87
+00:03:44,050 --> 00:03:46,770
+That would give us a negative
+30, and the rest of the
+
+88
+00:03:46,770 --> 00:03:48,180
+expression would come down.
+
+89
+00:03:48,180 --> 00:03:52,340
+And then we would evaluate the
+7 times the negative 2 to
+
+90
+00:03:52,340 --> 00:03:56,240
+arrive at negative 14, and
+then negative 30 minus
+
+91
+00:03:56,240 --> 00:04:00,420
+negative 14 produces
+a negative 16.
+
+92
+00:04:00,420 --> 00:04:03,820
+In this last expression, we can
+see a modulus operation.
+
+93
+00:04:03,820 --> 00:04:06,980
+You can think of modulus as
+being contained within the M
+
+94
+00:04:06,980 --> 00:04:09,790
+of PEMDAS, along with
+multiplication, because it
+
+95
+00:04:09,790 --> 00:04:12,870
+exists in the same hierarchical
+level.
+
+96
+00:04:12,870 --> 00:04:15,710
+Here in this operation, what
+we would do first is the
+
+97
+00:04:15,710 --> 00:04:17,320
+innermost parentheses:
+
+98
+00:04:17,320 --> 00:04:18,700
+that 3 plus 1.
+
+99
+00:04:18,700 --> 00:04:20,140
+That would become a 4.
+
+100
+00:04:20,140 --> 00:04:24,920
+And then, we'd be left with an
+8 modulus 4 inside that last
+
+101
+00:04:24,920 --> 00:04:26,020
+parenthesis.
+
+102
+00:04:26,020 --> 00:04:30,950
+The remainder after 8 is
+divided by 4 is 0.
+
+103
+00:04:30,950 --> 00:04:33,670
+And then we would add 4 and
+0 together, and get 4.
+
+104
+00:04:36,950 --> 00:04:39,370
+There are some unique
+comparators in the JavaScript
+
+105
+00:04:39,370 --> 00:04:42,370
+language that allow us
+to compare values.
+
+106
+00:04:42,370 --> 00:04:44,910
+When you use a comparator, it
+will return something called a
+
+107
+00:04:44,910 --> 00:04:48,860
+Boolean value, which is
+either true or false.
+
+108
+00:04:48,860 --> 00:04:51,500
+Here, you can see the comparator
+greater than, which
+
+109
+00:04:51,500 --> 00:04:53,250
+you're probably familiar with.
+
+110
+00:04:53,250 --> 00:04:56,430
+The question asks, is
+6 greater than 4?
+
+111
+00:04:56,430 --> 00:04:59,590
+And JavaScript returns true.
+
+112
+00:04:59,590 --> 00:05:01,930
+Along with greater than,
+we have the less than.
+
+113
+00:05:01,930 --> 00:05:05,270
+And here, the question asks,
+is 9 less than 5?
+
+114
+00:05:05,270 --> 00:05:07,450
+And that is false.
+
+115
+00:05:07,450 --> 00:05:10,850
+To compare equality of numbers
+in JavaScript, we have to use
+
+116
+00:05:10,850 --> 00:05:12,580
+a special syntax.
+
+117
+00:05:12,580 --> 00:05:14,460
+We don't use a single
+equal sign.
+
+118
+00:05:14,460 --> 00:05:17,120
+Instead here, we use a
+double equal sign to
+
+119
+00:05:17,120 --> 00:05:18,670
+return a Boolean value.
+
+120
+00:05:18,670 --> 00:05:22,750
+This question asks, is
+3 equal to 4, which
+
+121
+00:05:22,750 --> 00:05:24,830
+of course, is false.
+
+122
+00:05:24,830 --> 00:05:27,530
+JavaScript has a special syntax
+to ask whether two
+
+123
+00:05:27,530 --> 00:05:29,190
+values are not equal.
+
+124
+00:05:29,190 --> 00:05:32,830
+We use an exclamation point in
+front of an equal sign to ask
+
+125
+00:05:32,830 --> 00:05:34,840
+the not equal question.
+
+126
+00:05:34,840 --> 00:05:38,300
+And this particular question
+says, is 12 not equal to 4?
+
+127
+00:05:38,300 --> 00:05:40,850
+Which gives us a value of
+true, because those two
+
+128
+00:05:40,850 --> 00:05:42,700
+numbers are not equal.
+
+129
+00:05:42,700 --> 00:05:44,030
+We also, of course,
+have a greater
+
+130
+00:05:44,030 --> 00:05:46,960
+than or equal to syntax.
+
+131
+00:05:46,960 --> 00:05:50,360
+This question asks whether 8
+is greater than or equal to
+
+132
+00:05:50,360 --> 00:05:51,530
+negative 2.
+
+133
+00:05:51,530 --> 00:05:53,670
+Notice that the greater
+than comes in front
+
+134
+00:05:53,670 --> 00:05:55,390
+of the equal sign.
+
+135
+00:05:55,390 --> 00:05:58,270
+This question returns a value of
+true, because 8 is greater
+
+136
+00:05:58,270 --> 00:06:00,300
+than or equal to negative 2.
+
+137
+00:06:00,300 --> 00:06:03,580
+Along with greater or equal,
+we have less than or equal.
+
+138
+00:06:03,580 --> 00:06:06,810
+This question asks, is 10 the
+less than or equal to 10?
+
+139
+00:06:06,810 --> 00:06:09,370
+And since it is equal,
+we get a truth value.
+
