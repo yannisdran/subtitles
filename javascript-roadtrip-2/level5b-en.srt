@@ -1,0 +1,1132 @@
+﻿1
+00:00:02,120 --> 00:00:06,310
+Since arrays are, in their very
+nature, list-oriented,
+
+2
+00:00:06,310 --> 00:00:10,170
+you might expect that we could
+use a loop to iterate over all
+
+3
+00:00:10,170 --> 00:00:11,980
+the contents inside
+of an array.
+
+4
+00:00:11,980 --> 00:00:12,650
+And it's true.
+
+5
+00:00:12,650 --> 00:00:14,080
+They help us out very much.
+
+6
+00:00:14,080 --> 00:00:16,620
+Let's take a look at
+this number list.
+
+7
+00:00:16,620 --> 00:00:19,480
+So, you can see here that we have
+10 numbers in a new array
+
+8
+00:00:19,480 --> 00:00:21,160
+called numberList.
+
+9
+00:00:21,160 --> 00:00:24,240
+If we wanted to iterate through
+every one of those
+
+10
+00:00:24,240 --> 00:00:27,400
+numbers in the array, we could
+establish a for-loop that
+
+11
+00:00:27,400 --> 00:00:30,870
+starts at the very first index,
+notice that that is 0,
+
+12
+00:00:30,870 --> 00:00:33,450
+and proceeds all the way through
+the very last index.
+
+13
+00:00:33,450 --> 00:00:36,280
+Notice that that is nine even
+though the length of
+
+14
+00:00:36,280 --> 00:00:39,030
+the array is 10.
+
+15
+00:00:39,030 --> 00:00:41,990
+Then we could use the
+console.log method to produce
+
+16
+00:00:41,990 --> 00:00:45,720
+a string that says, the value
+in cell i, notice we're
+
+17
+00:00:45,720 --> 00:00:49,830
+referring to the particular
+index that we're at, is
+
+18
+00:00:49,830 --> 00:00:51,690
+numberList i.
+
+19
+00:00:51,690 --> 00:00:56,270
+And numberList i refers to the
+actual contents of the
+
+20
+00:00:56,270 --> 00:00:58,830
+cell at index i.
+
+21
+00:00:58,830 --> 00:01:01,850
+Remember not to confuse the
+index, which is the position
+
+22
+00:01:01,850 --> 00:01:05,540
+we're at, with its actual
+contents, which is the value.
+
+23
+00:01:09,210 --> 00:01:14,050
+So, let's kind of take a look at
+how this works in action.
+
+24
+00:01:14,050 --> 00:01:18,510
+So when we start at i equals zero,
+our very first index, we'll
+
+25
+00:01:18,510 --> 00:01:21,780
+ask the question whether i is
+less than the length of the
+
+26
+00:01:21,780 --> 00:01:22,690
+entire array.
+
+27
+00:01:22,690 --> 00:01:24,490
+And of course, that's true.
+
+28
+00:01:24,490 --> 00:01:28,570
+And then we retrieve the value
+at numberList i, which is two,
+
+29
+00:01:28,570 --> 00:01:34,580
+and our printout becomes "The
+value in cell 0 is 2."
+
+30
+00:01:34,580 --> 00:01:37,800
+We do the same thing when
+we get to index one.
+
+31
+00:01:37,800 --> 00:01:41,220
+We ask the question, is i less
+than numberList.length?
+
+32
+00:01:41,220 --> 00:01:42,370
+Yes, it is.
+
+33
+00:01:42,370 --> 00:01:46,410
+And the value in that cell is five,
+and so we get "The value in
+
+34
+00:01:46,410 --> 00:01:51,420
+cell 1 is 5." That procedure
+repeats throughout the entire
+
+35
+00:01:51,420 --> 00:01:55,160
+loop until we get to the actual
+length of the array
+
+36
+00:01:55,160 --> 00:01:58,290
+when our question becomes false,
+and we stop the loop.
+
+37
+00:02:01,360 --> 00:02:03,100
+So, we've looked at arrays
+that have a whole lot
+
+38
+00:02:03,100 --> 00:02:04,030
+of contents in them.
+
+39
+00:02:04,030 --> 00:02:05,840
+And you might ask the question,
+can you have an
+
+40
+00:02:05,840 --> 00:02:07,390
+array with no contents in it?
+
+41
+00:02:07,390 --> 00:02:09,870
+Or can you have an array with
+cells that are empty?
+
+42
+00:02:09,870 --> 00:02:10,710
+Yes, you can.
+
+43
+00:02:10,710 --> 00:02:12,170
+Let's take a look at that.
+
+44
+00:02:12,170 --> 00:02:15,700
+We can use the undefined value
+to create empty cells because
+
+45
+00:02:15,700 --> 00:02:20,200
+the undefined value just
+means no contents.
+
+46
+00:02:20,200 --> 00:02:22,980
+Looking at our existing numbers
+list array, if we
+
+47
+00:02:22,980 --> 00:02:27,230
+wanted to make cell five empty, we
+could just use our regular
+
+48
+00:02:27,230 --> 00:02:31,340
+cell reference notation with
+numbers list five and set that
+
+49
+00:02:31,340 --> 00:02:32,770
+equal to undefined.
+
+50
+00:02:32,770 --> 00:02:35,870
+That instantly makes that
+cell the fifth index
+
+51
+00:02:35,870 --> 00:02:37,210
+in the array empty.
+
+52
+00:02:39,770 --> 00:02:42,830
+So, now that we know how to erase
+contents from arrays,
+
+53
+00:02:42,830 --> 00:02:45,760
+let's see if we can write some
+code that will do two things.
+
+54
+00:02:45,760 --> 00:02:48,700
+We want to count the even
+numbers in our numberList, as
+
+55
+00:02:48,700 --> 00:02:51,590
+well as erase the odd numbers.
+
+56
+00:02:51,590 --> 00:02:52,010
+Ready?
+
+57
+00:02:52,010 --> 00:02:53,060
+Here we go.
+
+58
+00:02:53,060 --> 00:02:55,800
+So, we've got our numberList
+array already.
+
+59
+00:02:55,800 --> 00:02:59,120
+And we know that we're going
+to need to count our even
+
+60
+00:02:59,120 --> 00:03:02,960
+values, so we'll set up a
+variable called evenCount that
+
+61
+00:03:02,960 --> 00:03:06,000
+will gradually count the even
+numbers in our array.
+
+62
+00:03:06,000 --> 00:03:08,850
+Then we'll start our For loop
+that progresses through the
+
+63
+00:03:08,850 --> 00:03:11,530
+array just as our previous
+For loop did.
+
+64
+00:03:11,530 --> 00:03:14,150
+Inside the loop, we need
+a way to check if we
+
+65
+00:03:14,150 --> 00:03:16,770
+have an even number.
+
+66
+00:03:16,770 --> 00:03:21,760
+If our reference value divided
+by two has a remainder of 0, we
+
+67
+00:03:21,760 --> 00:03:24,910
+will increase the evenCount
+variable because we have found
+
+68
+00:03:24,910 --> 00:03:26,160
+an even number.
+
+69
+00:03:28,410 --> 00:03:30,290
+But otherwise, if we
+don't have an even
+
+70
+00:03:30,290 --> 00:03:31,340
+number, what do we have?
+
+71
+00:03:31,340 --> 00:03:32,430
+An odd number.
+
+72
+00:03:32,430 --> 00:03:34,070
+And so we should erase
+that number.
+
+73
+00:03:34,070 --> 00:03:35,140
+How do we do that?
+
+74
+00:03:35,140 --> 00:03:39,650
+Well, we say that the numbersList
+i, in other words, the
+
+75
+00:03:39,650 --> 00:03:43,800
+value at the current index,
+should be undefined.
+
+76
+00:03:43,800 --> 00:03:48,490
+And once we have done that, that
+value is no longer there.
+
+77
+00:03:48,490 --> 00:03:51,730
+At the end of this code, we
+could also log out the current
+
+78
+00:03:51,730 --> 00:03:53,620
+evenCount, and that
+would be five.
+
+79
+00:03:57,330 --> 00:03:59,710
+Let's take a look at that
+code in action.
+
+80
+00:03:59,710 --> 00:04:03,800
+When the index is 0, we check to
+see if we are still within
+
+81
+00:04:03,800 --> 00:04:06,160
+the array length, and we are.
+
+82
+00:04:06,160 --> 00:04:10,200
+So then we get the numberList
+value, which is two, and then we
+
+83
+00:04:10,200 --> 00:04:12,380
+check to see if two is
+an even number.
+
+84
+00:04:12,380 --> 00:04:14,360
+two, of course, is an even number,
+and so our evenCount
+
+85
+00:04:14,360 --> 00:04:16,550
+would advance to one.
+
+86
+00:04:16,550 --> 00:04:19,690
+This procedure reoccurs
+throughout the entire array,
+
+87
+00:04:19,690 --> 00:04:23,160
+erasing odd values, and counting
+the even values.
+
+88
+00:04:23,160 --> 00:04:26,390
+When we finally get to the end
+of the array, the loop stops,
+
+89
+00:04:26,390 --> 00:04:28,615
+and you can see that we have
+an evenCount of five.
+
+90
+00:04:32,490 --> 00:04:35,600
+What if we were to now log out
+our changed numberList?
+
+91
+00:04:35,600 --> 00:04:36,800
+What would that look like?
+
+92
+00:04:36,800 --> 00:04:40,080
+Taking a look, we see here that
+our array kept all of our
+
+93
+00:04:40,080 --> 00:04:44,190
+even numbers and erased all of
+the odds, but still left empty
+
+94
+00:04:44,190 --> 00:04:46,410
+cells where the odds
+used to be.
+
+95
+00:04:46,410 --> 00:04:49,180
+Those are represented here
+by the undefineds.
+
+96
+00:04:49,180 --> 00:04:51,590
+And to show that the size of
+our array hasn't really
+
+97
+00:04:51,590 --> 00:04:54,850
+changed at all, we can log out
+that using the .length
+
+98
+00:04:54,850 --> 00:04:58,110
+property to see that the array
+is still of length 10.
+
+99
+00:05:01,310 --> 00:05:04,630
+Now that we know significantly
+more about arrays, we're going
+
+100
+00:05:04,630 --> 00:05:07,560
+to build a function that solves
+our initial problem of
+
+101
+00:05:07,560 --> 00:05:10,310
+building a passenger list.
+
+102
+00:05:10,310 --> 00:05:14,345
+So, here's our function called
+addPassenger, and we know that
+
+103
+00:05:14,345 --> 00:05:17,410
+that function is going to
+need two parameters.
+
+104
+00:05:17,410 --> 00:05:20,350
+The first is the passenger's
+name that we're adding, as
+
+105
+00:05:20,350 --> 00:05:23,330
+well as the array of passengers
+that we want to add
+
+106
+00:05:23,330 --> 00:05:24,740
+the passenger to.
+
+107
+00:05:24,740 --> 00:05:28,400
+Inside our function, we know
+that if the list is empty, we
+
+108
+00:05:28,400 --> 00:05:30,540
+may as well just add the
+passenger to the list.
+
+109
+00:05:30,540 --> 00:05:32,110
+We're OK with that.
+
+110
+00:05:32,110 --> 00:05:35,170
+Otherwise, we know the list is
+not empty, and so we need to
+
+111
+00:05:35,170 --> 00:05:39,500
+find the exact right spot to
+put the new passenger.
+
+112
+00:05:39,500 --> 00:05:42,090
+So, what we do is we iterate
+over all spots in our
+
+113
+00:05:42,090 --> 00:05:45,960
+passenger list, and if the
+current spot is empty, we want
+
+114
+00:05:45,960 --> 00:05:49,590
+to add our current passenger to
+that spot since it's empty.
+
+115
+00:05:49,590 --> 00:05:52,670
+And then we want to
+exit the function.
+
+116
+00:05:52,670 --> 00:05:55,080
+Otherwise, if we've gotten all
+the way to the end of the
+
+117
+00:05:55,080 --> 00:05:58,260
+list, and the passenger still
+has not been added, we need to
+
+118
+00:05:58,260 --> 00:06:01,250
+add that passenger to the
+back of the array,
+
+119
+00:06:01,250 --> 00:06:04,120
+increasing its size.
+
+120
+00:06:04,120 --> 00:06:06,460
+So that's our pseudocode, let's
+see if we can get some
+
+121
+00:06:06,460 --> 00:06:09,120
+real code in its place.
+
+122
+00:06:09,120 --> 00:06:12,300
+The first thing we know is
+that if the list.length
+
+123
+00:06:12,300 --> 00:06:15,820
+property is 0, then the
+list is empty, right?
+
+124
+00:06:15,820 --> 00:06:18,460
+So, we can just push
+the name of the
+
+125
+00:06:18,460 --> 00:06:21,780
+passenger onto the list.
+
+126
+00:06:21,780 --> 00:06:23,930
+Otherwise, the list is not
+empty, so we know we're going
+
+127
+00:06:23,930 --> 00:06:26,100
+to need a loop to check
+for empty spots.
+
+128
+00:06:26,100 --> 00:06:26,810
+Here's our loop.
+
+129
+00:06:26,810 --> 00:06:28,500
+It looks just like
+the other one.
+
+130
+00:06:28,500 --> 00:06:32,100
+We will proceed through the
+entire length of the array
+
+131
+00:06:32,100 --> 00:06:34,660
+looking for empty spots.
+
+132
+00:06:34,660 --> 00:06:36,230
+Well, how do we know if
+it's an empty spot?
+
+133
+00:06:36,230 --> 00:06:37,920
+We have to use our
+undefined trick.
+
+134
+00:06:37,920 --> 00:06:42,090
+If the current spot we're
+looking at, list i, is the
+
+135
+00:06:42,090 --> 00:06:44,950
+undefined value, we
+know it's empty.
+
+136
+00:06:44,950 --> 00:06:47,780
+So therefore, we can place the
+name of the current passenger
+
+137
+00:06:47,780 --> 00:06:50,040
+being added in that cell.
+
+138
+00:06:50,040 --> 00:06:52,650
+Then we can immediately exit
+the function because we're
+
+139
+00:06:52,650 --> 00:06:55,030
+done adding that passenger.
+
+140
+00:06:55,030 --> 00:06:57,680
+Notice that the return keyword
+here has nothing following it.
+
+141
+00:06:57,680 --> 00:07:00,020
+That's totally acceptable when
+you just want to exit the
+
+142
+00:07:00,020 --> 00:07:02,580
+function with no value.
+
+143
+00:07:02,580 --> 00:07:05,760
+Now we also have an Else-If
+statement that follows that
+
+144
+00:07:05,760 --> 00:07:07,910
+checks to see if we have
+reached the very
+
+145
+00:07:07,910 --> 00:07:09,790
+last cell of the array.
+
+146
+00:07:09,790 --> 00:07:11,570
+If we have, what do we know?
+
+147
+00:07:11,570 --> 00:07:16,000
+We know that we have not reached
+an empty spot yet for
+
+148
+00:07:16,000 --> 00:07:17,290
+this array.
+
+149
+00:07:17,290 --> 00:07:20,910
+So, we can go ahead and push the
+current passenger onto the
+
+150
+00:07:20,910 --> 00:07:24,420
+back end of the array,
+increasing its size.
+
+151
+00:07:24,420 --> 00:07:26,600
+Then, at the very bottom of the
+function, we'll put one
+
+152
+00:07:26,600 --> 00:07:30,970
+final return list so that we can
+ensure that the modified
+
+153
+00:07:30,970 --> 00:07:33,340
+list has been returned
+to the program.
+
+154
+00:07:37,990 --> 00:07:38,280
+Great.
+
+155
+00:07:38,280 --> 00:07:40,960
+So, now we've got a
+passenger-adding function.
+
+156
+00:07:40,960 --> 00:07:41,790
+How awesome.
+
+157
+00:07:41,790 --> 00:07:44,560
+Let's see if we can build a
+passenger list from scratch
+
+158
+00:07:44,560 --> 00:07:46,660
+and start adding some
+passengers to it.
+
+159
+00:07:46,660 --> 00:07:48,440
+Here we go.
+
+160
+00:07:48,440 --> 00:07:50,980
+So, we'll start a variable called
+passengerList list, and
+
+161
+00:07:50,980 --> 00:07:52,790
+we'll set it up as
+an empty list.
+
+162
+00:07:52,790 --> 00:07:55,010
+We can do that with
+just two brackets.
+
+163
+00:07:55,010 --> 00:07:57,650
+Then we'll call our addPassenger
+function, and
+
+164
+00:07:57,650 --> 00:07:58,850
+we're going to add
+Gregg to it.
+
+165
+00:07:58,850 --> 00:08:01,980
+So you can see our very first
+parameter is Gregg Pollack as
+
+166
+00:08:01,980 --> 00:08:05,840
+a string, followed by our newly
+created, but empty,
+
+167
+00:08:05,840 --> 00:08:07,340
+passengerList.
+
+168
+00:08:07,340 --> 00:08:10,540
+What gets returned is a new
+array with Gregg Pollack as
+
+169
+00:08:10,540 --> 00:08:13,990
+the very first and only cell.
+
+170
+00:08:13,990 --> 00:08:16,720
+Then, let's add Ashley
+Smith using
+
+171
+00:08:16,720 --> 00:08:18,870
+the same exact procedure.
+
+172
+00:08:18,870 --> 00:08:21,820
+What gets returned is our
+modified array that has Gregg
+
+173
+00:08:21,820 --> 00:08:24,750
+in the first spot and Ashley
+in the second spot.
+
+174
+00:08:24,750 --> 00:08:26,990
+We could do it one more
+time and put John
+
+175
+00:08:26,990 --> 00:08:28,240
+in the third spot.
+
+176
+00:08:31,780 --> 00:08:32,200
+Awesome.
+
+177
+00:08:32,200 --> 00:08:35,850
+We've got a full list of,
+well, three, passengers.
+
+178
+00:08:35,850 --> 00:08:38,309
+So let's see if we can now
+delete some passengers by
+
+179
+00:08:38,309 --> 00:08:40,140
+building a delete passenger
+function.
+
+180
+00:08:40,140 --> 00:08:41,419
+Here we go.
+
+181
+00:08:41,419 --> 00:08:43,280
+So we've got our deletePassenger
+function.
+
+182
+00:08:43,280 --> 00:08:46,620
+It's also going to take in
+a name and also the list.
+
+183
+00:08:46,620 --> 00:08:50,670
+You can see that we'll check
+if the list length is 0.
+
+184
+00:08:50,670 --> 00:08:52,795
+That means there's no passengers
+in this list, so
+
+185
+00:08:52,795 --> 00:08:55,000
+how could we possibly delete
+anybody from it?
+
+186
+00:08:55,000 --> 00:08:57,530
+And all we need to log out is
+that the "List is empty,
+
+187
+00:08:57,530 --> 00:09:00,860
+dude!" Otherwise, we'll start
+our loop that checks the
+
+188
+00:09:00,860 --> 00:09:03,350
+entire contents of the array.
+
+189
+00:09:03,350 --> 00:09:06,670
+Inside the loop, if the cell
+that we're currently checking
+
+190
+00:09:06,670 --> 00:09:09,780
+is the name that we're looking
+for, we'll go ahead and set
+
+191
+00:09:09,780 --> 00:09:13,870
+that cell to be empty, having
+removed the passenger.
+
+192
+00:09:13,870 --> 00:09:17,020
+Then we can return the list
+because we don't need to look
+
+193
+00:09:17,020 --> 00:09:19,790
+for that passenger anymore.
+
+194
+00:09:19,790 --> 00:09:23,140
+Otherwise, we have an Else-If
+here that checks to see if we
+
+195
+00:09:23,140 --> 00:09:25,220
+have arrived at the
+very last cell.
+
+196
+00:09:25,220 --> 00:09:28,270
+If we have arrived at the very
+last cell, but we have deleted
+
+197
+00:09:28,270 --> 00:09:31,470
+no passenger, that means that
+the passenger does not exist
+
+198
+00:09:31,470 --> 00:09:32,560
+in our current list.
+
+199
+00:09:32,560 --> 00:09:34,890
+And so we can report, with
+a console.log, that the
+
+200
+00:09:34,890 --> 00:09:39,360
+"Passenger was not found!"
+
+201
+00:09:39,360 --> 00:09:42,440
+At the very end, we will
+also return the list.
+
+202
+00:09:42,440 --> 00:09:43,230
+Why?
+
+203
+00:09:43,230 --> 00:09:46,050
+Because if we have returned the
+list somewhere else in the
+
+204
+00:09:46,050 --> 00:09:50,060
+function, we know that our
+exterior program is expecting
+
+205
+00:09:50,060 --> 00:09:51,960
+some kind of list
+to be returned.
+
+206
+00:09:51,960 --> 00:09:54,570
+So, it's good practice to make
+sure that we return the list,
+
+207
+00:09:54,570 --> 00:09:56,190
+whether it has been
+modified or not.
+
+208
+00:09:59,660 --> 00:10:02,960
+So, now we've built both
+an addPassenger and a
+
+209
+00:10:02,960 --> 00:10:04,230
+deletePassenger list.
+
+210
+00:10:04,230 --> 00:10:07,020
+We have full control of
+our passenger list.
+
+211
+00:10:07,020 --> 00:10:09,750
+Let's go ahead and mess
+around with it.
+
+212
+00:10:09,750 --> 00:10:13,560
+First, we'll take out Ashley
+Smith from our existing list.
+
+213
+00:10:13,560 --> 00:10:17,550
+So our loop seeks through the
+array, finds her in the second
+
+214
+00:10:17,550 --> 00:10:20,620
+cell, and erases her
+from that cell.
+
+215
+00:10:20,620 --> 00:10:23,610
+Notice now that we get a return
+of an array that has
+
+216
+00:10:23,610 --> 00:10:26,410
+the second cell empty.
+
+217
+00:10:26,410 --> 00:10:27,910
+Then we'll add Adam
+to the list.
+
+218
+00:10:27,910 --> 00:10:30,280
+And notice that our addPassenger
+function finds
+
+219
+00:10:30,280 --> 00:10:33,080
+the very first empty spot
+and places Adam
+
+220
+00:10:33,080 --> 00:10:35,890
+inside that spot first.
+
+221
+00:10:35,890 --> 00:10:37,850
+Then, we'll try to delete
+Ashley again.
+
+222
+00:10:37,850 --> 00:10:38,670
+Uh, oh.
+
+223
+00:10:38,670 --> 00:10:39,490
+She's not found.
+
+224
+00:10:39,490 --> 00:10:41,530
+That's, of course, because
+we deleted her before.
+
+225
+00:10:44,420 --> 00:10:47,280
+Then if we try to delete Gregg,
+he'll be removed from
+
+226
+00:10:47,280 --> 00:10:49,460
+the very first spot.
+
+227
+00:10:49,460 --> 00:10:52,430
+And then if we try to add
+Jennifer, she'll be placed in
+
+228
+00:10:52,430 --> 00:10:54,330
+Gregg's old spot,
+the first cell.
+
+229
+00:10:57,770 --> 00:11:00,280
+So, now you are an
+array master.
+
+230
+00:11:00,280 --> 00:11:01,180
+Congratulations.
+
+231
+00:11:01,180 --> 00:11:03,470
+We'll release you to
+the challenges.
+
+232
+00:11:03,470 --> 00:11:04,720
+Good luck.
+
+233
+00:11:06,940 --> 00:11:09,890
+In there, we could
+do [GIBBERISH].
+
+234
+00:11:09,890 --> 00:11:13,510
+Be able to push a piece
+onto the end.
+
+235
+00:11:13,510 --> 00:11:15,620
+Uh, what?
+
+236
+00:11:15,620 --> 00:11:17,910
+This is No-Laughing Friday.
+
+237
+00:11:17,910 --> 00:11:19,160
+No-Laughing Friday.
+
+238
+00:11:21,770 --> 00:11:23,270
+Oh, I busted it.
+
+239
+00:11:23,270 --> 00:11:28,370
+[LAUGHTER]
+
+240
+00:11:28,370 --> 00:11:33,335
+[MUSIC PLAYING]
+

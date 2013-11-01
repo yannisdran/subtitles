@@ -1,0 +1,860 @@
+﻿1
+00:00:00,000 --> 00:00:00,280
+[SINGING]
+
+2
+00:00:00,280 --> 00:00:03,570
+From the Labyrinth of Loops
+to the Variable Valley.
+
+3
+00:00:03,570 --> 00:00:06,560
+We'll see the Cliffs of Value
+first, JavaScript's right up
+
+4
+00:00:06,560 --> 00:00:07,170
+your alley.
+
+5
+00:00:07,170 --> 00:00:10,490
+Built-in Bluffs, Files,
+Falls, Array Archipelago.
+
+6
+00:00:10,490 --> 00:00:12,680
+Declarations in a desert,
+where you'll find out
+
+7
+00:00:12,680 --> 00:00:13,670
+how far you'll go.
+
+8
+00:00:13,670 --> 00:00:15,080
+Learn to program.
+Take a ride.
+
+9
+00:00:15,080 --> 00:00:17,170
+Buy a ticket step inside!
+
+10
+00:00:17,170 --> 00:00:19,140
+All aboard, you're
+at the station to
+
+11
+00:00:19,140 --> 00:00:20,070
+increase your education.
+
+12
+00:00:20,070 --> 00:00:21,240
+Bon voyage and skinny dip.
+
+13
+00:00:21,240 --> 00:00:23,820
+As long as functions you don't
+skimp on, on this the
+
+14
+00:00:23,820 --> 00:00:25,070
+JavaScript.
+
+15
+00:00:26,930 --> 00:00:28,180
+Road Trip.
+
+16
+00:00:32,400 --> 00:00:34,810
+So, those are some of the
+functions that JavaScript has
+
+17
+00:00:34,810 --> 00:00:36,320
+built in directly for you.
+
+18
+00:00:36,320 --> 00:00:38,870
+But what happens when you
+want to build your own
+
+19
+00:00:38,870 --> 00:00:39,630
+functionality.
+
+20
+00:00:39,630 --> 00:00:41,570
+That's the glory of computer
+programming, right?
+
+21
+00:00:41,570 --> 00:00:43,260
+We want to build what we want.
+
+22
+00:00:43,260 --> 00:00:46,100
+So, in this level, we're going to
+teach you how to build your
+
+23
+00:00:46,100 --> 00:00:47,920
+own function declarations.
+
+24
+00:00:47,920 --> 00:00:52,560
+In this, Level 4: The Desert
+Of Declarations.
+
+25
+00:00:56,930 --> 00:00:58,860
+First of all, what's
+a function for?
+
+26
+00:00:58,860 --> 00:01:02,810
+Well, if we give a function
+some input, it will do some
+
+27
+00:01:02,810 --> 00:01:05,340
+work on that input -
+some stuff to it -
+
+28
+00:01:05,340 --> 00:01:07,460
+and then it will output
+something on the back end of
+
+29
+00:01:07,460 --> 00:01:08,755
+the function as a result.
+
+30
+00:01:11,550 --> 00:01:14,830
+A function will solve problems
+for developers.
+
+31
+00:01:14,830 --> 00:01:18,020
+It will do something step by
+step that we need to do
+
+32
+00:01:18,020 --> 00:01:19,860
+repeatedly.
+
+33
+00:01:19,860 --> 00:01:22,200
+Here let's take a look at a
+basic function that's going to
+
+34
+00:01:22,200 --> 00:01:24,190
+sum together two cubes.
+
+35
+00:01:24,190 --> 00:01:26,850
+We'll call it the sum
+of two cubes.
+
+36
+00:01:26,850 --> 00:01:29,500
+The first step would be
+to get two numbers.
+
+37
+00:01:29,500 --> 00:01:32,910
+So, let's say we had
+four and we had nine.
+
+38
+00:01:32,910 --> 00:01:36,330
+Then we would cube each number
+as the next step.
+
+39
+00:01:36,330 --> 00:01:41,770
+So, four cubed would be 64 and
+9 cubed would be 729.
+
+40
+00:01:41,770 --> 00:01:45,000
+The third step in our function
+would actually be to sum the
+
+41
+00:01:45,000 --> 00:01:46,220
+cubes together.
+
+42
+00:01:46,220 --> 00:01:52,620
+So, we'd get 64 plus 729 and
+that will give us 793.
+
+43
+00:01:52,620 --> 00:01:55,650
+The last step, which is of
+course important is to return
+
+44
+00:01:55,650 --> 00:01:57,210
+the answer from the function.
+
+45
+00:01:57,210 --> 00:02:00,485
+So, we get 793 as the output
+of our function.
+
+46
+00:02:03,480 --> 00:02:06,630
+So, what are these steps if we
+were to write code for them?
+
+47
+00:02:06,630 --> 00:02:10,300
+Let's see some syntax for
+finding the sum of our cubes.
+
+48
+00:02:10,300 --> 00:02:12,000
+Well, the first step
+of getting four, we
+
+49
+00:02:12,000 --> 00:02:13,100
+would establish a variable.
+
+50
+00:02:13,100 --> 00:02:14,310
+Let's call it "a"
+
+51
+00:02:14,310 --> 00:02:15,720
+and set it equal to four.
+
+52
+00:02:15,720 --> 00:02:18,100
+Then, we would do the same thing
+for nine, but we would
+
+53
+00:02:18,100 --> 00:02:19,900
+establish the variable as "b".
+
+54
+00:02:19,900 --> 00:02:23,230
+Then we want to start cubing the
+values, we'll start with four
+
+55
+00:02:23,230 --> 00:02:24,630
+cubed equals 64.
+
+56
+00:02:24,630 --> 00:02:28,180
+We'll establish a variable
+called a cubed and set that
+
+57
+00:02:28,180 --> 00:02:31,240
+equal to a times a times a.
+
+58
+00:02:31,240 --> 00:02:34,750
+Then we'll do the same
+thing for b cubed.
+
+59
+00:02:34,750 --> 00:02:37,450
+Ultimately, we'll make a
+variable called sum.
+
+60
+00:02:37,450 --> 00:02:40,830
+And add a cubed and
+b cubed together.
+
+61
+00:02:40,830 --> 00:02:43,180
+So ultimately at the end of our
+coded function, we would
+
+62
+00:02:43,180 --> 00:02:46,180
+have 793 as the output.
+
+63
+00:02:46,180 --> 00:02:48,650
+Now, the cool thing about
+functions is that they are
+
+64
+00:02:48,650 --> 00:02:52,150
+very reusable and that makes
+them very useful.
+
+65
+00:02:52,150 --> 00:02:55,270
+We can wrap our code in a
+function that will allow us to
+
+66
+00:02:55,270 --> 00:02:57,610
+reuse it frequently.
+
+67
+00:02:57,610 --> 00:03:00,920
+Here you can see when we put four
+and nine into the function, we'll
+
+68
+00:03:00,920 --> 00:03:03,370
+get 793 as the output.
+
+69
+00:03:03,370 --> 00:03:11,280
+But when we put five and six into the
+same function, we get 341.
+
+70
+00:03:11,280 --> 00:03:14,270
+Now, let's look carefully at how
+to build a function with
+
+71
+00:03:14,270 --> 00:03:17,290
+syntax in JavaScript code.
+
+72
+00:03:17,290 --> 00:03:21,220
+We'll start our function with
+the actual keyword function.
+
+73
+00:03:21,220 --> 00:03:24,680
+We'll also need two braces
+that enclose the entire
+
+74
+00:03:24,680 --> 00:03:26,960
+function into a code block.
+
+75
+00:03:26,960 --> 00:03:28,860
+Next, we need to title
+the function.
+
+76
+00:03:28,860 --> 00:03:31,150
+We'll call ours sum of cubes.
+
+77
+00:03:31,150 --> 00:03:35,010
+And then we need a set of
+parameters that are enclosed
+
+78
+00:03:35,010 --> 00:03:36,560
+in parentheses.
+
+79
+00:03:36,560 --> 00:03:40,470
+Here, because we have two inputs
+to our function, we
+
+80
+00:03:40,470 --> 00:03:42,720
+have two parameters, a and b.
+
+81
+00:03:42,720 --> 00:03:45,740
+But you can have just as many
+parameters as you want in any
+
+82
+00:03:45,740 --> 00:03:47,060
+declared function.
+
+83
+00:03:47,060 --> 00:03:49,860
+You can think of these
+parameters, you know which are just
+
+84
+00:03:49,860 --> 00:03:53,140
+basically our inputs to the
+function, as the materials
+
+85
+00:03:53,140 --> 00:03:56,230
+that the function either uses or
+does work on to produce the
+
+86
+00:03:56,230 --> 00:03:58,070
+output you're looking for.
+
+87
+00:03:58,070 --> 00:04:01,260
+Inside the braces, of course, the
+function will actually do
+
+88
+00:04:01,260 --> 00:04:02,470
+some stuff.
+
+89
+00:04:02,470 --> 00:04:04,130
+That's what we want the
+function to do.
+
+90
+00:04:04,130 --> 00:04:07,010
+And then at the end of the
+function, we'll return
+
+91
+00:04:07,010 --> 00:04:11,070
+something or even a nothing
+from the process.
+
+92
+00:04:11,070 --> 00:04:15,550
+That return keyword tells the
+function OK you're done, go
+
+93
+00:04:15,550 --> 00:04:17,660
+ahead and exit, and
+give us whatever
+
+94
+00:04:17,660 --> 00:04:20,440
+follows the return keyword.
+
+95
+00:04:20,440 --> 00:04:23,360
+An important thing to note about
+the return key word, is
+
+96
+00:04:23,360 --> 00:04:26,010
+that you'll often see it
+anywhere inside the function
+
+97
+00:04:26,010 --> 00:04:29,600
+because it can be used to
+instantly exit at any time.
+
+98
+00:04:29,600 --> 00:04:32,000
+Here however, we want
+it at the end of our
+
+99
+00:04:32,000 --> 00:04:35,550
+sum of cubes function.
+
+100
+00:04:35,550 --> 00:04:38,790
+So, now let's actually build out
+our sum of cubes function.
+
+101
+00:04:38,790 --> 00:04:40,680
+Remember our four steps
+that we made?
+
+102
+00:04:40,680 --> 00:04:42,150
+Let's see where they
+fall inside the
+
+103
+00:04:42,150 --> 00:04:44,130
+syntax of our function.
+
+104
+00:04:44,130 --> 00:04:47,110
+If we were to get two numbers
+as our first step, those are
+
+105
+00:04:47,110 --> 00:04:50,130
+the parameters, which get passed
+into the function when
+
+106
+00:04:50,130 --> 00:04:52,270
+it is called.
+
+107
+00:04:52,270 --> 00:04:54,520
+The second step would be
+to cube each number.
+
+108
+00:04:54,520 --> 00:04:56,680
+So, that's going to be a process
+we do inside the
+
+109
+00:04:56,680 --> 00:04:58,280
+function body.
+
+110
+00:04:58,280 --> 00:05:01,070
+Then we will sum the cubes -
+that's another step we'll do
+
+111
+00:05:01,070 --> 00:05:02,280
+in the function body -
+
+112
+00:05:02,280 --> 00:05:04,580
+and at the end, we'll
+return that sum.
+
+113
+00:05:04,580 --> 00:05:08,150
+And that's our final step
+of returning the answer.
+
+114
+00:05:08,150 --> 00:05:09,980
+So, now let's transfer
+in the actual
+
+115
+00:05:09,980 --> 00:05:11,820
+syntax into those steps.
+
+116
+00:05:11,820 --> 00:05:13,350
+Well our parameters don't
+change, they'll
+
+117
+00:05:13,350 --> 00:05:14,980
+still be a and b.
+
+118
+00:05:14,980 --> 00:05:17,290
+Once the parameters are actually
+passed into the
+
+119
+00:05:17,290 --> 00:05:20,000
+function, they can be
+used at any point in
+
+120
+00:05:20,000 --> 00:05:22,010
+the functions process.
+
+121
+00:05:22,010 --> 00:05:25,530
+And of course, our next step will
+be cubing a, which you
+
+122
+00:05:25,530 --> 00:05:28,140
+can see a cubed equals
+a times a times a.
+
+123
+00:05:28,140 --> 00:05:30,550
+Followed by cubing b with
+the same procedure.
+
+124
+00:05:30,550 --> 00:05:35,090
+And then a sum, where we add a
+cubed and b cubed together.
+
+125
+00:05:35,090 --> 00:05:38,540
+And then we will return that sum
+value from the function.
+
+126
+00:05:43,370 --> 00:05:46,290
+Now that we have built our
+super cool sum of cubes
+
+127
+00:05:46,290 --> 00:05:49,680
+function, we can call it by
+using the function's name
+
+128
+00:05:49,680 --> 00:05:52,370
+followed by a set of parentheses
+within which we
+
+129
+00:05:52,370 --> 00:05:55,240
+place the parameters
+for our function.
+
+130
+00:05:55,240 --> 00:05:59,160
+Here, when we place our four and
+our nine into the sum of cubes
+
+131
+00:05:59,160 --> 00:06:04,370
+function, we get a 793
+instantly returned.
+
+132
+00:06:04,370 --> 00:06:06,100
+Now, we can do a lot
+of things with our
+
+133
+00:06:06,100 --> 00:06:07,480
+sum of cubes function.
+
+134
+00:06:07,480 --> 00:06:09,860
+We could use it in an assignment
+expression.
+
+135
+00:06:09,860 --> 00:06:11,460
+So, if we wanted to
+make a variable,
+
+136
+00:06:11,460 --> 00:06:13,070
+let's call it my sum.
+
+137
+00:06:13,070 --> 00:06:16,770
+And then we call sum of cubes,
+let's say on five and six.
+
+138
+00:06:16,770 --> 00:06:20,230
+And then tried to alert our my
+sum variable, after that
+
+139
+00:06:20,230 --> 00:06:22,300
+calculation, to the screen.
+
+140
+00:06:22,300 --> 00:06:25,850
+We would get 341 alerted
+to our user.
+
+141
+00:06:28,510 --> 00:06:30,480
+Now that we know how to build
+a function, let's see if we
+
+142
+00:06:30,480 --> 00:06:32,370
+can also put in a little bit of
+
+143
+00:06:32,370 --> 00:06:34,960
+efficiency into our functions.
+
+144
+00:06:34,960 --> 00:06:39,230
+Because being concise helps
+us with memory and storage
+
+145
+00:06:39,230 --> 00:06:41,490
+operations.
+
+146
+00:06:41,490 --> 00:06:45,010
+Our function works great, but
+we've made three unnecessary
+
+147
+00:06:45,010 --> 00:06:47,620
+variables that all have to
+be allocated in memory.
+
+148
+00:06:47,620 --> 00:06:49,970
+Let's see if there's a way
+to get rid of those.
+
+149
+00:06:49,970 --> 00:06:53,460
+Well first of all, we've made a
+sum variable that's a cubed
+
+150
+00:06:53,460 --> 00:06:54,750
+plus b cubed.
+
+151
+00:06:54,750 --> 00:06:58,370
+Why don't we just return
+a cubed plus b cubed?
+
+152
+00:06:58,370 --> 00:07:00,020
+The return keyword will
+evaluate that
+
+153
+00:07:00,020 --> 00:07:01,620
+expression and return it.
+
+154
+00:07:01,620 --> 00:07:05,210
+Now we don't need a sum
+variable anymore.
+
+155
+00:07:05,210 --> 00:07:08,020
+Well if that's true, we don't
+need a b cubed variable.
+
+156
+00:07:08,020 --> 00:07:12,060
+We can just put b times b times
+b in place of b cubed.
+
+157
+00:07:12,060 --> 00:07:15,860
+And you can probably see
+where that's going.
+
+158
+00:07:15,860 --> 00:07:18,170
+Because if we don't need a b
+cubed variable, then we don't
+
+159
+00:07:18,170 --> 00:07:19,720
+need an a cubed variable
+either.
+
+160
+00:07:19,720 --> 00:07:22,580
+And we can just write
+a times a times a.
+
+161
+00:07:22,580 --> 00:07:26,080
+So now we've got one statement
+that says, return a times a
+
+162
+00:07:26,080 --> 00:07:28,700
+times a plus b times
+b times b,
+
+163
+00:07:28,700 --> 00:07:31,570
+which is what we wanted to
+do in the first place.
+
+164
+00:07:31,570 --> 00:07:33,950
+Now, we've eliminated three
+different variables and
+
+165
+00:07:33,950 --> 00:07:35,200
+simplified our function.
+
+166
+00:07:38,670 --> 00:07:41,840
+Now, as you saw before we can
+call our sum of cubes function
+
+167
+00:07:41,840 --> 00:07:44,750
+with two numbers passed
+in as parameters.
+
+168
+00:07:44,750 --> 00:07:49,760
+But we can also pass in
+expressions as parameters.
+
+169
+00:07:49,760 --> 00:07:52,760
+JavaScript will go ahead and
+evaluate and simplify those
+
+170
+00:07:52,760 --> 00:07:56,480
+expressions before calling
+the actual function.
+
+171
+00:07:56,480 --> 00:08:00,020
+So you can see here that if we
+called the sum of cubes with
+
+172
+00:08:00,020 --> 00:08:04,760
+two expressions as parameters,
+1 plus 2 and three plus five, that
+
+173
+00:08:04,760 --> 00:08:07,830
+would be the exact same thing
+as calling sum of
+
+174
+00:08:07,830 --> 00:08:09,950
+cubes on three and eight.
+
+175
+00:08:09,950 --> 00:08:13,730
+And of course, we would get
+a 539 as the output.
+
+176
+00:08:13,730 --> 00:08:15,765
+We can also use variables
+as parameters.
+
+177
+00:08:15,765 --> 00:08:18,280
+Here you can see, we've
+established a variable called
+
+178
+00:08:18,280 --> 00:08:19,960
+x that we've set to three.
+
+179
+00:08:19,960 --> 00:08:22,920
+And then we used x inside
+the parameters in a
+
+180
+00:08:22,920 --> 00:08:24,580
+sum of cubes call.
+
+181
+00:08:24,580 --> 00:08:28,070
+So this particular call of sum
+of cubes would be the same as
+
+182
+00:08:28,070 --> 00:08:32,640
+sum of cubes six and 12
+because x is three.
+
+183
+00:08:32,640 --> 00:08:35,589
+And so we would get an
+output of 1,494.
+

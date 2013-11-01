@@ -1,0 +1,841 @@
+﻿1
+00:00:01,960 --> 00:00:04,390
+Now, we'll throw a special
+case into the scenario.
+
+2
+00:00:04,390 --> 00:00:07,150
+What if we had a train - a
+special train, an express
+
+3
+00:00:07,150 --> 00:00:09,350
+train - that starts later?
+
+4
+00:00:09,350 --> 00:00:12,180
+Let's add a train that isn't
+one of the regular running
+
+5
+00:00:12,180 --> 00:00:16,120
+trains, but it also is not a
+non-operational train, because
+
+6
+00:00:16,120 --> 00:00:17,360
+it will start at noon.
+
+7
+00:00:17,360 --> 00:00:19,730
+It's a special train.
+
+8
+00:00:19,730 --> 00:00:23,240
+To do this in our code, we will
+need the Else-If syntax.
+
+9
+00:00:23,240 --> 00:00:26,970
+That's for when two conditions
+just is not enough.
+
+10
+00:00:26,970 --> 00:00:28,350
+So, let's take a look at that.
+
+11
+00:00:28,350 --> 00:00:31,340
+We already know our If block,
+where if some condition is
+
+12
+00:00:31,340 --> 00:00:33,450
+true we're going to
+do some code.
+
+13
+00:00:33,450 --> 00:00:37,480
+The Else-If comes in when we
+need an extra condition to
+
+14
+00:00:37,480 --> 00:00:41,590
+check before we fall to
+the final else block.
+
+15
+00:00:41,590 --> 00:00:45,060
+You can see that in the Else-
+If block, if some other
+
+16
+00:00:45,060 --> 00:00:48,630
+condition is true we will
+do the code inside that
+
+17
+00:00:48,630 --> 00:00:52,110
+particular block before we will
+allow the code to proceed
+
+18
+00:00:52,110 --> 00:00:54,170
+down to the else block.
+
+19
+00:00:54,170 --> 00:00:58,070
+Something to remember is that
+if any condition is ever met
+
+20
+00:00:58,070 --> 00:01:02,020
+inside the if block or in the
+Else-If block, the else will
+
+21
+00:01:02,020 --> 00:01:03,270
+never get evaluated.
+
+22
+00:01:06,550 --> 00:01:08,930
+Else-If allows us to check
+multiple conditions.
+
+23
+00:01:08,930 --> 00:01:11,010
+It can be used when
+many specific
+
+24
+00:01:11,010 --> 00:01:13,940
+scenarios need attention.
+
+25
+00:01:13,940 --> 00:01:17,610
+So, let's take a look at how we
+might apply the Else-If block
+
+26
+00:01:17,610 --> 00:01:20,000
+to our special train
+situation.
+
+27
+00:01:20,000 --> 00:01:22,690
+Here we have our normal if the
+train number is less than or
+
+28
+00:01:22,690 --> 00:01:24,910
+equal to the operational trains,
+let's just go ahead
+
+29
+00:01:24,910 --> 00:01:26,760
+and print that that
+train is running.
+
+30
+00:01:26,760 --> 00:01:29,320
+But now we need to check
+something specific.
+
+31
+00:01:29,320 --> 00:01:34,250
+Otherwise, first check if the
+train is the express train.
+
+32
+00:01:34,250 --> 00:01:37,320
+Then we want to print that train
+number 10 begins running
+
+33
+00:01:37,320 --> 00:01:41,310
+at noon, because it has its
+own special message.
+
+34
+00:01:41,310 --> 00:01:44,160
+Otherwise, we know it is neither
+a running train nor an
+
+35
+00:01:44,160 --> 00:01:45,190
+express train,
+
+36
+00:01:45,190 --> 00:01:48,750
+and so it is a not-operational
+train.
+
+37
+00:01:48,750 --> 00:01:50,930
+How can we implement that
+particular part
+
+38
+00:01:50,930 --> 00:01:52,140
+of the Else-If statement?
+
+39
+00:01:52,140 --> 00:01:55,600
+Well, all we have to do is ask
+whether the train number is
+
+40
+00:01:55,600 --> 00:01:57,290
+exactly equal to 10.
+
+41
+00:01:57,290 --> 00:01:59,950
+If it is, we know it's train 10
+and we can print out that
+
+42
+00:01:59,950 --> 00:02:02,700
+that particular train
+is running at noon.
+
+43
+00:02:02,700 --> 00:02:06,040
+Something to note is that the
+Else-If condition is never
+
+44
+00:02:06,040 --> 00:02:09,860
+evaluated at all if the very
+first condition in the If
+
+45
+00:02:09,860 --> 00:02:14,020
+block is checked and
+is satisfied.
+
+46
+00:02:14,020 --> 00:02:18,070
+Similarly, the else block will
+only trigger when the above
+
+47
+00:02:18,070 --> 00:02:19,670
+two blocks have failed.
+
+48
+00:02:23,120 --> 00:02:26,160
+So now,let's update our system
+status loop with our cool new
+
+49
+00:02:26,160 --> 00:02:28,040
+Else-If statement.
+
+50
+00:02:28,040 --> 00:02:30,380
+We can print based on multiple
+conditions now.
+
+51
+00:02:30,380 --> 00:02:33,200
+So you can see that in our for-
+loop, most of which you've
+
+52
+00:02:33,200 --> 00:02:36,680
+seen before, we've added in the
+Else-If statement to check
+
+53
+00:02:36,680 --> 00:02:39,810
+to see whether we have train
+number 10 and then print out
+
+54
+00:02:39,810 --> 00:02:41,060
+that it runs at noon.
+
+55
+00:02:43,870 --> 00:02:45,950
+So let's go through the
+execution board again and see
+
+56
+00:02:45,950 --> 00:02:50,360
+exactly when that Else-If
+block is triggered.
+
+57
+00:02:50,360 --> 00:02:53,240
+You can see that for the first
+8 trains, that Else-If is
+
+58
+00:02:53,240 --> 00:02:57,900
+completely ignored, because
+the if block is triggered.
+
+59
+00:02:57,900 --> 00:03:01,270
+And then on train number 9,
+since 9 is not equal to train
+
+60
+00:03:01,270 --> 00:03:04,750
+number 10, we go straight to the
+else block and print the
+
+61
+00:03:04,750 --> 00:03:07,400
+9th train is not operational.
+
+62
+00:03:07,400 --> 00:03:09,100
+On the 10th train,
+finally we have
+
+63
+00:03:09,100 --> 00:03:10,370
+triggered our Else-If block.
+
+64
+00:03:10,370 --> 00:03:12,410
+And we see the print out
+that train number 10
+
+65
+00:03:12,410 --> 00:03:14,810
+begins running at noon.
+
+66
+00:03:14,810 --> 00:03:16,900
+And then the rest of the trains
+proceed as normal.
+
+67
+00:03:16,900 --> 00:03:18,560
+And the loop stops
+at train 13.
+
+68
+00:03:22,440 --> 00:03:25,440
+Sometimes when we check a
+condition, we need to check
+
+69
+00:03:25,440 --> 00:03:28,760
+another condition inside
+that block before we
+
+70
+00:03:28,760 --> 00:03:30,540
+continue with the code.
+
+71
+00:03:30,540 --> 00:03:33,300
+A nested conditional will
+help us do that.
+
+72
+00:03:33,300 --> 00:03:35,090
+Let's say we had some shapes.
+
+73
+00:03:35,090 --> 00:03:37,910
+We've got two sizes
+for squares.
+
+74
+00:03:37,910 --> 00:03:40,280
+And we've got one size
+for circles.
+
+75
+00:03:40,280 --> 00:03:43,840
+We want to color big squares
+red and small squares blue.
+
+76
+00:03:43,840 --> 00:03:46,100
+And since there's only
+one size circle,
+
+77
+00:03:46,100 --> 00:03:47,350
+we'll color that purple.
+
+78
+00:03:50,230 --> 00:03:51,890
+How can we do that
+in pseudo code?
+
+79
+00:03:51,890 --> 00:03:54,730
+How can we make the decision as
+to whether a shape should
+
+80
+00:03:54,730 --> 00:03:58,026
+be colored red, blue,
+or purple?
+
+81
+00:03:58,026 --> 00:04:00,840
+Well, we know that if it's
+a square, we should check
+
+82
+00:04:00,840 --> 00:04:02,240
+whether it is big.
+
+83
+00:04:02,240 --> 00:04:05,810
+If it is big, we want to
+make that square red.
+
+84
+00:04:05,810 --> 00:04:09,840
+Now, if it is not big, we will
+move straight into the Else
+
+85
+00:04:09,840 --> 00:04:13,380
+block, which means it must
+be a small square.
+
+86
+00:04:13,380 --> 00:04:16,060
+And so we should make it blue.
+
+87
+00:04:16,060 --> 00:04:19,630
+Now, this extra else down here
+on the bottom is going to take
+
+88
+00:04:19,630 --> 00:04:20,910
+care of our circle.
+
+89
+00:04:20,910 --> 00:04:21,610
+Why?
+
+90
+00:04:21,610 --> 00:04:25,840
+Because we know that if our
+shape is not a square, it must
+
+91
+00:04:25,840 --> 00:04:27,080
+be a circle.
+
+92
+00:04:27,080 --> 00:04:29,950
+And so therefore, we're going
+to make that purple.
+
+93
+00:04:29,950 --> 00:04:32,930
+This is an example of
+nested conditionals.
+
+94
+00:04:32,930 --> 00:04:36,510
+Something to note here is that
+the innermost Else block only
+
+95
+00:04:36,510 --> 00:04:40,160
+responds to the innermost
+If block.
+
+96
+00:04:40,160 --> 00:04:43,930
+Additionally, the very last else
+block only responds to
+
+97
+00:04:43,930 --> 00:04:47,080
+that first if conditional
+that checks whether
+
+98
+00:04:47,080 --> 00:04:48,330
+the shape is a square.
+
+99
+00:04:50,980 --> 00:04:53,840
+Say that in our train system
+we wanted to print out a
+
+100
+00:04:53,840 --> 00:04:56,860
+special message to our users
+that said whether all trains
+
+101
+00:04:56,860 --> 00:04:58,790
+were running or none
+of them are.
+
+102
+00:04:58,790 --> 00:05:02,340
+We can use nested conditionals
+to check whether we have all
+
+103
+00:05:02,340 --> 00:05:04,170
+trains running or none.
+
+104
+00:05:04,170 --> 00:05:05,540
+How can we demonstrate
+that kind of
+
+105
+00:05:05,540 --> 00:05:07,040
+situation in pseudo code?
+
+106
+00:05:07,040 --> 00:05:08,220
+Let's take a look.
+
+107
+00:05:08,220 --> 00:05:11,170
+So, if there are any running
+trains, meaning any running
+
+108
+00:05:11,170 --> 00:05:14,920
+trains at all, the first thing
+we want to do is check to see
+
+109
+00:05:14,920 --> 00:05:17,820
+if the amount of running
+trains is the
+
+110
+00:05:17,820 --> 00:05:19,640
+amount of total trains.
+
+111
+00:05:19,640 --> 00:05:21,970
+And then we want to print out
+to the passengers that all
+
+112
+00:05:21,970 --> 00:05:24,450
+trains are running
+if that is true.
+
+113
+00:05:24,450 --> 00:05:28,200
+Otherwise, we'll just execute
+our normal loop code to decide
+
+114
+00:05:28,200 --> 00:05:30,670
+whether we have a running train
+or a not-running train
+
+115
+00:05:30,670 --> 00:05:32,800
+or a special train.
+
+116
+00:05:32,800 --> 00:05:36,330
+And then outside all of that
+nested conditional, we'll have
+
+117
+00:05:36,330 --> 00:05:39,110
+that final else block
+that says there must
+
+118
+00:05:39,110 --> 00:05:40,520
+be no running trains.
+
+119
+00:05:40,520 --> 00:05:42,170
+And so we will print that out.
+
+120
+00:05:42,170 --> 00:05:43,090
+How do we know that?
+
+121
+00:05:43,090 --> 00:05:46,260
+Well, if the very first if
+statement fails, that means
+
+122
+00:05:46,260 --> 00:05:47,710
+there's no running trains.
+
+123
+00:05:47,710 --> 00:05:50,070
+And so we can go straight to the
+Else block and print out
+
+124
+00:05:50,070 --> 00:05:51,595
+that there are no
+running trains.
+
+125
+00:05:54,110 --> 00:05:56,340
+So, let's check out how we would
+make some code out of
+
+126
+00:05:56,340 --> 00:05:57,660
+that situation.
+
+127
+00:05:57,660 --> 00:06:00,220
+Well, in our first if
+conditional, we would say if
+
+128
+00:06:00,220 --> 00:06:03,470
+the trainsOperational is greater
+than 0 that means we
+
+129
+00:06:03,470 --> 00:06:05,690
+have some running
+trains today.
+
+130
+00:06:05,690 --> 00:06:07,980
+If that's true, then the first
+thing we need to check is
+
+131
+00:06:07,980 --> 00:06:11,280
+whether the trainsOperational,
+meaning the amount of running
+
+132
+00:06:11,280 --> 00:06:14,280
+trains, is equal to
+the total trains.
+
+133
+00:06:14,280 --> 00:06:16,880
+If that's true, then of course
+we know that all of the trains
+
+134
+00:06:16,880 --> 00:06:17,230
+are running.
+
+135
+00:06:17,230 --> 00:06:20,690
+And so, we can print that
+out to the user.
+
+136
+00:06:20,690 --> 00:06:24,120
+Otherwise, then we run our basic
+for-loop that we have
+
+137
+00:06:24,120 --> 00:06:26,510
+already designed to
+differentiate between the
+
+138
+00:06:26,510 --> 00:06:28,800
+running trains, the not-running
+trains, and our
+
+139
+00:06:28,800 --> 00:06:30,150
+special train.
+
+140
+00:06:30,150 --> 00:06:33,650
+And then on the very last else
+block, we will know that there
+
+141
+00:06:33,650 --> 00:06:35,390
+are no operational trains.
+
+142
+00:06:35,390 --> 00:06:37,930
+And so, we can print to the
+user that no trains are
+
+143
+00:06:37,930 --> 00:06:39,070
+operational today.
+
+144
+00:06:39,070 --> 00:06:40,320
+Bummer.
+
+145
+00:06:43,610 --> 00:06:46,570
+So now if we update our
+trains.js file with our
+
+146
+00:06:46,570 --> 00:06:49,810
+special new nested conditionals,
+our passengers
+
+147
+00:06:49,810 --> 00:06:52,960
+will know whether all of the
+trains are running today, or
+
+148
+00:06:52,960 --> 00:06:56,240
+whether none are, or whether
+it's a mix of the two.
+
+149
+00:06:56,240 --> 00:06:59,020
+Something to note here is that
+all of our code is very
+
+150
+00:06:59,020 --> 00:07:00,010
+efficient because it's
+
+151
+00:07:00,010 --> 00:07:03,190
+controlled by just two variables.
+
+152
+00:07:03,190 --> 00:07:06,190
+Let's see what would happen as
+we trace through our crazy
+
+153
+00:07:06,190 --> 00:07:07,530
+nested conditional code.
+
+154
+00:07:10,710 --> 00:07:13,850
+Let's see how we'd get these
+particular situations where
+
+155
+00:07:13,850 --> 00:07:16,290
+we'd have all trains
+running or none.
+
+156
+00:07:16,290 --> 00:07:19,560
+Well, first we know that we have
+12 total trains, right?
+
+157
+00:07:19,560 --> 00:07:21,860
+And we also have in this
+particular case
+
+158
+00:07:21,860 --> 00:07:23,880
+12 operational trains.
+
+159
+00:07:23,880 --> 00:07:24,690
+Hmm.
+
+160
+00:07:24,690 --> 00:07:26,540
+They equal each other.
+
+161
+00:07:26,540 --> 00:07:29,160
+Well, we know that the
+trainsOperational variable is
+
+162
+00:07:29,160 --> 00:07:31,260
+greater than 0, so we
+will move into the
+
+163
+00:07:31,260 --> 00:07:33,100
+very first if block.
+
+164
+00:07:33,100 --> 00:07:35,700
+And then we will check to see
+if the trainsOperational
+
+165
+00:07:35,700 --> 00:07:38,880
+variable is the exact same as
+the totalTrains variable.
+
+166
+00:07:38,880 --> 00:07:40,170
+In this case, it is.
+
+167
+00:07:40,170 --> 00:07:42,690
+And so we will instantly print
+out that all trains are
+
+168
+00:07:42,690 --> 00:07:44,540
+running at the JavaScript
+Express.
+
+169
+00:07:44,540 --> 00:07:45,790
+Woo-hoo!
+
+170
+00:07:48,510 --> 00:07:50,960
+Now what would happen if we
+set our trainsOperational
+
+171
+00:07:50,960 --> 00:07:52,510
+variable to zero?
+
+172
+00:07:52,510 --> 00:07:54,300
+That means we have no running
+trains today.
+
+173
+00:07:54,300 --> 00:07:55,910
+It must be holiday.
+
+174
+00:07:55,910 --> 00:07:59,210
+So now, we'll come down and we'll
+say is trainsOperational
+
+175
+00:07:59,210 --> 00:07:59,880
+greater than zero?
+
+176
+00:07:59,880 --> 00:08:01,350
+It is not.
+
+177
+00:08:01,350 --> 00:08:04,790
+And so we will move straight
+to printing "No trains are
+
+178
+00:08:04,790 --> 00:08:06,000
+operational today.
+
+179
+00:08:06,000 --> 00:08:08,430
+Bummer!" in the final
+Else block.
+

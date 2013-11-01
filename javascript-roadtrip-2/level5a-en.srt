@@ -1,0 +1,752 @@
+﻿1
+00:00:00,280 --> 00:00:00,560
+[SINGING]
+
+2
+00:00:00,560 --> 00:00:04,230
+From the Labyrinth of Loops to
+the Variable Valley, we'll see
+
+3
+00:00:04,230 --> 00:00:05,630
+the Cliffs of Value first.
+
+4
+00:00:05,630 --> 00:00:07,180
+JavaScript'ss right
+up your alley.
+
+5
+00:00:07,180 --> 00:00:10,490
+Built-ins Bluff, Files Falls,
+Array Archipelago.
+
+6
+00:00:10,490 --> 00:00:12,680
+Declarations in a desert,
+where you'll find out
+
+7
+00:00:12,680 --> 00:00:13,670
+how far you'll go.
+
+8
+00:00:13,670 --> 00:00:15,320
+Learn to program.
+Take a ride.
+
+9
+00:00:15,320 --> 00:00:16,440
+Buy a ticket. Step inside.
+
+10
+00:00:16,440 --> 00:00:17,240
+All aboard,
+
+11
+00:00:17,240 --> 00:00:20,070
+you're at the station to
+increase your education.
+
+12
+00:00:20,070 --> 00:00:20,550
+Bon voyage
+
+13
+00:00:20,550 --> 00:00:23,300
+and skinny dip! As long as
+functions you don't skip, on
+
+14
+00:00:23,300 --> 00:00:25,317
+this the JavaScript ...
+
+15
+00:00:26,983 --> 00:00:28,583
+... Road Trip
+
+16
+00:00:31,750 --> 00:00:33,480
+All right, Road Trippers,
+we are coming
+
+17
+00:00:33,480 --> 00:00:34,990
+down the home stretch.
+
+18
+00:00:34,990 --> 00:00:38,090
+And now, you are masters of
+the declared function
+
+19
+00:00:38,090 --> 00:00:40,180
+and you can build your own
+basic functionality.
+
+20
+00:00:40,180 --> 00:00:41,380
+Pretty cool, huh?
+
+21
+00:00:41,380 --> 00:00:44,380
+And now we're going to move to
+exploring how we can put a
+
+22
+00:00:44,380 --> 00:00:47,890
+list of data inside of one
+convenient variable.
+
+23
+00:00:47,890 --> 00:00:52,770
+Welcome to Level 5: The
+Array Archipelago.
+
+24
+00:00:52,770 --> 00:00:55,370
+So we're back on our train,
+and what if we wanted a
+
+25
+00:00:55,370 --> 00:00:58,020
+passenger list for
+our train car?
+
+26
+00:00:58,020 --> 00:01:02,210
+How would we structure a list
+of passengers inside our new
+
+27
+00:01:02,210 --> 00:01:03,590
+train system?
+
+28
+00:01:03,590 --> 00:01:07,350
+Well, taking a look inside of
+our trains.js file, we could
+
+29
+00:01:07,350 --> 00:01:07,920
+make a function.
+
+30
+00:01:07,920 --> 00:01:10,660
+And we could call it "makeList".
+
+31
+00:01:10,660 --> 00:01:13,330
+And you can see that has an
+empty set of parameters.
+
+32
+00:01:13,330 --> 00:01:15,750
+And inside the function,
+we could make a
+
+33
+00:01:15,750 --> 00:01:17,390
+whole bunch of variables.
+
+34
+00:01:17,390 --> 00:01:20,540
+One for passenger one, one for
+passenger two, one for
+
+35
+00:01:20,540 --> 00:01:23,190
+passenger three, and
+so on and so on.
+
+36
+00:01:23,190 --> 00:01:25,670
+But what if we have
+60 passengers?
+
+37
+00:01:25,670 --> 00:01:27,390
+And then what if they changed?
+
+38
+00:01:27,390 --> 00:01:29,750
+This would kind of suck just
+a little bit, right?
+
+39
+00:01:29,750 --> 00:01:34,020
+So we need to find a way,
+through one variable, to
+
+40
+00:01:34,020 --> 00:01:36,590
+access an entire list
+of people that are
+
+41
+00:01:36,590 --> 00:01:38,250
+passengers on our train.
+
+42
+00:01:38,250 --> 00:01:40,260
+For that we have a
+very special data
+
+43
+00:01:40,260 --> 00:01:43,230
+structure called an array.
+
+44
+00:01:43,230 --> 00:01:45,820
+An array is a data structure
+that we can reference with a
+
+45
+00:01:45,820 --> 00:01:47,360
+variable name, and it has
+
+46
+00:01:47,360 --> 00:01:50,020
+automatically indexed positions.
+
+47
+00:01:50,020 --> 00:01:54,100
+Let's take a look at a six
+cell array of passengers.
+
+48
+00:01:54,100 --> 00:01:57,340
+Here you can see a bunch of
+people that are passengers on
+
+49
+00:01:57,340 --> 00:02:00,030
+our new six cell train.
+
+50
+00:02:00,030 --> 00:02:03,990
+Just like strings, arrays have
+indices that are zero-based.
+
+51
+00:02:03,990 --> 00:02:07,180
+So, if we referenced cell 0
+here, we would get Gregg
+
+52
+00:02:07,180 --> 00:02:10,729
+Pollack, who is in the very
+first cell of the array.
+
+53
+00:02:10,729 --> 00:02:15,300
+And in cell four, despite his
+excellent mustachioed figure,
+
+54
+00:02:15,300 --> 00:02:17,390
+we have Jon Friskics.
+
+55
+00:02:17,390 --> 00:02:20,210
+Even though we currently have
+a picture array that has all
+
+56
+00:02:20,210 --> 00:02:24,150
+these guys in it, we could also
+have an array of strings
+
+57
+00:02:24,150 --> 00:02:25,400
+that has their names.
+
+58
+00:02:28,320 --> 00:02:31,420
+We can build a string array very
+easily, and we can have
+
+59
+00:02:31,420 --> 00:02:35,160
+easy access to its contents
+using indices.
+
+60
+00:02:35,160 --> 00:02:38,140
+So, if we wanted to build this
+six cell string array, we
+
+61
+00:02:38,140 --> 00:02:41,610
+could make a variable called
+passengers, and then using a
+
+62
+00:02:41,610 --> 00:02:45,580
+set of square brackets, build an
+entire list of the strings
+
+63
+00:02:45,580 --> 00:02:47,930
+that we would like inside
+of our array.
+
+64
+00:02:47,930 --> 00:02:49,940
+When the array is built
+internally, it will
+
+65
+00:02:49,940 --> 00:02:53,890
+automatically place each of the
+strings in order into each
+
+66
+00:02:53,890 --> 00:02:56,870
+of the array's indices
+in order.
+
+67
+00:02:56,870 --> 00:03:00,380
+If we wanted to access any
+particular indexes value, we
+
+68
+00:03:00,380 --> 00:03:05,370
+would use the notation, for
+example here, passengers five,
+
+69
+00:03:05,370 --> 00:03:09,050
+and that says to return
+the value at index five.
+
+70
+00:03:09,050 --> 00:03:11,650
+If we did that here, we would
+get Ashley Smith, which is
+
+71
+00:03:11,650 --> 00:03:14,586
+obviously in the very last
+cell of our array.
+
+72
+00:03:17,990 --> 00:03:20,110
+Another cool thing about
+arrays is that we can
+
+73
+00:03:20,110 --> 00:03:23,200
+reference and change the
+contents of specific cells
+
+74
+00:03:23,200 --> 00:03:26,200
+using the same indices that
+we used to just get
+
+75
+00:03:26,200 --> 00:03:28,490
+the contents out.
+
+76
+00:03:28,490 --> 00:03:31,180
+If we wanted to change the
+value contained at any
+
+77
+00:03:31,180 --> 00:03:35,290
+particular index, we would use
+the same style of notation to
+
+78
+00:03:35,290 --> 00:03:38,340
+reference which cell we
+want to deal with.
+
+79
+00:03:38,340 --> 00:03:41,480
+Here, if we wanted to place
+Eric Allam's name into the
+
+80
+00:03:41,480 --> 00:03:44,950
+second cell, we would say
+passengers, 2, and set that
+
+81
+00:03:44,950 --> 00:03:48,520
+equal to Eric Allom
+as a string.
+
+82
+00:03:48,520 --> 00:03:52,270
+Again, this particular syntax
+says, go over to the index 2
+
+83
+00:03:52,270 --> 00:03:56,050
+and change the value that's
+there to whatever comes after
+
+84
+00:03:56,050 --> 00:03:58,850
+the equals assignment sign.
+
+85
+00:03:58,850 --> 00:04:02,760
+Just like strings, we could
+access the length of arrays if
+
+86
+00:04:02,760 --> 00:04:06,390
+we type the variable's name
+and the .length property.
+
+87
+00:04:06,390 --> 00:04:09,530
+Having done that, we see that
+this returns a value of six,
+
+88
+00:04:09,530 --> 00:04:11,135
+because there are six cells.
+
+89
+00:04:14,820 --> 00:04:18,079
+Arrays come with a whole bunch
+of methods that you can use to
+
+90
+00:04:18,079 --> 00:04:21,209
+manipulate the contents of the
+array, as well as manipulate
+
+91
+00:04:21,209 --> 00:04:23,430
+the length of the array.
+
+92
+00:04:23,430 --> 00:04:26,420
+Here we'll look at
+the pop method.
+
+93
+00:04:26,420 --> 00:04:30,510
+Not only does pop delete the
+last position in the array -
+
+94
+00:04:30,510 --> 00:04:32,360
+in this case, it would
+be Ashley Smith
+
+95
+00:04:32,360 --> 00:04:33,890
+in the fifth cell -
+
+96
+00:04:33,890 --> 00:04:38,040
+but it will return the
+string as a value.
+
+97
+00:04:38,040 --> 00:04:40,870
+After we call the pop method, we
+can see here that our array
+
+98
+00:04:40,870 --> 00:04:42,260
+now has one less cell.
+
+99
+00:04:45,680 --> 00:04:48,450
+Well, if we've taken a piece off
+the back of an array, we
+
+100
+00:04:48,450 --> 00:04:51,020
+should also be able to
+put a piece back on.
+
+101
+00:04:51,020 --> 00:04:53,960
+We can do that with
+the push method.
+
+102
+00:04:53,960 --> 00:04:56,430
+So, if we start here with our
+previously shortened array,
+
+103
+00:04:56,430 --> 00:05:00,780
+and we call the push method on
+our array passengers using the
+
+104
+00:05:00,780 --> 00:05:04,150
+string Adam Rensel, we see that
+Adam gets added to the
+
+105
+00:05:04,150 --> 00:05:07,170
+very last cell in the array,
+and the length is
+
+106
+00:05:07,170 --> 00:05:08,420
+automatically increased.
+
+107
+00:05:11,870 --> 00:05:13,440
+An interesting thing about
+arrays is that
+
+108
+00:05:13,440 --> 00:05:14,890
+they can hold anything--
+
+109
+00:05:14,890 --> 00:05:19,070
+strings, values, variables,
+even other arrays, or
+
+110
+00:05:19,070 --> 00:05:21,310
+combinations of them all.
+
+111
+00:05:21,310 --> 00:05:25,070
+So, here in our first array,
+combo1, we've got "One",
+
+112
+00:05:25,070 --> 00:05:26,340
+"fish", 2, "fish".
+
+113
+00:05:26,340 --> 00:05:30,240
+And that is a string, another
+string, then a number, and
+
+114
+00:05:30,240 --> 00:05:32,300
+then a final string.
+
+115
+00:05:32,300 --> 00:05:34,820
+Arrays can also accept
+variables when
+
+116
+00:05:34,820 --> 00:05:36,070
+they're being built.
+
+117
+00:05:36,070 --> 00:05:39,050
+If we established a variable
+called poisson, and set it
+
+118
+00:05:39,050 --> 00:05:43,240
+equal to the string "fish", we
+could then use poisson inside
+
+119
+00:05:43,240 --> 00:05:48,370
+of this second combo array,
+where we use "Red", poisson,
+
+120
+00:05:48,370 --> 00:05:50,550
+"Blue", and another poisson.
+
+121
+00:05:50,550 --> 00:05:53,150
+And then when the array actually
+gets built, poisson
+
+122
+00:05:53,150 --> 00:05:56,165
+gets replaced with its
+evaluation, which is fish.
+
+123
+00:06:00,680 --> 00:06:02,670
+So, are you ready for
+a mind meld?
+
+124
+00:06:02,670 --> 00:06:05,790
+Well, arrays can hold other
+arrays as well.
+
+125
+00:06:05,790 --> 00:06:09,090
+Check out this arrayOfArrays.
+
+126
+00:06:09,090 --> 00:06:13,510
+This arrayOfArrays includes
+both combo1 and combo2.
+
+127
+00:06:13,510 --> 00:06:17,140
+When the array actually is
+built the contents of combo1
+
+128
+00:06:17,140 --> 00:06:20,670
+and combo2 get placed inside
+arrayOfArrays.
+
+129
+00:06:20,670 --> 00:06:24,290
+The entire contents of combo1
+go in the first cell of
+
+130
+00:06:24,290 --> 00:06:28,500
+arrayOfArrays, and the entire
+contents of combo2 go in the
+
+131
+00:06:28,500 --> 00:06:30,650
+second cell.
+
+132
+00:06:30,650 --> 00:06:33,720
+You can see that when we use
+console.log to print out the
+
+133
+00:06:33,720 --> 00:06:37,280
+arrayOfArrays to the console, we
+can see that it returns an
+
+134
+00:06:37,280 --> 00:06:40,830
+array that contains
+two arrays, each
+
+135
+00:06:40,830 --> 00:06:42,250
+of different length.
+
+136
+00:06:42,250 --> 00:06:46,910
+Notice also that the names
+of combo1 and combo2 have
+
+137
+00:06:46,910 --> 00:06:48,830
+disappeared inside
+arrayOfArrays.
+
+138
+00:06:53,330 --> 00:06:57,740
+So now we can use the variable
+arrayOfArrays to access an
+
+139
+00:06:57,740 --> 00:07:01,410
+entire array that it holds.
+
+140
+00:07:01,410 --> 00:07:04,170
+You can see that if we use
+the console.log method on
+
+141
+00:07:04,170 --> 00:07:08,550
+arrayOfArrays 1, it will move
+over to the second cell of the
+
+142
+00:07:08,550 --> 00:07:12,580
+array and retrieve the entire
+array present there.
+
+143
+00:07:12,580 --> 00:07:15,325
+Then we get "Red", "fish",
+"Blue", "fish" as a result.
+
+144
+00:07:18,250 --> 00:07:20,560
+Sometimes this type of
+array is called a
+
+145
+00:07:20,560 --> 00:07:22,090
+two dimensional array.
+
+146
+00:07:22,090 --> 00:07:25,620
+That's because we have the cell
+of the largest array,
+
+147
+00:07:25,620 --> 00:07:29,230
+arrayOfArrays, and then we have
+the cells of the internal
+
+148
+00:07:29,230 --> 00:07:31,500
+arrays as well.
+
+149
+00:07:31,500 --> 00:07:35,070
+We can select individual
+components of the internal
+
+150
+00:07:35,070 --> 00:07:36,400
+arrays here.
+
+151
+00:07:36,400 --> 00:07:39,600
+You can see that if we use two
+brackets, and we tried to
+
+152
+00:07:39,600 --> 00:07:44,960
+console.log out, arrayOfArrays
+1 and then 2 in the second
+
+153
+00:07:44,960 --> 00:07:49,490
+bracket, what happens is we
+look in the second cell of
+
+154
+00:07:49,490 --> 00:07:54,760
+arrayOfArrays, and then in the
+third cell of that array we
+
+155
+00:07:54,760 --> 00:07:58,420
+find there, which
+gives us Blue.
+
+156
+00:07:58,420 --> 00:08:02,340
+Similarly, if we used the log
+method on arrayOfArrays
+
+157
+00:08:02,340 --> 00:08:06,910
+0, 1, we'd go to the first cell
+of arrayOfArrays, and
+
+158
+00:08:06,910 --> 00:08:10,580
+then the second cell of
+the internal array.
+
+159
+00:08:10,580 --> 00:08:11,830
+And we get fish.
+

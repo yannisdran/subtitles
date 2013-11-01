@@ -1,0 +1,643 @@
+﻿1
+00:00:00,000 --> 00:00:00,560
+[SINGING]
+
+2
+00:00:00,560 --> 00:00:04,220
+From the Labyrinth of Loops to
+the Variable Valley, we'll see
+
+3
+00:00:04,220 --> 00:00:05,630
+the Cliffs of Value first.
+
+4
+00:00:05,630 --> 00:00:07,170
+JavaScript's right
+up your alley.
+
+5
+00:00:07,170 --> 00:00:10,490
+Built-ins Bluff, Files Falls,
+Array Archipelago.
+
+6
+00:00:10,490 --> 00:00:12,680
+Declarations in a desert,
+where you'll find out
+
+7
+00:00:12,680 --> 00:00:13,670
+how far you'll go.
+
+8
+00:00:13,670 --> 00:00:15,380
+Learn to program.
+Take a ride.
+
+9
+00:00:15,380 --> 00:00:16,840
+Buy a ticket. Step
+in inside.
+
+10
+00:00:16,840 --> 00:00:17,664
+All aboard.
+
+11
+00:00:17,664 --> 00:00:20,070
+You're at the station to
+increase your education.
+
+12
+00:00:20,070 --> 00:00:20,550
+Bon voyage
+
+13
+00:00:20,550 --> 00:00:23,300
+and skinny dip! As long as
+functions you don't skip, on this
+
+14
+00:00:23,300 --> 00:00:27,700
+the JavaScript Road Trip.
+
+15
+00:00:30,682 --> 00:00:32,180
+[MUSIC PLAYING]
+
+16
+00:00:32,180 --> 00:00:34,940
+So now, you're a master
+of the loop, right?
+
+17
+00:00:34,940 --> 00:00:38,600
+Hope you enjoyed Level 1,
+and now on to Level 2.
+
+18
+00:00:38,600 --> 00:00:41,520
+Sometimes when we're developing,
+our code needs to
+
+19
+00:00:41,520 --> 00:00:44,890
+decide whether to take one
+track or the other.
+
+20
+00:00:44,890 --> 00:00:47,945
+And, so we have arrived at Level
+2: Conditional Canyon.
+
+21
+00:00:51,050 --> 00:00:53,470
+You'll remember in the previous
+level that we printed
+
+22
+00:00:53,470 --> 00:00:57,100
+out all operational trains, as
+well as all non-operational
+
+23
+00:00:57,100 --> 00:00:59,520
+trains in our new
+train system.
+
+24
+00:00:59,520 --> 00:01:03,990
+We used two loops to do that,
+and here is our previous code.
+
+25
+00:01:03,990 --> 00:01:06,540
+You can see that we used both a
+While loop and a for-loop to
+
+26
+00:01:06,540 --> 00:01:08,670
+get through all of the trains.
+
+27
+00:01:08,670 --> 00:01:11,740
+Our goal here is now to
+get all of that code
+
+28
+00:01:11,740 --> 00:01:14,700
+inside one for-loop.
+
+29
+00:01:14,700 --> 00:01:15,950
+How would we design that?
+
+30
+00:01:15,950 --> 00:01:18,940
+Well, here we have a for-loop
+that loops through not just
+
+31
+00:01:18,940 --> 00:01:22,560
+the operational trains, but
+through all of the trains.
+
+32
+00:01:22,560 --> 00:01:25,710
+We have it checking to see
+whether the train number is
+
+33
+00:01:25,710 --> 00:01:28,380
+less than or equal to the
+total amount of trains.
+
+34
+00:01:28,380 --> 00:01:31,510
+That means that this for-loop
+will move over every single
+
+35
+00:01:31,510 --> 00:01:33,620
+possible train number.
+
+36
+00:01:33,620 --> 00:01:37,090
+But now we need to know how to
+differentiate between whether
+
+37
+00:01:37,090 --> 00:01:40,270
+the train is running or whether
+it's not running.
+
+38
+00:01:40,270 --> 00:01:44,060
+So if the train is currently
+running, we want to print this
+
+39
+00:01:44,060 --> 00:01:47,540
+particular statement, and if
+it's not, we want to print
+
+40
+00:01:47,540 --> 00:01:49,560
+this other statement that
+shows that it's not
+
+41
+00:01:49,560 --> 00:01:50,750
+operational.
+
+42
+00:01:50,750 --> 00:01:52,000
+How can we do that?
+
+43
+00:01:53,940 --> 00:01:56,670
+Again, the goal here is to
+figure out how we can run
+
+44
+00:01:56,670 --> 00:02:00,780
+different lines of code based
+on different conditions.
+
+45
+00:02:00,780 --> 00:02:01,630
+Guess what?
+
+46
+00:02:01,630 --> 00:02:04,480
+We have a JavaScript trick for
+that, and it's called If, and
+
+47
+00:02:04,480 --> 00:02:06,480
+her buddy, Else.
+
+48
+00:02:06,480 --> 00:02:09,490
+The If and Else statements allow
+us to execute certain
+
+49
+00:02:09,490 --> 00:02:13,890
+code, but based on specific
+conditions.
+
+50
+00:02:13,890 --> 00:02:18,630
+Here is the basic shell of an
+If and an Else statement.
+
+51
+00:02:18,630 --> 00:02:21,060
+If some condition is
+true, then we're
+
+52
+00:02:21,060 --> 00:02:23,290
+going to do this code.
+
+53
+00:02:23,290 --> 00:02:26,750
+This code is the code
+inside the If block.
+
+54
+00:02:26,750 --> 00:02:31,570
+Else says otherwise do
+this code instead.
+
+55
+00:02:31,570 --> 00:02:35,465
+Notice that if the condition in
+the If block is true, only
+
+56
+00:02:35,465 --> 00:02:37,660
+the If code gets executed.
+
+57
+00:02:37,660 --> 00:02:40,940
+And the Else code only gets
+executed if the If
+
+58
+00:02:40,940 --> 00:02:42,225
+condition is false.
+
+59
+00:02:45,790 --> 00:02:48,270
+Here's a basic example of
+conditional execution.
+
+60
+00:02:48,270 --> 00:02:51,350
+Say we had two values, value 1
+and value 2, and we've set
+
+61
+00:02:51,350 --> 00:02:53,660
+them to 4 and 9.
+
+62
+00:02:53,660 --> 00:02:56,480
+Let's use some conditional
+statements to compare and
+
+63
+00:02:56,480 --> 00:02:59,590
+print out whether one is
+greater than the other.
+
+64
+00:02:59,590 --> 00:03:04,220
+Here, we can see that if we do a
+comparison of if the value 1
+
+65
+00:03:04,220 --> 00:03:08,460
+is less than the value 2, we
+print out that that is true.
+
+66
+00:03:08,460 --> 00:03:12,120
+Value 1 is less than value 2.
+
+67
+00:03:12,120 --> 00:03:17,410
+Else, or otherwise, meaning if
+value 1 is not less than value
+
+68
+00:03:17,410 --> 00:03:21,950
+2, we would print out that value
+1 must be greater than
+
+69
+00:03:21,950 --> 00:03:24,240
+or equal to value 2.
+
+70
+00:03:24,240 --> 00:03:27,090
+That's because we don't strictly
+know whether value 1
+
+71
+00:03:27,090 --> 00:03:30,380
+is greater than because
+it might be equal to.
+
+72
+00:03:30,380 --> 00:03:34,500
+So in this case, because value
+1 is 4 and value 2 is 9, the
+
+73
+00:03:34,500 --> 00:03:36,450
+If block would trigger
+because it's
+
+74
+00:03:36,450 --> 00:03:37,890
+conditional would be true.
+
+75
+00:03:37,890 --> 00:03:40,600
+Value 1 is less than value 9,
+and so we would get the
+
+76
+00:03:40,600 --> 00:03:45,700
+printout that 4 is
+less than 9.
+
+77
+00:03:45,700 --> 00:03:49,180
+What happens if we change
+value 1 to 12?
+
+78
+00:03:49,180 --> 00:03:51,670
+Obviously, we have a different
+relationship now.
+
+79
+00:03:51,670 --> 00:03:54,380
+So now the If block
+will not trigger.
+
+80
+00:03:54,380 --> 00:03:54,700
+Why?
+
+81
+00:03:54,700 --> 00:03:57,220
+Because 12 is not less than 9.
+
+82
+00:03:57,220 --> 00:04:00,040
+And so we will move into the
+Else block, and we will get a
+
+83
+00:04:00,040 --> 00:04:04,430
+printout that says 12 is greater
+than or equal to 9.
+
+84
+00:04:04,430 --> 00:04:05,680
+Just trust us.
+
+85
+00:04:08,290 --> 00:04:10,860
+Now that we've got some
+experience with an If and an
+
+86
+00:04:10,860 --> 00:04:12,480
+Else block, let's go see
+if we can make a
+
+87
+00:04:12,480 --> 00:04:14,810
+difference in our problem.
+
+88
+00:04:14,810 --> 00:04:17,110
+Our original problem was that
+we needed to figure out
+
+89
+00:04:17,110 --> 00:04:19,649
+whether a train was running
+or whether it
+
+90
+00:04:19,649 --> 00:04:21,860
+wasn't inside one loop.
+
+91
+00:04:21,860 --> 00:04:24,650
+And now you can probably see how
+we would use and If and an
+
+92
+00:04:24,650 --> 00:04:26,950
+Else to make that situation
+work out.
+
+93
+00:04:31,040 --> 00:04:33,900
+So, we know that if the train
+number is less than or equal
+
+94
+00:04:33,900 --> 00:04:37,000
+to the operational trains, that
+means that it's a running
+
+95
+00:04:37,000 --> 00:04:40,050
+train because we know that all
+operational trains are
+
+96
+00:04:40,050 --> 00:04:43,320
+numbered from one moving
+forward.
+
+97
+00:04:43,320 --> 00:04:45,540
+Therefore, we can print out
+that that particular train
+
+98
+00:04:45,540 --> 00:04:47,570
+number is operating.
+
+99
+00:04:47,570 --> 00:04:51,160
+Next, we know that if train
+number was not less than or
+
+100
+00:04:51,160 --> 00:04:54,400
+equal to the operational trains,
+it must be greater
+
+101
+00:04:54,400 --> 00:04:57,090
+than the operational trains
+and, therefore,
+
+102
+00:04:57,090 --> 00:04:58,970
+a non-running train.
+
+103
+00:04:58,970 --> 00:05:01,360
+So we would print out that
+it was not operational.
+
+104
+00:05:05,510 --> 00:05:08,760
+So now, let's run our new single
+loop with our special
+
+105
+00:05:08,760 --> 00:05:10,170
+conditionals.
+
+106
+00:05:10,170 --> 00:05:12,600
+We can see that when train
+number is 1, the first thing
+
+107
+00:05:12,600 --> 00:05:14,000
+that happens inside
+the loop is it
+
+108
+00:05:14,000 --> 00:05:15,540
+checks the loop condition.
+
+109
+00:05:15,540 --> 00:05:17,640
+Is 1 less than or equal to 12?
+
+110
+00:05:17,640 --> 00:05:18,300
+Yes, it is.
+
+111
+00:05:18,300 --> 00:05:19,140
+That's true.
+
+112
+00:05:19,140 --> 00:05:21,260
+So we will move forward
+with the loop.
+
+113
+00:05:21,260 --> 00:05:23,230
+The loop will actually
+continue.
+
+114
+00:05:23,230 --> 00:05:27,050
+And then it will check the
+condition, is the train number
+
+115
+00:05:27,050 --> 00:05:29,340
+1 less than or equal to 8?
+
+116
+00:05:29,340 --> 00:05:30,020
+Yes, it is.
+
+117
+00:05:30,020 --> 00:05:34,010
+And so we will move into the
+If block and print out that
+
+118
+00:05:34,010 --> 00:05:35,960
+train number 1 is running.
+
+119
+00:05:35,960 --> 00:05:38,320
+That same procedure will happen
+all the way through
+
+120
+00:05:38,320 --> 00:05:41,030
+train number 8, where we'll get
+printouts that each one of
+
+121
+00:05:41,030 --> 00:05:43,640
+those trains is running.
+
+122
+00:05:43,640 --> 00:05:47,810
+When we finally get the train
+number 9, what will happen is
+
+123
+00:05:47,810 --> 00:05:49,830
+the loop condition
+will check out.
+
+124
+00:05:49,830 --> 00:05:52,210
+It will be cool, and we
+will continue to loop.
+
+125
+00:05:52,210 --> 00:05:56,090
+But our train number 9 is not
+less than or equal to 8, and
+
+126
+00:05:56,090 --> 00:06:00,170
+so we will move to the Else
+block instead of the If block.
+
+127
+00:06:00,170 --> 00:06:04,040
+And now we will see that train
+number 9 is not operational.
+
+128
+00:06:04,040 --> 00:06:07,580
+That same procedure will occur
+through the remaining trains
+
+129
+00:06:07,580 --> 00:06:09,530
+all the way to train
+number 12.
+
+130
+00:06:09,530 --> 00:06:11,940
+That will be our last
+non-operational train.
+
+131
+00:06:11,940 --> 00:06:17,320
+But when the train number becomes 13, finally the loop
+
+132
+00:06:17,320 --> 00:06:20,530
+condition itself will be false, and the
+
+133
+00:06:20,530 --> 00:06:22,770
+entire loop will stop.
+
+134
+00:06:22,770 --> 00:06:25,480
+So now, we have printed out every
+last train and whether
+
+135
+00:06:25,480 --> 00:06:27,240
+it is running or whether
+it is not.
+
+136
+00:06:27,240 --> 00:06:30,120
+And we have done it all in
+one magical loop using
+
+137
+00:06:30,120 --> 00:06:31,370
+conditionals.
+

@@ -1,0 +1,791 @@
+1
+00:00:01,330 --> 00:00:04,880
+Now we'll move on to a different
+style of loop, but
+
+2
+00:00:04,880 --> 00:00:07,160
+one that has similar
+functionality.
+
+3
+00:00:07,160 --> 00:00:09,370
+It's called the for-loop.
+
+4
+00:00:09,370 --> 00:00:11,780
+It's a different way of
+producing nearly the same the
+
+5
+00:00:11,780 --> 00:00:13,680
+looping behavior.
+
+6
+00:00:13,680 --> 00:00:17,060
+Here you can see the basic
+outline of a for-loop.
+
+7
+00:00:17,060 --> 00:00:21,750
+It starts with the for keyword
+and then has a relatively long
+
+8
+00:00:21,750 --> 00:00:23,650
+set of parentheses.
+
+9
+00:00:23,650 --> 00:00:27,370
+Inside that parentheses you can
+see two semicolons that
+
+10
+00:00:27,370 --> 00:00:31,420
+break up three separate
+statements that will go in the
+
+11
+00:00:31,420 --> 00:00:34,050
+for-loop's parameters.
+
+12
+00:00:34,050 --> 00:00:35,380
+In the first expression.
+
+13
+00:00:35,380 --> 00:00:39,840
+We typically initialize our
+variable counter there.
+
+14
+00:00:39,840 --> 00:00:42,200
+The second expression is
+typically the condition we
+
+15
+00:00:42,200 --> 00:00:45,610
+check to see if the loop
+will continue.
+
+16
+00:00:45,610 --> 00:00:49,530
+And the final statement inside
+the for-loop's parameters is
+
+17
+00:00:49,530 --> 00:00:54,450
+the thing that we want to do
+code-wise after each loop.
+
+18
+00:00:54,450 --> 00:00:56,950
+Usually this is an increment
+or decrement statement to
+
+19
+00:00:56,950 --> 00:00:58,850
+control the loop.
+
+20
+00:00:58,850 --> 00:01:01,380
+Of course, inside the loop is
+the code that we want to be
+
+21
+00:01:01,380 --> 00:01:03,390
+repeated over and over.
+
+22
+00:01:06,200 --> 00:01:09,040
+So now if we think back to our
+train while-loop, we can
+
+23
+00:01:09,040 --> 00:01:12,230
+demonstrate the same exact
+functionality with a for-loop.
+
+24
+00:01:12,230 --> 00:01:14,070
+Let's see how we do that.
+
+25
+00:01:14,070 --> 00:01:17,640
+In our starting expression we
+would have the variable
+
+26
+00:01:17,640 --> 00:01:20,710
+trainNumber assigned
+to the value 1.
+
+27
+00:01:20,710 --> 00:01:22,670
+Remember that was the statement
+that we executed on
+
+28
+00:01:22,670 --> 00:01:25,140
+the outside of our while-loop.
+
+29
+00:01:25,140 --> 00:01:27,610
+Again, the second statement is
+just going to be that same
+
+30
+00:01:27,610 --> 00:01:30,570
+condition that we checked for
+the while-loop to see if the
+
+31
+00:01:30,570 --> 00:01:33,060
+train number is actually less
+than or equal to the
+
+32
+00:01:33,060 --> 00:01:35,100
+trainsOperational there.
+
+33
+00:01:35,100 --> 00:01:37,310
+And the third statement will
+increment our trainNumber
+
+34
+00:01:37,310 --> 00:01:38,740
+every time our loop executes.
+
+35
+00:01:42,650 --> 00:01:45,410
+Now let's take a look at how
+this for-loop actually
+
+36
+00:01:45,410 --> 00:01:48,980
+proceeds through the code to
+sort of get a visualization
+
+37
+00:01:48,980 --> 00:01:51,570
+for the flow of the for-loop.
+
+38
+00:01:51,570 --> 00:01:54,230
+In the first statement, the
+trainNumber variable will be
+
+39
+00:01:54,230 --> 00:01:55,470
+initialized to 1.
+
+40
+00:01:55,470 --> 00:01:58,320
+After that happens, that
+particular code will
+
+41
+00:01:58,320 --> 00:01:59,790
+never be run again.
+
+42
+00:01:59,790 --> 00:02:01,720
+Once that first statement
+is executed, it is
+
+43
+00:02:01,720 --> 00:02:03,270
+finished and over.
+
+44
+00:02:03,270 --> 00:02:05,730
+It will move on to check
+the condition
+
+45
+00:02:05,730 --> 00:02:07,820
+in the second statement.
+
+46
+00:02:07,820 --> 00:02:10,610
+We will see if the trainNumber
+is actually less than or equal
+
+47
+00:02:10,610 --> 00:02:12,660
+to trainsOperational.
+
+48
+00:02:12,660 --> 00:02:17,420
+If it is, we will go ahead and
+execute the loop's code.
+
+49
+00:02:17,420 --> 00:02:18,970
+All of the code contained
+within the
+
+50
+00:02:18,970 --> 00:02:21,450
+loop will be executed.
+
+51
+00:02:21,450 --> 00:02:24,750
+Once that code is finished, we
+will come back to the third
+
+52
+00:02:24,750 --> 00:02:26,580
+statement in the parameters.
+
+53
+00:02:26,580 --> 00:02:29,800
+And here we would increment the
+trainNumber variable so we
+
+54
+00:02:29,800 --> 00:02:33,050
+can move on to the next train
+and also get ready to stop our
+
+55
+00:02:33,050 --> 00:02:34,850
+loop eventually.
+
+56
+00:02:34,850 --> 00:02:39,060
+From there, we go back to the
+second statement and see if
+
+57
+00:02:39,060 --> 00:02:42,660
+the trainNumber variable is
+still less than or equal to
+
+58
+00:02:42,660 --> 00:02:43,700
+trainsOperational.
+
+59
+00:02:43,700 --> 00:02:48,020
+If it is, we continue the loop
+again and the cycle continues
+
+60
+00:02:48,020 --> 00:02:49,400
+until when?
+
+61
+00:02:49,400 --> 00:02:51,950
+The trainNumber variable
+is greater than
+
+62
+00:02:51,950 --> 00:02:53,200
+trainsOperational.
+
+63
+00:02:57,090 --> 00:03:00,280
+We used a while-loop to print
+the numbers from 1 to 5 in
+
+64
+00:03:00,280 --> 00:03:01,170
+ascending order.
+
+65
+00:03:01,170 --> 00:03:03,710
+So now we're going to use the
+for-loop to print those
+
+66
+00:03:03,710 --> 00:03:05,510
+numbers in descending order.
+
+67
+00:03:05,510 --> 00:03:07,680
+Let's take a look at how
+we might do that.
+
+68
+00:03:07,680 --> 00:03:10,180
+So the first thing we do in our
+for-loop is we initialize
+
+69
+00:03:10,180 --> 00:03:12,080
+the number variable to 5.
+
+70
+00:03:12,080 --> 00:03:14,320
+That's going to be our
+counter variable.
+
+71
+00:03:14,320 --> 00:03:17,660
+Then we only want to run the
+loop as long as that number is
+
+72
+00:03:17,660 --> 00:03:18,940
+greater than 0.
+
+73
+00:03:18,940 --> 00:03:21,620
+And at the end of the loop, we
+want to decrease that number's
+
+74
+00:03:21,620 --> 00:03:24,070
+value by 1.
+
+75
+00:03:24,070 --> 00:03:27,940
+Inside the loop we will log the
+number out to the console.
+
+76
+00:03:27,940 --> 00:03:30,380
+Let's take a look at this
+code's execution.
+
+77
+00:03:30,380 --> 00:03:34,110
+When the value of number is 5,
+well, clearly 5 is greater
+
+78
+00:03:34,110 --> 00:03:36,870
+than 0, so that condition
+would evaluate to true.
+
+79
+00:03:36,870 --> 00:03:39,350
+And then we would get a printout
+of the number 5 for
+
+80
+00:03:39,350 --> 00:03:41,280
+that particular loop.
+
+81
+00:03:41,280 --> 00:03:44,310
+That cycle would continue
+until number
+
+82
+00:03:44,310 --> 00:03:45,690
+reached a value of 0.
+
+83
+00:03:45,690 --> 00:03:48,320
+And when number was 0,
+it would clearly not
+
+84
+00:03:48,320 --> 00:03:49,730
+be bigger than 0.
+
+85
+00:03:49,730 --> 00:03:53,120
+And so the condition would be
+false and the loop would stop.
+
+86
+00:03:57,600 --> 00:03:57,970
+Great.
+
+87
+00:03:57,970 --> 00:04:00,470
+So we know while-loops and
+we know for-loops.
+
+88
+00:04:00,470 --> 00:04:03,070
+So now let's see if we
+can identify the
+
+89
+00:04:03,070 --> 00:04:04,820
+non-operational trains.
+
+90
+00:04:04,820 --> 00:04:07,280
+So we've already identified the
+operational trains, now
+
+91
+00:04:07,280 --> 00:04:08,950
+we're going to identify
+the ones that are not
+
+92
+00:04:08,950 --> 00:04:10,080
+running for the user.
+
+93
+00:04:10,080 --> 00:04:12,020
+And this time we're going
+to use a for-loop.
+
+94
+00:04:14,660 --> 00:04:15,360
+So, let's see.
+
+95
+00:04:15,360 --> 00:04:18,000
+Which trains are not running?
+
+96
+00:04:18,000 --> 00:04:20,920
+We know we have 8 operational
+trains today.
+
+97
+00:04:20,920 --> 00:04:23,320
+So probably the very
+first train will be
+
+98
+00:04:23,320 --> 00:04:24,930
+9 that's not running.
+
+99
+00:04:24,930 --> 00:04:27,780
+But we have to think about how
+to put that into the for-loop
+
+100
+00:04:27,780 --> 00:04:29,830
+a little bit creatively.
+
+101
+00:04:29,830 --> 00:04:33,220
+So, we know we have 8 operational
+trains and 12
+
+102
+00:04:33,220 --> 00:04:34,550
+total trains.
+
+103
+00:04:34,550 --> 00:04:37,920
+So, let's start our for-loop by
+creating a variable called
+
+104
+00:04:37,920 --> 00:04:39,860
+stoppedTrain.
+
+105
+00:04:39,860 --> 00:04:41,980
+And we don't want to hard-code
+this value.
+
+106
+00:04:41,980 --> 00:04:45,190
+We want to make sure that we use
+a variable to signal which
+
+107
+00:04:45,190 --> 00:04:47,290
+of the stopped trains
+it should be.
+
+108
+00:04:47,290 --> 00:04:51,030
+Here we know that the very first
+stopped train will be
+
+109
+00:04:51,030 --> 00:04:55,220
+the one immediately following
+the last operational train.
+
+110
+00:04:55,220 --> 00:04:58,540
+So therefore, if we just added
+1 to the trainsOperational
+
+111
+00:04:58,540 --> 00:05:01,540
+variable, we will have the train
+number for the first
+
+112
+00:05:01,540 --> 00:05:03,210
+stopped train.
+
+113
+00:05:03,210 --> 00:05:05,620
+Then for our condition, we want
+to make sure that our
+
+114
+00:05:05,620 --> 00:05:08,960
+stoppedTrains list never
+goes past the
+
+115
+00:05:08,960 --> 00:05:10,830
+total amount of trains.
+
+116
+00:05:10,830 --> 00:05:12,970
+This is the first time we've
+used that totalTrains
+
+117
+00:05:12,970 --> 00:05:14,830
+variable in a loop.
+
+118
+00:05:14,830 --> 00:05:17,520
+And then at the end of the
+loop, we should of course
+
+119
+00:05:17,520 --> 00:05:20,785
+increase our stoppedTrain number
+so that we can get all
+
+120
+00:05:20,785 --> 00:05:22,900
+of the right stoppedTrains
+printed and
+
+121
+00:05:22,900 --> 00:05:24,560
+then stop the loop.
+
+122
+00:05:24,560 --> 00:05:26,720
+Inside the loop, we will of
+course print out a message to
+
+123
+00:05:26,720 --> 00:05:30,320
+the user that this particular
+train is not running.
+
+124
+00:05:30,320 --> 00:05:32,760
+If we were to execute that
+code, we would get the
+
+125
+00:05:32,760 --> 00:05:35,100
+following four statements
+today.
+
+126
+00:05:35,100 --> 00:05:35,960
+Wahoo, stopped
+
+127
+00:05:35,960 --> 00:05:40,340
+trains only!
+
+128
+00:05:40,340 --> 00:05:44,410
+OK, now we have a list of running
+trains with our while-loop.
+
+129
+00:05:44,410 --> 00:05:45,120
+Cool.
+
+130
+00:05:45,120 --> 00:05:48,510
+And we also have a list of
+our not running trains
+
+131
+00:05:48,510 --> 00:05:49,820
+with our for-loop.
+
+132
+00:05:49,820 --> 00:05:51,590
+We're going to add both
+of those now to
+
+133
+00:05:51,590 --> 00:05:53,240
+our trains.js file.
+
+134
+00:05:53,240 --> 00:05:56,130
+If you take a look here, you can
+see we've established both
+
+135
+00:05:56,130 --> 00:05:58,880
+the totalTrains and the
+trainsOperational variables in
+
+136
+00:05:58,880 --> 00:06:01,340
+our trains.js file.
+
+137
+00:06:01,340 --> 00:06:04,590
+Then we have our while-loop
+that we built before.
+
+138
+00:06:04,590 --> 00:06:08,070
+This will print all of
+the running trains.
+
+139
+00:06:08,070 --> 00:06:11,840
+To that we are going to add at
+the end our for-loop that then
+
+140
+00:06:11,840 --> 00:06:15,380
+prints the stoppedTrains.
+
+141
+00:06:15,380 --> 00:06:19,890
+What will this look like if we
+run our current solution?
+
+142
+00:06:19,890 --> 00:06:22,860
+Well, the first thing that will
+happen is it will execute
+
+143
+00:06:22,860 --> 00:06:24,150
+the while-loop.
+
+144
+00:06:24,150 --> 00:06:26,840
+And it will proceed in the exact
+same fashion that our
+
+145
+00:06:26,840 --> 00:06:28,840
+previous while-loop proceeded.
+
+146
+00:06:28,840 --> 00:06:32,750
+It will cycle all the way
+through train number 8,
+
+147
+00:06:32,750 --> 00:06:35,070
+printing that each one of
+those trains is running.
+
+148
+00:06:35,070 --> 00:06:39,050
+And then when it arrives at
+trainNumber equals 9, we will
+
+149
+00:06:39,050 --> 00:06:41,780
+get a false value in the
+loops condition and
+
+150
+00:06:41,780 --> 00:06:43,820
+the loop will stop.
+
+151
+00:06:43,820 --> 00:06:47,660
+Then it will proceed
+to the for-loop.
+
+152
+00:06:47,660 --> 00:06:50,870
+Now we can see our entire
+solution running with two
+
+153
+00:06:50,870 --> 00:06:54,470
+loops, where we get all of the
+running trains printed and
+
+154
+00:06:54,470 --> 00:06:56,670
+then all of the stopped
+trains printed.
+
+155
+00:06:56,670 --> 00:06:58,630
+Wahoo!
+
+156
+00:06:58,630 --> 00:07:01,410
+Now you are ready to go do
+your own looping in the
+
+157
+00:07:01,410 --> 00:07:02,530
+challenges.
+
+158
+00:07:02,530 --> 00:07:05,130
+Now you are ready to go do
+your own looping in the
+
+159
+00:07:05,130 --> 00:07:06,050
+challenges.
+
+160
+00:07:06,050 --> 00:07:09,695
+And we will see you in
+the next section.
+
+161
+00:07:09,695 --> 00:07:10,490
+- road trip.
+
+162
+00:07:10,490 --> 00:07:11,484
+And this is level -
+
+163
+00:07:11,484 --> 00:07:13,220
+[LAUGHTER]
+
+164
+00:07:13,220 --> 00:07:17,710
+- repeatedly without typing
+it all in forever.
+
+165
+00:07:17,710 --> 00:07:21,980
+- out typing the code
+in forever.
+
+166
+00:07:21,980 --> 00:07:26,035
+- out typing forever.
+
+167
+00:07:26,035 --> 00:07:30,802
+- without typing forever.
+
+168
+00:07:30,802 --> 00:07:32,690
+It looks like he's
+having a stroke.
+
+169
+00:07:32,690 --> 00:07:34,106
+[LAUGHTER]
+
+170
+00:07:34,106 --> 00:07:36,300
+I can't wait to see
+the outtakes.
+
+171
+00:07:36,300 --> 00:07:37,550
+Wait.
+

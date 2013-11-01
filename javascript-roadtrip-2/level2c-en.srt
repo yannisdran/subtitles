@@ -1,0 +1,1041 @@
+﻿1
+00:00:03,210 --> 00:00:06,110
+So now, let's see if we can
+add to our complex
+
+2
+00:00:06,110 --> 00:00:08,230
+list of special trains.
+
+3
+00:00:08,230 --> 00:00:12,060
+We want to make train number 12
+become a special train just
+
+4
+00:00:12,060 --> 00:00:13,240
+like number 10.
+
+5
+00:00:13,240 --> 00:00:15,380
+They both begin running
+at noon.
+
+6
+00:00:15,380 --> 00:00:17,040
+But, how can we do that?
+
+7
+00:00:17,040 --> 00:00:20,840
+We want to make sure that we
+only handle that particular
+
+8
+00:00:20,840 --> 00:00:23,520
+special case with
+one conditional.
+
+9
+00:00:23,520 --> 00:00:27,350
+Let's look at how
+we can do that.
+
+10
+00:00:27,350 --> 00:00:30,510
+So, in our original loop, where
+we checked each train number
+
+11
+00:00:30,510 --> 00:00:33,190
+to see what we should print for
+that train number, we're
+
+12
+00:00:33,190 --> 00:00:35,700
+going to need something a little
+extra in the Else-If
+
+13
+00:00:35,700 --> 00:00:40,100
+condition to see whether we've
+got train 10 or train 12.
+
+14
+00:00:40,100 --> 00:00:43,800
+Also, we need to change the
+console.log statement, because
+
+15
+00:00:43,800 --> 00:00:46,490
+we don't want to print that
+train number 10 is running
+
+16
+00:00:46,490 --> 00:00:48,860
+when it's actually
+train number 12.
+
+17
+00:00:48,860 --> 00:00:51,910
+So, we'll concatenate a
+trainNumber variable inside
+
+18
+00:00:51,910 --> 00:00:54,680
+there to handle that.
+
+19
+00:00:54,680 --> 00:00:57,450
+The special syntax that we
+have to evaluate two
+
+20
+00:00:57,450 --> 00:01:01,820
+conditions at once is called
+a complex conditional.
+
+21
+00:01:01,820 --> 00:01:05,450
+And we have the binary "And",
+which is two ampersand
+
+22
+00:01:05,450 --> 00:01:06,740
+symbols in a row.
+
+23
+00:01:06,740 --> 00:01:10,160
+And that's going to return true
+if both the values on the
+
+24
+00:01:10,160 --> 00:01:14,650
+left-hand and right-hand side
+of the ampersands are true.
+
+25
+00:01:14,650 --> 00:01:18,110
+And we also have the binary
+"Or", which returns true if
+
+26
+00:01:18,110 --> 00:01:22,700
+either value on the left-hand
+or right-hand side is true.
+
+27
+00:01:22,700 --> 00:01:26,330
+If we have a situation true
+and false, that's going to
+
+28
+00:01:26,330 --> 00:01:30,780
+evaluate to false, because not
+both of the values are true.
+
+29
+00:01:30,780 --> 00:01:33,300
+If we had a situation where both
+values were true, then
+
+30
+00:01:33,300 --> 00:01:35,680
+that's going to turn
+out to be true.
+
+31
+00:01:35,680 --> 00:01:38,740
+If we also had a situation where
+both the values were
+
+32
+00:01:38,740 --> 00:01:42,030
+false, well, we don't have any
+truth value there, so that's
+
+33
+00:01:42,030 --> 00:01:44,970
+going to be false, too.
+
+34
+00:01:44,970 --> 00:01:48,570
+Moving on to Or, if we saw a
+situation where the left-hand
+
+35
+00:01:48,570 --> 00:01:51,120
+side was false and the
+right-hand side was true,
+
+36
+00:01:51,120 --> 00:01:53,800
+well, all we need is one
+truth value to make
+
+37
+00:01:53,800 --> 00:01:55,780
+that Or return a true.
+
+38
+00:01:55,780 --> 00:01:58,880
+And so this will return true.
+
+39
+00:01:58,880 --> 00:02:01,350
+Next we have a false or false.
+
+40
+00:02:01,350 --> 00:02:04,310
+If you see that situation, well,
+we don't have any truth
+
+41
+00:02:04,310 --> 00:02:07,160
+value, so that will give
+us a false back.
+
+42
+00:02:07,160 --> 00:02:11,510
+Similarly, if we had a true Or
+a true, we've got more than
+
+43
+00:02:11,510 --> 00:02:14,150
+enough truth value to make
+that Or work out.
+
+44
+00:02:14,150 --> 00:02:15,400
+And so we have a true.
+
+45
+00:02:18,680 --> 00:02:21,440
+Let's take a look at how these
+might be evaluated with
+
+46
+00:02:21,440 --> 00:02:23,380
+expressions.
+
+47
+00:02:23,380 --> 00:02:27,160
+Here you can see that 11 is
+greater than or equal to 11.
+
+48
+00:02:27,160 --> 00:02:28,550
+That's true.
+
+49
+00:02:28,550 --> 00:02:30,740
+And negative 7 is less than 6.
+
+50
+00:02:30,740 --> 00:02:31,850
+That's also true.
+
+51
+00:02:31,850 --> 00:02:34,990
+Since we have two expressions
+that evaluate to true, that
+
+52
+00:02:34,990 --> 00:02:40,290
+entire truth value expression
+returns a true.
+
+53
+00:02:40,290 --> 00:02:44,300
+Over here, if we have 2 greater
+than or equal to 0,
+
+54
+00:02:44,300 --> 00:02:45,806
+that is true.
+
+55
+00:02:45,806 --> 00:02:48,450
+But then 9 is not less than 4.
+
+56
+00:02:48,450 --> 00:02:50,210
+And so that returns false.
+
+57
+00:02:50,210 --> 00:02:55,260
+And this entire complex
+conditional will return false.
+
+58
+00:02:55,260 --> 00:02:57,670
+Next, we have is 5 less than 7?
+
+59
+00:02:57,670 --> 00:02:59,480
+Yes, it is.
+
+60
+00:02:59,480 --> 00:03:00,890
+Is 8 greater than 10?
+
+61
+00:03:00,890 --> 00:03:01,750
+No it is not.
+
+62
+00:03:01,750 --> 00:03:04,540
+And so we have a true
+Or false situation.
+
+63
+00:03:04,540 --> 00:03:07,880
+But that's OK, because Or only
+needs one truth value to
+
+64
+00:03:07,880 --> 00:03:10,340
+return a true.
+
+65
+00:03:10,340 --> 00:03:14,890
+And then lastly, we can see
+is 3 greater than 8?
+
+66
+00:03:14,890 --> 00:03:16,020
+No, it is not.
+
+67
+00:03:16,020 --> 00:03:18,030
+So, it is a false situation.
+
+68
+00:03:18,030 --> 00:03:19,700
+And is 7 less than 3?
+
+69
+00:03:19,700 --> 00:03:20,300
+No, it's not.
+
+70
+00:03:20,300 --> 00:03:20,940
+It's false.
+
+71
+00:03:20,940 --> 00:03:24,680
+And so a false Or a false will
+return a false, because we
+
+72
+00:03:24,680 --> 00:03:28,360
+need at least one truth value
+to return a true.
+
+73
+00:03:28,360 --> 00:03:30,240
+Now let's see how we
+can use that inside
+
+74
+00:03:30,240 --> 00:03:33,520
+our trains.js system.
+
+75
+00:03:33,520 --> 00:03:36,260
+Let's think about how we can add
+a complex conditional to
+
+76
+00:03:36,260 --> 00:03:40,790
+our Else-If statement to make
+sure that both train 10 and
+
+77
+00:03:40,790 --> 00:03:44,340
+train 12 get printed correctly
+as express
+
+78
+00:03:44,340 --> 00:03:46,600
+trains starting at noon.
+
+79
+00:03:46,600 --> 00:03:49,420
+So, what we would want there is
+to check whether the train
+
+80
+00:03:49,420 --> 00:03:54,130
+number is 10 or whether the
+train number is 12.
+
+81
+00:03:54,130 --> 00:03:57,830
+If it is either, train number 10
+or train number 12, then we
+
+82
+00:03:57,830 --> 00:04:00,690
+will print out that that
+particular train number will
+
+83
+00:04:00,690 --> 00:04:02,250
+begin running at noon.
+
+84
+00:04:05,530 --> 00:04:08,550
+Let's take a look at our
+new status loop.
+
+85
+00:04:08,550 --> 00:04:11,530
+We can see that as normal, all
+of the operational trains will
+
+86
+00:04:11,530 --> 00:04:13,230
+run, 1 through 8.
+
+87
+00:04:13,230 --> 00:04:15,440
+And then we hit train 9 and
+we see that that's not
+
+88
+00:04:15,440 --> 00:04:16,550
+operational.
+
+89
+00:04:16,550 --> 00:04:20,240
+And then at train 10, we trigger
+the Else-If to show
+
+90
+00:04:20,240 --> 00:04:22,580
+that train number 10 begins
+running at noon.
+
+91
+00:04:22,580 --> 00:04:25,290
+At train 11, we say that
+that's just a regular
+
+92
+00:04:25,290 --> 00:04:27,430
+not-operational train.
+
+93
+00:04:27,430 --> 00:04:31,550
+And train number 12 will now
+trigger our Else-If block with
+
+94
+00:04:31,550 --> 00:04:32,980
+our complex conditional.
+
+95
+00:04:32,980 --> 00:04:35,460
+And we see that it begins
+running at noon.
+
+96
+00:04:40,470 --> 00:04:41,040
+Guess what.
+
+97
+00:04:41,040 --> 00:04:43,010
+We're going to continue
+now adding to our
+
+98
+00:04:43,010 --> 00:04:44,450
+list of special trains.
+
+99
+00:04:44,450 --> 00:04:45,500
+Oh no.
+
+100
+00:04:45,500 --> 00:04:46,310
+But it's going to
+be a different
+
+101
+00:04:46,310 --> 00:04:47,770
+special train this time.
+
+102
+00:04:47,770 --> 00:04:49,800
+It's going to be
+train number 3.
+
+103
+00:04:49,800 --> 00:04:52,060
+And we're going to say
+that train number 3
+
+104
+00:04:52,060 --> 00:04:55,300
+only runs on Sunday.
+
+105
+00:04:55,300 --> 00:04:57,260
+So, it is not a regular train.
+
+106
+00:04:57,260 --> 00:04:58,850
+It is not an express train.
+
+107
+00:04:58,850 --> 00:05:01,240
+It is not a non-operational
+train.
+
+108
+00:05:01,240 --> 00:05:04,590
+It is only a Sunday
+running train.
+
+109
+00:05:04,590 --> 00:05:08,560
+We're going to use our binary
+And complex conditional syntax
+
+110
+00:05:08,560 --> 00:05:11,270
+to manage this situation.
+
+111
+00:05:11,270 --> 00:05:13,050
+We want to make sure
+that train number 3
+
+112
+00:05:13,050 --> 00:05:14,870
+runs only on Sunday.
+
+113
+00:05:14,870 --> 00:05:17,660
+So, we will need a day of
+the week variable.
+
+114
+00:05:17,660 --> 00:05:20,630
+And we're going to initialize
+today to be Friday.
+
+115
+00:05:20,630 --> 00:05:23,460
+We know that if today is Friday,
+then train number 3
+
+116
+00:05:23,460 --> 00:05:24,830
+should not be running.
+
+117
+00:05:24,830 --> 00:05:28,420
+So, let's see about making some
+code that makes that happen.
+
+118
+00:05:28,420 --> 00:05:31,660
+So, here's our regular status for
+loop that checks the train
+
+119
+00:05:31,660 --> 00:05:34,390
+number to see what should
+happen in the printout.
+
+120
+00:05:34,390 --> 00:05:38,280
+What we need to do here is add
+an extra Else-If condition
+
+121
+00:05:38,280 --> 00:05:41,600
+that checks two things, whether
+the train number is 3
+
+122
+00:05:41,600 --> 00:05:44,050
+and if the day is Sunday.
+
+123
+00:05:44,050 --> 00:05:46,780
+If that's the case, then we can
+print that train number 3
+
+124
+00:05:46,780 --> 00:05:48,620
+is running.
+
+125
+00:05:48,620 --> 00:05:52,160
+How can we show that with our
+complex conditional syntax?
+
+126
+00:05:52,160 --> 00:05:56,760
+We can ask whether the train
+number is equal to 3 and the
+
+127
+00:05:56,760 --> 00:05:58,770
+day of the week is Sunday.
+
+128
+00:05:58,770 --> 00:06:01,880
+If the left-hand side of that
+And and the right-hand side of
+
+129
+00:06:01,880 --> 00:06:04,710
+that And both evaluate to
+true, then we will get a
+
+130
+00:06:04,710 --> 00:06:07,980
+printout that says train
+number 3 is running.
+
+131
+00:06:07,980 --> 00:06:10,790
+We can go ahead and hard-code
+that 3 in the string, because
+
+132
+00:06:10,790 --> 00:06:15,490
+we know that train number 3 is
+the only Sunday-running train.
+
+133
+00:06:15,490 --> 00:06:17,550
+So, let's run this code
+and see what happens.
+
+134
+00:06:17,550 --> 00:06:20,180
+We should get that the train
+number 3 is not -
+
+135
+00:06:20,180 --> 00:06:21,320
+oh no.
+
+136
+00:06:21,320 --> 00:06:22,930
+The train number 3 running.
+
+137
+00:06:22,930 --> 00:06:23,700
+What happened?
+
+138
+00:06:23,700 --> 00:06:25,430
+Something's wrong
+with our code.
+
+139
+00:06:25,430 --> 00:06:26,700
+Why didn't we get the
+right status?
+
+140
+00:06:26,700 --> 00:06:28,840
+Let's trace our loop logic
+and see exactly
+
+141
+00:06:28,840 --> 00:06:30,700
+what the problem is.
+
+142
+00:06:30,700 --> 00:06:32,340
+So far, day of the
+week is Friday,
+
+143
+00:06:32,340 --> 00:06:34,820
+and we know that we have
+12 total trains and
+
+144
+00:06:34,820 --> 00:06:36,720
+8 operational trans.
+
+145
+00:06:36,720 --> 00:06:39,400
+We know that at some point in
+our status loop, the train
+
+146
+00:06:39,400 --> 00:06:41,370
+number will become 3.
+
+147
+00:06:41,370 --> 00:06:44,350
+If that's the case, then when we
+go to check that the train
+
+148
+00:06:44,350 --> 00:06:47,150
+number is less than or equal
+to the operation trains, we
+
+149
+00:06:47,150 --> 00:06:50,230
+will get a true, which means
+that we will go ahead and
+
+150
+00:06:50,230 --> 00:06:53,740
+print that train number 3 is
+running without ever having
+
+151
+00:06:53,740 --> 00:06:56,600
+checked whether it's Sunday.
+
+152
+00:06:56,600 --> 00:06:58,260
+But we know that it shouldn't
+be running,
+
+153
+00:06:58,260 --> 00:06:59,270
+because it's Friday.
+
+154
+00:06:59,270 --> 00:07:03,510
+So, we have to make a shift
+in some part of our code.
+
+155
+00:07:03,510 --> 00:07:04,760
+How can we do that?
+
+156
+00:07:09,420 --> 00:07:12,660
+Well, we found our logic bug
+and it's in that check of
+
+157
+00:07:12,660 --> 00:07:15,970
+train number less than or equal
+to operational trains.
+
+158
+00:07:15,970 --> 00:07:19,150
+That's because for train numbers
+1 through 8, they will
+
+159
+00:07:19,150 --> 00:07:23,090
+always trigger that very first
+If block and we will never
+
+160
+00:07:23,090 --> 00:07:25,910
+reach the Else-If block
+that checks if today
+
+161
+00:07:25,910 --> 00:07:27,160
+happens to be Sunday.
+
+162
+00:07:30,970 --> 00:07:32,500
+How can we fix that?
+
+163
+00:07:32,500 --> 00:07:36,710
+We can put an extra condition
+inside the very first If
+
+164
+00:07:36,710 --> 00:07:40,550
+statement that says if the train
+number is less than or
+
+165
+00:07:40,550 --> 00:07:43,380
+equal to the operational
+trains and the train
+
+166
+00:07:43,380 --> 00:07:45,140
+number is not 3.
+
+167
+00:07:45,140 --> 00:07:47,220
+Now, how can we get some syntax
+that says the train
+
+168
+00:07:47,220 --> 00:07:49,020
+number is not 3?
+
+169
+00:07:49,020 --> 00:07:49,970
+Well, that's very simple.
+
+170
+00:07:49,970 --> 00:07:51,030
+You've seen that before.
+
+171
+00:07:51,030 --> 00:07:56,620
+We would just have double And
+train number not equals 3.
+
+172
+00:07:56,620 --> 00:07:59,570
+And that will also ensure that
+when we get to the train
+
+173
+00:07:59,570 --> 00:08:03,195
+number 3, we will fall all the
+way down to the second Else-
+
+174
+00:08:03,195 --> 00:08:07,070
+If, check both that the train
+number is equal to 3 and that
+
+175
+00:08:07,070 --> 00:08:10,500
+the day of the week is Sunday,
+and then print that the train
+
+176
+00:08:10,500 --> 00:08:12,940
+number 3 is running.
+
+177
+00:08:12,940 --> 00:08:14,490
+Now we'll get correct
+printouts with
+
+178
+00:08:14,490 --> 00:08:15,620
+this particular syntax.
+
+179
+00:08:15,620 --> 00:08:18,600
+We can see that when the day of
+the week is Friday, we now
+
+180
+00:08:18,600 --> 00:08:21,830
+get the correct printout that
+train number 3 is not
+
+181
+00:08:21,830 --> 00:08:23,080
+operational.
+
+182
+00:08:24,940 --> 00:08:28,210
+And, when we set the day of the
+week finally to that glorious
+
+183
+00:08:28,210 --> 00:08:32,039
+day of Sunday, we get that
+the train number 3 is
+
+184
+00:08:32,039 --> 00:08:33,289
+running after all.
+
+185
+00:08:36,929 --> 00:08:39,950
+So, let's look at how this
+complex conditional arrives at
+
+186
+00:08:39,950 --> 00:08:43,750
+the different unique printouts
+for train number 3.
+
+187
+00:08:43,750 --> 00:08:45,330
+Well, let's say our day
+of the week's Friday.
+
+188
+00:08:45,330 --> 00:08:47,370
+We'll look at the Friday
+condition.
+
+189
+00:08:47,370 --> 00:08:50,130
+We know that at some point our
+status loop will arrive at
+
+190
+00:08:50,130 --> 00:08:51,180
+train number 3.
+
+191
+00:08:51,180 --> 00:08:54,470
+And when that happens, it's
+going to then check to see if
+
+192
+00:08:54,470 --> 00:08:57,020
+the train number is less than
+or equal to the operational
+
+193
+00:08:57,020 --> 00:08:59,630
+trains, which it is.
+
+194
+00:08:59,630 --> 00:09:02,330
+And, then it will also check to
+see that train number is not
+
+195
+00:09:02,330 --> 00:09:03,580
+equal to 3.
+
+196
+00:09:03,580 --> 00:09:05,630
+That will be false.
+
+197
+00:09:05,630 --> 00:09:11,130
+And it will make sure that we
+do not enter that if clause.
+
+198
+00:09:11,130 --> 00:09:13,800
+And then we will check to see
+whether the train number is 10
+
+199
+00:09:13,800 --> 00:09:15,030
+or whether it's 12.
+
+200
+00:09:15,030 --> 00:09:16,990
+And since it is neither,
+that entire
+
+201
+00:09:16,990 --> 00:09:19,130
+condition will be false.
+
+202
+00:09:19,130 --> 00:09:22,050
+And then we will check to see
+if the train number is equal
+
+203
+00:09:22,050 --> 00:09:24,310
+to 3, which it is.
+
+204
+00:09:24,310 --> 00:09:26,430
+And then we will check to see
+the day of the week is Sunday.
+
+205
+00:09:26,430 --> 00:09:28,510
+In this case, it is not.
+
+206
+00:09:28,510 --> 00:09:31,385
+And so we will get that train
+number 3 is not operational.
+
+207
+00:09:34,760 --> 00:09:37,090
+Now what happens when the day
+of the week is Sunday?
+
+208
+00:09:37,090 --> 00:09:39,420
+We get nearly the same situation
+all the way through,
+
+209
+00:09:39,420 --> 00:09:42,380
+except when we check whether
+the train number is 3 and
+
+210
+00:09:42,380 --> 00:09:44,420
+whether the day of the
+week is Sunday.
+
+211
+00:09:44,420 --> 00:09:47,480
+And since both of those
+situations are true, we
+
+212
+00:09:47,480 --> 00:09:50,080
+finally get that train
+number 3 is running.
+
+213
+00:09:57,560 --> 00:09:58,360
+Congratulations.
+
+214
+00:09:58,360 --> 00:10:00,520
+You've completed the
+Conditionals level of
+
+215
+00:10:00,520 --> 00:10:02,320
+JavaScript Road Trip.
+
+216
+00:10:02,320 --> 00:10:03,730
+Enjoy the challenges -
+
+217
+00:10:03,730 --> 00:10:04,860
+they're a doozy.
+
+218
+00:10:04,860 --> 00:10:06,950
+We'll see you in the
+next section.
+
+219
+00:10:08,550 --> 00:10:09,917
+[TRUMPETING]
+
+220
+00:10:10,440 --> 00:10:12,460
+Rolling, rolling, rolling.
+
+221
+00:10:12,460 --> 00:10:14,027
+Then, here's what
+would happen -
+
+222
+00:10:14,027 --> 00:10:17,440
+[LAUGHTER]
+
+223
+00:10:17,440 --> 00:10:19,950
+Here's what's gonna happen.
+
+224
+00:10:19,950 --> 00:10:21,200
+God, that's stupid.
+
+225
+00:10:21,317 --> 00:10:25,583
+[RASPBERRY]
+

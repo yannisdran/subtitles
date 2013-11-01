@@ -1,0 +1,768 @@
+﻿1
+00:00:00,700 --> 00:00:02,990
+Hey everyone, and welcome
+back to the Road
+
+2
+00:00:02,990 --> 00:00:04,590
+Trip, JavaScript 2.
+
+3
+00:00:04,590 --> 00:00:06,780
+If you completed the first
+course, you now have an
+
+4
+00:00:06,780 --> 00:00:09,290
+elementary education in the
+basic elements of the
+
+5
+00:00:09,290 --> 00:00:10,600
+JavaScript language.
+
+6
+00:00:10,600 --> 00:00:13,320
+In this course, we will be
+exploring more of those
+
+7
+00:00:13,320 --> 00:00:16,340
+fundamental concepts that will
+build the skills you need for
+
+8
+00:00:16,340 --> 00:00:18,210
+your future in web
+development.
+
+9
+00:00:18,210 --> 00:00:19,160
+So all aboard.
+
+10
+00:00:19,160 --> 00:00:22,100
+Come back and join us on this,
+the second course of the
+
+11
+00:00:22,100 --> 00:00:23,670
+JavaScript Road Trip.
+
+12
+00:00:23,670 --> 00:00:26,210
+(SINGING) From the Labyrinth
+of Loops to the Variable
+
+13
+00:00:26,210 --> 00:00:29,520
+Valley, we'll see the Cliffs
+of Value first. JavaScript's right up
+
+14
+00:00:29,520 --> 00:00:30,130
+your alley.
+
+15
+00:00:30,130 --> 00:00:33,450
+Built-ins Bluff, Files Falls,
+Array Archipelago.
+
+16
+00:00:33,450 --> 00:00:35,630
+Declarations in a desert
+where you'll find out
+
+17
+00:00:35,630 --> 00:00:36,620
+how far you'll go.
+
+18
+00:00:36,620 --> 00:00:38,190
+Learn to program.
+Take a  ride.
+
+19
+00:00:38,190 --> 00:00:39,796
+Buy a ticket. Step inside.
+
+20
+00:00:39,796 --> 00:00:40,140
+All aboard,
+
+21
+00:00:40,140 --> 00:00:43,050
+you're at the station to
+increase your education.
+
+22
+00:00:43,050 --> 00:00:43,200
+Bon voyage
+
+23
+00:00:43,200 --> 00:00:46,260
+and skinny dip! As long as
+functions you don't skip, on
+
+24
+00:00:46,260 --> 00:00:50,430
+this the JavaScript Road Trip.
+
+25
+00:00:56,535 --> 00:00:57,370
+Hey guys.
+
+26
+00:00:57,370 --> 00:01:00,110
+Here comes level one, the
+Labyrinth of Loops.
+
+27
+00:01:00,110 --> 00:01:01,360
+Don't get lost.
+
+28
+00:01:03,510 --> 00:01:07,790
+Don't get lost.
+
+29
+00:01:09,740 --> 00:01:10,990
+Don't get lost.
+
+30
+00:01:13,890 --> 00:01:18,040
+So, in our last level, we had
+some pretty repetitive code
+
+31
+00:01:18,040 --> 00:01:19,710
+that kind of sucked a lot,
+and we want to try to
+
+32
+00:01:19,710 --> 00:01:21,240
+improve that situation.
+
+33
+00:01:21,240 --> 00:01:23,700
+A loop is going to allow
+us to do that.
+
+34
+00:01:23,700 --> 00:01:26,580
+The first loop that we'll look
+at today is a while-loop.
+
+35
+00:01:26,580 --> 00:01:29,770
+And the while-loop will run its
+code just so long as its
+
+36
+00:01:29,770 --> 00:01:32,880
+Boolean condition evaluates
+to true.
+
+37
+00:01:32,880 --> 00:01:35,590
+Here, we have a basic while-loop
+setup that
+
+38
+00:01:35,590 --> 00:01:38,580
+includes the while-loop keyword
+and then a set of
+
+39
+00:01:38,580 --> 00:01:39,720
+parentheses.
+
+40
+00:01:39,720 --> 00:01:42,510
+Inside this parentheses is going
+to be an expression.
+
+41
+00:01:42,510 --> 00:01:45,900
+And if that expression evaluates
+to true, the content
+
+42
+00:01:45,900 --> 00:01:50,400
+of the loop, the code inside
+the loop, will execute.
+
+43
+00:01:50,400 --> 00:01:53,610
+Then, it will go back to the top
+of the loop and check the
+
+44
+00:01:53,610 --> 00:01:54,780
+expression again.
+
+45
+00:01:54,780 --> 00:01:58,840
+If the expression is still true,
+the code inside the loop
+
+46
+00:01:58,840 --> 00:02:01,030
+will be executed again.
+
+47
+00:02:01,030 --> 00:02:04,160
+And this will continue until
+the condition inside the
+
+48
+00:02:04,160 --> 00:02:06,550
+parentheses is false.
+
+49
+00:02:06,550 --> 00:02:07,570
+Now what does this mean?
+
+50
+00:02:07,570 --> 00:02:10,470
+It means that if we had a
+while-loop where we explicitly
+
+51
+00:02:10,470 --> 00:02:13,530
+wrote "true" as the condition,
+that means that while-loop we
+
+52
+00:02:13,530 --> 00:02:16,490
+could go on forever and
+ever, ad infinitum,
+
+53
+00:02:16,490 --> 00:02:17,590
+and would never stop.
+
+54
+00:02:17,590 --> 00:02:19,470
+It's called the infinite loop.
+
+55
+00:02:19,470 --> 00:02:23,220
+Additionally, if we had "false"
+hard-coded into the
+
+56
+00:02:23,220 --> 00:02:26,530
+while-loop, that while-loop
+would never run at all.
+
+57
+00:02:30,310 --> 00:02:32,790
+So, we're good with the true
+and the false conditionals
+
+58
+00:02:32,790 --> 00:02:34,310
+inside a while-loop.
+
+59
+00:02:34,310 --> 00:02:37,840
+So, now let's make a loop that
+prints the numbers one through
+
+60
+00:02:37,840 --> 00:02:41,050
+five in ascending order.
+
+61
+00:02:41,050 --> 00:02:43,010
+We need to think about this a
+little bit to make sure that
+
+62
+00:02:43,010 --> 00:02:45,260
+we get the exact right output.
+
+63
+00:02:45,260 --> 00:02:46,770
+The first thing that
+we'll need to do
+
+64
+00:02:46,770 --> 00:02:48,350
+is establish a variable.
+
+65
+00:02:48,350 --> 00:02:49,970
+Let's call it a number.
+
+66
+00:02:49,970 --> 00:02:53,930
+And we will set that number
+equal to one, since that's our
+
+67
+00:02:53,930 --> 00:02:55,030
+starting point.
+
+68
+00:02:55,030 --> 00:02:57,300
+Now we'll build the
+while-loop.
+
+69
+00:02:57,300 --> 00:03:01,080
+So, here you can see inside the
+while-loop that as long as our
+
+70
+00:03:01,080 --> 00:03:06,890
+number is less than or equal
+to five, we will print the
+
+71
+00:03:06,890 --> 00:03:09,120
+number with the console.log.
+
+72
+00:03:09,120 --> 00:03:12,990
+And then we will increase
+our number's value.
+
+73
+00:03:12,990 --> 00:03:15,390
+It's important that we increment
+the number inside
+
+74
+00:03:15,390 --> 00:03:17,900
+the loop because it's going to
+advance our number through the
+
+75
+00:03:17,900 --> 00:03:20,420
+numbers that we want to print,
+but it's also going to
+
+76
+00:03:20,420 --> 00:03:23,030
+eventually become greater
+than five and
+
+77
+00:03:23,030 --> 00:03:25,340
+therefore stop the loop.
+
+78
+00:03:25,340 --> 00:03:28,630
+Now if we were to run this code,
+the loop would execute five
+
+79
+00:03:28,630 --> 00:03:32,780
+times, and within each loop a
+number would get printed and
+
+80
+00:03:32,780 --> 00:03:34,030
+then incremented.
+
+81
+00:03:37,530 --> 00:03:40,600
+So, now the important thing to
+understand about loops is that
+
+82
+00:03:40,600 --> 00:03:44,620
+they will allow us to execute
+code repeatedly without typing
+
+83
+00:03:44,620 --> 00:03:47,690
+forever, which is
+really terrible.
+
+84
+00:03:47,690 --> 00:03:50,900
+So, what we want to do is try
+to apply this to our trains
+
+85
+00:03:50,900 --> 00:03:54,140
+situation where we wanted to
+print a message about which
+
+86
+00:03:54,140 --> 00:03:55,880
+trains were running.
+
+87
+00:03:55,880 --> 00:03:58,910
+Here, we want to execute the
+following code for every one
+
+88
+00:03:58,910 --> 00:04:00,470
+of the running trains.
+
+89
+00:04:00,470 --> 00:04:03,600
+Now, that bracketed word
+"number" is just a placeholder
+
+90
+00:04:03,600 --> 00:04:07,200
+for the number value of the
+train that we want to print.
+
+91
+00:04:07,200 --> 00:04:11,730
+Now we know our variables can be
+changed, so let's make one
+
+92
+00:04:11,730 --> 00:04:14,840
+that will count our trains in
+the loop that we're going to
+
+93
+00:04:14,840 --> 00:04:16,959
+produce for this code.
+
+94
+00:04:16,959 --> 00:04:19,720
+We're going to set it to one,
+because obviously the first
+
+95
+00:04:19,720 --> 00:04:22,660
+train that we print
+will be one.
+
+96
+00:04:22,660 --> 00:04:25,860
+Then we need a way to make our
+train counter increase on
+
+97
+00:04:25,860 --> 00:04:27,130
+every repetition.
+
+98
+00:04:27,130 --> 00:04:30,480
+Obviously that will go with our
+incrementation code, train
+
+99
+00:04:30,480 --> 00:04:32,680
+number plus plus.
+
+100
+00:04:32,680 --> 00:04:34,840
+When we put those code items
+together, we can see that the
+
+101
+00:04:34,840 --> 00:04:38,630
+following code will need to loop
+back until all running
+
+102
+00:04:38,630 --> 00:04:40,840
+trains have been listed.
+
+103
+00:04:40,840 --> 00:04:43,680
+And we could also say that this
+code needs to run as long
+
+104
+00:04:43,680 --> 00:04:47,150
+as the trainNumber is less than
+or equal to eight, because
+
+105
+00:04:47,150 --> 00:04:48,975
+there are eight running
+train today.
+
+106
+00:04:52,100 --> 00:04:54,990
+Let's trace through the
+loop we actually need.
+
+107
+00:04:54,990 --> 00:04:58,080
+First, we'll initialize our
+trainNumber value to one.
+
+108
+00:04:58,080 --> 00:04:59,930
+This will both help control
+the loop and
+
+109
+00:04:59,930 --> 00:05:01,800
+be used in our printouts.
+
+110
+00:05:01,800 --> 00:05:04,900
+From there, the loop will only
+continue if the trainNumber
+
+111
+00:05:04,900 --> 00:05:07,840
+is less than or equal to eight.
+
+112
+00:05:07,840 --> 00:05:10,680
+Then, our loop will actually
+execute its contents.
+
+113
+00:05:10,680 --> 00:05:11,670
+And what are those?
+
+114
+00:05:11,670 --> 00:05:14,910
+Well, they're printing out our
+running train message using
+
+115
+00:05:14,910 --> 00:05:18,620
+the trainNumber variable inside
+a console.log method.
+
+116
+00:05:18,620 --> 00:05:21,130
+Once that code is finished,
+we'll perform the very
+
+117
+00:05:21,130 --> 00:05:24,530
+important step of incrementing
+our trainNumber, which steps
+
+118
+00:05:24,530 --> 00:05:28,370
+forward to the next train and
+will eventually stop our loop.
+
+119
+00:05:28,370 --> 00:05:31,332
+After incrementing our variable
+with trainNumber plus plus,
+
+120
+00:05:31,332 --> 00:05:33,950
+we'll cycle back up to check
+the less than or equal
+
+121
+00:05:33,950 --> 00:05:35,310
+condition again.
+
+122
+00:05:35,310 --> 00:05:37,980
+This looping procedure will
+continue until the train
+
+123
+00:05:37,980 --> 00:05:42,920
+number is greater than eight, and
+the loop should stop.
+
+124
+00:05:42,920 --> 00:05:44,600
+Now the while-loop for
+this is going to look
+
+125
+00:05:44,600 --> 00:05:47,590
+something like this.
+
+126
+00:05:47,590 --> 00:05:49,670
+In there, you can see our
+initialization of the train
+
+127
+00:05:49,670 --> 00:05:52,970
+number one, you could see our
+condition to check, which is
+
+128
+00:05:52,970 --> 00:05:55,990
+the trainNumber less than or
+equal to eight, you could see our
+
+129
+00:05:55,990 --> 00:05:58,620
+printout of the train message,
+you could see our
+
+130
+00:05:58,620 --> 00:06:00,760
+incrementation of the
+trainNumber.
+
+131
+00:06:04,830 --> 00:06:07,540
+Let's take a closer look at the
+values that happen when we
+
+132
+00:06:07,540 --> 00:06:08,790
+run the loop.
+
+133
+00:06:08,790 --> 00:06:11,230
+The very first thing the train
+number gets set to
+
+134
+00:06:11,230 --> 00:06:13,340
+is the value one.
+
+135
+00:06:13,340 --> 00:06:15,030
+Is the trainNumber less
+than or equal to eight?
+
+136
+00:06:15,030 --> 00:06:18,190
+Yes it is, so that condition
+will be true, and so the loop
+
+137
+00:06:18,190 --> 00:06:22,370
+output will be "Train #1
+is running." After that
+
+138
+00:06:22,370 --> 00:06:26,860
+gets printed, trainNumber
+gets incremented to two.
+
+139
+00:06:26,860 --> 00:06:29,850
+And the same procedure occurs
+all the way through the loop,
+
+140
+00:06:29,850 --> 00:06:32,350
+printing out new training
+numbers until the
+
+141
+00:06:32,350 --> 00:06:33,860
+trainNumber is nine.
+
+142
+00:06:33,860 --> 00:06:37,120
+As soon as that happens, train
+number is no longer less than
+
+143
+00:06:37,120 --> 00:06:39,830
+or equal to 8, and so that
+condition is false, and the
+
+144
+00:06:39,830 --> 00:06:41,080
+loop will stop.
+
+145
+00:06:44,140 --> 00:06:48,690
+Let's migrate our while-loop
+over to the trains.js file.
+
+146
+00:06:48,690 --> 00:06:52,610
+Now in our trains.js file, we
+want to use variables instead
+
+147
+00:06:52,610 --> 00:06:55,660
+of hard coded values to control
+our train loop.
+
+148
+00:06:55,660 --> 00:06:57,010
+Why would we want to do that?
+
+149
+00:06:57,010 --> 00:06:59,280
+Because not every day
+will there be
+
+150
+00:06:59,280 --> 00:07:01,090
+eight operational trains.
+
+151
+00:07:01,090 --> 00:07:04,070
+Some days, we will have
+operational trains of 10, so
+
+152
+00:07:04,070 --> 00:07:07,800
+we want to be able to make our
+loop respond to the contents
+
+153
+00:07:07,800 --> 00:07:11,490
+of a variable and not to
+a hard-coded value.
+
+154
+00:07:11,490 --> 00:07:13,910
+So, here we can see that we have
+our trains operational
+
+155
+00:07:13,910 --> 00:07:17,980
+variable set to eight today, and our
+trainNumber variable of
+
+156
+00:07:17,980 --> 00:07:19,890
+course will start at one.
+
+157
+00:07:19,890 --> 00:07:21,370
+Here's our while-loop.
+
+158
+00:07:21,370 --> 00:07:25,110
+And notice that inside our
+conditional, now we check to
+
+159
+00:07:25,110 --> 00:07:27,840
+see if the trainNumber is
+less than or equal to the
+
+160
+00:07:27,840 --> 00:07:30,440
+train's operational variable.
+
+161
+00:07:30,440 --> 00:07:33,630
+That will ensure that on any
+given day, as long as the
+
+162
+00:07:33,630 --> 00:07:36,140
+train's operational variable is
+set to the correct amount
+
+163
+00:07:36,140 --> 00:07:38,850
+of running trains, we will
+get the exactly correct
+
+164
+00:07:38,850 --> 00:07:40,100
+loop of print out.
+
