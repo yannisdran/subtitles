@@ -1,0 +1,543 @@
+﻿1
+00:00:02,029 --> 00:00:03,380
+My name is Carlos Souza.
+
+2
+00:00:03,380 --> 00:00:05,540
+And you're watching
+Rails 4 Patterns.
+
+3
+00:00:05,540 --> 00:00:08,070
+In this level, we're going to
+be looking at class methods
+
+4
+00:00:08,070 --> 00:00:10,350
+and scopes.
+
+5
+00:00:10,350 --> 00:00:13,080
+Let's look at the index action
+in our PostsController
+
+6
+00:00:13,080 --> 00:00:15,960
+Here we're manually constructing
+a query, which
+
+7
+00:00:15,960 --> 00:00:19,390
+returns the most recent
+published posts and assigns it
+
+8
+00:00:19,390 --> 00:00:21,550
+to the post instance variable.
+
+9
+00:00:21,550 --> 00:00:23,840
+There are some problems
+with the code, though.
+
+10
+00:00:23,840 --> 00:00:27,090
+First, it exposes implementation
+details, which
+
+11
+00:00:27,090 --> 00:00:29,080
+totally breaks encapsulation.
+
+12
+00:00:29,080 --> 00:00:31,710
+Like we've seen in the previous
+chapter, this code
+
+13
+00:00:31,710 --> 00:00:33,690
+should be placed inside
+of a model.
+
+14
+00:00:33,690 --> 00:00:37,110
+It also produces unnecessary
+duplication, which means that
+
+15
+00:00:37,110 --> 00:00:39,900
+every time that we want to
+fetch the most recently
+
+16
+00:00:39,900 --> 00:00:42,590
+published posts, we're going to
+have to rewrite this code
+
+17
+00:00:42,590 --> 00:00:43,980
+over and over again.
+
+18
+00:00:43,980 --> 00:00:47,750
+Lastly, it complicates writing
+tests, because it forces us to
+
+19
+00:00:47,750 --> 00:00:51,220
+write controller tests as
+opposed to unit tests, every
+
+20
+00:00:51,220 --> 00:00:55,460
+time that we need to
+test this feature.
+
+21
+00:00:55,460 --> 00:00:58,560
+A better way to write this is
+to move this code out of the
+
+22
+00:00:58,560 --> 00:01:00,410
+controller into our model.
+
+23
+00:01:00,410 --> 00:01:03,180
+Here we have our query
+implemented as a class method,
+
+24
+00:01:03,180 --> 00:01:06,490
+which is similar to writing
+a scope, named recent, and
+
+25
+00:01:06,490 --> 00:01:09,480
+passing a proc object
+as an argument.
+
+26
+00:01:09,480 --> 00:01:12,530
+Back to our controller, we can
+simply call the recent method
+
+27
+00:01:12,530 --> 00:01:13,890
+on our post class.
+
+28
+00:01:13,890 --> 00:01:16,750
+This way our model is properly
+encapsulating
+
+29
+00:01:16,750 --> 00:01:20,470
+details about the query.
+
+30
+00:01:20,470 --> 00:01:22,990
+One question you might have is
+whether class methods and
+
+31
+00:01:22,990 --> 00:01:24,960
+scopes are the same thing.
+
+32
+00:01:24,960 --> 00:01:26,750
+Let's take a look.
+
+33
+00:01:26,750 --> 00:01:30,300
+Here we have our post class,
+with two class methods, by
+
+34
+00:01:30,300 --> 00:01:34,430
+author and recent, each one
+with its own query.
+
+35
+00:01:34,430 --> 00:01:35,920
+These two can be chained
+together.
+
+36
+00:01:39,220 --> 00:01:42,390
+In the first example, we're
+calling posts by author,
+
+37
+00:01:42,390 --> 00:01:46,180
+passing in the author argument
+as Carlos and calling recent
+
+38
+00:01:46,180 --> 00:01:48,510
+on the return value
+from that method.
+
+39
+00:01:48,510 --> 00:01:52,060
+And we can see it's generating
+the proper query.
+
+40
+00:01:52,060 --> 00:01:55,710
+But what if the argument by author
+happens to be nil?
+
+41
+00:01:55,710 --> 00:01:58,790
+Say a user goes to a search box
+and instead of typing in a
+
+42
+00:01:58,790 --> 00:02:01,360
+keyword, he simply
+submits the form.
+
+43
+00:02:01,360 --> 00:02:03,600
+He might expect to
+get back all the
+
+44
+00:02:03,600 --> 00:02:05,980
+posts from all authors.
+
+45
+00:02:05,980 --> 00:02:08,900
+But the query that this
+generates will actually be all
+
+46
+00:02:08,900 --> 00:02:12,490
+posts where author is null,
+which is obviously the
+
+47
+00:02:12,490 --> 00:02:16,020
+opposite of what we wanted.
+
+48
+00:02:16,020 --> 00:02:19,420
+To fix this, we go back to by
+author method and add a
+
+49
+00:02:19,420 --> 00:02:22,115
+validation that first
+checks to see if
+
+50
+00:02:22,115 --> 00:02:23,430
+the author's present.
+
+51
+00:02:23,430 --> 00:02:26,030
+Otherwise, it will return nil.
+
+52
+00:02:26,030 --> 00:02:28,620
+The problem with that is that
+when we pass nil to the by
+
+53
+00:02:28,620 --> 00:02:31,270
+author method, it actually
+returns nil.
+
+54
+00:02:31,270 --> 00:02:34,720
+But then we'll call recent on
+nil, which will cause an
+
+55
+00:02:34,720 --> 00:02:38,580
+undefined method error
+to be raised.
+
+56
+00:02:38,580 --> 00:02:42,000
+To fix that error, we go back to
+the author method again and
+
+57
+00:02:42,000 --> 00:02:43,930
+add an else block
+that returns all.
+
+58
+00:02:43,930 --> 00:02:48,700
+All in Rails 4 is a chainable
+relation.
+
+59
+00:02:48,700 --> 00:02:52,570
+Now calling by author with
+nil behaves as expected, 
+
+60
+00:02:52,570 --> 00:02:55,610
+and we can just call recent on
+the return value for that.
+
+61
+00:02:55,610 --> 00:02:59,370
+Our query runs fine now, but it
+required a decent amount of
+
+62
+00:02:59,370 --> 00:03:01,460
+lines of code to be written.
+
+63
+00:03:01,460 --> 00:03:06,880
+Luckily there's a better way
+to write this using scopes.
+
+64
+00:03:06,880 --> 00:03:11,020
+If we change the previous code
+from class methods to scopes,
+
+65
+00:03:11,020 --> 00:03:13,370
+then we don't have to worry
+about returning
+
+66
+00:03:13,370 --> 00:03:14,900
+a chainable relation.
+
+67
+00:03:14,900 --> 00:03:19,110
+Because scopes always return
+a chainable object.
+
+68
+00:03:19,110 --> 00:03:23,270
+So now when you pass in nil to
+the by author method, we don't
+
+69
+00:03:23,270 --> 00:03:25,575
+have to worry about it
+generating the wrong query.
+
+70
+00:03:30,070 --> 00:03:31,600
+Here's some new code.
+
+71
+00:03:31,600 --> 00:03:34,530
+We have our comment class,
+which belongs to a post, 
+
+72
+00:03:34,530 --> 00:03:37,500
+and it has an approved scope
+that returns all the comments
+
+73
+00:03:37,500 --> 00:03:38,770
+that were approved.
+
+74
+00:03:38,770 --> 00:03:41,940
+We also have our posts model,
+which has many comments.
+
+75
+00:03:41,940 --> 00:03:45,470
+It has a scope called with
+approved comments, which joins
+
+76
+00:03:45,470 --> 00:03:48,730
+with the comments table and
+returns all of the comments
+
+77
+00:03:48,730 --> 00:03:50,060
+that were approved.
+
+78
+00:03:50,060 --> 00:03:52,950
+Now when we call the
+with_approved_comments, this is the
+
+79
+00:03:52,950 --> 00:03:54,580
+query that it generates.
+
+80
+00:03:54,580 --> 00:03:57,930
+The problem here is that we
+have the same query logic
+
+81
+00:03:57,930 --> 00:04:01,530
+duplicated in two different
+places.
+
+82
+00:04:01,530 --> 00:04:03,470
+We can get rid of this
+duplication by
+
+83
+00:04:03,470 --> 00:04:05,140
+using the merge method.
+
+84
+00:04:05,140 --> 00:04:08,300
+Merge facilitates sharing common
+conditions between
+
+85
+00:04:08,300 --> 00:04:10,100
+multiple associations.
+
+86
+00:04:10,100 --> 00:04:13,190
+Using merge, here's what our
+code would look like, which
+
+87
+00:04:13,190 --> 00:04:14,650
+generates the same SQL.
+
+88
+00:04:18,300 --> 00:04:20,970
+When we're using two scopes
+that reference the same
+
+89
+00:04:20,970 --> 00:04:23,880
+database column, there's a huge
+difference in behavior
+
+90
+00:04:23,880 --> 00:04:26,500
+between Rails 3 and Rails 4.
+
+91
+00:04:26,500 --> 00:04:29,800
+In Rails 3, the query
+in the last scope
+
+92
+00:04:29,800 --> 00:04:31,830
+overrides the first one.
+
+93
+00:04:31,830 --> 00:04:36,350
+In this case, when calling
+user.active.inactive, both
+
+94
+00:04:36,350 --> 00:04:40,100
+which reference the state
+column, the last query would
+
+95
+00:04:40,100 --> 00:04:41,860
+override the first one.
+
+96
+00:04:41,860 --> 00:04:44,090
+In this case, it would
+only query for
+
+97
+00:04:44,090 --> 00:04:46,600
+state equals inactive.
+
+98
+00:04:46,600 --> 00:04:50,120
+Rails 4, however, will simply
+append the conditions and
+
+99
+00:04:50,120 --> 00:04:52,380
+generate a query that
+looks for both
+
+100
+00:04:52,380 --> 00:04:55,270
+state, active and inactive.
+
+101
+00:04:55,270 --> 00:04:58,300
+If we want the same behavior
+from Rails 3, we need to use
+
+102
+00:04:58,300 --> 00:05:00,050
+the merge method,
+passing in the
+
+103
+00:05:00,050 --> 00:05:01,820
+second scope as an argument.
+
+104
+00:05:01,820 --> 00:05:05,520
+This way we can use the last where whens logic.
+
+105
+00:05:05,520 --> 00:05:08,380
+This way, in case there's a
+common column between two
+
+106
+00:05:08,380 --> 00:05:10,570
+scopes, the last
+scope will win.
+
+107
+00:05:13,540 --> 00:05:15,140
+We've reached the end
+of this level.
+
+108
+00:05:15,140 --> 00:05:17,930
+So, get ready for some challenges
+on class methods
+
+109
+00:05:17,930 --> 00:05:19,180
+and scopes.
+
+110
+00:05:21,310 --> 00:05:24,850
+I have no idea what I'm
+going to say now.
+
+111
+00:05:24,850 --> 00:05:27,780
+Err.
+
+112
+00:05:27,780 --> 00:05:29,090
+Was that good?
+
+113
+00:05:29,090 --> 00:05:30,470
+Every time that we--
+
+114
+00:05:30,470 --> 00:05:31,720
+err.
+
+115
+00:05:33,770 --> 00:05:34,370
+Keep on doing that.
+
+116
+00:05:34,370 --> 00:05:35,620
+We'll make an outtake reel.
+

@@ -1,0 +1,479 @@
+﻿1
+00:00:01,968 --> 00:00:05,190
+I'm Carlos Souza, and you're
+watching Rails 4 Patterns.
+
+2
+00:00:05,190 --> 00:00:07,720
+In this level, we're going to
+continue looking at active::model
+
+3
+00:00:07,720 --> 00:00:10,350
+serializers.
+
+4
+00:00:10,350 --> 00:00:13,300
+Let's start by looking at how
+we can use associations from
+
+5
+00:00:13,300 --> 00:00:14,880
+our serializers.
+
+6
+00:00:14,880 --> 00:00:17,480
+Here, in our item serializer,
+we've defined
+
+7
+00:00:17,480 --> 00:00:20,040
+ID, name, and URL.
+
+8
+00:00:20,040 --> 00:00:24,110
+Then, we have our URL method
+that's calling a route helper.
+
+9
+00:00:24,110 --> 00:00:27,890
+For each item, we also want
+to serialize its comments.
+
+10
+00:00:27,890 --> 00:00:31,660
+We do that by simply adding
+has_many :comments.
+
+11
+00:00:31,660 --> 00:00:35,220
+This way, each element of the
+association will also be
+
+12
+00:00:35,220 --> 00:00:36,100
+serialized.
+
+13
+00:00:36,100 --> 00:00:39,350
+When a custom serializer isn't
+found, then the default Rails
+
+14
+00:00:39,350 --> 00:00:41,860
+serialization is used.
+
+15
+00:00:41,860 --> 00:00:43,960
+And here's what the
+output looks like.
+
+16
+00:00:43,960 --> 00:00:47,150
+Child objects are embedded
+inside of their parents.
+
+17
+00:00:47,150 --> 00:00:49,940
+In this case, comment objects
+are serialized
+
+18
+00:00:49,940 --> 00:00:52,100
+inside of each item.
+
+19
+00:00:52,100 --> 00:00:55,090
+Instead of serializing the whole
+comment object, we might
+
+20
+00:00:55,090 --> 00:00:58,120
+want to simply fetch their ids,
+which gives us a huge
+
+21
+00:00:58,120 --> 00:01:00,790
+performance boost because it's
+less data that we're
+
+22
+00:01:00,790 --> 00:01:02,040
+transferring down
+to the client.
+
+23
+00:01:04,530 --> 00:01:08,170
+To do that, we simply pass
+embed: :ids as an option to
+
+24
+00:01:08,170 --> 00:01:11,790
+has_many, which will return the
+ids for the associations
+
+25
+00:01:11,790 --> 00:01:13,950
+instead of the entire object.
+
+26
+00:01:13,950 --> 00:01:15,710
+Here's what the output
+looks like.
+
+27
+00:01:15,710 --> 00:01:18,780
+And you'll notice that we have
+comment_ids property with an
+
+28
+00:01:18,780 --> 00:01:20,030
+array of ids.
+
+29
+00:01:22,820 --> 00:01:25,290
+Another way that we can specify
+that we want all
+
+30
+00:01:25,290 --> 00:01:30,420
+association ids is by using
+the embed class instead.
+
+31
+00:01:30,420 --> 00:01:33,520
+This will apply to all the
+associations of the
+
+32
+00:01:33,520 --> 00:01:34,520
+serializer.
+
+33
+00:01:34,520 --> 00:01:37,380
+In this case, comments
+and pictures.
+
+34
+00:01:37,380 --> 00:01:40,510
+You'll notice that in the
+output, we have both comment_ids
+
+35
+00:01:40,510 --> 00:01:42,525
+and picture_ids.
+
+36
+00:01:45,390 --> 00:01:48,760
+In addition to embedding ids
+for associations, you might
+
+37
+00:01:48,760 --> 00:01:52,300
+also want to side load the
+objects themselves.
+
+38
+00:01:52,300 --> 00:01:55,410
+By side loading association
+objects, you can reduce the
+
+39
+00:01:55,410 --> 00:01:58,190
+number of HTTP requests.
+
+40
+00:01:58,190 --> 00:02:01,590
+And you do that by passing the
+include true option to your
+
+41
+00:02:01,590 --> 00:02:03,260
+embed method.
+
+42
+00:02:03,260 --> 00:02:06,490
+Up to this point, comments has
+been using Rails' default
+
+43
+00:02:06,490 --> 00:02:07,500
+serialization.
+
+44
+00:02:07,500 --> 00:02:10,220
+But once we include side
+loading, then we'll need to
+
+45
+00:02:10,220 --> 00:02:12,820
+create its own custom
+serializer.
+
+46
+00:02:12,820 --> 00:02:15,900
+In this case, comment serializer
+under the add
+
+47
+00:02:15,900 --> 00:02:17,150
+serializer directory.
+
+48
+00:02:20,170 --> 00:02:22,340
+Back in our controller,
+nothing has changed.
+
+49
+00:02:22,340 --> 00:02:25,640
+We can still use the render or
+the respond_with method.
+
+50
+00:02:25,640 --> 00:02:28,180
+And here's what the
+output looks like.
+
+51
+00:02:28,180 --> 00:02:31,680
+Notice how we're embedding our
+ids for comment_ids, and the
+
+52
+00:02:31,680 --> 00:02:34,970
+comments objects are also
+included at the top level.
+
+53
+00:02:34,970 --> 00:02:37,940
+The comment_ids can used by
+client side JavaScript
+
+54
+00:02:37,940 --> 00:02:40,910
+libraries to fetch the
+side loaded comments.
+
+55
+00:02:40,910 --> 00:02:44,200
+In this case, because we're side
+loading associations, it
+
+56
+00:02:44,200 --> 00:02:46,930
+has required the presence
+of a root element.
+
+57
+00:02:46,930 --> 00:02:49,260
+Otherwise, we might see
+an error like this.
+
+58
+00:02:52,230 --> 00:02:54,960
+Now, let's look at how we can
+customize the records that are
+
+59
+00:02:54,960 --> 00:02:57,140
+returned by our associations.
+
+60
+00:02:57,140 --> 00:02:59,530
+Notice that inside of our
+comment class, we have an
+
+61
+00:02:59,530 --> 00:03:03,300
+approved scope that returns all
+of the approved comments.
+
+62
+00:03:03,300 --> 00:03:07,330
+We want our serializer to only
+include the approved comments.
+
+63
+00:03:07,330 --> 00:03:10,530
+To do that, we override
+our comments method.
+
+64
+00:03:10,530 --> 00:03:13,810
+Now, using the object method,
+which again refers to the item
+
+65
+00:03:13,810 --> 00:03:17,270
+being serialized, we can call
+comments, and then the
+
+66
+00:03:17,270 --> 00:03:18,460
+approved scope.
+
+67
+00:03:18,460 --> 00:03:21,800
+That way, we can override the
+association methods to only
+
+68
+00:03:21,800 --> 00:03:23,510
+return the records
+that we want.
+
+69
+00:03:27,730 --> 00:03:31,200
+So what if you want to add a
+specific property based on
+
+70
+00:03:31,200 --> 00:03:35,410
+whether the current user had
+a premium account or not?
+
+71
+00:03:35,410 --> 00:03:37,020
+How would you do that?
+
+72
+00:03:37,020 --> 00:03:40,060
+First, we override the
+attributes method, which gives
+
+73
+00:03:40,060 --> 00:03:43,460
+us total control over the
+data that's serialized.
+
+74
+00:03:43,460 --> 00:03:46,080
+We start off by calling super,
+which will look for the
+
+75
+00:03:46,080 --> 00:03:48,660
+attributes that were defined
+at the top level.
+
+76
+00:03:48,660 --> 00:03:51,100
+Then, we need to check
+if the current user
+
+77
+00:03:51,100 --> 00:03:52,570
+has a premium account.
+
+78
+00:03:52,570 --> 00:03:55,870
+Out of the box, active model
+serializer gives you access to
+
+79
+00:03:55,870 --> 00:03:58,840
+the current_user helper method
+from the controller because
+
+80
+00:03:58,840 --> 00:04:01,900
+this is such a common pattern
+in Rails applications.
+
+81
+00:04:01,900 --> 00:04:05,270
+So if the user has a premium
+account, we want to set the
+
+82
+00:04:05,270 --> 00:04:08,960
+discounted_price property
+and return the data.
+
+83
+00:04:08,960 --> 00:04:11,100
+Here's what the output
+looks like for a user
+
+84
+00:04:11,100 --> 00:04:12,890
+with a premium account.
+
+85
+00:04:12,890 --> 00:04:14,685
+Notice it's showing the
+discounted price.
+
+86
+00:04:17,500 --> 00:04:19,740
+For some reason, your
+application might use a
+
+87
+00:04:19,740 --> 00:04:21,839
+different scope than
+current user.
+
+88
+00:04:21,839 --> 00:04:23,950
+For example, logged_user.
+
+89
+00:04:23,950 --> 00:04:26,660
+If this is the case, then you
+can tell active model
+
+90
+00:04:26,660 --> 00:04:30,080
+serializers to look for a
+different scope either by
+
+91
+00:04:30,080 --> 00:04:33,290
+calling the serialization scope
+method passing in the
+
+92
+00:04:33,290 --> 00:04:38,030
+name of the scope, or by passing
+scope and scope_name
+
+93
+00:04:38,030 --> 00:04:39,900
+as options to the
+render method.
+
+94
+00:04:44,250 --> 00:04:47,110
+We've reached the end of this
+level, so get ready for some
+
+95
+00:04:47,110 --> 00:04:48,370
+serious serialization.
+
+96
+00:04:51,330 --> 00:04:53,070
+There's an alien inside of me.
+
+97
+00:04:53,070 --> 00:04:55,900
+Then, have our URL - we then -
+then, we have our URL -
+
+98
+00:04:55,900 --> 00:04:57,820
+then, we have our UR -
+
+99
+00:04:57,820 --> 00:05:00,210
+then, we have our URL -
+
+100
+00:05:00,210 --> 00:05:02,910
+Oh my god, this never ends.
+
+101
+00:05:02,910 --> 00:05:04,160
+Yes, it does.
+

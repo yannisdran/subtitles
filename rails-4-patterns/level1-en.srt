@@ -1,0 +1,794 @@
+﻿1
+00:00:00,000 --> 00:00:04,083
+Your controller is getting bloated
+and your models are fat.
+
+2
+00:00:04,083 --> 00:00:07,617
+The configuration files, we don't know we're they are at
+
+3
+00:00:07,617 --> 00:00:09,617
+and the views are awful dirty.
+
+4
+00:00:09,617 --> 00:00:13,350
+And your app needs a bath.
+You lost all the defaults,
+
+5
+00:00:13,350 --> 00:00:14,750
+left the golden path.
+
+6
+00:00:14,750 --> 00:00:18,450
+But some best practices we have a prescription.
+
+7
+00:00:18,450 --> 00:00:22,083
+The encapsulation tool belt will cure your addiction!
+
+8
+00:00:22,083 --> 00:00:24,850
+Beyond the basics of learning Rails 4,
+
+9
+00:00:24,850 --> 00:00:29,450
+there's some patterns you'll need to explore.
+
+10
+00:00:32,140 --> 00:00:33,210
+My name is Carlos Souza.
+
+11
+00:00:33,210 --> 00:00:35,810
+And you're watching
+Rails 4, Patterns.
+
+12
+00:00:35,810 --> 00:00:39,210
+In this level, we're going to
+be talking about models.
+
+13
+00:00:39,210 --> 00:00:42,220
+When working with Rails and the
+Model View Controller, or
+
+14
+00:00:42,220 --> 00:00:45,270
+MVC, you're probably used to
+the fact that most of the
+
+15
+00:00:45,270 --> 00:00:47,470
+logic should go into
+the models.
+
+16
+00:00:47,470 --> 00:00:50,290
+Well, let's see an example
+of why that is.
+
+17
+00:00:50,290 --> 00:00:52,130
+Here we have an items
+controller
+
+18
+00:00:52,130 --> 00:00:53,770
+in a publish action.
+
+19
+00:00:53,770 --> 00:00:56,710
+By looking at our controller,
+we can see the logic behind
+
+20
+00:00:56,710 --> 00:00:59,730
+publishing an item, which
+involves first checking if an
+
+21
+00:00:59,730 --> 00:01:03,750
+item is approved, then citing
+the published_on property with
+
+22
+00:01:03,750 --> 00:01:06,080
+the current time, and
+then saving the
+
+23
+00:01:06,080 --> 00:01:07,600
+model to the database.
+
+24
+00:01:07,600 --> 00:01:10,360
+This is an example of
+a fat controller.
+
+25
+00:01:10,360 --> 00:01:12,840
+And code like this, it's
+hard to work with.
+
+26
+00:01:12,840 --> 00:01:15,740
+All logic related to publishing
+an item is exposed
+
+27
+00:01:15,740 --> 00:01:17,650
+in the controller.
+
+28
+00:01:17,650 --> 00:01:20,310
+And this will most likely cause
+this controller action
+
+29
+00:01:20,310 --> 00:01:23,700
+to be highly accessed in the
+future by other developers
+
+30
+00:01:23,700 --> 00:01:26,450
+every time we need to change
+something specific to this
+
+31
+00:01:26,450 --> 00:01:28,830
+publishing feature, which
+might cause potential
+
+32
+00:01:28,830 --> 00:01:31,170
+conflicts in the code base
+and will make new
+
+33
+00:01:31,170 --> 00:01:33,740
+features hard to implement.
+
+34
+00:01:33,740 --> 00:01:35,010
+And here's an example.
+
+35
+00:01:35,010 --> 00:01:37,390
+Say one of our developers needed
+to add an additional
+
+36
+00:01:37,390 --> 00:01:39,460
+validation to the publishing
+feature.
+
+37
+00:01:39,460 --> 00:01:41,850
+A good sign that it's time to
+re-factor your code into a
+
+38
+00:01:41,850 --> 00:01:45,220
+better design is when you have
+something like this.
+
+39
+00:01:45,220 --> 00:01:48,960
+Notice how we have multiple
+calls to the same object.
+
+40
+00:01:48,960 --> 00:01:51,150
+And we shouldn't be asking
+your objects about their
+
+41
+00:01:51,150 --> 00:01:52,290
+internal state.
+
+42
+00:01:52,290 --> 00:01:54,640
+But rather we should be
+telling them what
+
+43
+00:01:54,640 --> 00:01:58,060
+we want to get done.
+
+44
+00:01:58,060 --> 00:02:01,250
+One way to make this better is
+to re-factor this code out of
+
+45
+00:02:01,250 --> 00:02:04,520
+our controller and into an
+instance method into our item
+
+46
+00:02:04,520 --> 00:02:06,640
+model, where it belongs.
+
+47
+00:02:06,640 --> 00:02:08,200
+So, we create a publish method.
+
+48
+00:02:08,200 --> 00:02:11,230
+And the first thing we do is
+check for pre-condition.
+
+49
+00:02:11,230 --> 00:02:14,890
+In this case, if the item is
+either not approved or if the
+
+50
+00:02:14,890 --> 00:02:18,900
+user is Loblaw, then
+we return false.
+
+51
+00:02:18,900 --> 00:02:21,490
+This is called the guard clause,
+and it makes our code
+
+52
+00:02:21,490 --> 00:02:23,330
+easier to read.
+
+53
+00:02:23,330 --> 00:02:26,410
+If all pre-conditions are good,
+then we set the publish on
+
+54
+00:02:26,410 --> 00:02:28,960
+property and then
+save the object.
+
+55
+00:02:28,960 --> 00:02:31,580
+Notice how this is all
+encapsulated in our model.
+
+56
+00:02:31,580 --> 00:02:34,990
+All our controller needs to do
+is to call the publish method
+
+57
+00:02:34,990 --> 00:02:36,240
+on an item object.
+
+58
+00:02:39,590 --> 00:02:41,880
+One of the features from active
+record that you might
+
+59
+00:02:41,880 --> 00:02:44,770
+be familiar with are callbacks,
+which are methods
+
+60
+00:02:44,770 --> 00:02:46,720
+that get called at certain
+moments in the
+
+61
+00:02:46,720 --> 00:02:48,840
+object's life cycle.
+
+62
+00:02:48,840 --> 00:02:51,670
+The problem is, they're
+often misused.
+
+63
+00:02:51,670 --> 00:02:54,690
+So every time you create a user
+object in the database,
+
+64
+00:02:54,690 --> 00:02:57,720
+the set token method is going to
+be called, which depends on
+
+65
+00:02:57,720 --> 00:02:59,980
+the token generator model.
+
+66
+00:02:59,980 --> 00:03:02,640
+The problem with this code is
+that every time that we create
+
+67
+00:03:02,640 --> 00:03:05,940
+a new user record in the
+database, the set token method
+
+68
+00:03:05,940 --> 00:03:08,210
+is going to be called,
+which depends on the
+
+69
+00:03:08,210 --> 00:03:10,070
+token generator model.
+
+70
+00:03:10,070 --> 00:03:12,940
+And referencing other models
+in the callback introduces
+
+71
+00:03:12,940 --> 00:03:14,030
+tight coupling.
+
+72
+00:03:14,030 --> 00:03:17,180
+So every time that you create a
+task for your user model and
+
+73
+00:03:17,180 --> 00:03:20,060
+it creates a new record in the
+database, it will depend on
+
+74
+00:03:20,060 --> 00:03:22,710
+the create method from the token
+generator class being
+
+75
+00:03:22,710 --> 00:03:25,930
+called, which might lead
+to unexpected behavior.
+
+76
+00:03:25,930 --> 00:03:29,570
+And also, it affects the
+object's database life cycle.
+
+77
+00:03:29,570 --> 00:03:31,750
+So if that method raises
+an error, your
+
+78
+00:03:31,750 --> 00:03:33,070
+object will not be saved.
+
+79
+00:03:35,800 --> 00:03:39,510
+We can fix this by creating a
+new method on our user class.
+
+80
+00:03:39,510 --> 00:03:41,550
+And let's call this
+method register.
+
+81
+00:03:41,550 --> 00:03:43,660
+You can call it pretty much
+anything you want.
+
+82
+00:03:43,660 --> 00:03:47,020
+And inside this method, we're
+going to assign a new token
+
+83
+00:03:47,020 --> 00:03:50,320
+using our token generator class
+in the create method.
+
+84
+00:03:50,320 --> 00:03:53,200
+And then we'll save
+the user record.
+
+85
+00:03:53,200 --> 00:03:56,000
+And then inside of our
+controller, we can simply call
+
+86
+00:03:56,000 --> 00:03:57,430
+that register method.
+
+87
+00:03:57,430 --> 00:04:00,290
+And this is better, because the
+token generation is now
+
+88
+00:04:00,290 --> 00:04:03,690
+decoupled from the object;s
+database life cycle.
+
+89
+00:04:07,040 --> 00:04:09,820
+So, when is it OK to use
+a callback then?
+
+90
+00:04:09,820 --> 00:04:14,720
+Well, callbacks should only be
+used for modifying the internal state
+
+91
+00:04:14,720 --> 00:04:16,170
+of the object.
+
+92
+00:04:16,170 --> 00:04:18,920
+Let's look at this example,
+where we have a before create
+
+93
+00:04:18,920 --> 00:04:20,960
+callback called set_name.
+
+94
+00:04:20,960 --> 00:04:24,120
+So, what the set_name method does
+is that it sets the name
+
+95
+00:04:24,120 --> 00:04:28,360
+property on the user based on
+its log in if the name is not
+
+96
+00:04:28,360 --> 00:04:29,240
+already set.
+
+97
+00:04:29,240 --> 00:04:31,090
+And it's also a convention
+to set your
+
+98
+00:04:31,090 --> 00:04:33,530
+callback methods as protected.
+
+99
+00:04:33,530 --> 00:04:36,350
+Notice how this callback doesn't
+have any external
+
+100
+00:04:36,350 --> 00:04:37,480
+dependencies.
+
+101
+00:04:37,480 --> 00:04:41,840
+It's all within the
+user model.
+
+102
+00:04:41,840 --> 00:04:43,890
+Let's take a look at some
+additional code and see what
+
+103
+00:04:43,890 --> 00:04:44,850
+it's doing.
+
+104
+00:04:44,850 --> 00:04:47,550
+First, we grab a user
+from the database.
+
+105
+00:04:47,550 --> 00:04:49,550
+Then we call the
+suspend method.
+
+106
+00:04:49,550 --> 00:04:52,200
+It looks like a clean API
+from the outside.
+
+107
+00:04:52,200 --> 00:04:54,950
+But let's take a look inside
+of the user model.
+
+108
+00:04:54,950 --> 00:04:58,230
+Our user has many items
+and has many reviews.
+
+109
+00:04:58,230 --> 00:05:01,080
+The suspend method starts off
+with a transaction block.
+
+110
+00:05:01,080 --> 00:05:04,600
+Transactions ensure that all
+enclosing database operations
+
+111
+00:05:04,600 --> 00:05:05,650
+are atomic.
+
+112
+00:05:05,650 --> 00:05:09,280
+This means that if any of the
+lines here fail, the database
+
+113
+00:05:09,280 --> 00:05:11,820
+will roll back to its
+initial state.
+
+114
+00:05:11,820 --> 00:05:14,250
+Then instead of the transaction,
+we start by
+
+115
+00:05:14,250 --> 00:05:17,210
+updating the user model and
+setting the is_approved
+
+116
+00:05:17,210 --> 00:05:19,050
+property to false.
+
+117
+00:05:19,050 --> 00:05:22,530
+After that, we loop through each
+of the user's items and
+
+118
+00:05:22,530 --> 00:05:24,930
+set them to approve
+false as well -
+
+119
+00:05:24,930 --> 00:05:26,770
+and the same thing
+for reviews.
+
+120
+00:05:26,770 --> 00:05:29,640
+The problem with the suspend
+method is that there's too
+
+121
+00:05:29,640 --> 00:05:33,380
+much logic cluttered into a
+single method, which makes
+
+122
+00:05:33,380 --> 00:05:37,780
+your code harder to read
+and to maintain.
+
+123
+00:05:37,780 --> 00:05:40,410
+The first step into re-factoring
+this code is to
+
+124
+00:05:40,410 --> 00:05:42,720
+break it into multiple
+methods.
+
+125
+00:05:42,720 --> 00:05:45,440
+Here you see we have disapprove_
+user, disapprove_
+
+126
+00:05:45,440 --> 00:05:47,770
+items, and disapprove_reviews.
+
+127
+00:05:47,770 --> 00:05:49,980
+This is better, but
+it's not great.
+
+128
+00:05:49,980 --> 00:05:53,590
+Here we have too much logic
+inside of a single class,
+
+129
+00:05:53,590 --> 00:05:57,350
+which breaks the single
+responsibility principle.
+
+130
+00:05:57,350 --> 00:06:00,010
+An object that controls too
+many other objects in the
+
+131
+00:06:00,010 --> 00:06:03,330
+system is an anti-pattern
+known as God Object.
+
+132
+00:06:06,770 --> 00:06:11,020
+What most people don't realize
+is that not all models need to
+
+133
+00:06:11,020 --> 00:06:13,170
+be active record models.
+
+134
+00:06:13,170 --> 00:06:16,950
+In this case, not everything
+involving a user needs to
+
+135
+00:06:16,950 --> 00:06:19,850
+necessarily go into
+the user model.
+
+136
+00:06:19,850 --> 00:06:23,090
+So, let's create a user
+suspension model and pass the
+
+137
+00:06:23,090 --> 00:06:24,540
+user to its constructure.
+
+138
+00:06:24,540 --> 00:06:27,160
+Then we'll create a create
+method, and then we'll wrap
+
+139
+00:06:27,160 --> 00:06:30,130
+all the logic related to
+suspending your user inside of
+
+140
+00:06:30,130 --> 00:06:31,440
+that method.
+
+141
+00:06:31,440 --> 00:06:34,430
+The create method is just a
+regular instance method.
+
+142
+00:06:34,430 --> 00:06:38,460
+And the user suspension class
+is just a plain old Ruby
+
+143
+00:06:38,460 --> 00:06:40,290
+object, or a PORO.
+
+144
+00:06:40,290 --> 00:06:43,410
+And the benefit of doing this
+is that this class is
+
+145
+00:06:43,410 --> 00:06:45,130
+responsible for only
+one thing.
+
+146
+00:06:48,300 --> 00:06:50,800
+Now, back in our users
+controller, we use the users
+
+147
+00:06:50,800 --> 00:06:53,260
+suspension model that
+we just created and
+
+148
+00:06:53,260 --> 00:06:54,950
+call the create method.
+
+149
+00:06:54,950 --> 00:06:58,210
+Creating new models based on
+new abstractions is a great
+
+150
+00:06:58,210 --> 00:07:01,650
+way to keep your Rails
+application modular.
+
+151
+00:07:01,650 --> 00:07:04,370
+Other frequent non-active record
+models that you might
+
+152
+00:07:04,370 --> 00:07:08,040
+come across are models like
+user registration, plan
+
+153
+00:07:08,040 --> 00:07:11,480
+subscription, credit card
+charge, or shopping cart.
+
+154
+00:07:11,480 --> 00:07:14,470
+None of them have to necessarily
+be active record
+
+155
+00:07:14,470 --> 00:07:17,310
+models or need to be persisted
+to the database.
+
+156
+00:07:20,040 --> 00:07:21,570
+Throughout this course, we're
+going to be looking at a
+
+157
+00:07:21,570 --> 00:07:24,060
+couple of patterns that we
+can use to improve our
+
+158
+00:07:24,060 --> 00:07:25,740
+application's encapsulation.
+
+159
+00:07:25,740 --> 00:07:28,670
+This means moving code from one
+place and putting it into
+
+160
+00:07:28,670 --> 00:07:30,980
+another, just like we saw now.
+
+161
+00:07:30,980 --> 00:07:34,020
+And the first tool in our
+encapsulation tool belt is
+
+162
+00:07:34,020 --> 00:07:35,510
+non-active record models.
+
+163
+00:07:38,510 --> 00:07:40,020
+You've reached the end
+of this level.
+
+164
+00:07:40,020 --> 00:07:41,880
+Now, get ready to work
+on some challenges.
+
+165
+00:07:47,400 --> 00:07:48,170
+Rails form.
+
+166
+00:07:48,170 --> 00:07:50,670
+Rails porn.
+
+167
+00:07:50,670 --> 00:07:53,640
+Familiar, familiar.
+
+168
+00:07:53,640 --> 00:07:54,890
+Rails form patterns.
+

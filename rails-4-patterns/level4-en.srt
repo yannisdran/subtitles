@@ -1,0 +1,579 @@
+﻿1
+00:00:01,808 --> 00:00:04,120
+You're watching Rails
+4 Patterns.
+
+2
+00:00:04,120 --> 00:00:08,039
+In this level, we're going to
+be talking about decorators.
+
+3
+00:00:08,039 --> 00:00:12,080
+Here we have a post class with
+a is_front_page method that
+
+4
+00:00:12,080 --> 00:00:14,220
+checks to see if the post
+has been recently
+
+5
+00:00:14,220 --> 00:00:15,800
+published or not.
+
+6
+00:00:15,800 --> 00:00:18,350
+In our controllers, we're simply
+fetching that record
+
+7
+00:00:18,350 --> 00:00:21,210
+from the database. And in our
+show template, we're calling
+
+8
+00:00:21,210 --> 00:00:24,640
+the is_front_page method to
+determine whether or not we
+
+9
+00:00:24,640 --> 00:00:27,010
+should display the image
+for that post.
+
+10
+00:00:27,010 --> 00:00:31,050
+The problem with this is that
+our is_front_page method is
+
+11
+00:00:31,050 --> 00:00:34,290
+only being used for view
+logic, but it's declared in
+
+12
+00:00:34,290 --> 00:00:35,530
+our post model.
+
+13
+00:00:35,530 --> 00:00:37,560
+This makes our model
+polluted with
+
+14
+00:00:37,560 --> 00:00:41,380
+view-related business logic.
+
+15
+00:00:41,380 --> 00:00:43,740
+This is where decorators
+come in.
+
+16
+00:00:43,740 --> 00:00:47,710
+Decorators help us extract
+view-specific logic from our
+
+17
+00:00:47,710 --> 00:00:50,930
+models into decorator classes.
+
+18
+00:00:50,930 --> 00:00:55,100
+In this example, we'll move our
+is_front_page method out
+
+19
+00:00:55,100 --> 00:00:59,120
+of our post model into the
+PostDecorator class.
+
+20
+00:00:59,120 --> 00:01:02,270
+This class will live in a
+decorators directory that we
+
+21
+00:01:02,270 --> 00:01:05,590
+have to manually create, but
+Rails automatically adds it to
+
+22
+00:01:05,590 --> 00:01:07,450
+the load path for us.
+
+23
+00:01:07,450 --> 00:01:10,570
+And the class states the
+post as an argument.
+
+24
+00:01:10,570 --> 00:01:13,870
+Then, in our controller, we use
+the post object that we
+
+25
+00:01:13,870 --> 00:01:17,070
+grabbed from the database, and
+use it as an argument to the
+
+26
+00:01:17,070 --> 00:01:18,440
+PostDecorator.
+
+27
+00:01:18,440 --> 00:01:21,190
+You might notice that in our
+show action, we're not using
+
+28
+00:01:21,190 --> 00:01:24,670
+an instance variable for the
+post anymore, but instead,
+
+29
+00:01:24,670 --> 00:01:26,900
+we're using it for the
+PostDecorator.
+
+30
+00:01:26,900 --> 00:01:29,890
+And this is because we want the
+PostDecorator to be the
+
+31
+00:01:29,890 --> 00:01:33,910
+only way to reach out for
+the contents of a post.
+
+32
+00:01:33,910 --> 00:01:36,550
+With this in mind, back in
+our view, we want to call
+
+33
+00:01:36,550 --> 00:01:40,600
+postdecorator.image, but we
+don't have that method yet,
+
+34
+00:01:40,600 --> 00:01:42,690
+and if we try calling it,
+it's going to error out.
+
+35
+00:01:45,820 --> 00:01:49,040
+To fix this, we're going to
+implement method_missing,
+
+36
+00:01:49,040 --> 00:01:51,920
+which will forward any undefined
+method to the
+
+37
+00:01:51,920 --> 00:01:54,460
+wrapped object, in
+this case: post.
+
+38
+00:01:54,460 --> 00:01:58,360
+And we do that by calling
+post.send, and passing in all
+
+39
+00:01:58,360 --> 00:02:00,710
+the arguments from
+method_missing.
+
+40
+00:02:00,710 --> 00:02:03,910
+So now, when you create a post
+decorator using an existing
+
+41
+00:02:03,910 --> 00:02:07,910
+post, and you call the image
+method upon it, it'll properly
+
+42
+00:02:07,910 --> 00:02:10,860
+forward the method using method_missing,
+and we'll get
+
+43
+00:02:10,860 --> 00:02:12,530
+the post image back.
+
+44
+00:02:12,530 --> 00:02:17,300
+However, if we ask this object
+if it responds to image, it'll
+
+45
+00:02:17,300 --> 00:02:18,440
+return false.
+
+46
+00:02:18,440 --> 00:02:20,760
+This is because it will not
+search the object's ancestors
+
+47
+00:02:20,760 --> 00:02:23,440
+chain, and this can cause
+unexpected behavior.
+
+48
+00:02:26,220 --> 00:02:29,070
+To fix that, we should implement
+respond_to_missing,
+
+49
+00:02:29,070 --> 00:02:32,990
+and ask post if it responds to
+the given method, otherwise
+
+50
+00:02:32,990 --> 00:02:35,680
+call super, which will invoke
+the respond that's missing
+
+51
+00:02:35,680 --> 00:02:37,480
+from its parent object.
+
+52
+00:02:37,480 --> 00:02:40,400
+Now, if we ask a PostDecorator
+if it responds to
+
+53
+00:02:40,400 --> 00:02:43,540
+image, it'll return true,
+because it properly searches
+
+54
+00:02:43,540 --> 00:02:45,090
+the object's ancestors chain.
+
+55
+00:02:45,090 --> 00:02:48,130
+So remember to always define
+respond_to_missing when you
+
+56
+00:02:48,130 --> 00:02:49,750
+override method_missing.
+
+57
+00:02:52,720 --> 00:02:56,270
+So to summarize, we want to
+use decorators to attach
+
+58
+00:02:56,270 --> 00:02:59,290
+presentation logic to an
+object dynamically.
+
+59
+00:02:59,290 --> 00:03:02,400
+So working with a decorated
+class should be transparent to
+
+60
+00:03:02,400 --> 00:03:05,710
+clients, as the decorator
+will simply wrap
+
+61
+00:03:05,710 --> 00:03:07,480
+the underlying object.
+
+62
+00:03:07,480 --> 00:03:10,940
+It will delegate most methods to
+the wrapped object, and may
+
+63
+00:03:10,940 --> 00:03:15,420
+also add a couple of additional
+methods of its own.
+
+64
+00:03:15,420 --> 00:03:18,510
+Here's another example using
+a Rails view helper.
+
+65
+00:03:18,510 --> 00:03:22,020
+Here we have our PostsHelper
+module, with the publication
+
+66
+00:03:22,020 --> 00:03:23,310
+date helper method.
+
+67
+00:03:23,310 --> 00:03:27,640
+This method takes a post and
+formats the created update.
+
+68
+00:03:27,640 --> 00:03:30,480
+Rails view helpers are a great
+starting point, but they're
+
+69
+00:03:30,480 --> 00:03:33,490
+really hard to evolve.
+
+70
+00:03:33,490 --> 00:03:36,630
+So, a couple of issues with Rails
+view helpers is that
+
+71
+00:03:36,630 --> 00:03:39,660
+they pull the global name space
+with methods that are
+
+72
+00:03:39,660 --> 00:03:43,830
+specific to one model, and they
+also force you to use a
+
+73
+00:03:43,830 --> 00:03:47,640
+functional approach within an
+object-oriented application,
+
+74
+00:03:47,640 --> 00:03:50,670
+which may look kind of weird,
+and it allows you to use that
+
+75
+00:03:50,670 --> 00:03:53,170
+same method from other
+templates.
+
+76
+00:03:53,170 --> 00:03:56,430
+For example, nothing stops us
+here from passing a user
+
+77
+00:03:56,430 --> 00:03:59,400
+object to the publication_date
+method, since the user object
+
+78
+00:03:59,400 --> 00:04:01,100
+might also have a
+created_at view.
+
+79
+00:04:04,770 --> 00:04:07,510
+And a better place for the
+publication_date method is
+
+80
+00:04:07,510 --> 00:04:10,430
+inside of our post
+decorator class.
+
+81
+00:04:10,430 --> 00:04:13,120
+This way, we can call
+publication date as an
+
+82
+00:04:13,120 --> 00:04:16,610
+instance method on our post
+decorator object, which gives
+
+83
+00:04:16,610 --> 00:04:19,459
+us a more consistent object-
+oriented approach
+
+84
+00:04:19,459 --> 00:04:20,709
+throughout the view.
+
+85
+00:04:23,260 --> 00:04:27,020
+Another way we can use
+decorators is to output HTML.
+
+86
+00:04:27,020 --> 00:04:30,140
+In this example, we have our
+PostsHelper with a post_classes
+
+87
+00:04:30,140 --> 00:04:31,380
+method.
+
+88
+00:04:31,380 --> 00:04:35,050
+This method takes a post and
+constructs a collection of CSS
+
+89
+00:04:35,050 --> 00:04:37,870
+classes based on the
+post's attributes.
+
+90
+00:04:37,870 --> 00:04:40,860
+Then in the view, we use the
+output from the post_classes
+
+91
+00:04:40,860 --> 00:04:43,050
+method to determine the classes
+
+92
+00:04:43,050 --> 00:04:44,800
+for our article element.
+
+93
+00:04:44,800 --> 00:04:47,780
+And again, this is a great
+starting point, but it doesn't
+
+94
+00:04:47,780 --> 00:04:53,010
+scale well, as your view
+specific logic grows.
+
+95
+00:04:53,010 --> 00:04:55,870
+So, let's move our post_classes
+method into our post
+
+96
+00:04:55,870 --> 00:04:58,620
+decorator, and simply
+call it classes.
+
+97
+00:04:58,620 --> 00:05:01,460
+From inside of our method, we
+have access to the post
+
+98
+00:05:01,460 --> 00:05:02,790
+attribute reader.
+
+99
+00:05:02,790 --> 00:05:05,170
+We don't have to pass any
+argument to this method,
+
+100
+00:05:05,170 --> 00:05:07,530
+because we have access
+to the posts via
+
+101
+00:05:07,530 --> 00:05:09,020
+our attribute reader.
+
+102
+00:05:09,020 --> 00:05:12,240
+And in our show template, we
+can go back to using a more
+
+103
+00:05:12,240 --> 00:05:16,260
+object-oriented approach by
+calling the classes method on
+
+104
+00:05:16,260 --> 00:05:17,510
+the post_decorator.
+
+105
+00:05:19,720 --> 00:05:22,560
+So we've now completed our
+encapsulation tool belt.
+
+106
+00:05:22,560 --> 00:05:25,520
+To recap, the first one we
+learned was how to use non
+
+107
+00:05:25,520 --> 00:05:28,570
+active record models to
+encapsulate unique business
+
+108
+00:05:28,570 --> 00:05:31,040
+logic out of your active
+record models.
+
+109
+00:05:31,040 --> 00:05:34,760
+Then, we learned how to use
+concerns to extract duplicate
+
+110
+00:05:34,760 --> 00:05:37,820
+code into reusable modules
+that can be mixed into
+
+111
+00:05:37,820 --> 00:05:40,610
+multiple controllers
+or models.
+
+112
+00:05:40,610 --> 00:05:44,090
+And now we've just seen how
+decorators helps us extract
+
+113
+00:05:44,090 --> 00:05:48,710
+presentation logic out of the
+models by A, wrapping them, B,
+
+114
+00:05:48,710 --> 00:05:52,740
+providing a transparent API, and
+C, adding a couple methods
+
+115
+00:05:52,740 --> 00:05:53,990
+of their own.
+
+116
+00:05:56,280 --> 00:05:58,670
+We have reached the end of this
+level, and it's time for
+
+117
+00:05:58,670 --> 00:06:02,738
+you to work on some challenges
+on decorators.
+
+118
+00:06:03,610 --> 00:06:06,054
+Out of a rec--
+
+119
+00:06:07,500 --> 00:06:08,970
+You can't say my name.
+
+120
+00:06:08,970 --> 00:06:09,470
+My name.
+
+121
+00:06:12,140 --> 00:06:13,040
+A--
+

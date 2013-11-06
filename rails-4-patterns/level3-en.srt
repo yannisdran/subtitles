@@ -1,0 +1,449 @@
+﻿1
+00:00:00,000 --> 00:00:04,080
+Your controller is getting bloated
+and your models are fat.
+
+2
+00:00:04,080 --> 00:00:07,610
+The configuration files, we don't know we're they are at
+
+3
+00:00:07,610 --> 00:00:09,610
+and the views are awful dirty.
+
+4
+00:00:09,610 --> 00:00:13,350
+And your app needs a bath.
+You lost all the defaults,
+
+5
+00:00:13,350 --> 00:00:14,750
+left the golden path.
+
+6
+00:00:14,750 --> 00:00:18,450
+But some best practices we have a prescription.
+
+7
+00:00:18,450 --> 00:00:22,080
+The encapsulation tool belt will cure your addiction!
+
+8
+00:00:22,080 --> 00:00:24,850
+Beyond the basics of learning Rails 4,
+
+9
+00:00:24,850 --> 00:00:29,450
+there's some patterns you'll need to explore.
+
+10
+00:00:31,970 --> 00:00:33,530
+I'm Carlos Souza,
+and you're
+
+11
+00:00:33,530 --> 00:00:35,660
+watching Rails 4, patterns.
+
+12
+00:00:35,660 --> 00:00:39,470
+In this level, we're going to
+be looking at concerns.
+
+13
+00:00:39,470 --> 00:00:43,160
+Here we have our post class,
+which has many comments, which
+
+14
+00:00:43,160 --> 00:00:46,980
+is a polymorphic association,
+represented here by the
+
+15
+00:00:46,980 --> 00:00:48,830
+comment class.
+
+16
+00:00:48,830 --> 00:00:51,650
+In the same way, we have an
+image class with the same
+
+17
+00:00:51,650 --> 00:00:53,250
+comments association.
+
+18
+00:00:53,250 --> 00:00:57,000
+And both the post and the image
+classes share the same
+
+19
+00:00:57,000 --> 00:01:00,270
+comments by user method, which
+queries for comments from a
+
+20
+00:01:00,270 --> 00:01:01,520
+specific user.
+
+21
+00:01:01,520 --> 00:01:04,660
+When recalling these methods
+from an object, either a post
+
+22
+00:01:04,660 --> 00:01:07,480
+or image object, they have
+the same signature.
+
+23
+00:01:07,480 --> 00:01:10,670
+And their implementation
+is exactly the same,
+
+24
+00:01:10,670 --> 00:01:12,310
+so there's definitely
+some unnecessary
+
+25
+00:01:12,310 --> 00:01:13,870
+duplication going on here.
+
+26
+00:01:16,750 --> 00:01:19,760
+Let's see how I can remove this
+duplication by extracting
+
+27
+00:01:19,760 --> 00:01:22,400
+the comment code
+into a concern.
+
+28
+00:01:22,400 --> 00:01:25,750
+Rails 4 ships with a concerns
+directory under your app/
+
+29
+00:01:25,750 --> 00:01:29,010
+models folders, which is a place
+to put concern modules
+
+30
+00:01:29,010 --> 00:01:31,370
+that will be mixed
+into your models.
+
+31
+00:01:31,370 --> 00:01:33,430
+So, let's create our concern
+module and call it
+
+32
+00:01:33,430 --> 00:01:34,560
+"commentable."
+
+33
+00:01:34,560 --> 00:01:37,340
+Using the included hook method,
+which is automatically
+
+34
+00:01:37,340 --> 00:01:40,880
+called by Ruby when we mix
+this module into a model,
+
+35
+00:01:40,880 --> 00:01:43,790
+we'll dynamically add the
+comments association to
+
+36
+00:01:43,790 --> 00:01:47,480
+whatever model includes the
+commentable module.
+
+37
+00:01:47,480 --> 00:01:49,530
+We'll also move our
+comments by user
+
+38
+00:01:49,530 --> 00:01:51,350
+method into this module.
+
+39
+00:01:51,350 --> 00:01:53,560
+And module methods become
+instance methods
+
+40
+00:01:53,560 --> 00:01:55,730
+on the target class.
+
+41
+00:01:55,730 --> 00:01:58,730
+Then, we simply include the
+commentable module in both the
+
+42
+00:01:58,730 --> 00:02:01,800
+post and image classes, and
+the code behaves the same.
+
+43
+00:02:01,800 --> 00:02:04,510
+We can still call comments by
+user on both the post and
+
+44
+00:02:04,510 --> 00:02:05,760
+image objects.
+
+45
+00:02:09,420 --> 00:02:12,090
+We can simplify our commentable
+module by
+
+46
+00:02:12,090 --> 00:02:15,440
+extending from active support
+concern, which was added back
+
+47
+00:02:15,440 --> 00:02:17,060
+in Rails 3.
+
+48
+00:02:17,060 --> 00:02:19,690
+This allows us to use the
+included block to add our
+
+49
+00:02:19,690 --> 00:02:21,010
+associations.
+
+50
+00:02:21,010 --> 00:02:23,540
+Code inside of the included
+block runs in the context of
+
+51
+00:02:23,540 --> 00:02:24,790
+the target class.
+
+52
+00:02:26,900 --> 00:02:29,330
+And if we happen to have a class
+method that needed to be
+
+53
+00:02:29,330 --> 00:02:33,040
+both classes, for example
+upvote, which takes a comment
+
+54
+00:02:33,040 --> 00:02:36,310
+as an argument, we could simply
+extract that and place
+
+55
+00:02:36,310 --> 00:02:39,670
+it inside of the commentable
+module inside of an inner
+
+56
+00:02:39,670 --> 00:02:41,780
+module called ClassMethods.
+
+57
+00:02:41,780 --> 00:02:44,700
+Active support concern
+automatically includes methods
+
+58
+00:02:44,700 --> 00:02:48,200
+from the ClassMethods in the
+module as ClassMethods on the
+
+59
+00:02:48,200 --> 00:02:49,450
+target class.
+
+60
+00:02:53,180 --> 00:02:55,520
+Concerns aren't just
+for models.
+
+61
+00:02:55,520 --> 00:02:58,260
+Here we can see that our images
+controller shares some
+
+62
+00:02:58,260 --> 00:03:00,580
+common code with their
+videos controller.
+
+63
+00:03:00,580 --> 00:03:04,150
+Both of them are calling
+file.basename, passing an
+
+64
+00:03:04,150 --> 00:03:07,820
+image path an argument and are
+using that image path to
+
+65
+00:03:07,820 --> 00:03:10,710
+interpolate a string and assign
+it to the thumbnail
+
+66
+00:03:10,710 --> 00:03:11,960
+instance variable.
+
+67
+00:03:14,950 --> 00:03:18,430
+Our controllers folder also
+has a concerns directory,
+
+68
+00:03:18,430 --> 00:03:22,390
+which is where we place our
+previewable module, which will
+
+69
+00:03:22,390 --> 00:03:25,840
+contain the duplicate code.
+
+70
+00:03:25,840 --> 00:03:29,480
+So for both the models and
+controllers, we can extract
+
+71
+00:03:29,480 --> 00:03:34,100
+duplicate code into modules,
+which Rails 4 calls concerns.
+
+72
+00:03:37,920 --> 00:03:40,860
+Now, to call our thumbnail
+method from our controllers,
+
+73
+00:03:40,860 --> 00:03:43,890
+we simply have to include the
+previewable module on both the
+
+74
+00:03:43,890 --> 00:03:45,940
+images controller and
+videos controller.
+
+75
+00:03:50,280 --> 00:03:53,630
+So, we have the app /models/
+concerns directory and the app/
+
+76
+00:03:53,630 --> 00:03:56,390
+controllers/concerns directory,
+which is our common
+
+77
+00:03:56,390 --> 00:03:58,700
+place to put shared code.
+
+78
+00:03:58,700 --> 00:04:02,630
+We also have our active support
+concern module, which
+
+79
+00:04:02,630 --> 00:04:04,290
+is a completely different
+thing,
+
+80
+00:04:04,290 --> 00:04:07,110
+and it's just a tool
+that helps you make
+
+81
+00:04:07,110 --> 00:04:08,930
+mix-ins a lot cleaner.
+
+82
+00:04:08,930 --> 00:04:11,050
+And there are two different
+things, so don't let them get
+
+83
+00:04:11,050 --> 00:04:12,300
+you confused.
+
+84
+00:04:15,550 --> 00:04:17,690
+We've just unlocked another
+tool in our
+
+85
+00:04:17,690 --> 00:04:19,500
+encapsulation tool belt.
+
+86
+00:04:19,500 --> 00:04:22,790
+The first one was non-active
+record models, which are
+
+87
+00:04:22,790 --> 00:04:26,200
+classes that encapsulate unique
+business logic out of
+
+88
+00:04:26,200 --> 00:04:28,000
+your ActiveRecord models.
+
+89
+00:04:28,000 --> 00:04:31,380
+And now, we've just come across
+concerns, which help
+
+90
+00:04:31,380 --> 00:04:35,310
+extract duplicate code into
+reusable modules that can be
+
+91
+00:04:35,310 --> 00:04:37,800
+mixed in multiple models
+or controllers.
+
+92
+00:04:41,330 --> 00:04:44,370
+We've just reached the end of
+this level, and good luck with
+
+93
+00:04:44,370 --> 00:04:45,620
+the challenges.
+
+94
+00:04:50,820 --> 00:04:52,570
+Don't let them too confuse
+the [BLEEP]
+
+95
+00:04:52,570 --> 00:04:54,280
+out of your head, which your -
+
+96
+00:04:54,280 --> 00:04:55,530
+Err!
+

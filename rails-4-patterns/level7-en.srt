@@ -1,0 +1,722 @@
+﻿1
+00:00:01,816 --> 00:00:05,350
+I'm Carlos Souza, and you're
+watching Rails 4 Patterns.
+
+2
+00:00:05,350 --> 00:00:08,240
+In this level, we're going to be
+looking at fine tuning your
+
+3
+00:00:08,240 --> 00:00:13,460
+Rails application to make it
+more secure and faster.
+
+4
+00:00:13,460 --> 00:00:16,610
+So let's look at this
+typical Rails query.
+
+5
+00:00:16,610 --> 00:00:18,690
+We're fetching the items
+that are very
+
+6
+00:00:18,690 --> 00:00:20,380
+close to its due date.
+
+7
+00:00:20,380 --> 00:00:24,090
+Once the query is run, it
+returns an active relation,
+
+8
+00:00:24,090 --> 00:00:25,920
+which is basically
+a collection of
+
+9
+00:00:25,920 --> 00:00:27,890
+active record objects.
+
+10
+00:00:27,890 --> 00:00:31,420
+So when we call items.class, we
+can see that it's an active
+
+11
+00:00:31,420 --> 00:00:35,170
+relation item, and the first
+item in the collection is an
+
+12
+00:00:35,170 --> 00:00:36,420
+active record object.
+
+13
+00:00:39,320 --> 00:00:42,710
+However, our web page might not
+need to display all of the
+
+14
+00:00:42,710 --> 00:00:44,280
+columns in the database.
+
+15
+00:00:44,280 --> 00:00:47,560
+In fact, we might only
+need the ID.
+
+16
+00:00:47,560 --> 00:00:50,670
+In this case, we can use the
+select method to reduce the
+
+17
+00:00:50,670 --> 00:00:53,330
+number of columns loaded
+from the database.
+
+18
+00:00:53,330 --> 00:00:57,600
+As you can see, it generates a
+SQL that only selects the ID,
+
+19
+00:00:57,600 --> 00:01:02,310
+and only the ID property is
+set on the item objects.
+
+20
+00:01:02,310 --> 00:01:04,720
+This is a little bit more
+efficient on the database
+
+21
+00:01:04,720 --> 00:01:08,770
+side, but still when we call
+items.class, we're still
+
+22
+00:01:08,770 --> 00:01:11,260
+getting back an active
+record relation.
+
+23
+00:01:11,260 --> 00:01:14,360
+And each element of the
+collection is still an active
+
+24
+00:01:14,360 --> 00:01:15,530
+record object.
+
+25
+00:01:15,530 --> 00:01:18,670
+So, we're still creating
+different item objects for
+
+26
+00:01:18,670 --> 00:01:20,960
+each row returned from
+the database.
+
+27
+00:01:20,960 --> 00:01:23,200
+And this seems kind of
+wasteful when all we
+
+28
+00:01:23,200 --> 00:01:24,455
+need are the IDs.
+
+29
+00:01:27,170 --> 00:01:30,570
+This is where the pluck method
+comes in, which returns an
+
+30
+00:01:30,570 --> 00:01:34,970
+array of values instead of
+active record objects.
+
+31
+00:01:34,970 --> 00:01:37,910
+So by looking at the SQL that's
+generated, we can see
+
+32
+00:01:37,910 --> 00:01:40,790
+that it still reduces the number
+of columns loaded from
+
+33
+00:01:40,790 --> 00:01:41,960
+the database.
+
+34
+00:01:41,960 --> 00:01:44,880
+However, notice the
+return value.
+
+35
+00:01:44,880 --> 00:01:48,340
+It's actually returning an
+array, and each element of the
+
+36
+00:01:48,340 --> 00:01:51,640
+array, instead of an active
+record object, is just a
+
+37
+00:01:51,640 --> 00:01:53,320
+number, a fixed number.
+
+38
+00:01:53,320 --> 00:01:56,535
+And by avoiding the creation of
+active record objects, we
+
+39
+00:01:56,535 --> 00:01:58,720
+were really able to
+speed things up.
+
+40
+00:02:02,030 --> 00:02:05,280
+The pluck method has been
+around since Rails 3.
+
+41
+00:02:05,280 --> 00:02:09,810
+In Rails 4, pluck is now able
+to take multiple arguments.
+
+42
+00:02:09,810 --> 00:02:14,150
+As we can see here, we're not
+plucking for ID and name.
+
+43
+00:02:14,150 --> 00:02:17,690
+So the SQL that's generated,
+it's only fetching the ID and
+
+44
+00:02:17,690 --> 00:02:19,770
+name columns from
+the database.
+
+45
+00:02:19,770 --> 00:02:23,330
+And now, it returns an
+array of arrays.
+
+46
+00:02:23,330 --> 00:02:26,520
+So when you call items.class, we
+can see that it's an array, 
+
+47
+00:02:26,520 --> 00:02:30,300
+and items.first.class,
+it's also an array.
+
+48
+00:02:30,300 --> 00:02:32,250
+So we're still avoiding
+the creation of
+
+49
+00:02:32,250 --> 00:02:34,110
+active record objects.
+
+50
+00:02:34,110 --> 00:02:37,360
+So remember, the pluck method is
+a great way to reduce your
+
+51
+00:02:37,360 --> 00:02:40,740
+application's memory footprint
+and make your application
+
+52
+00:02:40,740 --> 00:02:41,990
+plucking faster.
+
+53
+00:02:46,140 --> 00:02:48,450
+Rails, by default,
+filters passwords
+
+54
+00:02:48,450 --> 00:02:50,440
+from the log entries.
+
+55
+00:02:50,440 --> 00:02:54,700
+In this example, we're issuing
+a post request to /users,
+
+56
+00:02:54,700 --> 00:02:57,590
+passing in an email
+and a password.
+
+57
+00:02:57,590 --> 00:02:59,620
+Notice how we're not able
+to read off the
+
+58
+00:02:59,620 --> 00:03:02,120
+password from the log.
+
+59
+00:03:02,120 --> 00:03:06,020
+However, passwords might not be
+the only sensitive information
+
+60
+00:03:06,020 --> 00:03:07,920
+that needs to be filtered.
+
+61
+00:03:07,920 --> 00:03:10,950
+In the second example, we are
+also passing the social
+
+62
+00:03:10,950 --> 00:03:13,270
+security number, which
+you might not want to
+
+63
+00:03:13,270 --> 00:03:14,740
+record on your logs.
+
+64
+00:03:14,740 --> 00:03:16,440
+Let's see how we can
+filter that out.
+
+65
+00:03:19,120 --> 00:03:22,130
+All you have to do is go to your
+application.rb under the
+
+66
+00:03:22,130 --> 00:03:24,100
+config directory,
+and look for the
+
+67
+00:03:24,100 --> 00:03:27,160
+config.filter_parameters option.
+
+68
+00:03:27,160 --> 00:03:30,710
+There, you can add social
+security number or any extra
+
+69
+00:03:30,710 --> 00:03:33,390
+fields that need to be filtered
+from the logs.
+
+70
+00:03:33,390 --> 00:03:36,630
+Now, when you look back at the
+logs, you will notice that the
+
+71
+00:03:36,630 --> 00:03:39,400
+social security number is
+also being filtered.
+
+72
+00:03:39,400 --> 00:03:42,610
+This might sound like a small
+detail, but you'd be impressed
+
+73
+00:03:42,610 --> 00:03:44,570
+by the number of people
+that overlook this.
+
+74
+00:03:47,630 --> 00:03:50,380
+When you created a new Rails app
+and you fire up the Rails
+
+75
+00:03:50,380 --> 00:03:53,860
+server, you will most likely
+be using WEBrick as the
+
+76
+00:03:53,860 --> 00:03:55,290
+application server.
+
+77
+00:03:55,290 --> 00:03:58,100
+WEBrick is the default
+application server that can be
+
+78
+00:03:58,100 --> 00:04:00,590
+found in the Ruby standard
+library.
+
+79
+00:04:00,590 --> 00:04:04,800
+However, WEBrick should not
+be used in production.
+
+80
+00:04:04,800 --> 00:04:08,230
+First, it's very slow when
+compared to other app servers,
+
+81
+00:04:08,230 --> 00:04:11,820
+and this is mostly because it's
+written in pure Ruby.
+
+82
+00:04:11,820 --> 00:04:15,350
+Other rack servers might be
+partly written in Ruby, but
+
+83
+00:04:15,350 --> 00:04:20,130
+also use languages like C and
+C++ for critical parts, like
+
+84
+00:04:20,130 --> 00:04:21,709
+HTTP parsing.
+
+85
+00:04:21,709 --> 00:04:24,870
+WEBrick also lacks important
+features that production apps
+
+86
+00:04:24,870 --> 00:04:27,700
+usually need, such as management
+of multiple
+
+87
+00:04:27,700 --> 00:04:29,980
+application instances
+and management of
+
+88
+00:04:29,980 --> 00:04:31,285
+processes or threads.
+
+89
+00:04:34,930 --> 00:04:38,050
+One alternative to WEBrick
+is the puma server.
+
+90
+00:04:38,050 --> 00:04:40,450
+You can start using puma
+by simply adding
+
+91
+00:04:40,450 --> 00:04:41,800
+it to your gem file.
+
+92
+00:04:41,800 --> 00:04:44,570
+Next time you fire up Rails
+server, Rails will
+
+93
+00:04:44,570 --> 00:04:47,700
+automatically detect puma
+and use that instead.
+
+94
+00:04:47,700 --> 00:04:51,540
+Or you can manually fire up puma
+using the puma command.
+
+95
+00:04:56,130 --> 00:04:59,480
+And speaking of gem file, it's
+also a good practice to
+
+96
+00:04:59,480 --> 00:05:02,790
+declare the version of Ruby that
+your application uses on
+
+97
+00:05:02,790 --> 00:05:03,690
+your gem file.
+
+98
+00:05:03,690 --> 00:05:06,400
+This ensures that your local
+development environment mimics
+
+99
+00:05:06,400 --> 00:05:10,250
+your production environment as
+closely as possible and also
+
+100
+00:05:10,250 --> 00:05:12,400
+prevents other developers
+working on the same
+
+101
+00:05:12,400 --> 00:05:15,770
+application from using different
+Ruby versions.
+
+102
+00:05:15,770 --> 00:05:18,450
+When you specify the Ruby
+version in your Gemfile,
+
+103
+00:05:18,450 --> 00:05:21,660
+bundler will automatically match
+that against the Ruby
+
+104
+00:05:21,660 --> 00:05:23,310
+version that you're
+currently running.
+
+105
+00:05:23,310 --> 00:05:26,940
+And it will raise an error if
+those two versions differ.
+
+106
+00:05:26,940 --> 00:05:30,520
+However, bundler will not
+install Ruby for you.
+
+107
+00:05:30,520 --> 00:05:33,140
+For managing different versions
+of Ruby, check out
+
+108
+00:05:33,140 --> 00:05:34,710
+rvm or rbenv.
+
+109
+00:05:38,170 --> 00:05:40,940
+As your Rails application grows,
+odds are that you're
+
+110
+00:05:40,940 --> 00:05:44,170
+going to start having to manage
+different processes.
+
+111
+00:05:44,170 --> 00:05:47,990
+In this example, we have a Rails
+server, a scheduler, and
+
+112
+00:05:47,990 --> 00:05:49,480
+a couple different workers.
+
+113
+00:05:49,480 --> 00:05:52,160
+And to get it running, you have
+to type in a bunch of
+
+114
+00:05:52,160 --> 00:05:53,050
+different commands.
+
+115
+00:05:53,050 --> 00:05:55,840
+You might have to run the server
+and run each worker
+
+116
+00:05:55,840 --> 00:05:56,700
+individually,
+
+117
+00:05:56,700 --> 00:05:59,690
+so the more elements that you
+add to your stack, the harder
+
+118
+00:05:59,690 --> 00:06:00,960
+it is to get it all running.
+
+119
+00:06:04,620 --> 00:06:07,120
+One way you can solve this
+problem is by declaring your
+
+120
+00:06:07,120 --> 00:06:09,580
+processes on a proc file.
+
+121
+00:06:09,580 --> 00:06:12,960
+Here's an example of a simple
+proc file that has a single
+
+122
+00:06:12,960 --> 00:06:16,480
+processing named web which will
+fire up a Rails server.
+
+123
+00:06:16,480 --> 00:06:20,390
+And the syntax for a proc file
+is the process type followed
+
+124
+00:06:20,390 --> 00:06:24,350
+by a colon, followed by the
+command to start that process.
+
+125
+00:06:24,350 --> 00:06:27,400
+The complete proc file from
+our previous example might
+
+126
+00:06:27,400 --> 00:06:28,680
+look like this.
+
+127
+00:06:28,680 --> 00:06:32,760
+A process for web that fires up
+a Rails server, a process
+
+128
+00:06:32,760 --> 00:06:36,430
+for worker that runs our worker,
+another one for our
+
+129
+00:06:36,430 --> 00:06:38,660
+urgent worker, and another
+one for a scheduler.
+
+130
+00:06:42,760 --> 00:06:45,180
+So how can we run our
+proc file now?
+
+131
+00:06:45,180 --> 00:06:47,440
+Well, we can use foreman.
+
+132
+00:06:47,440 --> 00:06:50,170
+Foreman is a command line
+tool for running
+
+133
+00:06:50,170 --> 00:06:52,350
+proc file backed apps.
+
+134
+00:06:52,350 --> 00:06:55,200
+Now, to run your application,
+all you have to do is go to
+
+135
+00:06:55,200 --> 00:06:57,615
+your project folder and
+run foreman start.
+
+136
+00:07:01,390 --> 00:07:03,780
+If you're deploying your
+application to a VPS and
+
+137
+00:07:03,780 --> 00:07:06,910
+you're using something like
+upstart or init tab to manage
+
+138
+00:07:06,910 --> 00:07:10,970
+your processes, then foreman
+also exports to those formats.
+
+139
+00:07:10,970 --> 00:07:12,835
+Check out the GitHub repo
+for more information.
+
+140
+00:07:17,240 --> 00:07:18,700
+We've reached the end
+of this level.
+
+141
+00:07:18,700 --> 00:07:21,520
+Now, it's time for you to dive
+into the challenges and fine
+
+142
+00:07:21,520 --> 00:07:25,380
+tune your applications to
+make them rock solid.
+
+143
+00:07:25,380 --> 00:07:26,630
+Here with - blah.
+
+144
+00:07:29,870 --> 00:07:30,715
+I totally blanked out.
+
+145
+00:07:30,715 --> 00:07:33,004
+Why do I restart so bad?
+
+146
+00:07:33,004 --> 00:07:33,408
+What the -
+
+147
+00:07:33,408 --> 00:07:34,620
+[BLEEP].
+
+148
+00:07:34,620 --> 00:07:37,200
+Let's took at this typical
+Rails query -
+
+149
+00:07:37,200 --> 00:07:40,320
+took a took, took a took.
+
+150
+00:07:40,320 --> 00:07:41,880
+Blah.
+
+151
+00:07:41,880 --> 00:07:44,890
+Mother plucking faster.
+
+152
+00:07:44,890 --> 00:07:46,140
+For a ruin - bah.
+

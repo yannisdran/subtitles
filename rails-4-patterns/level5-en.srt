@@ -1,0 +1,591 @@
+﻿1
+00:00:00,000 --> 00:00:04,080
+Your controller is getting bloated
+and your models are fat.
+
+2
+00:00:04,080 --> 00:00:07,610
+The configuration files, we don't know we're they are at
+
+3
+00:00:07,610 --> 00:00:09,610
+and the views are awful dirty.
+
+4
+00:00:09,610 --> 00:00:13,350
+And your app needs a bath.
+You lost all the defaults,
+
+5
+00:00:13,350 --> 00:00:14,750
+left the golden path.
+
+6
+00:00:14,750 --> 00:00:18,450
+But some best practices we have a prescription.
+
+7
+00:00:18,450 --> 00:00:22,080
+The encapsulation tool belt will cure your addiction!
+
+8
+00:00:22,080 --> 00:00:24,850
+Beyond the basics of learning Rails 4,
+
+9
+00:00:24,850 --> 00:00:29,450
+there's some patterns you'll need to explore.
+
+10
+00:00:31,920 --> 00:00:35,380
+I'm Carlos Souza, and you're
+watching Rails 4 Patterns.
+
+11
+00:00:35,380 --> 00:00:38,660
+In this level, we're going to
+look at creating custom JSON
+
+12
+00:00:38,660 --> 00:00:43,340
+APIs using active model
+serializers.
+
+13
+00:00:43,340 --> 00:00:46,880
+Many people use Rails to create
+API applications that
+
+14
+00:00:46,880 --> 00:00:49,240
+respond to formats like JSON.
+
+15
+00:00:49,240 --> 00:00:52,070
+One way you can do that out
+of the box is by using the
+
+16
+00:00:52,070 --> 00:00:55,860
+respond_to block and using
+the format.json.
+
+17
+00:00:55,860 --> 00:00:58,630
+And inside of this block, you
+can pass a couple of options
+
+18
+00:00:58,630 --> 00:01:00,940
+if you really want to customize
+the JSON that you're
+
+19
+00:01:00,940 --> 00:01:02,230
+sending back to your client.
+
+20
+00:01:02,230 --> 00:01:05,470
+The problem with this code here
+is that serialization
+
+21
+00:01:05,470 --> 00:01:08,380
+code should not be placed
+in the controller.
+
+22
+00:01:08,380 --> 00:01:11,300
+A better way to do this would
+be from your model.
+
+23
+00:01:11,300 --> 00:01:15,240
+By overriding the as_json
+method, you can also customize
+
+24
+00:01:15,240 --> 00:01:17,270
+the JSON that is sent back.
+
+25
+00:01:17,270 --> 00:01:21,410
+However, placing serialization
+code in the model breaks the
+
+26
+00:01:21,410 --> 00:01:23,330
+Single Responsibility
+Principle.
+
+27
+00:01:23,330 --> 00:01:26,610
+Now, your active record model
+is not only responsible for
+
+28
+00:01:26,610 --> 00:01:29,930
+persisting to the database and a
+couple validations, but it's
+
+29
+00:01:29,930 --> 00:01:33,130
+also responsible for formatting
+to custom JSON.
+
+30
+00:01:36,220 --> 00:01:38,870
+And that's where active models
+serializers come in.
+
+31
+00:01:38,870 --> 00:01:41,080
+And they help you decouple
+serialization
+
+32
+00:01:41,080 --> 00:01:42,570
+code out of your model.
+
+33
+00:01:42,570 --> 00:01:44,560
+There's very little
+configuration needed.
+
+34
+00:01:44,560 --> 00:01:48,220
+They give you access to URL
+helpers, and have built in
+
+35
+00:01:48,220 --> 00:01:51,250
+support for associations.
+
+36
+00:01:51,250 --> 00:01:54,680
+To start using active model
+serializers, all we have to do
+
+37
+00:01:54,680 --> 00:01:56,270
+is add it to your Gemfile.
+
+38
+00:01:56,270 --> 00:01:58,580
+At the time of this course,
+there's a couple of features
+
+39
+00:01:58,580 --> 00:02:00,570
+that we're going to be looking
+at that haven't yet been
+
+40
+00:02:00,570 --> 00:02:02,160
+released to the Ruby gems.
+
+41
+00:02:02,160 --> 00:02:04,850
+So, make sure you point to the
+GitHub repo if you want to use
+
+42
+00:02:04,850 --> 00:02:06,310
+these features.
+
+43
+00:02:06,310 --> 00:02:09,790
+You'll also want to remove
+jbuilder from your Gemfile in
+
+44
+00:02:09,790 --> 00:02:12,860
+order to avoid conflicts,
+especially when running Rails
+
+45
+00:02:12,860 --> 00:02:14,030
+generators.
+
+46
+00:02:14,030 --> 00:02:17,520
+After you've run bundle, the
+first thing you'll notice is
+
+47
+00:02:17,520 --> 00:02:21,460
+that your JSON responses will
+automatically have a root node
+
+48
+00:02:21,460 --> 00:02:24,440
+that's added by active
+model serializers.
+
+49
+00:02:24,440 --> 00:02:28,110
+The items root node makes this
+response compliant with the
+
+50
+00:02:28,110 --> 00:02:30,740
+JSON API hypermedia type.
+
+51
+00:02:30,740 --> 00:02:35,490
+Visit the jsonapi.org for more
+information on the JSON API
+
+52
+00:02:35,490 --> 00:02:38,790
+hypermedia type.
+
+53
+00:02:38,790 --> 00:02:41,600
+So back to our controller, if
+you want to use the Rails
+
+54
+00:02:41,600 --> 00:02:43,930
+built-in serialization,
+there's nothing
+
+55
+00:02:43,930 --> 00:02:45,560
+that you have to do.
+
+56
+00:02:45,560 --> 00:02:48,470
+You can either use the
+respond_to block with the JSON
+
+57
+00:02:48,470 --> 00:02:50,890
+format, or it also works
+with respond_with.
+
+58
+00:02:54,440 --> 00:02:57,220
+Now, let's see how we create
+custom serializers.
+
+59
+00:02:57,220 --> 00:03:00,070
+Active model serializers
+gives us a generator.
+
+60
+00:03:00,070 --> 00:03:03,240
+So, when we call Rails generate
+serializer, or Rails g
+
+61
+00:03:03,240 --> 00:03:06,780
+serializer, all we need to do
+is pass in the model that we
+
+62
+00:03:06,780 --> 00:03:09,000
+want to create a
+serializer for.
+
+63
+00:03:09,000 --> 00:03:10,790
+A serializer's directory
+will be
+
+64
+00:03:10,790 --> 00:03:13,030
+automatically created for us.
+
+65
+00:03:13,030 --> 00:03:16,200
+And inside of that folder, a
+serializer will be created,
+
+66
+00:03:16,200 --> 00:03:18,760
+named after your model,
+in this case, an
+
+67
+00:03:18,760 --> 00:03:20,820
+item serializer class.
+
+68
+00:03:20,820 --> 00:03:24,390
+The newly created serializer
+will start off with the ID
+
+69
+00:03:24,390 --> 00:03:26,990
+attribute, which is the only
+attribute that will be
+
+70
+00:03:26,990 --> 00:03:28,180
+serialized.
+
+71
+00:03:28,180 --> 00:03:31,750
+Back in our controller, we can
+still use the same render call
+
+72
+00:03:31,750 --> 00:03:34,540
+or respond_with, and
+we'll have our JSON
+
+73
+00:03:34,540 --> 00:03:36,380
+sent back to the client.
+
+74
+00:03:36,380 --> 00:03:40,000
+By convention, active models
+serializers will look for a
+
+75
+00:03:40,000 --> 00:03:43,190
+serializer class named after
+the class that's
+
+76
+00:03:43,190 --> 00:03:44,440
+passed as an argument.
+
+77
+00:03:47,150 --> 00:03:49,630
+You might want to skip the
+convention and provide your
+
+78
+00:03:49,630 --> 00:03:51,420
+own custom serializers.
+
+79
+00:03:51,420 --> 00:03:54,120
+If you want to do that, you
+can either override the
+
+80
+00:03:54,120 --> 00:03:57,330
+convention by passing a
+serializer as an option to
+
+81
+00:03:57,330 --> 00:04:02,250
+render, or specify your
+serializer class by overriding
+
+82
+00:04:02,250 --> 00:04:04,960
+the active model serializer
+method on your
+
+83
+00:04:04,960 --> 00:04:07,200
+active record model.
+
+84
+00:04:07,200 --> 00:04:09,940
+Here's an example of our custom
+serializer that's being
+
+85
+00:04:09,940 --> 00:04:11,360
+used by our item model.
+
+86
+00:04:11,360 --> 00:04:16,170
+Notice, it's using both ID and
+description as attributes.
+
+87
+00:04:16,170 --> 00:04:19,550
+As we've seen, by default,
+when we add active model
+
+88
+00:04:19,550 --> 00:04:22,240
+serializers to our project,
+it'll automatically
+
+89
+00:04:22,240 --> 00:04:23,960
+add the root node.
+
+90
+00:04:23,960 --> 00:04:26,600
+For backwards compatibility with
+other clients that might
+
+91
+00:04:26,600 --> 00:04:29,980
+already depend on the response
+type, you might need to remove
+
+92
+00:04:29,980 --> 00:04:30,990
+that root node.
+
+93
+00:04:30,990 --> 00:04:32,770
+So, here's how you can do that.
+
+94
+00:04:32,770 --> 00:04:37,340
+First, you can pass root false
+to the render call.
+
+95
+00:04:37,340 --> 00:04:40,140
+Or, you can pass in a
+custom serializer.
+
+96
+00:04:40,140 --> 00:04:42,880
+Here in our example, we're
+calling it items collection
+
+97
+00:04:42,880 --> 00:04:43,930
+serializer.
+
+98
+00:04:43,930 --> 00:04:48,260
+And notice how our base class
+is active model erase
+
+99
+00:04:48,260 --> 00:04:51,790
+serializer, which is the base
+class for collections.
+
+100
+00:04:51,790 --> 00:04:54,860
+Then, inside of our custom
+serializer, we set root to
+
+101
+00:04:54,860 --> 00:04:57,160
+false, which will remove
+the root node.
+
+102
+00:05:02,510 --> 00:05:05,350
+Now, let's see how we can add
+custom properties to our
+
+103
+00:05:05,350 --> 00:05:06,540
+serializers.
+
+104
+00:05:06,540 --> 00:05:09,420
+Here, we have our item
+serializer that defines
+
+105
+00:05:09,420 --> 00:05:12,920
+attributes ID, name, and URL.
+
+106
+00:05:12,920 --> 00:05:16,940
+URL is not a property from our
+item model, but rather a
+
+107
+00:05:16,940 --> 00:05:19,820
+method that we're going
+to be defining now.
+
+108
+00:05:19,820 --> 00:05:22,810
+Inside of this method, we're
+going to call the item_url
+
+109
+00:05:22,810 --> 00:05:26,510
+helper and pass in an object
+as an argument.
+
+110
+00:05:26,510 --> 00:05:29,900
+The object method gives us
+access to the object being
+
+111
+00:05:29,900 --> 00:05:31,010
+serialized.
+
+112
+00:05:31,010 --> 00:05:33,510
+In this case, it's an item.
+
+113
+00:05:33,510 --> 00:05:36,140
+So the output for the serializer
+would be something
+
+114
+00:05:36,140 --> 00:05:42,290
+like this, an array of items,
+the ID, the name, and the URL.
+
+115
+00:05:44,880 --> 00:05:47,540
+We've reached the end of this
+first part on active model
+
+116
+00:05:47,540 --> 00:05:48,560
+serializers.
+
+117
+00:05:48,560 --> 00:05:51,500
+Now, it's time for
+some challenges.
+
+118
+00:05:51,500 --> 00:05:53,490
+Use this -- blah.
+
+119
+00:05:53,490 --> 00:05:55,890
+There is -- here is?
+
+120
+00:05:55,890 --> 00:05:58,020
+Access to your hell--
+
+121
+00:05:58,020 --> 00:05:59,010
+your hell?
+
+122
+00:05:59,010 --> 00:06:02,710
+[You're hell] You are hell, your hell methods.
+[LAUGHTER]
+
+123
+00:06:02,710 --> 00:06:05,610
+Serialization, serialization.
+
+124
+00:06:05,610 --> 00:06:06,860
+Serialization -
+
+125
+00:06:06,860 --> 00:06:08,370
+[BEEP]
+
+126
+00:06:08,370 --> 00:06:09,810
+Why did you have to
+say that, man?
+
+127
+00:06:09,810 --> 00:06:11,360
+[LAUGHTER]
+
