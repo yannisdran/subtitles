@@ -697,7 +697,7 @@ with several options.
 148
 00:07:20,950 --> 00:07:24,100
 We could run this with the
---stack command, as
+--stat command, as
 
 149
 00:07:24,100 --> 00:07:24,780
