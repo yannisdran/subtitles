@@ -1,0 +1,511 @@
+﻿1
+00:00:02,050 --> 00:00:03,370
+Welcome back to Level Two.
+
+2
+00:00:03,370 --> 00:00:08,230
+We just have a few more HTML5
+elements to look at.
+
+3
+00:00:08,230 --> 00:00:11,820
+So now let's take a look at the
+article element in HTML5.
+
+4
+00:00:11,820 --> 00:00:14,530
+Now, by definition, the article
+element represents a
+
+5
+00:00:14,530 --> 00:00:18,270
+complete or self-contained part
+of a document that is
+
+6
+00:00:18,270 --> 00:00:21,660
+technically just independently
+reusable or distributable.
+
+7
+00:00:21,660 --> 00:00:24,550
+It's just something that we
+could use in syndication.
+
+8
+00:00:24,550 --> 00:00:27,430
+Now, an article element is
+essentially just another type
+
+9
+00:00:27,430 --> 00:00:28,210
+of section.
+
+10
+00:00:28,210 --> 00:00:32,810
+It's used for self-contained
+related content.
+
+11
+00:00:32,810 --> 00:00:35,290
+Now, you might ask, how do we
+determine if a particular
+
+12
+00:00:35,290 --> 00:00:37,530
+piece of content is
+self-contained?
+
+13
+00:00:37,530 --> 00:00:39,030
+That's a great question.
+
+14
+00:00:39,030 --> 00:00:41,680
+You need to ask yourself if
+you would syndicate that
+
+15
+00:00:41,680 --> 00:00:47,100
+particular piece of content
+in an RSS or Atom feed.
+
+16
+00:00:47,100 --> 00:00:49,780
+So let's look at some example
+uses for the article tag.
+
+17
+00:00:49,780 --> 00:00:53,800
+We have things like a blog post,
+a news story, a comment
+
+18
+00:00:53,800 --> 00:00:56,680
+on a post, or even a review.
+
+19
+00:00:56,680 --> 00:00:58,970
+Looking at our sample art
+gallery site, we can see that
+
+20
+00:00:58,970 --> 00:01:02,540
+we have syndicated content for
+each new gallery item.
+
+21
+00:01:02,540 --> 00:01:05,370
+This is a great example of using
+the article element.
+
+22
+00:01:05,370 --> 00:01:08,740
+So let's go ahead and look at
+how we would mark this up.
+
+23
+00:01:08,740 --> 00:01:11,540
+Prior to HTML5, we would have
+marked this up with a div,
+
+24
+00:01:11,540 --> 00:01:14,390
+with a class or ID of article,
+and then all of the markup
+
+25
+00:01:14,390 --> 00:01:15,720
+contained within.
+
+26
+00:01:15,720 --> 00:01:18,500
+In HTML5, though, we can
+instead use the article
+
+27
+00:01:18,500 --> 00:01:21,100
+element, which is going to make
+our document and this
+
+28
+00:01:21,100 --> 00:01:24,440
+particular piece of syndicated
+content more semantic.
+
+29
+00:01:24,440 --> 00:01:27,115
+And again, that will make our
+markup have more meaning.
+
+30
+00:01:30,080 --> 00:01:31,650
+So now let's move on
+to talk about the
+
+31
+00:01:31,650 --> 00:01:35,490
+main element in HTML5.
+
+32
+00:01:35,490 --> 00:01:39,000
+The main element, as you might
+expect, represents the main
+
+33
+00:01:39,000 --> 00:01:43,170
+content of the body of a
+document or application.
+
+34
+00:01:43,170 --> 00:01:45,630
+The main content area consists
+of content that either
+
+35
+00:01:45,630 --> 00:01:48,700
+directly relates to or expands
+upon the central
+
+36
+00:01:48,700 --> 00:01:52,030
+topic of the document.
+
+37
+00:01:52,030 --> 00:01:54,400
+Let's look at a couple of don'ts
+with the main element.
+
+38
+00:01:54,400 --> 00:01:56,890
+We don't want to include more
+than one main element in our
+
+39
+00:01:56,890 --> 00:01:59,410
+document, and we also don't
+want to include the main
+
+40
+00:01:59,410 --> 00:02:03,020
+element inside of other HTML5
+elements like the article,
+
+41
+00:02:03,020 --> 00:02:07,950
+aside, footer, the header,
+and the nav element.
+
+42
+00:02:07,950 --> 00:02:10,280
+Jumping back to our art gallery,
+we can see we have a
+
+43
+00:02:10,280 --> 00:02:12,940
+main content section that
+directly relates to the
+
+44
+00:02:12,940 --> 00:02:17,040
+central topic of this document,
+which is a gallery.
+
+45
+00:02:17,040 --> 00:02:20,530
+Let's see how we can mark up
+this particular section.
+
+46
+00:02:20,530 --> 00:02:23,540
+Prior to HTML5, we would have
+marked this up using a div
+
+47
+00:02:23,540 --> 00:02:26,810
+with a class or ID of main, and
+then our markup contained
+
+48
+00:02:26,810 --> 00:02:28,140
+within that.
+
+49
+00:02:28,140 --> 00:02:31,190
+In HTML5, though, we can instead
+use the main element
+
+50
+00:02:31,190 --> 00:02:33,980
+to wrap this markup, which
+gives our document more
+
+51
+00:02:33,980 --> 00:02:35,650
+semantic meaning.
+
+52
+00:02:35,650 --> 00:02:37,510
+Once again, we've
+achieved further
+
+53
+00:02:37,510 --> 00:02:39,160
+clarity in our HTML document.
+
+54
+00:02:42,180 --> 00:02:43,760
+So that's it for the
+main element.
+
+55
+00:02:43,760 --> 00:02:45,310
+Let's now look at
+the figure and
+
+56
+00:02:45,310 --> 00:02:48,260
+figcaption elements in HTML5.
+
+57
+00:02:48,260 --> 00:02:50,800
+First, let's look at the
+figure element.
+
+58
+00:02:50,800 --> 00:02:53,540
+The figure element, by
+definition, represents a unit
+
+59
+00:02:53,540 --> 00:02:56,300
+of content that may or may
+not have a caption that's
+
+60
+00:02:56,300 --> 00:02:59,010
+self-contained that, if removed
+from the flow of the
+
+61
+00:02:59,010 --> 00:03:04,000
+document, will not affect
+the document's meaning.
+
+62
+00:03:04,000 --> 00:03:07,040
+A common use case for the figure
+element is for an image
+
+63
+00:03:07,040 --> 00:03:08,530
+within an article.
+
+64
+00:03:08,530 --> 00:03:11,650
+Here we have a figure element,
+and then an image nested
+
+65
+00:03:11,650 --> 00:03:13,050
+inside of that.
+
+66
+00:03:13,050 --> 00:03:15,800
+Now let's quickly look at the
+figcaption element to see how
+
+67
+00:03:15,800 --> 00:03:18,000
+it works with the
+figure element.
+
+68
+00:03:18,000 --> 00:03:21,310
+By definition, the figcaption
+element represents a caption
+
+69
+00:03:21,310 --> 00:03:23,950
+or a legend for its parent
+figure, the element
+
+70
+00:03:23,950 --> 00:03:26,600
+we just looked at.
+
+71
+00:03:26,600 --> 00:03:29,710
+So for our existing figure
+element, we add a figcaption
+
+72
+00:03:29,710 --> 00:03:34,020
+element that contains a caption
+for the picture.
+
+73
+00:03:34,020 --> 00:03:36,780
+The output of these elements
+looks something like this.
+
+74
+00:03:36,780 --> 00:03:40,210
+We have our image and the
+caption for that image within
+
+75
+00:03:40,210 --> 00:03:41,460
+the figure element.
+
+76
+00:03:44,000 --> 00:03:46,800
+So now let's wrap up the HTML5
+elements by talking about the
+
+77
+00:03:46,800 --> 00:03:48,050
+time element.
+
+78
+00:03:50,260 --> 00:03:52,800
+The time element, by definition,
+represents either
+
+79
+00:03:52,800 --> 00:03:57,390
+a time on a 24 hour clock or a
+precise date in the proleptic
+
+80
+00:03:57,390 --> 00:04:00,340
+Gregorian calendar, optionally
+with a time
+
+81
+00:04:00,340 --> 00:04:02,700
+and a time zone offset.
+
+82
+00:04:02,700 --> 00:04:04,840
+Looking at our art gallery site,
+you can see that we have
+
+83
+00:04:04,840 --> 00:04:08,660
+these published on dates for
+each of our new gallery items.
+
+84
+00:04:08,660 --> 00:04:12,480
+This is a perfect use for
+the time element.
+
+85
+00:04:12,480 --> 00:04:14,900
+So here we're using the time
+element with our date in
+
+86
+00:04:14,900 --> 00:04:15,870
+between that.
+
+87
+00:04:15,870 --> 00:04:18,230
+But we actually want to use
+a different format for our
+
+88
+00:04:18,230 --> 00:04:20,019
+date - the one we just showed -
+
+89
+00:04:20,019 --> 00:04:22,580
+so we're going to put that date
+format here within the
+
+90
+00:04:22,580 --> 00:04:24,470
+content for our time tag.
+
+91
+00:04:24,470 --> 00:04:26,980
+We need to make an important
+change in order to use that
+
+92
+00:04:26,980 --> 00:04:27,990
+date format.
+
+93
+00:04:27,990 --> 00:04:31,160
+We have to add the datetime
+attribute to our time element
+
+94
+00:04:31,160 --> 00:04:34,130
+with that particular date
+format, and this allows us to
+
+95
+00:04:34,130 --> 00:04:38,220
+use any relevant content to the
+date or time within the
+
+96
+00:04:38,220 --> 00:04:40,210
+time element.
+
+97
+00:04:40,210 --> 00:04:43,100
+If we didn't use that datetime
+attribute on the time element,
+
+98
+00:04:43,100 --> 00:04:46,100
+the content must either
+be a valid date, time,
+
+99
+00:04:46,100 --> 00:04:49,900
+or a precise datetime.
+
+100
+00:04:49,900 --> 00:04:50,800
+There they are -
+
+101
+00:04:50,800 --> 00:04:52,880
+all of the HTML5 elements.
+
+102
+00:04:52,880 --> 00:04:54,850
+We're going to give you a few
+challenges, and we'll see you
+
+103
+00:04:54,850 --> 00:04:58,260
+back in level three.
+
+104
+00:04:58,260 --> 00:05:00,782
+FOO-TA. The FOO-TA!
+
+105
+00:05:00,782 --> 00:05:04,690
+Hey, Footer, we're going
+down to Jim's Crocodile Bar.
+
+106
+00:05:04,690 --> 00:05:05,790
+So the footer - so the
+footer is a footer?
+
+107
+00:05:05,790 --> 00:05:06,800
+Is that what you're telling me?
+
+108
+00:05:06,800 --> 00:05:08,050
+All right.
+

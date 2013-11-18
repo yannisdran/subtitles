@@ -1,0 +1,1200 @@
+﻿1
+00:00:02,040 --> 00:00:03,650
+Welcome back to Level Four.
+
+2
+00:00:03,650 --> 00:00:06,240
+We're done talking about HTML5,
+so now we're going to
+
+3
+00:00:06,240 --> 00:00:08,570
+move on and talk about CSS3.
+
+4
+00:00:08,570 --> 00:00:12,480
+Particularly, we're going to
+cover the CSS3 styles.
+
+5
+00:00:12,480 --> 00:00:14,240
+In this level, we'll be covering
+several styles
+
+6
+00:00:14,240 --> 00:00:18,230
+including border radius, box
+shadow, text shadow, box
+
+7
+00:00:18,230 --> 00:00:22,270
+sizing, multiple backgrounds,
+color, opacity, and then we're
+
+8
+00:00:22,270 --> 00:00:24,980
+going to wrap things up by
+talking about gradients.
+
+9
+00:00:24,980 --> 00:00:27,270
+Now let's first start by talking
+about the border
+
+10
+00:00:27,270 --> 00:00:30,790
+radius property in CSS3.
+
+11
+00:00:30,790 --> 00:00:33,490
+The border radius property
+allows us to apply rounded
+
+12
+00:00:33,490 --> 00:00:35,340
+corners to borders.
+
+13
+00:00:35,340 --> 00:00:37,090
+Let's look at an example here.
+
+14
+00:00:37,090 --> 00:00:40,310
+So we're going to be working
+with this box element that has
+
+15
+00:00:40,310 --> 00:00:44,020
+a grey background, and it's 50
+pixels tall and 200 pixels
+
+16
+00:00:44,020 --> 00:00:46,000
+wide, and it looks
+just like this.
+
+17
+00:00:46,000 --> 00:00:47,710
+It's a simple box.
+
+18
+00:00:47,710 --> 00:00:50,420
+If we wanted to apply rounded
+corners to our box, we could
+
+19
+00:00:50,420 --> 00:00:52,765
+do it by specifying four
+different properties, and
+
+20
+00:00:52,765 --> 00:00:55,130
+therefore each of the four
+sides of the box.
+
+21
+00:00:55,130 --> 00:00:58,620
+We have the top left, top
+right, bottom right, and
+
+22
+00:00:58,620 --> 00:00:59,560
+bottom left.
+
+23
+00:00:59,560 --> 00:01:02,050
+And in this case, we're
+specifying a 15-pixel border
+
+24
+00:01:02,050 --> 00:01:05,019
+radius for each of those
+four corners.
+
+25
+00:01:05,019 --> 00:01:08,160
+Now this is what our box now
+looks like with that 15-pixel
+
+26
+00:01:08,160 --> 00:01:11,910
+border radius on each
+of the corners.
+
+27
+00:01:11,910 --> 00:01:14,510
+We can also use the shorthand
+border-radius property to
+
+28
+00:01:14,510 --> 00:01:16,750
+specify all sides at once.
+
+29
+00:01:16,750 --> 00:01:19,680
+So here we're specifying
+15-pixel border radius that'll
+
+30
+00:01:19,680 --> 00:01:24,690
+get applied to each of those
+four corners You can also
+
+31
+00:01:24,690 --> 00:01:27,270
+specify the border radius
+values for each corner
+
+32
+00:01:27,270 --> 00:01:29,300
+individually like we're
+doing here.
+
+33
+00:01:29,300 --> 00:01:34,010
+We're specifying four pixels, 15
+pixels, 12, and 10 for each
+
+34
+00:01:34,010 --> 00:01:36,390
+of the four sides, and it gives
+our box an irregular
+
+35
+00:01:36,390 --> 00:01:39,300
+regular shape.
+
+36
+00:01:39,300 --> 00:01:41,500
+Now let's see how you set
+the order of those
+
+37
+00:01:41,500 --> 00:01:43,620
+border radius values.
+
+38
+00:01:43,620 --> 00:01:45,460
+First, we're going to set
+the top left value.
+
+39
+00:01:45,460 --> 00:01:48,880
+Next, the top right, then the
+bottom right, and finally, the
+
+40
+00:01:48,880 --> 00:01:51,700
+bottom left.
+
+41
+00:01:51,700 --> 00:01:54,250
+Now in addition to specifying
+those pixel values that we
+
+42
+00:01:54,250 --> 00:01:56,620
+were just using, you can also
+use percentages with the
+
+43
+00:01:56,620 --> 00:01:59,200
+border radius property.
+
+44
+00:01:59,200 --> 00:02:02,170
+So here, we're specifying a 50%
+border radius which, when
+
+45
+00:02:02,170 --> 00:02:05,050
+applied to our box, gives
+it an oval shape.
+
+46
+00:02:05,050 --> 00:02:07,950
+Now if we had the same
+dimensions, so the same width
+
+47
+00:02:07,950 --> 00:02:10,820
+and same height on our box, if
+we applied a border radius of
+
+48
+00:02:10,820 --> 00:02:13,330
+50%, we'd get a perfect
+circle.
+
+49
+00:02:16,390 --> 00:02:18,160
+The next CSS3 property
+we're going to talk
+
+50
+00:02:18,160 --> 00:02:20,410
+about is box shadow.
+
+51
+00:02:20,410 --> 00:02:23,430
+Box shadow, as the name implies,
+allows us to specify
+
+52
+00:02:23,430 --> 00:02:26,820
+a shadow on a given element.
+
+53
+00:02:26,820 --> 00:02:29,520
+So here's a quick example of
+what a box shadow looks like,
+
+54
+00:02:29,520 --> 00:02:31,960
+and you can see on our box that
+we now have a shadow on
+
+55
+00:02:31,960 --> 00:02:34,150
+that element.
+
+56
+00:02:34,150 --> 00:02:36,780
+Now let's look at each of the
+values specified on the box
+
+57
+00:02:36,780 --> 00:02:38,230
+shadow property.
+
+58
+00:02:38,230 --> 00:02:40,280
+The first value is
+the inset value.
+
+59
+00:02:40,280 --> 00:02:43,240
+If you don't specify this, which
+is the default, a drop
+
+60
+00:02:43,240 --> 00:02:44,250
+shadow is created.
+
+61
+00:02:44,250 --> 00:02:47,280
+If you do use the keyword
+"inset," then a box shadow has
+
+62
+00:02:47,280 --> 00:02:49,860
+an insect shadow.
+
+63
+00:02:49,860 --> 00:02:51,550
+A quick convention note here.
+
+64
+00:02:51,550 --> 00:02:54,070
+If you see this question mark
+icon on top of a particular
+
+65
+00:02:54,070 --> 00:02:57,230
+argument, it means that that
+argument is optional, just
+
+66
+00:02:57,230 --> 00:03:00,290
+like it is here with
+the inset value.
+
+67
+00:03:00,290 --> 00:03:03,480
+The next value is the offset x
+value, which is going to move
+
+68
+00:03:03,480 --> 00:03:06,740
+the shadow along the x-axis,
+so left and right.
+
+69
+00:03:06,740 --> 00:03:09,250
+Then you specify the offset y
+value, which is how you want
+
+70
+00:03:09,250 --> 00:03:12,120
+the shadow to move
+up and down.
+
+71
+00:03:12,120 --> 00:03:14,500
+Next, you specify the blur
+radius, which is going to
+
+72
+00:03:14,500 --> 00:03:16,920
+change the blur amount of the
+shadow, which will cause it to
+
+73
+00:03:16,920 --> 00:03:20,440
+become bigger and lighter
+with a larger value.
+
+74
+00:03:20,440 --> 00:03:23,170
+Next, we specify the spread
+radius, which will cause the
+
+75
+00:03:23,170 --> 00:03:26,330
+shadow to grow or shrink, so it
+essentially just adjusting
+
+76
+00:03:26,330 --> 00:03:28,680
+the size of our shadow.
+
+77
+00:03:28,680 --> 00:03:30,670
+The final thing that
+we specify is the
+
+78
+00:03:30,670 --> 00:03:32,060
+color of the shadow.
+
+79
+00:03:32,060 --> 00:03:33,990
+What color you want your
+box shadow to be.
+
+80
+00:03:36,530 --> 00:03:38,800
+Coming back to our example, we
+can see that we're specifying
+
+81
+00:03:38,800 --> 00:03:41,880
+a box shadow that has no inset
+value, so it's going to be a
+
+82
+00:03:41,880 --> 00:03:43,430
+drop shadow.
+
+83
+00:03:43,430 --> 00:03:46,460
+Then, we're specifying a
+one-pixel offset x value, so
+
+84
+00:03:46,460 --> 00:03:49,470
+we're moving our shadow one
+pixel to the right.
+
+85
+00:03:49,470 --> 00:03:52,220
+Then we specify the offset y
+value, which will move our
+
+86
+00:03:52,220 --> 00:03:54,770
+shadow two pixels down.
+
+87
+00:03:54,770 --> 00:03:57,960
+Then we specify a two-pixel
+blur radius.
+
+88
+00:03:57,960 --> 00:04:01,100
+We're not specifying a spread
+radius here, so the size of
+
+89
+00:04:01,100 --> 00:04:03,420
+the shadow is just going to
+default to being the size of
+
+90
+00:04:03,420 --> 00:04:04,770
+the element.
+
+91
+00:04:04,770 --> 00:04:07,670
+The last value we specify is the
+color of the drop shadow,
+
+92
+00:04:07,670 --> 00:04:10,630
+and in this case, black.
+
+93
+00:04:10,630 --> 00:04:12,580
+And here's what our drop shadow
+looks like, like you
+
+94
+00:04:12,580 --> 00:04:14,700
+saw earlier.
+
+95
+00:04:14,700 --> 00:04:17,170
+You might ask, what if you
+wanted to set the spread
+
+96
+00:04:17,170 --> 00:04:20,070
+radius instead of
+the blur radius?
+
+97
+00:04:20,070 --> 00:04:23,290
+In order to do this, we need to
+specify zero as the value
+
+98
+00:04:23,290 --> 00:04:25,460
+for the blur radius, which
+comes before the
+
+99
+00:04:25,460 --> 00:04:26,880
+spread radius value.
+
+100
+00:04:26,880 --> 00:04:29,570
+So here, you can see we're
+specifying zero as the blur
+
+101
+00:04:29,570 --> 00:04:33,020
+radius value, which allows us
+to specify two pixels as the
+
+102
+00:04:33,020 --> 00:04:35,400
+spread radius.
+
+103
+00:04:35,400 --> 00:04:37,350
+Just to point out the difference
+between the blur
+
+104
+00:04:37,350 --> 00:04:39,570
+radius and spread radius
+properties, let's look at the
+
+105
+00:04:39,570 --> 00:04:40,680
+example here.
+
+106
+00:04:40,680 --> 00:04:43,100
+So we can see that the blur
+radius, as the value gets
+
+107
+00:04:43,100 --> 00:04:46,410
+larger, is expanding and
+becoming lighter.
+
+108
+00:04:46,410 --> 00:04:49,380
+Now the spread radius, the
+actual size of the drop
+
+109
+00:04:49,380 --> 00:04:51,820
+shadow, is increasing as
+the value gets higher.
+
+110
+00:04:55,650 --> 00:04:57,770
+You can also specify multiple
+box shadows through a
+
+111
+00:04:57,770 --> 00:04:59,410
+comma-separated list.
+
+112
+00:04:59,410 --> 00:05:02,480
+Here, we're specifying our first
+box shadow with a comma,
+
+113
+00:05:02,480 --> 00:05:05,240
+and then we specify our
+second box shadow.
+
+114
+00:05:05,240 --> 00:05:07,660
+You can see then on our box
+that we now have two box
+
+115
+00:05:07,660 --> 00:05:13,350
+shadows, one that's inset, and
+one that's a drop shadow.
+
+116
+00:05:13,350 --> 00:05:15,010
+In addition, you can
+specify negative
+
+117
+00:05:15,010 --> 00:05:16,260
+values on your box shadow.
+
+118
+00:05:16,260 --> 00:05:19,510
+So here, we're specifying a
+negative 1 pixel x offset, so
+
+119
+00:05:19,510 --> 00:05:22,100
+we're moving the shadow one
+pixel to the left, and we're
+
+120
+00:05:22,100 --> 00:05:25,260
+specifying a negative 2 pixel
+offset for the y, which moves
+
+121
+00:05:25,260 --> 00:05:27,700
+the shadow two pixels up, which
+is the reverse of what
+
+122
+00:05:27,700 --> 00:05:29,250
+we were doing previously.
+
+123
+00:05:29,250 --> 00:05:31,545
+So you can see here now how our
+drop shadow is affected.
+
+124
+00:05:34,120 --> 00:05:36,520
+Next up, we have the text
+shadow property, which
+
+125
+00:05:36,520 --> 00:05:39,240
+although it's not a CSS3
+property, it's still important
+
+126
+00:05:39,240 --> 00:05:41,660
+to teach here.
+
+127
+00:05:41,660 --> 00:05:44,260
+The tech shadow property is very
+similar to box shadow,
+
+128
+00:05:44,260 --> 00:05:49,740
+but it applies the shadow to the
+text, as the name implies.
+
+129
+00:05:49,740 --> 00:05:51,070
+So let's look at an
+example of using
+
+130
+00:05:51,070 --> 00:05:52,340
+the text shadow property.
+
+131
+00:05:52,340 --> 00:05:54,240
+So let's assume that we
+have this h1 here that
+
+132
+00:05:54,240 --> 00:05:56,100
+says, "I have a shadow."
+
+133
+00:05:56,100 --> 00:05:59,170
+So then, we apply this text
+shadow to the h1, and you can
+
+134
+00:05:59,170 --> 00:06:01,540
+see here that the order of
+values is very similar to the
+
+135
+00:06:01,540 --> 00:06:04,520
+one specified on the box
+shadow property.
+
+136
+00:06:04,520 --> 00:06:06,850
+The output of this
+looks like this.
+
+137
+00:06:06,850 --> 00:06:10,410
+We have a shadow on our text,
+and we're actually changing
+
+138
+00:06:10,410 --> 00:06:13,220
+the color of this h1 to be white
+rather than the default
+
+139
+00:06:13,220 --> 00:06:15,940
+black, but we're just doing that
+so you can see the shadow
+
+140
+00:06:15,940 --> 00:06:17,830
+more clearly.
+
+141
+00:06:17,830 --> 00:06:20,200
+Now let's look at the order of
+values that we specify on the
+
+142
+00:06:20,200 --> 00:06:21,800
+text shadow property.
+
+143
+00:06:21,800 --> 00:06:24,620
+We start by specifying the
+offset x value, just like we
+
+144
+00:06:24,620 --> 00:06:26,270
+did with box shadow.
+
+145
+00:06:26,270 --> 00:06:29,060
+Then, we specify the
+offset y value.
+
+146
+00:06:29,060 --> 00:06:31,440
+Then, we specify the blur
+radius, which functions the
+
+147
+00:06:31,440 --> 00:06:33,520
+same way it does
+on box shadow.
+
+148
+00:06:33,520 --> 00:06:36,900
+And finally we specify the
+color of the shadow.
+
+149
+00:06:36,900 --> 00:06:39,500
+So again, looking at our text
+shadow example, we can see
+
+150
+00:06:39,500 --> 00:06:42,100
+that we're specifying a
+one-pixel offset x value,
+
+151
+00:06:42,100 --> 00:06:45,300
+moving our shadow one pixel to
+the right, a two-pixel offset
+
+152
+00:06:45,300 --> 00:06:49,080
+y value, moving our shadow two
+pixels down, a two-pixel blur
+
+153
+00:06:49,080 --> 00:06:52,710
+radius, and then finally a color
+of black for the shadow.
+
+154
+00:06:55,310 --> 00:06:56,970
+And again, you can see
+what that looks like.
+
+155
+00:06:59,500 --> 00:07:00,920
+So now the last one we'll
+look at in this
+
+156
+00:07:00,920 --> 00:07:04,160
+section is box sizing.
+
+157
+00:07:04,160 --> 00:07:06,540
+Now the box sizing property is
+what's used to change the
+
+158
+00:07:06,540 --> 00:07:10,230
+default CSS box model, which
+is what we use to calculate
+
+159
+00:07:10,230 --> 00:07:12,850
+the dimensions of elements
+in HTML, so the
+
+160
+00:07:12,850 --> 00:07:15,910
+width and the height.
+
+161
+00:07:15,910 --> 00:07:18,740
+First, let's have a quick
+refresher on the box model.
+
+162
+00:07:18,740 --> 00:07:21,520
+The CSS box model references
+the design and layout of
+
+163
+00:07:21,520 --> 00:07:23,920
+certain HTML elements.
+
+164
+00:07:23,920 --> 00:07:26,380
+Each HTML element is considered
+a box, and it
+
+165
+00:07:26,380 --> 00:07:29,790
+contains margins, borders,
+padding, and the content of
+
+166
+00:07:29,790 --> 00:07:30,760
+the element.
+
+167
+00:07:30,760 --> 00:07:33,130
+The box model refers to how
+those properties are
+
+168
+00:07:33,130 --> 00:07:36,600
+calculated in conjunction with
+one another, in order to set an
+
+169
+00:07:36,600 --> 00:07:39,470
+element's dimensions.
+
+170
+00:07:39,470 --> 00:07:42,440
+Let's take a look at each of
+these properties in turn.
+
+171
+00:07:42,440 --> 00:07:44,950
+First, we have the content of
+the box, which is where the
+
+172
+00:07:44,950 --> 00:07:47,060
+text and images are located,
+and it looks
+
+173
+00:07:47,060 --> 00:07:49,060
+something like this.
+
+174
+00:07:49,060 --> 00:07:51,660
+Next, we have the padding, which
+clears the area around
+
+175
+00:07:51,660 --> 00:07:53,300
+the content.
+
+176
+00:07:53,300 --> 00:07:55,750
+We have the border, which goes
+around both the padding and
+
+177
+00:07:55,750 --> 00:07:56,970
+the content.
+
+178
+00:07:56,970 --> 00:07:59,640
+And then finally, we have the
+margin, which clears the area
+
+179
+00:07:59,640 --> 00:08:01,920
+around the border.
+
+180
+00:08:01,920 --> 00:08:04,490
+Using what we just learned about
+the CSS box model, let's
+
+181
+00:08:04,490 --> 00:08:06,370
+calculate the width
+of this box.
+
+182
+00:08:06,370 --> 00:08:08,570
+Now you'll recognize the border
+margin and padding
+
+183
+00:08:08,570 --> 00:08:11,010
+properties , but that width
+property is there, and it's
+
+184
+00:08:11,010 --> 00:08:12,990
+specifying a 300-pixel width.
+
+185
+00:08:12,990 --> 00:08:15,200
+Now you might ask, why are we
+going to try and determine the
+
+186
+00:08:15,200 --> 00:08:17,810
+width of this box if the
+width is already there?
+
+187
+00:08:17,810 --> 00:08:19,920
+Well, the width is affected
+by those three previous
+
+188
+00:08:19,920 --> 00:08:20,750
+properties.
+
+189
+00:08:20,750 --> 00:08:23,950
+Let's take a look at how.
+
+190
+00:08:23,950 --> 00:08:27,060
+First up, we can see that this
+300-pixel width actually
+
+191
+00:08:27,060 --> 00:08:30,220
+represents the content
+of the box.
+
+192
+00:08:30,220 --> 00:08:32,940
+Then, we have a 10-pixel
+padding, which is 10 pixels of
+
+193
+00:08:32,940 --> 00:08:34,380
+padding on all sides.
+
+194
+00:08:34,380 --> 00:08:36,299
+And since we're trying to
+calculate the width here, we
+
+195
+00:08:36,299 --> 00:08:40,620
+need to add up the left and
+right values to get 20 pixels.
+
+196
+00:08:40,620 --> 00:08:42,380
+Next, we have the border,
+which is two
+
+197
+00:08:42,380 --> 00:08:43,679
+pixels on all sides.
+
+198
+00:08:43,679 --> 00:08:45,630
+And again, we're trying to
+calculate the left and right
+
+199
+00:08:45,630 --> 00:08:47,450
+value to get the width,
+so we add those
+
+200
+00:08:47,450 --> 00:08:49,190
+up to get four pixels.
+
+201
+00:08:49,190 --> 00:08:52,310
+And then finally, we have the
+margin of 20 pixels on all
+
+202
+00:08:52,310 --> 00:08:55,640
+sides that we add up on the left
+and right to get a value
+
+203
+00:08:55,640 --> 00:08:57,340
+of 40 pixels.
+
+204
+00:08:57,340 --> 00:08:59,550
+Now, the total width is actually
+only determined by
+
+205
+00:08:59,550 --> 00:09:02,240
+the content, the padding,
+and the border.
+
+206
+00:09:02,240 --> 00:09:04,260
+The margin only affects
+the elements that are
+
+207
+00:09:04,260 --> 00:09:05,370
+outside of the box.
+
+208
+00:09:05,370 --> 00:09:08,540
+So it's not taken into
+account in the width.
+
+209
+00:09:08,540 --> 00:09:11,600
+When we add up each of those
+values, the 300-pixel content,
+
+210
+00:09:11,600 --> 00:09:14,760
+the 20-pixel padding, and the
+four-pixel border, we get a
+
+211
+00:09:14,760 --> 00:09:17,790
+total of 324 pixels.
+
+212
+00:09:17,790 --> 00:09:20,510
+Now again, the box sizing
+property is used to change the
+
+213
+00:09:20,510 --> 00:09:23,090
+way that that default
+CSS box model works.
+
+214
+00:09:23,090 --> 00:09:25,660
+So let's look at each of
+the different values.
+
+215
+00:09:25,660 --> 00:09:28,930
+For the box sizing property,
+we can specify content-box,
+
+216
+00:09:28,930 --> 00:09:30,520
+padding-box, or border-box.
+
+217
+00:09:33,240 --> 00:09:36,130
+First up, we have content-box,
+which is the default value,
+
+218
+00:09:36,130 --> 00:09:38,240
+and that's exactly what
+we just looked at.
+
+219
+00:09:38,240 --> 00:09:40,750
+The width and the height are
+only measured by including the
+
+220
+00:09:40,750 --> 00:09:43,450
+content, but it does not
+include the border, the
+
+221
+00:09:43,450 --> 00:09:45,620
+margin, or the padding.
+
+222
+00:09:45,620 --> 00:09:47,840
+Padding-box is a little bit
+different, and the width and
+
+223
+00:09:47,840 --> 00:09:50,480
+height include the padding
+as the name implies.
+
+224
+00:09:50,480 --> 00:09:54,170
+But it does not include the
+border or the margin.
+
+225
+00:09:54,170 --> 00:09:56,520
+Let's see how that property
+affects our box that we looked
+
+226
+00:09:56,520 --> 00:09:57,920
+at earlier.
+
+227
+00:09:57,920 --> 00:10:00,410
+When we add the padding-box
+value to the box-sizing
+
+228
+00:10:00,410 --> 00:10:03,715
+property, the padding is now
+taken into account within the
+
+229
+00:10:03,715 --> 00:10:05,110
+width property.
+
+230
+00:10:05,110 --> 00:10:07,510
+Now what does that do to
+the content width?
+
+231
+00:10:07,510 --> 00:10:10,280
+Well, it's actually
+280 pixels.
+
+232
+00:10:10,280 --> 00:10:12,810
+We're deducting the size
+of the padding.
+
+233
+00:10:12,810 --> 00:10:16,240
+However, the border and the
+margin exist outside of that
+
+234
+00:10:16,240 --> 00:10:17,190
+total width.
+
+235
+00:10:17,190 --> 00:10:21,920
+So the calculated width of our
+box is 304 pixels, down from
+
+236
+00:10:21,920 --> 00:10:25,700
+324 pixels.
+
+237
+00:10:25,700 --> 00:10:28,210
+The final value that we can
+specify for the box sizing
+
+238
+00:10:28,210 --> 00:10:30,115
+property is border-box.
+
+239
+00:10:30,115 --> 00:10:33,360
+The width and the height will
+now include both the padding
+
+240
+00:10:33,360 --> 00:10:36,210
+and the border, but still
+not the margin.
+
+241
+00:10:36,210 --> 00:10:39,070
+Let's see how this
+affects our box.
+
+242
+00:10:39,070 --> 00:10:41,470
+If we add the border box value,
+to our box sizing
+
+243
+00:10:41,470 --> 00:10:45,000
+property, the padding and the
+border are now taken into
+
+244
+00:10:45,000 --> 00:10:46,780
+account within the
+width property.
+
+245
+00:10:46,780 --> 00:10:50,560
+So the content area is
+actually 276 pixels.
+
+246
+00:10:50,560 --> 00:10:53,360
+We're deducting both the
+20-pixel padding and the four
+
+247
+00:10:53,360 --> 00:10:54,660
+pixels of border.
+
+248
+00:10:54,660 --> 00:10:57,400
+And now, since the margin is
+still never included in that
+
+249
+00:10:57,400 --> 00:11:00,410
+total width, the calculated
+width is 300 pixels.
+
+250
+00:11:04,030 --> 00:11:04,570
+[SIGH] Man.
+
+251
+00:11:04,570 --> 00:11:06,820
+Addition, subtraction,
+that stuff is hard.
+
+252
+00:11:06,820 --> 00:11:08,780
+But hopefully, the challenges
+aren't nearly as bad.
+
+253
+00:11:08,780 --> 00:11:10,030
+We'll see you in the
+next section.
+

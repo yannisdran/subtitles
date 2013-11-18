@@ -1,0 +1,907 @@
+﻿1
+00:00:02,020 --> 00:00:04,370
+We're back with the second
+CSS style section.
+
+2
+00:00:04,370 --> 00:00:08,029
+Let's move on to talk about
+multiple backgrounds.
+
+3
+00:00:08,029 --> 00:00:11,230
+CSS3 gives us the ability to
+specify multiple backgrounds
+
+4
+00:00:11,230 --> 00:00:12,730
+on a particular element.
+
+5
+00:00:12,730 --> 00:00:15,260
+Those background images are
+stacked in the order in which
+
+6
+00:00:15,260 --> 00:00:17,000
+you specify them.
+
+7
+00:00:17,000 --> 00:00:18,670
+Let's look at an example here.
+
+8
+00:00:18,670 --> 00:00:20,700
+So I'm specifying my background
+image and I'm
+
+9
+00:00:20,700 --> 00:00:23,540
+specifying two separate
+background images.
+
+10
+00:00:23,540 --> 00:00:25,490
+So here we have the
+first URL -
+
+11
+00:00:25,490 --> 00:00:26,890
+bg1.png -
+
+12
+00:00:26,890 --> 00:00:28,300
+and the second URL -
+
+13
+00:00:28,300 --> 00:00:29,560
+bg2.png.
+
+14
+00:00:29,560 --> 00:00:32,070
+We separate these two
+with a comma.
+
+15
+00:00:32,070 --> 00:00:34,770
+Next, we specify the background
+position for each
+
+16
+00:00:34,770 --> 00:00:36,210
+of those two images.
+
+17
+00:00:36,210 --> 00:00:39,260
+The first one is top left, then
+we set a comma, and the
+
+18
+00:00:39,260 --> 00:00:41,260
+second one is center right.
+
+19
+00:00:41,260 --> 00:00:44,010
+Finally, we specify the
+background repeat for each of
+
+20
+00:00:44,010 --> 00:00:45,180
+those two images.
+
+21
+00:00:45,180 --> 00:00:48,660
+Each of them are no repeat.
+
+22
+00:00:48,660 --> 00:00:50,760
+This is what our two background
+images look like.
+
+23
+00:00:50,760 --> 00:00:53,150
+We have the first one on the
+left, which again, is stacked
+
+24
+00:00:53,150 --> 00:00:55,720
+above the second one, because
+it was specified first.
+
+25
+00:00:55,720 --> 00:00:57,750
+And then we have our second
+background image on the right
+
+26
+00:00:57,750 --> 00:00:59,900
+at center bottom.
+
+27
+00:00:59,900 --> 00:01:02,340
+You can also specify multiple
+backgrounds using the
+
+28
+00:01:02,340 --> 00:01:05,960
+shorthand background property
+doing this all on one line.
+
+29
+00:01:05,960 --> 00:01:09,310
+So here we're specifying the
+URL, the background position,
+
+30
+00:01:09,310 --> 00:01:12,850
+and the background repeat for
+the first image with a comma.
+
+31
+00:01:12,850 --> 00:01:15,430
+Then we specify our second
+background image with a
+
+32
+00:01:15,430 --> 00:01:18,020
+background position and the
+background repeat, and we get
+
+33
+00:01:18,020 --> 00:01:20,900
+the same output.
+
+34
+00:01:20,900 --> 00:01:23,550
+Moving right along, we have
+the color property.
+
+35
+00:01:23,550 --> 00:01:25,430
+Now, CSS3 gives us
+a few different
+
+36
+00:01:25,430 --> 00:01:27,250
+ways to specify colors.
+
+37
+00:01:27,250 --> 00:01:31,560
+We can use the RGBa function
+or the HSLa function.
+
+38
+00:01:31,560 --> 00:01:33,440
+Let's look at each
+of these in turn.
+
+39
+00:01:33,440 --> 00:01:37,680
+Now, RGB represents the three
+additive primary colors red,
+
+40
+00:01:37,680 --> 00:01:38,860
+green, and blue.
+
+41
+00:01:38,860 --> 00:01:42,370
+But in CSS3, we additionally
+get the "a" value, or alpha
+
+42
+00:01:42,370 --> 00:01:44,650
+value, which allows
+us to specify the
+
+43
+00:01:44,650 --> 00:01:47,582
+opacity of a color.
+
+44
+00:01:47,582 --> 00:01:49,260
+Let's look at a quick
+example here.
+
+45
+00:01:49,260 --> 00:01:52,460
+We're specifying the color
+property to have a 75% opaque
+
+46
+00:01:52,460 --> 00:01:54,200
+black color value.
+
+47
+00:01:54,200 --> 00:01:59,160
+We do this by specifying 0, 0, 0
+as the RG&B values, and that
+
+48
+00:01:59,160 --> 00:02:01,410
+represents the color of black.
+
+49
+00:02:01,410 --> 00:02:06,130
+Then we specify the a value, or
+alpha, to be 0.75, and that
+
+50
+00:02:06,130 --> 00:02:10,680
+is 75% opaque black.
+
+51
+00:02:10,680 --> 00:02:13,570
+Now, HSLa is different
+than RGB.
+
+52
+00:02:13,570 --> 00:02:16,590
+HSL stands for hue, saturation,
+and lightness.
+
+53
+00:02:16,590 --> 00:02:19,310
+And in addition to those three
+values, we can also specify
+
+54
+00:02:19,310 --> 00:02:22,340
+the a value, which is the alpha
+value to represent the
+
+55
+00:02:22,340 --> 00:02:24,890
+opacity of a color.
+
+56
+00:02:24,890 --> 00:02:27,670
+Let's look at an example
+of the HSLa function.
+
+57
+00:02:27,670 --> 00:02:32,250
+So here we're specifying a 240
+hue value, 100% saturation
+
+58
+00:02:32,250 --> 00:02:37,490
+value, a 50% lightness value,
+and then, finally, that 0.75
+
+59
+00:02:37,490 --> 00:02:38,260
+alpha value -
+
+60
+00:02:38,260 --> 00:02:40,260
+so 75% of the color.
+
+61
+00:02:42,810 --> 00:02:46,270
+When choosing between HSLa and
+RGBa, it's important to point
+
+62
+00:02:46,270 --> 00:02:49,630
+out that HSLa is generally
+more intuitive than RGBa,
+
+63
+00:02:49,630 --> 00:02:52,690
+because it's easier to make
+color adjustments on the fly.
+
+64
+00:02:52,690 --> 00:02:55,110
+However, use whichever color
+utility you're most
+
+65
+00:02:55,110 --> 00:02:56,220
+comfortable with.
+
+66
+00:02:56,220 --> 00:02:59,400
+And if you want to learn more
+about HSL and RGB, take our
+
+67
+00:02:59,400 --> 00:03:02,510
+Fundamentals of Design course.
+
+68
+00:03:02,510 --> 00:03:05,010
+Next up, we're going to talk
+about the opacity property
+
+69
+00:03:05,010 --> 00:03:06,800
+specifically.
+
+70
+00:03:06,800 --> 00:03:10,740
+CSS3 allows you to specify the
+opacity, or transparency, of
+
+71
+00:03:10,740 --> 00:03:13,710
+an element using the
+opacity property.
+
+72
+00:03:13,710 --> 00:03:15,140
+So let's look at an example.
+
+73
+00:03:15,140 --> 00:03:19,310
+Here, we're specifying the
+opacity property to be 0.45.
+
+74
+00:03:19,310 --> 00:03:24,160
+The 0.45 value here represents
+a 45% opaque color value,
+
+75
+00:03:24,160 --> 00:03:26,650
+which is essentially just
+affecting the transparency of
+
+76
+00:03:26,650 --> 00:03:29,340
+the element.
+
+77
+00:03:29,340 --> 00:03:33,320
+If we apply that 0.45 opacity
+value to our image here, we
+
+78
+00:03:33,320 --> 00:03:35,630
+can see it gets an opacity
+value of 45%.
+
+79
+00:03:38,680 --> 00:03:40,680
+Now, it's also important to
+note that the opacity on a
+
+80
+00:03:40,680 --> 00:03:43,840
+given element affects the
+elements nested inside of it.
+
+81
+00:03:43,840 --> 00:03:45,580
+Let's look at an example.
+
+82
+00:03:45,580 --> 00:03:48,250
+So let's say that I had this div
+with a class of element on
+
+83
+00:03:48,250 --> 00:03:51,060
+it, and then an h2
+inside of that.
+
+84
+00:03:51,060 --> 00:03:54,510
+If I was to specify a background
+on that element and
+
+85
+00:03:54,510 --> 00:03:58,230
+then adjust the opacity value
+setting at 0.45 value, like we
+
+86
+00:03:58,230 --> 00:04:03,740
+just did, it would affect both
+the text and the image.
+
+87
+00:04:03,740 --> 00:04:08,020
+If I was to apply a background
+and an opacity value of 0.45
+
+88
+00:04:08,020 --> 00:04:11,130
+on that element, it would affect
+both the image and the
+
+89
+00:04:11,130 --> 00:04:12,850
+text, as seen here.
+
+90
+00:04:16,410 --> 00:04:18,790
+We'll wrap up this level
+on CSS3 styles by
+
+91
+00:04:18,790 --> 00:04:21,620
+talking about gradients.
+
+92
+00:04:21,620 --> 00:04:24,570
+CSS3 gives us the ability to
+create gradients, which are
+
+93
+00:04:24,570 --> 00:04:28,370
+smooth transitions between
+two or more colors.
+
+94
+00:04:28,370 --> 00:04:29,920
+There are two main types
+of gradients
+
+95
+00:04:29,920 --> 00:04:31,520
+that browsers support -
+
+96
+00:04:31,520 --> 00:04:33,830
+linear gradients and
+radial radians.
+
+97
+00:04:33,830 --> 00:04:36,280
+We'll start by covering
+linear gradients.
+
+98
+00:04:36,280 --> 00:04:38,540
+In order to create a linear
+gradient, we specify the
+
+99
+00:04:38,540 --> 00:04:40,980
+starting point, the ending
+point, and then
+
+100
+00:04:40,980 --> 00:04:43,150
+optional color stops.
+
+101
+00:04:43,150 --> 00:04:44,670
+Let's look at an example.
+
+102
+00:04:44,670 --> 00:04:47,040
+So here I'm specifying a
+linear gradient on the
+
+103
+00:04:47,040 --> 00:04:50,760
+background property by using the
+linear gradient function.
+
+104
+00:04:50,760 --> 00:04:53,550
+In that function, I'm passing
+different values.
+
+105
+00:04:53,550 --> 00:04:56,230
+And the output of that
+looks like this.
+
+106
+00:04:56,230 --> 00:04:59,920
+Let's examine how each
+of these values work.
+
+107
+00:04:59,920 --> 00:05:02,620
+First, we're going to specify
+the direction of the gradient
+
+108
+00:05:02,620 --> 00:05:05,320
+through either an angle
+or a keyword.
+
+109
+00:05:05,320 --> 00:05:07,960
+Now, the angle is generally
+going to be a degree, so
+
+110
+00:05:07,960 --> 00:05:10,340
+something like 45 degrees.
+
+111
+00:05:10,340 --> 00:05:13,300
+The key word is going to consist
+of the word "to"
+
+112
+00:05:13,300 --> 00:05:16,810
+followed by a side-or-corner,
+which also consists of two key
+
+113
+00:05:16,810 --> 00:05:20,500
+words: horizontal values of left
+or right, and vertical
+
+114
+00:05:20,500 --> 00:05:22,640
+values of top or bottom.
+
+115
+00:05:22,640 --> 00:05:25,110
+Now, the last thing that we need
+to specify for our linear
+
+116
+00:05:25,110 --> 00:05:26,710
+gradient are color stops.
+
+117
+00:05:26,710 --> 00:05:29,780
+We'll specify one or more color
+stops that consist of a
+
+118
+00:05:29,780 --> 00:05:32,570
+color and an optional
+stop-position, that can either
+
+119
+00:05:32,570 --> 00:05:34,140
+be a link or a percentage.
+
+120
+00:05:36,850 --> 00:05:39,590
+Going back to our initial linear
+gradient example, you
+
+121
+00:05:39,590 --> 00:05:42,690
+can see that we're not setting
+an angle value, but we are
+
+122
+00:05:42,690 --> 00:05:46,030
+specifying the side-or-corner
+to be "to bottom", which is
+
+123
+00:05:46,030 --> 00:05:48,830
+going to make the gradient go
+from the top to the bottom.
+
+124
+00:05:48,830 --> 00:05:50,410
+Now, how's it doing that?
+
+125
+00:05:50,410 --> 00:05:53,370
+Well, it's important to note
+that the keywords "to top," "to
+
+126
+00:05:53,370 --> 00:05:56,590
+bottom", "to right", and "to
+left" correspond to specific
+
+127
+00:05:56,590 --> 00:05:57,790
+degree values.
+
+128
+00:05:57,790 --> 00:06:01,540
+Those are 0 degrees,
+180 degrees, 270
+
+129
+00:06:01,540 --> 00:06:04,050
+degrees, and 90 degrees.
+
+130
+00:06:04,050 --> 00:06:07,250
+So our keyword "to bottom" is
+actually translated into 180
+
+131
+00:06:07,250 --> 00:06:09,860
+degrees, as seen here.
+
+132
+00:06:09,860 --> 00:06:12,360
+The first color stop we specify
+is red, which is where
+
+133
+00:06:12,360 --> 00:06:14,210
+the top of the gradient
+starts.
+
+134
+00:06:14,210 --> 00:06:17,020
+And then the second and last
+color stop we specify is
+
+135
+00:06:17,020 --> 00:06:18,385
+yellow, and that's where
+the gradient
+
+136
+00:06:18,385 --> 00:06:19,635
+will end at the bottom.
+
+137
+00:06:22,230 --> 00:06:24,660
+Now, a radial gradient is
+different than a linear
+
+138
+00:06:24,660 --> 00:06:27,720
+gradient, because it extends
+from an origin, the center of
+
+139
+00:06:27,720 --> 00:06:30,880
+the element, and it extends
+outward in either a circular
+
+140
+00:06:30,880 --> 00:06:33,630
+or elliptical shape.
+
+141
+00:06:33,630 --> 00:06:36,440
+A radial grading consists of
+three different parts--
+
+142
+00:06:36,440 --> 00:06:40,200
+the center, the ending shape
+contour and position, and,
+
+143
+00:06:40,200 --> 00:06:42,900
+finally, color stops - just
+like we specified for the
+
+144
+00:06:42,900 --> 00:06:45,620
+linear gradient.
+
+145
+00:06:45,620 --> 00:06:46,960
+So now, let's look
+at a real simple
+
+146
+00:06:46,960 --> 00:06:48,760
+example of a radial gradient.
+
+147
+00:06:48,760 --> 00:06:52,400
+So here, we're specifying two
+color stops - aqua and blue -
+
+148
+00:06:52,400 --> 00:06:54,650
+and we can see what the
+output looks like.
+
+149
+00:06:54,650 --> 00:06:57,110
+This creates a two-color
+elliptical gradient that
+
+150
+00:06:57,110 --> 00:06:59,345
+extends outward from the
+center of the element.
+
+151
+00:07:02,170 --> 00:07:04,790
+Now, let's look more in depth at
+each of the values that we
+
+152
+00:07:04,790 --> 00:07:07,970
+can pass in to the radial
+gradient function.
+
+153
+00:07:07,970 --> 00:07:11,280
+First, you specify the shape
+or size of the gradient.
+
+154
+00:07:11,280 --> 00:07:13,790
+The shape of the gradient can
+either be a circle or an
+
+155
+00:07:13,790 --> 00:07:17,730
+ellipsis. The default of
+which is an ellipsis.
+
+156
+00:07:17,730 --> 00:07:20,510
+The size of the gradient
+consists of keywords, and
+
+157
+00:07:20,510 --> 00:07:22,790
+those keywords are
+"closest-side,"
+
+158
+00:07:22,790 --> 00:07:25,230
+"closest-corner,"
+"farthest-side," and
+
+159
+00:07:25,230 --> 00:07:26,560
+"farthest-corner."
+
+160
+00:07:26,560 --> 00:07:29,470
+Now, "farthest-corner" here is
+the default value, if we don't
+
+161
+00:07:29,470 --> 00:07:30,950
+pass one in.
+
+162
+00:07:30,950 --> 00:07:33,570
+Additionally, you can actually
+change the size to be of
+
+163
+00:07:33,570 --> 00:07:35,880
+length or a percentage.
+
+164
+00:07:35,880 --> 00:07:38,790
+Next, we specify the position of
+the radial gradient, using
+
+165
+00:07:38,790 --> 00:07:41,460
+the "at" keyword, followed
+by the position.
+
+166
+00:07:41,460 --> 00:07:44,020
+The default for this is center,
+but you can specify
+
+167
+00:07:44,020 --> 00:07:47,550
+any value you can use for the
+background position property.
+
+168
+00:07:47,550 --> 00:07:49,990
+Finally, we specify one or
+more color stops, which
+
+169
+00:07:49,990 --> 00:07:53,310
+again, consist of a color and
+an optional stop-position,
+
+170
+00:07:53,310 --> 00:07:55,430
+which can either be a length
+or a percentage.
+
+171
+00:07:58,870 --> 00:08:01,110
+So now, let's look at an example
+of a radial gradient.
+
+172
+00:08:01,110 --> 00:08:04,040
+So here we're specifying a
+radial gradient function on
+
+173
+00:08:04,040 --> 00:08:05,590
+the background property.
+
+174
+00:08:05,590 --> 00:08:08,680
+We first set the shape of the
+gradient to be circle, rather
+
+175
+00:08:08,680 --> 00:08:10,380
+than ellipsis.
+
+176
+00:08:10,380 --> 00:08:13,510
+Next, we set the position of the
+gradient to be top left,
+
+177
+00:08:13,510 --> 00:08:16,490
+so it's going to start
+up at the top left.
+
+178
+00:08:16,490 --> 00:08:20,310
+Next, we specify the first color
+stop, which is aqua, and
+
+179
+00:08:20,310 --> 00:08:24,400
+then we specify the last color
+stop, which is blue.
+
+180
+00:08:24,400 --> 00:08:26,710
+Here, we can see the output
+of that radial gradient.
+
+181
+00:08:26,710 --> 00:08:29,750
+We have a two-color circular
+radial gradient that extends
+
+182
+00:08:29,750 --> 00:08:33,460
+outward from the top left.
+
+183
+00:08:33,460 --> 00:08:35,039
+That's it for Level Four.
+
+184
+00:08:35,039 --> 00:08:37,690
+You now know all the
+new CSS3 styles.
+
+185
+00:08:37,690 --> 00:08:41,260
+Have fun using them
+in the challenges.
+
+186
+00:08:41,260 --> 00:08:42,175
+[In the back] One pixels.
+
+187
+00:08:42,175 --> 00:08:43,710
+Move it one pixels.
+
+188
+00:08:43,710 --> 00:08:44,730
+[INAUDIBLE] the limiges -
+
+189
+00:08:44,730 --> 00:08:45,390
+The limiges?
+
+190
+00:08:45,390 --> 00:08:46,240
+The limiges are located.
+
+191
+00:08:46,240 --> 00:08:49,370
+The color of the drop shadow,
+in this case - zero.
+
+192
+00:08:49,370 --> 00:08:52,580
+The color zero.
+
+193
+00:08:52,580 --> 00:08:53,830
+Color zero.
+

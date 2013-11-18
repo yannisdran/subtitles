@@ -1,0 +1,820 @@
+﻿1
+00:00:02,070 --> 00:00:02,880
+Welcome back.
+
+2
+00:00:02,880 --> 00:00:04,600
+Hope you enjoyed those
+challenges.
+
+3
+00:00:04,600 --> 00:00:08,930
+This is Level Two:
+HTML5 Elements.
+
+4
+00:00:08,930 --> 00:00:11,550
+So in this level, we're covering
+the new HTML5 section
+
+5
+00:00:11,550 --> 00:00:15,350
+elements, such as the section,
+the header, the footer, the
+
+6
+00:00:15,350 --> 00:00:19,720
+aside, the nav, the article,
+the main, the figure and
+
+7
+00:00:19,720 --> 00:00:20,820
+figcaption elements.
+
+8
+00:00:20,820 --> 00:00:22,400
+And then finally, we'll
+wrap up by talking
+
+9
+00:00:22,400 --> 00:00:23,650
+about the time element.
+
+10
+00:00:26,100 --> 00:00:28,890
+In this level, we'll be using
+this example art gallery site,
+
+11
+00:00:28,890 --> 00:00:31,380
+that you'll see repeatedly when
+we talk about these new
+
+12
+00:00:31,380 --> 00:00:34,740
+HTML5 elements.
+
+13
+00:00:34,740 --> 00:00:37,480
+So let's start by talking about
+the section element.
+
+14
+00:00:37,480 --> 00:00:40,820
+Now by definition, the section
+element represents a generic
+
+15
+00:00:40,820 --> 00:00:43,080
+document or application
+section.
+
+16
+00:00:43,080 --> 00:00:44,490
+Now I know what you're
+thinking.
+
+17
+00:00:44,490 --> 00:00:46,780
+The definition for that sounds
+a lot like the definition for
+
+18
+00:00:46,780 --> 00:00:50,130
+a div, which is just a generic
+container that conveys no
+
+19
+00:00:50,130 --> 00:00:51,520
+particular meaning.
+
+20
+00:00:51,520 --> 00:00:53,980
+Now there's a very important
+distinction between a
+
+21
+00:00:53,980 --> 00:00:55,460
+section and a div.
+
+22
+00:00:55,460 --> 00:00:57,860
+While a div has no semantic
+meaning, a
+
+23
+00:00:57,860 --> 00:00:59,300
+section element does,
+
+24
+00:00:59,300 --> 00:01:00,740
+and it's used for grouping
+together
+
+25
+00:01:00,740 --> 00:01:02,305
+thematically related content.
+
+26
+00:01:04,810 --> 00:01:07,840
+In the book, HTML5 For Web
+Designers, Jeremy Keith tells
+
+27
+00:01:07,840 --> 00:01:10,370
+us, when we're trying to
+determine between using divs
+
+28
+00:01:10,370 --> 00:01:13,640
+or section elements to ask
+ourselves, "Is all of the
+
+29
+00:01:13,640 --> 00:01:15,090
+content related?"
+
+30
+00:01:15,090 --> 00:01:17,500
+If you answered yes to that
+question, then a section
+
+31
+00:01:17,500 --> 00:01:21,040
+element might be appropriate.
+
+32
+00:01:21,040 --> 00:01:23,000
+Looking at our art gallery site,
+we can see that we have
+
+33
+00:01:23,000 --> 00:01:25,730
+a grouping of thematically
+related content that contains
+
+34
+00:01:25,730 --> 00:01:27,150
+a natural heading.
+
+35
+00:01:27,150 --> 00:01:29,830
+While all section elements
+don't have to necessarily
+
+36
+00:01:29,830 --> 00:01:32,000
+contain a heading, they
+generally do.
+
+37
+00:01:32,000 --> 00:01:33,680
+And in this instance,
+ours does.
+
+38
+00:01:33,680 --> 00:01:37,660
+And it has the heading,
+"The Gallery."
+
+39
+00:01:37,660 --> 00:01:39,950
+Now let's look at how
+we'd mark this up.
+
+40
+00:01:39,950 --> 00:01:42,600
+Prior to HTML5, we would have
+marked this up with a div,
+
+41
+00:01:42,600 --> 00:01:45,050
+with a class or ID of section,
+and then the
+
+42
+00:01:45,050 --> 00:01:47,430
+markup contained within.
+
+43
+00:01:47,430 --> 00:01:49,910
+In HTML5, though, we can
+instead use the section
+
+44
+00:01:49,910 --> 00:01:52,760
+element to wrap our markup,
+which makes our document much
+
+45
+00:01:52,760 --> 00:01:54,010
+more semantic.
+
+46
+00:01:56,400 --> 00:01:59,190
+Now I briefly want to mention
+the document outline, which is
+
+47
+00:01:59,190 --> 00:02:01,940
+what's used to produce an
+outline summary of an HTML
+
+48
+00:02:01,940 --> 00:02:04,735
+document, based on the markup
+that's used in that document.
+
+49
+00:02:07,280 --> 00:02:09,520
+A few of the HTML5 elements
+have their own
+
+50
+00:02:09,520 --> 00:02:11,009
+self-contained outline.
+
+51
+00:02:11,009 --> 00:02:13,900
+And those elements are the
+article element, the aside
+
+52
+00:02:13,900 --> 00:02:16,820
+element, the nav element,
+and the section element.
+
+53
+00:02:16,820 --> 00:02:21,180
+Now let's look at an example of
+this to see how it works.
+
+54
+00:02:21,180 --> 00:02:23,670
+In this example, we have an h1
+here, that says, "This is the
+
+55
+00:02:23,670 --> 00:02:26,310
+title of the page." We have
+a section element,
+
+56
+00:02:26,310 --> 00:02:28,890
+and inside that section element,
+we have an h2 that
+
+57
+00:02:28,890 --> 00:02:31,280
+says, "This is the title
+of a subsection."
+
+58
+00:02:31,280 --> 00:02:33,900
+The document outline for this
+particular piece of markup
+
+59
+00:02:33,900 --> 00:02:35,630
+would look something
+like this.
+
+60
+00:02:35,630 --> 00:02:38,210
+We have a first, main heading
+for "This is the title of the
+
+61
+00:02:38,210 --> 00:02:39,710
+page," our h1.
+
+62
+00:02:39,710 --> 00:02:42,740
+And then we have the first main
+subheading, which is,
+
+63
+00:02:42,740 --> 00:02:45,240
+"This is the title of a
+subsection." Because the
+
+64
+00:02:45,240 --> 00:02:47,870
+document outline is actually
+self-contained within this
+
+65
+00:02:47,870 --> 00:02:50,950
+section element, we can
+instead replace the h2 in
+
+66
+00:02:50,950 --> 00:02:53,470
+this section with an h1,
+and our document
+
+67
+00:02:53,470 --> 00:02:54,980
+outline remains the same.
+
+68
+00:02:59,710 --> 00:03:01,810
+Now that we talked about the
+section element, let's move on
+
+69
+00:03:01,810 --> 00:03:03,950
+to talk about the
+header element.
+
+70
+00:03:03,950 --> 00:03:06,090
+Now the header element is
+defined as a group of
+
+71
+00:03:06,090 --> 00:03:08,500
+introductory or navigation
+aids.
+
+72
+00:03:08,500 --> 00:03:10,940
+It's important to note that you
+can include more than one
+
+73
+00:03:10,940 --> 00:03:12,210
+header on your page.
+
+74
+00:03:12,210 --> 00:03:15,450
+It's not just limited to the
+top portion of your site.
+
+75
+00:03:15,450 --> 00:03:17,470
+While the header generally
+appears at the top of a
+
+76
+00:03:17,470 --> 00:03:20,280
+document or section, it's
+defined more by its content
+
+77
+00:03:20,280 --> 00:03:22,320
+rather than its position.
+
+78
+00:03:22,320 --> 00:03:24,550
+Looking at our sample art
+gallery site, we can see at
+
+79
+00:03:24,550 --> 00:03:27,010
+the top that we have a section
+that contains introductory
+
+80
+00:03:27,010 --> 00:03:29,810
+content, as well as
+navigational aids.
+
+81
+00:03:29,810 --> 00:03:31,990
+This is a good use of
+the header element.
+
+82
+00:03:31,990 --> 00:03:34,560
+Let's see how we'd
+mark that up.
+
+83
+00:03:34,560 --> 00:03:37,270
+Prior to HTML5, we would have
+marked this up with a div,
+
+84
+00:03:37,270 --> 00:03:39,390
+with a class or ID of
+header, and then our
+
+85
+00:03:39,390 --> 00:03:41,300
+markup contained within.
+
+86
+00:03:41,300 --> 00:03:44,200
+In HTML5, though, we can
+instead use the header
+
+87
+00:03:44,200 --> 00:03:47,450
+element, and then all of our
+markup contained within that.
+
+88
+00:03:47,450 --> 00:03:49,480
+This makes our document
+more semantic.
+
+89
+00:03:49,480 --> 00:03:51,630
+In other words, the meaning
+of our HTML
+
+90
+00:03:51,630 --> 00:03:55,200
+document is more clear.
+
+91
+00:03:55,200 --> 00:03:57,850
+Now like I said before, you can
+have header elements in
+
+92
+00:03:57,850 --> 00:03:59,500
+different parts of your page.
+
+93
+00:03:59,500 --> 00:04:02,160
+So here we're showing that we
+have a header element inside
+
+94
+00:04:02,160 --> 00:04:03,740
+of a section element.
+
+95
+00:04:03,740 --> 00:04:06,810
+So this is the header for
+this particular section.
+
+96
+00:04:10,110 --> 00:04:12,850
+So now that we talked about the
+header element in HTML5,
+
+97
+00:04:12,850 --> 00:04:16,630
+let's move on to talk about the
+footer element in HTML5.
+
+98
+00:04:16,630 --> 00:04:19,660
+By definition, the footer
+element represents a footer
+
+99
+00:04:19,660 --> 00:04:22,240
+for its nearest ancestor
+sectioning content, or
+
+100
+00:04:22,240 --> 00:04:25,690
+sectioning root element.
+
+101
+00:04:25,690 --> 00:04:28,390
+Now similar to the header,
+the footer element is not
+
+102
+00:04:28,390 --> 00:04:30,080
+dependent on its position.
+
+103
+00:04:30,080 --> 00:04:32,050
+It needs to be describing
+the content that
+
+104
+00:04:32,050 --> 00:04:33,860
+it's contained within.
+
+105
+00:04:33,860 --> 00:04:36,210
+Looking at our sample art
+gallery site, we can see that
+
+106
+00:04:36,210 --> 00:04:39,240
+we have a footer for
+entire site.
+
+107
+00:04:39,240 --> 00:04:43,460
+So now let's see how this
+element is marked up.
+
+108
+00:04:43,460 --> 00:04:47,120
+Prior to HTML5, we'd mark this
+up with a div, with a class or
+
+109
+00:04:47,120 --> 00:04:49,500
+ID of footer, and then
+all of the markup
+
+110
+00:04:49,500 --> 00:04:50,810
+contained within that.
+
+111
+00:04:50,810 --> 00:04:53,750
+In HTML5, though, we can
+instead use the footer
+
+112
+00:04:53,750 --> 00:04:57,030
+element to wrap all of our
+markup, which again makes our
+
+113
+00:04:57,030 --> 00:04:58,280
+document more semantic.
+
+114
+00:05:00,900 --> 00:05:03,990
+Like the header, we can also
+put the footer within other
+
+115
+00:05:03,990 --> 00:05:05,720
+HTML5 elements.
+
+116
+00:05:05,720 --> 00:05:09,265
+So notice how this is a footer
+for this particular section.
+
+117
+00:05:12,360 --> 00:05:17,336
+Now let's talk about the
+aside element in HTML5.
+
+118
+00:05:17,336 --> 00:05:21,030
+The aside element was initially
+defined by the HTML5
+
+119
+00:05:21,030 --> 00:05:23,970
+spec, as being tangentially
+related to the content
+
+120
+00:05:23,970 --> 00:05:24,970
+surrounding it.
+
+121
+00:05:24,970 --> 00:05:26,980
+Now what in the world
+does that mean?
+
+122
+00:05:26,980 --> 00:05:29,850
+Tangentially related to the
+content surrounding it just
+
+123
+00:05:29,850 --> 00:05:33,390
+means that it's not directly
+related to, but it expands
+
+124
+00:05:33,390 --> 00:05:35,640
+upon the content
+surrounding it.
+
+125
+00:05:35,640 --> 00:05:38,300
+However, in HTML5, the
+aside element now
+
+126
+00:05:38,300 --> 00:05:40,670
+covers various contexts.
+
+127
+00:05:40,670 --> 00:05:43,470
+When used within an article
+element, the aside content
+
+128
+00:05:43,470 --> 00:05:45,790
+should be related to that
+particular article that it's
+
+129
+00:05:45,790 --> 00:05:47,040
+contained within.
+
+130
+00:05:47,040 --> 00:05:49,820
+However, when it's used outside
+an article element,
+
+131
+00:05:49,820 --> 00:05:52,820
+the aside content should be
+specifically related to the
+
+132
+00:05:52,820 --> 00:05:54,660
+site as a whole.
+
+133
+00:05:54,660 --> 00:05:57,980
+The second definition closely
+resembles the definition for a
+
+134
+00:05:57,980 --> 00:06:01,610
+sidebar of a site.
+
+135
+00:06:01,610 --> 00:06:04,400
+Now it's important to note that
+an aside element is most
+
+136
+00:06:04,400 --> 00:06:07,170
+appropriate when it's used to
+represent content that's not
+
+137
+00:06:07,170 --> 00:06:10,160
+the primary focus of an article
+or page, but it's
+
+138
+00:06:10,160 --> 00:06:14,730
+still related to that
+article or page.
+
+139
+00:06:14,730 --> 00:06:18,120
+Over here, we can see that we
+have secondary content related
+
+140
+00:06:18,120 --> 00:06:20,010
+to the site as a whole.
+
+141
+00:06:20,010 --> 00:06:22,830
+So let's look at how we
+could mark this up.
+
+142
+00:06:22,830 --> 00:06:25,940
+Now prior to HTML5, we would
+have marked this up with a
+
+143
+00:06:25,940 --> 00:06:29,030
+div, with a class or ID of
+sidebar, and then the markup
+
+144
+00:06:29,030 --> 00:06:30,640
+contained within.
+
+145
+00:06:30,640 --> 00:06:33,500
+In HTML5, though, we can
+instead use the aside
+
+146
+00:06:33,500 --> 00:06:36,400
+element, and then all of our
+markup contained within that,
+
+147
+00:06:36,400 --> 00:06:41,280
+which, again, makes our document
+more semantic.
+
+148
+00:06:41,280 --> 00:06:43,860
+Like the header and footer
+elements, we can also nest the
+
+149
+00:06:43,860 --> 00:06:46,640
+aside within HTML elements,
+such as the
+
+150
+00:06:46,640 --> 00:06:48,710
+section, like here.
+
+151
+00:06:48,710 --> 00:06:52,210
+Now this is an aside for this
+particular section element.
+
+152
+00:06:55,420 --> 00:06:57,890
+So now that we've covered the
+aside element, let's move on
+
+153
+00:06:57,890 --> 00:07:00,050
+to talk about the nav element.
+
+154
+00:07:00,050 --> 00:07:03,430
+Now by definition, the nav
+element represents a section
+
+155
+00:07:03,430 --> 00:07:05,990
+of a page that links to
+other pages, or to
+
+156
+00:07:05,990 --> 00:07:07,410
+parts within that page.
+
+157
+00:07:07,410 --> 00:07:10,570
+It's essentially just a
+section with navigation links.
+
+158
+00:07:10,570 --> 00:07:13,140
+Now it's important to note
+that the nav element is
+
+159
+00:07:13,140 --> 00:07:16,630
+intended for major navigation.
+
+160
+00:07:16,630 --> 00:07:19,060
+We can see that we have major
+navigation for the site, which
+
+161
+00:07:19,060 --> 00:07:22,470
+is a good use of the
+nav element.
+
+162
+00:07:22,470 --> 00:07:25,670
+Prior to HTML5, we would have
+marked this up with, probably,
+
+163
+00:07:25,670 --> 00:07:28,620
+an unordered list, with a class
+or ID of nav, and then
+
+164
+00:07:28,620 --> 00:07:31,610
+our list items and anchor links
+contained within that.
+
+165
+00:07:31,610 --> 00:07:34,840
+In HTML5, though, we can
+instead use the nav element
+
+166
+00:07:34,840 --> 00:07:37,570
+and nest our unordered list with
+the list items and anchor
+
+167
+00:07:37,570 --> 00:07:39,630
+links inside of that
+nav element.
+
+168
+00:07:39,630 --> 00:07:42,180
+Again this is making our
+document more semantic.
+
+169
+00:07:42,180 --> 00:07:44,275
+It's more clear, and it
+has more meaning.
+
+170
+00:07:47,470 --> 00:07:50,240
+So that's it for the first
+group of HTML5 elements.
+
+171
+00:07:50,240 --> 00:07:52,330
+Now let's give you some
+challenges so you can test out
+
+172
+00:07:52,330 --> 00:07:53,580
+your skills.
+

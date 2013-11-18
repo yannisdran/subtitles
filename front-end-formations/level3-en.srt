@@ -1,0 +1,1030 @@
+﻿1
+00:00:02,070 --> 00:00:03,220
+Welcome back.
+
+2
+00:00:03,220 --> 00:00:05,590
+Hope you had some success with
+those Level Two challenges.
+
+3
+00:00:05,590 --> 00:00:09,780
+This is Level Three: HTML5 Forms.
+
+4
+00:00:09,780 --> 00:00:13,210
+In this level, we're going to
+talk about the new HTML5 input
+
+5
+00:00:13,210 --> 00:00:16,360
+types, the new form elements,
+and then we're going to wrap
+
+6
+00:00:16,360 --> 00:00:19,150
+things up with the new
+form attributes.
+
+7
+00:00:19,150 --> 00:00:20,980
+So let's start off by talking
+about the new
+
+8
+00:00:20,980 --> 00:00:23,780
+input types in HTML5.
+
+9
+00:00:23,780 --> 00:00:26,240
+HTML5 provides several
+new input types.
+
+10
+00:00:26,240 --> 00:00:28,880
+And we're going to look at
+each of these in turn.
+
+11
+00:00:28,880 --> 00:00:31,130
+Now something that we just need
+to be aware of is that if
+
+12
+00:00:31,130 --> 00:00:34,170
+a browser doesn't support a
+particular input type, it
+
+13
+00:00:34,170 --> 00:00:36,480
+defaults to text.
+
+14
+00:00:36,480 --> 00:00:38,780
+First off, we're going to look
+at the search input type,
+
+15
+00:00:38,780 --> 00:00:41,020
+which is just a control
+for entering one
+
+16
+00:00:41,020 --> 00:00:43,910
+or more search terms.
+
+17
+00:00:43,910 --> 00:00:45,580
+We can see that we have
+a search input
+
+18
+00:00:45,580 --> 00:00:47,080
+here at the top right.
+
+19
+00:00:47,080 --> 00:00:50,040
+Let's see how we can convert
+this input from a text input
+
+20
+00:00:50,040 --> 00:00:52,940
+to a search input.
+
+21
+00:00:52,940 --> 00:00:55,440
+To use a search input type,
+we simply change the type
+
+22
+00:00:55,440 --> 00:00:57,800
+attribute from text to search.
+
+23
+00:00:57,800 --> 00:01:00,090
+And you can see here that we're
+not specifying a value,
+
+24
+00:01:00,090 --> 00:01:02,780
+so it's going to be an
+empty search input.
+
+25
+00:01:02,780 --> 00:01:05,190
+Now when that's rendered, we see
+that we get a search input
+
+26
+00:01:05,190 --> 00:01:08,210
+with rounded corners that we can
+enter our search term into
+
+27
+00:01:08,210 --> 00:01:11,230
+and then clear it out with the
+conveniently located x icon
+
+28
+00:01:11,230 --> 00:01:13,030
+off to the right.
+
+29
+00:01:13,030 --> 00:01:15,340
+Additionally, in mobile browsers
+like here in mobile
+
+30
+00:01:15,340 --> 00:01:18,460
+Safari, we get some added
+usability benefits.
+
+31
+00:01:18,460 --> 00:01:21,140
+The primary action button
+changes to search, which
+
+32
+00:01:21,140 --> 00:01:25,810
+reinforces what the user
+is currently doing.
+
+33
+00:01:25,810 --> 00:01:27,935
+Now let's look at
+the email input.
+
+34
+00:01:27,935 --> 00:01:30,990
+The email input looks just like
+a regular text input, but
+
+35
+00:01:30,990 --> 00:01:35,050
+it also gives us added usability
+on mobile devices.
+
+36
+00:01:35,050 --> 00:01:37,790
+Looking at our art gallery, we
+can see that we have an email
+
+37
+00:01:37,790 --> 00:01:40,320
+input down here at
+the bottom right.
+
+38
+00:01:40,320 --> 00:01:42,470
+Now don't worry about that
+enter your email
+
+39
+00:01:42,470 --> 00:01:43,750
+text inside the input.
+
+40
+00:01:43,750 --> 00:01:48,390
+We'll look at that later and see
+how we can spruce it up.
+
+41
+00:01:48,390 --> 00:01:50,920
+To use the email input type,
+all we have to do is change
+
+42
+00:01:50,920 --> 00:01:53,910
+the type attribute from text
+to email just like we did
+
+43
+00:01:53,910 --> 00:01:56,070
+before with search.
+
+44
+00:01:56,070 --> 00:01:58,440
+And again, on the mobile safari
+keyboard we can see
+
+45
+00:01:58,440 --> 00:02:01,560
+that we now get useful email
+related keys like the at
+
+46
+00:02:01,560 --> 00:02:02,875
+symbol and the period.
+
+47
+00:02:05,620 --> 00:02:08,789
+Next up, we have the URL input,
+which again, looks just
+
+48
+00:02:08,789 --> 00:02:11,900
+like a regular text input, but
+gives us some nice usability
+
+49
+00:02:11,900 --> 00:02:13,990
+on mobile devices.
+
+50
+00:02:13,990 --> 00:02:16,140
+Again, on the mobile Safari
+keyboard, we can see that we
+
+51
+00:02:16,140 --> 00:02:21,920
+get useful URL related keys such
+as the slash and .com.
+
+52
+00:02:21,920 --> 00:02:24,060
+Next up, we have the date
+input type which is
+
+53
+00:02:24,060 --> 00:02:26,850
+essentially just a control that
+lets you set a string
+
+54
+00:02:26,850 --> 00:02:28,100
+that represents a date.
+
+55
+00:02:30,770 --> 00:02:33,360
+To use the date input type, all
+we have to do is change
+
+56
+00:02:33,360 --> 00:02:36,780
+the type attribute from text to
+date, just as we did with
+
+57
+00:02:36,780 --> 00:02:39,420
+the other 
+HTML5 input types.
+
+58
+00:02:39,420 --> 00:02:42,170
+Now, here we can see in the
+browser that we get a date
+
+59
+00:02:42,170 --> 00:02:44,980
+picker when we click on the
+arrow to the right side of the
+
+60
+00:02:44,980 --> 00:02:49,180
+input allowing us to
+conveniently select a date.
+
+61
+00:02:49,180 --> 00:02:52,470
+And in mobile Safari, we get
+the native iOS date picker.
+
+62
+00:02:55,020 --> 00:02:57,340
+Next up, we have
+the tel input.
+
+63
+00:02:57,340 --> 00:03:00,540
+Now the tel input, again, like
+some of the other input types
+
+64
+00:03:00,540 --> 00:03:03,280
+just looks like a regular text
+input, but we do get some
+
+65
+00:03:03,280 --> 00:03:07,430
+added usability on
+mobile devices.
+
+66
+00:03:07,430 --> 00:03:10,050
+To use the tel input type,
+again, you just need to change
+
+67
+00:03:10,050 --> 00:03:12,990
+the type attribute
+from text to tel.
+
+68
+00:03:12,990 --> 00:03:14,950
+Real simple.
+
+69
+00:03:14,950 --> 00:03:17,410
+And, again, here in mobile
+Safari, the keyboard now
+
+70
+00:03:17,410 --> 00:03:22,260
+changes to be the telephone
+keyboard on iOS.
+
+71
+00:03:22,260 --> 00:03:24,140
+Another input type
+is the number.
+
+72
+00:03:24,140 --> 00:03:26,880
+Which essentially just let's
+us set a string value that
+
+73
+00:03:26,880 --> 00:03:29,870
+represents a number.
+
+74
+00:03:29,870 --> 00:03:32,390
+To use the number input type,
+we just change the type
+
+75
+00:03:32,390 --> 00:03:34,750
+attribute from text to number.
+
+76
+00:03:34,750 --> 00:03:37,370
+And then we can see here that we
+get a convenient control to
+
+77
+00:03:37,370 --> 00:03:40,170
+the right side of the input that
+allows us to increase or
+
+78
+00:03:40,170 --> 00:03:42,035
+decrease the value
+in the input.
+
+79
+00:03:50,120 --> 00:03:52,640
+And in mobile Safari the
+keyboard now changes so that
+
+80
+00:03:52,640 --> 00:03:55,840
+we have a row of number keys at
+the top when we're focused
+
+81
+00:03:55,840 --> 00:03:59,160
+on a number input.
+
+82
+00:03:59,160 --> 00:04:01,970
+The range input type is
+an imprecise control
+
+83
+00:04:01,970 --> 00:04:04,770
+for setting a number.
+
+84
+00:04:04,770 --> 00:04:07,410
+To use the range input type, we
+change the type attribute
+
+85
+00:04:07,410 --> 00:04:08,765
+from text to range.
+
+86
+00:04:12,130 --> 00:04:14,810
+And then we can see that we get
+a control that allows us
+
+87
+00:04:14,810 --> 00:04:17,235
+to drag a slider to change
+the number value.
+
+88
+00:04:22,600 --> 00:04:25,410
+Taking a look at two similar
+input types, the month and the
+
+89
+00:04:25,410 --> 00:04:28,230
+week, we specify them by
+changing the type attribute
+
+90
+00:04:28,230 --> 00:04:31,080
+from text to month and
+week, respectively.
+
+91
+00:04:31,080 --> 00:04:33,240
+We can see here on the left side
+that we have the month
+
+92
+00:04:33,240 --> 00:04:36,580
+input type that allows us to
+select a month at a time.
+
+93
+00:04:36,580 --> 00:04:39,210
+And then on the right, we have
+the week input type to select
+
+94
+00:04:39,210 --> 00:04:40,460
+a given week.
+
+95
+00:04:43,180 --> 00:04:46,760
+Two more similar input types,
+the time and date time local
+
+96
+00:04:46,760 --> 00:04:49,670
+are specified by changing the
+type attribute to time and
+
+97
+00:04:49,670 --> 00:04:51,660
+datetime-local.
+
+98
+00:04:51,660 --> 00:04:54,280
+We can see here that on the left
+we have a time input type
+
+99
+00:04:54,280 --> 00:04:56,010
+that allows you to select
+a given time.
+
+100
+00:04:59,580 --> 00:05:02,380
+And then on the right, we have
+a datetime-local input type
+
+101
+00:05:02,380 --> 00:05:04,420
+that not only allows you
+to select the date,
+
+102
+00:05:04,420 --> 00:05:05,670
+but the time as well.
+
+103
+00:05:11,860 --> 00:05:14,200
+There's a clear distinction
+between the datetime-local and
+
+104
+00:05:14,200 --> 00:05:15,880
+datetime input types.
+
+105
+00:05:15,880 --> 00:05:18,580
+Now the datetime-local input
+type has no time zone
+
+106
+00:05:18,580 --> 00:05:21,630
+information associated
+with it.
+
+107
+00:05:21,630 --> 00:05:24,250
+The final HTML5 input type we're
+going to take a look at
+
+108
+00:05:24,250 --> 00:05:25,490
+is the color.
+
+109
+00:05:25,490 --> 00:05:28,610
+Now a color input type simply
+lets us set a string that
+
+110
+00:05:28,610 --> 00:05:31,510
+represents a color.
+
+111
+00:05:31,510 --> 00:05:33,900
+To use the input type of color,
+we simply change the
+
+112
+00:05:33,900 --> 00:05:36,210
+type attribute to be color.
+
+113
+00:05:36,210 --> 00:05:38,770
+And then we can see here that we
+get a toggle that allows us
+
+114
+00:05:38,770 --> 00:05:41,520
+to bring up the color picker
+to select a color.
+
+115
+00:05:46,790 --> 00:05:47,190
+Wow.
+
+116
+00:05:47,190 --> 00:05:48,830
+That's a lot of input types.
+
+117
+00:05:48,830 --> 00:05:50,340
+So now let's take a look
+at some of the new
+
+118
+00:05:50,340 --> 00:05:54,090
+form elements in HTML5.
+
+119
+00:05:54,090 --> 00:05:56,340
+In HTML5, we get a few different
+form elements
+
+120
+00:05:56,340 --> 00:05:57,400
+provided to us.
+
+121
+00:05:57,400 --> 00:06:00,320
+Those are the datalist element,
+the keygen element,
+
+122
+00:06:00,320 --> 00:06:01,860
+and the output element.
+
+123
+00:06:01,860 --> 00:06:04,350
+Now we're just going to focus
+on the datalist form element
+
+124
+00:06:04,350 --> 00:06:08,410
+because it's the most
+commonly used one.
+
+125
+00:06:08,410 --> 00:06:11,040
+The datalist form element allows
+you to set predefined
+
+126
+00:06:11,040 --> 00:06:13,870
+options that you can use
+for other controls.
+
+127
+00:06:13,870 --> 00:06:16,310
+Let's take a look at
+how we do this.
+
+128
+00:06:16,310 --> 00:06:19,430
+The first thing we need to do
+is specify an input and here
+
+129
+00:06:19,430 --> 00:06:21,640
+we're just using a regular
+text input.
+
+130
+00:06:21,640 --> 00:06:24,780
+But we're also adding a list
+attribute of browsers.
+
+131
+00:06:24,780 --> 00:06:27,130
+Now, I'll get to how this
+works in a second.
+
+132
+00:06:27,130 --> 00:06:29,930
+Let's look at how we specify
+the datalist element.
+
+133
+00:06:29,930 --> 00:06:32,560
+So here we simply use the
+datalist tag and then we're
+
+134
+00:06:32,560 --> 00:06:35,340
+specifying an ID of browsers.
+
+135
+00:06:35,340 --> 00:06:38,370
+The list and ID attributes need
+to sync up so that the
+
+136
+00:06:38,370 --> 00:06:41,920
+input knows about the
+datalist options.
+
+137
+00:06:41,920 --> 00:06:44,810
+The next thing we need to do is
+specify each of our options
+
+138
+00:06:44,810 --> 00:06:45,950
+with values.
+
+139
+00:06:45,950 --> 00:06:48,070
+Now you'll recognize this
+because these are the same
+
+140
+00:06:48,070 --> 00:06:50,720
+ones that we use within
+a select tag.
+
+141
+00:06:50,720 --> 00:06:52,570
+And these are the option
+values that will now be
+
+142
+00:06:52,570 --> 00:06:53,825
+available to our input.
+
+143
+00:06:56,500 --> 00:06:59,510
+Our input looks just like a
+regular text input, but when
+
+144
+00:06:59,510 --> 00:07:01,940
+we start typing, we can see
+that we get auto-complete
+
+145
+00:07:01,940 --> 00:07:04,350
+suggestions based on the
+option values that we
+
+146
+00:07:04,350 --> 00:07:06,700
+specified within the
+datalist element.
+
+147
+00:07:06,700 --> 00:07:07,950
+How cool is that?
+
+148
+00:07:10,300 --> 00:07:13,300
+And we'll wrap this level up by
+talking about the new HTML5
+
+149
+00:07:13,300 --> 00:07:16,280
+form attributes.
+
+150
+00:07:16,280 --> 00:07:19,010
+HTML5 provides several
+new form attributes.
+
+151
+00:07:19,010 --> 00:07:22,500
+Things like placeholder,
+autofocus, autocomplete,
+
+152
+00:07:22,500 --> 00:07:25,310
+required, pattern, and several
+others that are
+
+153
+00:07:25,310 --> 00:07:27,240
+available to us.
+
+154
+00:07:27,240 --> 00:07:29,800
+Now we're going to focus
+primarily on the placeholder,
+
+155
+00:07:29,800 --> 00:07:34,300
+autofocus, required, and
+pattern attributes.
+
+156
+00:07:34,300 --> 00:07:36,650
+The placeholder attribute
+allows you to specify a
+
+157
+00:07:36,650 --> 00:07:39,290
+message that's shown
+inside the input.
+
+158
+00:07:39,290 --> 00:07:42,140
+That message is hidden when
+the user starts typing and
+
+159
+00:07:42,140 --> 00:07:46,770
+then it returns when focus
+is lost on that input.
+
+160
+00:07:46,770 --> 00:07:49,030
+Looking at our art gallery site,
+we can see that we have
+
+161
+00:07:49,030 --> 00:07:51,570
+this enter your email
+placeholder text.
+
+162
+00:07:51,570 --> 00:07:53,110
+Now I referenced this earlier.
+
+163
+00:07:53,110 --> 00:07:55,200
+So I'm going to show you how
+we can use the placeholder
+
+164
+00:07:55,200 --> 00:07:58,460
+attribute to spruce this up.
+
+165
+00:07:58,460 --> 00:08:01,420
+In order to do so, we need to
+change the value attribute as
+
+166
+00:08:01,420 --> 00:08:03,990
+it's currently set to
+be placeholder.
+
+167
+00:08:03,990 --> 00:08:07,090
+The advantage here is with the
+value attribute there, the
+
+168
+00:08:07,090 --> 00:08:09,930
+user has to select that text and
+clear it out before they
+
+169
+00:08:09,930 --> 00:08:11,060
+can start typing.
+
+170
+00:08:11,060 --> 00:08:15,600
+The placeholder attribute
+actually makes it much nicer.
+
+171
+00:08:15,600 --> 00:08:17,980
+We can see on the rendered input
+that we get slightly
+
+172
+00:08:17,980 --> 00:08:20,770
+grayed out text that's removed
+when the user starts typing
+
+173
+00:08:20,770 --> 00:08:22,670
+and then returns again
+when they remove the
+
+174
+00:08:22,670 --> 00:08:23,920
+text from the input.
+
+175
+00:08:26,930 --> 00:08:29,750
+Next up, we have the autofocus
+attribute, which as the name
+
+176
+00:08:29,750 --> 00:08:32,320
+implies, automatically
+focuses an input
+
+177
+00:08:32,320 --> 00:08:35,340
+when the page is rendered.
+
+178
+00:08:35,340 --> 00:08:37,250
+To use the autofocus attribute,
+you just need to
+
+179
+00:08:37,250 --> 00:08:40,010
+add autofocus to the input
+that you want to
+
+180
+00:08:40,010 --> 00:08:42,049
+automatically focus on.
+
+181
+00:08:42,049 --> 00:08:44,010
+When the page is rendered,
+that input is now
+
+182
+00:08:44,010 --> 00:08:45,610
+automatically focused.
+
+183
+00:08:45,610 --> 00:08:47,670
+And this is something that we
+had to previously do in
+
+184
+00:08:47,670 --> 00:08:48,730
+JavaScript.
+
+185
+00:08:48,730 --> 00:08:53,930
+Now in HTML5 we just need
+to add one simple word.
+
+186
+00:08:53,930 --> 00:08:56,950
+A third attribute is the
+required attribute.
+
+187
+00:08:56,950 --> 00:08:59,990
+When a form is submitted, the
+user will be notified of an
+
+188
+00:08:59,990 --> 00:09:03,040
+error if the field
+is left blank.
+
+189
+00:09:03,040 --> 00:09:05,010
+Let's see how we can use this.
+
+190
+00:09:05,010 --> 00:09:07,750
+Like the autofocus attribute,
+all we have to do to use the
+
+191
+00:09:07,750 --> 00:09:10,595
+required attribute is add
+that text to an input.
+
+192
+00:09:13,530 --> 00:09:16,160
+When the user submits the form,
+if they leave that field
+
+193
+00:09:16,160 --> 00:09:18,900
+blank, they're given an error
+message telling them that they
+
+194
+00:09:18,900 --> 00:09:20,925
+need to fill in that
+required field.
+
+195
+00:09:23,650 --> 00:09:26,180
+Lastly, we have the pattern
+attribute which accepts a
+
+196
+00:09:26,180 --> 00:09:29,000
+JavaScript regular expression
+that will be matched against
+
+197
+00:09:29,000 --> 00:09:33,090
+the user's entry to ensure they
+have the correct pattern.
+
+198
+00:09:33,090 --> 00:09:34,600
+Now let's look at an example
+of how we'll
+
+199
+00:09:34,600 --> 00:09:36,290
+use the pattern attribute.
+
+200
+00:09:36,290 --> 00:09:38,030
+You might not be familiar
+with JavaScript regular
+
+201
+00:09:38,030 --> 00:09:40,030
+expressions, but don't
+worry about that.
+
+202
+00:09:40,030 --> 00:09:42,660
+We'll provide resources at
+the end of the course.
+
+203
+00:09:42,660 --> 00:09:44,930
+For now, just know that we're
+matching three digits.
+
+204
+00:09:48,310 --> 00:09:50,730
+When the form is submitted, if
+the user's entry doesn't
+
+205
+00:09:50,730 --> 00:09:53,800
+exactly match the pattern,
+they're notified of an error
+
+206
+00:09:53,800 --> 00:09:55,735
+until the pattern is matched.
+
+207
+00:09:59,270 --> 00:10:00,840
+That concludes level 3.
+
+208
+00:10:00,840 --> 00:10:03,040
+So now that you're a little more
+comfortable with HTML5
+
+209
+00:10:03,040 --> 00:10:05,270
+forms, let's give you
+some challenges.
+
+210
+00:10:05,270 --> 00:10:08,271
+And we'll see you
+back in level 4.
+
+211
+00:10:08,271 --> 00:10:08,760
+[BEEPING]
+
+212
+00:10:08,760 --> 00:10:09,860
+You like the dancing?
+
+213
+00:10:09,860 --> 00:10:11,603
+I did and I didn't
+say this before.
+
+214
+00:10:11,603 --> 00:10:12,490
+[LAUGHTER]
+
+215
+00:10:12,490 --> 00:10:16,435
+Wrong emphasis on the
+wrong syllable.
+
+216
+00:10:16,435 --> 00:10:17,830
+[LAUGHTER]
+
+217
+00:10:17,830 --> 00:10:20,220
+Not even close.
+
