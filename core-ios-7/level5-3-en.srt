@@ -1,0 +1,903 @@
+﻿1
+00:00:02,029 --> 00:00:03,260
+Welcome back.
+
+2
+00:00:03,260 --> 00:00:05,430
+In this level, we'll be looking
+at how to use UIKit
+
+3
+00:00:05,430 --> 00:00:08,090
+Dynamics with animated
+transitions.
+
+4
+00:00:08,090 --> 00:00:11,040
+Remember that any place where
+you traditionally have a UI
+
+5
+00:00:11,040 --> 00:00:14,960
+view block-based animation is a
+candidate for being replaced
+
+6
+00:00:14,960 --> 00:00:16,210
+with UIKit Dynamics.
+
+7
+00:00:18,830 --> 00:00:20,410
+So consider this example.
+
+8
+00:00:20,410 --> 00:00:23,380
+In our articles app, we've added
+a Settings button to the
+
+9
+00:00:23,380 --> 00:00:24,940
+articles list view.
+
+10
+00:00:24,940 --> 00:00:27,670
+When you tap that Settings
+button, it drops down a
+
+11
+00:00:27,670 --> 00:00:30,760
+settings view that allows us
+to change the mode from day
+
+12
+00:00:30,760 --> 00:00:33,590
+mode to night mode with
+a simple switch.
+
+13
+00:00:33,590 --> 00:00:36,490
+And when we hide that settings
+view, settings view slides
+
+14
+00:00:36,490 --> 00:00:38,010
+back up and goes away.
+
+15
+00:00:38,010 --> 00:00:40,806
+And the view is updated
+accordingly.
+
+16
+00:00:40,806 --> 00:00:43,050
+Now, you may have noticed that
+as that settings view was
+
+17
+00:00:43,050 --> 00:00:46,120
+dropping, there was a slight
+bounce in the animation as it
+
+18
+00:00:46,120 --> 00:00:48,240
+hit the bottom edge
+of the view.
+
+19
+00:00:48,240 --> 00:00:51,110
+That's because this actually has
+a gravity behavior applied
+
+20
+00:00:51,110 --> 00:00:54,480
+to the animated transition so we
+can see that bounce effect.
+
+21
+00:00:54,480 --> 00:00:58,520
+So let's look at how we
+would build this.
+
+22
+00:00:58,520 --> 00:01:00,830
+To start, we'll do a really
+quick overview of how an
+
+23
+00:01:00,830 --> 00:01:02,930
+animated transition is set up.
+
+24
+00:01:02,930 --> 00:01:06,280
+We covered this in great
+detail in level three.
+
+25
+00:01:06,280 --> 00:01:08,910
+So first, we have a method
+called showSettings that gets
+
+26
+00:01:08,910 --> 00:01:10,620
+called whenever that
+Settings button is
+
+27
+00:01:10,620 --> 00:01:13,420
+tapped in the toolbar.
+
+28
+00:01:13,420 --> 00:01:16,170
+Then we create a settings view
+controller and set the modal
+
+29
+00:01:16,170 --> 00:01:19,820
+presentation style and
+transitioning delegate.
+
+30
+00:01:19,820 --> 00:01:21,960
+And finally, we call the
+present view controller
+
+31
+00:01:21,960 --> 00:01:25,740
+method, which starts the
+presentation happening.
+
+32
+00:01:25,740 --> 00:01:28,570
+Inside of the completion block
+for that presentation, we need
+
+33
+00:01:28,570 --> 00:01:32,060
+to register some kind of gesture
+that we'll be using on
+
+34
+00:01:32,060 --> 00:01:33,930
+the settings view controller.
+
+35
+00:01:33,930 --> 00:01:36,020
+In this case, since we're
+dismissing it with a simple
+
+36
+00:01:36,020 --> 00:01:38,270
+button, we'll just use
+a simple tap gesture.
+
+37
+00:01:40,890 --> 00:01:42,970
+We're presenting and dismissing
+a modal view
+
+38
+00:01:42,970 --> 00:01:43,680
+controller.
+
+39
+00:01:43,680 --> 00:01:47,180
+So we need to override these two
+methods that are part of
+
+40
+00:01:47,180 --> 00:01:49,620
+our transitioning delegate.
+
+41
+00:01:49,620 --> 00:01:51,860
+And just like we talked about
+in level three, we've got a
+
+42
+00:01:51,860 --> 00:01:54,670
+DropBounce for the presentation
+animation and
+
+43
+00:01:54,670 --> 00:01:56,765
+DismissGravity for the
+dismissal animation.
+
+44
+00:02:00,420 --> 00:02:03,520
+So as you'll recall, the
+animated transition class for
+
+45
+00:02:03,520 --> 00:02:05,790
+the present animation
+usually starts out
+
+46
+00:02:05,790 --> 00:02:06,900
+something like this.
+
+47
+00:02:06,900 --> 00:02:09,870
+We capture our From and
+To view controllers.
+
+48
+00:02:09,870 --> 00:02:13,410
+We grab the start frame from
+our From view controller.
+
+49
+00:02:13,410 --> 00:02:16,500
+And we use it to help set the
+start frame for our To view
+
+50
+00:02:16,500 --> 00:02:20,550
+controller so we can set the
+beginning position before that
+
+51
+00:02:20,550 --> 00:02:23,310
+settings controller is
+visible onscreen.
+
+52
+00:02:23,310 --> 00:02:26,060
+And then finally, we add the
+To view controller to our
+
+53
+00:02:26,060 --> 00:02:28,470
+transitionContext
+containerView.
+
+54
+00:02:28,470 --> 00:02:30,450
+And that was that big
+containerView that held both
+
+55
+00:02:30,450 --> 00:02:32,370
+the start and end position.
+
+56
+00:02:36,260 --> 00:02:39,710
+And after that, we would add a
+UI view-based animation to
+
+57
+00:02:39,710 --> 00:02:43,290
+move that To view down onto
+the screen, maybe add some
+
+58
+00:02:43,290 --> 00:02:45,660
+keyframes to make it move around
+and bounce around a
+
+59
+00:02:45,660 --> 00:02:46,630
+little bit.
+
+60
+00:02:46,630 --> 00:02:50,410
+And overall, we would end up
+with 100 or 150 lines of code
+
+61
+00:02:50,410 --> 00:02:52,490
+when we were done, of all the
+different states of our
+
+62
+00:02:52,490 --> 00:02:54,850
+different animation.
+
+63
+00:02:54,850 --> 00:02:56,430
+So this is a great
+candidate for
+
+64
+00:02:56,430 --> 00:02:58,620
+replacing with UIKit Dynamics.
+
+65
+00:02:58,620 --> 00:03:00,570
+And we'll be able to drastically
+reduce the amount
+
+66
+00:03:00,570 --> 00:03:02,130
+of lines of code that
+we have to write.
+
+67
+00:03:05,200 --> 00:03:08,500
+To start, we'll again add a UI
+dynamic animator property
+
+68
+00:03:08,500 --> 00:03:12,350
+that's strong to our
+DropBounce header.
+
+69
+00:03:12,350 --> 00:03:15,100
+And then inside of our
+DropBounce implementation,
+
+70
+00:03:15,100 --> 00:03:18,300
+we'll alloc Init that
+dynamic animator.
+
+71
+00:03:18,300 --> 00:03:21,130
+But this time, instead of
+using self.view as our
+
+72
+00:03:21,130 --> 00:03:23,970
+reference view, we'll use
+our transition context
+
+73
+00:03:23,970 --> 00:03:25,270
+containerView.
+
+74
+00:03:25,270 --> 00:03:26,520
+And let's look at why that is.
+
+75
+00:03:30,100 --> 00:03:33,410
+When we're dealing with a single
+view, self.view is
+
+76
+00:03:33,410 --> 00:03:38,050
+usually the highest superview
+that's displayed onscreen.
+
+77
+00:03:38,050 --> 00:03:42,070
+But when we add a transition
+into the mix, the From view
+
+78
+00:03:42,070 --> 00:03:46,060
+and the To view are actually
+just children of this bigger
+
+79
+00:03:46,060 --> 00:03:49,100
+view, called containerView.
+
+80
+00:03:49,100 --> 00:03:51,900
+So when we want to try to add
+a reference for all of our
+
+81
+00:03:51,900 --> 00:03:55,360
+animations, we can't be sure
+that the dimensions of the
+
+82
+00:03:55,360 --> 00:03:58,330
+From view or the To view
+will stay the same.
+
+83
+00:03:58,330 --> 00:04:01,620
+But we can be sure that the
+containerView's frame will
+
+84
+00:04:01,620 --> 00:04:02,870
+always be the same.
+
+85
+00:04:05,810 --> 00:04:09,030
+Back in our DropBounce
+animation, we'll Alloc Init a
+
+86
+00:04:09,030 --> 00:04:12,070
+gravity behavior, applying the
+gravity to the To view
+
+87
+00:04:12,070 --> 00:04:13,690
+controller that's going
+to be moving from
+
+88
+00:04:13,690 --> 00:04:14,990
+the top of the screen.
+
+89
+00:04:14,990 --> 00:04:18,800
+We'll set up the direction
+to pull the To view down.
+
+90
+00:04:18,800 --> 00:04:20,579
+And then we'll add that behavior
+to the animator.
+
+91
+00:04:23,770 --> 00:04:26,800
+As expected, when we tap the
+Settings button, down comes
+
+92
+00:04:26,800 --> 00:04:30,180
+the To view controller,
+and there it goes.
+
+93
+00:04:30,180 --> 00:04:32,580
+Yeah ... it's not stopping and
+bouncing when it hits the
+
+94
+00:04:32,580 --> 00:04:34,130
+bottom of the view.
+
+95
+00:04:34,130 --> 00:04:36,950
+So we need to also add a
+collision behavior so that it
+
+96
+00:04:36,950 --> 00:04:39,270
+knows to not try to keep
+falling down forever.
+
+97
+00:04:42,820 --> 00:04:45,960
+Before, we used the entire
+dimensions of the screen as
+
+98
+00:04:45,960 --> 00:04:48,280
+our collision boundaries.
+
+99
+00:04:48,280 --> 00:04:50,680
+But here, we really only want
+to have one of those
+
+100
+00:04:50,680 --> 00:04:52,510
+boundaries block the gravity.
+
+101
+00:04:52,510 --> 00:04:55,090
+And that's the very bottom
+of the containerView.
+
+102
+00:04:55,090 --> 00:04:57,130
+So if we add a boundary to
+just the bottom of the
+
+103
+00:04:57,130 --> 00:04:58,470
+containerView, we
+should be fine.
+
+104
+00:05:03,390 --> 00:05:05,630
+Again, we create a UI
+collision behavior.
+
+105
+00:05:05,630 --> 00:05:09,230
+And we apply it to
+the toVC.view.
+
+106
+00:05:09,230 --> 00:05:12,550
+Then we can call this method
+addBoundaryWithIdentifier
+
+107
+00:05:12,550 --> 00:05:14,890
+fromPoint, toPoint.
+
+108
+00:05:14,890 --> 00:05:17,440
+And give that boundary a
+name in case we need to
+
+109
+00:05:17,440 --> 00:05:19,420
+reference it later.
+
+110
+00:05:19,420 --> 00:05:21,660
+And then we're basically drawing
+a line for where we
+
+111
+00:05:21,660 --> 00:05:24,960
+want that boundary to extend,
+from the very bottom left
+
+112
+00:05:24,960 --> 00:05:28,600
+corner of our container to the
+very bottom right corner of
+
+113
+00:05:28,600 --> 00:05:29,740
+our container.
+
+114
+00:05:29,740 --> 00:05:33,400
+And this is going to allow that
+view to drop with gravity
+
+115
+00:05:33,400 --> 00:05:36,620
+and only bounce when it hits
+that bottom edge boundary that
+
+116
+00:05:36,620 --> 00:05:37,870
+we just created.
+
+117
+00:05:40,170 --> 00:05:42,580
+Now the Settings button drops
+the view, and it bounces when
+
+118
+00:05:42,580 --> 00:05:43,940
+it hits that boundary.
+
+119
+00:05:43,940 --> 00:05:46,340
+But we forgot to complete
+the transition.
+
+120
+00:05:46,340 --> 00:05:48,770
+Remember that whenever you're
+finishing an animation in an
+
+121
+00:05:48,770 --> 00:05:51,190
+animated transition, you have
+to call the complete
+
+122
+00:05:51,190 --> 00:05:52,900
+transition method.
+
+123
+00:05:52,900 --> 00:05:54,740
+Otherwise, you won't be able
+to interact with the view
+
+124
+00:05:54,740 --> 00:05:57,030
+anymore, which is what
+we're seeing here.
+
+125
+00:05:59,760 --> 00:06:01,650
+So again, we need a way
+to determine when
+
+126
+00:06:01,650 --> 00:06:03,700
+the animation stops.
+
+127
+00:06:03,700 --> 00:06:04,870
+And then we'll want
+to complete the
+
+128
+00:06:04,870 --> 00:06:07,090
+transition after it stops.
+
+129
+00:06:07,090 --> 00:06:09,970
+So inside of our DropBounce
+class, we'll implement the
+
+130
+00:06:09,970 --> 00:06:12,420
+dynamic animator delegate, just
+like we did before when
+
+131
+00:06:12,420 --> 00:06:13,690
+we needed to do this.
+
+132
+00:06:13,690 --> 00:06:16,360
+And we'll also add a property
+to store the transition
+
+133
+00:06:16,360 --> 00:06:19,730
+context because we'll need a way
+to access that transition
+
+134
+00:06:19,730 --> 00:06:22,276
+context inside of the
+delegate method.
+
+135
+00:06:25,400 --> 00:06:28,110
+Inside of our animate transition
+method, we'll
+
+136
+00:06:28,110 --> 00:06:30,510
+capture the transition
+context first thing
+
+137
+00:06:30,510 --> 00:06:32,760
+inside of our property.
+
+138
+00:06:32,760 --> 00:06:35,480
+We'll set our delegate
+to self.
+
+139
+00:06:35,480 --> 00:06:37,620
+And then in our
+dynamicAnimatorDidPause
+
+140
+00:06:37,620 --> 00:06:42,250
+method, we'll call the complete
+transition method,
+
+141
+00:06:42,250 --> 00:06:44,620
+which formally completes the
+transition as soon as the
+
+142
+00:06:44,620 --> 00:06:45,870
+animation stops.
+
+143
+00:06:49,160 --> 00:06:52,170
+Now you can see that once our
+animation completes, we're
+
+144
+00:06:52,170 --> 00:06:54,310
+able to interact with the
+controls that are in the
+
+145
+00:06:54,310 --> 00:06:56,930
+settings view, which is just
+what we want to happen.
+
+146
+00:06:56,930 --> 00:06:59,150
+When it comes to dismissing the
+settings view, we'll do a
+
+147
+00:06:59,150 --> 00:07:01,030
+lot of the same steps.
+
+148
+00:07:01,030 --> 00:07:03,230
+Since we used dynamics to
+present the settings view, it
+
+149
+00:07:03,230 --> 00:07:05,040
+would only make sense
+that we use dynamics
+
+150
+00:07:05,040 --> 00:07:07,410
+to make it go away.
+
+151
+00:07:07,410 --> 00:07:10,240
+So let's use a gravity behavior,
+this time applied in
+
+152
+00:07:10,240 --> 00:07:14,200
+a negative y direction to shoot
+the view back up once we
+
+153
+00:07:14,200 --> 00:07:15,450
+hit the Hide Settings button.
+
+154
+00:07:18,600 --> 00:07:21,430
+Just like we did in DropBounce,
+in DismissGravity,
+
+155
+00:07:21,430 --> 00:07:24,940
+we'll Alloc Init the animator
+object using the containerView
+
+156
+00:07:24,940 --> 00:07:26,800
+again as the reference view, 
+
+157
+00:07:26,800 --> 00:07:28,600
+and we'll add a gravity
+behavior.
+
+158
+00:07:28,600 --> 00:07:31,030
+This time, we'll add it
+to the From view.
+
+159
+00:07:31,030 --> 00:07:33,790
+Since if the settings view is
+already onscreen, it will now
+
+160
+00:07:33,790 --> 00:07:35,990
+be the From view controller.
+
+161
+00:07:35,990 --> 00:07:38,420
+And the list view that we're
+trying to go to will be the To
+
+162
+00:07:38,420 --> 00:07:39,570
+view controller.
+
+163
+00:07:39,570 --> 00:07:42,080
+And here, we'll use a vector
+that's negative 12, which
+
+164
+00:07:42,080 --> 00:07:45,050
+means that the settings view is
+going to move up when this
+
+165
+00:07:45,050 --> 00:07:46,300
+behavior is added.
+
+166
+00:07:49,940 --> 00:07:51,960
+And finally, when that settings
+view moves completely
+
+167
+00:07:51,960 --> 00:07:55,700
+offscreen, we need to remove all
+the animation behaviors.
+
+168
+00:07:55,700 --> 00:07:58,240
+And we need to complete
+the transition.
+
+169
+00:07:58,240 --> 00:08:00,680
+So to do this, we'll
+add an action block
+
+170
+00:08:00,680 --> 00:08:02,410
+to the gravity behavior.
+
+171
+00:08:02,410 --> 00:08:04,590
+And again, we'll check if
+the transition context
+
+172
+00:08:04,590 --> 00:08:08,310
+containerView frame is not
+intersecting at all with the
+
+173
+00:08:08,310 --> 00:08:09,930
+From view frame.
+
+174
+00:08:09,930 --> 00:08:12,020
+And if they're not intersecting
+at all, we'll
+
+175
+00:08:12,020 --> 00:08:13,680
+remove the behaviors and
+complete the transition.
+
+176
+00:08:18,050 --> 00:08:20,290
+Here we can see the final
+working version of this
+
+177
+00:08:20,290 --> 00:08:21,760
+animated transition.
+
+178
+00:08:21,760 --> 00:08:24,900
+The settings view drops from the
+top of the screen, bounces
+
+179
+00:08:24,900 --> 00:08:27,680
+a little bit when it hits that
+collision boundary, and then
+
+180
+00:08:27,680 --> 00:08:30,250
+flips itself back up really
+quick whenever the "Hide
+
+181
+00:08:30,250 --> 00:08:31,500
+Settings" button is tapped.
+
+182
+00:08:38,090 --> 00:08:40,669
+And now it's time for you to
+use UIKit Dynamics in an
+
+183
+00:08:40,669 --> 00:08:42,840
+animated transition
+in the challenges.
+
+184
+00:08:42,840 --> 00:08:44,759
+Good luck.
+
+185
+00:08:44,759 --> 00:08:45,250
+[BEEP]
+
+186
+00:08:45,250 --> 00:08:48,043
+- different times, and
+trying to [MUMBLING].
+
+187
+00:08:48,043 --> 00:08:48,985
+[LAUGHTER]
+
+188
+00:08:48,985 --> 00:08:49,460
+[BEEP]
+
+189
+00:08:49,460 --> 00:08:51,780
+- to enhance a common thing.
+
+190
+00:08:51,780 --> 00:08:53,280
+Hm, common thing [LAUGHS].
+
+191
+00:08:53,280 --> 00:08:54,830
+[BEEP]
+

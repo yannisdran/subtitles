@@ -1,0 +1,453 @@
+﻿1
+00:00:02,009 --> 00:00:03,200
+Welcome back.
+
+2
+00:00:03,200 --> 00:00:05,260
+In this level, we're going to
+be talking about the changes
+
+3
+00:00:05,260 --> 00:00:07,660
+to working with fonts,
+and working with text
+
+4
+00:00:07,660 --> 00:00:10,730
+layout in iOS 7.
+
+5
+00:00:10,730 --> 00:00:13,950
+So the way that you would create
+a font and iOS 6, is
+
+6
+00:00:13,950 --> 00:00:17,790
+you would just call the font
+with name size method, on a UI
+
+7
+00:00:17,790 --> 00:00:19,460
+Font class.
+
+8
+00:00:19,460 --> 00:00:22,700
+And that would return to you a
+UI Font object, that you could
+
+9
+00:00:22,700 --> 00:00:25,660
+apply to your labels
+and text views.
+
+10
+00:00:25,660 --> 00:00:29,140
+Now, Apple saw a problem with
+that, in that file names don't
+
+11
+00:00:29,140 --> 00:00:31,830
+always follow a consistent
+format.
+
+12
+00:00:31,830 --> 00:00:34,750
+For example, you can see some
+different bold font names, and
+
+13
+00:00:34,750 --> 00:00:36,830
+bold italic font names.
+
+14
+00:00:36,830 --> 00:00:40,160
+So it's hard to know exactly
+what the name of the font is
+
+15
+00:00:40,160 --> 00:00:43,950
+going to be, before you
+have to use it.
+
+16
+00:00:43,950 --> 00:00:46,940
+So in iOS 7, they're taking
+a new approach called "font
+
+17
+00:00:46,940 --> 00:00:48,700
+descriptors."
+
+18
+00:00:48,700 --> 00:00:51,440
+And the idea here is that you
+describe the kind of font that
+
+19
+00:00:51,440 --> 00:00:54,960
+you want, with a certain set of
+attributes and traits that
+
+20
+00:00:54,960 --> 00:00:58,660
+relate to that font, and you'll
+get a UI Font object
+
+21
+00:00:58,660 --> 00:01:01,020
+out of that.
+
+22
+00:01:01,020 --> 00:01:03,820
+So here, I've created a
+UIFontDescriptor, using the
+
+23
+00:01:03,820 --> 00:01:07,490
+fontDescriptorWithFontAttributes
+method, and I
+
+24
+00:01:07,490 --> 00:01:10,020
+passed it a dictionary
+containing
+
+25
+00:01:10,020 --> 00:01:14,350
+UIFontDescriptorFamilyAttribute
+key, with a value
+
+26
+00:01:14,350 --> 00:01:15,600
+of Helvetica Neue.
+
+27
+00:01:18,040 --> 00:01:21,620
+That gives me just the
+base Helvetica font.
+
+28
+00:01:21,620 --> 00:01:25,650
+Then, if I want that font to
+also be italic, I can take
+
+29
+00:01:25,650 --> 00:01:28,900
+that base font, and I can apply
+a font descriptor with
+
+30
+00:01:28,900 --> 00:01:33,530
+symbolic trait of
+UIFontDescriptor trait italic.
+
+31
+00:01:33,530 --> 00:01:36,670
+That's going to take that
+base font, and modify it
+
+32
+00:01:36,670 --> 00:01:39,880
+to now be in italic.
+
+33
+00:01:39,880 --> 00:01:43,050
+And then finally when I'm
+creating my UIFont object
+
+34
+00:01:43,050 --> 00:01:46,220
+that I'll use with my labels,
+I call the fontWithDescriptor
+
+35
+00:01:46,220 --> 00:01:49,240
+size method,
+
+36
+00:01:49,240 --> 00:01:52,700
+and I pass it that font
+descriptor that was created.
+
+37
+00:01:52,700 --> 00:01:55,820
+And the end result is I'll
+have a UI font, using the
+
+38
+00:01:55,820 --> 00:01:59,845
+italic version of Helvetica
+Neue that's 18 point size.
+
+39
+00:02:02,700 --> 00:02:05,730
+So you can see with this code,
+we're creating a UI label.
+
+40
+00:02:05,730 --> 00:02:09,550
+Then we're creating a bold font,
+and we're applying that
+
+41
+00:02:09,550 --> 00:02:11,100
+font to the label.
+
+42
+00:02:11,100 --> 00:02:14,540
+So it's fairly common in iOS
+apps to need to change the
+
+43
+00:02:14,540 --> 00:02:18,090
+contents of a label, after
+they've been initially set.
+
+44
+00:02:18,090 --> 00:02:21,470
+Say new data comes in from
+a network request.
+
+45
+00:02:21,470 --> 00:02:24,640
+Well when we do that, we also
+need to adjust the size of the
+
+46
+00:02:24,640 --> 00:02:28,240
+label, not just the
+text inside of it.
+
+47
+00:02:28,240 --> 00:02:32,730
+In iOS 6, the method that you
+used to size the label was
+
+48
+00:02:32,730 --> 00:02:34,455
+called "size with font."
+
+49
+00:02:34,455 --> 00:02:37,275
+And that method is actually
+deprecated in iOS 7.
+
+50
+00:02:40,540 --> 00:02:43,430
+Instead of sizeWithFont,
+we can use the sizeWithAttributes
+
+51
+00:02:43,430 --> 00:02:44,880
+method.
+
+52
+00:02:44,880 --> 00:02:46,540
+And we'll pass in the
+dictionary of
+
+53
+00:02:46,540 --> 00:02:49,320
+attributes for that font.
+
+54
+00:02:49,320 --> 00:02:53,340
+The two attributes we're using
+here are the font name itself,
+
+55
+00:02:53,340 --> 00:02:58,170
+which we can access with the
+NS Font attribute name key,
+
+56
+00:02:58,170 --> 00:03:00,710
+and the trait that we've applied
+to font, which in this
+
+57
+00:03:00,710 --> 00:03:02,600
+case was a bold font.
+
+58
+00:03:02,600 --> 00:03:05,230
+So we passed the
+UIFontDescriptorTraitsAttribute
+
+59
+00:03:05,230 --> 00:03:07,110
+key the value,
+UIFontDescriptorTraitBold.
+
+60
+00:03:10,810 --> 00:03:13,720
+And now the size that's returned
+by this method will
+
+61
+00:03:13,720 --> 00:03:16,920
+be the appropriate size for the
+new content that was added
+
+62
+00:03:16,920 --> 00:03:18,100
+to our label.
+
+63
+00:03:18,100 --> 00:03:21,300
+Once we have that size, we use
+it to resize the frame of the
+
+64
+00:03:21,300 --> 00:03:22,550
+label, accordingly.
+
+65
+00:03:26,220 --> 00:03:29,410
+The properties that determine
+how our text is laid out can
+
+66
+00:03:29,410 --> 00:03:32,760
+come from both font attributes,
+like name,
+
+67
+00:03:32,760 --> 00:03:35,300
+family, face, and size, 
+
+68
+00:03:35,300 --> 00:03:37,400
+but they can also come
+from attributes in an
+
+69
+00:03:37,400 --> 00:03:41,720
+NSAttributedString, like
+paragraph style and spacing,
+
+70
+00:03:41,720 --> 00:03:44,950
+kerning and ligatures, whether
+the text is underlined or has
+
+71
+00:03:44,950 --> 00:03:47,040
+a strikethrough.
+
+72
+00:03:47,040 --> 00:03:49,690
+Since both of these sets of
+attributes affect the way that
+
+73
+00:03:49,690 --> 00:03:53,540
+text is laid out, we need to
+consider which attributes are
+
+74
+00:03:53,540 --> 00:03:55,455
+applied to the text we're
+trying to resize.
+
+75
+00:03:58,350 --> 00:04:01,400
+Here's an example of a label
+that has its attributed text
+
+76
+00:04:01,400 --> 00:04:04,160
+property set, rather than
+just its text property,
+
+77
+00:04:04,160 --> 00:04:07,420
+which means we're using an
+attributed string, instead of
+
+78
+00:04:07,420 --> 00:04:08,910
+an NS string.
+
+79
+00:04:08,910 --> 00:04:11,820
+We're adding some attributes
+to that attributed string,
+
+80
+00:04:11,820 --> 00:04:16,029
+like letterpress effect, making
+the color gray, and
+
+81
+00:04:16,029 --> 00:04:18,649
+setting the kerning over the
+entire length of the string.
+
+82
+00:04:21,910 --> 00:04:25,520
+So that means when we go to
+resize this string, we need to
+
+83
+00:04:25,520 --> 00:04:29,290
+take into consideration not only
+the font and any traits
+
+84
+00:04:29,290 --> 00:04:33,400
+applied to it, but also any
+of the attributes from the
+
+85
+00:04:33,400 --> 00:04:37,390
+attributed string text that
+might affect the layout of the
+
+86
+00:04:37,390 --> 00:04:39,830
+text inside of the label.
+
+87
+00:04:39,830 --> 00:04:42,680
+In this case, the kerning will
+most definitely affect the
+
+88
+00:04:42,680 --> 00:04:44,720
+spacing and layout
+of the text.
+
+89
+00:04:44,720 --> 00:04:47,750
+So we need to add it to the
+size with attributes
+
+90
+00:04:47,750 --> 00:04:49,000
+dictionary.
+
+91
+00:04:51,440 --> 00:04:53,930
+Now we know that that's a lot of
+new information in a very
+
+92
+00:04:53,930 --> 00:04:55,630
+short amount of time.
+
+93
+00:04:55,630 --> 00:04:57,720
+So we want you to try some
+challenges where you're going
+
+94
+00:04:57,720 --> 00:05:01,190
+to be resizing labels with
+various attributes.
+
+95
+00:05:01,190 --> 00:05:02,500
+And then we'll come back
+and learn some more.
+

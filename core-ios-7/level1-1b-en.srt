@@ -1,0 +1,752 @@
+﻿1
+00:00:01,990 --> 00:00:04,810
+The new behavior that fullscreen
+views take on is so
+
+2
+00:00:04,810 --> 00:00:07,190
+significant that you really
+need to ask yourself these
+
+3
+00:00:07,190 --> 00:00:10,310
+four questions every time you
+try to lay out a view in a
+
+4
+00:00:10,310 --> 00:00:11,800
+view controller.
+
+5
+00:00:11,800 --> 00:00:15,750
+The first question is, does my
+screen show a status bar?
+
+6
+00:00:15,750 --> 00:00:18,000
+Next, you'll want to consider
+whether or not you're also
+
+7
+00:00:18,000 --> 00:00:21,770
+going to have a navigation bar
+at the top of your screen.
+
+8
+00:00:21,770 --> 00:00:24,400
+Then you'll want to ask, are you
+showing a navigation bar
+
+9
+00:00:24,400 --> 00:00:27,510
+and a tab bar down
+at the bottom?
+
+10
+00:00:27,510 --> 00:00:30,150
+And finally, you'll want to ask,
+is my main view a scroll
+
+11
+00:00:30,150 --> 00:00:33,540
+view, or any other subclass of
+scroll view like a table view
+
+12
+00:00:33,540 --> 00:00:35,240
+or a collection view?
+
+13
+00:00:35,240 --> 00:00:38,120
+It might not be clear yet why we
+need to have the answers to
+
+14
+00:00:38,120 --> 00:00:40,880
+these questions, so for the
+remainder of this level, we're
+
+15
+00:00:40,880 --> 00:00:43,200
+going to be looking at why these
+details are important.
+
+16
+00:00:45,790 --> 00:00:48,620
+So first, let's talk about how
+having a status bar might
+
+17
+00:00:48,620 --> 00:00:50,930
+influence the way that your
+view is laid out in
+
+18
+00:00:50,930 --> 00:00:52,620
+fullscreen.
+
+19
+00:00:52,620 --> 00:00:55,340
+If we look at the statistics
+view controller here, you can
+
+20
+00:00:55,340 --> 00:00:58,220
+see that it's really easy to
+accidentally position your
+
+21
+00:00:58,220 --> 00:01:01,430
+labels too close to the status
+bar in a way that makes it
+
+22
+00:01:01,430 --> 00:01:03,930
+hard to read the content
+of those labels.
+
+23
+00:01:03,930 --> 00:01:07,370
+The won and lost labels are
+actually getting dangerously
+
+24
+00:01:07,370 --> 00:01:10,320
+close to the content that's in
+the status bar, that content
+
+25
+00:01:10,320 --> 00:01:13,360
+that shows the carrier and the
+Wi-Fi strength, and even the
+
+26
+00:01:13,360 --> 00:01:15,710
+battery and the time.
+
+27
+00:01:15,710 --> 00:01:17,840
+I also want to point out that
+this is a pretty simple view
+
+28
+00:01:17,840 --> 00:01:19,550
+hierarchy in this
+view controller.
+
+29
+00:01:19,550 --> 00:01:23,650
+We've just got a main view that
+has four subviews, one
+
+30
+00:01:23,650 --> 00:01:25,640
+for each of the labels that
+you see in the view.
+
+31
+00:01:28,530 --> 00:01:31,390
+So, to understand how to start
+solving this problem, let's
+
+32
+00:01:31,390 --> 00:01:34,540
+again step back and look at
+how iOS 6 calculated view
+
+33
+00:01:34,540 --> 00:01:35,870
+dimensions.
+
+34
+00:01:35,870 --> 00:01:40,120
+In iOS 6, if we loaded a simple
+view with this code,
+
+35
+00:01:40,120 --> 00:01:43,410
+just adding a view and setting
+its background color to green,
+
+36
+00:01:43,410 --> 00:01:45,540
+it would look something
+like this.
+
+37
+00:01:45,540 --> 00:01:47,820
+The view's height would actually
+be calculated as the
+
+38
+00:01:47,820 --> 00:01:51,070
+screen height minus the
+status bar high.
+
+39
+00:01:51,070 --> 00:01:54,220
+Since the status bar is 20
+points hi and we're displaying
+
+40
+00:01:54,220 --> 00:01:57,850
+this on a 4 inch screen, the
+view height is actually going
+
+41
+00:01:57,850 --> 00:02:01,140
+to be 548 points high.
+
+42
+00:02:01,140 --> 00:02:04,320
+That's that 20 points at the
+top for the status bar, and
+
+43
+00:02:04,320 --> 00:02:09,440
+then the view sits entirely
+below the status bar area.
+
+44
+00:02:09,440 --> 00:02:12,850
+If we look at the same code
+running in iOS 7, you'll
+
+45
+00:02:12,850 --> 00:02:16,910
+notice that the view's height
+is now 568 points high, the
+
+46
+00:02:16,910 --> 00:02:19,600
+entire available height
+of that 4 inch screen.
+
+47
+00:02:19,600 --> 00:02:22,850
+So what if you actually want
+that view 20 points lower than
+
+48
+00:02:22,850 --> 00:02:25,470
+the status bar area so
+you can avoid any of
+
+49
+00:02:25,470 --> 00:02:26,770
+those content conflicts?
+
+50
+00:02:29,820 --> 00:02:34,070
+One way to solve this in iOS 7
+is to create a content subview
+
+51
+00:02:34,070 --> 00:02:37,020
+that will be a subview
+of your main view.
+
+52
+00:02:37,020 --> 00:02:39,520
+And instead of adding all of
+your other subviews to the
+
+53
+00:02:39,520 --> 00:02:43,360
+main view, you'll add them to
+the content subview instead.
+
+54
+00:02:43,360 --> 00:02:46,170
+Once we've got that view
+hierarchy in place, all we
+
+55
+00:02:46,170 --> 00:02:49,020
+need to do is figure out a way
+to set the content subview
+
+56
+00:02:49,020 --> 00:02:52,280
+frame to start right below
+the status bar frame.
+
+57
+00:02:58,040 --> 00:03:00,900
+So switching over to code, let's
+first create a UIView
+
+58
+00:03:00,900 --> 00:03:04,260
+property called content
+subview.
+
+59
+00:03:04,260 --> 00:03:07,220
+And then in our load view
+method, we'll create that
+
+60
+00:03:07,220 --> 00:03:09,090
+content subview.
+
+61
+00:03:09,090 --> 00:03:12,040
+We'll set its background color
+to an orange color so we can
+
+62
+00:03:12,040 --> 00:03:13,900
+see a difference between
+the main view and
+
+63
+00:03:13,900 --> 00:03:16,120
+the contents subview.
+
+64
+00:03:16,120 --> 00:03:20,900
+And then we'll add the content
+subview to the main view.
+
+65
+00:03:20,900 --> 00:03:23,110
+There's one more thing
+that we need to do.
+
+66
+00:03:23,110 --> 00:03:26,060
+Self dot view's frame gets
+automatically set because it's
+
+67
+00:03:26,060 --> 00:03:29,070
+the main view for this view
+controller, get set to that
+
+68
+00:03:29,070 --> 00:03:31,490
+fullscreen dimension.
+
+69
+00:03:31,490 --> 00:03:35,750
+So we need to manually set our
+content subviews frame.
+
+70
+00:03:35,750 --> 00:03:38,910
+And we do this in view
+will layout subviews.
+
+71
+00:03:38,910 --> 00:03:41,790
+If you're used to setting your
+frames view did load, we
+
+72
+00:03:41,790 --> 00:03:44,300
+recommended that you switch over
+to the view will layout
+
+73
+00:03:44,300 --> 00:03:45,820
+subviews method.
+
+74
+00:03:45,820 --> 00:03:48,810
+View will layout subviews
+actually gets fired after view
+
+75
+00:03:48,810 --> 00:03:51,800
+did load, and it will be
+apparent in a minute why this
+
+76
+00:03:51,800 --> 00:03:55,030
+is an important place to
+put your layout code.
+
+77
+00:03:55,030 --> 00:03:59,450
+So here in view will layout
+subviews, first we call super.
+
+78
+00:03:59,450 --> 00:04:01,520
+And then we are setting
+the frame of our
+
+79
+00:04:01,520 --> 00:04:03,790
+self dot content subview.
+
+80
+00:04:03,790 --> 00:04:06,750
+Here we're setting the origin
+of our content subview frame
+
+81
+00:04:06,750 --> 00:04:12,090
+to 0, 20, which means it will
+start 20 points below the top
+
+82
+00:04:12,090 --> 00:04:13,530
+of the main view.
+
+83
+00:04:13,530 --> 00:04:15,800
+And we're picking 20 because
+that's the height of our
+
+84
+00:04:15,800 --> 00:04:18,500
+status bar area right now.
+
+85
+00:04:18,500 --> 00:04:20,769
+And then for the width and
+height, we're just setting our
+
+86
+00:04:20,769 --> 00:04:24,230
+content subview to be the entire
+width of the screen and
+
+87
+00:04:24,230 --> 00:04:27,540
+the entire height of the screen,
+minus that 20 points
+
+88
+00:04:27,540 --> 00:04:31,220
+that we got from calculating
+our status bar height.
+
+89
+00:04:31,220 --> 00:04:34,040
+Now this is actually not a great
+approach because the
+
+90
+00:04:34,040 --> 00:04:37,860
+status bar height area might
+not always be 20 points.
+
+91
+00:04:37,860 --> 00:04:41,210
+Could be a bigger number.
+
+92
+00:04:41,210 --> 00:04:43,910
+One of the situations that
+makes the status bar area
+
+93
+00:04:43,910 --> 00:04:46,380
+bigger is if we have
+a nav bar.
+
+94
+00:04:46,380 --> 00:04:49,000
+We'll actually be covering
+that in the next section.
+
+95
+00:04:49,000 --> 00:04:52,360
+But for now, just understand
+that the status bar area is
+
+96
+00:04:52,360 --> 00:04:55,640
+not always going to
+be a fixed height.
+
+97
+00:04:55,640 --> 00:04:58,600
+So with that in mind, we're
+going to need a way to detect
+
+98
+00:04:58,600 --> 00:05:02,460
+that height as we lay out all of
+our subviews so we can make
+
+99
+00:05:02,460 --> 00:05:04,560
+sure that we use the
+right number.
+
+100
+00:05:04,560 --> 00:05:07,890
+And iOS 7 introduces a new UI
+view controller property
+
+101
+00:05:07,890 --> 00:05:10,130
+called topLayoutGuide.
+
+102
+00:05:10,130 --> 00:05:13,110
+TopLayoutGuide will always
+contain the height of the
+
+103
+00:05:13,110 --> 00:05:16,680
+status bar area if you access
+it inside of the view will
+
+104
+00:05:16,680 --> 00:05:19,160
+layout subviews method.
+
+105
+00:05:19,160 --> 00:05:22,580
+So if there's no status bar
+displayed, then top layout
+
+106
+00:05:22,580 --> 00:05:26,080
+guide dot length is going
+to be equal to zero.
+
+107
+00:05:26,080 --> 00:05:29,450
+If there is a status bar
+displaying, then top lab guide
+
+108
+00:05:29,450 --> 00:05:33,460
+dot length is going
+to be equal to 20.
+
+109
+00:05:33,460 --> 00:05:35,960
+And that's great, because now
+we can update our view will
+
+110
+00:05:35,960 --> 00:05:39,250
+layout subviews method to,
+instead of using hard coded
+
+111
+00:05:39,250 --> 00:05:42,290
+values for the status bar, use
+the top layout guide dot
+
+112
+00:05:42,290 --> 00:05:45,360
+length value so that we'll
+will always be able to
+
+113
+00:05:45,360 --> 00:05:49,130
+dynamically adjust the size of
+our view in response to the
+
+114
+00:05:49,130 --> 00:05:50,380
+status bar.
+
+115
+00:05:52,800 --> 00:05:55,290
+So if there's no status bar,
+let's look at what these frame
+
+116
+00:05:55,290 --> 00:05:56,790
+numbers are going to be.
+
+117
+00:05:56,790 --> 00:06:00,270
+The origin dot x is going to be
+zero and the origin dot y
+
+118
+00:06:00,270 --> 00:06:03,330
+is going to be zero also,
+because self dot top layout
+
+119
+00:06:03,330 --> 00:06:06,340
+guide dot length is zero.
+
+120
+00:06:06,340 --> 00:06:09,360
+The width is going to be 320 and
+since the top layout guide
+
+121
+00:06:09,360 --> 00:06:12,050
+is zero, the height is going to
+be the entire height that
+
+122
+00:06:12,050 --> 00:06:13,360
+we have available in our view.
+
+123
+00:06:17,020 --> 00:06:20,310
+If we do have a status bar, our
+origin dot y is going to
+
+124
+00:06:20,310 --> 00:06:26,170
+be 20 points and our height is
+going to be 568 points for our
+
+125
+00:06:26,170 --> 00:06:30,150
+full view, minus those 20 points
+that come from the top
+
+126
+00:06:30,150 --> 00:06:34,470
+layout guide dot length, or 548
+points, which is almost
+
+127
+00:06:34,470 --> 00:06:37,250
+full screen but makes sure that
+our content subview is
+
+128
+00:06:37,250 --> 00:06:38,570
+just under the status bar.
+
+129
+00:06:41,460 --> 00:06:44,490
+So now we've got this in place,
+we can go ahead and add
+
+130
+00:06:44,490 --> 00:06:47,630
+all the rest of our subviews for
+this view controller just
+
+131
+00:06:47,630 --> 00:06:48,830
+like we normally would.
+
+132
+00:06:48,830 --> 00:06:50,680
+Except now, we're going to be
+adding them to the content
+
+133
+00:06:50,680 --> 00:06:54,080
+subview and not to
+self dot view.
+
+134
+00:06:54,080 --> 00:06:57,240
+And notice here in the screen
+shot how the spacing between
+
+135
+00:06:57,240 --> 00:07:01,050
+the status bar text and the
+won and lost labels is now
+
+136
+00:07:01,050 --> 00:07:03,120
+enough to not cause
+any conflict
+
+137
+00:07:03,120 --> 00:07:04,370
+while reading the text.
+
+138
+00:07:08,670 --> 00:07:10,770
+In case you're wondering where
+we're adding all of the
+
+139
+00:07:10,770 --> 00:07:13,680
+subviews, we're putting them
+inside of the load view
+
+140
+00:07:13,680 --> 00:07:16,900
+method, which is a good place
+to initialize and
+
+141
+00:07:16,900 --> 00:07:19,060
+add views as subviews.
+
+142
+00:07:19,060 --> 00:07:21,830
+Here, you can see we're creating
+the one label and
+
+143
+00:07:21,830 --> 00:07:25,620
+we're adding it to the self dot
+content subview, which is
+
+144
+00:07:25,620 --> 00:07:27,970
+again going to be the
+view that holds all
+
+145
+00:07:27,970 --> 00:07:30,900
+the rest of our views.
+
+146
+00:07:30,900 --> 00:07:33,650
+And then, when it comes time to
+lay out the frames of those
+
+147
+00:07:33,650 --> 00:07:36,490
+subviews, again we'll go
+into the view will
+
+148
+00:07:36,490 --> 00:07:38,620
+layout subviews method.
+
+149
+00:07:38,620 --> 00:07:40,950
+And I just want to point out
+here that we're not using
+
+150
+00:07:40,950 --> 00:07:45,030
+topLayoutGuide again because we
+already use topLayoutGuide
+
+151
+00:07:45,030 --> 00:07:47,720
+to push down our content
+subview.
+
+152
+00:07:47,720 --> 00:07:51,340
+So any of our subviews of that
+are going to be relative to
+
+153
+00:07:51,340 --> 00:07:55,360
+the content subview, meaning
+that we don't need to add any
+
+154
+00:07:55,360 --> 00:07:57,540
+extra padding, because the
+padding is already there.
+
+155
+00:08:00,210 --> 00:08:02,600
+And now it's time for you to
+try laying out views in the
+
+156
+00:08:02,600 --> 00:08:03,850
+challenges.
+

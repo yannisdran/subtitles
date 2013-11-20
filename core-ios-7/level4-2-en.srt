@@ -1,0 +1,628 @@
+﻿1
+00:00:02,060 --> 00:00:04,270
+So let's see how our interactive
+transition is
+
+2
+00:00:04,270 --> 00:00:05,810
+looking at this point.
+
+3
+00:00:05,810 --> 00:00:09,820
+As you can see, when the user
+starts panning their finger,
+
+4
+00:00:09,820 --> 00:00:12,630
+it looks like we might still
+be using that Two Step
+
+5
+00:00:12,630 --> 00:00:15,750
+keyframe animation
+from level three.
+
+6
+00:00:15,750 --> 00:00:17,230
+And that's not right,
+obviously.
+
+7
+00:00:17,230 --> 00:00:19,300
+We need to fix that.
+
+8
+00:00:19,300 --> 00:00:22,380
+The problem is, as you remember,
+the interactive
+
+9
+00:00:22,380 --> 00:00:25,890
+transition just drives the
+animated transition.
+
+10
+00:00:25,890 --> 00:00:28,790
+And as you can see here, we're
+still using the Two Step
+
+11
+00:00:28,790 --> 00:00:32,430
+transition in our paths
+view controller.
+
+12
+00:00:32,430 --> 00:00:35,370
+To fix this, we need a different
+animated transition
+
+13
+00:00:35,370 --> 00:00:36,665
+when dismissal is interactive.
+
+14
+00:00:39,660 --> 00:00:42,920
+So let's create a new animated
+transition object just for
+
+15
+00:00:42,920 --> 00:00:45,820
+when the transition
+is interactive.
+
+16
+00:00:45,820 --> 00:00:49,180
+We can name it something like
+SimpleAnimatedDismissal.
+
+17
+00:00:49,180 --> 00:00:51,860
+We make sure it adopts the UI
+view controller animated
+
+18
+00:00:51,860 --> 00:00:53,610
+transitioning protocol.
+
+19
+00:00:53,610 --> 00:00:55,800
+And then, in the implementation,
+we return a
+
+20
+00:00:55,800 --> 00:00:58,845
+duration, even though it's
+really not going to be used.
+
+21
+00:01:04,060 --> 00:01:05,620
+And of course, we have
+to implement our
+
+22
+00:01:05,620 --> 00:01:07,620
+animateTransition method.
+
+23
+00:01:07,620 --> 00:01:09,970
+Now, this is stuff we've covered
+before, especially in
+
+24
+00:01:09,970 --> 00:01:11,220
+the last level.
+
+25
+00:01:18,730 --> 00:01:21,560
+One important thing that is
+different here is that we're
+
+26
+00:01:21,560 --> 00:01:24,560
+going to pass in the curve
+linear option to
+
+27
+00:01:24,560 --> 00:01:26,660
+the animation API.
+
+28
+00:01:26,660 --> 00:01:29,430
+If you don't pass in the curve
+linear option and instead,
+
+29
+00:01:29,430 --> 00:01:32,860
+say, you use a ease in/out, the
+view won't stay under the
+
+30
+00:01:32,860 --> 00:01:35,480
+user's finger, leading to
+a loss of interaction.
+
+31
+00:01:39,490 --> 00:01:41,820
+To be able to track whether
+the current dismissal's
+
+32
+00:01:41,820 --> 00:01:44,500
+interactive, we're going to add
+a Boolean property to our
+
+33
+00:01:44,500 --> 00:01:47,150
+paths view controller and
+call it Interactive.
+
+34
+00:01:47,150 --> 00:01:51,570
+Then, in our handleGesture begin
+state case, we're going
+
+35
+00:01:51,570 --> 00:01:53,535
+to set the interactive to Yes.
+
+36
+00:01:56,390 --> 00:01:58,810
+Now in our animation controller
+for dismiss
+
+37
+00:01:58,810 --> 00:02:02,480
+controller method, we can use
+that interactive property to
+
+38
+00:02:02,480 --> 00:02:05,930
+return the simple animated
+dismissal object when
+
+39
+00:02:05,930 --> 00:02:07,680
+interactive is yes.
+
+40
+00:02:07,680 --> 00:02:10,669
+And otherwise, if interactive
+is no, we're going to still
+
+41
+00:02:10,669 --> 00:02:12,925
+return the Two Step
+transition object.
+
+42
+00:02:15,860 --> 00:02:18,090
+Now let's see if that
+fixed our problem.
+
+43
+00:02:18,090 --> 00:02:20,640
+As you can see here, as the
+user starts panning their
+
+44
+00:02:20,640 --> 00:02:23,890
+finger down the screen, the
+view follows their finger,
+
+45
+00:02:23,890 --> 00:02:25,350
+just like we wanted.
+
+46
+00:02:25,350 --> 00:02:28,300
+And then when they let go, when
+they're past 25%, the
+
+47
+00:02:28,300 --> 00:02:29,960
+transition will finish.
+
+48
+00:02:29,960 --> 00:02:33,880
+But what happens if they don't
+drag down far enough and the
+
+49
+00:02:33,880 --> 00:02:35,620
+transition cancels?
+
+50
+00:02:35,620 --> 00:02:38,600
+The canceled transition worked,
+but unfortunately, it
+
+51
+00:02:38,600 --> 00:02:41,210
+still removed the view
+from the hierarchy.
+
+52
+00:02:41,210 --> 00:02:42,460
+And that's not what we want.
+
+53
+00:02:44,900 --> 00:02:48,110
+What's happening here is that
+when you pass yes to complete
+
+54
+00:02:48,110 --> 00:02:51,560
+transition, you're telling the
+transition context that the
+
+55
+00:02:51,560 --> 00:02:53,330
+transition finished.
+
+56
+00:02:53,330 --> 00:02:55,310
+And that's not what happened.
+
+57
+00:02:55,310 --> 00:02:58,200
+Since interactive transitions
+can be canceled, we have to
+
+58
+00:02:58,200 --> 00:03:01,020
+make sure we are passing in the
+right argument to complete
+
+59
+00:03:01,020 --> 00:03:01,730
+transition.
+
+60
+00:03:01,730 --> 00:03:04,930
+We can easily do that by asking
+the transition context
+
+61
+00:03:04,930 --> 00:03:06,405
+whether or not it
+was canceled.
+
+62
+00:03:14,100 --> 00:03:17,290
+In our simple animated
+dismissal, all we had to do is
+
+63
+00:03:17,290 --> 00:03:19,140
+update our code like so.
+
+64
+00:03:23,750 --> 00:03:26,700
+So now when the interactive
+transition is canceled, as you
+
+65
+00:03:26,700 --> 00:03:30,190
+can see, the view stays in the
+hierarchy just like we wanted.
+
+66
+00:03:33,080 --> 00:03:35,850
+Unfortunately, our keyframe
+animated transition has
+
+67
+00:03:35,850 --> 00:03:37,100
+stopped working.
+
+68
+00:03:40,890 --> 00:03:43,590
+To see why this is happening,
+if we go back to our
+
+69
+00:03:43,590 --> 00:03:46,620
+interaction controller for
+dismissal method, you can see
+
+70
+00:03:46,620 --> 00:03:48,820
+that we're always returning
+an object.
+
+71
+00:03:48,820 --> 00:03:51,700
+This means that we're always
+going to use an interactive
+
+72
+00:03:51,700 --> 00:03:54,110
+transition when we're
+dismissing, which
+
+73
+00:03:54,110 --> 00:03:55,260
+isn't what we want.
+
+74
+00:03:55,260 --> 00:03:58,730
+What we need to do is return nil
+from this method when we
+
+75
+00:03:58,730 --> 00:04:01,440
+just want a plain animated
+transition.
+
+76
+00:04:01,440 --> 00:04:04,020
+We can do that pretty easily
+by using the interactive
+
+77
+00:04:04,020 --> 00:04:05,680
+Boolean property.
+
+78
+00:04:05,680 --> 00:04:09,470
+All we have to do is only return
+that object when we're
+
+79
+00:04:09,470 --> 00:04:11,220
+in the interactive transition.
+
+80
+00:04:11,220 --> 00:04:15,140
+If we're not, just return nil.
+
+81
+00:04:15,140 --> 00:04:17,589
+You might be wondering, why are
+we worried about animated
+
+82
+00:04:17,589 --> 00:04:20,930
+transitions inside a method
+called interactionController
+
+83
+00:04:20,930 --> 00:04:22,230
+ForDismissal?
+
+84
+00:04:22,230 --> 00:04:25,280
+And that's because even on a
+regular animated transition,
+
+85
+00:04:25,280 --> 00:04:28,340
+the transition system is going
+to call this method.
+
+86
+00:04:28,340 --> 00:04:31,860
+And we need to tell it not to
+use interactive transition for
+
+87
+00:04:31,860 --> 00:04:33,110
+that animated transition.
+
+88
+00:04:37,120 --> 00:04:41,030
+One last thing we have to do
+before we go is we need to
+
+89
+00:04:41,030 --> 00:04:44,510
+reset the interactive
+Boolean to know when
+
+90
+00:04:44,510 --> 00:04:46,240
+our dismissal finishes.
+
+91
+00:04:46,240 --> 00:04:49,620
+That way, next time a dismissal
+happens, we're not
+
+92
+00:04:49,620 --> 00:04:52,130
+accidentally using interactive
+when we
+
+93
+00:04:52,130 --> 00:04:54,450
+really just want animated.
+
+94
+00:04:54,450 --> 00:04:55,740
+So that's pretty easy to do.
+
+95
+00:04:55,740 --> 00:04:58,880
+All we had to do is add a
+completion block to that call
+
+96
+00:04:58,880 --> 00:05:00,620
+and set interactive to nil.
+
+97
+00:05:04,320 --> 00:05:06,760
+Now let's take a look at our
+finished interactive
+
+98
+00:05:06,760 --> 00:05:07,840
+transition.
+
+99
+00:05:07,840 --> 00:05:11,050
+As you can see, we can now
+dismiss our view controller
+
+100
+00:05:11,050 --> 00:05:12,900
+using an interactive
+transition.
+
+101
+00:05:12,900 --> 00:05:16,880
+And when we open the view back
+up, we can also still dismiss
+
+102
+00:05:16,880 --> 00:05:20,620
+it using our keyframe
+animation.
+
+103
+00:05:20,620 --> 00:05:23,110
+There's a couple more things you
+can do to really add some
+
+104
+00:05:23,110 --> 00:05:26,120
+polished to your interactive
+transitions.
+
+105
+00:05:26,120 --> 00:05:29,370
+The first one would be to look
+at the velocity of the gesture
+
+106
+00:05:29,370 --> 00:05:31,900
+instead of just the position
+of the gesture.
+
+107
+00:05:31,900 --> 00:05:35,050
+That way, you can allow the user
+to throw the modal down,
+
+108
+00:05:35,050 --> 00:05:38,040
+and it won't cancel
+unexpectedly.
+
+109
+00:05:38,040 --> 00:05:40,500
+Another thing you could
+do is to subclass the
+
+110
+00:05:40,500 --> 00:05:44,230
+UIPercentDrivenI
+nteractiveTransition class and
+
+111
+00:05:44,230 --> 00:05:47,600
+combine it with that animated
+transition used during
+
+112
+00:05:47,600 --> 00:05:48,370
+interactive.
+
+113
+00:05:48,370 --> 00:05:50,310
+That will clean up some
+of your code.
+
+114
+00:05:50,310 --> 00:05:54,100
+Another good idea would be to
+create a separate transition
+
+115
+00:05:54,100 --> 00:05:57,330
+delegate class, instead of
+overloading the presenting
+
+116
+00:05:57,330 --> 00:05:59,730
+view controller like we were
+doing in our paths view
+
+117
+00:05:59,730 --> 00:06:00,980
+controller earlier.
+
+118
+00:06:03,730 --> 00:06:05,930
+But we'll leave that
+for another day.
+
+119
+00:06:05,930 --> 00:06:08,570
+For now, get into the challenges
+and create your
+
+120
+00:06:08,570 --> 00:06:11,240
+first interactive transition.
+
+121
+00:06:11,240 --> 00:06:11,980
+[BEEP]
+
+122
+00:06:11,980 --> 00:06:12,845
+"Guess-ture?"
+
+123
+00:06:12,845 --> 00:06:13,790
+No, gesture.
+
+124
+00:06:13,790 --> 00:06:14,310
+"Jesh."
+
+125
+00:06:14,310 --> 00:06:15,806
+Gesture.
+
+126
+00:06:15,806 --> 00:06:16,240
+[BEEP]
+
+127
+00:06:16,240 --> 00:06:18,158
+[MUMBLING]
+
+128
+00:06:18,158 --> 00:06:18,647
+[BEEP]
+
+129
+00:06:18,647 --> 00:06:21,092
+Ow.
+
+130
+00:06:21,092 --> 00:06:21,581
+Cramp.
+
+131
+00:06:21,581 --> 00:06:22,070
+[BEEP]
+
+132
+00:06:22,070 --> 00:06:23,090
+One ping.
+
+133
+00:06:23,090 --> 00:06:23,690
+Ping?
+
+134
+00:06:23,690 --> 00:06:24,290
+[LAUGHTER]
+
+135
+00:06:24,290 --> 00:06:25,840
+[BEEP]
+

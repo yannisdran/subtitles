@@ -1,0 +1,756 @@
+﻿1
+00:00:02,070 --> 00:00:04,170
+In this section, we're going to
+be talking about some new
+
+2
+00:00:04,170 --> 00:00:06,420
+ways that you have to customize
+the appearance of
+
+3
+00:00:06,420 --> 00:00:09,000
+controls in your application.
+
+4
+00:00:09,000 --> 00:00:11,456
+The first one is called
+tint color.
+
+5
+00:00:11,456 --> 00:00:15,640
+Tint color is an easy way to set
+of key color for all the
+
+6
+00:00:15,640 --> 00:00:19,090
+major UI kit views,
+in just one place.
+
+7
+00:00:19,090 --> 00:00:21,770
+And key colors are very
+important in the look and feel
+
+8
+00:00:21,770 --> 00:00:24,280
+of an iOS 7 app.
+
+9
+00:00:24,280 --> 00:00:27,710
+So here you can see I've got a
+tint color of red set in the
+
+10
+00:00:27,710 --> 00:00:32,040
+top image, and the button
+segmented control, text view
+
+11
+00:00:32,040 --> 00:00:35,750
+cursor, and progress indicator
+all take on this red tint
+
+12
+00:00:35,750 --> 00:00:37,350
+automatically.
+
+13
+00:00:37,350 --> 00:00:40,320
+If I were to set my tint color
+to blue, you might get the
+
+14
+00:00:40,320 --> 00:00:42,860
+image that's appearing at the
+bottom of the screen.
+
+15
+00:00:42,860 --> 00:00:44,730
+Another important thing to
+note, if you're used to
+
+16
+00:00:44,730 --> 00:00:47,950
+working with the UI appearance
+protocol, tint colors has been
+
+17
+00:00:47,950 --> 00:00:50,380
+moved out of that in iOS 7.
+
+18
+00:00:50,380 --> 00:00:53,620
+And you can't set tint color
+with UI appearance anymore.
+
+19
+00:00:56,730 --> 00:00:59,440
+Setting a tint color will save
+you a lot of time and energy
+
+20
+00:00:59,440 --> 00:01:02,170
+when you're coding, because you
+said it once in the most
+
+21
+00:01:02,170 --> 00:01:05,910
+parent view that you can, and
+that color will cascade down
+
+22
+00:01:05,910 --> 00:01:09,340
+to all other child views,
+after that point.
+
+23
+00:01:09,340 --> 00:01:12,600
+So if we set the
+window.tintColor property in
+
+24
+00:01:12,600 --> 00:01:15,870
+the AppDelegate, that's going to
+cascade down to all of the
+
+25
+00:01:15,870 --> 00:01:19,110
+other views that are part
+of that window.
+
+26
+00:01:19,110 --> 00:01:22,360
+The tint color can be changed
+for any one of the child views
+
+27
+00:01:22,360 --> 00:01:26,100
+by just accessing that view's
+tint color property, as you
+
+28
+00:01:26,100 --> 00:01:26,770
+can see here.
+
+29
+00:01:26,770 --> 00:01:29,190
+Controller1's views now
+have a green tint color.
+
+30
+00:01:33,450 --> 00:01:36,480
+Any kind of bars, like a UI
+navigation bar, actually have
+
+31
+00:01:36,580 --> 00:01:37,780
+a separate tint color system, 
+
+32
+00:01:38,050 --> 00:01:39,180
+and they work a little
+bit differently.
+
+33
+00:01:40,080 --> 00:01:43,050
+First you decide what style
+of bar you want to use,
+
+34
+00:01:43,050 --> 00:01:47,080
+and there's two styles in iOS
+7: UIBarStyleDefault and
+
+35
+00:01:47,080 --> 00:01:48,750
+UIBarStyleBlack.
+
+36
+00:01:48,750 --> 00:01:52,080
+As you can see, a default bar
+has a white background with
+
+37
+00:01:52,080 --> 00:01:56,580
+black status bar text and
+navigation item text, while UI
+
+38
+00:01:56,580 --> 00:01:59,350
+bar style black is the
+inverse of that.
+
+39
+00:01:59,350 --> 00:02:02,110
+And this provides a blank
+canvas for you to apply
+
+40
+00:02:02,110 --> 00:02:03,580
+future colors to.
+
+41
+00:02:03,580 --> 00:02:06,150
+So you always have to pick one
+of these first, and we'll
+
+42
+00:02:06,150 --> 00:02:08,380
+apply the colors onto
+them after that.
+
+43
+00:02:08,380 --> 00:02:11,210
+Setting these styles in code
+is as simple as setting the
+
+44
+00:02:11,210 --> 00:02:13,650
+bar style property to one
+of those two constants.
+
+45
+00:02:17,710 --> 00:02:21,210
+So now that we have our base
+layer applied for our bar, we
+
+46
+00:02:21,210 --> 00:02:23,510
+can apply some more vivid
+colors to it.
+
+47
+00:02:23,510 --> 00:02:26,350
+And there's two places
+that we can do that.
+
+48
+00:02:26,350 --> 00:02:29,610
+The first is in a property
+called tintColor, which is a
+
+49
+00:02:29,610 --> 00:02:32,000
+different tint color than
+the one that you
+
+50
+00:02:32,000 --> 00:02:33,980
+apply to your view.
+
+51
+00:02:33,980 --> 00:02:36,480
+So there's two different tint
+colors happening here.
+
+52
+00:02:36,480 --> 00:02:38,380
+One of them is happening
+for your bar.
+
+53
+00:02:38,380 --> 00:02:41,150
+One of them is happening
+for your view.
+
+54
+00:02:41,150 --> 00:02:44,580
+And the tint color in a bar
+actually adjusts the color of
+
+55
+00:02:44,580 --> 00:02:46,980
+different items that are in
+that bar, like the back
+
+56
+00:02:46,980 --> 00:02:50,210
+button, or if you have an
+icon button item in
+
+57
+00:02:50,210 --> 00:02:53,010
+the top right corner.
+
+58
+00:02:53,010 --> 00:02:56,310
+There's another tint property called barTintColor, and
+
+59
+00:02:56,310 --> 00:02:58,380
+that's the one that actually changes the color of the
+
+60
+00:02:58,380 --> 00:03:01,180
+background of the bar itself.
+
+61
+00:03:01,180 --> 00:03:04,550
+So here we set the windows tint color to red, the
+
+62
+00:03:04,550 --> 00:03:08,480
+navigation bar's tint color to green, and the navigation
+
+63
+00:03:08,480 --> 00:03:12,650
+bar's barTintColor to blue, and this is what we get.
+
+64
+00:03:12,650 --> 00:03:16,680
+We get a blue bar with a green highlight, just for the items
+
+65
+00:03:16,680 --> 00:03:20,410
+in the nav bar, and a red highlight for the items that
+
+66
+00:03:20,410 --> 00:03:21,680
+are part of the main view.
+
+67
+00:03:24,350 --> 00:03:27,850
+Another place where the tint
+color of a bar comes into play
+
+68
+00:03:27,850 --> 00:03:32,150
+is when you work with tab bar
+items that have images.
+
+69
+00:03:32,150 --> 00:03:35,010
+And there's a different way
+that iOS 7 renders some of
+
+70
+00:03:35,010 --> 00:03:37,680
+these images that we
+need to look at.
+
+71
+00:03:37,680 --> 00:03:39,850
+So for example, we have
+this bar image -
+
+72
+00:03:39,850 --> 00:03:41,080
+ios_icon.png.
+
+73
+00:03:43,080 --> 00:03:45,950
+And if we load that image,
+we need to now also set a
+
+74
+00:03:45,950 --> 00:03:47,680
+rendering mode for it.
+
+75
+00:03:47,680 --> 00:03:49,310
+The first rendering mode,
+UIimageRendering
+
+76
+00:03:49,310 --> 00:03:54,510
+ModeAlwaysTemplate, is going to
+take that iOS icon and fill
+
+77
+00:03:54,510 --> 00:03:57,750
+it in with whatever our tint
+color was for our bar.
+
+78
+00:03:57,750 --> 00:03:59,910
+If we don't want that to happen,
+and we instead want to
+
+79
+00:03:59,910 --> 00:04:02,810
+show the original image, we'll
+want to set the rendering mode
+
+80
+00:04:02,810 --> 00:04:07,110
+to UIimageRendering
+ModeAlwaysOriginal, and then
+
+81
+00:04:07,110 --> 00:04:10,350
+that's going to insert that
+image for the bar icon with
+
+82
+00:04:10,350 --> 00:04:11,750
+no tint color applied.
+
+83
+00:04:14,580 --> 00:04:17,110
+You might have noticed earlier
+when we looked at our Senator
+
+84
+00:04:17,110 --> 00:04:20,550
+Showdown Sample app, the UI
+buttons that were on the
+
+85
+00:04:20,550 --> 00:04:24,950
+showdown view controller had
+a blue tint to them.
+
+86
+00:04:24,950 --> 00:04:28,580
+So, we would need to make that
+view's tint color purple, so
+
+87
+00:04:28,580 --> 00:04:31,610
+our button text matches the
+overall purple theme that we
+
+88
+00:04:31,610 --> 00:04:34,180
+have in this view controller.
+
+89
+00:04:34,180 --> 00:04:37,380
+You'll notice that our bar tint
+color is already purple,
+
+90
+00:04:37,380 --> 00:04:40,210
+because we've got these little
+purple filled in template
+
+91
+00:04:40,210 --> 00:04:43,680
+icons for the showdown, history,
+and statistics tabs.
+
+92
+00:04:46,480 --> 00:04:49,450
+So because of the sort of global
+nature of applying tint
+
+93
+00:04:49,450 --> 00:04:52,880
+color, we can add this tint
+color in two places.
+
+94
+00:04:52,880 --> 00:04:55,350
+The first places in
+our AppDelegate.
+
+95
+00:04:55,350 --> 00:04:59,510
+We can add it using
+self.window.tintColor, and set
+
+96
+00:04:59,510 --> 00:05:01,750
+our color to purple there.
+
+97
+00:05:01,750 --> 00:05:05,180
+Or inside of this specific view
+controller, showdown view
+
+98
+00:05:05,180 --> 00:05:07,650
+controller, we can just
+set the tint color
+
+99
+00:05:07,650 --> 00:05:09,180
+property of the view.
+
+100
+00:05:09,180 --> 00:05:12,110
+And either of those approaches
+will still get us the purple
+
+101
+00:05:12,110 --> 00:05:13,380
+button at the end.
+
+102
+00:05:15,950 --> 00:05:19,280
+There's another great feature that's
+been added to Xcode 5 with the
+
+103
+00:05:19,280 --> 00:05:23,380
+release of iOS 7, and that's
+called "Asset Catalogs."
+
+104
+00:05:23,380 --> 00:05:26,150
+So you're probably used to
+something like this in your
+
+105
+00:05:26,150 --> 00:05:30,550
+project navigator, a whole lot
+of .h and .m files, and then
+
+106
+00:05:30,550 --> 00:05:32,210
+lots of different images
+at different
+
+107
+00:05:32,210 --> 00:05:33,450
+places inside of there.
+
+108
+00:05:33,450 --> 00:05:35,980
+And it can sometimes get hard to
+read and get really jumbled
+
+109
+00:05:35,980 --> 00:05:39,150
+up, because you need different
+images for different purposes
+
+110
+00:05:39,150 --> 00:05:42,080
+and different device
+resolutions, like the iPhone
+
+111
+00:05:42,080 --> 00:05:45,180
+3GS and iPhone 4 have different
+resolutions, so
+
+112
+00:05:45,180 --> 00:05:47,210
+they'll need different
+image sizes.
+
+113
+00:05:47,210 --> 00:05:50,050
+The different iPads have some
+different resolutions.
+
+114
+00:05:50,050 --> 00:05:52,780
+And you'll end up with folders
+just full of different images,
+
+115
+00:05:52,780 --> 00:05:54,150
+with different names.
+
+116
+00:05:54,150 --> 00:05:57,110
+And it can get complicated to
+keep them all organized.
+
+117
+00:05:57,110 --> 00:05:59,950
+So the Asset Catalog is a way
+to organize all of those
+
+118
+00:05:59,950 --> 00:06:02,510
+images into easy to
+use image sets.
+
+119
+00:06:05,450 --> 00:06:08,850
+You'll notice when you create a
+new project in Xcode 5, that
+
+120
+00:06:08,850 --> 00:06:13,380
+you automatically have a new
+file called "images.xcassets."
+
+121
+00:06:13,380 --> 00:06:15,650
+And clicking on that assets
+file will give you a more
+
+122
+00:06:15,650 --> 00:06:18,080
+organized list of all the
+image assets that you've
+
+123
+00:06:18,080 --> 00:06:19,750
+brought into your project.
+
+124
+00:06:19,750 --> 00:06:23,680
+Images get imported and stored
+directly in the asset catalog,
+
+125
+00:06:23,680 --> 00:06:26,550
+so you don't need to still
+import them using the old add
+
+126
+00:06:26,550 --> 00:06:28,380
+files approach that you
+did in the project
+
+127
+00:06:28,380 --> 00:06:32,180
+navigator in iOS 6.
+
+128
+00:06:32,180 --> 00:06:34,780
+So once you have some images
+imported into the asset
+
+129
+00:06:34,780 --> 00:06:38,480
+catalog, accessing them in
+your code is as easy as
+
+130
+00:06:38,480 --> 00:06:41,110
+referencing the name
+of the image set.
+
+131
+00:06:41,110 --> 00:06:45,080
+So here I've got an image set
+named 415-weightlighter.
+
+132
+00:06:45,080 --> 00:06:50,310
+And it's a set of icons at both
+1x and 2x resolution.
+
+133
+00:06:50,310 --> 00:06:52,880
+If I want to access that in a
+view controller in my code
+
+134
+00:06:52,880 --> 00:06:55,980
+base, I just need to access an
+image named 415-weightlifter.
+
+135
+00:06:58,580 --> 00:07:01,380
+Referencing an image from an
+image st is great, because
+
+136
+00:07:01,380 --> 00:07:04,480
+it's automatically going to pick
+the right image for you,
+
+137
+00:07:04,480 --> 00:07:07,850
+depending on which device is
+running the app at that time.
+
+138
+00:07:10,750 --> 00:07:13,980
+Now another thing I want to
+point out is that these images
+
+139
+00:07:13,980 --> 00:07:18,250
+are no longer part of your
+normal project folder, instead
+
+140
+00:07:18,250 --> 00:07:22,050
+they're part of this
+xcassets structure.
+
+141
+00:07:22,050 --> 00:07:25,150
+So it should be safe to delete
+any of the old images in your
+
+142
+00:07:25,150 --> 00:07:28,610
+main project folder, after
+you've successfully added them
+
+143
+00:07:28,610 --> 00:07:29,880
+to the asset catalog.
+
+144
+00:07:32,310 --> 00:07:34,080
+And the last thing I want to
+point out about the asset
+
+145
+00:07:34,080 --> 00:07:37,510
+catalog is it makes it really
+easy to target exactly the
+
+146
+00:07:37,510 --> 00:07:40,550
+devices that you're going to
+need to support in your app.
+
+147
+00:07:40,550 --> 00:07:44,010
+So you can just right click on
+any image set, and choose the
+
+148
+00:07:44,010 --> 00:07:46,680
+types of devices that
+you want to support.
+
+149
+00:07:46,680 --> 00:07:49,610
+And when you do that, you'll get
+indicators for different
+
+150
+00:07:49,610 --> 00:07:53,210
+images for you running on the
+iPad, running on the iPhone,
+
+151
+00:07:53,210 --> 00:07:56,550
+running on a Mac app, or
+universal images that are set
+
+152
+00:07:56,550 --> 00:07:59,150
+up to run the best they can
+on all of those devices.
+
+153
+00:08:03,210 --> 00:08:05,550
+So now it's time for you work with
+the asset catalog and
+
+154
+00:08:05,550 --> 00:08:09,750
+customize the appearance of your
+app in the challenges.
+
+155
+00:08:09,750 --> 00:08:12,510
+What it - the way it worked
+when we put it as yes.
+
+156
+00:08:12,510 --> 00:08:12,810
+[INAUDIBLE].
+
+157
+00:08:12,810 --> 00:08:14,080
+Bleh, bleh, bleh.
+
+158
+00:08:14,080 --> 00:08:14,750
+Ugh.
+

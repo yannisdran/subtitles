@@ -1,0 +1,890 @@
+﻿1
+00:00:02,040 --> 00:00:03,110
+Welcome back.
+
+2
+00:00:03,110 --> 00:00:06,230
+In this section, we're going
+to learn how to use dynamic
+
+3
+00:00:06,230 --> 00:00:09,590
+behaviors to enhance the display
+of a notice view
+
+4
+00:00:09,590 --> 00:00:11,970
+whenever the "save" button is
+tapped in our articles
+
+5
+00:00:11,970 --> 00:00:14,740
+application.
+
+6
+00:00:14,740 --> 00:00:17,510
+So before we get too far, let's
+set up our plan for how
+
+7
+00:00:17,510 --> 00:00:21,220
+to make this notification
+view snap into place.
+
+8
+00:00:21,220 --> 00:00:24,120
+So first we'll need a notice
+view property so that we can
+
+9
+00:00:24,120 --> 00:00:25,470
+access that view.
+
+10
+00:00:25,470 --> 00:00:27,630
+Then, when the "save" button is
+tapped, we're going to call
+
+11
+00:00:27,630 --> 00:00:29,920
+the saveArticle method.
+
+12
+00:00:29,920 --> 00:00:31,910
+Inside of that method,
+we'll initialize and
+
+13
+00:00:31,910 --> 00:00:34,060
+add our notice view.
+
+14
+00:00:34,060 --> 00:00:37,170
+We'll set the notice view's
+frame to somewhere offscreen
+
+15
+00:00:37,170 --> 00:00:39,750
+so that it can bounce in.
+
+16
+00:00:39,750 --> 00:00:42,530
+And finally, we'll use a snap
+behavior to hold that view
+
+17
+00:00:42,530 --> 00:00:44,420
+onto the screen at the
+point that we want.
+
+18
+00:00:47,730 --> 00:00:49,740
+So here we are creating
+the notice view.
+
+19
+00:00:49,740 --> 00:00:53,030
+And we're setting the y position
+to start offscreen so
+
+20
+00:00:53,030 --> 00:00:55,340
+that when we snap it into place,
+it looks like it just
+
+21
+00:00:55,340 --> 00:00:57,010
+magically appears
+from the top.
+
+22
+00:01:03,340 --> 00:01:07,100
+Then we'll create a UI snap
+behavior, initializing it with
+
+23
+00:01:07,100 --> 00:01:09,550
+the item self.noticeView.
+
+24
+00:01:09,550 --> 00:01:11,710
+And we have an extra part of
+this initializer called
+
+25
+00:01:11,710 --> 00:01:15,600
+snapToPoint that determines
+where the final resting place
+
+26
+00:01:15,600 --> 00:01:17,700
+of this notice view
+will be after the
+
+27
+00:01:17,700 --> 00:01:20,560
+snap behavior is applied.
+
+28
+00:01:20,560 --> 00:01:22,960
+Now, it's important to note at
+this point we're snapping to
+
+29
+00:01:22,960 --> 00:01:26,540
+is not the top left corner of
+where we want to view to be.
+
+30
+00:01:26,540 --> 00:01:28,130
+It's actually the center
+point of where we
+
+31
+00:01:28,130 --> 00:01:29,560
+want the view to be.
+
+32
+00:01:29,560 --> 00:01:33,350
+So here we've set it to 160 x,
+to be right smack in the
+
+33
+00:01:33,350 --> 00:01:37,230
+middle of the view, and then 15 y
+so that sits nicely right
+
+34
+00:01:37,230 --> 00:01:38,630
+underneath that navigation
+bar.
+
+35
+00:01:41,470 --> 00:01:43,620
+And here you can see
+the result of that.
+
+36
+00:01:43,620 --> 00:01:46,780
+But right now, it's not very
+bouncy when it comes in.
+
+37
+00:01:46,780 --> 00:01:49,310
+It really just looks like
+it sort of slides in.
+
+38
+00:01:49,310 --> 00:01:54,600
+So there's a property on UI snap
+behaviors called damping.
+
+39
+00:01:54,600 --> 00:01:56,640
+And when we adjust that damping,
+we use a number
+
+40
+00:01:56,640 --> 00:01:58,920
+between 0 and 1.
+
+41
+00:01:58,920 --> 00:02:01,070
+0 means that it's going
+to be really bouncy
+
+42
+00:02:01,070 --> 00:02:02,420
+when it pulls in.
+
+43
+00:02:02,420 --> 00:02:05,230
+And 1 means it's not going
+to be bouncy at all.
+
+44
+00:02:05,230 --> 00:02:07,420
+So here, we've set it to 0.3.
+
+45
+00:02:07,420 --> 00:02:09,300
+It's really a matter of
+personal preference.
+
+46
+00:02:09,300 --> 00:02:11,680
+So you'll likely be playing
+with different values for
+
+47
+00:02:11,680 --> 00:02:14,240
+damping as you put snap
+behaviors in your own
+
+48
+00:02:14,240 --> 00:02:15,490
+applications.
+
+49
+00:02:17,760 --> 00:02:20,110
+So now when we tap the Save
+button, you can see that
+
+50
+00:02:20,110 --> 00:02:23,170
+notice view slides down into
+place and kind of has a little
+
+51
+00:02:23,170 --> 00:02:26,160
+bit of bounciness to it before
+it comes to rest.
+
+52
+00:02:26,160 --> 00:02:28,830
+So we're still not done because
+this notice view never
+
+53
+00:02:28,830 --> 00:02:29,860
+disappears.
+
+54
+00:02:29,860 --> 00:02:31,530
+We click the Save button,
+and it bounces into
+
+55
+00:02:31,530 --> 00:02:32,700
+place like we want.
+
+56
+00:02:32,700 --> 00:02:34,750
+And then it just stays
+there forever.
+
+57
+00:02:34,750 --> 00:02:36,840
+We want the notice view
+to go away after the
+
+58
+00:02:36,840 --> 00:02:38,000
+animation is stopped.
+
+59
+00:02:38,000 --> 00:02:40,810
+So we need to figure out a way
+to programmatically access
+
+60
+00:02:40,810 --> 00:02:42,060
+when that is.
+
+61
+00:02:44,350 --> 00:02:47,090
+And the way that we do that is
+by adopting the UI dynamic
+
+62
+00:02:47,090 --> 00:02:50,820
+animator delegate protocol in
+our header and then setting
+
+63
+00:02:50,820 --> 00:02:53,774
+the self.animator's
+delegate to self.
+
+64
+00:02:53,774 --> 00:02:56,750
+That animator delegate protocol
+gives us access to a
+
+65
+00:02:56,750 --> 00:03:01,450
+method that runs whenever
+the animation stops.
+
+66
+00:03:01,450 --> 00:03:04,280
+The flow here is that before the
+snap behavior starts, the
+
+67
+00:03:04,280 --> 00:03:07,070
+notice view is offscreen.
+
+68
+00:03:07,070 --> 00:03:09,610
+As the snap behavior continues,
+you see that the
+
+69
+00:03:09,610 --> 00:03:12,750
+notice view starts snapping
+into place.
+
+70
+00:03:12,750 --> 00:03:15,500
+And then as soon as the notice
+view comes to rest, the
+
+71
+00:03:15,500 --> 00:03:16,300
+delegate method
+
+72
+00:03:16,300 --> 00:03:19,820
+dynamicAnimatorDidPause is called.
+
+73
+00:03:19,820 --> 00:03:22,880
+Inside of this delegate method,
+we'll first remove all
+
+74
+00:03:22,880 --> 00:03:25,920
+existing behaviors from our
+animator, which is probably a
+
+75
+00:03:25,920 --> 00:03:27,850
+good step because our
+snap behavior has
+
+76
+00:03:27,850 --> 00:03:29,690
+finished at this point.
+
+77
+00:03:29,690 --> 00:03:33,620
+And then we'll remove our notice
+view from our main view
+
+78
+00:03:33,620 --> 00:03:34,870
+so it disappears.
+
+79
+00:03:37,330 --> 00:03:39,410
+So now you can see that
+this works as planned.
+
+80
+00:03:39,410 --> 00:03:40,900
+We hit the "save" button,
+
+81
+00:03:40,900 --> 00:03:42,280
+the view pops in,
+
+82
+00:03:42,280 --> 00:03:44,480
+and then after the animation
+stops, it completely
+
+83
+00:03:44,480 --> 00:03:45,810
+disappears.
+
+84
+00:03:45,810 --> 00:03:47,930
+But we can use dynamics to
+make this a little more
+
+85
+00:03:47,930 --> 00:03:50,300
+interesting because just
+having it immediately
+
+86
+00:03:50,300 --> 00:03:52,370
+disappear is not so exciting.
+
+87
+00:03:52,370 --> 00:03:55,510
+So we'll add another behavior
+after the snap stops that's
+
+88
+00:03:55,510 --> 00:03:57,115
+going to push that
+view offscreen.
+
+89
+00:03:59,690 --> 00:04:01,970
+So back in our
+dynamicAnimatorDidPause
+
+90
+00:04:01,970 --> 00:04:05,100
+method, we've removed all of our
+behaviors, which at this
+
+91
+00:04:05,100 --> 00:04:07,360
+point, is just our
+snap behavior.
+
+92
+00:04:07,360 --> 00:04:09,540
+We're creating a UI push
+behavior for the
+
+93
+00:04:09,540 --> 00:04:10,990
+self.noticeView.
+
+94
+00:04:10,990 --> 00:04:12,890
+And we're using the
+instantaneous mode, which
+
+95
+00:04:12,890 --> 00:04:16,019
+means that it just applies that
+push once and then the
+
+96
+00:04:16,019 --> 00:04:17,760
+animator takes over.
+
+97
+00:04:17,760 --> 00:04:19,420
+And we need to decide
+which direction to
+
+98
+00:04:19,420 --> 00:04:21,200
+push this view in.
+
+99
+00:04:21,200 --> 00:04:23,530
+So we do that, just like we did
+with gravity, by using a
+
+100
+00:04:23,530 --> 00:04:25,800
+vector to determine the
+direction that the
+
+101
+00:04:25,800 --> 00:04:27,670
+push should go in.
+
+102
+00:04:27,670 --> 00:04:30,420
+Here we're pushing things
+to the right.
+
+103
+00:04:30,420 --> 00:04:32,620
+And finally, we add the push
+behavior to the animator.
+
+104
+00:04:36,040 --> 00:04:38,220
+So we do have another
+little problem here.
+
+105
+00:04:38,220 --> 00:04:39,610
+And let's see what's
+happening.
+
+106
+00:04:39,610 --> 00:04:42,790
+So before we push, the
+self.noticeView is just
+
+107
+00:04:42,790 --> 00:04:45,040
+sitting there at the
+top of the screen.
+
+108
+00:04:45,040 --> 00:04:47,790
+And then the push starts, and it
+starts moving to the right.
+
+109
+00:04:47,790 --> 00:04:50,300
+And then it continues moving
+further to the right.
+
+110
+00:04:50,300 --> 00:04:52,400
+And now it's even moving
+offscreen.
+
+111
+00:04:52,400 --> 00:04:54,230
+We don't even see it
+anymore, yet the
+
+112
+00:04:54,230 --> 00:04:56,200
+push is still happening.
+
+113
+00:04:56,200 --> 00:05:00,040
+And that's because unlike snap,
+there's no real default
+
+114
+00:05:00,040 --> 00:05:02,780
+stop state for a
+push behavior.
+
+115
+00:05:02,780 --> 00:05:04,220
+You just start pushing,
+and it just
+
+116
+00:05:04,220 --> 00:05:05,640
+continues going on forever.
+
+117
+00:05:08,160 --> 00:05:10,350
+So the way that we can solve
+this is by implementing this
+
+118
+00:05:10,350 --> 00:05:14,110
+block called action that we get
+because we're part of the
+
+119
+00:05:14,110 --> 00:05:16,440
+UIDynamicBehavior class.
+
+120
+00:05:16,440 --> 00:05:19,390
+Remember that all behaviors
+inherit from a UIDynamic
+
+121
+00:05:19,390 --> 00:05:21,380
+Behavior class.
+
+122
+00:05:21,380 --> 00:05:23,580
+And inside of that action block,
+we can actually get
+
+123
+00:05:23,580 --> 00:05:27,610
+updates about the status
+of our animation.
+
+124
+00:05:27,610 --> 00:05:31,190
+So let's start by logging out
+the frame inside of the action
+
+125
+00:05:31,190 --> 00:05:32,630
+block so we can see
+what's happening
+
+126
+00:05:32,630 --> 00:05:34,260
+with this push behavior.
+
+127
+00:05:34,260 --> 00:05:36,910
+So as the Save button is tapped
+and the push animation
+
+128
+00:05:36,910 --> 00:05:41,530
+begins, we can see that the x
+position of our notice view is
+
+129
+00:05:41,530 --> 00:05:44,460
+just increasing into infinity.
+
+130
+00:05:44,460 --> 00:05:46,910
+Even after it's offscreen, the
+number just keeps going bigger
+
+131
+00:05:46,910 --> 00:05:50,280
+and bigger and bigger.
+
+132
+00:05:50,280 --> 00:05:52,840
+Our strategy for solving this
+problem is to detect if the
+
+133
+00:05:52,840 --> 00:05:57,420
+current frame of our notice view
+no longer appears inside
+
+134
+00:05:57,420 --> 00:05:59,940
+of the bounds of self.view.
+
+135
+00:05:59,940 --> 00:06:02,530
+That means that it will
+have moved offscreen.
+
+136
+00:06:02,530 --> 00:06:06,330
+We can use the
+CGRectIntersectsRect function,
+
+137
+00:06:06,330 --> 00:06:09,260
+passing in two rectangles
+that we want to compare.
+
+138
+00:06:09,260 --> 00:06:12,000
+Now, this function will be true
+as long as the notice
+
+139
+00:06:12,000 --> 00:06:13,980
+view is partially onscreen.
+
+140
+00:06:13,980 --> 00:06:17,020
+Because there'll be some
+intersection between self.view
+
+141
+00:06:17,020 --> 00:06:18,710
+and that notice view's frame.
+
+142
+00:06:18,710 --> 00:06:20,790
+We want to check when that
+function is not true.
+
+143
+00:06:23,480 --> 00:06:26,990
+So when these two frames are not
+overlapping anymore, we'll
+
+144
+00:06:26,990 --> 00:06:28,395
+remove the push behavior.
+
+145
+00:06:31,660 --> 00:06:34,305
+And we'll remove the notice view
+from the view hierarchy.
+
+146
+00:06:38,940 --> 00:06:41,190
+And here you can see the result
+of first snapping into
+
+147
+00:06:41,190 --> 00:06:44,910
+place and then pushing
+offscreen.
+
+148
+00:06:44,910 --> 00:06:47,110
+Let's try another approach
+that's a little more creative
+
+149
+00:06:47,110 --> 00:06:49,610
+using UI kit dynamics.
+
+150
+00:06:49,610 --> 00:06:52,620
+We'll still start by snapping
+our view into place.
+
+151
+00:06:52,620 --> 00:06:55,810
+But then we'll apply a downward
+gravity pull.
+
+152
+00:06:55,810 --> 00:06:58,360
+And we'll even turn the view a
+little bit with an angular
+
+153
+00:06:58,360 --> 00:07:00,690
+velocity so that it appears
+to kind of turn
+
+154
+00:07:00,690 --> 00:07:02,600
+and then fall offscreen.
+
+155
+00:07:02,600 --> 00:07:06,180
+That's a little more fun than
+just pushing it offscreen.
+
+156
+00:07:06,180 --> 00:07:08,800
+Back in our delegate method,
+we'll replace the push
+
+157
+00:07:08,800 --> 00:07:10,920
+behavior with a downward
+gravity behavior.
+
+158
+00:07:15,870 --> 00:07:19,160
+And then we'll create a UI
+DynamicItemBehavior
+
+159
+00:07:19,160 --> 00:07:22,060
+initializing with the
+self.noticeView item.
+
+160
+00:07:22,060 --> 00:07:25,020
+And remember that UIDynamic
+ItemBehavior is this generic
+
+161
+00:07:25,020 --> 00:07:29,390
+class that allows us to add some
+velocity and elasticity
+
+162
+00:07:29,390 --> 00:07:31,130
+and deal with some
+of the physical
+
+163
+00:07:31,130 --> 00:07:33,810
+properties of the view.
+
+164
+00:07:33,810 --> 00:07:36,350
+So here we're adding an angular
+velocity for the
+
+165
+00:07:36,350 --> 00:07:37,690
+self.noticeView item.
+
+166
+00:07:37,690 --> 00:07:41,860
+And that's going to turn the view down slightly as the
+
+167
+00:07:41,860 --> 00:07:43,110
+gravity is pulling it down.
+
+168
+00:07:46,110 --> 00:07:48,680
+Now we've got our falling and
+turning notice view, just like
+
+169
+00:07:48,680 --> 00:07:50,930
+we expected, but there's
+another problem.
+
+170
+00:07:50,930 --> 00:07:54,130
+If we hit the Save button
+multiple times, it's actually
+
+171
+00:07:54,130 --> 00:07:56,160
+adding multiple notice views.
+
+172
+00:07:56,160 --> 00:07:58,540
+And it's freezing them
+in motion when we
+
+173
+00:07:58,540 --> 00:07:59,590
+tap the Save button.
+
+174
+00:07:59,590 --> 00:08:01,170
+And this is not what we want.
+
+175
+00:08:03,870 --> 00:08:06,460
+Fortunately, this is
+a really easy fix.
+
+176
+00:08:06,460 --> 00:08:09,410
+Because we're adding
+self.noticeView inside of the
+
+177
+00:08:09,410 --> 00:08:13,130
+save article method, all we need
+to do is first check if
+
+178
+00:08:13,130 --> 00:08:18,290
+self.noticeView is already
+a child of self.view.
+
+179
+00:08:18,290 --> 00:08:21,040
+And if it is, then we want to
+remove it from the superview
+
+180
+00:08:21,040 --> 00:08:23,390
+first and remove all the
+behaviors, which will give us
+
+181
+00:08:23,390 --> 00:08:26,640
+a nice fresh new notice view
+when the animation starts.
+
+182
+00:08:29,920 --> 00:08:32,460
+So if we look at this again, now
+we can see that we can tap
+
+183
+00:08:32,460 --> 00:08:34,360
+the Save button multiple
+times.
+
+184
+00:08:34,360 --> 00:08:36,640
+And every time we tap, even if
+it's in the middle of an
+
+185
+00:08:36,640 --> 00:08:39,450
+animation, it will completely
+wipe out that notice view and
+
+186
+00:08:39,450 --> 00:08:42,190
+give us a brand-new one at the
+start animation state.
+
+187
+00:08:44,740 --> 00:08:46,600
+It's time for you get your
+hands dirty with more
+
+188
+00:08:46,600 --> 00:08:48,340
+animation behaviors
+in the challenges.
+

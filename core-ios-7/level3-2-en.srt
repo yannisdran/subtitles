@@ -1,0 +1,467 @@
+﻿1
+00:00:01,972 --> 00:00:02,960
+Welcome back.
+
+2
+00:00:02,960 --> 00:00:05,840
+Now, we left off in the last
+section with a cool custom
+
+3
+00:00:05,840 --> 00:00:09,200
+presentation animation,
+as you can see here.
+
+4
+00:00:09,200 --> 00:00:12,520
+Now when the user taps the Sign
+In button, we're going to
+
+5
+00:00:12,520 --> 00:00:15,010
+dismiss that view controller.
+
+6
+00:00:15,010 --> 00:00:17,110
+Now it looks like everything
+went all right, but if you
+
+7
+00:00:17,110 --> 00:00:20,820
+were in the console you'd see
+this warning, because if you
+
+8
+00:00:20,820 --> 00:00:24,290
+have a custom presentation,
+your dismissal
+
+9
+00:00:24,290 --> 00:00:25,540
+also has to be custom.
+
+10
+00:00:27,840 --> 00:00:30,200
+In this section, we're going
+to walk you through how to
+
+11
+00:00:30,200 --> 00:00:33,370
+create that custom dismissal
+transition, and we're even
+
+12
+00:00:33,370 --> 00:00:37,330
+going to use some of the new
+key frame APIs in iOS 7.
+
+13
+00:00:37,330 --> 00:00:40,980
+As you can see here, when we hit
+Sign In, our view goes up
+
+14
+00:00:40,980 --> 00:00:46,160
+a bit and then will shoot down
+to the bottom of the screen.
+
+15
+00:00:46,160 --> 00:00:49,520
+So in a plain modal dismissal,
+for example, when the user
+
+16
+00:00:49,520 --> 00:00:52,420
+taps on this Sign In button
+here, it would sign them and
+
+17
+00:00:52,420 --> 00:00:54,970
+dismiss the view controller,
+we would have
+
+18
+00:00:54,970 --> 00:00:56,430
+something like this.
+
+19
+00:00:56,430 --> 00:00:59,600
+All we'd have to do is call
+dismissViewControllerAnimated,
+
+20
+00:00:59,600 --> 00:01:03,630
+completion, and pass in YES.
+
+21
+00:01:03,630 --> 00:01:06,260
+Obviously, there's a little bit
+more work to do to create
+
+22
+00:01:06,260 --> 00:01:08,250
+a custom dismissal.
+
+23
+00:01:08,250 --> 00:01:12,390
+First, we need to adopt the
+transitioning delegate, then
+
+24
+00:01:12,390 --> 00:01:15,350
+we need to create the animation
+transition class for
+
+25
+00:01:15,350 --> 00:01:18,730
+the dismissal, next we would
+implement the dismissal
+
+26
+00:01:18,730 --> 00:01:21,590
+transition delegate method, and
+then we would implement
+
+27
+00:01:21,590 --> 00:01:25,930
+the key frame animation in the
+animated transition class.
+
+28
+00:01:25,930 --> 00:01:28,230
+These steps might
+look familiar.
+
+29
+00:01:28,230 --> 00:01:31,080
+In fact, a lot of what we're
+going to do to create a custom
+
+30
+00:01:31,080 --> 00:01:35,580
+dismissal transition is pretty
+much the exact same thing as
+
+31
+00:01:35,580 --> 00:01:38,175
+the custom presentation
+with just a couple
+
+32
+00:01:38,175 --> 00:01:41,390
+little things different.
+
+33
+00:01:41,390 --> 00:01:44,580
+Remember, we already adopted
+the transitioning delegate
+
+34
+00:01:44,580 --> 00:01:46,260
+protocol on our past view
+
+35
+00:01:46,260 --> 00:01:48,650
+controller in the last section.
+
+36
+00:01:48,650 --> 00:01:50,930
+And so we don't actually
+need to do that again.
+
+37
+00:01:50,930 --> 00:01:54,160
+What we'll need to do is
+implement the animation
+
+38
+00:01:54,160 --> 00:01:57,410
+controller for Dismiss
+Controller method that's a
+
+39
+00:01:57,410 --> 00:02:00,080
+part of the transitioning
+delegate protocol.
+
+40
+00:02:00,080 --> 00:02:03,030
+Notice how both objects that
+get returned from these
+
+41
+00:02:03,030 --> 00:02:06,690
+methods have to adopt the UI
+View Controller animated
+
+42
+00:02:06,690 --> 00:02:10,050
+transitioning protocol.
+
+43
+00:02:10,050 --> 00:02:12,740
+Before we can implement this
+dismissal method, we'll have
+
+44
+00:02:12,740 --> 00:02:16,150
+to create the animated
+transition class for the
+
+45
+00:02:16,150 --> 00:02:17,570
+custom transition.
+
+46
+00:02:17,570 --> 00:02:21,070
+Just like in the last section
+when we created the custom
+
+47
+00:02:21,070 --> 00:02:24,820
+presentation, we're going to
+create a plain object here
+
+48
+00:02:24,820 --> 00:02:27,560
+that conforms to the UI View
+Controller animated
+
+49
+00:02:27,560 --> 00:02:29,180
+transitioning protocol.
+
+50
+00:02:29,180 --> 00:02:32,030
+We're going to give it the name
+TwoStepTransition to
+
+51
+00:02:32,030 --> 00:02:35,160
+differentiate it from the
+BouncyTransition we created in
+
+52
+00:02:35,160 --> 00:02:36,410
+the last section.
+
+53
+00:02:36,410 --> 00:02:39,860
+Again, we're going to need to
+implement two methods, the
+
+54
+00:02:39,860 --> 00:02:43,750
+transition duration method and
+the animate transition method.
+
+55
+00:02:43,750 --> 00:02:46,440
+Notice that while we're
+returning one second from the
+
+56
+00:02:46,440 --> 00:02:49,980
+transition duration method, it
+doesn't have to be the same as
+
+57
+00:02:49,980 --> 00:02:52,910
+our presentation animation we
+created in the last section.
+
+58
+00:02:52,910 --> 00:02:56,450
+It can be anything you want.
+
+59
+00:02:56,450 --> 00:02:58,890
+So back in our Paths View
+Controller we can implement
+
+60
+00:02:58,890 --> 00:03:02,680
+the dismissal method now and
+just return a new instance of
+
+61
+00:03:02,680 --> 00:03:04,480
+the TwoStep Transition class.
+
+62
+00:03:07,390 --> 00:03:10,880
+Now when we jump back into our
+animate transition method on
+
+63
+00:03:10,880 --> 00:03:15,400
+our TwoStep Transition class,
+you'll notice that even though
+
+64
+00:03:15,400 --> 00:03:18,830
+our code looks the same, the
+to and the from view
+
+65
+00:03:18,830 --> 00:03:20,950
+controllers have flipped.
+
+66
+00:03:20,950 --> 00:03:24,580
+As you can see, the To view
+controller now refers to the
+
+67
+00:03:24,580 --> 00:03:28,110
+paths view controller, and the
+From controller refers to the
+
+68
+00:03:28,110 --> 00:03:29,850
+login view controller.
+
+69
+00:03:29,850 --> 00:03:32,900
+That's because we're going from
+the login view controller
+
+70
+00:03:32,900 --> 00:03:34,490
+back to the paths
+view controller.
+
+71
+00:03:37,530 --> 00:03:40,760
+Another difference here is
+that both our To and From
+
+72
+00:03:40,760 --> 00:03:43,870
+views are already in the
+container view, so we don't
+
+73
+00:03:43,870 --> 00:03:46,910
+need to add any views before
+we do the animation.
+
+74
+00:03:46,910 --> 00:03:51,150
+So we can jump right
+into the key frame.
+
+75
+00:03:51,150 --> 00:03:53,650
+Before we start animating, we're
+going to need the frame
+
+76
+00:03:53,650 --> 00:03:56,820
+of the login view controller,
+and we're going to get that by
+
+77
+00:03:56,820 --> 00:03:59,720
+calling the
+initialFrameForViewController
+
+78
+00:03:59,720 --> 00:04:00,970
+on the transition context.
+
+79
+00:04:04,150 --> 00:04:06,730
+Next we're going to start the
+animation by using the new key
+
+80
+00:04:06,730 --> 00:04:08,380
+frame animation API.
+
+81
+00:04:08,380 --> 00:04:12,240
+Our first step will be moving
+that login view off the top of
+
+82
+00:04:12,240 --> 00:04:13,490
+the screen.
+
+83
+00:04:19,430 --> 00:04:21,740
+The next step of the key frame,
+we'll just move the
+
+84
+00:04:21,740 --> 00:04:24,740
+view off the bottom of the
+screen and rotate it a bit.
+
+85
+00:04:27,240 --> 00:04:29,850
+Now, there's one little error
+in this code where we're
+
+86
+00:04:29,850 --> 00:04:33,140
+trying to change a variable
+inside of a block -
+
+87
+00:04:33,140 --> 00:04:36,050
+that presented frame variable.
+
+88
+00:04:36,050 --> 00:04:39,870
+To fix this, all we need to do
+is add a under under block
+
+89
+00:04:39,870 --> 00:04:41,960
+declaration before
+the presented
+
+90
+00:04:41,960 --> 00:04:43,490
+frame variable is defined.
+
+91
+00:04:43,490 --> 00:04:47,230
+And that means we'll be able to
+modify that variable inside
+
+92
+00:04:47,230 --> 00:04:49,130
+of a block.
+
+93
+00:04:49,130 --> 00:04:51,710
+Now it's your turn to implement
+a custom dismissal
+
+94
+00:04:51,710 --> 00:04:57,332
+transition using some key frames
+in the challenges.
+
+95
+00:04:57,332 --> 00:04:58,328
+Next.
+
+96
+00:04:58,328 --> 00:05:00,320
+Dit, dit, dit.
+
+97
+00:05:00,320 --> 00:05:02,840
+Actions we just ran over -
+
+98
+00:05:02,840 --> 00:05:04,090
+The presentation - bleh
+
+99
+00:05:06,350 --> 00:05:07,850
+And it bounces and I'm dumb.
+

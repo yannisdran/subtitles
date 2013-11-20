@@ -1,0 +1,1235 @@
+﻿1
+00:00:02,029 --> 00:00:03,040
+Welcome back.
+
+2
+00:00:03,040 --> 00:00:04,190
+My name's Eric Allam.
+
+3
+00:00:04,190 --> 00:00:06,590
+And in this level, we're going
+to be going over customizing
+
+4
+00:00:06,590 --> 00:00:09,510
+your view controller
+transitions.
+
+5
+00:00:09,510 --> 00:00:12,060
+Now you're probably already
+familiar with view controller
+
+6
+00:00:12,060 --> 00:00:15,530
+transitions, such as these here
+when you're pushing a
+
+7
+00:00:15,530 --> 00:00:21,170
+controller onto the navigation
+stack, or popping it off, or
+
+8
+00:00:21,170 --> 00:00:26,200
+presenting modal transition
+or dismissing it.
+
+9
+00:00:26,200 --> 00:00:28,355
+These view controller
+transitions are pretty common
+
+10
+00:00:28,355 --> 00:00:32,070
+in almost all iOS apps.
+
+11
+00:00:32,070 --> 00:00:34,350
+For example, a navigation
+controller animated
+
+12
+00:00:34,350 --> 00:00:38,090
+transitions look like this where
+you have a starting view
+
+13
+00:00:38,090 --> 00:00:40,400
+controller, PathsViewController,
+and then
+
+14
+00:00:40,400 --> 00:00:42,550
+you push another view controller
+on top of it,
+
+15
+00:00:42,550 --> 00:00:44,020
+course view controller.
+
+16
+00:00:44,020 --> 00:00:46,460
+When you're done on that view
+controller, he can push the
+
+17
+00:00:46,460 --> 00:00:49,670
+Back button, and it'll pop that
+view controller off, and
+
+18
+00:00:49,670 --> 00:00:51,870
+go back to the
+PathsViewController.
+
+19
+00:00:51,870 --> 00:00:54,380
+Another example we just saw
+are our modal animated
+
+20
+00:00:54,380 --> 00:00:57,020
+transitions, and they work
+similarly to navigation
+
+21
+00:00:57,020 --> 00:00:59,300
+transitions where we're
+starting with the
+
+22
+00:00:59,300 --> 00:01:02,540
+PathsViewController, and then
+we present the login view
+
+23
+00:01:02,540 --> 00:01:04,110
+controller to the user.
+
+24
+00:01:04,110 --> 00:01:06,510
+And then when they're done,
+they'll dismiss it, and then
+
+25
+00:01:06,510 --> 00:01:07,770
+we'll be back at the
+PathsViewController.
+
+26
+00:01:11,270 --> 00:01:15,150
+All of these transitions are
+now customizable on iOS 7.
+
+27
+00:01:15,150 --> 00:01:17,480
+You could do them in iOS
+6, but they took
+
+28
+00:01:17,480 --> 00:01:19,130
+way too much code.
+
+29
+00:01:19,130 --> 00:01:21,690
+And now in iOS 7, we can
+easily create much more
+
+30
+00:01:21,690 --> 00:01:25,080
+complex transitions, like this
+transition here where we're
+
+31
+00:01:25,080 --> 00:01:28,010
+showing the login view
+controller, bounce in, and
+
+32
+00:01:28,010 --> 00:01:30,310
+it's actually smaller than the
+full screen, which you
+
+33
+00:01:30,310 --> 00:01:32,060
+couldn't do before.
+
+34
+00:01:32,060 --> 00:01:35,090
+This is a good way to add depth
+and context to your app.
+
+35
+00:01:35,090 --> 00:01:37,020
+Instead of login view controller
+taking up the
+
+36
+00:01:37,020 --> 00:01:39,520
+entire screen, now the
+user can see the
+
+37
+00:01:39,520 --> 00:01:42,310
+PathsViewController underneath
+and know where they are.
+
+38
+00:01:42,310 --> 00:01:44,410
+This also makes your apps stand
+out from apps that use
+
+39
+00:01:44,410 --> 00:01:46,170
+the stock transitions.
+
+40
+00:01:46,170 --> 00:01:48,780
+In this level, we're going
+to be customizing a modal
+
+41
+00:01:48,780 --> 00:01:52,050
+transition, but the concepts
+work equally well for
+
+42
+00:01:52,050 --> 00:01:55,420
+navigation transitions.
+
+43
+00:01:55,420 --> 00:01:58,140
+So now let's take a step back,
+and look at how stock modal
+
+44
+00:01:58,140 --> 00:01:59,540
+presentation works.
+
+45
+00:01:59,540 --> 00:02:01,550
+Here we have our
+PathsViewController.
+
+46
+00:02:01,550 --> 00:02:03,320
+And when the user taps
+on the button -
+
+47
+00:02:03,320 --> 00:02:05,720
+the loginButtonTapped
+method is called -
+
+48
+00:02:05,720 --> 00:02:08,100
+we create the login view
+controller, and then we
+
+49
+00:02:08,100 --> 00:02:10,770
+present it using
+presentViewController animated
+
+50
+00:02:10,770 --> 00:02:13,320
+completion, passing
+an animated YES.
+
+51
+00:02:16,350 --> 00:02:19,160
+So how might we customize
+this transition?
+
+52
+00:02:19,160 --> 00:02:20,690
+Well, we're going to
+break it down into
+
+53
+00:02:20,690 --> 00:02:22,090
+five different steps.
+
+54
+00:02:22,090 --> 00:02:25,360
+First, we have to specify that
+the presentation should occur
+
+55
+00:02:25,360 --> 00:02:27,350
+using a custom transition.
+
+56
+00:02:27,350 --> 00:02:30,440
+Next, we're going to adopt the
+transitioning delegate.
+
+57
+00:02:30,440 --> 00:02:33,075
+Then we're going to create an
+animated transition class that
+
+58
+00:02:33,075 --> 00:02:35,460
+will actually control
+the transition.
+
+59
+00:02:35,460 --> 00:02:37,870
+We're going to implement the
+transition delete, and then
+
+60
+00:02:37,870 --> 00:02:41,930
+implement the animation in the
+animated transition class.
+
+61
+00:02:41,930 --> 00:02:43,590
+Now I know that's a lot, but
+we're going to be breaking
+
+62
+00:02:43,590 --> 00:02:44,760
+these down one by one. 
+
+63
+00:02:44,760 --> 00:02:47,470
+So let's get started.
+
+64
+00:02:47,470 --> 00:02:49,880
+All right, so let's get
+into the steps.
+
+65
+00:02:49,880 --> 00:02:53,460
+Step one, we want to set up
+the custom presentation.
+
+66
+00:02:53,460 --> 00:02:54,740
+The first thing we have
+to do is set the
+
+67
+00:02:54,740 --> 00:02:57,780
+modalPresentationStyle on the
+login view controller to
+
+68
+00:02:57,780 --> 00:03:00,230
+UIModalPresentationCustom.
+
+69
+00:03:00,230 --> 00:03:03,160
+If we try to run this code as
+is, we would see this warning
+
+70
+00:03:03,160 --> 00:03:06,260
+in the console, basically saying
+that we can't set this
+
+71
+00:03:06,260 --> 00:03:10,100
+property to custom unless we
+implement the animation.
+
+72
+00:03:10,100 --> 00:03:12,860
+So let's do that now.
+
+73
+00:03:12,860 --> 00:03:14,040
+The next thing we have
+to do is set the
+
+74
+00:03:14,040 --> 00:03:16,890
+transitioningDelegate on the
+login view controller.
+
+75
+00:03:16,890 --> 00:03:19,870
+Now this transitioningDelegate
+we're setting to self, which
+
+76
+00:03:19,870 --> 00:03:22,790
+is the instance of
+PathsViewController.
+
+77
+00:03:22,790 --> 00:03:26,250
+So whatever we assign to the
+transitioningDelegate needs to
+
+78
+00:03:26,250 --> 00:03:29,510
+adopt the UIViewController
+TransitioningDelegate
+
+79
+00:03:29,510 --> 00:03:31,910
+protocol, which in this case
+is the PathsViewController.
+
+80
+00:03:34,720 --> 00:03:37,510
+Before we get too deep into
+this, you might want to brush
+
+81
+00:03:37,510 --> 00:03:41,780
+up on protocols in Objective-C,
+because this API
+
+82
+00:03:41,780 --> 00:03:43,620
+makes heavy use of protocols.
+
+83
+00:03:43,620 --> 00:03:47,100
+You might want to check out Try
+Objective-C Level 5 where
+
+84
+00:03:47,100 --> 00:03:50,510
+we cover particles, or Apple's
+documentation on working with
+
+85
+00:03:50,510 --> 00:03:52,470
+particles in their
+developer docs.
+
+86
+00:03:55,850 --> 00:03:57,880
+Here you can see that in the
+PathsViewController header
+
+87
+00:03:57,880 --> 00:03:59,810
+file, we have to adopt
+the UIViewController
+
+88
+00:03:59,810 --> 00:04:03,130
+TransitioningDelegate
+protocol.
+
+89
+00:04:03,130 --> 00:04:05,730
+The responsibility of the
+transitioningDelegate is to
+
+90
+00:04:05,730 --> 00:04:10,890
+define which custom transitions
+should occur.
+
+91
+00:04:10,890 --> 00:04:13,880
+For example, our
+transitioningDelegate needs to
+
+92
+00:04:13,880 --> 00:04:17,550
+implement the animationControl
+lerForPresentedController,
+
+93
+00:04:17,550 --> 00:04:20,850
+presentingController,
+sourceController method.
+
+94
+00:04:20,850 --> 00:04:25,800
+This method needs to return a
+object that conforms to the
+
+95
+00:04:25,800 --> 00:04:26,015
+UIViewController
+
+96
+00:04:26,015 --> 00:04:29,950
+AnimatedTransitioning protocol.
+
+97
+00:04:29,950 --> 00:04:35,790
+This object will define how the
+animation actually works.
+
+98
+00:04:35,790 --> 00:04:37,650
+Before we implement that
+method, in the
+
+99
+00:04:37,650 --> 00:04:40,320
+PathsViewController, let's
+create our animated
+
+100
+00:04:40,320 --> 00:04:42,050
+transitioning class.
+
+101
+00:04:42,050 --> 00:04:45,050
+In this case, let's just call
+it BouncyTransition.
+
+102
+00:04:45,050 --> 00:04:47,970
+It inherits from an NSObject,
+and conforms to the
+
+103
+00:04:47,970 --> 00:04:51,930
+UIViewController
+AnimatedTransitioning class.
+
+104
+00:04:51,930 --> 00:04:55,310
+Now in the implementation of
+BouncyTransition, we need to
+
+105
+00:04:55,310 --> 00:04:56,730
+define two methods.
+
+106
+00:04:56,730 --> 00:04:59,650
+The first method is
+transitionDuration.
+
+107
+00:04:59,650 --> 00:05:02,190
+This method should just return
+the number of seconds that
+
+108
+00:05:02,190 --> 00:05:04,160
+this transition should take.
+
+109
+00:05:04,160 --> 00:05:07,120
+As you can see here, we're
+just returning 1, so this
+
+110
+00:05:07,120 --> 00:05:09,330
+transition will just
+take one second.
+
+111
+00:05:09,330 --> 00:05:12,540
+The only other method that this
+class needs to implement
+
+112
+00:05:12,540 --> 00:05:14,680
+is the animateTransition
+method.
+
+113
+00:05:14,680 --> 00:05:17,810
+This method is where we do the
+animation and the transition,
+
+114
+00:05:17,810 --> 00:05:20,210
+but we're not going to get into
+the details of that now.
+
+115
+00:05:20,210 --> 00:05:22,650
+First, let's go back
+and implement that
+
+116
+00:05:22,650 --> 00:05:24,170
+transitioningDelegate method.
+
+117
+00:05:27,260 --> 00:05:29,050
+Now we're actually going
+to implement the
+
+118
+00:05:29,050 --> 00:05:31,020
+transitioningDelegate method.
+
+119
+00:05:31,020 --> 00:05:32,520
+Back in the PathsViewController,
+we're
+
+120
+00:05:32,520 --> 00:05:36,240
+going to first import
+BouncyTransition.h.
+
+121
+00:05:36,240 --> 00:05:38,720
+And then we're going to
+implement the delegate method,
+
+122
+00:05:38,720 --> 00:05:43,230
+create a BouncyTransition,
+and return it.
+
+123
+00:05:43,230 --> 00:05:44,450
+So let's see how our
+transitioning
+
+124
+00:05:44,450 --> 00:05:46,090
+is working so far.
+
+125
+00:05:46,090 --> 00:05:49,160
+As you can see here, I'm
+pressing the login button, but
+
+126
+00:05:49,160 --> 00:05:50,550
+nothing is happening.
+
+127
+00:05:50,550 --> 00:05:53,460
+And that's because we haven't
+implemented the animation in
+
+128
+00:05:53,460 --> 00:05:55,450
+the BouncyTransition
+class yet.
+
+129
+00:05:55,450 --> 00:05:58,260
+So let's go ahead
+and do that now.
+
+130
+00:05:58,260 --> 00:06:00,970
+To implement the animation,
+there are four steps.
+
+131
+00:06:00,970 --> 00:06:04,080
+First, we need to insert the
+modal view into the transition
+
+132
+00:06:04,080 --> 00:06:05,410
+view hierarchy.
+
+133
+00:06:05,410 --> 00:06:07,710
+Then, we need to set the
+starting position
+
+134
+00:06:07,710 --> 00:06:09,120
+of the modal view.
+
+135
+00:06:09,120 --> 00:06:12,230
+After that, we animate the modal
+view into position using
+
+136
+00:06:12,230 --> 00:06:13,870
+UIView animations.
+
+137
+00:06:13,870 --> 00:06:15,690
+And then to finish off, we
+need to complete the
+
+138
+00:06:15,690 --> 00:06:16,940
+transition.
+
+139
+00:06:22,870 --> 00:06:25,970
+So to be able to add the modal
+view into the transition view
+
+140
+00:06:25,970 --> 00:06:30,300
+hierarchy, we first need to get
+access to the view, and we
+
+141
+00:06:30,300 --> 00:06:34,170
+do that through the transition
+context with a method called
+
+142
+00:06:34,170 --> 00:06:35,770
+viewControllerForKey.
+
+143
+00:06:35,770 --> 00:06:37,250
+Now there are two keys -
+
+144
+00:06:37,250 --> 00:06:40,665
+one for the To view controller,
+and one for the
+
+145
+00:06:40,665 --> 00:06:41,970
+From view controller.
+
+146
+00:06:41,970 --> 00:06:44,640
+In this case, the From
+controller is the
+
+147
+00:06:44,640 --> 00:06:47,990
+PathsViewController, because
+that's where we're starting,
+
+148
+00:06:47,990 --> 00:06:50,640
+and the To view controller is
+the login view controller,
+
+149
+00:06:50,640 --> 00:06:51,890
+because that's where
+we're going.
+
+150
+00:06:54,210 --> 00:06:56,460
+The next thing we need
+is the transition
+
+151
+00:06:56,460 --> 00:06:58,250
+view hierarchy itself.
+
+152
+00:06:58,250 --> 00:07:01,300
+Now this transition view
+hierarchy exists only during
+
+153
+00:07:01,300 --> 00:07:04,670
+the transition, and can be
+accessed again through the
+
+154
+00:07:04,670 --> 00:07:08,690
+transition context using the
+containerView method.
+
+155
+00:07:08,690 --> 00:07:11,110
+The containerView already
+holds the From view
+
+156
+00:07:11,110 --> 00:07:12,740
+controller's view.
+
+157
+00:07:12,740 --> 00:07:14,700
+And we just need to
+add the To view
+
+158
+00:07:14,700 --> 00:07:17,770
+controller's view to that.
+
+159
+00:07:17,770 --> 00:07:19,790
+And we do that just like
+any other view.
+
+160
+00:07:19,790 --> 00:07:23,270
+We call addSubview, and
+we pass in the to view
+
+161
+00:07:23,270 --> 00:07:24,850
+controllers of view.
+
+162
+00:07:24,850 --> 00:07:28,000
+And now our transition view
+hierarchy has both the From
+
+163
+00:07:28,000 --> 00:07:33,310
+view controller and the To view
+controller inside of it.
+
+164
+00:07:33,310 --> 00:07:36,280
+Now that we have the login view
+controller's view inside
+
+165
+00:07:36,280 --> 00:07:39,540
+the container view, we need to
+set its starting position.
+
+166
+00:07:39,540 --> 00:07:42,700
+This position defines where the
+login view starts at the
+
+167
+00:07:42,700 --> 00:07:44,470
+beginning of the animation.
+
+168
+00:07:44,470 --> 00:07:46,820
+And in this case, we're going to
+want to start at below the
+
+169
+00:07:46,820 --> 00:07:47,780
+bottom of the screen.
+
+170
+00:07:47,780 --> 00:07:49,320
+So how do we do that?
+
+171
+00:07:49,320 --> 00:07:52,250
+To do that, we're first
+going to get the
+
+172
+00:07:52,250 --> 00:07:57,210
+initialFrameFromViewController,
+and that's going to give us
+
+173
+00:07:57,210 --> 00:07:59,730
+the full frame of the
+PathsViewController.
+
+174
+00:08:02,430 --> 00:08:04,660
+From that, we want to access
+the height, and
+
+175
+00:08:04,660 --> 00:08:06,070
+store it in a variable.
+
+176
+00:08:06,070 --> 00:08:10,640
+And then we just set the To
+view's frame to a new CGRect.
+
+177
+00:08:10,640 --> 00:08:13,260
+Now let's walk through
+these one by one.
+
+178
+00:08:13,260 --> 00:08:15,900
+We're going to set the x
+to the fullFrame's x
+
+179
+00:08:15,900 --> 00:08:17,290
+to keep it at 0.
+
+180
+00:08:17,290 --> 00:08:20,650
+Then we're going to set the y
+position of this frame to the
+
+181
+00:08:20,650 --> 00:08:23,780
+height of the fullFrame
+plus 16 -
+
+182
+00:08:23,780 --> 00:08:27,100
+that means it's going to start
+16 points below the bottom of
+
+183
+00:08:27,100 --> 00:08:28,040
+that frame.
+
+184
+00:08:28,040 --> 00:08:29,680
+And then we'll just keep
+the same width and
+
+185
+00:08:29,680 --> 00:08:33,140
+height of that fullFrame.
+
+186
+00:08:33,140 --> 00:08:35,820
+Now that we've set the starting
+position of the login
+
+187
+00:08:35,820 --> 00:08:39,559
+view controller's view, all we
+need to do is animate that
+
+188
+00:08:39,559 --> 00:08:44,030
+view into position using a
+UI View Animation API.
+
+189
+00:08:44,030 --> 00:08:48,340
+In this case, we're going to use
+a new iOS 7 animation API
+
+190
+00:08:48,340 --> 00:08:51,080
+that will add that springy-ness
+to the view.
+
+191
+00:08:51,080 --> 00:08:54,540
+As you can see here, we've set
+the duration of this animation
+
+192
+00:08:54,540 --> 00:08:57,330
+to be equal to the
+transitionDuration.
+
+193
+00:08:57,330 --> 00:08:59,030
+There's no delay.
+
+194
+00:08:59,030 --> 00:09:02,600
+We're setting the spring damping
+and velocity to be
+
+195
+00:09:02,600 --> 00:09:05,510
+just some values that we figured
+out would work well
+
+196
+00:09:05,510 --> 00:09:06,810
+for this transition.
+
+197
+00:09:06,810 --> 00:09:10,000
+We're making the animation
+curve ease in and out.
+
+198
+00:09:10,000 --> 00:09:12,800
+And then we're supplying an
+animation block to the
+
+199
+00:09:12,800 --> 00:09:14,570
+animation's parameter.
+
+200
+00:09:14,570 --> 00:09:17,020
+And then inside the animation's
+block, we want to
+
+201
+00:09:17,020 --> 00:09:20,620
+specify where the login's view
+controller view will finish.
+
+202
+00:09:20,620 --> 00:09:23,980
+In this case, it's going to
+be the fullFrame of the
+
+203
+00:09:23,980 --> 00:09:26,650
+PathsViewController.
+
+204
+00:09:26,650 --> 00:09:28,120
+All right, let's see
+how we're doing.
+
+205
+00:09:28,120 --> 00:09:30,810
+Now when we press the button, we
+can see that the login view
+
+206
+00:09:30,810 --> 00:09:35,090
+controller does animate into
+place using that Spring API,
+
+207
+00:09:35,090 --> 00:09:38,850
+but, unfortunately, it looks
+like our UI is frozen, and
+
+208
+00:09:38,850 --> 00:09:41,185
+that's because we forgot to
+complete the transition.
+
+209
+00:09:43,760 --> 00:09:45,440
+Now let's go back to
+our animation code.
+
+210
+00:09:45,440 --> 00:09:48,910
+We need to do one more thing
+when the animation completes,
+
+211
+00:09:48,910 --> 00:09:52,390
+and the perfect place to do that
+is to pass a completion
+
+212
+00:09:52,390 --> 00:09:56,360
+block into this API method.
+
+213
+00:09:56,360 --> 00:09:58,920
+Inside of that completion block,
+we're just going to
+
+214
+00:09:58,920 --> 00:10:03,400
+call the completeTransition on
+the transitionContext, and
+
+215
+00:10:03,400 --> 00:10:04,640
+pass in YES.
+
+216
+00:10:04,640 --> 00:10:07,820
+This will complete
+the transition.
+
+217
+00:10:07,820 --> 00:10:11,230
+So as you can see here, now when
+we present the login view
+
+218
+00:10:11,230 --> 00:10:14,220
+controller, our UI
+isn't frozen, 
+
+219
+00:10:14,220 --> 00:10:16,180
+but there is one more thing.
+
+220
+00:10:16,180 --> 00:10:19,480
+Our login view controller's
+view is still full screen.
+
+221
+00:10:19,480 --> 00:10:23,510
+So how do we make it smaller?
+
+222
+00:10:23,510 --> 00:10:26,450
+Again, let's go back into
+our animation code.
+
+223
+00:10:26,450 --> 00:10:29,180
+The first thing we want to
+change is the size of the
+
+224
+00:10:29,180 --> 00:10:31,850
+starting position of
+our login view.
+
+225
+00:10:31,850 --> 00:10:34,970
+If we want to shrink our login
+view controller by 40 points,
+
+226
+00:10:34,970 --> 00:10:38,940
+we just need to add 20 points
+both to the x and y position,
+
+227
+00:10:38,940 --> 00:10:42,120
+and subtract 40 from the height
+and the width, changing
+
+228
+00:10:42,120 --> 00:10:45,670
+the login view controller's
+starting position and size.
+
+229
+00:10:45,670 --> 00:10:48,260
+We're still setting the final
+position of the login view
+
+230
+00:10:48,260 --> 00:10:49,850
+controllers to the full
+size, so we'll
+
+231
+00:10:49,850 --> 00:10:51,930
+need to fix that next.
+
+232
+00:10:51,930 --> 00:10:55,710
+And to do that, we're just going
+to set the frame to x
+
+233
+00:10:55,710 --> 00:10:59,370
+and y equal to 20, and then
+subtract 40 from both the
+
+234
+00:10:59,370 --> 00:11:00,620
+width and the height.
+
+235
+00:11:04,420 --> 00:11:07,010
+So now you can see that our
+custom transition works.
+
+236
+00:11:07,010 --> 00:11:10,000
+When we click on the login
+button, our shrunken login
+
+237
+00:11:10,000 --> 00:11:13,140
+view controller comes up,
+bounces around, and settles
+
+238
+00:11:13,140 --> 00:11:15,330
+into place, and our
+UI isn't frozen.
+
+239
+00:11:19,810 --> 00:11:21,760
+So I know that was a lot to take
+in, so we're going to go
+
+240
+00:11:21,760 --> 00:11:24,880
+through a quick review of those
+steps getting our custom
+
+241
+00:11:24,880 --> 00:11:26,420
+transition to work.
+
+242
+00:11:26,420 --> 00:11:30,120
+First, we had to specify that
+the presentation should use a
+
+243
+00:11:30,120 --> 00:11:31,370
+custom transition.
+
+244
+00:11:35,490 --> 00:11:37,320
+Then on our PathsViewController,
+we
+
+245
+00:11:37,320 --> 00:11:38,570
+adopted the
+transitioningDelegate.
+
+246
+00:11:45,160 --> 00:11:49,040
+Next, we created a animated
+transition class that controls
+
+247
+00:11:49,040 --> 00:11:50,290
+the transition.
+
+248
+00:11:54,230 --> 00:11:57,090
+We implemented the
+transitioningDelegate method,
+
+249
+00:11:57,090 --> 00:12:00,145
+and returned an instance of the
+BouncyTransition class.
+
+250
+00:12:03,760 --> 00:12:07,240
+Then, we went back into the
+animated transition class, and
+
+251
+00:12:07,240 --> 00:12:09,480
+actually implemented the
+animation and transition.
+
+252
+00:12:13,230 --> 00:12:16,030
+We inserted the modal
+view into the
+
+253
+00:12:16,030 --> 00:12:17,280
+transition view hierarchy.
+
+254
+00:12:19,770 --> 00:12:22,000
+We set the starting position
+of the modal view.
+
+255
+00:12:25,800 --> 00:12:29,460
+We animated the modal view into
+its final position using
+
+256
+00:12:29,460 --> 00:12:35,395
+UI view animation, and then we
+completed the transition.
+
+257
+00:12:39,860 --> 00:12:42,390
+It's time for you to try out
+making your own custom
+
+258
+00:12:42,390 --> 00:12:44,170
+transition in the challenges.
+
+259
+00:12:44,170 --> 00:12:45,420
+Good luck.
+

@@ -1,0 +1,564 @@
+﻿1
+00:00:02,029 --> 00:00:03,410
+Welcome back.
+
+2
+00:00:03,410 --> 00:00:05,910
+Now that you've had some
+practice resizing UI labels,
+
+3
+00:00:05,910 --> 00:00:08,860
+we need to look at some of the
+changes that iOS 7 brings to
+
+4
+00:00:08,860 --> 00:00:12,110
+working with UI text views.
+
+5
+00:00:12,110 --> 00:00:13,750
+So let's say we have an app,
+
+6
+00:00:13,750 --> 00:00:18,540
+and in this app we make a
+network request for new text.
+
+7
+00:00:18,540 --> 00:00:21,480
+And we want to update our
+text view in our app to
+
+8
+00:00:21,480 --> 00:00:23,320
+show that new text.
+
+9
+00:00:23,320 --> 00:00:26,780
+But you can see here that we're
+getting more text back,
+
+10
+00:00:26,780 --> 00:00:29,960
+then will fit inside of
+this text views frame.
+
+11
+00:00:29,960 --> 00:00:33,160
+And because of that, we're
+getting scrolling.
+
+12
+00:00:33,160 --> 00:00:35,580
+If we don't want that scrolling,
+we need to figure
+
+13
+00:00:35,580 --> 00:00:39,850
+out the frame of the text inside
+of that text view and
+
+14
+00:00:39,850 --> 00:00:43,660
+resize the text you accordingly
+so it displays all
+
+15
+00:00:43,660 --> 00:00:45,870
+the text without scrolling.
+
+16
+00:00:45,870 --> 00:00:49,070
+And the addition of text kit
+has really changed the way
+
+17
+00:00:49,070 --> 00:00:51,670
+that you work with
+a UI text view.
+
+18
+00:00:51,670 --> 00:00:55,050
+In iOS 6, if you wanted to
+resize the content of a text
+
+19
+00:00:55,050 --> 00:00:59,110
+view, to account for both the
+width and height of the text
+
+20
+00:00:59,110 --> 00:01:01,910
+inside of it, you would
+use the sizeWithFont
+
+21
+00:01:01,910 --> 00:01:05,420
+constrainedtoSize lineBreakMode
+method.
+
+22
+00:01:05,420 --> 00:01:07,510
+And that was really all that
+you needed to use.
+
+23
+00:01:07,510 --> 00:01:10,530
+But that method is now
+deprecated in iOS 7.
+
+24
+00:01:13,880 --> 00:01:16,500
+And before we show you which
+method is the method to use
+
+25
+00:01:16,500 --> 00:01:18,610
+now, we need to explain
+a little bit about
+
+26
+00:01:18,610 --> 00:01:21,280
+how text kit works.
+
+27
+00:01:21,280 --> 00:01:24,560
+So UI text view, is really
+just a scroll view, that
+
+28
+00:01:24,560 --> 00:01:26,790
+displays some text.
+
+29
+00:01:26,790 --> 00:01:29,990
+But now, before you can get to
+that text, there's two other
+
+30
+00:01:29,990 --> 00:01:32,470
+classes that manage how
+the text is laid
+
+31
+00:01:32,470 --> 00:01:33,940
+out inside of it -
+
+32
+00:01:33,940 --> 00:01:38,620
+the NSTextContainer, and
+the NSLayoutManager.
+
+33
+00:01:38,620 --> 00:01:42,800
+The text container determines
+where text can be laid out,
+
+34
+00:01:42,800 --> 00:01:45,760
+and gives you the frame
+for how that text fits
+
+35
+00:01:45,760 --> 00:01:47,520
+inside the text view.
+
+36
+00:01:47,520 --> 00:01:50,380
+So that sounds like a good place
+for us to worry about
+
+37
+00:01:50,380 --> 00:01:52,130
+where to resize things.
+
+38
+00:01:52,130 --> 00:01:56,040
+The NSLayoutManager sits between
+the text container and
+
+39
+00:01:56,040 --> 00:01:58,700
+the actual text storage.
+
+40
+00:01:58,700 --> 00:02:01,200
+And fortunately, unless you're
+needing to do some really
+
+41
+00:02:01,200 --> 00:02:04,310
+detailed customization, you
+don't ever need to get into
+
+42
+00:02:04,310 --> 00:02:06,750
+the NSLayoutManager class.
+
+43
+00:02:06,750 --> 00:02:08,000
+So we're going to
+avoid it here.
+
+44
+00:02:13,470 --> 00:02:16,120
+We'll start by looking at
+a sample UI text view.
+
+45
+00:02:16,120 --> 00:02:18,930
+If we were to ask for the frame
+of this text view, we
+
+46
+00:02:18,930 --> 00:02:22,870
+would get the area that is
+represented by this red box,
+
+47
+00:02:22,870 --> 00:02:25,810
+just a box around all the text
+with a little bit of padding
+
+48
+00:02:25,810 --> 00:02:27,460
+around the edges.
+
+49
+00:02:27,460 --> 00:02:30,170
+If we did a little bit deeper,
+there's a new property now
+
+50
+00:02:30,170 --> 00:02:33,000
+called textContainerInset .
+
+51
+00:02:33,000 --> 00:02:36,440
+And by default, it's got an
+inset padding of eight points
+
+52
+00:02:36,440 --> 00:02:40,020
+at the top and eight points
+at the bottom of
+
+53
+00:02:40,020 --> 00:02:42,260
+the edge of the frame.
+
+54
+00:02:42,260 --> 00:02:45,080
+It doesn't have any default edge
+insets on the left or the
+
+55
+00:02:45,080 --> 00:02:46,390
+right sides.
+
+56
+00:02:46,390 --> 00:02:48,760
+So we've got a frame, with a
+little bit of padding in it,
+
+57
+00:02:48,760 --> 00:02:52,220
+defined by this text
+container inset.
+
+58
+00:02:52,220 --> 00:02:55,320
+Next, we've got the actual
+text container.
+
+59
+00:02:55,320 --> 00:02:59,400
+Which is the frame of just the
+text, and not the frame of the
+
+60
+00:02:59,400 --> 00:03:02,340
+text view, itself.
+
+61
+00:03:02,340 --> 00:03:05,140
+Remember that text view is a
+scroll view, so there needs to
+
+62
+00:03:05,140 --> 00:03:07,090
+be a little bit of extra space
+in order for that
+
+63
+00:03:07,090 --> 00:03:09,320
+scrolling behavior
+to be active.
+
+64
+00:03:09,320 --> 00:03:13,660
+Finally the text indent, inside
+of the text container,
+
+65
+00:03:13,660 --> 00:03:16,510
+is defined by the line fragment
+padding property.
+
+66
+00:03:16,510 --> 00:03:19,365
+And the default value for this
+property is five points.
+
+67
+00:03:21,890 --> 00:03:24,540
+So when we're resizing a UI text
+view we don't need to
+
+68
+00:03:24,540 --> 00:03:27,150
+know the frame of the
+text view itself,
+
+69
+00:03:27,150 --> 00:03:30,210
+instead we need to know the
+frame of the text container
+
+70
+00:03:30,210 --> 00:03:33,620
+that is inside of
+that text view.
+
+71
+00:03:33,620 --> 00:03:36,110
+And there's a new method that
+we can use to get that frame
+
+72
+00:03:36,110 --> 00:03:37,430
+pretty easily.
+
+73
+00:03:37,430 --> 00:03:40,020
+Now after the text views text
+has been updated from a
+
+74
+00:03:40,020 --> 00:03:42,070
+network response,
+we'll pass the
+
+75
+00:03:42,070 --> 00:03:45,620
+ensureLayoutForTextContainer
+method to the text to use
+
+76
+00:03:45,620 --> 00:03:49,830
+layoutManager, passing in the
+text container as an argument.
+
+77
+00:03:49,830 --> 00:03:52,330
+And that's just going to make
+sure that the textContainer
+
+78
+00:03:52,330 --> 00:03:54,120
+has all of its bounds
+computed and
+
+79
+00:03:54,120 --> 00:03:56,010
+it's ready to be measured.
+
+80
+00:03:56,010 --> 00:03:59,230
+So the next step, we'll pass the
+usedRectForTextContainer
+
+81
+00:03:59,230 --> 00:04:02,440
+method to that layoutManager,
+again passing in the text
+
+82
+00:04:02,440 --> 00:04:03,870
+container as an argument.
+
+83
+00:04:03,870 --> 00:04:05,850
+And that's going to actually
+perform the sizing
+
+84
+00:04:05,850 --> 00:04:08,620
+calculations, and return
+the size of that
+
+85
+00:04:08,620 --> 00:04:11,680
+text area as a CGRect.
+
+86
+00:04:11,680 --> 00:04:14,740
+This is going to return the
+frame of the text container.
+
+87
+00:04:14,740 --> 00:04:17,399
+And we can use that when we're
+calculating the new width and
+
+88
+00:04:17,399 --> 00:04:20,010
+height of the text view.
+
+89
+00:04:20,010 --> 00:04:22,570
+So where do we perform
+this sizing?
+
+90
+00:04:22,570 --> 00:04:25,100
+Well, unlike before, where we've
+been resizing everything
+
+91
+00:04:25,100 --> 00:04:29,120
+in viewWillLayoutSubviews,
+you actually need to resize
+
+92
+00:04:29,120 --> 00:04:31,150
+text views inside of
+viewDidLayoutSubviews.
+
+93
+00:04:33,770 --> 00:04:37,050
+And that's because some of the
+math that creates the size
+
+94
+00:04:37,050 --> 00:04:41,050
+inside of the text container
+isn't performed until after
+
+95
+00:04:41,050 --> 00:04:45,350
+the viewWIllLayoutSubviews
+method runs.
+
+96
+00:04:45,350 --> 00:04:47,530
+So as long as you sized
+your text views in
+
+97
+00:04:47,530 --> 00:04:50,880
+viewDidLayoutSubviews,
+or later, then
+
+98
+00:04:50,880 --> 00:04:53,300
+you should be fine.
+
+99
+00:04:53,300 --> 00:04:56,520
+So if we build and run this app,
+and see it working, we
+
+100
+00:04:56,520 --> 00:04:59,125
+now see that the text view
+is still scrolling.
+
+101
+00:05:02,130 --> 00:05:04,520
+So what happened here is we
+forgot about those texts
+
+102
+00:05:04,520 --> 00:05:07,610
+container insets, that had that
+eight points of padding
+
+103
+00:05:07,610 --> 00:05:12,310
+at the top and the bottom,
+of the text view frame.
+
+104
+00:05:12,310 --> 00:05:15,110
+So if we go back to our frame
+calculations, and add those
+
+105
+00:05:15,110 --> 00:05:19,400
+top and bottom text container
+insets back in, then we should
+
+106
+00:05:19,400 --> 00:05:20,650
+be good to go.
+
+107
+00:05:22,490 --> 00:05:24,880
+Now another point to mention
+is that we really should be
+
+108
+00:05:24,880 --> 00:05:28,090
+returning a rounded
+number for here.
+
+109
+00:05:28,090 --> 00:05:31,540
+Because we're working with
+text sizes, and we're not
+
+110
+00:05:31,540 --> 00:05:34,520
+always going to get an integer,
+we want to make sure
+
+111
+00:05:34,520 --> 00:05:37,620
+that we round that up to the
+next highest number, to avoid
+
+112
+00:05:37,620 --> 00:05:43,820
+rounding calculations having the
+frame be off by one pixel.
+
+113
+00:05:43,820 --> 00:05:46,480
+So now when we build and run
+this app, even though we're
+
+114
+00:05:46,480 --> 00:05:49,580
+getting varying lengths of
+text coming back from the
+
+115
+00:05:49,580 --> 00:05:54,460
+network, each time the text view
+has resized accordingly,
+
+116
+00:05:54,460 --> 00:05:57,390
+and there's no scrolling.
+
+117
+00:05:57,390 --> 00:05:59,440
+It's time for you to resize
+some text views in the
+
+118
+00:05:59,440 --> 00:06:00,690
+challenges.
+

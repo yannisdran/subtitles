@@ -1,0 +1,569 @@
+﻿1
+00:00:02,050 --> 00:00:04,050
+Welcome back.
+
+2
+00:00:04,050 --> 00:00:08,500
+So there's a cool new feature in
+iOS 7 called dynamic type.
+
+3
+00:00:08,500 --> 00:00:10,950
+And you can see a
+demo of it here.
+
+4
+00:00:10,950 --> 00:00:14,790
+What's happening is that, at any
+point, a user of your app
+
+5
+00:00:14,790 --> 00:00:18,340
+can go into their settings
+app and adjust the
+
+6
+00:00:18,340 --> 00:00:21,110
+dynamic text size.
+
+7
+00:00:21,110 --> 00:00:23,260
+And they're going to expect
+when they get back in your
+
+8
+00:00:23,260 --> 00:00:28,270
+app, that the text is going
+to scale, accordingly.
+
+9
+00:00:28,270 --> 00:00:30,430
+So there's a few pieces that
+we need to put together in
+
+10
+00:00:30,430 --> 00:00:32,229
+order to make this
+system work,
+
+11
+00:00:32,229 --> 00:00:35,300
+and the first is called
+text styles.
+
+12
+00:00:35,300 --> 00:00:39,320
+So text styles are predefined
+fonts the can scale, based on
+
+13
+00:00:39,320 --> 00:00:42,770
+that user setting in
+the settings app.
+
+14
+00:00:42,770 --> 00:00:45,690
+And the idea here is that
+we declare semantic font
+
+15
+00:00:45,690 --> 00:00:49,490
+descriptors that relate to
+different sections of text
+
+16
+00:00:49,490 --> 00:00:52,540
+inside of your app, rather than
+explicitly declaring a
+
+17
+00:00:52,540 --> 00:00:54,960
+font and size for that
+font, because that
+
+18
+00:00:54,960 --> 00:00:57,530
+size is going to change.
+
+19
+00:00:57,530 --> 00:01:01,520
+Apple provides six descriptors
+for us: textile headline,
+
+20
+00:01:01,520 --> 00:01:03,520
+subheadline, body, caption one,
+
+21
+00:01:03,520 --> 00:01:06,370
+caption two, and footnote.
+
+22
+00:01:06,370 --> 00:01:08,590
+Now the pro of this, of course,
+is that users are
+
+23
+00:01:08,590 --> 00:01:11,300
+going to be able to dynamically
+adjust this size
+
+24
+00:01:11,300 --> 00:01:13,450
+to fit their needs.
+
+25
+00:01:13,450 --> 00:01:16,040
+One of the big cons of this is
+that you can't do this with
+
+26
+00:01:16,040 --> 00:01:17,250
+custom fonts.
+
+27
+00:01:17,250 --> 00:01:21,030
+You have to use Apple's one
+provided system font, in order
+
+28
+00:01:21,030 --> 00:01:22,280
+to use dynamic type.
+
+29
+00:01:25,200 --> 00:01:27,420
+Here you can see a screen shot
+in mail app that gives you an
+
+30
+00:01:27,420 --> 00:01:29,940
+idea of what types of
+descriptors you might use for
+
+31
+00:01:29,940 --> 00:01:31,230
+each of these sections.
+
+32
+00:01:31,230 --> 00:01:34,280
+You can see that we're using a
+headline text style for the
+
+33
+00:01:34,280 --> 00:01:38,480
+sender of the message, a
+subheadline for the subject, a
+
+34
+00:01:38,480 --> 00:01:42,490
+body style for the actual body
+of the message, and then a
+
+35
+00:01:42,490 --> 00:01:45,050
+caption style for the time that
+appears, a little bit
+
+36
+00:01:45,050 --> 00:01:47,750
+smaller, up in the right
+corner of the screen.
+
+37
+00:01:47,750 --> 00:01:50,050
+Now I also want to point out
+that you don't have to
+
+38
+00:01:50,050 --> 00:01:54,280
+completely add text styles to
+every font on your screen.
+
+39
+00:01:54,280 --> 00:01:57,120
+Elements in this shot, like
+the navigation item at the
+
+40
+00:01:57,120 --> 00:02:00,350
+top, or the edit button, or even
+the unread count down at
+
+41
+00:02:00,350 --> 00:02:03,160
+the bottom in the tab bar,
+aren't going to need to
+
+42
+00:02:03,160 --> 00:02:06,680
+necessarily be things that
+the user can scale.
+
+43
+00:02:06,680 --> 00:02:09,899
+So you can apply text styles to
+some text, and not others.
+
+44
+00:02:12,490 --> 00:02:15,770
+The way that we add these text
+styles in code is to create a
+
+45
+00:02:15,770 --> 00:02:17,990
+UIFontDescriptor again,
+
+46
+00:02:17,990 --> 00:02:19,417
+but this time we use the
+preferredFontDes
+
+47
+00:02:19,417 --> 00:02:24,190
+criptorWithTextStyle method,
+and we pass in one of those
+
+48
+00:02:24,190 --> 00:02:27,130
+six text styles.
+
+49
+00:02:27,130 --> 00:02:29,620
+Then, we use the
+fontWithDescriptor method of
+
+50
+00:02:29,620 --> 00:02:33,130
+UI font, to create an
+actual font object.
+
+51
+00:02:33,130 --> 00:02:36,570
+And notice here how I'm setting
+the size to zero.
+
+52
+00:02:36,570 --> 00:02:41,180
+Setting the size to zero here,
+is letting the app know to use
+
+53
+00:02:41,180 --> 00:02:44,800
+whatever size the user has set
+in their settings app.
+
+54
+00:02:44,800 --> 00:02:47,870
+If we did set the size here,
+then the user would not be
+
+55
+00:02:47,870 --> 00:02:50,860
+able to modify it.
+
+56
+00:02:50,860 --> 00:02:54,120
+If we wanted to modify the
+example we saw earlier, this
+
+57
+00:02:54,120 --> 00:02:55,810
+is how our code would update.
+
+58
+00:02:55,810 --> 00:03:00,260
+We're applying a text style,
+instead of a font family name.
+
+59
+00:03:00,260 --> 00:03:03,530
+We can still actually add some
+traits to those text styles,
+
+60
+00:03:03,530 --> 00:03:06,450
+to turn them bold or italic.
+
+61
+00:03:06,450 --> 00:03:09,500
+And then we're setting size
+zero, again, to indicate that
+
+62
+00:03:09,500 --> 00:03:11,980
+the user will determine how
+big this text should be.
+
+63
+00:03:14,490 --> 00:03:16,930
+And here's a demo that
+app running.
+
+64
+00:03:16,930 --> 00:03:18,910
+We'll run this code and
+look at our app.
+
+65
+00:03:18,910 --> 00:03:22,030
+And we can see that we
+definitely have a font and
+
+66
+00:03:22,030 --> 00:03:24,620
+trait and size applied.
+
+67
+00:03:24,620 --> 00:03:26,900
+So now let's go into the
+settings app and change that
+
+68
+00:03:26,900 --> 00:03:30,070
+dynamic type slider, so we
+can see the text change.
+
+69
+00:03:30,070 --> 00:03:33,350
+And we changed it, and the
+app didn't change.
+
+70
+00:03:33,350 --> 00:03:36,510
+So what's happening here is that
+we actually need to let
+
+71
+00:03:36,510 --> 00:03:40,080
+our app know to listen
+for a size change.
+
+72
+00:03:40,080 --> 00:03:43,640
+The size change is happening,
+but our app, by itself, isn't
+
+73
+00:03:43,640 --> 00:03:46,010
+smart enough to know that it
+should even be listening for
+
+74
+00:03:46,010 --> 00:03:48,910
+that change.
+
+75
+00:03:48,910 --> 00:03:50,090
+So here's what's happening
+when the
+
+76
+00:03:50,090 --> 00:03:51,910
+user makes that change.
+
+77
+00:03:51,910 --> 00:03:54,020
+First they enter the
+settings app.
+
+78
+00:03:54,020 --> 00:03:55,710
+They change the slider.
+
+79
+00:03:55,710 --> 00:03:58,770
+Every time the user adjusts
+the slider, inside of the
+
+80
+00:03:58,770 --> 00:04:03,300
+settings app, for dynamic type
+size, the notification named
+
+81
+00:04:03,300 --> 00:04:06,140
+UIContentSizeCat
+egoryDidChangeNotification
+
+82
+00:04:06,140 --> 00:04:10,490
+notification is fired to
+any open applications.
+
+83
+00:04:10,490 --> 00:04:14,240
+So those applications have to
+listen for that notification,
+
+84
+00:04:14,240 --> 00:04:17,190
+and then fire off a method that
+makes sure that the text
+
+85
+00:04:17,190 --> 00:04:18,599
+size gets updated,
+accordingly.
+
+86
+00:04:21,180 --> 00:04:23,110
+So adding the notification
+is no different than
+
+87
+00:04:23,110 --> 00:04:23,950
+we've always done them.
+
+88
+00:04:23,950 --> 00:04:27,730
+We can just use the
+NSNotificationCenter and add
+
+89
+00:04:27,730 --> 00:04:31,480
+an observer for ourself, define
+a method that will get
+
+90
+00:04:31,480 --> 00:04:34,100
+called whenever this
+notification is received, and
+
+91
+00:04:34,100 --> 00:04:36,020
+pass in the name of the
+notification that we're
+
+92
+00:04:36,020 --> 00:04:38,160
+listening for.
+
+93
+00:04:38,160 --> 00:04:41,890
+Then when that notification is
+received, our app will call
+
+94
+00:04:41,890 --> 00:04:45,860
+the contentSizeChanged method,
+and inside of that
+
+95
+00:04:45,860 --> 00:04:48,700
+contentSizeChanged method,
+we're going to want to
+
+96
+00:04:48,700 --> 00:04:54,620
+recreate the same font object
+that we'd started with.
+
+97
+00:04:54,620 --> 00:04:58,830
+So we create the font
+descriptor, apply our traits,
+
+98
+00:04:58,830 --> 00:05:02,320
+create the font object with size
+zero, and then reapply
+
+99
+00:05:02,320 --> 00:05:04,020
+that font to our label.
+
+100
+00:05:04,020 --> 00:05:06,010
+The final step that's
+needed inside of the
+
+101
+00:05:06,010 --> 00:05:10,420
+contentSizeChanged method, is
+to pass the setNeedsLayout
+
+102
+00:05:10,420 --> 00:05:12,880
+method, into self.view.
+
+103
+00:05:12,880 --> 00:05:15,160
+What that's going to do, is it's
+going to re-trigger any
+
+104
+00:05:15,160 --> 00:05:17,940
+of the layout code that you
+have set for your label.
+
+105
+00:05:17,940 --> 00:05:21,250
+Which is important because as
+our label size changes with
+
+106
+00:05:21,250 --> 00:05:24,850
+bigger size text, we're going to
+want the frame of the label
+
+107
+00:05:24,850 --> 00:05:28,530
+to increase and decrease.
+
+108
+00:05:28,530 --> 00:05:32,080
+And here's a demo of
+this app running.
+
+109
+00:05:32,080 --> 00:05:34,820
+And you can see now, that as
+we change the dynamic type
+
+110
+00:05:34,820 --> 00:05:38,230
+size, the font sizes in our
+app change as well.
+
+111
+00:05:50,690 --> 00:05:52,630
+And now it's time for you
+to add some dynamic
+
+112
+00:05:52,630 --> 00:05:55,910
+type into your app.
+
+113
+00:05:55,910 --> 00:05:56,880
+So I guess do a challenge.
+
+114
+00:05:56,880 --> 00:05:57,400
+Who cares?
+
+115
+00:05:57,400 --> 00:05:58,230
+[LAUGHTER]
+
+116
+00:05:58,230 --> 00:05:59,610
+Who wants to learn iOS anyway.
+
+117
+00:05:59,610 --> 00:06:01,970
+This is like a cakewalk.
+
+118
+00:06:01,970 --> 00:06:03,530
+You might as well do the welcome
+back and everything.
+
+119
+00:06:03,530 --> 00:06:04,820
+Welcome back and everything.
+
+120
+00:06:04,820 --> 00:06:06,465
+[LAUGHTER]
+

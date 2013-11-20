@@ -1,0 +1,659 @@
+﻿1
+00:00:02,050 --> 00:00:04,470
+In this section, we're going to
+be talking about how having
+
+2
+00:00:04,470 --> 00:00:09,820
+top and bottom bars affect the
+layout of your main view.
+
+3
+00:00:09,820 --> 00:00:12,550
+So, you can see here that this
+is not just a simple status
+
+4
+00:00:12,550 --> 00:00:13,260
+bar anymore.
+
+5
+00:00:13,260 --> 00:00:16,500
+It's got a navigation
+bar attached to it.
+
+6
+00:00:16,500 --> 00:00:19,500
+And that navigation bar takes
+up additional space near the
+
+7
+00:00:19,500 --> 00:00:21,150
+top of the screen.
+
+8
+00:00:21,150 --> 00:00:23,290
+So, let's look at how this
+is different from iOS 6.
+
+9
+00:00:27,490 --> 00:00:31,540
+In iOS 6 your status bar was
+a fixed 20 points high.
+
+10
+00:00:31,540 --> 00:00:34,460
+And the navigation bar, unless
+you subclassed it to make it
+
+11
+00:00:34,460 --> 00:00:38,770
+custom, by default was
+44 points high.
+
+12
+00:00:38,770 --> 00:00:41,160
+Which meant that your view
+sitting underneath it would be
+
+13
+00:00:41,160 --> 00:00:45,520
+504 points high if you viewed
+it on four inch screen.
+
+14
+00:00:45,520 --> 00:00:48,950
+That's the screen height minus
+the status bar height minus
+
+15
+00:00:48,950 --> 00:00:51,800
+the nav bar height, to get
+the size of self.view.
+
+16
+00:00:55,130 --> 00:00:58,910
+In iOS 7 the status bar and nav
+bar height are actually
+
+17
+00:00:58,910 --> 00:01:03,230
+connected in 164 point bar.
+
+18
+00:01:03,230 --> 00:01:06,520
+And conveniently, the height
+of that bar is available in
+
+19
+00:01:06,520 --> 00:01:08,780
+topLayoutGuide.length.
+
+20
+00:01:08,780 --> 00:01:11,960
+Remember that views in iOS
+7 are full screen, 
+
+21
+00:01:11,960 --> 00:01:15,160
+so self.view is actually sitting
+underneath the nav
+
+22
+00:01:15,160 --> 00:01:16,410
+bar, at full height.
+
+23
+00:01:19,000 --> 00:01:21,950
+Back in our previous example,
+if we were to have a
+
+24
+00:01:21,950 --> 00:01:24,400
+navigation bar and status
+bar, it would look
+
+25
+00:01:24,400 --> 00:01:26,330
+something like this.
+
+26
+00:01:26,330 --> 00:01:30,230
+We can see that the top layout
+guide.length is now 64, which
+
+27
+00:01:30,230 --> 00:01:32,690
+we'll use for the origin.y.
+
+28
+00:01:32,690 --> 00:01:35,360
+And the height is going to be
+504, because that's going to
+
+29
+00:01:35,360 --> 00:01:37,550
+be the main view height minus
+the topLayoutGuide.length.
+
+30
+00:01:41,770 --> 00:01:44,240
+So, what this comes down to is,
+if you're already laying out
+
+31
+00:01:44,240 --> 00:01:48,260
+views with topLayoutGuide in
+your layout subviews method,
+
+32
+00:01:48,260 --> 00:01:51,380
+then adding a nav
+bar just works.
+
+33
+00:01:51,380 --> 00:01:54,320
+The will automatically be
+re-sized to fit underneath
+
+34
+00:01:54,320 --> 00:01:57,970
+that new nav bar, when
+it's available.
+
+35
+00:01:57,970 --> 00:02:00,840
+Now if you're main view or
+content subview is a scroll
+
+36
+00:02:00,840 --> 00:02:03,150
+view, then there's a few more
+things that you're going to
+
+37
+00:02:03,150 --> 00:02:04,400
+need to understand.
+
+38
+00:02:11,630 --> 00:02:13,570
+So, I've set up a
+situation here.
+
+39
+00:02:13,570 --> 00:02:17,610
+Here we have a scroll view
+that's the content subview.
+
+40
+00:02:17,610 --> 00:02:19,930
+The scroll view's height is
+the entire height of the
+
+41
+00:02:19,930 --> 00:02:21,780
+screen, which makes sense.
+
+42
+00:02:21,780 --> 00:02:23,220
+We'll be able to see
+it underneath
+
+43
+00:02:23,220 --> 00:02:25,800
+those translucent bars.
+
+44
+00:02:25,800 --> 00:02:30,350
+We've got a UI label that is a
+subview of our scroll view.
+
+45
+00:02:30,350 --> 00:02:34,650
+And the labels origin
+y is zero.
+
+46
+00:02:34,650 --> 00:02:38,100
+So, it seems like the label
+should be partially hidden
+
+47
+00:02:38,100 --> 00:02:40,210
+underneath this nav
+bar, doesn't it.
+
+48
+00:02:40,210 --> 00:02:43,810
+If our origin y is zero and
+our scroll view is full
+
+49
+00:02:43,810 --> 00:02:48,730
+height, shouldn't that label
+start at the height of the
+
+50
+00:02:48,730 --> 00:02:51,360
+scroll view, which is underneath
+the nav bars.
+
+51
+00:02:51,360 --> 00:02:53,320
+But that's not actually
+happening.
+
+52
+00:02:53,320 --> 00:02:56,070
+So, why is this not hidden?
+
+53
+00:02:56,070 --> 00:02:58,520
+Well, if we look at this another
+way and we kind of
+
+54
+00:02:58,520 --> 00:03:02,270
+give it a 3D angle, we can see
+that there's definitely some
+
+55
+00:03:02,270 --> 00:03:05,220
+padding that's being added to
+the top of this scroll view.
+
+56
+00:03:05,220 --> 00:03:08,720
+Our scroll view is the orange
+section, and the label is the
+
+57
+00:03:08,720 --> 00:03:12,510
+blue section, and those little
+transparent rectangles that
+
+58
+00:03:12,510 --> 00:03:16,030
+are all layered on top of each
+other, are the nav bar.
+
+59
+00:03:16,030 --> 00:03:18,260
+So, you could see that the
+label's definitely not
+
+60
+00:03:18,260 --> 00:03:20,710
+touching the very top of
+the orange scroll view.
+
+61
+00:03:20,710 --> 00:03:23,620
+It's pushed down a little bit.
+
+62
+00:03:23,620 --> 00:03:27,070
+So that padding is actually
+added for you automatically,
+
+63
+00:03:27,070 --> 00:03:31,930
+whenever self.view or the
+immediate content subview of
+
+64
+00:03:31,930 --> 00:03:35,710
+self.view, is a UI
+scroll view.
+
+65
+00:03:35,710 --> 00:03:38,720
+And the padding amount,
+conveniently, is equal to
+
+66
+00:03:38,720 --> 00:03:39,970
+topLayoutGuide.length.
+
+67
+00:03:41,710 --> 00:03:44,870
+So, there's a new property in
+iOS 7 called "automatically
+
+68
+00:03:44,870 --> 00:03:47,230
+Adjusts Scroll View Insets."
+
+69
+00:03:47,230 --> 00:03:50,520
+And by default that property
+is set to yes, and that's
+
+70
+00:03:50,520 --> 00:03:53,060
+what's enabling this magic
+padding to appear.
+
+71
+00:03:56,310 --> 00:03:58,620
+If we were to set the
+automaticallyAdjustsScrollViewInSets
+
+72
+00:03:58,620 --> 00:04:02,110
+property to no, this
+is the code we would add
+
+73
+00:04:02,110 --> 00:04:04,980
+in order to recreate the
+behavior when the property was
+
+74
+00:04:04,980 --> 00:04:09,400
+yes, updating the content inset
+and content offset of
+
+75
+00:04:09,400 --> 00:04:11,080
+our content subview.
+
+76
+00:04:11,080 --> 00:04:13,210
+So, let's take a look at these
+lines of code, and really
+
+77
+00:04:13,210 --> 00:04:15,270
+think about what
+they're doing.
+
+78
+00:04:15,270 --> 00:04:19,279
+The first line, where we're
+adjusting the content inset,
+
+79
+00:04:19,279 --> 00:04:23,150
+means that we're adding 64
+points of padding to the very
+
+80
+00:04:23,150 --> 00:04:27,810
+top of the scrollable area
+of our scroll view.
+
+81
+00:04:27,810 --> 00:04:30,550
+Adding this padding will push
+our content down a little bit
+
+82
+00:04:30,550 --> 00:04:34,220
+too far, so we have to offset
+that with our content offset
+
+83
+00:04:34,220 --> 00:04:36,540
+property, by moving
+that content back
+
+84
+00:04:36,540 --> 00:04:38,300
+up again by 64 points.
+
+85
+00:04:42,170 --> 00:04:44,500
+So now let's talk about what
+happens when you have a nav
+
+86
+00:04:44,500 --> 00:04:47,960
+bar and a tab bar in your view
+controller, which is a pretty
+
+87
+00:04:47,960 --> 00:04:49,540
+common situation.
+
+88
+00:04:49,540 --> 00:04:51,900
+That tab bar is 49
+points high.
+
+89
+00:04:51,900 --> 00:04:56,050
+And back in iOS 6, again, your
+self.view property would
+
+90
+00:04:56,050 --> 00:04:59,980
+automatically adjust its size
+to the available space, not
+
+91
+00:04:59,980 --> 00:05:01,810
+including the bars.
+
+92
+00:05:01,810 --> 00:05:06,840
+So our self.view height would be
+the screen height minus the
+
+93
+00:05:06,840 --> 00:05:10,370
+status bar on the top, minus
+the nav bar underneath it,
+
+94
+00:05:10,370 --> 00:05:13,880
+minus the tab bar height
+at the bottom.
+
+95
+00:05:13,880 --> 00:05:15,690
+So that you would fit right
+inside of there.
+
+96
+00:05:18,480 --> 00:05:22,840
+On iOS 7 that tab bar is still
+49 points high, but just like
+
+97
+00:05:22,840 --> 00:05:25,470
+with the top bars, the
+view doesn't resize
+
+98
+00:05:25,470 --> 00:05:26,640
+itself to fit inside.
+
+99
+00:05:26,640 --> 00:05:28,520
+It stays full screen.
+
+100
+00:05:28,520 --> 00:05:31,950
+So sometimes we'll also need a
+way to calculate the size of
+
+101
+00:05:31,950 --> 00:05:33,090
+the bottom bar.
+
+102
+00:05:33,090 --> 00:05:35,780
+So just like before, we've got
+a property called "bottom
+
+103
+00:05:35,780 --> 00:05:36,890
+layout guide."
+
+104
+00:05:36,890 --> 00:05:39,150
+And if we look at the top length
+of that, it will equal
+
+105
+00:05:39,150 --> 00:05:41,445
+49 points, when a tab
+bar is present.
+
+106
+00:05:44,750 --> 00:05:47,870
+If our view is a scroll view,
+then the insets are going to
+
+107
+00:05:47,870 --> 00:05:50,430
+be automatically adjusted again
+for us, although this
+
+108
+00:05:50,430 --> 00:05:53,840
+time they'll also be adjusted
+at the bottom by 49 points.
+
+109
+00:05:57,160 --> 00:06:00,670
+Again, the default value is to
+let the view controller handle
+
+110
+00:06:00,670 --> 00:06:02,310
+all of these numbers for you, 
+
+111
+00:06:02,310 --> 00:06:04,110
+but we're just showing you
+what's going on under the
+
+112
+00:06:04,110 --> 00:06:07,170
+hood, in case you run
+into any problems.
+
+113
+00:06:07,170 --> 00:06:09,380
+What's nice about this set
+up is that when we start
+
+114
+00:06:09,380 --> 00:06:12,300
+scrolling, we can actually see
+our content underneath the
+
+115
+00:06:12,300 --> 00:06:15,400
+translucent nav bar and
+translucent tab bar, and that
+
+116
+00:06:15,400 --> 00:06:16,710
+wouldn't happen in iOS 6.
+
+117
+00:06:19,680 --> 00:06:22,440
+So the previous example talked
+about what to do if we have a
+
+118
+00:06:22,440 --> 00:06:23,420
+scroll view,
+
+119
+00:06:23,420 --> 00:06:25,980
+but if we just have a
+plain UI view, it's
+
+120
+00:06:25,980 --> 00:06:27,460
+a little bit simpler.
+
+121
+00:06:27,460 --> 00:06:30,520
+All we need to do is go back to
+our content subviews frame
+
+122
+00:06:30,520 --> 00:06:34,770
+in viewWillLayoutSubviews,
+and also subtract the
+
+123
+00:06:34,770 --> 00:06:38,710
+bottomLayoutGuide.legnth from
+our height calculation.
+
+124
+00:06:38,710 --> 00:06:42,040
+And that's going to make sure
+that our UI view sits snug, in
+
+125
+00:06:42,040 --> 00:06:45,010
+between that top nav bar
+and bottom tab bar.
+
+126
+00:06:48,430 --> 00:06:50,540
+So remember those four questions
+that we asked
+
+127
+00:06:50,540 --> 00:06:52,460
+ourselves earlier
+in the level.
+
+128
+00:06:52,460 --> 00:06:56,270
+Well, if you answer yes to any
+one of the first three, then
+
+129
+00:06:56,270 --> 00:06:58,600
+you're probably going to want to
+consider using the new top
+
+130
+00:06:58,600 --> 00:07:01,580
+layout guide property and bottom
+layout guide property,
+
+131
+00:07:01,580 --> 00:07:04,920
+to control how those views
+are positioned.
+
+132
+00:07:04,920 --> 00:07:07,790
+If your main view is a scroll
+view though, or a subview of a
+
+133
+00:07:07,790 --> 00:07:10,200
+scroll view, then you're going
+to want to consider letting
+
+134
+00:07:10,200 --> 00:07:13,540
+the automaticallyAdjustsScrollViewInsets
+ property do
+
+135
+00:07:13,540 --> 00:07:16,520
+some of that positioning work
+for you, so your content is
+
+136
+00:07:16,520 --> 00:07:20,280
+still visible underneath
+those bars.
+
+137
+00:07:20,280 --> 00:07:22,040
+And now it's time for you to
+work on some challenges.
+
