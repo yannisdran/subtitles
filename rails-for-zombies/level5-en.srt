@@ -1,565 +1,876 @@
 ﻿1
-00:00:00,710 --> 00:00:02,930
-I'm Gregg Pollack, and you're
-watching Rails for
+00:00:00,000 --> 00:00:03,316
+[SINGING] Put down your
+brains and your entrails.
 
 2
-00:00:02,930 --> 00:00:05,192
-Zombies, Episode 5.
+00:00:03,316 --> 00:00:06,268
+It's time to stop
+and learn some Rails,
 
 3
-00:00:05,192 --> 00:00:07,950
-Put down your brains
-and your entrails.
+00:00:06,268 --> 00:00:09,712
+'cause we've got something new
+to grab - it's Rails for Zombies,
 
 4
-00:00:07,950 --> 00:00:13,142
-It's time to stop and learn
-some rails, 'cause we got
-
-5
-00:00:13,142 --> 00:00:14,799
-something new to grab.
-
-6
-00:00:14,799 --> 00:00:17,284
-Rails for Zombies
+00:00:09,712 --> 00:00:10,660
 by Envy Labs.
 
+5
+00:00:15,204 --> 00:00:16,620
+You're watching
+Rails for Zombies,
+
+6
+00:00:16,620 --> 00:00:18,078
+and this is Level
+Five, where we're
+
 7
-00:00:20,020 --> 00:00:24,260
-In this episode, we're going to
-be talking about routing.
+00:00:18,078 --> 00:00:21,780
+going to be going over
+routing through Rails.
 
 8
-00:00:24,260 --> 00:00:26,790
-So let's take one more look
-at our component stack.
+00:00:21,780 --> 00:00:23,650
+Now here we are,
+back in our browser.
 
 9
-00:00:26,790 --> 00:00:29,550
-So when a request comes in,
-we've got our controllers, our
+00:00:23,650 --> 00:00:25,400
+And a request comes
+in, and it goes
 
 10
-00:00:29,550 --> 00:00:33,630
-models, views, and now, we've
-got our one last component,
+00:00:25,400 --> 00:00:27,660
+through our four components.
 
 11
-00:00:33,630 --> 00:00:36,200
-which is routing.
+00:00:27,660 --> 00:00:30,220
+And remember, it comes in,
+it goes to the controller.
 
 12
-00:00:36,200 --> 00:00:39,040
-Let's take a look back at
-all of our links here.
+00:00:30,220 --> 00:00:32,780
+The controller gets
+data from models.
 
 13
-00:00:39,040 --> 00:00:42,955
-In order to properly find all of
-these paths for our link_to
+00:00:32,780 --> 00:00:35,350
+And then the controller
+leverages the view
 
 14
-00:00:42,955 --> 00:00:48,830
-and all of these actions, we
-need to define our routes.
+00:00:35,350 --> 00:00:37,910
+to then send the view
+back out to the browser.
 
 15
-00:00:48,830 --> 00:00:51,300
-We do that in a file located
-in our config
+00:00:37,910 --> 00:00:40,500
+Well, there is the
+fourth component here,
 
 16
-00:00:51,300 --> 00:00:53,620
-directory called routes.rb.
+00:00:40,500 --> 00:00:42,460
+which are routes.
 
 17
-00:00:53,620 --> 00:00:56,640
-If we looked in there, we'd
-find something like this.
+00:00:42,460 --> 00:00:45,210
+And we've kind of
+already been using that.
 
 18
-00:00:56,640 --> 00:01:00,010
-We'd find that we have a
-ZombieTwitter::Application.routes
+00:00:45,210 --> 00:00:48,290
+We just haven't
+talked about it yet.
 
 19
-00:01:00,010 --> 00:01:01,990
-.draw command.
+00:00:48,290 --> 00:00:54,000
+You see, in order to
+properly find these paths
 
 20
-00:01:01,990 --> 00:01:04,849
-It's sort of namespaced to our
-application, and inside there,
+00:00:54,000 --> 00:00:59,910
+and, well, have them
+route into these actions,
 
 21
-00:01:04,849 --> 00:01:06,760
-we have resources tweets.
+00:00:59,910 --> 00:01:05,209
+we need to define routes
+inside of our router.
 
 22
-00:01:06,760 --> 00:01:11,530
-This basically creates what we
-call a RESTful resource.
+00:01:05,209 --> 00:01:07,600
+Inside of our Zombie
+Twitter application,
 
 23
-00:01:11,530 --> 00:01:14,800
-It's this resource command
-which gives us all of our
+00:01:07,600 --> 00:01:09,760
+we have a folder called "config."
 
 24
-00:01:14,800 --> 00:01:16,990
-paths that we've seen
-previously.
+00:01:09,760 --> 00:01:14,430
+Inside config is our
+routes file, routes.rb.
 
 25
-00:01:16,990 --> 00:01:20,760
-Basically, when we have tweets
-paths, it links to the tweets
+00:01:14,430 --> 00:01:16,070
+Inside of there,
+you can see, it's
 
 26
-00:01:20,760 --> 00:01:23,590
-URL, which goes to
-the index action.
+00:01:16,070 --> 00:01:18,010
+kind of got our
+application name spaced,
 
 27
-00:01:23,590 --> 00:01:26,460
-When we use tweet in our
-link_to, it goes to this URL,
+00:01:18,010 --> 00:01:20,920
+Zombie Twitter Application
+routes draw do.
 
 28
-00:01:26,460 --> 00:01:28,550
-which goes to the show action.
+00:01:20,920 --> 00:01:25,730
+And it's inside this block
+that we write our routes.
 
 29
-00:01:28,550 --> 00:01:31,650
-When we do new_tweet_path, this
-goes to that URL, which
+00:01:25,730 --> 00:01:30,410
+So it's in here that we need
+to write, resources tweets.
 
 30
-00:01:31,650 --> 00:01:35,660
-goes to the new action, and the
-edit_tweet_path goes to
+00:01:30,410 --> 00:01:34,280
+We like to call this
+a RESTful route.
 
 31
-00:01:35,660 --> 00:01:38,400
-this URL, which goes to, of
-course, the edit action.
+00:01:34,280 --> 00:01:39,190
+And that one line gives us
+all of these different URL
 
 32
-00:01:38,400 --> 00:01:42,070
-And there's a bunch more
-routes that this generates,
+00:01:39,190 --> 00:01:40,750
+generators to use.
 
 33
-00:01:42,070 --> 00:01:44,440
-which we're not going to
-go into right now.
+00:01:40,750 --> 00:01:43,170
+You can see the URLs that
+each of these generate
 
 34
-00:01:44,440 --> 00:01:47,480
-So how do we do some
-custom routes?
+00:01:43,170 --> 00:01:45,410
+as well as the actions
+that these paths map
 
 35
-00:01:47,480 --> 00:01:51,100
-For example, if we wanted
-new_tweet to go and render the
+00:01:45,410 --> 00:01:47,430
+to inside of our
+tweets controller.
 
 36
-00:01:51,100 --> 00:01:54,860
-same thing as tweets/new.
+00:01:51,130 --> 00:01:52,580
+A routes file is
+typically boring
 
 37
-00:01:54,860 --> 00:01:58,830
-Well, tweets/new goes into our
-tweets controller and calls
+00:01:52,580 --> 00:01:57,060
+if you're using standard RESTful
+routes, like resources tweets.
 
 38
-00:01:58,830 --> 00:02:00,750
-the new action.
+00:01:57,060 --> 00:02:00,790
+Or we could even do resources
+tweets comma zombies.
 
 39
-00:02:00,750 --> 00:02:04,310
-So in this case, our controller
-name is Tweets,
+00:02:00,790 --> 00:02:03,740
+But we need to know more
+syntax inside of our routes
 
 40
-00:02:04,310 --> 00:02:07,380
-and our action name is new.
+00:02:03,740 --> 00:02:05,980
+when it comes to custom routes.
 
 41
-00:02:07,380 --> 00:02:12,810
-To create that custom route,
-we write match new_tweet =>
+00:02:05,980 --> 00:02:07,760
+For example, if
+we want to make it
 
 42
-00:02:12,810 --> 00:02:15,320
-Tweets#new.
+00:02:07,760 --> 00:02:10,979
+so that when someone
+goes to new_tweet,
 
 43
-00:02:15,320 --> 00:02:18,520
-The tweet new is our path,
-obviously, Tweets is our
+00:02:10,979 --> 00:02:12,950
+it will then render
+the same thing
 
 44
-00:02:18,520 --> 00:02:22,510
-controller, and new, of
-course, is our action.
+00:02:12,950 --> 00:02:15,970
+as when we go to tweet/new.
 
 45
-00:02:22,510 --> 00:02:25,650
-So if we go to new_tweet in our
-browser, that's going to
+00:02:15,970 --> 00:02:20,140
+Tweet/new, as you know,
+renders out that new action.
 
 46
-00:02:25,650 --> 00:02:28,450
-bring up the same view that
-we would see if we went to
+00:02:20,140 --> 00:02:22,410
+So in this case, our
+controller name is Tweets.
 
 47
-00:02:28,450 --> 00:02:30,190
-tweets/new.
+00:02:22,410 --> 00:02:24,520
+Our action name is new.
 
 48
-00:02:30,190 --> 00:02:34,080
-Next up, how do we make it so
-that if we go to /all, it goes
+00:02:24,520 --> 00:02:26,320
+That's what we want to invoke.
 
 49
-00:02:34,080 --> 00:02:36,970
-to the same action as tweets.
+00:02:26,320 --> 00:02:28,610
+To create this custom route
+inside of our routes file,
 
 50
-00:02:36,970 --> 00:02:38,950
-Well, if we look in our
-controller, tweets calls the
+00:02:28,610 --> 00:02:32,010
+we need to specify
+what method to accept.
 
 51
-00:02:38,950 --> 00:02:40,370
-index action.
+00:02:32,010 --> 00:02:34,300
+In our case, it's just
+"get," because we're just
 
 52
-00:02:40,370 --> 00:02:41,930
-So our controller
-name is Tweets.
+00:02:34,300 --> 00:02:37,980
+going to enter in that
+URL or maybe link to it.
 
 53
-00:02:41,930 --> 00:02:43,750
-Our action name is index.
+00:02:37,980 --> 00:02:40,720
+We'll specify the path
+of this custom URL.
 
 54
-00:02:43,750 --> 00:02:47,540
-To make this happen, we do
-match 'all' => Tweets#index.
+00:02:40,720 --> 00:02:42,410
+Then we'll send in a string.
 
 55
-00:02:47,540 --> 00:02:50,440
-But what if we want
-to go to this all
+00:02:42,410 --> 00:02:45,000
+This string is going to specify the controller name
 
 56
-00:02:50,440 --> 00:02:52,630
-route inside of a link?
+00:02:45,000 --> 00:02:48,870
+and the action named this custom route should invoke
 
 57
-00:02:52,630 --> 00:02:55,170
-What do we do? tweets_path
-isn't going to work.
+00:02:48,870 --> 00:02:53,480
+with the pound sign to separate the two.
 
 58
-00:02:55,170 --> 00:02:59,760
-Well, what we need to do here,
-is specify as all_tweets.
+00:02:53,480 --> 00:02:56,840
+So now, if we jump into our
+browser and go to new_tweet,
 
 59
-00:02:59,760 --> 00:03:03,830
-What this will allow us to do
-is specify all_tweets_path
+00:02:56,840 --> 00:03:00,460
+we get the new tweet view.
 
 60
-00:03:03,830 --> 00:03:05,960
-inside of our link, and it's
-going to link to the
+00:03:00,460 --> 00:03:04,720
+Now we want to make it so
+that when a user goes to /all,
 
 61
-00:03:05,960 --> 00:03:07,540
-appropriate place.
+00:03:04,720 --> 00:03:08,180
+they see the same thing as
+if they went to /tweets -
 
 62
-00:03:07,540 --> 00:03:10,640
-So as you can see, when we go to
-/all, it's going to show us
+00:03:08,180 --> 00:03:10,760
+so just listing
+all of the tweets.
 
 63
-00:03:10,640 --> 00:03:13,250
-a listing of all the
-different tweets.
+00:03:10,760 --> 00:03:12,220
+So that's basically
+the same thing
 
 64
-00:03:13,250 --> 00:03:15,730
-Well, what if we want to change
-that behavior and
+00:03:12,220 --> 00:03:16,270
+as calling the index action
+inside the tweets controller.
 
 65
-00:03:15,730 --> 00:03:18,290
-instead of rendering out
-the list, redirect
+00:03:16,270 --> 00:03:18,520
+So our controller
+name here is tweets.
 
 66
-00:03:18,290 --> 00:03:20,530
-to the tweets path.
+00:03:18,520 --> 00:03:21,570
+The action name is index.
 
 67
-00:03:20,530 --> 00:03:23,470
-How do we do that?
+00:03:21,570 --> 00:03:24,480
+So inside of our routes.rb,
+we want to specify,
 
 68
-00:03:23,470 --> 00:03:27,890
-So again, we want /all to
-redirect to the tweets path.
+00:03:24,480 --> 00:03:30,560
+get all tweets pound index.
 
 69
-00:03:27,890 --> 00:03:33,780
-So we say match all
-match 'all' => redirect('/tweets')
+00:03:30,560 --> 00:03:34,420
+However, if we want to
+link to this custom path,
 
 70
-00:03:33,780 --> 00:03:36,450
-We can also redirect outside
-of our website.
+00:03:34,420 --> 00:03:35,880
+how do we do it?
 
 71
-00:03:36,450 --> 00:03:40,480
-We can do match google
-redirect to Google.
+00:03:35,880 --> 00:03:39,310
+Do we specify the actual path?
 
 72
-00:03:40,480 --> 00:03:43,030
-Simple enough.
+00:03:39,310 --> 00:03:41,370
+It would work if we
+just specified a string.
 
 73
-00:03:43,030 --> 00:03:44,540
-What about our root route?
+00:03:41,370 --> 00:03:44,830
+But that's considered
+a bad practice.
 
 74
-00:03:44,540 --> 00:03:48,130
-So when people just go to / then
-their application, what
+00:03:44,830 --> 00:03:46,970
+So to add a custom
+URL generator,
 
 75
-00:03:48,130 --> 00:03:51,010
-if we want that to render
-out tweets?
+00:03:46,970 --> 00:03:50,890
+we need to specify in our
+routes file an extra argument.
 
 76
-00:03:51,010 --> 00:03:55,790
-We simply specify here
-root :to => "Tweets#index"
+00:03:50,890 --> 00:03:55,360
+We simply specify "as"
+and then give it a name.
 
 77
-00:03:55,790 --> 00:03:58,110
-So here we have the controller
-and the action.
+00:03:55,360 --> 00:03:57,680
+This is a named route.
 
 78
-00:03:58,110 --> 00:04:01,710
-And if we want to put that in a
-link, we simply do root_path
+00:03:57,680 --> 00:04:03,800
+Then in our link to helper, we
+can specify all tweets_path,
 
 79
-00:04:01,710 --> 00:04:03,710
-inside of our link.
+00:04:03,800 --> 00:04:09,120
+and it will properly
+link to the all URL.
 
 80
-00:04:03,710 --> 00:04:05,780
-Now, let's get into some
-route parameters.
+00:04:09,120 --> 00:04:10,640
+So now, if we go
+into our browser,
 
 81
-00:04:05,780 --> 00:04:08,830
-So what if we want to be able to
-send in a zip code to find
+00:04:10,640 --> 00:04:16,160
+we can see when we go to /all,
+it lists out all of the tweets.
 
 82
-00:04:08,830 --> 00:04:12,010
-all the zombie tweets in
-a particular zip code.
+00:04:16,160 --> 00:04:19,160
+Let's say we rewrote our
+application in Rails.
 
 83
-00:04:12,010 --> 00:04:13,410
-How might we do that?
+00:04:19,160 --> 00:04:24,000
+And there's lots of incoming
+links that are going to /all
 
 84
-00:04:13,410 --> 00:04:15,080
-Well, first of all, what would
-it look like in our
+00:04:24,000 --> 00:04:26,120
+to list out all the tweets.
 
 85
-00:04:15,080 --> 00:04:16,120
-controller?
+00:04:26,120 --> 00:04:30,000
+We don't want that to
+be the definitive URL.
 
 86
-00:04:16,120 --> 00:04:18,279
-So maybe in our index
-action, we check for
+00:04:30,000 --> 00:04:34,540
+Now we want the definitive
+URL to be /tweets.
 
 87
-00:04:18,279 --> 00:04:19,690
-the zip code parameter.
+00:04:34,540 --> 00:04:39,130
+So we need a way to
+redirect /all to /tweets.
 
 88
-00:04:19,690 --> 00:04:23,070
-If it exists, we query for all
-the tweets where the zip code
+00:04:39,130 --> 00:04:40,710
+How do we do that?
 
 89
-00:04:23,070 --> 00:04:24,260
-equals that.
+00:04:40,710 --> 00:04:46,580
+We can simply write,
+get all redirect tweets.
 
 90
-00:04:24,260 --> 00:04:27,490
-Otherwise, we list all the
-tweets and then, of course,
+00:04:46,580 --> 00:04:48,080
+That's all there is to it.
 
 91
-00:04:27,490 --> 00:04:28,750
-just render out the page.
+00:04:48,080 --> 00:04:51,130
+And when a user's
+browser goes to /all,
 
 92
-00:04:31,730 --> 00:04:34,460
-The route that would make it
-happen would look like this.
+00:04:51,130 --> 00:04:56,300
+their browser will
+redirect to /tweets.
 
 93
-00:04:34,460 --> 00:04:38,090
-'local_tweets/:zipcode' =>
-'Tweets#index'
+00:04:56,300 --> 00:04:59,250
+We can also redirect
+to other URLs even.
 
 94
-00:04:38,090 --> 00:04:40,690
-So by putting that :zipcode
-in there that says
+00:04:59,250 --> 00:05:01,730
+So if when someone
+goes to /google,
 
 95
-00:04:40,690 --> 00:04:44,260
-whatever gets sent in here for
-the URL, put that into the zip
+00:05:01,730 --> 00:05:05,590
+we could redirect
+them to Google.
 
 96
-00:04:44,260 --> 00:04:45,770
-code parameter.
+00:05:05,590 --> 00:05:08,230
+Next, we need to talk
+about the root route.
 
 97
-00:04:45,770 --> 00:04:50,090
-Also if we specify a name, so we
-say as local_tweets, we can
+00:05:08,230 --> 00:05:10,470
+So this is what your users
+will see when they just
 
 98
-00:04:50,090 --> 00:04:53,510
-then use link_to and do a
-local_tweets_path and then
+00:05:10,470 --> 00:05:15,390
+go to your domain,
+just your root domain.
 
 99
-00:04:53,510 --> 00:04:55,960
-send in the zip code.
+00:05:15,390 --> 00:05:17,110
+We need to specify
+which controller
 
 100
-00:04:55,960 --> 00:04:59,030
-Now, if you use Twitter a lot,
-you might notice this format
+00:05:17,110 --> 00:05:19,670
+and which action to
+render when this happens.
 
 101
-00:04:59,030 --> 00:05:03,150
-where basically they have
-twitter.com/username.
+00:05:19,670 --> 00:05:24,070
+To do this in a routes file,
+we simply specify "root to,"
 
 102
-00:05:03,150 --> 00:05:07,090
-How might we implement that
-using our new route knowledge?
+00:05:24,070 --> 00:05:28,410
+and then send in a
+controller and an action.
 
 103
-00:05:07,090 --> 00:05:10,800
-So basically, again, we want to
-allow the user name to show
+00:05:28,410 --> 00:05:30,070
+That's all there is to it.
 
 104
-00:05:10,800 --> 00:05:12,470
-all the tweets for
-that zombie.
+00:05:30,070 --> 00:05:32,430
+If we wanted to link
+to this root path,
 
 105
-00:05:12,470 --> 00:05:14,560
-So if we go to /greggpollack,
-it will
+00:05:32,430 --> 00:05:35,565
+we could specify root
+path as our URL generator.
 
 106
-00:05:14,560 --> 00:05:16,580
-show all of my tweets.
+00:05:38,250 --> 00:05:40,290
+Now let's look at a
+more complex example.
 
 107
-00:05:16,580 --> 00:05:19,750
-To create the route, we do
-match ':name' => 'Tweet#index',
+00:05:40,290 --> 00:05:43,100
+What if we wanted
+to allow for a URL
 
 108
-00:05:19,750 --> 00:05:22,800
-:as => 'zombie_tweets'
-which would then allow us to do
+00:05:43,100 --> 00:05:46,030
+that somebody could
+send in a zip code
 
 109
-00:05:22,800 --> 00:05:24,700
-zombie_tweets_path('greggpollack')
+00:05:46,030 --> 00:05:49,020
+and get just the
+local tweets returned?
 
 110
-00:05:24,700 --> 00:05:25,490
-inside of our link_to.
+00:05:49,020 --> 00:05:52,230
+And it would have a
+listing of tweets.
 
 111
-00:05:25,490 --> 00:05:28,520
-Then inside of our controller,
-might look
+00:05:52,230 --> 00:05:57,270
+Hm, well, we already have a page
+that has a listing of tweets.
 
 112
-00:05:28,520 --> 00:05:32,170
-something like this is, where if
-the parameter name exists,
+00:05:57,270 --> 00:05:58,700
+It's our index page.
 
 113
-00:05:32,170 --> 00:05:35,010
-then query for that zombie
-and then get all of
+00:05:58,700 --> 00:06:02,310
+So why don't we just reuse
+that action for this example.
 
 114
-00:05:35,010 --> 00:05:37,860
-that zombie's tweets.
+00:06:02,310 --> 00:06:04,460
+So inside of our
+index action, we're
 
 115
-00:05:37,860 --> 00:05:40,590
-So now, if we want to view a
-particular zombie's tweets,
+00:06:04,460 --> 00:06:09,200
+going to have a conditional,
+"params zip code."
 
 116
-00:05:40,590 --> 00:05:45,400
-for example, Ash's tweets, we
-simply go to /Ash, and we're
+00:06:09,200 --> 00:06:11,400
+And if that exists,
+if zip code exists -
 
 117
-00:05:45,400 --> 00:05:48,120
-shown all of Ash's tweets.
+00:06:11,400 --> 00:06:14,210
+that's what we're
+saying - then do a query
 
 118
-00:05:48,120 --> 00:05:51,690
-Well, that pretty much wraps
-up this fifth episode.
+00:06:14,210 --> 00:06:20,410
+where zip code is equal to that
+parameter that was sent in.
 
 119
-00:05:51,690 --> 00:05:56,680
-Now, it's time for Zombie Lab
-5, where the zombies get
+00:06:20,410 --> 00:06:23,600
+Otherwise, simply query
+for all of the tweets
 
 120
-00:05:56,680 --> 00:05:58,580
-bloodier and the brains
-get tastier.
+00:06:23,600 --> 00:06:25,500
+and respond to this request.
+
+121
+00:06:30,110 --> 00:06:33,360
+That's all the code we
+need to right there.
+
+122
+00:06:33,360 --> 00:06:35,750
+To make this route work,
+inside of our routing
+
+123
+00:06:35,750 --> 00:06:40,160
+file we need to write
+"get local tweets."
+
+124
+00:06:40,160 --> 00:06:42,610
+And then we need to specify
+the name of the parameter
+
+125
+00:06:42,610 --> 00:06:44,840
+that our application
+will expect.
+
+126
+00:06:44,840 --> 00:06:46,450
+In this case, it's zip code.
+
+127
+00:06:46,450 --> 00:06:49,240
+So we're going to
+write ":zipcode."
+
+128
+00:06:49,240 --> 00:06:52,410
+It's only because of this
+that our application knows
+
+129
+00:06:52,410 --> 00:06:54,730
+to store our zip
+codes when they come
+
+130
+00:06:54,730 --> 00:06:56,960
+into our application
+in a parameter
+
+131
+00:06:56,960 --> 00:06:58,920
+with the key of zip code.
+
+132
+00:06:58,920 --> 00:07:02,650
+And this, of course, points
+to our tweets controller,
+
+133
+00:07:02,650 --> 00:07:05,060
+the index action.
+
+134
+00:07:05,060 --> 00:07:07,090
+We also might want
+to name this route.
+
+135
+00:07:07,090 --> 00:07:11,000
+So we're going to add,
+as "local tweets," which
+
+136
+00:07:11,000 --> 00:07:15,620
+would allow us to say,
+link to tweets in 32828,
+
+137
+00:07:15,620 --> 00:07:19,410
+and then specify the URL
+generator, "local tweets path
+
+138
+00:07:19,410 --> 00:07:22,320
+32828."
+
+139
+00:07:22,320 --> 00:07:25,010
+Now you know how some
+websites like Twitter,
+
+140
+00:07:25,010 --> 00:07:27,554
+people go to slash
+and then the username.
+
+141
+00:07:27,554 --> 00:07:28,970
+And in this case,
+with Twitter, it
+
+142
+00:07:28,970 --> 00:07:31,740
+would call up all the
+tweets for GitHub.
+
+143
+00:07:31,740 --> 00:07:35,520
+How might we implement
+that in our routing file?
+
+144
+00:07:35,520 --> 00:07:39,000
+So in this case, if somebody
+to /greggpollack or /eallam
+
+145
+00:07:39,000 --> 00:07:42,880
+or /envylabs, we only want
+to show the tweets for those
+
+146
+00:07:42,880 --> 00:07:44,880
+zombies.
+
+147
+00:07:44,880 --> 00:07:47,790
+To do this in our routes file,
+we want to add a route that
+
+148
+00:07:47,790 --> 00:07:50,960
+should be at the bottom
+of our file and say,
+
+149
+00:07:50,960 --> 00:07:56,570
+"get :name" and then specify
+the controller tweets,
+
+150
+00:07:56,570 --> 00:08:00,540
+the index action
+as zombie tweets.
+
+151
+00:08:00,540 --> 00:08:02,170
+Now, if we wanted
+to create a link,
+
+152
+00:08:02,170 --> 00:08:05,370
+we could say, "link to Gregg,
+zombie tweets path Gregg
+
+153
+00:08:05,370 --> 00:08:08,930
+Pollack," and it would
+generate the proper URL.
+
+154
+00:08:08,930 --> 00:08:10,830
+And since we're calling
+the index action,
+
+155
+00:08:10,830 --> 00:08:13,750
+we would need to jump
+into the index action, 
+
+156
+00:08:13,750 --> 00:08:17,260
+check to see if there's
+a parameter called "Name."
+
+157
+00:08:17,260 --> 00:08:20,220
+If there is, we'll go
+and fetch the zombie
+
+158
+00:08:20,220 --> 00:08:24,210
+where name is equal to
+the name that was sent in.
+
+159
+00:08:24,210 --> 00:08:27,970
+That's going to return an array,
+so we need to call .first,
+
+160
+00:08:27,970 --> 00:08:31,370
+which will get back the
+first item in that array,
+
+161
+00:08:31,370 --> 00:08:33,419
+which will hopefully be me.
+
+162
+00:08:33,419 --> 00:08:36,559
+And then we're going
+to call zombie.tweets,
+
+163
+00:08:36,559 --> 00:08:38,460
+which will get all
+the tweets for me
+
+164
+00:08:38,460 --> 00:08:41,929
+and store that in the
+tweets instance variable.
+
+165
+00:08:41,929 --> 00:08:44,260
+If the parameter
+name wasn't sent in,
+
+166
+00:08:44,260 --> 00:08:47,580
+then we can just do
+tweets equals tweet all.
+
+167
+00:08:47,580 --> 00:08:52,950
+You'll notice in this last one
+here, we don't have respond to.
+
+168
+00:08:52,950 --> 00:08:55,800
+That's because by
+default, if we're not
+
+169
+00:08:55,800 --> 00:09:01,290
+needing to respond to any JSON
+requests or any XML requests,
+
+170
+00:09:01,290 --> 00:09:04,265
+all we're doing is
+HTML, then it's fine
+
+171
+00:09:04,265 --> 00:09:07,840
+not to include that
+respond-to block.
+
+172
+00:09:07,840 --> 00:09:11,110
+Now if we go to
+/ash, for example,
+
+173
+00:09:11,110 --> 00:09:16,340
+we get back only Ash's tweet.
+
+174
+00:09:16,340 --> 00:09:19,230
+You've reached the end of
+the Rails for Zombies videos.
+
+175
+00:09:19,230 --> 00:09:21,330
+It's time for just a
+few more challenges
+
+176
+00:09:21,330 --> 00:09:24,250
+to earn your Rails
+for Zombies badge.
+
+177
+00:09:24,250 --> 00:09:28,530
+And then I will see you in the
+super secret outro video,
+
+178
+00:09:28,530 --> 00:09:30,730
+where I'll tell you where
+to go next to continue
+
+179
+00:09:30,730 --> 00:09:33,490
+learning Rails.
+
+180
+00:09:33,490 --> 00:09:35,290
+[INAUDIBLE]
+
+181
+00:09:35,290 --> 00:09:37,740
+To get [BLEEP] out
+of the database.
+
+182
+00:09:41,061 --> 00:09:46,100
+The three I think
+of - super secret.
+

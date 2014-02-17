@@ -1,642 +1,995 @@
-﻿1
-00:00:00,330 --> 00:00:01,890
-Hello, I'm Gregg Pollack,
-and you're
-
-2
-00:00:01,890 --> 00:00:03,620
-watching Rails for Zombies.
-
-3
-00:00:03,620 --> 00:00:06,917
-(SINGING) Put down your brains
+1
+00:00:00,500 --> 00:00:03,302
+[SINGING] Put down your brains
 and your entrails.
 
+2
+00:00:03,302 --> 00:00:06,266
+It's time to stop
+and learn some Rails,
+
+3
+00:00:06,266 --> 00:00:09,230
+‘cause we got
+something new to grab -
+
 4
-00:00:06,917 --> 00:00:10,813
-It's time to stop and learn
-some Rails because we got
+00:00:09,230 --> 00:00:12,385
+it’s Rails for Zombies by Envy Labs.
 
 5
-00:00:10,813 --> 00:00:12,761
-something new to grab.
+00:00:15,370 --> 00:00:18,370
+I'm Gregg Pollack, and you're
+watching Rails for Zombies.
 
 6
-00:00:12,761 --> 00:00:17,990
-It's Rails for Zombies
-by Envy Labs.
+00:00:18,370 --> 00:00:19,790
+This is Level 1,
+where we're going
 
 7
-00:00:17,990 --> 00:00:19,730
-In order for this video to make
-sense, you're going to
+00:00:19,790 --> 00:00:23,530
+to be getting
+"Deep in the CRUD."
 
 8
-00:00:19,730 --> 00:00:22,120
-need to know a little bit
-about the Ruby language.
+00:00:23,530 --> 00:00:26,175
+If you're not yet familiar with
+the Ruby programming language,
 
 9
-00:00:22,120 --> 00:00:24,760
-If you don't know anything
-yet, pause this video, go
+00:00:26,175 --> 00:00:27,550
+you might want to
+pause the video
 
 10
-00:00:24,760 --> 00:00:28,250
-tryruby.org, go through that
-tutorial, and then come back
+00:00:27,550 --> 00:00:29,819
+and head over to TryRuby.org.
 
 11
-00:00:28,250 --> 00:00:30,360
-and start the video.
+00:00:29,819 --> 00:00:31,860
+Spend a few minutes there
+on the tutorial getting
 
 12
-00:00:30,360 --> 00:00:32,090
-So in this first episode,
-we're going to
+00:00:31,860 --> 00:00:33,680
+familiar with the
+Ruby syntax - you
 
 13
-00:00:32,090 --> 00:00:34,120
-be deep in the CRUD.
+00:00:33,680 --> 00:00:35,350
+don't have to finish
+the whole thing -
 
 14
-00:00:34,120 --> 00:00:35,810
-We're going to be talking
-about CRUD.
+00:00:35,350 --> 00:00:39,330
+and then come back over here
+and continue this tutorial.
 
 15
-00:00:35,810 --> 00:00:38,880
-Now, bear with me if you're
-an expert in some of these
+00:00:39,330 --> 00:00:42,650
+In this tutorial, we're going
+to be building a web application
 
 16
-00:00:38,880 --> 00:00:40,770
-languages and some of
-these concepts.
+00:00:42,650 --> 00:00:45,040
+somewhat like
+Twitter except it's
 
 17
-00:00:40,770 --> 00:00:42,700
-We'll get to the advanced stuff
-soon enough, but we need
+00:00:45,040 --> 00:00:47,356
+going to be Twitter for zombies.
 
 18
-00:00:42,700 --> 00:00:44,940
-to make sure everyone's
-on the same page.
+00:00:50,170 --> 00:00:51,790
+To start building
+our web application,
 
 19
-00:00:44,940 --> 00:00:48,220
-So we're going to be creating
-Twitter for zombies.
+00:00:51,790 --> 00:00:53,620
+we're going to start
+in the database
 
 20
-00:00:48,220 --> 00:00:49,920
-That's your application.
+00:00:53,620 --> 00:00:57,570
+with a database
+table called tweets.
 
 21
-00:00:49,920 --> 00:00:51,910
-If you don't know why, go
-back to the front page
+00:00:57,570 --> 00:00:59,010
+You might say that
+that looks kind
 
 22
-00:00:51,910 --> 00:00:52,770
-and watch the intro.
+00:00:59,010 --> 00:01:00,930
+of like an Excel spreadsheet.
 
 23
-00:00:52,770 --> 00:00:56,460
-But let's jump into
-it for now.
+00:01:00,930 --> 00:01:08,250
+We've got four rows and we have
+three columns across the top.
 
 24
-00:00:56,460 --> 00:00:59,980
-So here we have our first
-database table.
+00:01:08,250 --> 00:01:11,480
+If we were to name these
+columns, the first one we might
 
 25
-00:00:59,980 --> 00:01:01,550
-It kind of looks like
-a spreadsheet.
+00:01:11,480 --> 00:01:17,090
+call id, the second one we
+might call status - that's
 
 26
-00:01:01,550 --> 00:01:03,530
-We're calling it tweets.
+00:01:17,090 --> 00:01:20,420
+our tweet - and the
+third, we'll call zombie,
 
 27
-00:01:03,530 --> 00:01:09,020
-It has four rows, and it
-has three columns.
+00:01:20,420 --> 00:01:23,280
+meaning the zombie
+that posted that tweet.
 
 28
-00:01:09,020 --> 00:01:11,090
-Now, we might put a label on
-each of these columns.
+00:01:23,280 --> 00:01:26,860
+The first problem we need to
+solve in our web application
 
 29
-00:01:11,090 --> 00:01:13,220
-The first one is the ID.
+00:01:26,860 --> 00:01:32,760
+is how to retrieve the tweet
+object with the id equal to 3
 
 30
-00:01:13,220 --> 00:01:15,260
-The second one is status.
+00:01:32,760 --> 00:01:37,610
+so maybe we can display
+it on the page later.
 
 31
-00:01:15,260 --> 00:01:17,690
-And the third one represents
-the zombie,
+00:01:37,610 --> 00:01:39,240
+Before we try to
+solve this challenge,
 
 32
-00:01:17,690 --> 00:01:20,840
-like Ash, Bob, Jim.
+00:01:39,240 --> 00:01:43,030
+we need to make sure we all
+understand what a hash is.
 
 33
-00:01:20,840 --> 00:01:22,280
-These are our zombies.
+00:01:43,030 --> 00:01:45,400
+You might remember
+this from Try Ruby.
 
 34
-00:01:22,280 --> 00:01:24,650
-Now, our first zombie challenge
-is going to be to
+00:01:45,400 --> 00:01:48,840
+It's just basically
+multiple keys and values
 
 35
-00:01:24,650 --> 00:01:28,270
-retrieve a hash of the tweet
-with ID of 3.
+00:01:48,840 --> 00:01:51,950
+surrounded by curly braces.
 
 36
-00:01:28,270 --> 00:01:30,150
-Now, I'm not going to show
-you the solution.
+00:01:51,950 --> 00:01:56,260
+Here you can see row number
+3 expressed as a hash.
 
 37
-00:01:30,150 --> 00:01:33,100
-What I'm going to show you first
-is the result, what we
+00:01:56,260 --> 00:01:58,080
+If we only had a
+single key and value,
 
 38
-00:01:33,100 --> 00:01:34,540
-want to get back in
-the database.
+00:01:58,080 --> 00:02:00,290
+it might look
+something like this.
 
 39
-00:01:34,540 --> 00:01:36,780
-In this case, we want
-to get back a hash,
+00:02:00,290 --> 00:02:04,990
+And a hash recipe you might
+say looks something like this.
 
 40
-00:01:36,780 --> 00:01:38,030
-which looks like this.
+00:02:04,990 --> 00:02:06,870
+And as we go
+through this course,
 
 41
-00:01:40,550 --> 00:01:42,920
-Now, you should be familiar
-with what a hash is, but
+00:02:06,870 --> 00:02:09,970
+you're going to be seeing a
+couple different recipes when
 
 42
-00:01:42,920 --> 00:01:44,430
-here's a small recap.
+00:02:09,970 --> 00:02:15,420
+we want to show you what the
+underlying syntax looks like.
 
 43
-00:01:44,430 --> 00:01:47,942
-So if we do puts b[:status], we're
-going to get back "I just
+00:02:15,420 --> 00:02:19,060
+The anatomy of a hash
+has keys and values.
 
 44
-00:01:47,942 --> 00:01:49,430
-ate some delicious brains."
+00:02:19,060 --> 00:02:23,790
+So id, status, and
+zombie are all keys,
 
 45
-00:01:49,430 --> 00:01:52,370
-If we do puts b[:zombie], we're
-going to get back "Jim."
+00:02:23,790 --> 00:02:26,730
+and the values
+here are 3, "I just
 
 46
-00:01:52,370 --> 00:01:54,470
-And if we do this at the bottom,
-we're going to get
+00:02:26,730 --> 00:02:29,080
+ate some delicious
+brains," and "Jim."
 
 47
-00:01:54,470 --> 00:01:57,690
-back "Jim said I ate some
-delicious brains."
+00:02:29,080 --> 00:02:30,800
+The second two are strings.
 
 48
-00:01:57,690 --> 00:02:02,850
-Because you know, zombies
-love eating the brains.
+00:02:30,800 --> 00:02:33,440
+The first is
+obviously an integer.
 
 49
-00:02:02,850 --> 00:02:04,730
-Now let's get back
-to our database
+00:02:33,440 --> 00:02:37,140
+And we call these keys
+symbols - Ruby symbols -
 
 50
-00:02:04,730 --> 00:02:07,430
-table and our challenge.
+00:02:37,140 --> 00:02:41,430
+because they have that
+colon in front of them.
 
 51
-00:02:07,430 --> 00:02:08,800
-So there's our challenge
-again.
+00:02:41,430 --> 00:02:45,340
+So we're storing a new hash
+inside that b variable,
 
 52
-00:02:08,800 --> 00:02:11,885
-Now, I'm going to show you the
-actual solution, the code that
+00:02:45,340 --> 00:02:48,490
+but how do we read
+values out of a hash?
 
 53
-00:02:11,885 --> 00:02:12,890
-we want to write.
+00:02:48,490 --> 00:02:50,800
+We can do that by
+simply specifying
 
 54
-00:02:12,890 --> 00:02:16,730
-We want to write
-t = Tweet.find(3)
+00:02:50,800 --> 00:02:54,170
+b and sending in
+the key, status.
 
 55
-00:02:16,730 --> 00:02:19,470
-So what that's going to do is
-get us back that hash, and we
+00:02:54,170 --> 00:02:57,540
+This returns, "I just ate
+some delicious brains."
 
 56
-00:02:19,470 --> 00:02:23,990
-can then do puts t[:id] gets
-us 3, puts t[:status] gets "I
+00:02:57,540 --> 00:03:00,680
+Here's how we would get
+the zombie returning "Jim."
 
 57
-00:02:23,990 --> 00:02:27,900
-just ate some delicious brains,"
-and puts t[:zombie] gets
+00:03:00,680 --> 00:03:02,650
+We could also
+collect multiple keys
 
 58
-00:02:27,900 --> 00:02:29,850
-us back "Jim."
+00:03:02,650 --> 00:03:06,770
+and concatenate them together
+into a string getting "Jim said,
 
 59
-00:02:29,850 --> 00:02:33,470
-Now, there's another way we
-can write this in Rails.
+00:03:06,770 --> 00:03:09,900
+'I just ate some
+delicious brains.'"
 
 60
-00:02:33,470 --> 00:02:38,050
-Instead of puts t[:id], we
-can do puts t.id.
+00:03:09,900 --> 00:03:12,505
+Here's a recipe for reading
+values out of a hash.
 
 61
-00:02:38,050 --> 00:02:42,790
-Puts t[:status], we can have puts
-t.status, and so on
+00:03:16,270 --> 00:03:18,090
+Back to our zombie
+challenge where
 
 62
-00:02:42,790 --> 00:02:43,720
-and so forth.
+00:03:18,090 --> 00:03:21,770
+we want to return the
+tweet with the id equals 3.
 
 63
-00:02:43,720 --> 00:02:46,780
-So we can use these to find our
-solution instead of using
+00:03:21,770 --> 00:03:24,820
+We kind of want the
+results of whatever code
 
 64
-00:02:46,780 --> 00:02:48,620
-the hash keys.
+00:03:24,820 --> 00:03:28,760
+we're about to write to return
+something like this hash,
 
 65
-00:02:48,620 --> 00:02:50,140
-Here's what our answer
-might look like with
+00:03:28,760 --> 00:03:31,690
+so we can read out
+the values from it.
 
 66
-00:02:50,140 --> 00:02:51,610
-those pieces of code.
+00:03:31,690 --> 00:03:34,250
+And the code needed to solve
+this challenge looks something
 
 67
-00:02:51,610 --> 00:02:53,130
-There's one Rails convention
-here that
+00:03:34,250 --> 00:03:36,895
+like this: t equals
+tweet.find(3).
 
 68
-00:02:53,130 --> 00:02:54,590
-I want you to notice.
+00:03:39,850 --> 00:03:42,080
+This is going to
+return something
 
 69
-00:02:54,590 --> 00:02:59,330
-Notice we have capital T in
-Tweet in the code solution.
+00:03:42,080 --> 00:03:45,560
+that we can then print
+out to the screen.
 
 70
-00:02:59,330 --> 00:03:01,620
-And what's happening on the
-back end here is that it's
+00:03:45,560 --> 00:03:49,100
+In a Rails application,
+when we use the word tweet
 
 71
-00:03:01,620 --> 00:03:04,350
-going to lower case that,
-pluralize it, and then it's
+00:03:49,100 --> 00:03:54,100
+and it's singular
+and uppercase, it's
 
 72
-00:03:04,350 --> 00:03:09,170
-looking for a table called
-tweets in our database.
+00:03:54,100 --> 00:03:57,670
+going to allow us to
+access in our database
 
 73
-00:03:09,170 --> 00:03:12,080
-It's time to jump
-in to the CRUD.
+00:03:57,670 --> 00:04:04,170
+the lowercase and pluralized
+table mate, tweets.
 
 74
-00:03:12,080 --> 00:03:17,280
-And by CRUD, I mean Create,
-Read, Update, and Delete.
+00:04:04,170 --> 00:04:07,210
+When we call find(3),
+we're calling a method
 
 75
-00:03:17,280 --> 00:03:19,880
-Now, let's figure out how we
-can do each of these inside
+00:04:07,210 --> 00:04:10,150
+on the tweet which
+is going to fetch
 
 76
-00:03:19,880 --> 00:03:21,780
-our Rails application.
+00:04:10,150 --> 00:04:14,790
+the tweet with the id of 3 and
+store it in that t variable.
 
 77
-00:03:21,780 --> 00:03:24,920
-First, in the create,
-we do Tweet.new
+00:04:14,790 --> 00:04:20,360
+So now if we do puts t id,
+we get back the id of 3.
 
 78
-00:03:24,920 --> 00:03:27,400
-We can then set the status
-and call t.save
+00:04:20,360 --> 00:04:24,210
+If we do puts t status, we get
+back, "I just ate some delicious
 
 79
-00:03:27,400 --> 00:03:29,550
-to save the item.
+00:04:24,210 --> 00:04:26,770
+brains," and if we
+do puts t zombie,
 
 80
-00:03:29,550 --> 00:03:33,230
-For reading, we then do
-Tweet.find(3), just like you
+00:04:26,770 --> 00:04:31,762
+we get back "Jim," as
+you might expect.
 
 81
-00:03:33,230 --> 00:03:34,800
-saw a moment ago.
+00:04:31,762 --> 00:04:34,320
+When we're getting
+values at the database,
 
 82
-00:03:34,800 --> 00:03:37,250
-For updating, we're going
-to find the tweet.
+00:04:34,320 --> 00:04:35,890
+we don't use a hash syntax.
 
 83
-00:03:37,250 --> 00:03:41,070
-Then we can set of values
-on it and save it.
+00:04:35,890 --> 00:04:38,480
+We use a dot syntax.
 
 84
-00:03:41,070 --> 00:03:44,850
-And then for delete, we can find
-the tweet and call t.destroy
+00:04:38,480 --> 00:04:45,040
+We typically just say
+t.id, t.status, or t.zombie
 
 85
-00:03:44,850 --> 00:03:47,460
-to delete it
-out of a database.
+00:04:45,040 --> 00:04:47,270
+and it returns the same thing.
 
 86
-00:03:47,460 --> 00:03:49,480
-Now we're going to go through
-each of these in a little more
+00:04:47,270 --> 00:04:49,070
+You see that symbol up there.
 
 87
-00:03:49,480 --> 00:03:52,550
-detail, and I'm going to show
-you some alternate syntaxes.
+00:04:49,070 --> 00:04:51,370
+It's actually going to be
+our symbol in this tutorial
 
 88
-00:03:52,550 --> 00:03:56,020
-But first, with create, notice
-that we're not setting the ID
+00:04:51,370 --> 00:04:54,820
+for alternate syntax,
+and it happens
 
 89
-00:03:56,020 --> 00:03:57,680
-on the object here.
+00:04:54,820 --> 00:04:58,770
+to be the international
+symbol for Rubber Man as well.
 
 90
-00:03:57,680 --> 00:04:00,280
-That's because Rails is going
-to take care of that for us
+00:04:58,770 --> 00:05:00,970
+I just made that up right now.
 
 91
-00:04:00,280 --> 00:04:02,350
-and properly increment
-the ID and
+00:05:00,970 --> 00:05:02,950
+It looks like a
+student has a question.
 
 92
-00:04:02,350 --> 00:04:04,220
-store that in the database.
+00:05:02,950 --> 00:05:07,020
+Well, should we use the hash
+syntax or the dot syntax?
 
 93
-00:04:04,220 --> 00:04:07,240
-Another way we can create a new
-tweet is simply by sending
+00:05:07,020 --> 00:05:08,890
+Well in most Rails
+applications, you'll
 
 94
-00:04:07,240 --> 00:04:10,730
-in a hash of the items
-that we want to set.
+00:05:08,890 --> 00:05:13,530
+see people using the dot syntax,
+so let's just do that from now
 
 95
-00:04:10,730 --> 00:04:12,700
-We can then save that.
+00:05:13,530 --> 00:05:15,650
+on.
 
 96
-00:04:12,700 --> 00:04:15,520
-We could also write this all on
-one line by calling
+00:05:15,650 --> 00:05:18,370
+Let's say we had a weapons
+table in our database
 
 97
-00:04:15,520 --> 00:04:16,649
-Tweet.create.
+00:05:18,370 --> 00:05:20,520
+and we wanted to
+get the weapon out
 
 98
-00:04:16,649 --> 00:04:19,269
-So that's going to set
-these attributes
+00:05:20,520 --> 00:05:23,920
+of the database
+with the id of 1.
 
 99
-00:04:19,269 --> 00:04:23,190
-and save the object.
+00:05:23,920 --> 00:05:26,130
+Well, based on what
+we know so far,
 
 100
-00:04:23,190 --> 00:04:26,270
-Next up, for reading, there's
-lots of ways we can read data
+00:05:26,130 --> 00:05:30,790
+we might write w
+equals weapon find(1).
 
 101
-00:04:26,270 --> 00:04:27,610
-out of the database.
+00:05:30,790 --> 00:05:33,540
+Now that w is just
+the variable name,
 
 102
-00:04:27,610 --> 00:04:30,550
-We can find a particular
-item with an ID number.
+00:05:33,540 --> 00:05:36,370
+and we could have called
+the variable anything,
 
 103
-00:04:30,550 --> 00:04:34,110
-We can find a bunch of items and
-it will return an array.
+00:05:36,370 --> 00:05:38,610
+but that would go
+into our weapons table
 
 104
-00:04:34,110 --> 00:04:35,530
-We can find the first one.
+00:05:38,610 --> 00:05:40,460
+and pull back our weapon
+which we could then
 
 105
-00:04:35,530 --> 00:04:37,160
-We can find the last one.
+00:05:40,460 --> 00:05:43,904
+print out to the screen.
 
 106
-00:04:37,160 --> 00:04:38,840
-We can find all of them.
+00:05:43,904 --> 00:05:45,570
+You might be wondering
+why this level is
 
 107
-00:04:38,840 --> 00:04:40,160
-We can count them.
+00:05:45,570 --> 00:05:47,300
+called "Deep in the CRUD."
 
 108
-00:04:40,160 --> 00:04:42,520
-And the interesting thing about
-count here is that it's
+00:05:47,300 --> 00:05:49,940
+Well, CRUD, in case
+you're not familiar,
 
 109
-00:04:42,520 --> 00:04:43,980
-actually doing this
-the correct way.
+00:05:49,940 --> 00:05:54,130
+stands for Create, Read,
+Update, and Delete.
 
 110
-00:04:43,980 --> 00:04:45,930
-It's not going to the database,
-pulling everything
+00:05:54,130 --> 00:05:55,500
+It's a database thing.
 
 111
-00:04:45,930 --> 00:04:47,450
-out, and then counting it.
+00:05:55,500 --> 00:05:58,430
+So we're going to figure out how
+to do each of these things now.
 
 112
-00:04:47,450 --> 00:04:49,540
-It's actually going to be doing
-a count query on the
+00:05:58,430 --> 00:06:00,690
+And, well, we already
+figured out how to read.
 
 113
-00:04:49,540 --> 00:04:51,260
-database and returning
-that number.
+00:06:00,690 --> 00:06:03,760
+We can just call tweet.find(3).
 
 114
-00:04:51,260 --> 00:04:53,670
-We could also get all the
-zombies and order them by the
+00:06:03,760 --> 00:06:06,150
+How might we create
+a tweet though?
 
 115
-00:04:53,670 --> 00:04:54,900
-zombie name.
+00:06:06,150 --> 00:06:09,720
+To do this, we can call
+t equals tweet.new.
 
 116
-00:04:54,900 --> 00:04:56,800
-We can limit the number to 10.
+00:06:09,720 --> 00:06:12,240
+That's going to create
+a new tweet for us.
 
 117
-00:04:56,800 --> 00:04:58,900
-We can say get us all the
-zombies where the zombie name
+00:06:12,240 --> 00:06:15,260
+We can set some values,
+like the status,
 
 118
-00:04:58,900 --> 00:05:00,380
-equals Ash.
+00:06:15,260 --> 00:06:18,060
+and then by calling the
+save method on our tweet,
 
 119
-00:05:00,380 --> 00:05:02,620
-Or we could put all these
-different methods together to
+00:06:18,060 --> 00:06:19,760
+it will save it to the database.
 
 120
-00:05:02,620 --> 00:05:06,410
-do something we'd like to
-call method chaining.
+00:06:19,760 --> 00:06:21,500
+To update the
+tweet, we can first
 
 121
-00:05:06,410 --> 00:05:08,230
-Next up, we have update.
+00:06:21,500 --> 00:06:26,680
+fetch it from the database,
+then update a value,
 
 122
-00:05:08,230 --> 00:05:10,510
-So you remember with update,
-we find the tweet, we set
+00:06:26,680 --> 00:06:29,510
+and then save it, and
+Rails will automatically
 
 123
-00:05:10,510 --> 00:05:11,940
-something, and then
-we save it.
+00:06:29,510 --> 00:06:31,425
+update our database record.
 
 124
-00:05:11,940 --> 00:05:16,000
-Alternatively, we can set the
-attributes value and send in a
+00:06:31,425 --> 00:06:35,060
+To delete a tweet, we
+can find an existing one
 
 125
-00:05:16,000 --> 00:05:18,580
-hash and then save it.
+00:06:35,060 --> 00:06:36,600
+and then simply call t.destroy.
 
 126
-00:05:18,580 --> 00:05:21,730
-We could also call
-t.update_attributes, which not
+00:06:39,310 --> 00:06:41,190
+Let's go through all
+of our CRUD statements
 
 127
-00:05:21,730 --> 00:05:26,540
-only will set the items,
-but will also save it.
+00:06:41,190 --> 00:06:44,490
+now one at a time starting
+with creating a zombie.
 
 128
-00:05:26,540 --> 00:05:29,460
-Next up is destroy, because
-zombies like destroying
+00:06:44,490 --> 00:06:46,100
+You might notice
+here that we don't
 
 129
-00:05:29,460 --> 00:05:31,490
-things, especially brains.
+00:06:46,100 --> 00:06:49,780
+have to set a new id
+on this new tweet.
 
 130
-00:05:31,490 --> 00:05:34,830
-So as you saw before, we can
-find an item and destroy it.
+00:06:49,780 --> 00:06:53,441
+That's because Rails
+takes care of this for us.
 
 131
-00:05:34,830 --> 00:05:38,750
-We can also write this
-on a single line.
+00:06:53,441 --> 00:06:55,690
+The recipe here, which you
+could use for other tables,
 
 132
-00:05:38,750 --> 00:05:41,930
-And lastly, if you want to
-destroy all the tweets, we can
+00:06:55,690 --> 00:06:57,890
+look something like this.
 
 133
-00:05:41,930 --> 00:05:45,830
-just call Tweet.destroy_all
+00:06:57,890 --> 00:07:00,890
+Notice that every
+word in the table name
 
 134
-00:05:45,830 --> 00:05:47,460
-So we've already reached
-Zombie Lab 1.
+00:07:00,890 --> 00:07:03,140
+is going to be capitalized.
 
 135
-00:05:47,460 --> 00:05:49,950
-This is where you get to start
-coding and implement some of
+00:07:03,140 --> 00:07:06,540
+There's two alternate syntaxes
+here you should be aware of.
 
 136
-00:05:49,950 --> 00:05:51,370
-the stuff we've already
-learned.
+00:07:06,540 --> 00:07:09,450
+The first is that we
+can send in a hash
 
 137
-00:05:51,370 --> 00:05:53,790
-So go and have some fun with
-your new zombie friends.
+00:07:09,450 --> 00:07:12,750
+into tweet.new with a
+series of keys and values
+
+138
+00:07:12,750 --> 00:07:15,500
+which will get set
+on our new tweet.
+
+139
+00:07:15,500 --> 00:07:18,020
+Then we can simply save it.
+
+140
+00:07:18,020 --> 00:07:20,080
+Here's the recipe for that.
+
+141
+00:07:20,080 --> 00:07:24,560
+Lastly if we call tweet.create
+and send in a hash,
+
+142
+00:07:24,560 --> 00:07:27,030
+it will actually create
+a new tweet for us
+
+143
+00:07:27,030 --> 00:07:29,640
+and automatically save
+it to the database.
+
+144
+00:07:29,640 --> 00:07:31,160
+And here's the recipe for that.
+
+145
+00:07:33,710 --> 00:07:35,630
+Next let's go on to read.
+
+146
+00:07:35,630 --> 00:07:39,050
+And we saw how to call the
+find method, sends in an id,
+
+147
+00:07:39,050 --> 00:07:42,250
+and that returns a single
+tweet with the id of 2.
+
+148
+00:07:42,250 --> 00:07:46,880
+However, we can also send in
+multiple parameters specifying
+
+149
+00:07:46,880 --> 00:07:50,390
+multiple ids and that will
+return an array of tweets
+
+150
+00:07:50,390 --> 00:07:51,865
+with these ids.
+
+151
+00:07:51,865 --> 00:07:54,970
+We can call Tweet.first.
+
+152
+00:07:54,970 --> 00:07:57,020
+That's going to return
+the first tweet.
+
+153
+00:07:57,020 --> 00:08:00,630
+We can also call Tweet.last
+to return the last week.
+
+154
+00:08:00,630 --> 00:08:02,950
+And finally, we
+can call Tweet.all,
+
+155
+00:08:02,950 --> 00:08:07,630
+which will return an array
+with all of the tweets.
+
+156
+00:08:07,630 --> 00:08:11,690
+A few more reading functions
+starting with count.
+
+157
+00:08:11,690 --> 00:08:15,500
+Count is actually going to run
+a count query on our database
+
+158
+00:08:15,500 --> 00:08:18,520
+and return for us the
+total number of tweets.
+
+159
+00:08:18,520 --> 00:08:21,320
+We can also specify
+the order of tweets
+
+160
+00:08:21,320 --> 00:08:25,285
+we want returned - in this case,
+order them by the zombie name.
+
+161
+00:08:25,285 --> 00:08:26,660
+We can limit the
+number of tweets
+
+162
+00:08:26,660 --> 00:08:29,190
+we return - in this case, 10.
+
+163
+00:08:29,190 --> 00:08:31,920
+We can also return
+all tweets where
+
+164
+00:08:31,920 --> 00:08:36,500
+zombie name is equal to ash.
+
+165
+00:08:36,500 --> 00:08:39,179
+Here's where Rail starts
+to get really powerful.
+
+166
+00:08:39,179 --> 00:08:42,090
+You see many of these methods
+can be chained together
+
+167
+00:08:42,090 --> 00:08:44,380
+to create a complex query.
+
+168
+00:08:44,380 --> 00:08:46,210
+Let me show you what I mean.
+
+169
+00:08:46,210 --> 00:08:50,130
+Here is a query which
+uses method chaining.
+
+170
+00:08:50,130 --> 00:08:51,910
+Let's take a closer look.
+
+171
+00:08:51,910 --> 00:08:55,330
+This is going to return only
+tweets from the zombie whose
+
+172
+00:08:55,330 --> 00:08:58,180
+name is Ash, it's
+going to be ordered
+
+173
+00:08:58,180 --> 00:09:01,150
+by the status of the
+tweet, and it's only
+
+174
+00:09:01,150 --> 00:09:05,490
+going to return the
+first 10 of these tweets.
+
+175
+00:09:05,490 --> 00:09:08,070
+As we saw in the previous
+slide, when we call tweet
+
+176
+00:09:08,070 --> 00:09:12,560
+where zombie Ash, it's
+going to return an array.
+
+177
+00:09:12,560 --> 00:09:15,330
+Even if there's only one
+tweet from zombie Ash,
+
+178
+00:09:15,330 --> 00:09:18,150
+it's still going
+to return an array.
+
+179
+00:09:18,150 --> 00:09:22,680
+But we only may want the first
+tweet from zombie Ash in which
+
+180
+00:09:22,680 --> 00:09:29,360
+case we can call .first just
+giving us the first one.
+
+181
+00:09:29,360 --> 00:09:31,920
+Here's the code we need
+to update a zombie,
+
+182
+00:09:31,920 --> 00:09:33,670
+and here's the recipe
+that goes along
+
+183
+00:09:33,670 --> 00:09:36,380
+with this - shouldn't
+be surprising.
+
+184
+00:09:36,380 --> 00:09:38,390
+There's an alternate
+syntax here though.
+
+185
+00:09:38,390 --> 00:09:41,850
+We can also set multiple
+attributes on this tweet
+
+186
+00:09:41,850 --> 00:09:46,870
+by simply saying attributes
+equals and sending in a hash.
+
+187
+00:09:46,870 --> 00:09:49,800
+Here's the recipe for that.
+
+188
+00:09:49,800 --> 00:09:53,580
+We can simplify this further by
+using the update method, which
+
+189
+00:09:53,580 --> 00:09:56,640
+allows us to send in
+a hash of attributes
+
+190
+00:09:56,640 --> 00:10:00,590
+we want to have updated,
+and this code automatically
+
+191
+00:10:00,590 --> 00:10:02,750
+saves these values
+to the database.
+
+192
+00:10:02,750 --> 00:10:07,130
+Here's the recipe for
+that - pretty simple.
+
+193
+00:10:07,130 --> 00:10:09,620
+Here's our code for deleting
+a zombie and the recipe that
+
+194
+00:10:09,620 --> 00:10:11,500
+goes along with it.
+
+195
+00:10:11,500 --> 00:10:14,160
+As you might suspect, we can
+do all of this in one line,
+
+196
+00:10:14,160 --> 00:10:18,580
+finding and destroying the
+zombie-- pretty simple.
+
+197
+00:10:18,580 --> 00:10:20,579
+If we ever wanted to
+delete all of the tweets,
+
+198
+00:10:20,579 --> 00:10:22,120
+we could also call
+tweet.destroy_all.
+
+199
+00:10:27,302 --> 00:10:29,730
+Now if you're a software
+developer by trade,
+
+200
+00:10:29,730 --> 00:10:33,370
+you probably suspect that
+I'm leaving out some details
+
+201
+00:10:33,370 --> 00:10:36,170
+about how all this stuff
+get stitched together,
+
+202
+00:10:36,170 --> 00:10:37,300
+but don't worry.
+
+203
+00:10:37,300 --> 00:10:40,040
+We're going to get into
+that in the next level.
+
+204
+00:10:40,040 --> 00:10:42,250
+In the meantime, go
+do some challenges
+
+205
+00:10:42,250 --> 00:10:44,520
+and get familiar
+with this syntax.
+
+206
+00:10:44,520 --> 00:10:46,940
+And I'll see you
+in the next level.
+

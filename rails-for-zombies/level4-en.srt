@@ -1,890 +1,1381 @@
-﻿1
-00:00:00,340 --> 00:00:02,560
-I'm Gregg Pollack, and you're
-watching Rails For Zombies,
+1
+00:00:00,500 --> 00:00:03,302
+[SINGING] Put down your
+brains and your entrails.
 
 2
-00:00:02,560 --> 00:00:04,250
-Episode Four.
+00:00:03,302 --> 00:00:06,760
+It's time to stop
+and learn some Rails,
 
 3
-00:00:04,250 --> 00:00:07,072
-(SINGING) Put down your brains
-and your entrails.
+00:00:06,760 --> 00:00:09,230
+‘cause we got
+something new to grab -
 
 4
-00:00:07,072 --> 00:00:10,944
-It's time to stop and learn
-some Rails. 'Cause we got
+00:00:09,230 --> 00:00:12,020
+it's Rails for
+Zombies by Envy Labs.
 
 5
-00:00:10,944 --> 00:00:17,800
-something new to grab, Rails
-For Zombies by Envy Labs.
+00:00:15,584 --> 00:00:17,000
+You're watching
+Rails for Zombies.
 
 6
-00:00:17,800 --> 00:00:22,540
-In this episode we're going to
-be looking at controllers.
+00:00:17,000 --> 00:00:18,500
+This is Level Four
+where we're going
 
 7
-00:00:22,540 --> 00:00:25,210
-So here's our application
-stack, as we saw before.
+00:00:18,500 --> 00:00:24,360
+to be talking about Controllers,
+the braaaains of the application.
 
 8
-00:00:25,210 --> 00:00:27,220
-Down at the bottom we
-have the models.
+00:00:24,360 --> 00:00:25,812
+Makes you hungry, don't it?
 
 9
-00:00:27,220 --> 00:00:30,420
-Over here we have the views,
-and now we're going to be
+00:00:25,812 --> 00:00:28,670
+Your controllers
+are typically where
 
 10
-00:00:30,420 --> 00:00:32,480
-looking at the controllers.
+00:00:28,670 --> 00:00:32,250
+you use models to get
+data out of the database
 
 11
-00:00:34,980 --> 00:00:37,570
-So remember in the previous
-episode this guy came out and
+00:00:32,250 --> 00:00:35,290
+and you use Views to
+display the data that
 
 12
-00:00:37,570 --> 00:00:39,800
-said hey, this code sucks
-a little bit.
+00:00:35,290 --> 00:00:37,340
+comes out of the models.
 
 13
-00:00:39,800 --> 00:00:41,310
-And we fixed the one
-reason why it
+00:00:37,340 --> 00:00:39,220
+It'll make more
+sense in a minute.
 
 14
-00:00:41,310 --> 00:00:42,860
-sucked, we used the layout.
+00:00:39,220 --> 00:00:41,850
+So we're going to use this
+brain icon, because it's
 
 15
-00:00:42,860 --> 00:00:45,590
-But the second reason it sucks
-is because we're not
+00:00:41,850 --> 00:00:45,030
+kind of the brains
+of our application.
 
 16
-00:00:45,590 --> 00:00:47,930
-effectively using a
-controller yet.
+00:00:45,030 --> 00:00:47,020
+Here we are back
+with our browser,
 
 17
-00:00:47,930 --> 00:00:52,220
-So when a request comes into
-Rails, it's first going to hit
+00:00:47,020 --> 00:00:50,280
+and we have our four
+components of our application.
 
 18
-00:00:52,220 --> 00:00:56,290
-a controller before it then
-renders out the view.
+00:00:50,280 --> 00:00:53,507
+We've talked about the models, we've talked about the views,
 
 19
-00:00:56,290 --> 00:00:58,630
-The source for this controller
-is located in the app
+00:00:53,507 --> 00:00:55,840
+and now we're going to talk about the controllers, which
 
 20
-00:00:58,630 --> 00:01:02,110
-controllers directory, and its
-name in this case is going to
+00:00:55,840 --> 00:00:58,085
+go about there.
 
 21
-00:01:02,110 --> 00:01:03,360
-be tweets_controller.rb.
+00:00:58,085 --> 00:01:01,740
+Back in our show view,
+here's the code that we had.
 
 22
-00:01:05,615 --> 00:01:09,630
-It's no coincidence now that our
-path has tweets in it, our
+00:01:01,740 --> 00:01:04,420
+Now there's something in here
+that smells like rotten brains,
 
 23
-00:01:09,630 --> 00:01:13,085
-controller name has tweets in
-it, and our view directory
+00:01:04,420 --> 00:01:06,890
+and it's basically that
+line right there where
 
 24
-00:01:13,085 --> 00:01:14,610
-name has tweets in it.
+00:01:06,890 --> 00:01:09,460
+we call the tweet model.
 
 25
-00:01:14,610 --> 00:01:19,150
-This is just another one of
-Rails' intelligent defaults.
+00:01:09,460 --> 00:01:12,110
+That really shouldn't be
+happening in our view.
 
 26
-00:01:19,150 --> 00:01:22,620
-Inside that tweets controller
-we've got a class TweetsController
+00:01:12,110 --> 00:01:14,290
+Because, as I said
+a minute ago, it's
 
 27
-00:01:22,620 --> 00:01:26,760
-which inherits from
-ApplicationController.
+00:01:14,290 --> 00:01:18,220
+our controller that should
+be calling the models.
 
 28
-00:01:26,760 --> 00:01:32,990
-Also inside this file we'd
-probably find a show method.
+00:01:18,220 --> 00:01:20,060
+When a request comes
+into our application -
 
 29
-00:01:32,990 --> 00:01:35,700
-Also no coincidence that
-the show method maps
+00:01:20,060 --> 00:01:23,880
+let's call it "tweet/1" -
+before getting to our View
 
 30
-00:01:35,700 --> 00:01:37,840
-up to the show view.
+00:01:23,880 --> 00:01:27,150
+it's first going to
+hit a controller.
 
 31
-00:01:37,840 --> 00:01:40,500
-Now, how can we fix this code
-and make it better?
+00:01:27,150 --> 00:01:31,730
+In this case, it's going to
+look inside of the controllers
 
 32
-00:01:40,500 --> 00:01:42,980
-Well, we're going to take the
-code that basically finds a
+00:01:31,730 --> 00:01:34,320
+directory, which
+is created for us,
 
 33
-00:01:42,980 --> 00:01:47,700
-tweet, and we're going to move
-it up into the controller.
+00:01:34,320 --> 00:01:36,130
+for a file called
+"tweets_controller.rb."
 
 34
-00:01:47,700 --> 00:01:51,160
-So another Rails best practice
-is to keep all of your model
+00:01:39,660 --> 00:01:45,080
+Only then is then going to
+render out the show view.
 
 35
-00:01:51,160 --> 00:01:53,630
-calls in your controller.
+00:01:45,080 --> 00:01:47,370
+There's no coincidence
+here that our URL
 
 36
-00:01:53,630 --> 00:01:55,810
-This is just so that your views
-don't end up with a lot
+00:01:47,370 --> 00:01:50,110
+has the word tweets
+in it, as does
 
 37
-00:01:55,810 --> 00:01:58,190
-of Ruby code inside of them.
+00:01:50,110 --> 00:01:57,490
+the name of our controller, as
+does the folder for our views.
 
 38
-00:01:58,190 --> 00:01:59,980
-So the first thing that happens
-when a request comes
+00:01:57,490 --> 00:01:59,180
+We don't have to map
+any of these things
 
 39
-00:01:59,980 --> 00:02:03,440
-in is it goes into the tweets
-controller, executes all of
+00:01:59,180 --> 00:02:02,080
+together if we use conventions.
 
 40
-00:02:03,440 --> 00:02:07,370
-the code in the show action,
-and then it goes to
+00:02:02,080 --> 00:02:05,810
+That's why sometimes people
+say that Rails follows
 
 41
-00:02:07,370 --> 00:02:10,070
-render the show view.
+00:02:05,810 --> 00:02:09,610
+convention over configuration.
 
 42
-00:02:10,070 --> 00:02:11,560
-Uh-oh, here's the
-zombie again.
+00:02:09,610 --> 00:02:12,250
+If we can follow some
+intelligent defaults
 
 43
-00:02:11,560 --> 00:02:14,910
-And he's saying look out, what
-about variable scope?
+00:02:12,250 --> 00:02:17,660
+or convention, then we
+can avoid configuration.
 
 44
-00:02:14,910 --> 00:02:17,890
-Because you might wonder, this
-tweet variable, it's inside
+00:02:17,660 --> 00:02:20,250
+But what belongs inside
+of our controller?
 
 45
-00:02:17,890 --> 00:02:19,060
-that show method.
+00:02:20,250 --> 00:02:22,069
+Well, let's write it out.
 
 46
-00:02:19,060 --> 00:02:21,590
-How is it that the view
-get access to that?
+00:02:22,069 --> 00:02:23,610
+Inside of our
+controller, we're going
 
 47
-00:02:21,590 --> 00:02:22,990
-Wel, it's a good question.
+00:02:23,610 --> 00:02:28,070
+to find that it has a
+class of TweetsController,
 
 48
-00:02:22,990 --> 00:02:25,730
-This is where instance
-variables come in.
+00:02:28,070 --> 00:02:30,570
+uppercase Tweets,
+uppercase Controller.
 
 49
-00:02:25,730 --> 00:02:29,490
-So in Rails, what we do is we
-put this little @ symbol next
+00:02:30,570 --> 00:02:35,010
+And that extends from
+ApplicationController.
 
 50
-00:02:29,490 --> 00:02:32,710
-to the tweet variable, and that
-signifies to Rails that
+00:02:35,010 --> 00:02:37,110
+The next step to
+define our controller
 
 51
-00:02:32,710 --> 00:02:35,940
-this is a variable that we want
-to have access to from
+00:02:37,110 --> 00:02:40,710
+is to define a show method.
 
 52
-00:02:35,940 --> 00:02:37,580
-inside of our views.
+00:02:40,710 --> 00:02:42,760
+Sometimes we call
+the methods inside
 
 53
-00:02:37,580 --> 00:02:40,020
-So there you can see we have
-the @ symbols next to every
+00:02:42,760 --> 00:02:45,210
+of our controllers actions.
 
 54
-00:02:40,020 --> 00:02:42,250
-time we use that
-tweet variable.
+00:02:45,210 --> 00:02:48,250
+We can use the two
+terms interchangeably.
 
 55
-00:02:42,250 --> 00:02:44,880
-Let's venture out of the common
-defaults in rails for
+00:02:48,250 --> 00:02:51,660
+Now there's no coincidence that
+this method we just defined
 
 56
-00:02:44,880 --> 00:02:45,920
-just a moment.
+00:02:51,660 --> 00:02:58,330
+called "show" happens to be the
+same name as our view show.
 
 57
-00:02:45,920 --> 00:02:49,520
-What if we wanted to render
-out a view called status
+00:02:58,330 --> 00:03:00,260
+One maps to the other.
 
 58
-00:02:49,520 --> 00:02:51,840
-instead of show?
+00:03:00,260 --> 00:03:02,920
+Inside of this show method
+is where we typically
 
 59
-00:02:51,840 --> 00:02:54,320
-Well, then we would have to add
-a little bit of code to
+00:03:02,920 --> 00:03:06,930
+call our models and get
+data from the database.
 
 60
-00:02:54,320 --> 00:02:56,510
-let Rails know that the
-action we want to
+00:03:06,930 --> 00:03:13,160
+So we're going to move up our
+tweet call into our Controller,
 
 61
-00:02:56,510 --> 00:02:58,920
-render is called status.
+00:03:13,160 --> 00:03:15,120
+like you see here.
 
 62
-00:02:58,920 --> 00:03:02,190
-This is just one small example
-how if you go outside of the
+00:03:15,120 --> 00:03:16,690
+Now when a request
+comes in, it's
 
 63
-00:03:02,190 --> 00:03:06,610
-Rails defaults, there's always
-ways to override it.
+00:03:16,690 --> 00:03:20,830
+first going to go and
+call that show method
 
 64
-00:03:06,610 --> 00:03:09,190
-This code is fine if we want to
-always show the tweet with
+00:03:20,830 --> 00:03:22,540
+inside of our controller.
 
 65
-00:03:09,190 --> 00:03:11,970
-ID equals one, But obviously
-people are going to want to
+00:03:22,540 --> 00:03:23,780
+It's going to run that code.
 
 66
-00:03:11,970 --> 00:03:15,730
-show other tweets, and they're
-going to specify the ID in the
+00:03:23,780 --> 00:03:27,490
+And once it gets to the
+end, it's then, by default,
 
 67
-00:03:15,730 --> 00:03:17,250
-URL just like this.
+00:03:27,490 --> 00:03:30,450
+going to go look
+for our show view
 
 68
-00:03:17,250 --> 00:03:20,060
-So how do we change the code
-to adapt for that?
+00:03:30,450 --> 00:03:33,600
+and render that
+out to a browser.
 
 69
-00:03:20,060 --> 00:03:23,570
-Well, it turns out that using
-this convention it's going to
+00:03:33,600 --> 00:03:36,700
+You might be wondering, what
+about the variable scope?
 
 70
-00:03:23,570 --> 00:03:27,650
-store that number in a hash
-called params with the key in
+00:03:36,700 --> 00:03:39,790
+How is it that our view has
+access to that tweet variable?
 
 71
-00:03:27,650 --> 00:03:29,290
-the ID field.
+00:03:39,790 --> 00:03:42,830
+Well, that's actually
+a good question.
 
 72
-00:03:29,290 --> 00:03:32,020
-So when our request comes in,
-basically it's going to have
+00:03:42,830 --> 00:03:45,190
+Because this code
+as-is wouldn't work.
 
 73
-00:03:32,020 --> 00:03:36,865
-that params hash, and inside
-that hash it's going to have
+00:03:45,190 --> 00:03:50,450
+We need to add an at symbol
+in front of each of these.
 
 74
-00:03:36,865 --> 00:03:39,000
-an ID of one.
+00:03:50,450 --> 00:03:53,940
+So when we add an at in front
+of a variable inside Ruby,
 
 75
-00:03:39,000 --> 00:03:40,480
-So one's going to
-be the value.
+00:03:53,940 --> 00:03:56,990
+it turns it into an
+instance variable.
 
 76
-00:03:40,480 --> 00:03:44,695
-So inside of our show action we
-do params, ID, and then it
+00:03:56,990 --> 00:04:00,630
+This is how we grant the
+view access to variables.
 
 77
-00:03:44,695 --> 00:03:47,660
-will look up the proper tweet.
+00:04:00,630 --> 00:04:02,800
+So because inside
+of our controller
 
 78
-00:03:47,660 --> 00:03:51,160
-Whenever we send in query
-parameters in our URL or using
+00:04:02,800 --> 00:04:05,810
+our tweet has that
+at symbol, we can now
 
 79
-00:03:51,160 --> 00:03:54,680
-a post, Rails is going to
-store that inside a hash
+00:04:05,810 --> 00:04:08,325
+access that tweet
+variable using that
 
 80
-00:03:54,680 --> 00:03:55,950
-called params.
+00:04:08,325 --> 00:04:12,600
+at symbol inside of our views.
 
 81
-00:03:55,950 --> 00:03:59,210
-So here we have the params hash
-again, and if we needed
+00:04:12,600 --> 00:04:14,610
+But what if we don't
+like that default?
 
 82
-00:03:59,210 --> 00:04:03,930
-to access the status value, we
-could simply create a new
+00:04:14,610 --> 00:04:17,019
+What if we don't want it to
+render out the show view?
 
 83
-00:04:03,930 --> 00:04:09,140
-tweet and set the status
-to params[:status]
+00:04:17,019 --> 00:04:21,470
+Instead, we wanted to
+render out status.html.erb.
 
 84
-00:04:09,140 --> 00:04:12,120
-Often in Rails, inside this
-parameter hash you see
+00:04:21,470 --> 00:04:26,240
+Well, we can specify that
+inside of our show method
 
 85
-00:04:12,120 --> 00:04:13,780
-multiple hashes.
+00:04:26,240 --> 00:04:31,240
+by simply writing
+render action status.
 
 86
-00:04:13,780 --> 00:04:16,209
-So here you can see we have a
-hash that has a tweet, and
+00:04:31,240 --> 00:04:33,430
+This will then render
+out our status.html.erb.
 
 87
-00:04:16,209 --> 00:04:18,829
-inside that tweet hash
-we've got status.
+00:04:36,090 --> 00:04:38,480
+This code works
+great as-is, but you
 
 88
-00:04:18,829 --> 00:04:22,079
-So here if we wanted to create
-a tweet using that value, we
+00:04:38,480 --> 00:04:40,980
+can see that we're
+only ever rendering
 
 89
-00:04:22,079 --> 00:04:24,790
-would do params[:tweet][:status].
+00:04:40,980 --> 00:04:43,920
+the tweet with the ID of one.
 
 90
-00:04:24,790 --> 00:04:26,880
-You'll notice, though, that
-when we call this create
+00:04:43,920 --> 00:04:47,150
+But what if we wanted to go
+to any one of these other URLs
 
 91
-00:04:26,880 --> 00:04:29,370
-method, that we already
-have a hash in there.
+00:04:47,150 --> 00:04:51,250
+and specify the ID of the
+tweet that we want to see?
 
 92
-00:04:29,370 --> 00:04:35,590
-So we can simplify this simply
-by saying params tweet.
+00:04:51,250 --> 00:04:53,810
+How would we look that up?
 
 93
-00:04:35,590 --> 00:04:39,460
-Now, what if we wanted to show
-our tweet in XML or JSON?
+00:04:53,810 --> 00:04:58,580
+How would we use that
+parameter out of the URL?
 
 94
-00:04:39,460 --> 00:04:41,810
-Let's say for web services
-to consume.
+00:04:58,580 --> 00:05:01,820
+Well, it turns out if we
+write URLs like this, Rails
 
 95
-00:04:41,810 --> 00:04:46,440
-Here's the XML we might expect
-from a tweet, and here's the
+00:05:01,820 --> 00:05:06,690
+will generate for us a new hash
+called "params," which contains
 
 96
-00:04:46,440 --> 00:04:49,570
-JSON that we might expect
-from a tweet.
+00:05:06,690 --> 00:05:10,020
+a hash of the value passed in.
 
 97
-00:04:49,570 --> 00:04:51,840
-Now there's some URLS we're
-going to use for this.
+00:05:10,020 --> 00:05:12,490
+To access that value to
+load the proper tweet,
 
 98
-00:04:51,840 --> 00:04:56,000
-We can go to .xml to get the
-XML, .json to get the JSON.
+00:05:12,490 --> 00:05:14,500
+all we need to do
+in our controller
 
 99
-00:04:56,000 --> 00:04:58,910
-These are just Rails defaults.
+00:05:14,500 --> 00:05:18,144
+is specify params id.
 
 100
-00:04:58,910 --> 00:05:00,600
-Inside the show action
-we've got to add a
+00:05:18,144 --> 00:05:19,810
+That's going to look
+up the proper tweet
 
 101
-00:05:00,600 --> 00:05:01,700
-little bit of code.
+00:05:19,810 --> 00:05:21,160
+and render it out to the page.
 
 102
-00:05:01,700 --> 00:05:05,290
-We're going to add a
-respond_to block.
+00:05:23,970 --> 00:05:26,560
+Let's look at a few more
+examples with parameters.
 
 103
-00:05:05,290 --> 00:05:07,710
-And inside there we're
-going to say this
+00:05:26,560 --> 00:05:28,610
+If we had a URL
+like you see here -
 
 104
-00:05:07,710 --> 00:05:11,210
-action responds to HTML.
+00:05:28,610 --> 00:05:32,530
+and we're just using standard
+URL query parameters -
 
 105
-00:05:11,210 --> 00:05:14,620
-It also responds to XML,
-and then renders the
+00:05:32,530 --> 00:05:36,650
+Rails would create a
+parameter hash for us,
 
 106
-00:05:14,620 --> 00:05:16,820
-XML from the tweet.
+00:05:36,650 --> 00:05:40,160
+which might look something
+like this, which we could then
 
 107
-00:05:16,820 --> 00:05:22,280
-And it also responds to JSON by
-doing rendered JSON tweet.
+00:05:40,160 --> 00:05:45,000
+use inside of our controller,
+if we set it up properly,
 
 108
-00:05:22,280 --> 00:05:24,460
-That's all we have to do, and
-now Rails is going to render
+00:05:45,000 --> 00:05:47,130
+to create a new tweet.
 
 109
-00:05:24,460 --> 00:05:28,130
-out the tweet in XML or JSON.
+00:05:47,130 --> 00:05:49,250
+So you can see here,
+we're creating a tweet,
 
 110
-00:05:28,130 --> 00:05:30,110
-There's going to be a set of
-common actions you're going to
+00:05:49,250 --> 00:05:51,910
+and we're grabbing the
+status out of the parameter
 
 111
-00:05:30,110 --> 00:05:32,510
-see in your Rails controllers
-a lot if you're developing
+00:05:51,910 --> 00:05:54,090
+to create that tweet.
 
 112
-00:05:32,510 --> 00:05:33,520
-Rails apps.
+00:05:54,090 --> 00:05:57,430
+However, often in
+Rails our parameters
 
 113
-00:05:33,520 --> 00:05:35,330
-Let's go through them
-one at a time.
+00:05:57,430 --> 00:05:59,220
+might look something
+like this where
 
 114
-00:05:35,330 --> 00:05:37,430
-You have your index action,
-which is going to list all of
+00:05:59,220 --> 00:06:03,920
+we have a hash within a hash.
 
 115
-00:05:37,430 --> 00:05:38,490
-the tweets.
+00:06:03,920 --> 00:06:05,540
+You see that?
 
 116
-00:05:38,490 --> 00:05:40,990
-Your show action to show
-a single tweet.
+00:06:05,540 --> 00:06:08,750
+So how would we access a status
+of this to create a tweet?
 
 117
-00:05:40,990 --> 00:05:44,930
-You have a new action to show a
-new tweet form, edit to show
+00:06:08,750 --> 00:06:14,520
+Well, we could write
+Tweet.create status params
 
 118
-00:05:44,930 --> 00:05:48,900
-an edit tweet form, create to
-create a new tweet, update to
+00:06:14,520 --> 00:06:17,880
+tweet status, like you see here.
 
 119
-00:05:48,900 --> 00:05:53,370
-update a tweet, and destroy
-to delete a tweet.
+00:06:17,880 --> 00:06:20,380
+So we have to specify
+two keys to get
 
 120
-00:05:53,370 --> 00:05:55,100
-Now I'm going to be walking you
-through how to create a
+00:06:20,380 --> 00:06:24,790
+to the value we want inside
+this hash within a hash.
 
 121
-00:05:55,100 --> 00:05:57,870
-little authorization
-in our application.
+00:06:24,790 --> 00:06:26,980
+There's an alternate
+syntax we can use here,
 
 122
-00:05:57,870 --> 00:06:01,720
-So if I click that edit button
-on the tweets page, it's going
+00:06:26,980 --> 00:06:31,610
+because our tweet method
+is expecting a hash.
 
 123
-00:06:01,720 --> 00:06:04,690
-to call the edit action.
+00:06:31,610 --> 00:06:35,750
+So we can just
+specify params tweet.
 
 124
-00:06:04,690 --> 00:06:07,480
-Inside of the edit action, I'm
-obviously going to need to
+00:06:35,750 --> 00:06:37,940
+And what it's going
+to send it to create
 
 125
-00:06:07,480 --> 00:06:10,440
-retrieve the tweet that
-we want to edit.
+00:06:37,940 --> 00:06:42,550
+is the hash which
+contains status, "I'm dead."
 
 126
-00:06:10,440 --> 00:06:16,570
-It's then going to render the
-edit view by default.
+00:06:42,550 --> 00:06:46,100
+You see how those two
+lines are equivalent?
 
 127
-00:06:16,570 --> 00:06:18,360
-And there is the edit
-form that we
+00:06:46,100 --> 00:06:49,210
+But I think the second one is
+better because it's obviously
 
 128
-00:06:18,360 --> 00:06:19,760
-would see on our screen.
+00:06:49,210 --> 00:06:53,406
+writing less code and it's
+not recreating a hash.
 
 129
-00:06:19,760 --> 00:06:22,390
-Now the next time I click the
-Edit button, what I want it to
+00:06:53,406 --> 00:06:56,140
+That's pretty advanced.
 
 130
-00:06:22,390 --> 00:06:25,080
-say if I don't have
-authorization is sorry, you
+00:06:56,140 --> 00:06:57,830
+One of the reasons
+people use Rails
 
 131
-00:06:25,080 --> 00:06:27,080
-can't edit someone
-else's tweet.
+00:06:57,830 --> 00:06:59,630
+is to create backend APIs.
 
 132
-00:06:27,080 --> 00:06:29,230
-So how might we get to
-the point where we
+00:06:59,630 --> 00:07:02,140
+It's great for that if you're
+building an iPhone app,
 
 133
-00:06:29,230 --> 00:06:31,080
-can make that happen?
+00:07:02,140 --> 00:07:04,980
+an Android app, or just
+need to provide a developer
 
 134
-00:06:31,080 --> 00:06:33,820
-Well, here's the edit action,
-and I'm going to introduce
+00:07:04,980 --> 00:07:07,800
+API to your web service.
 
 135
-00:06:33,820 --> 00:06:34,930
-some new concepts.
+00:07:07,800 --> 00:07:10,300
+You might want to supply XML.
 
 136
-00:06:34,930 --> 00:06:37,350
-First of all, the session.
+00:07:10,300 --> 00:07:13,820
+You might also want
+to supply JSON code.
 
 137
-00:06:37,350 --> 00:06:40,780
-So session basically works
-like a per user hash.
+00:07:13,820 --> 00:07:18,090
+So let's show you how easy
+it is to do that with Rails.
 
 138
-00:06:40,780 --> 00:06:43,390
-So per request, it sort
-of saves that for
+00:07:18,090 --> 00:07:22,100
+If we want the JSON
+representation of our tweet,
 
 139
-00:06:43,390 --> 00:06:44,960
-that particular person.
+00:07:22,100 --> 00:07:24,040
+we could send in the
+URL tweets/1.json.
 
 140
-00:06:44,960 --> 00:06:46,610
-Often saves it in a cookie.
+00:07:26,980 --> 00:07:32,760
+Then inside of our show method
+we need to add some code.
 
 141
-00:06:46,610 --> 00:06:49,960
-So here we're checking to see
-if the person's zombie ID
+00:07:32,760 --> 00:07:35,170
+We need to tell
+our Rails app what
 
 142
-00:06:49,960 --> 00:06:53,960
-inside their session is not
-equal to the zombie ID of this
+00:07:35,170 --> 00:07:38,500
+formats this can respond to.
 
 143
-00:06:53,960 --> 00:06:54,840
-particular tweet.
+00:07:38,500 --> 00:07:40,400
+So first, we're
+going to say that it
 
 144
-00:06:54,840 --> 00:06:58,320
-So if this tweet doesn't belong
-to us, then we're going
+00:07:40,400 --> 00:07:43,980
+responds to the format of HTML.
 
 145
-00:06:58,320 --> 00:07:00,940
-to create a flash.
+00:07:43,980 --> 00:07:47,030
+Now that hash sign there,
+that's just a comment.
 
 146
-00:07:00,940 --> 00:07:04,080
-A flash is what we use to send
-messages to the user, so we
+00:07:47,030 --> 00:07:49,200
+That actually has no
+effect on anything -
 
 147
-00:07:04,080 --> 00:07:07,185
-flash the notice onto the screen
-that says sorry, you
+00:07:49,200 --> 00:07:50,790
+it doesn't even
+have to be there.
 
 148
-00:07:07,185 --> 00:07:08,790
-can't edit this tweet.
+00:07:50,790 --> 00:07:53,360
+But a lot of times
+you'll see people
 
 149
-00:07:08,790 --> 00:07:11,900
-After we set the message, we
-want to redirect the user back
+00:07:53,360 --> 00:07:55,470
+will add a little
+reminder that it's
 
 150
-00:07:11,900 --> 00:07:13,340
-to the tweets path.
+00:07:55,470 --> 00:07:58,680
+only because we write
+format.html that it will try
 
 151
-00:07:13,340 --> 00:07:17,650
-So we say redirect_to do a 501
-redirect and render out a
+00:07:58,680 --> 00:08:02,560
+to render out
+show.html.erb by default.
 
 152
-00:07:17,650 --> 00:07:18,820
-separate action.
+00:08:02,560 --> 00:08:04,230
+Now here comes the JSON part.
 
 153
-00:07:18,820 --> 00:07:22,230
-Rails 3 has a new syntax so that
-you can do the redirect_to
+00:08:04,230 --> 00:08:08,020
+We need to tell our application
+that this method responds
 
 154
-00:07:22,230 --> 00:07:25,626
-and the notice in
-the same line.
+00:08:08,020 --> 00:08:10,060
+to the JSON format.
 
 155
-00:07:25,626 --> 00:07:27,960
-Now before we check this out
-the browser to see if it
+00:08:10,060 --> 00:08:11,790
+And when it does, we
+want to render out
 
 156
-00:07:27,960 --> 00:07:30,990
-works, we're going to jump
-back into the layout, and
+00:08:11,790 --> 00:08:16,670
+the JSON representation
+of this particular tweet.
 
 157
-00:07:30,990 --> 00:07:32,260
-we're going to add
-an if statement.
+00:08:16,670 --> 00:08:18,340
+And that's all there is to it.
 
 158
-00:07:32,260 --> 00:07:37,190
-So if flash notice exists, then
-print out the notice onto
+00:08:18,340 --> 00:08:20,620
+The request goes through,
+and it renders out
 
 159
-00:07:37,190 --> 00:07:38,980
-the layout.
+00:08:20,620 --> 00:08:24,430
+the JSON representation
+of this tweet.
 
 160
-00:07:38,980 --> 00:07:41,600
-Now if we go back to the
-list tweets page, we
+00:08:24,430 --> 00:08:28,260
+Then if we want this
+to respond to XML,
 
 161
-00:07:41,600 --> 00:07:42,620
-hit the Edit button.
+00:08:28,260 --> 00:08:32,419
+our request might
+have 1.xml in it,
 
 162
-00:07:42,620 --> 00:07:44,540
-If we're not authorized,
-it's going to give
+00:08:32,419 --> 00:08:34,110
+and then inside of
+our method we need
 
 163
-00:07:44,540 --> 00:07:46,750
-us the proper notice.
+00:08:34,110 --> 00:08:40,760
+to write format.xml, render
+the XML format of this tweet.
 
 164
-00:07:46,750 --> 00:07:49,160
-Now if you go back into the
-tweets controller, you might
+00:08:40,760 --> 00:08:47,210
+And then that renders back out the proper XML for this tweet.
 
 165
-00:07:49,160 --> 00:07:51,640
-notice that edit is not the
-only action that needs
+00:08:47,210 --> 00:08:48,870
+In a typical Rails
+application, you're
 
 166
-00:07:51,640 --> 00:07:52,930
-authorization.
+00:08:48,870 --> 00:08:50,770
+going to see a lot of
+the same Controller
 
 167
-00:07:52,930 --> 00:07:55,920
-The edit, update, and destroy
-all need the same
+00:08:50,770 --> 00:08:53,260
+actions inside the Controller.
 
 168
-00:07:55,920 --> 00:07:57,290
-authorization.
+00:08:53,260 --> 00:08:55,030
+Let's go over some of these.
 
 169
-00:07:57,290 --> 00:08:00,660
-Well, how do we not repeat
-ourselves in our controller?
+00:08:55,030 --> 00:08:57,060
+First you have the
+index action, which
 
 170
-00:08:00,660 --> 00:08:02,950
-Well, if you looked inside each
-of these actions, you
+00:08:57,060 --> 00:08:59,560
+is going to list all the
+tweets, the show action
 
 171
-00:08:02,950 --> 00:08:05,945
-would see that each of
-them pulls the tweet.
+00:08:59,560 --> 00:09:02,650
+to show a single tweet, the
+new action to show a new tweet
 
 172
-00:08:05,945 --> 00:08:09,030
-They call tweet find and they
-pull the current tweet.
+00:09:02,650 --> 00:09:06,660
+form, the edit action to
+show an edit tweet form,
 
 173
-00:08:09,030 --> 00:08:11,590
-Well, in Rails, how
-do we dry that up?
+00:09:06,660 --> 00:09:09,450
+the create action
+to create a tweet,
 
 174
-00:08:11,590 --> 00:08:15,160
-Well, we're going to take that
-code, move it up, and create
+00:09:09,450 --> 00:09:11,240
+the update action
+to update a tweet,
 
 175
-00:08:15,160 --> 00:08:16,290
-its own method.
+00:09:11,240 --> 00:09:15,490
+and, finally, the destroy
+action to delete a tweet.
 
 176
-00:08:16,290 --> 00:08:18,890
-Wrap it in its own method
-called get_tweet.
+00:09:15,490 --> 00:09:17,920
+As you might imagine,
+most of these actions
 
 177
-00:08:18,890 --> 00:08:21,580
-We then say before
-filter get_tweet.
+00:09:17,920 --> 00:09:21,140
+are going to have views
+associated with them that we'll
 
 178
-00:08:21,580 --> 00:08:24,180
-That tells the controller, call
-this method before every
+00:09:21,140 --> 00:09:22,636
+need to write.
 
 179
-00:08:24,180 --> 00:08:25,880
-action, and we can specify.
+00:09:22,636 --> 00:09:24,010
+We already wrote
+some of the URLs
 
 180
-00:08:25,880 --> 00:08:31,530
-Call it only with edit, update,
-and destroy methods.
+00:09:24,010 --> 00:09:25,590
+which will call these actions.
 
 181
-00:08:31,530 --> 00:08:34,679
-Now let's go back and grab
-the authorization code.
+00:09:25,590 --> 00:09:27,630
+For example, when we
+list out the tweets,
 
 182
-00:08:34,679 --> 00:08:37,450
-So we've got our session
-code right here.
+00:09:27,630 --> 00:09:29,085
+remember that edit link?
 
 183
-00:08:37,450 --> 00:08:43,130
-We're going to wrap that in a method
-called check_auth, and now just
+00:09:29,085 --> 00:09:31,080
+When we click on
+that link, it's going
 
 184
-00:08:43,130 --> 00:08:47,270
-like before, we can specify
-before filter check_auth only
+00:09:31,080 --> 00:09:33,310
+to go into our
+tweets controller,
 
 185
-00:08:47,270 --> 00:08:49,740
-on edit, update, and destroy.
+00:09:33,310 --> 00:09:35,030
+it's going to call
+the edit action.
 
 186
-00:08:49,740 --> 00:08:53,340
-So now we have authorization
-across all three actions,
+00:09:35,030 --> 00:09:37,710
+So inside of that
+method, we need
 
 187
-00:08:53,340 --> 00:08:56,590
-which leads us into Zombie Lab
-4, where the bodies start
+00:09:37,710 --> 00:09:40,864
+to first retrieve the
+tweet that we want to edit,
 
 188
-00:08:56,590 --> 00:08:59,170
-piling up and the zombies tweet
-even more frequently.
+00:09:40,864 --> 00:09:42,780
+so we're going to go
+ahead and do that like we
+
+189
+00:09:42,780 --> 00:09:46,500
+did a moment ago,
+getting the parameter ID.
+
+190
+00:09:46,500 --> 00:09:49,780
+And then it's going to go and
+render the edit action, which
+
+191
+00:09:49,780 --> 00:09:53,660
+might look something like
+this where we have a form
+
+192
+00:09:53,660 --> 00:09:56,210
+and we can click that
+update tweet button.
+
+193
+00:09:56,210 --> 00:10:00,529
+But we're not going to
+define that in this course.
+
+194
+00:10:00,529 --> 00:10:02,320
+If we go to slash tweets
+in our application
+
+195
+00:10:02,320 --> 00:10:05,230
+and we get our
+listing tweets form,
+
+196
+00:10:05,230 --> 00:10:10,890
+right now we can click Edit and
+Destroy on any of these tweets.
+
+197
+00:10:10,890 --> 00:10:13,590
+But obviously we don't
+want to allow anyone
+
+198
+00:10:13,590 --> 00:10:16,490
+to delete or edit
+anyone else's tweets.
+
+199
+00:10:16,490 --> 00:10:19,800
+We need to add some sort
+of simple authentication
+
+200
+00:10:19,800 --> 00:10:23,210
+so that when they click on one
+that doesn't belong to them
+
+201
+00:10:23,210 --> 00:10:27,510
+it shows on the screen, "Sorry,
+you can't edit that tweet."
+
+202
+00:10:27,510 --> 00:10:29,620
+How might we do that?
+
+203
+00:10:29,620 --> 00:10:31,490
+To implement this
+authorization, we
+
+204
+00:10:31,490 --> 00:10:34,270
+need to add some code
+to our edit action.
+
+205
+00:10:34,270 --> 00:10:36,320
+Inside here, we're
+going to check
+
+206
+00:10:36,320 --> 00:10:40,700
+to see if the user's current
+session zombie_id is not
+
+207
+00:10:40,700 --> 00:10:44,730
+equal to the current
+tweet's zombie_id.
+
+208
+00:10:44,730 --> 00:10:46,950
+What is session,
+you might be asking?
+
+209
+00:10:46,950 --> 00:10:50,130
+Well, session works
+like a per-user hash.
+
+210
+00:10:50,130 --> 00:10:52,880
+Every user gets their
+own session hash
+
+211
+00:10:52,880 --> 00:10:54,420
+that we can store things in.
+
+212
+00:10:54,420 --> 00:10:57,540
+And that's what we usually
+do when somebody logs in.
+
+213
+00:10:57,540 --> 00:10:59,320
+We set a variable
+on session that
+
+214
+00:10:59,320 --> 00:11:02,240
+maybe has their zombie_id in it.
+
+215
+00:11:02,240 --> 00:11:05,850
+So we're checking to see
+if the current user is not
+
+216
+00:11:05,850 --> 00:11:08,670
+the person who
+posted this tweet.
+
+217
+00:11:08,670 --> 00:11:12,530
+And if they're not, we
+need to send a message.
+
+218
+00:11:12,530 --> 00:11:16,470
+We do that by setting
+a flash notice.
+
+219
+00:11:16,470 --> 00:11:18,940
+And we say, "Sorry, you
+can't edit this tweet."
+
+220
+00:11:18,940 --> 00:11:20,710
+What is flash?
+
+221
+00:11:20,710 --> 00:11:23,410
+Well, flash is another
+one of these helper hashes
+
+222
+00:11:23,410 --> 00:11:28,450
+that we can use in Rails to
+send messages back to the user.
+
+223
+00:11:28,450 --> 00:11:31,730
+Next, we need to redirect
+the user out of this action,
+
+224
+00:11:31,730 --> 00:11:34,430
+because we don't want
+to render the Edit page.
+
+225
+00:11:34,430 --> 00:11:36,290
+We don't want to
+show them that form.
+
+226
+00:11:36,290 --> 00:11:38,120
+They're not allowed to see it.
+
+227
+00:11:38,120 --> 00:11:42,690
+So we're going to redirect
+them back to the tweets path,
+
+228
+00:11:42,690 --> 00:11:45,580
+you know that whole
+tweets listing page.
+
+229
+00:11:45,580 --> 00:11:49,174
+redirect_to allows you
+to redirect the browser
+
+230
+00:11:49,174 --> 00:11:50,090
+to a different action.
+
+231
+00:11:52,810 --> 00:11:55,640
+There's an alternate shorter
+syntax for these last two lines
+
+232
+00:11:55,640 --> 00:11:56,530
+of code.
+
+233
+00:11:56,530 --> 00:11:59,819
+We can actually write
+redirect_to tweets_path
+
+234
+00:11:59,819 --> 00:12:01,735
+and send them the notice
+as a second argument.
+
+235
+00:12:05,656 --> 00:12:07,530
+Our next step before we
+jump into the browser
+
+236
+00:12:07,530 --> 00:12:09,460
+is we need to
+specify in our layout
+
+237
+00:12:09,460 --> 00:12:11,760
+where we want this
+notice to show up.
+
+238
+00:12:11,760 --> 00:12:13,810
+It doesn't just
+show up by default.
+
+239
+00:12:13,810 --> 00:12:18,490
+So we're going to specify
+here if a flash notice exists,
+
+240
+00:12:18,490 --> 00:12:22,120
+if there's a message waiting
+for the user in other words,
+
+241
+00:12:22,120 --> 00:12:26,140
+then go ahead and print it
+out to the screen like so.
+
+242
+00:12:30,620 --> 00:12:33,560
+Now if we go hit Edit
+and our session zombie_id
+
+243
+00:12:33,560 --> 00:12:36,850
+doesn't match the zombie_id
+of the current tweet,
+
+244
+00:12:36,850 --> 00:12:40,070
+well, it's going to redirect
+us back to this listing page
+
+245
+00:12:40,070 --> 00:12:42,241
+and give us this flash notice.
+
+246
+00:12:42,241 --> 00:12:42,740
+Sweet.
+
+247
+00:12:42,740 --> 00:12:45,464
+We did it.
+
+248
+00:12:45,464 --> 00:12:47,380
+Now if we jump back into
+our tweets controller
+
+249
+00:12:47,380 --> 00:12:49,100
+and we define the
+rest of these actions,
+
+250
+00:12:49,100 --> 00:12:52,740
+we would quickly find
+that some of these methods
+
+251
+00:12:52,740 --> 00:12:55,450
+have a lot of the same code.
+
+252
+00:12:55,450 --> 00:12:57,920
+Both Edit, Update,
+and Destroy need
+
+253
+00:12:57,920 --> 00:13:01,460
+to look up the current
+ID of the tweet
+
+254
+00:13:01,460 --> 00:13:04,010
+and need to check authorization.
+
+255
+00:13:04,010 --> 00:13:06,590
+And we don't want to have to
+write that code over and over
+
+256
+00:13:06,590 --> 00:13:07,090
+again.
+
+257
+00:13:07,090 --> 00:13:08,840
+Remember, Rails is D.R.Y.:
+
+258
+00:13:08,840 --> 00:13:10,570
+Don't repeat yourself.
+
+259
+00:13:10,570 --> 00:13:14,871
+So how might we be able to
+get rid of that repetition?
+
+260
+00:13:14,871 --> 00:13:16,970
+If we took a look
+inside these actions,
+
+261
+00:13:16,970 --> 00:13:19,830
+we would see that the first
+thing that all of them do
+
+262
+00:13:19,830 --> 00:13:22,513
+is fetch the current tweet.
+
+263
+00:13:22,513 --> 00:13:23,380
+Hmm.
+
+264
+00:13:23,380 --> 00:13:25,150
+So that's duplication
+right there.
+
+265
+00:13:25,150 --> 00:13:28,150
+Let's move that
+up into a method.
+
+266
+00:13:28,150 --> 00:13:30,950
+We're going to
+call it get_tweet.
+
+267
+00:13:30,950 --> 00:13:33,460
+And now we're going to
+write some code that
+
+268
+00:13:33,460 --> 00:13:38,410
+says before every
+action call get_tweet.
+
+269
+00:13:38,410 --> 00:13:41,960
+If we left it like this, this
+means before every action
+
+270
+00:13:41,960 --> 00:13:44,730
+in here it would call
+this get_tweet method.
+
+271
+00:13:44,730 --> 00:13:48,740
+But we don't want it to
+happen before every method.
+
+272
+00:13:48,740 --> 00:13:52,020
+Instead, we only
+want it to happen
+
+273
+00:13:52,020 --> 00:13:55,700
+with Edit, Update, and Destroy.
+
+274
+00:13:55,700 --> 00:13:58,190
+So we use that code right there.
+
+275
+00:14:00,840 --> 00:14:03,220
+The other bit of code we
+would see over and over again
+
+276
+00:14:03,220 --> 00:14:04,620
+is the authorization code.
+
+277
+00:14:04,620 --> 00:14:06,770
+Remember, it looks
+something like this?
+
+278
+00:14:06,770 --> 00:14:10,820
+Let's go ahead and wrap that
+in a method called check_auth.
+
+279
+00:14:10,820 --> 00:14:13,480
+And now we'll have
+another before action.
+
+280
+00:14:13,480 --> 00:14:17,190
+We'll say before
+action call check_auth,
+
+281
+00:14:17,190 --> 00:14:20,665
+again only for Edit,
+Update, and Destroy.
+
+282
+00:14:24,670 --> 00:14:28,230
+And now we've dried up our code,
+eliminated that duplication,
+
+283
+00:14:28,230 --> 00:14:30,165
+and now when we go
+into our browser,
+
+284
+00:14:30,165 --> 00:14:33,180
+when we click Edit on anything
+we're not supposed to edit,
+
+285
+00:14:33,180 --> 00:14:37,890
+we get back, "Sorry, you
+can't edit that tweet."
+
+286
+00:14:37,890 --> 00:14:39,770
+That was a lot of information.
+
+287
+00:14:39,770 --> 00:14:42,060
+But don't worry, you'll get it.
+
+288
+00:14:42,060 --> 00:14:44,940
+Go exercise your brain
+in the next challenges.
+
+289
+00:14:44,940 --> 00:14:47,100
+It'll make it more delicious.
+
