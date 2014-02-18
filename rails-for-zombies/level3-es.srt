@@ -1,0 +1,1164 @@
+﻿1
+00:00:00,860 --> 00:00:03,309
+[CANTANDO] El cerebro tenemos que poner...
+
+2
+00:00:03,309 --> 00:00:06,267
+para Rails poder aprender,
+
+3
+00:00:06,267 --> 00:00:09,225
+hay algo nuevo en la ciudad,
+
+4
+00:00:09,225 --> 00:00:12,390
+"Rails para Zombies" de Envy Labs.
+
+5
+00:00:15,434 --> 00:00:16,850
+Están viendo "Rails para zombies",
+
+6
+00:00:16,850 --> 00:00:18,349
+y en el Nivel 3
+
+7
+00:00:18,349 --> 00:00:22,740
+hablaremos de "Vistas" o representación visual
+
+8
+00:00:22,740 --> 00:00:25,550
+de nuestra aplicación Rails.
+
+9
+00:00:25,550 --> 00:00:28,110
+Nuestras "Vistas" son donde se encuentra la interface de usuario
+
+10
+00:00:28,110 --> 00:00:29,290
+para nuestra aplicación Rails.
+
+11
+00:00:29,290 --> 00:00:30,910
+Y cada vez que vean "Vistas",
+
+12
+00:00:30,910 --> 00:00:35,580
+verán este ojo, algo como "te estoy mirando",
+
+13
+00:00:35,580 --> 00:00:39,120
+que no es tan siniestro.
+
+14
+00:00:39,120 --> 00:00:40,210
+Tal vez un poco.
+
+15
+00:00:40,210 --> 00:00:45,010
+Bien, la representación visual de nuestra aplicación.
+
+16
+00:00:45,010 --> 00:00:46,745
+Una vez más, aquí está el navegador de usuario.
+
+17
+00:00:46,745 --> 00:00:49,370
+Vamos a hacer otra solicitud a nuestra aplicación Rails,
+
+18
+00:00:49,370 --> 00:00:52,700
+que busca por cuatro diferentes componentes.
+
+19
+00:00:52,700 --> 00:00:56,227
+En el nivel anterior hablamos sobre Modelos.
+
+20
+00:00:56,227 --> 00:00:58,060
+En este nivel hablaremos
+
+21
+00:00:58,060 --> 00:01:02,620
+sobre "Views" (vistas), que se encuentran aquí.
+
+22
+00:01:02,620 --> 00:01:04,879
+Si vamos a la aplicación Rails,
+
+23
+00:01:04,879 --> 00:01:08,720
+"zombie_twitter", encontraremos una carpeta de aplicación,
+
+24
+00:01:08,720 --> 00:01:11,490
+recuerden que allí estaban nuestros Modelos y también
+
+25
+00:01:11,490 --> 00:01:14,950
+encontraremos una carpeta "Views" creada para nosotros.
+
+26
+00:01:14,950 --> 00:01:16,790
+Adentro, vamos a crear
+
+27
+00:01:16,790 --> 00:01:20,490
+una carpeta "zombies" y una carpeta "tweets".
+
+28
+00:01:20,490 --> 00:01:23,950
+Dentro de "tweets" vamos a tener un archivo de índice,
+
+29
+00:01:23,950 --> 00:01:27,360
+"index.html.erb",
+
+30
+00:01:27,360 --> 00:01:31,450
+donde pondremos los HTML para la lista de nuestros tweets.
+
+31
+00:01:31,450 --> 00:01:35,040
+También tenemos "show.html.erb",
+
+32
+00:01:35,040 --> 00:01:37,540
+que es donde veremos los tweets individuales.
+
+33
+00:01:37,540 --> 00:01:40,600
+Probablemente se preguntarán: "Sé lo que es HTML,
+
+34
+00:01:40,600 --> 00:01:42,470
+pero ¿qué es ERB?"
+
+35
+00:01:42,470 --> 00:01:46,502
+¿Puede ser "Extremidades ricas en betacaroteno""?
+
+36
+00:01:46,502 --> 00:01:47,960
+No, no es eso.
+
+37
+00:01:47,960 --> 00:01:48,740
+Gran sorpresa.
+
+38
+00:01:48,740 --> 00:01:52,210
+Realmente quiere decir "Embedded Ruby" (Ruby embebido).
+
+39
+00:01:52,210 --> 00:01:56,540
+Es nuestra manera de embeber el código Ruby dentro de HTML.
+
+40
+00:01:56,540 --> 00:01:59,421
+Déjenme mostrarles cómo se ve.
+
+41
+00:01:59,421 --> 00:02:00,920
+Los primeros que vamos a ver,
+
+42
+00:02:00,920 --> 00:02:03,430
+nos muestran un tweet individual.
+
+43
+00:02:03,430 --> 00:02:08,580
+Dentro de "views/tweets/show.html.erb".
+
+44
+00:02:08,580 --> 00:02:10,919
+Vamos a escribir un texto HTML estándar,
+
+45
+00:02:10,919 --> 00:02:14,630
+nada extraordinario.
+
+46
+00:02:14,630 --> 00:02:17,120
+Y luego utilizaremos nuestro Modelo de tweet
+
+47
+00:02:17,120 --> 00:02:19,910
+para tomar el tweet con identificación 1.
+
+48
+00:02:19,910 --> 00:02:21,980
+¿Ven este signo "menor que" y "mayor que",
+
+49
+00:02:21,980 --> 00:02:25,100
+con los porcentajes al lado?
+
+50
+00:02:25,100 --> 00:02:27,700
+Así le decimos a la aplicación Rails
+
+51
+00:02:27,700 --> 00:02:30,500
+que este código es Ruby,
+
+52
+00:02:30,500 --> 00:02:33,260
+que queremos que lo ejecute.
+
+53
+00:02:33,260 --> 00:02:36,550
+Vamos a ejecutar el código, evaluar el código Ruby,
+
+54
+00:02:36,550 --> 00:02:38,970
+y encontrar el tweet con identificación 1.
+
+55
+00:02:38,970 --> 00:02:42,720
+En la próxima línea, queremos mostrar dentro de una h1,
+
+56
+00:02:42,720 --> 00:02:44,240
+el estado del tweet.
+
+57
+00:02:44,240 --> 00:02:46,530
+Se dan cuenta
+
+58
+00:02:46,530 --> 00:02:48,250
+de que hay algo un poco diferente en este código.
+
+59
+00:02:48,250 --> 00:02:50,780
+Estamos utilizando un signo igual.
+
+60
+00:02:50,780 --> 00:02:53,950
+El signo igual aquí le dice a Rails
+
+61
+00:02:53,950 --> 00:02:58,260
+que cuando este código dentro de estos tags aparezca de nuevo,
+
+62
+00:02:58,260 --> 00:03:02,610
+queremos copiarlo dentro de nuestro HTML.
+
+63
+00:03:02,610 --> 00:03:05,200
+Por último, copiemos quién posteó este tweet.
+
+64
+00:03:05,200 --> 00:03:09,000
+Diremos: "posteado por", y luego utilizaremos los paréntesis nuevamente
+
+65
+00:03:09,000 --> 00:03:11,577
+y escribiremos "tweet.zombie.name".
+
+66
+00:03:11,577 --> 00:03:13,160
+Si escribimos ésto en el navegador,
+
+67
+00:03:13,160 --> 00:03:17,270
+veremos el estado de los tweets "¿Dónde puedo ir a comer algo?,
+
+68
+00:03:17,270 --> 00:03:21,200
+y vemos que lo posteó Ash.
+
+69
+00:03:21,200 --> 00:03:24,520
+Desde aquí, si quisiéramos crear otra vista,
+
+70
+00:03:24,520 --> 00:03:26,490
+deberíamos tomar todo este HTML,
+
+71
+00:03:26,490 --> 00:03:29,730
+y copiar y pegar mucho del mismo HTML en él,
+
+72
+00:03:29,730 --> 00:03:32,220
+mucho del encabezado,
+
+73
+00:03:32,220 --> 00:03:34,610
+es lo mismo en cada página.
+
+74
+00:03:34,610 --> 00:03:37,300
+No es muy "DRY".
+
+75
+00:03:37,300 --> 00:03:40,190
+Muchas veces en Rails utilizaremos la sigla "DRY"
+
+76
+00:03:40,190 --> 00:03:43,580
+Quiere decir "Dont Repeat Yourself" (no seas repetitivo).
+
+77
+00:03:43,580 --> 00:03:46,280
+Si se ven escribiendo el mismo código dos veces,
+
+78
+00:03:46,280 --> 00:03:49,090
+seguramente hay una manera de evitarlo.
+
+79
+00:03:49,090 --> 00:03:51,860
+Aquí hay un ejemplo.
+
+80
+00:03:51,860 --> 00:03:58,430
+Podemos sacar este código de vista,
+
+81
+00:03:58,430 --> 00:04:01,470
+y llevarlo a un archivo en "Views",
+
+82
+00:04:01,470 --> 00:04:03,530
+a un directorio de diseños predeterminados llamado "application.html.erb"
+
+83
+00:04:06,970 --> 00:04:10,600
+Lo crea Rails por defecto,
+
+84
+00:04:10,600 --> 00:04:13,320
+y es donde ponemos todas nuestras códigos HTML estándar,
+
+85
+00:04:13,320 --> 00:04:17,690
+los encabezados y los pies de página, y eso.
+
+86
+00:04:17,690 --> 00:04:21,660
+Cada página que creamos va a utilizar esta plantilla por defecto,
+
+87
+00:04:21,660 --> 00:04:23,250
+pero hay un problema.
+
+88
+00:04:23,250 --> 00:04:26,530
+Debemos decirle a nuestro "application.html.erb"
+
+89
+00:04:26,530 --> 00:04:31,830
+donde cargar el código dentro de nuestra vista.
+
+90
+00:04:31,830 --> 00:04:34,140
+Allí es donde entra nuestro comando "yield" entra en acción.
+
+91
+00:04:34,140 --> 00:04:36,950
+"yield" dice que aquí van los contenidos
+
+92
+00:04:36,950 --> 00:04:40,295
+de esta página en particular, en este caso,
+
+93
+00:04:40,295 --> 00:04:41,170
+lo que está en "show.html.erb".
+
+94
+00:04:45,230 --> 00:04:46,780
+Hemos aplicado el "DRY" a nuestro código.
+
+95
+00:04:46,780 --> 00:04:49,320
+Pero ahora, agreguemos algo a nuestra página.
+
+96
+00:04:49,320 --> 00:04:53,470
+¿Cómo podemos transformar el nombre del zombie en un link,
+
+97
+00:04:53,470 --> 00:04:55,230
+para que cuando hagamos click en el nombre
+
+98
+00:04:55,230 --> 00:04:58,880
+nos lleve a la página del zombie?
+
+99
+00:04:58,880 --> 00:05:02,320
+Para crear un link dentro de nuestro archivo erb, lo primero que debemos hacer
+
+100
+00:05:02,320 --> 00:05:04,160
+es la sintaxis "Porcentaje igual".
+
+101
+00:05:04,160 --> 00:05:07,050
+Como queremos copiarlo en la página,
+
+102
+00:05:07,050 --> 00:05:11,530
+utilizaremos un método de ayuda de Rails, llamado "link_to".
+
+103
+00:05:11,530 --> 00:05:14,650
+Que generará un link para nosotros.
+
+104
+00:05:14,650 --> 00:05:17,210
+El primer parámetro que especificamos para este método
+
+105
+00:05:17,210 --> 00:05:18,920
+es el texto del link.
+
+106
+00:05:18,920 --> 00:05:22,920
+En este caso, queremos que el texto sea "zombie.name".
+
+107
+00:05:22,920 --> 00:05:26,410
+Luego especificamos la URL, excepto que aquí
+
+108
+00:05:26,410 --> 00:05:29,480
+estamos utilizando un método que nos da la URL.
+
+109
+00:05:29,480 --> 00:05:32,380
+¿Ven? Rails viene con un montón de ayudas
+
+110
+00:05:32,380 --> 00:05:34,650
+que generan las URL por Uds.
+
+111
+00:05:34,650 --> 00:05:37,580
+Nunca deberán copiar las URL.
+
+112
+00:05:37,580 --> 00:05:41,030
+Aquí escribimos el método de ayuda "zombie_path"
+
+113
+00:05:41,030 --> 00:05:46,054
+e ingresamos el zombie con el que queremos poner el link.
+
+114
+00:05:46,054 --> 00:05:47,970
+Hay en realidad una sintaxis alternativa para esta tarea.
+
+115
+00:05:47,970 --> 00:05:50,100
+Podemos simplificarla aún más.
+
+116
+00:05:50,100 --> 00:05:52,750
+Todo lo que debemos hacer es especificar el nombre del zombie
+
+117
+00:05:52,750 --> 00:05:58,216
+del que queremos poner el link, y luego ingresar "tweet.zombie".
+
+118
+00:05:58,216 --> 00:06:01,430
+Por defecto, solo con enviar, en esta instancia,
+
+119
+00:06:01,430 --> 00:06:07,200
+Rails sabe que queremos ir a la página del zombie.
+
+120
+00:06:07,200 --> 00:06:09,750
+Aquí está la receta del link, la van a necesitar el los desafíos.
+
+121
+00:06:09,750 --> 00:06:13,850
+Y en el caso de que se pregunten cuál es la mejor sintaxis para utilizar,
+
+122
+00:06:13,850 --> 00:06:17,360
+yo utilizaría la más corta.
+
+123
+00:06:17,360 --> 00:06:20,650
+Traslademos el link a nuestro código,
+
+124
+00:06:20,650 --> 00:06:22,430
+y si ahora lo escribimos en el navegador,
+
+125
+00:06:22,430 --> 00:06:27,940
+podemos ver el link de Ash.
+
+126
+00:06:27,940 --> 00:06:32,450
+Hay muchas maneras para modificar los link HTML
+
+127
+00:06:32,450 --> 00:06:34,370
+cuando están construyendo páginas web.
+
+128
+00:06:34,370 --> 00:06:36,250
+¿Cómo podemos averiguar las opciones
+
+129
+00:06:36,250 --> 00:06:39,180
+para utilizar con esta ayuda "link_to"?
+
+130
+00:06:39,180 --> 00:06:40,460
+Esa es una buena pregunta.
+
+131
+00:06:40,460 --> 00:06:42,870
+Bueno, Billy, que bueno que preguntaste.
+
+132
+00:06:42,870 --> 00:06:47,040
+Y no se por qué te estoy llamando "Billy", pero lo hago.
+
+133
+00:06:47,040 --> 00:06:49,740
+Vamos a necesitar alguna información
+
+134
+00:06:49,740 --> 00:06:52,630
+para averiguar algunas de estas opciones.
+
+135
+00:06:52,630 --> 00:06:54,580
+La primera forma en que podemos hacerlo
+
+136
+00:06:54,580 --> 00:06:59,590
+es realmente buscando en el código fuente de Rails.
+
+137
+00:06:59,590 --> 00:07:02,970
+Si no tenemos el código de Rails, podemos descargarlo,
+
+138
+00:07:02,970 --> 00:07:05,850
+podemos ir al directorio de Rails,
+
+139
+00:07:05,850 --> 00:07:09,790
+y podemos utilizar "grep" para definir "link_to".
+
+140
+00:07:09,790 --> 00:07:11,750
+Entonces podemos encontrar la definición de función,
+
+141
+00:07:11,750 --> 00:07:14,140
+y encima de la función
+
+142
+00:07:14,140 --> 00:07:17,360
+veremos bastante información.
+
+143
+00:07:17,360 --> 00:07:19,750
+Esa es la forma extrema de hacerlo.
+
+144
+00:07:19,750 --> 00:07:21,690
+Por supuesto, hay información que ya ha sido generada,
+
+145
+00:07:21,690 --> 00:07:24,570
+y la podemos encontrar fácilmente en la red,
+
+146
+00:07:24,570 --> 00:07:29,090
+por ejemplo, en "api.rubyonrails.org",
+
+147
+00:07:29,090 --> 00:07:31,650
+que siempre tiene la información más actualizada.
+
+148
+00:07:31,650 --> 00:07:35,510
+Se ve de esta manera.
+
+149
+00:07:35,510 --> 00:07:38,270
+Y si escribimos "link_to", arriba a la izquierda,
+
+150
+00:07:38,270 --> 00:07:40,610
+muy rápidamente nos dará un par de opciones diferentes.
+
+151
+00:07:40,610 --> 00:07:42,985
+Podemos hacer click en la primera, porque es la que queremos.
+
+152
+00:07:42,985 --> 00:07:46,530
+Y nos mostrará muy buena información,
+
+153
+00:07:46,530 --> 00:07:48,006
+y también muy buenos ejemplos.
+
+154
+00:07:48,006 --> 00:07:49,380
+Si bajamos en la página,
+
+155
+00:07:49,380 --> 00:07:53,450
+veremos que tiene este atributo llamado "confirm".
+
+156
+00:07:53,450 --> 00:07:55,930
+Y es una forma de agregar una casilla de confirmación.
+
+157
+00:07:55,930 --> 00:08:00,000
+Veamos que sucede cuando la agregamos a nuestro "link_to".
+
+158
+00:08:00,000 --> 00:08:02,190
+Volvemos a nuestro show.
+
+159
+00:08:02,190 --> 00:08:05,540
+Y vamos a especificar "confirm: "Are you sure?" (¿está seguro?)
+
+160
+00:08:05,540 --> 00:08:07,624
+como último argumento.
+
+161
+00:08:07,624 --> 00:08:08,290
+Y allí está.
+
+162
+00:08:08,290 --> 00:08:10,900
+Cuando volvemos a nuestra página web y hacemos click en el link,
+
+163
+00:08:10,900 --> 00:08:15,750
+nos sale esta ventana que dice: "Are you sure?"
+
+164
+00:08:15,750 --> 00:08:17,980
+Volvamos a la aplicación Rails.
+
+165
+00:08:17,980 --> 00:08:19,820
+Como vimos en el directorio "views",
+
+166
+00:08:19,820 --> 00:08:23,195
+también hay un directorio "layouts" (diseños).
+
+167
+00:08:23,195 --> 00:08:26,680
+Y adentro tenemos nuestro "application.html.erb",
+
+168
+00:08:26,680 --> 00:08:30,340
+que contiene la plantilla para nuestra página web.
+
+169
+00:08:30,340 --> 00:08:33,210
+Ya definimos "show.html.erb".
+
+170
+00:08:33,210 --> 00:08:37,980
+Ahora definiremos "index.html.erb".
+
+171
+00:08:37,980 --> 00:08:42,340
+Es donde vamos a hacer la lista de todos los tweets.
+
+172
+00:08:42,340 --> 00:08:44,840
+Aquí estamos dentro de "index.html.erb".
+
+173
+00:08:44,840 --> 00:08:48,040
+Lo primero que queremos hacer es especificar un título.
+
+174
+00:08:48,040 --> 00:08:49,390
+Listar tweets.
+
+175
+00:08:49,390 --> 00:08:50,720
+Luego necesitamos crear una tabla.
+
+176
+00:08:50,720 --> 00:08:52,940
+La tabla tendrá dos encabezados,
+
+177
+00:08:52,940 --> 00:08:55,160
+uno que muestra el estado,
+
+178
+00:08:55,160 --> 00:08:58,970
+y otro que muestra el zombie que posteó el estado.
+
+179
+00:08:58,970 --> 00:09:01,010
+Necesitamos un código que nos permita
+
+180
+00:09:01,010 --> 00:09:04,730
+enlazar todos los tweets.
+
+181
+00:09:04,730 --> 00:09:08,620
+Luego, dentro de ese enlace, vamos a copiar algunas cosas.
+
+182
+00:09:08,620 --> 00:09:11,420
+Vamos a copiar "tweet.status",
+
+183
+00:09:11,420 --> 00:09:15,250
+y vamos a copiar "tweet.zombie.name",
+
+184
+00:09:15,250 --> 00:09:16,822
+la persona que creó este tweet.
+
+185
+00:09:16,822 --> 00:09:18,280
+Este es el código que va a
+
+186
+00:09:18,280 --> 00:09:22,140
+permitirnos enlazar cada tweet.
+
+187
+00:09:22,140 --> 00:09:24,290
+Primero, escribimos "tweet.all".
+
+188
+00:09:24,290 --> 00:09:27,170
+Nos dará una lista de todos los tweets.
+
+189
+00:09:27,170 --> 00:09:28,590
+Y en esa lista,
+
+190
+00:09:28,590 --> 00:09:32,730
+vamos a escribir ".each do [ tweet ]".
+
+191
+00:09:32,730 --> 00:09:34,710
+Es un bloque de código.
+
+192
+00:09:34,710 --> 00:09:36,610
+Lo que sucede es que le decimos
+
+193
+00:09:36,610 --> 00:09:41,990
+al código que vaya por cada uno de los tweets en la lista,
+
+194
+00:09:41,990 --> 00:09:45,330
+estableciendo cada vez, cada tweet
+
+195
+00:09:45,330 --> 00:09:50,020
+a la variable local del tweet dentro de ese bloque de código.
+
+196
+00:09:50,020 --> 00:09:51,890
+Va por el primer tweet,
+
+197
+00:09:51,890 --> 00:09:54,210
+lo establece, lo copia, va por el segundo,
+
+198
+00:09:54,210 --> 00:09:57,970
+por el tercero, y sigue y sigue.
+
+199
+00:09:57,970 --> 00:09:59,890
+Hablemos un poco de
+
+200
+00:09:59,890 --> 00:10:03,530
+cada uno de estos ítems.
+
+201
+00:10:03,530 --> 00:10:08,130
+Recuerde que cuando escribimos "Tweet" en cualquier lado de nuestra aplicación Rails,
+
+202
+00:10:08,130 --> 00:10:10,600
+va a hacer referencia a una clase;
+
+203
+00:10:10,600 --> 00:10:13,940
+esa clase es nuestro modelo.
+
+204
+00:10:13,940 --> 00:10:15,830
+Cuando escribimos "Tweet.all",
+
+205
+00:10:15,830 --> 00:10:18,540
+estamos escribiendo todo el método en nuestro modelo.
+
+206
+00:10:18,540 --> 00:10:22,890
+Eso nos muestra una lista de tweets.
+
+207
+00:10:22,890 --> 00:10:27,250
+Y cuando escribimos "tweet" dentro del bloque de código,
+
+208
+00:10:27,250 --> 00:10:30,760
+nos va a mostrar un único tweet de la lista
+
+209
+00:10:30,760 --> 00:10:32,165
+que obtuvimos.
+
+210
+00:10:32,165 --> 00:10:33,980
+Y si escribimos ésto en el navegador,
+
+211
+00:10:33,980 --> 00:10:36,900
+podemos ver que nos da una lista de todos los tweets.
+
+212
+00:10:39,490 --> 00:10:43,190
+¿Cómo creen que podemos poner cada uno de estos valores
+
+213
+00:10:43,190 --> 00:10:46,950
+en links, para poder vincular con la página de los tweets
+
+214
+00:10:46,950 --> 00:10:49,390
+y la página del zombie?
+
+215
+00:10:49,390 --> 00:10:51,860
+Sería algo así.
+
+216
+00:10:51,860 --> 00:10:54,700
+Simplemente escribimos la ayuda "link_to",
+
+217
+00:10:54,700 --> 00:10:58,880
+tenemos el "tweet.status" como texto del link,
+
+218
+00:10:58,880 --> 00:11:02,820
+y especificamos "tweet" como segundo argumento,
+
+219
+00:11:02,820 --> 00:11:06,030
+lo que nos vinculará con la página de los tweets.
+
+220
+00:11:06,030 --> 00:11:08,880
+Lo programamos hace un minuto.
+
+221
+00:11:08,880 --> 00:11:12,495
+Luego escribimos "link_to" y especificamos "zombie.name",
+
+222
+00:11:12,495 --> 00:11:16,040
+como texto del link, y queremos que nos vincule
+
+223
+00:11:16,040 --> 00:11:19,555
+con ese zombie específicamente, para mostrar ese zombie.
+
+224
+00:11:19,555 --> 00:11:24,030
+Esta es la pantalla que obtenemos.
+
+225
+00:11:24,030 --> 00:11:24,950
+Funciona perfectamente.
+
+226
+00:11:24,950 --> 00:11:27,370
+Pero, ¿y si todavía no tenemos ningún tweet?
+
+227
+00:11:27,370 --> 00:11:31,270
+¿Qué sucede si pedimos esta página y no hay nada,
+
+228
+00:11:31,270 --> 00:11:34,940
+y no hay nada que nos diga que no tenemos nada,
+
+229
+00:11:34,940 --> 00:11:37,580
+y parece que la página no se cargó,
+
+230
+00:11:37,580 --> 00:11:40,030
+o no funciona?
+
+231
+00:11:40,030 --> 00:11:41,840
+¿Cómo podemos hacer que nos muestre
+
+232
+00:11:41,840 --> 00:11:46,640
+que no se encontraron tweets si no hay tweets?
+
+233
+00:11:46,640 --> 00:11:47,690
+Hmn...
+
+234
+00:11:47,690 --> 00:11:49,300
+Averigûemos eso.
+
+235
+00:11:49,300 --> 00:11:53,520
+Estamos de vuelta en el rulo "tweet.each".
+
+236
+00:11:53,520 --> 00:11:56,600
+Para solucionar el tema, vamos a quitar "Tweet.all".
+
+237
+00:11:56,600 --> 00:12:01,630
+Vamos a ponerlo con una variable llamada "tweets".
+
+238
+00:12:01,630 --> 00:12:04,236
+Luego escribimos "tweet.each",
+
+239
+00:12:04,236 --> 00:12:06,120
+y va a ir por la lista.
+
+240
+00:12:09,320 --> 00:12:13,010
+Decimos que "if tweets.size" es igual a 0,
+
+241
+00:12:13,010 --> 00:12:17,030
+y especificamos que lo copie si es igual a 0.
+
+242
+00:12:17,030 --> 00:12:19,780
+Y terminamos esa condición.
+
+243
+00:12:19,780 --> 00:12:22,210
+Sólo si esa condición es verdadera,
+
+244
+00:12:22,210 --> 00:12:26,639
+copiará lo que está entre el "if" y el final.
+
+245
+00:12:26,639 --> 00:12:28,180
+Volvemos al navegador,
+
+246
+00:12:28,180 --> 00:12:33,500
+y vemos que ahora dice: "No Tweets found" (no se encontraron tweets).
+
+247
+00:12:33,500 --> 00:12:36,700
+Puede ser que nuestros zombies cambien de idea,
+
+248
+00:12:36,700 --> 00:12:39,030
+y que quieran editar los tweets,
+
+249
+00:12:39,030 --> 00:12:41,330
+o borrarlos.
+
+250
+00:12:41,330 --> 00:12:43,630
+¿Cómo podemos agregar un link aquí mismo
+
+251
+00:12:43,630 --> 00:12:47,990
+que permita hacerlo o llegar más cerca?
+
+252
+00:12:47,990 --> 00:12:50,730
+Un link de edición en Rails es más o menos así.
+
+253
+00:12:50,730 --> 00:12:53,680
+Decimos "link_to", especificamos "Edit".
+
+254
+00:12:53,680 --> 00:12:59,120
+Y para generar la URL correcta, escribimos "edit_tweet_path",
+
+255
+00:12:59,120 --> 00:13:01,410
+e ingresamos el tweet.
+
+256
+00:13:01,410 --> 00:13:05,380
+Para crear un link para borrar, escribimos "link_ to Destroy".
+
+257
+00:13:05,380 --> 00:13:09,390
+Ingresamos el tweet que queremos borrar,
+
+258
+00:13:09,390 --> 00:13:11,940
+y especificamos "method: :delete"
+
+259
+00:13:11,940 --> 00:13:17,070
+La sintaxis de estos generadores de URL puede parecer extraña,
+
+260
+00:13:17,070 --> 00:13:17,770
+pero no se preocupen.
+
+261
+00:13:17,770 --> 00:13:19,980
+Hay un método en la locura.
+
+262
+00:13:19,980 --> 00:13:21,820
+Es la primera vez
+
+263
+00:13:21,820 --> 00:13:25,730
+que vemos un hash donde hay un símbolo como clave,
+
+264
+00:13:25,730 --> 00:13:28,310
+que vincula con otro símbolo como valor.
+
+265
+00:13:28,310 --> 00:13:32,994
+Por eso tenemos esos dos puntos allí.
+
+266
+00:13:32,994 --> 00:13:34,410
+Y si escribimos la página web,
+
+267
+00:13:34,410 --> 00:13:39,150
+vemos que tenemos un grupo de links.
+
+268
+00:13:39,150 --> 00:13:42,280
+Veamos esos generadores de URL,
+
+269
+00:13:42,280 --> 00:13:45,360
+y lo que va a generar la URL.
+
+270
+00:13:45,360 --> 00:13:48,250
+Primero, para listar todos los tweets, básicamente vamos
+
+271
+00:13:48,250 --> 00:13:51,060
+a la acción index que recién creamos.
+
+272
+00:13:51,060 --> 00:13:54,220
+Utilizamos el código "tweet_path".
+
+273
+00:13:54,220 --> 00:13:57,830
+La URL que genera es "/tweets".
+
+274
+00:13:57,830 --> 00:14:01,750
+Para obtener una nueva forma de tweets, generalmente en Rails,
+
+275
+00:14:01,750 --> 00:14:06,520
+utilizamos el código "new_tweet_path" para generar
+
+276
+00:14:06,520 --> 00:14:10,310
+la URL "/tweets/new".
+
+277
+00:14:10,310 --> 00:14:13,700
+Los siguientes generadores de URL necesitan un tweet específico
+
+278
+00:14:13,700 --> 00:14:16,360
+para ingresar como argumento.
+
+279
+00:14:16,360 --> 00:14:18,410
+El primero es mostrar un tweet.
+
+280
+00:14:18,410 --> 00:14:19,870
+Ya lo vimos.
+
+281
+00:14:19,870 --> 00:14:22,170
+E ingresamos la instancia de tweet,
+
+282
+00:14:22,170 --> 00:14:26,640
+y genera una URL, que tiene "/tweet/1".
+
+283
+00:14:26,640 --> 00:14:29,610
+Para editar un tweet, utilizamos "edit_tweet_path(tweet),
+
+284
+00:14:29,610 --> 00:14:32,890
+que genera una URL que se ve así.
+
+285
+00:14:32,890 --> 00:14:35,480
+Y para borrar un tweet, utilizamos este código,
+
+286
+00:14:35,480 --> 00:14:39,410
+que genera una URL así.
+
+287
+00:14:39,410 --> 00:14:41,710
+Como dije antes, esta columna de código,
+
+288
+00:14:41,710 --> 00:14:43,330
+esos son lo generadores de URL.
+
+289
+00:14:43,330 --> 00:14:47,560
+Y todos ellos van en nuestro "link_to" como segundo argumento.
+
+290
+00:14:50,330 --> 00:14:54,020
+Estoy seguro de que sus cerebros zombies están llenos de sintaxis en este momento,
+
+291
+00:14:54,020 --> 00:14:57,470
+así que ¿porqué no se dan una vuelta por los desafíos?
+

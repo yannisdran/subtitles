@@ -1,0 +1,728 @@
+﻿1
+00:00:00,000 --> 00:00:03,316
+[CANTANDO] El cerebro tenemos que poner...
+
+2
+00:00:03,316 --> 00:00:06,268
+para Rails poder aprender,
+
+3
+00:00:06,268 --> 00:00:09,712
+hay algo nuevo en la ciudad,
+
+4
+00:00:09,712 --> 00:00:10,660
+"Rails para Zombies" de Envy Labs.
+
+5
+00:00:15,204 --> 00:00:16,620
+Están viendo "Rails para Zombies",
+
+6
+00:00:16,620 --> 00:00:18,078
+y éste es el Nivel 5, donde vamos
+
+7
+00:00:18,078 --> 00:00:21,780
+a ver el "Routing" (enrutamiento) en Rails.
+
+8
+00:00:21,780 --> 00:00:23,650
+Aquí estamos, de nuevo en el navegador.
+
+9
+00:00:23,650 --> 00:00:25,400
+Ingresa una solicitud,
+
+10
+00:00:25,400 --> 00:00:27,660
+y pasa por los cuatro componentes.
+
+11
+00:00:27,660 --> 00:00:30,220
+Y recuerden, ingresa, va al controlador.
+
+12
+00:00:30,220 --> 00:00:32,780
+El controlador obtiene información de los modelos.
+
+13
+00:00:32,780 --> 00:00:35,350
+Y luego el controlador hace uso de la vista,
+
+14
+00:00:35,350 --> 00:00:37,910
+para luego enviar la vista de vuelta al navegador.
+
+15
+00:00:37,910 --> 00:00:40,500
+Bien, hay un cuarto componente,
+
+16
+00:00:40,500 --> 00:00:42,460
+que son las rutas.
+
+17
+00:00:42,460 --> 00:00:45,210
+Y en realidad hemos estado utilizándolas de alguna manera.
+
+18
+00:00:45,210 --> 00:00:48,290
+Pero no las hemos discutido todavía.
+
+19
+00:00:48,290 --> 00:00:54,000
+Para encontrar apropiadamente estas rutas,
+
+20
+00:00:54,000 --> 00:00:59,910
+y bueno, "enrutarlas" hacia las acciones.
+
+21
+00:00:59,910 --> 00:01:05,209
+necesitamos definir las rutas dentro de nuestro "Router".
+
+22
+00:01:05,209 --> 00:01:07,600
+Dentro de la aplicación Zombie Twitter,
+
+23
+00:01:07,600 --> 00:01:09,760
+tenemos una carpeta llamada "config".
+
+24
+00:01:09,760 --> 00:01:14,430
+Dentro de la carpeta está nuestro archivo de rutas, "routes.rb".
+
+25
+00:01:14,430 --> 00:01:16,070
+Allí adentro, como pueden ver,
+
+26
+00:01:16,070 --> 00:01:18,010
+está el nombre de nuestra aplicación espaciado,
+
+27
+00:01:18,010 --> 00:01:20,920
+"ZombieTwitter::Aplication.routes.draw. do"
+
+28
+00:01:20,920 --> 00:01:25,730
+Es dentro de este bloque donde escribimos nuestras rutas.
+
+29
+00:01:25,730 --> 00:01:30,410
+Entonces aquí debemos escribir: "resources:tweets".
+
+30
+00:01:30,410 --> 00:01:34,280
+La llamamos una ruta "RESTful".
+
+31
+00:01:34,280 --> 00:01:39,190
+Y esa línea nos da,
+
+32
+00:01:39,190 --> 00:01:40,750
+todos estos diferentes generadores de URL para utilizar.
+
+33
+00:01:40,750 --> 00:01:43,170
+Podemos ver los URL que genera cada uno,
+
+34
+00:01:43,170 --> 00:01:45,410
+como así también las acciones que estas rutas relacionan
+
+35
+00:01:45,410 --> 00:01:47,430
+con lo que está dentro del controlador de tweets.
+
+36
+00:01:51,130 --> 00:01:52,580
+Un archivo de rutas es generalmente aburrido,
+
+37
+00:01:52,580 --> 00:01:57,060
+si estamos utilizando una ruta RESTful estándar, como "resources :tweets",
+
+38
+00:01:57,060 --> 00:02:00,790
+o puede ser "resources :tweets,zombies".
+
+39
+00:02:00,790 --> 00:02:03,740
+Pero necesitamos conocer más sobre la sintaxis dentro de las rutas,
+
+40
+00:02:03,740 --> 00:02:05,980
+cuando se refiere a rutas personalizadas.
+
+41
+00:02:05,980 --> 00:02:07,760
+Por ejemplo, si queremos
+
+42
+00:02:07,760 --> 00:02:10,979
+que cuando alguien vaya a "new_tweet",
+
+43
+00:02:10,979 --> 00:02:12,950
+aparezca lo mismo que
+
+44
+00:02:12,950 --> 00:02:15,970
+cuando vamos a "tweet/new".
+
+45
+00:02:15,970 --> 00:02:20,140
+"tweet/new", como sabemos, muestra una nueva acción.
+
+46
+00:02:20,140 --> 00:02:22,410
+Entonces en este caso, el nombre del controlador es "Tweets".
+
+47
+00:02:22,410 --> 00:02:24,520
+El nombre de la acción es "new".
+
+48
+00:02:24,520 --> 00:02:26,320
+Eso es lo que queremos invocar.
+
+49
+00:02:26,320 --> 00:02:28,610
+Para crear esta ruta personalizada dentro de nuestro archivo de rutas,
+
+50
+00:02:28,610 --> 00:02:32,010
+necesitamos especificar qué método aceptar.
+
+51
+00:02:32,010 --> 00:02:34,300
+En nuestro caso, es "get", porque sólo
+
+52
+00:02:34,300 --> 00:02:37,980
+vamos a ingresar en la URL, o tal vez darle un link.
+
+53
+00:02:37,980 --> 00:02:40,720
+Especificaremos la ruta de esta URL personalizada.
+
+54
+00:02:40,720 --> 00:02:42,410
+Luego ingresaremos una cadena.
+
+55
+00:02:42,410 --> 00:02:45,000
+La cadena va a especificar el nombre del controlador,
+
+56
+00:02:45,000 --> 00:02:48,870
+y el nombre de la acción que la ruta personalizada debe invocar
+
+57
+00:02:48,870 --> 00:02:53,480
+con el signo "#" separándolos.
+
+58
+00:02:53,480 --> 00:02:56,840
+Entonces ahora, si entramos al navegador y vamos a "new_tweet",
+
+59
+00:02:56,840 --> 00:03:00,460
+obtenemos la vista del nuevo tweet.
+
+60
+00:03:00,460 --> 00:03:04,720
+Ahora queremos hacer que cuando un usuario vaya a "/all",
+
+61
+00:03:04,720 --> 00:03:08,180
+vea lo mismo que si va a "/tweets",
+
+62
+00:03:08,180 --> 00:03:10,760
+una lista de todos los tweets.
+
+63
+00:03:10,760 --> 00:03:12,220
+Es principalmente lo mismo
+
+64
+00:03:12,220 --> 00:03:16,270
+que escribir la acción "index" dentro del controlador de tweets.
+
+65
+00:03:16,270 --> 00:03:18,520
+El nombre del controlador aquí es "Tweets"
+
+66
+00:03:18,520 --> 00:03:21,570
+El nombre de la acción es "index".
+
+67
+00:03:21,570 --> 00:03:24,480
+Entonces, dentro de "routes.rb" queremos especificar,
+
+68
+00:03:24,480 --> 00:03:30,560
+"get '/all' => 'tweets#index'".
+
+69
+00:03:30,560 --> 00:03:34,420
+Sin embargo, si queremos hacer un link a esta ruta personalizada,
+
+70
+00:03:34,420 --> 00:03:35,880
+¿cómo lo hacemos?
+
+71
+00:03:35,880 --> 00:03:39,310
+¿Especificamos la ruta?
+
+72
+00:03:39,310 --> 00:03:41,370
+Funcionaría si sólo especificáramos una cadena.
+
+73
+00:03:41,370 --> 00:03:44,830
+Pero eso está considerado una mala práctica.
+
+74
+00:03:44,830 --> 00:03:46,970
+Entonces, para agregar un generador de URL personalizadas,
+
+75
+00:03:46,970 --> 00:03:50,890
+necesitamos especificar en nuestro archivo de rutas, un argumento extra.
+
+76
+00:03:50,890 --> 00:03:55,360
+Simplemente especificamos "as" (como) y le damos un nombre.
+
+77
+00:03:55,360 --> 00:03:57,680
+Eso es una ruta con nombre.
+
+78
+00:03:57,680 --> 00:04:03,800
+Luego en nuestra ayuda "link_to", podemos especificar "all_tweets_path",
+
+79
+00:04:03,800 --> 00:04:09,120
+y hará el link correspondiente a la URL "all".
+
+80
+00:04:09,120 --> 00:04:10,640
+Si entramos al navegador,
+
+81
+00:04:10,640 --> 00:04:16,160
+podemos ver que cuando vamos a "/all", aparece la lista de todos los tweets.
+
+82
+00:04:16,160 --> 00:04:19,160
+Digamos que reescribimos nuestra aplicación en Rails.
+
+83
+00:04:19,160 --> 00:04:24,000
+Y hay muchos links que vana a "/all",
+
+84
+00:04:24,000 --> 00:04:26,120
+para que aparezca la lista de todos los tweets.
+
+85
+00:04:26,120 --> 00:04:30,000
+No queremos que sea la URL definitiva.
+
+86
+00:04:30,000 --> 00:04:34,540
+Queremos que la URL definitiva sea "/tweets".
+
+87
+00:04:34,540 --> 00:04:39,130
+Entonces necesitamos una manera de redireccionar "/all" a "/tweets".
+
+88
+00:04:39,130 --> 00:04:40,710
+¿Cómo lo hacemos?
+
+89
+00:04:40,710 --> 00:04:46,580
+Podemos simplemente escribir: "get '/all" => redirect ('/tweets').
+
+90
+00:04:46,580 --> 00:04:48,080
+Eso es todo.
+
+91
+00:04:48,080 --> 00:04:51,130
+Y cuando un navegador de un usuario va a "/all",
+
+92
+00:04:51,130 --> 00:04:56,300
+su navegador lo va a redireccionar a "/tweets".
+
+93
+00:04:56,300 --> 00:04:59,250
+Podemos redireccionar hacia otras URL también.
+
+94
+00:04:59,250 --> 00:05:01,730
+Si alguien va a "/google",
+
+95
+00:05:01,730 --> 00:05:05,590
+podemos redireccionarlos a Google.
+
+96
+00:05:05,590 --> 00:05:08,230
+A continuación, debemos hablar de "Root Route", la ruta raíz.
+
+97
+00:05:08,230 --> 00:05:10,470
+Ésto es lo que sus usuarios verán cuando
+
+98
+00:05:10,470 --> 00:05:15,390
+vayan a su dominio, sólo su dominio raíz.
+
+99
+00:05:15,390 --> 00:05:17,110
+Necesitamos especificar qué controlador
+
+100
+00:05:17,110 --> 00:05:19,670
+y qué acción mostrar cuando ésto suceda.
+
+101
+00:05:19,670 --> 00:05:24,070
+Para hacerlo en un archivo de rutas, simplemente especificamos "root to",
+
+102
+00:05:24,070 --> 00:05:28,410
+y luego ingresamos un controlador y una acción.
+
+103
+00:05:28,410 --> 00:05:30,070
+Eso es todo.
+
+104
+00:05:30,070 --> 00:05:32,430
+Si quisiéramos hacer un link con esta ruta raíz,
+
+105
+00:05:32,430 --> 00:05:35,565
+podríamos especificar "root_path" como nuestro generador de URL.
+
+106
+00:05:38,250 --> 00:05:40,290
+Ahora veamos un ejemplo más complejo.
+
+107
+00:05:40,290 --> 00:05:43,100
+¿Si quisiéramos permitir una URL,
+
+108
+00:05:43,100 --> 00:05:46,030
+a la que se pudieran mandar códigos postales
+
+109
+00:05:46,030 --> 00:05:49,020
+y obtener los tweets locales?
+
+110
+00:05:49,020 --> 00:05:52,230
+Tendría una lista de tweets.
+
+111
+00:05:52,230 --> 00:05:57,270
+Bien, ya tenemos una página que tiene una lista de tweets.
+
+112
+00:05:57,270 --> 00:05:58,700
+Es nuestra página "index".
+
+113
+00:05:58,700 --> 00:06:02,310
+¿Por qué no reutilizamos esa acción para este ejemplo?
+
+114
+00:06:02,310 --> 00:06:04,460
+Dentro de nuestra acción "index",
+
+115
+00:06:04,460 --> 00:06:09,200
+vamos a tener una condición, "params[:zipcode].
+
+116
+00:06:09,200 --> 00:06:11,400
+Y si existe el código postal,
+
+117
+00:06:11,400 --> 00:06:14,210
+que es lo que estamos diciendo, hará una consulta,
+
+118
+00:06:14,210 --> 00:06:20,410
+donde "zipcode" es igual al parámetro que ingresamos.
+
+119
+00:06:20,410 --> 00:06:23,600
+De otra manera, simplemente consultar por todos los tweets,
+
+120
+00:06:23,600 --> 00:06:25,500
+y responder la solicitud.
+
+121
+00:06:30,110 --> 00:06:33,360
+Es todo lo que necesitamos hacer aquí.
+
+122
+00:06:33,360 --> 00:06:35,750
+Para hacer funcionar esta ruta, dentro de un archivo de enrutamiento,
+
+123
+00:06:35,750 --> 00:06:40,160
+debemos escribir "get /local_tweets",
+
+124
+00:06:40,160 --> 00:06:42,610
+y luego debemos especificar el nombre del parámetro
+
+125
+00:06:42,610 --> 00:06:44,840
+que espera nuestra aplicación.
+
+126
+00:06:44,840 --> 00:06:46,450
+En este caso, "zipcode".
+
+127
+00:06:46,450 --> 00:06:49,240
+Entonces vamos a escribir ":zipcode".
+
+128
+00:06:49,240 --> 00:06:52,410
+Es por ésto solamente que nuestra aplicación
+
+129
+00:06:52,410 --> 00:06:54,730
+sabe guardar los códigos postales cuando
+
+130
+00:06:54,730 --> 00:06:56,960
+ingresan a la aplicación, en un parámetro
+
+131
+00:06:56,960 --> 00:06:58,920
+con la clave "zipcode".
+
+132
+00:06:58,920 --> 00:07:02,650
+Y ésto, por supuesto, apunta a nuestro controlador de tweets,
+
+133
+00:07:02,650 --> 00:07:05,060
+la acción "index".
+
+134
+00:07:05,060 --> 00:07:07,090
+También podemos querer ponerle nombre a esta ruta.
+
+135
+00:07:07,090 --> 00:07:11,000
+Entonces vamos a agregar: "as: local_tweets'",
+
+136
+00:07:11,000 --> 00:07:15,620
+lo que nos permitirá decir: "link_to "Tweets in 32828",
+
+137
+00:07:15,620 --> 00:07:19,410
+y luego especificar el generador de URL: "local_tweets_path
+
+138
+00:07:19,410 --> 00:07:22,320
+(32828)".
+
+139
+00:07:22,320 --> 00:07:25,010
+Ahora bien, Uds. saben cómo en sitios web como Twitter,
+
+140
+00:07:25,010 --> 00:07:27,554
+la gente va a "/" y luego el nombre de usuario.
+
+141
+00:07:27,554 --> 00:07:28,970
+En este caso, con Twitter,
+
+142
+00:07:28,970 --> 00:07:31,740
+tomaría todos los tweets de "GitHub".
+
+143
+00:07:31,740 --> 00:07:35,520
+¿Cómo podemos implementarlo en nuestro archivo de enrutamiento?
+
+144
+00:07:35,520 --> 00:07:39,000
+En este caso, si alguien va a "/greggpollack", o "/eallarm",
+
+145
+00:07:39,000 --> 00:07:42,880
+o "/envylabs", sólo queremos mostrar los tweets
+
+146
+00:07:42,880 --> 00:07:44,880
+de esos zombies.
+
+147
+00:07:44,880 --> 00:07:47,790
+Para hacer eso en nuestro archivo de enrutamiento, queremos agregar una ruta
+
+148
+00:07:47,790 --> 00:07:50,960
+que debería estar al final de nuestro archivo, y decir,
+
+149
+00:07:50,960 --> 00:07:56,570
+"get ':name'", y luego especificar los tweets del controlador,
+
+150
+00:07:56,570 --> 00:08:00,540
+la acción "index": "as: 'zombie_tweets'".
+
+151
+00:08:00,540 --> 00:08:02,170
+Si queremos crear un link,
+
+152
+00:08:02,170 --> 00:08:05,370
+podemos decir: "link_to "Gregg", Zombie_tweets_path('greggpollack')",
+
+153
+00:08:05,370 --> 00:08:08,930
+y generaría la URL correspondiente.
+
+154
+00:08:08,930 --> 00:08:10,830
+Y como estamos escribiendo la acción "index",
+
+155
+00:08:10,830 --> 00:08:13,750
+necesitaremos entrar en la acción "index",
+
+156
+00:08:13,750 --> 00:08:17,260
+comprobar si hay un parámetro llamado "name".
+
+157
+00:08:17,260 --> 00:08:20,220
+Si lo hay, tomaremos el zombie,
+
+158
+00:08:20,220 --> 00:08:24,210
+donde "name" es igual al nombre que ingresamos.
+
+159
+00:08:24,210 --> 00:08:27,970
+Nos devolverá una lista, entonces es necesario escribir: ".first",
+
+160
+00:08:27,970 --> 00:08:31,370
+que nos mostrará el primer nombre de la lista,
+
+161
+00:08:31,370 --> 00:08:33,419
+que, con suerte, será el mío.
+
+162
+00:08:33,419 --> 00:08:36,559
+Y luego vamos a escribir "zombie.tweets",
+
+163
+00:08:36,559 --> 00:08:38,460
+lo que nos dará todos los tweets,
+
+164
+00:08:38,460 --> 00:08:41,929
+y lo guardará en la variable de la instancia de tweets.
+
+165
+00:08:41,929 --> 00:08:44,260
+Si no ingresáramos el nombre del parámetro,
+
+166
+00:08:44,260 --> 00:08:47,580
+entonces podemos escribir "@tweets = tweet.all".
+
+167
+00:08:47,580 --> 00:08:52,950
+Se darán cuenta de que en éste último, no debemos responder.
+
+168
+00:08:52,950 --> 00:08:55,800
+Es porque, por defecto,
+
+169
+00:08:55,800 --> 00:09:01,290
+si no necesitamos responder ninguna solicitud JSON, o ninguna solicitud XML,
+
+170
+00:09:01,290 --> 00:09:04,265
+hacemos solamente HTML, entonces está bien
+
+171
+00:09:04,265 --> 00:09:07,840
+no incluir el bloque "respond_to".
+
+172
+00:09:07,840 --> 00:09:11,110
+Si vamos por ejemplo, a "/ash",
+
+173
+00:09:11,110 --> 00:09:16,340
+obtenemos sólo los tweet de Ash.
+
+174
+00:09:16,340 --> 00:09:19,230
+Han llegado al final de los videos "Rails para Zombies".
+
+175
+00:09:19,230 --> 00:09:21,330
+Es el momento de resolver algunos desafíos más
+
+176
+00:09:21,330 --> 00:09:24,250
+para ganar su insignia "Rails para Zombies".
+
+177
+00:09:24,250 --> 00:09:28,530
+Y luego los veré en el video súper secreto,
+
+178
+00:09:28,530 --> 00:09:30,730
+donde les diré por dónde continuar
+
+179
+00:09:30,730 --> 00:09:33,490
+aprendiendo Rails.
+
+180
+00:09:33,490 --> 00:09:35,290
+[INAUDIBLE]
+
+181
+00:09:35,290 --> 00:09:37,740
+Para irnos a [BIP] de la base de datos.
+
+182
+00:09:41,061 --> 00:09:46,100
+El tercero, creo. Súper secreto.
+

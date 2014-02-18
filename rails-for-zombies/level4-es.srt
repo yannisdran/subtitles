@@ -1,0 +1,1157 @@
+﻿1
+00:00:00,500 --> 00:00:03,302
+[CANTANDO] El cerebro tenemos que poner...
+
+2
+00:00:03,302 --> 00:00:06,760
+para Rails poder aprender,
+
+3
+00:00:06,760 --> 00:00:09,230
+hay algo nuevo en la ciudad,
+
+4
+00:00:09,230 --> 00:00:12,020
+"Rails para Zombies" de Envy Labs.
+
+5
+00:00:15,584 --> 00:00:17,000
+Están viendo "Rails para Zombies".
+
+6
+00:00:17,000 --> 00:00:18,500
+En el Nivel 4 vamos a hablar
+
+7
+00:00:18,500 --> 00:00:24,360
+sobre "Controladores", el cereeeeeeebro de la aplicación.
+
+8
+00:00:24,360 --> 00:00:25,812
+¿Les da hambre, no?
+
+9
+00:00:25,812 --> 00:00:28,670
+Los Controladores son
+
+10
+00:00:28,670 --> 00:00:32,250
+donde se usan modelos para obtener datos de la base de datos,
+
+11
+00:00:32,250 --> 00:00:35,290
+y utilizamos "Views" para mostrar los datos
+
+12
+00:00:35,290 --> 00:00:37,340
+que salen de los modelos.
+
+13
+00:00:37,340 --> 00:00:39,220
+Todo va a tener más sentido en un momento.
+
+14
+00:00:39,220 --> 00:00:41,850
+Vamos a utilizar este ícono de cerebro,
+
+15
+00:00:41,850 --> 00:00:45,030
+porque es algo así como el cerebro de nuestra aplicación.
+
+16
+00:00:45,030 --> 00:00:47,020
+Aquí estamos en el navegador,
+
+17
+00:00:47,020 --> 00:00:50,280
+y tenemos los cuatro componentes de la aplicación.
+
+18
+00:00:50,280 --> 00:00:53,507
+Ya hablamos sobre los Modelos, las Vistas,
+
+19
+00:00:53,507 --> 00:00:55,840
+y ahora vamos a hablar sobre los Controladores,
+
+20
+00:00:55,840 --> 00:00:58,085
+que van allí.
+
+21
+00:00:58,085 --> 00:01:01,740
+Este es el código que teníamos en la Vista,
+
+22
+00:01:01,740 --> 00:01:04,420
+Hay algo por aquí que huele a cerebro podrido,
+
+23
+00:01:04,420 --> 00:01:06,890
+y es esa línea de allí,
+
+24
+00:01:06,890 --> 00:01:09,460
+donde escribimos el modelo de tweet.
+
+25
+00:01:09,460 --> 00:01:12,110
+No se debería mostrar en nuestra vista.
+
+26
+00:01:12,110 --> 00:01:14,290
+Porque, como dije hace un minuto,
+
+27
+00:01:14,290 --> 00:01:18,220
+es nuestro controlador el que debería escribir los modelos.
+
+28
+00:01:18,220 --> 00:01:20,060
+Cuando una solicitud llega a nuestra aplicación,
+
+29
+00:01:20,060 --> 00:01:23,880
+llamémosla "tweet/1", antes de entrar en "View",
+
+30
+00:01:23,880 --> 00:01:27,150
+primero va a pasar por un controlador.
+
+31
+00:01:27,150 --> 00:01:31,730
+En este caso, va a buscar dentro de los directorios de controladores,
+
+32
+00:01:31,730 --> 00:01:34,320
+que se crea para nosotros,
+
+33
+00:01:34,320 --> 00:01:36,130
+un archivo llamado "tweets_controller.rb".
+
+34
+00:01:39,660 --> 00:01:45,080
+Solo después de eso nos va a mostrar la vista.
+
+35
+00:01:45,080 --> 00:01:47,370
+No hay coincidencia aquí,
+
+36
+00:01:47,370 --> 00:01:50,110
+nuestra URL tiene la palabra "tweets",
+
+37
+00:01:50,110 --> 00:01:57,490
+como el nombre del controlador, como también la carpeta de vistas.
+
+38
+00:01:57,490 --> 00:01:59,180
+No tenemos que relacionar estos elementos
+
+39
+00:01:59,180 --> 00:02:02,080
+si utilizamos convenciones.
+
+40
+00:02:02,080 --> 00:02:05,810
+Eso explica por qué algunas personas dicen
+
+41
+00:02:05,810 --> 00:02:09,610
+que Rails prefiere convención sobre configuración.
+
+42
+00:02:09,610 --> 00:02:12,250
+Si podemos seguir algunas condiciones
+
+43
+00:02:12,250 --> 00:02:17,660
+o convenciones, podemos evitar tener que configurar.
+
+44
+00:02:17,660 --> 00:02:20,250
+Pero ¿qué pertenece dentro del controlador?
+
+45
+00:02:20,250 --> 00:02:22,069
+Bueno, escribámoslo.
+
+46
+00:02:22,069 --> 00:02:23,610
+Dentro de nuestro controlador,
+
+47
+00:02:23,610 --> 00:02:28,070
+vamos a encontrar una clase de "TweetsController",
+
+48
+00:02:28,070 --> 00:02:30,570
+"Tweets" en mayúsculas, "Controller" en mayúsculas.
+
+49
+00:02:30,570 --> 00:02:35,010
+Y eso se extiende de "ApplicationController".
+
+50
+00:02:35,010 --> 00:02:37,110
+El próximo paso para definir nuestro controlador,
+
+51
+00:02:37,110 --> 00:02:40,710
+es definir un método para mostrar.
+
+52
+00:02:40,710 --> 00:02:42,760
+A veces escribimos los métodos
+
+53
+00:02:42,760 --> 00:02:45,210
+dentro de las acciones de los controladores.
+
+54
+00:02:45,210 --> 00:02:48,250
+Podemos utilizar dos términos intercambiables.
+
+55
+00:02:48,250 --> 00:02:51,660
+Ahora, no es coincidencia que este método que recién definimos,
+
+56
+00:02:51,660 --> 00:02:58,330
+llamado "show", tenga el mismo nombre que el "view show".
+
+57
+00:02:58,330 --> 00:03:00,260
+Uno se relaciona con el otro.
+
+58
+00:03:00,260 --> 00:03:02,920
+Dentro de este método "show" es donde generalmente
+
+59
+00:03:02,920 --> 00:03:06,930
+escribimos los modelos y obtenemos información de la base de datos.
+
+60
+00:03:06,930 --> 00:03:13,160
+Entonces, vamos a subir nuestro tweet, escribirlo dentro del Controlador,
+
+61
+00:03:13,160 --> 00:03:15,120
+como ven aquí.
+
+62
+00:03:15,120 --> 00:03:16,690
+Ahora, cuando llega una solicitud,
+
+63
+00:03:16,690 --> 00:03:20,830
+va a escribir primero ese método para mostrar,
+
+64
+00:03:20,830 --> 00:03:22,540
+dentro del controlador.
+
+65
+00:03:22,540 --> 00:03:23,780
+Va a ejecutar ese código.
+
+66
+00:03:23,780 --> 00:03:27,490
+Y una vez que llegue al final, entonces, por defecto,
+
+67
+00:03:27,490 --> 00:03:30,450
+buscará la vista para mostrar,
+
+68
+00:03:30,450 --> 00:03:33,600
+y nos la mostrará en el navegador.
+
+69
+00:03:33,600 --> 00:03:36,700
+Deben estar preguntándose ¿qué sucede con el ámbito de las variables?
+
+70
+00:03:36,700 --> 00:03:39,790
+¿Cómo es que nuestra vista tiene acceso a la variable "tweet"?
+
+71
+00:03:39,790 --> 00:03:42,830
+Esa es una buena pregunta.
+
+72
+00:03:42,830 --> 00:03:45,190
+Por que este código, como está, no funcionaría.
+
+73
+00:03:45,190 --> 00:03:50,450
+Necesitamos agregar un símbolo "@" antes de cada uno.
+
+74
+00:03:50,450 --> 00:03:53,940
+Cuando agregamos una "@" antes de una variable en Ruby,
+
+75
+00:03:53,940 --> 00:03:56,990
+se convierte en una variable de instancia.
+
+76
+00:03:56,990 --> 00:04:00,630
+Así es como garantizamos el acceso de las vistas a las variables.
+
+77
+00:04:00,630 --> 00:04:02,800
+Como dentro del controlador
+
+78
+00:04:02,800 --> 00:04:05,810
+el tweet tiene ese símbolo, ahora podemos
+
+79
+00:04:05,810 --> 00:04:08,325
+tener acceso a la variable "tweet",
+
+80
+00:04:08,325 --> 00:04:12,600
+utilizando el símbolo "@" dentro de nuestras vistas.
+
+81
+00:04:12,600 --> 00:04:14,610
+Pero ¿qué sucede si no nos gusta esa condición?
+
+82
+00:04:14,610 --> 00:04:17,019
+¿Y si no queremos que aparezca la vista de mostrar?
+
+83
+00:04:17,019 --> 00:04:21,470
+En su lugar, queremos que muestre "status.html.erb".
+
+84
+00:04:21,470 --> 00:04:26,240
+Podemos especificarlo dentro del método mostrar,
+
+85
+00:04:26,240 --> 00:04:31,240
+simplemente escribiendo "render action: 'status'".
+
+86
+00:04:31,240 --> 00:04:33,430
+Y así mostrará el "status.html.erb".
+
+87
+00:04:36,090 --> 00:04:38,480
+Este código funciona perfectamente como está,
+
+88
+00:04:38,480 --> 00:04:40,980
+pero pueden ver que sólo estamos mostrando
+
+89
+00:04:40,980 --> 00:04:43,920
+el tweet con la identificación 1.
+
+90
+00:04:43,920 --> 00:04:47,150
+¿Y si quisiéramos ir a cualquiera de estas otras URL,
+
+91
+00:04:47,150 --> 00:04:51,250
+y especificar la identificación del tweet que queremos ver?
+
+92
+00:04:51,250 --> 00:04:53,810
+¿Cómo buscamos eso?
+
+93
+00:04:53,810 --> 00:04:58,580
+¿Cómo utilizaríamos ese parámetro de la URL?
+
+94
+00:04:58,580 --> 00:05:01,820
+Sucede que cuando escribimos las URL así,
+
+95
+00:05:01,820 --> 00:05:06,690
+Rails generará un nuevo hash llamado "params",
+
+96
+00:05:06,690 --> 00:05:10,020
+que contiene el hash del valor pasado.
+
+97
+00:05:10,020 --> 00:05:12,490
+Para acceder a ese valor para cargarlo en el tweet correspondiente,
+
+98
+00:05:12,490 --> 00:05:14,500
+sólo necesitamos
+
+99
+00:05:14,500 --> 00:05:18,144
+especificar "params[:id] en el controlador.
+
+100
+00:05:18,144 --> 00:05:19,810
+Así, buscará el tweet correspondiente,
+
+101
+00:05:19,810 --> 00:05:21,160
+y lo mostrará en la página.
+
+102
+00:05:23,970 --> 00:05:26,560
+Veamos unos ejemplos más con parámetros.
+
+103
+00:05:26,560 --> 00:05:28,610
+Si tuviéramos una URL como la que ven aquí,
+
+104
+00:05:28,610 --> 00:05:32,530
+y estamos utilizando parámetros de consulta URL estándar,
+
+105
+00:05:32,530 --> 00:05:36,650
+Rails crearía un hash de parámetros para nosotros,
+
+106
+00:05:36,650 --> 00:05:40,160
+que sería más o menos así,
+
+107
+00:05:40,160 --> 00:05:45,000
+el cual podríamos utilizar dentro del controlador, si lo configuráramos correctamente,
+
+108
+00:05:45,000 --> 00:05:47,130
+para crear un nuevo tweet.
+
+109
+00:05:47,130 --> 00:05:49,250
+Como pueden ver aquí, estamos creando un tweet,
+
+110
+00:05:49,250 --> 00:05:51,910
+y estamos obteniendo el estado del parámetro
+
+111
+00:05:51,910 --> 00:05:54,090
+para crear ese tweet.
+
+112
+00:05:54,090 --> 00:05:57,430
+Sin embargo, muchas veces en Rails,
+
+113
+00:05:57,430 --> 00:05:59,220
+los parámetros se ven más o menos así,
+
+114
+00:05:59,220 --> 00:06:03,920
+donde tenemos un hash dentro de un hash.
+
+115
+00:06:03,920 --> 00:06:05,540
+¿Lo ven?
+
+116
+00:06:05,540 --> 00:06:08,750
+¿Cómo accedemos a un estado para crear un tweet?
+
+117
+00:06:08,750 --> 00:06:14,520
+Podemos escribir "Tweet.create(status:params[:tweet][:status}),
+
+118
+00:06:14,520 --> 00:06:17,880
+como pueden ver aquí.
+
+119
+00:06:17,880 --> 00:06:20,380
+Debemos especificar dos claves para llegar
+
+120
+00:06:20,380 --> 00:06:24,790
+al valor que queremos dentro de este hash dentro de otro hash.
+
+121
+00:06:24,790 --> 00:06:26,980
+Existe una sintaxis alternativa que podemos utilizar aquí,
+
+122
+00:06:26,980 --> 00:06:31,610
+porque nuestro método tweet está esperando un hash.
+
+123
+00:06:31,610 --> 00:06:35,750
+Entonces podemos especificar (params[:tweet])
+
+124
+00:06:35,750 --> 00:06:37,940
+Y lo que enviará a crear
+
+125
+00:06:37,940 --> 00:06:42,550
+es el hash que contiene el estado "I'm dead".
+
+126
+00:06:42,550 --> 00:06:46,100
+¿Ven cómo estas dos líneas son equivalentes?
+
+127
+00:06:46,100 --> 00:06:49,210
+Pero creo que la segunda es mejor porque obviamente
+
+128
+00:06:49,210 --> 00:06:53,406
+es más corta y no recrea el hash.
+
+129
+00:06:53,406 --> 00:06:56,140
+Eso es bastante avanzado.
+
+130
+00:06:56,140 --> 00:06:57,830
+Una de las razones por las que la gente usa Rails
+
+131
+00:06:57,830 --> 00:06:59,630
+es para crear backend APIs.
+
+132
+00:06:59,630 --> 00:07:02,140
+Es genial para eso si están construyendo una aplicación para iPhone,
+
+133
+00:07:02,140 --> 00:07:04,980
+para Android, o sólo necesitan proveer
+
+134
+00:07:04,980 --> 00:07:07,800
+un API de desarrollo para su servicio web.
+
+135
+00:07:07,800 --> 00:07:10,300
+Pueden querer proveer XML.
+
+136
+00:07:10,300 --> 00:07:13,820
+Pueden querer también proveer un código JSON.
+
+137
+00:07:13,820 --> 00:07:18,090
+Veamos qué fácil es hacerlo con Rails.
+
+138
+00:07:18,090 --> 00:07:22,100
+Si queremos la representación JSON de nuestro tweet,
+
+139
+00:07:22,100 --> 00:07:24,040
+podemos ingresar la URL "tweets/1.json".
+
+140
+00:07:26,980 --> 00:07:32,760
+Dentro de nuestro método mostrar necesitamos agregar un código.
+
+141
+00:07:32,760 --> 00:07:35,170
+Necesitamos decirle a la aplicación Rails
+
+142
+00:07:35,170 --> 00:07:38,500
+a qué formatos ésto puede responder.
+
+143
+00:07:38,500 --> 00:07:40,400
+Primero, diremos que
+
+144
+00:07:40,400 --> 00:07:43,980
+responde al formato de HTML.
+
+145
+00:07:43,980 --> 00:07:47,030
+Este signo de hash aquí es sólo un comentario.
+
+146
+00:07:47,030 --> 00:07:49,200
+No tiene ningún efecto en nada,
+
+147
+00:07:49,200 --> 00:07:50,790
+ni siquiera tiene que estar allí.
+
+148
+00:07:50,790 --> 00:07:53,360
+Pero muchas veces verán
+
+149
+00:07:53,360 --> 00:07:55,470
+que la gente agrega algún recordatorio
+
+150
+00:07:55,470 --> 00:07:58,680
+sólo porque escribimos "format.html"
+
+151
+00:07:58,680 --> 00:08:02,560
+va a aparecer "show.html.erb" por defecto.
+
+152
+00:08:02,560 --> 00:08:04,230
+Aquí viene la parte JSON.
+
+153
+00:08:04,230 --> 00:08:08,020
+Necesitamos decirle a nuestra aplicación que este método responde
+
+154
+00:08:08,020 --> 00:08:10,060
+al formato JSON.
+
+155
+00:08:10,060 --> 00:08:11,790
+Y cuando lo haga, queremos que muestre
+
+156
+00:08:11,790 --> 00:08:16,670
+la representación JSON de este tweet en particular.
+
+157
+00:08:16,670 --> 00:08:18,340
+Y eso es todo.
+
+158
+00:08:18,340 --> 00:08:20,620
+La solicitud ingresa y muestra
+
+159
+00:08:20,620 --> 00:08:24,430
+la representación JSON del tweet.
+
+160
+00:08:24,430 --> 00:08:28,260
+Si queremos que responda a XML,
+
+161
+00:08:28,260 --> 00:08:32,419
+nuestra solicitud debe tener "1.xml",
+
+162
+00:08:32,419 --> 00:08:34,110
+y dentro de nuestro método,
+
+163
+00:08:34,110 --> 00:08:40,760
+debemos escribir "format.xm" mostrar el formato XML del tweet.
+
+164
+00:08:40,760 --> 00:08:47,210
+Luego muestra el XML correspondiente a este tweet.
+
+165
+00:08:47,210 --> 00:08:48,870
+En una típica aplicación Rails,
+
+166
+00:08:48,870 --> 00:08:50,770
+van a ver mucho de las mismas
+
+167
+00:08:50,770 --> 00:08:53,260
+acciones del Controlador, dentro del Controlador.
+
+168
+00:08:53,260 --> 00:08:55,030
+Veamos algunas de ellas.
+
+169
+00:08:55,030 --> 00:08:57,060
+Primero, tienen la acción "index",
+
+170
+00:08:57,060 --> 00:08:59,560
+la que va a listar todos los tweets,
+
+171
+00:08:59,560 --> 00:09:02,650
+la acción "show" para mostrar un solo tweet, la acción "new" para mostrar un nuevo tweet,
+
+172
+00:09:02,650 --> 00:09:06,660
+la acción "edit" para mostrar editar un tweet,
+
+173
+00:09:06,660 --> 00:09:09,450
+la acción "create" para crear un tweet,
+
+174
+00:09:09,450 --> 00:09:11,240
+la acción "update" para actualizar un tweet,
+
+175
+00:09:11,240 --> 00:09:15,490
+y, finalmente, la acción "destroy" para borrar un tweet.
+
+176
+00:09:15,490 --> 00:09:17,920
+Como pueden imaginarse, la mayoría de estas acciones
+
+177
+00:09:17,920 --> 00:09:21,140
+van a tener vistas asociadas
+
+178
+00:09:21,140 --> 00:09:22,636
+que deberemos escribir.
+
+179
+00:09:22,636 --> 00:09:24,010
+Ya escribimos algunas de las URL
+
+180
+00:09:24,010 --> 00:09:25,590
+que producen estas acciones.
+
+181
+00:09:25,590 --> 00:09:27,630
+Por ejemplo, cuando hacemos una lista de los tweets,
+
+182
+00:09:27,630 --> 00:09:29,085
+¿recuerdan el link de edición?
+
+183
+00:09:29,085 --> 00:09:31,080
+Cuando hacemos click en ese link,
+
+184
+00:09:31,080 --> 00:09:33,310
+va a ir al controlador de tweets,
+
+185
+00:09:33,310 --> 00:09:35,030
+va a escribir la acción "edit".
+
+186
+00:09:35,030 --> 00:09:37,710
+Dentro es ese metodo,
+
+187
+00:09:37,710 --> 00:09:40,864
+primero necesitamos recuperar el tweet que queremos editar,
+
+188
+00:09:40,864 --> 00:09:42,780
+entonces vamos a hacerlo,
+
+189
+00:09:42,780 --> 00:09:46,500
+como lo hicimos hace un momento, obteniendo la identificación del parámetro.
+
+190
+00:09:46,500 --> 00:09:49,780
+Y luego va a mostrar la acción "edit",
+
+191
+00:09:49,780 --> 00:09:53,660
+que es más o menos así, donde tenemos un formulario,
+
+192
+00:09:53,660 --> 00:09:56,210
+y podemos hacer click en el botón "update tweet".
+
+193
+00:09:56,210 --> 00:10:00,529
+Pero no vamos a definirlo en este curso.
+
+194
+00:10:00,529 --> 00:10:02,320
+Si vamos a "/tweets" en nuestra aplicación,
+
+195
+00:10:02,320 --> 00:10:05,230
+y obtenemos nuestra lista de tweets,
+
+196
+00:10:05,230 --> 00:10:10,890
+podemos hacer click en "edit" y "destroy" en cualquiera de estos tweets.
+
+197
+00:10:10,890 --> 00:10:13,590
+Pero obviamente no queremos permitirle a nadie
+
+198
+00:10:13,590 --> 00:10:16,490
+que borre o edite los tweets de otro.
+
+199
+00:10:16,490 --> 00:10:19,800
+Necesitamos agregar alguna forma de autenticación simple,
+
+200
+00:10:19,800 --> 00:10:23,210
+para que no puedan hacer click en uno que no les pertenece.
+
+201
+00:10:23,210 --> 00:10:27,510
+En la pantalla aparece: "Sorry,
+you can't edit that tweet." (Perdón, Ud. no puede editar ese tweet).
+
+202
+00:10:27,510 --> 00:10:29,620
+¿Cómo podemos hacer eso?
+
+203
+00:10:29,620 --> 00:10:31,490
+Para implementar esta autorización,
+
+204
+00:10:31,490 --> 00:10:34,270
+necesitamos agregar un código a la acción "edit".
+
+205
+00:10:34,270 --> 00:10:36,320
+Aquí vamos a comprobar
+
+206
+00:10:36,320 --> 00:10:40,700
+si la "zombie_id" de la sesión en curso del usuario,
+
+207
+00:10:40,700 --> 00:10:44,730
+no es igual a la "zombie_id" del tweet.
+
+208
+00:10:44,730 --> 00:10:46,950
+Mientras está en sesión, ¿se puede preguntar?
+
+209
+00:10:46,950 --> 00:10:50,130
+Las sesiones funcionan como un hash por usuario.
+
+210
+00:10:50,130 --> 00:10:52,880
+Cada usuario tiene su hash de sesión,
+
+211
+00:10:52,880 --> 00:10:54,420
+en el que podemos guardar cosas.
+
+212
+00:10:54,420 --> 00:10:57,540
+Es lo que hacemos cuando nos conectamos.
+
+213
+00:10:57,540 --> 00:10:59,320
+Establecemos una variable en la sesión,
+
+214
+00:10:59,320 --> 00:11:02,240
+que tal vez tiene su "zombie_id" dentro.
+
+215
+00:11:02,240 --> 00:11:05,850
+Estamos comprobando si el usuario en curso
+
+216
+00:11:05,850 --> 00:11:08,670
+no es la persona que posteó este tweet.
+
+217
+00:11:08,670 --> 00:11:12,530
+Y si no lo es, necesitamos enviar un mensaje.
+
+218
+00:11:12,530 --> 00:11:16,470
+Lo hacemos estableciendo una "flash notice".
+
+219
+00:11:16,470 --> 00:11:18,940
+Y decimos "Perdón, pero Ud. no puede editar este tweet".
+
+220
+00:11:18,940 --> 00:11:20,710
+¿Qué es "flash"?
+
+221
+00:11:20,710 --> 00:11:23,410
+"Flash" es otro de los hash de ayuda que utilizamos en Rails
+
+222
+00:11:23,410 --> 00:11:28,450
+para enviar mensajes al usuario.
+
+223
+00:11:28,450 --> 00:11:31,730
+Ahora necesitamos redireccionar al usuario,
+
+224
+00:11:31,730 --> 00:11:34,430
+porque no queremos mostrar la página de edición.
+
+225
+00:11:34,430 --> 00:11:36,290
+No queremos mostrarle ese formulario.
+
+226
+00:11:36,290 --> 00:11:38,120
+No están autorizados para verlo.
+
+227
+00:11:38,120 --> 00:11:42,690
+Vamos a redireccionarlos de vuelta a la ruta de los tweets,
+
+228
+00:11:42,690 --> 00:11:45,580
+esa página con la lista de los tweets.
+
+229
+00:11:45,580 --> 00:11:49,174
+"redirect_to" nos permite redireccionar el navegador
+
+230
+00:11:49,174 --> 00:11:50,090
+hacia una acción diferente.
+
+231
+00:11:52,810 --> 00:11:55,640
+Hay una sintaxis alternativa más corta
+
+232
+00:11:55,640 --> 00:11:56,530
+para estas últimas dos líneas del código.
+
+233
+00:11:56,530 --> 00:11:59,819
+Podemos escribir "redirect_to tweets_path
+
+234
+00:11:59,819 --> 00:12:01,735
+y enviarles la nota como segundo argumento.
+
+235
+00:12:05,656 --> 00:12:07,530
+Nuestro próximo paso antes de entrar la navegador,
+
+236
+00:12:07,530 --> 00:12:09,460
+es que necesitamos especificar nuestro diseño,
+
+237
+00:12:09,460 --> 00:12:11,760
+donde veremos aparecer esta nota.
+
+238
+00:12:11,760 --> 00:12:13,810
+No aparece por defecto.
+
+239
+00:12:13,810 --> 00:12:18,490
+Entonces vamos a especificar aquí, que si existe una "flash notice",
+
+240
+00:12:18,490 --> 00:12:22,120
+si hay un mensaje esperando al usuario, en otras palabras,
+
+241
+00:12:22,120 --> 00:12:26,140
+que lo muestre en la pantalla.
+
+242
+00:12:30,620 --> 00:12:33,560
+Si tenemos que ir a "Edit" y nuestra "zombie_id" de sesión
+
+243
+00:12:33,560 --> 00:12:36,850
+no concuerda con la "zombie_id" del tweet,
+
+244
+00:12:36,850 --> 00:12:40,070
+nos va a redireccionar a la página con la lista,
+
+245
+00:12:40,070 --> 00:12:42,241
+y nos mostrará el aviso.
+
+246
+00:12:42,241 --> 00:12:42,740
+Genial.
+
+247
+00:12:42,740 --> 00:12:45,464
+Lo hicimos.
+
+248
+00:12:45,464 --> 00:12:47,380
+Si regresamos al controlador de tweets,
+
+249
+00:12:47,380 --> 00:12:49,100
+y definimos el resto de estas acciones,
+
+250
+00:12:49,100 --> 00:12:52,740
+podríamos rápidamente encontrar que algunos de estos métodos
+
+251
+00:12:52,740 --> 00:12:55,450
+tienen en gran parte el mismo código.
+
+252
+00:12:55,450 --> 00:12:57,920
+"edit", "update" y "destroy" necesitan
+
+253
+00:12:57,920 --> 00:13:01,460
+buscar la identificación del tweet en curso,
+
+254
+00:13:01,460 --> 00:13:04,010
+y necesitan comprobar autorización.
+
+255
+00:13:04,010 --> 00:13:06,590
+Y no queremos tener que escribir todo el código
+
+256
+00:13:06,590 --> 00:13:07,090
+una y otra vez.
+
+257
+00:13:07,090 --> 00:13:08,840
+Recuerden, Rails es D.R.Y.:
+
+258
+00:13:08,840 --> 00:13:10,570
+"Dont Repeat Yourself" (No seas repetitivo).
+
+259
+00:13:10,570 --> 00:13:14,871
+¿Cómo podemos deshacernos de la repetición?
+
+260
+00:13:14,871 --> 00:13:16,970
+Si observamos dentro de estas acciones,
+
+261
+00:13:16,970 --> 00:13:19,830
+vemos que lo primero que todas hacen
+
+262
+00:13:19,830 --> 00:13:22,513
+es tomar el tweet en curso.
+
+263
+00:13:22,513 --> 00:13:23,380
+Hmn...
+
+264
+00:13:23,380 --> 00:13:25,150
+Y eso es una duplicación.
+
+265
+00:13:25,150 --> 00:13:28,150
+Subámoslo a un método.
+
+266
+00:13:28,150 --> 00:13:30,950
+Vamos a llamarlo "get_tweet".
+
+267
+00:13:30,950 --> 00:13:33,460
+Y ahora vamos a escribir el código
+
+268
+00:13:33,460 --> 00:13:38,410
+que diga que antes de cada acción, escriba "get_tweet".
+
+269
+00:13:38,410 --> 00:13:41,960
+Si lo dejáramos así, significaría que antes de cada acción
+
+270
+00:13:41,960 --> 00:13:44,730
+escribiría este método.
+
+271
+00:13:44,730 --> 00:13:48,740
+Pero no queremos que suceda eso antes de todos los métodos.
+
+272
+00:13:48,740 --> 00:13:52,020
+Solo queremos que suceda
+
+273
+00:13:52,020 --> 00:13:55,700
+con "edit", "update" y "destroy".
+
+274
+00:13:55,700 --> 00:13:58,190
+Entonces utilizamos ese código allí.
+
+275
+00:14:00,840 --> 00:14:03,220
+El otro código que vemos todo el tiempo
+
+276
+00:14:03,220 --> 00:14:04,620
+es el código de autorización.
+
+277
+00:14:04,620 --> 00:14:06,770
+¿Recuerdan que se ve así?
+
+278
+00:14:06,770 --> 00:14:10,820
+Vamos a ponerlo en un método llamado "check_auth".
+
+279
+00:14:10,820 --> 00:14:13,480
+Y ahora tenemos otra acción que se antepone.
+
+280
+00:14:13,480 --> 00:14:17,190
+Pondremos la acción "check_auth",
+
+281
+00:14:17,190 --> 00:14:20,665
+nuevamente, sólo antes de "edit", "update" and "destroy".
+
+282
+00:14:24,670 --> 00:14:28,230
+Ahora que simplificamos nuestro código, que eliminamos la duplicación,
+
+283
+00:14:28,230 --> 00:14:30,165
+podemos ir al navegador,
+
+284
+00:14:30,165 --> 00:14:33,180
+cuando hacemos click en "Edit" en algo que no se supone que editemos,
+
+285
+00:14:33,180 --> 00:14:37,890
+nos sale "Perdón, pero Ud. no puede editar ese tweet".
+
+286
+00:14:37,890 --> 00:14:39,770
+Esa fue mucha información.
+
+287
+00:14:39,770 --> 00:14:42,060
+Pero no se preocupen, lo entenderán.
+
+288
+00:14:42,060 --> 00:14:44,940
+Vayan a ejercitar sus cerebros en los próximos desafíos.
+
+289
+00:14:44,940 --> 00:14:47,100
+Los hará más deliciosos.
+

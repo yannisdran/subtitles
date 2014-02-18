@@ -1,0 +1,824 @@
+﻿1
+00:00:00,500 --> 00:00:03,302
+[CANTANDO] El cerebro tenemos que poner...
+
+2
+00:00:03,302 --> 00:00:06,266
+para Rails poder aprender,
+
+3
+00:00:06,266 --> 00:00:09,230
+hay algo nuevo en la ciudad,
+
+4
+00:00:09,230 --> 00:00:12,385
+"Rails para Zombies" de Envy Labs.
+
+5
+00:00:15,370 --> 00:00:18,370
+Mi nombre es Gregg Pollack, y están viendo "Rails para zombies".
+
+6
+00:00:18,370 --> 00:00:19,790
+Éste es el Nivel 1, donde vamos
+
+7
+00:00:19,790 --> 00:00:23,530
+a introducirnos "Dentro de CRUD".
+
+8
+00:00:23,530 --> 00:00:26,175
+Si todavía no están familiarizados con el lenguaje de programación Ruby,
+
+9
+00:00:26,175 --> 00:00:27,550
+deberían pausar el video,
+
+10
+00:00:27,550 --> 00:00:29,819
+y entrar a TryRuby.org.
+
+11
+00:00:29,819 --> 00:00:31,860
+Pasen unos minutos en el tutorial,
+
+12
+00:00:31,860 --> 00:00:33,680
+familiarizándose con la sintaxis Ruby,
+
+13
+00:00:33,680 --> 00:00:35,350
+no hace falta que lo vean hasta el final,
+
+14
+00:00:35,350 --> 00:00:39,330
+y luego regresen y continúen con este tutorial.
+
+15
+00:00:39,330 --> 00:00:42,650
+En este tutorial, vamos a construir una aplicación web,
+
+16
+00:00:42,650 --> 00:00:45,040
+similar a Twitter, excepto
+
+17
+00:00:45,040 --> 00:00:47,356
+que será Twitter para zombies.
+
+18
+00:00:50,170 --> 00:00:51,790
+Para comenzar a construir nuestra aplicación web,
+
+19
+00:00:51,790 --> 00:00:53,620
+comenzaremos en la base de datos.
+
+20
+00:00:53,620 --> 00:00:57,570
+Con una tabla de base de datos llamada "tweets".
+
+21
+00:00:57,570 --> 00:00:59,010
+Podría decirse que se parece
+
+22
+00:00:59,010 --> 00:01:00,930
+a una planilla de cálculo Excel.
+
+23
+00:01:00,930 --> 00:01:08,250
+Tenemos cuatro filas y tres columnas en la parte de arriba.
+
+24
+00:01:08,250 --> 00:01:11,480
+Si le pusiéramos nombres a estas columnas, la primera sería
+
+25
+00:01:11,480 --> 00:01:17,090
+"identificación", la segunda, "estado", ese es nuestro tweet,
+
+26
+00:01:17,090 --> 00:01:20,420
+y la tercera, la llamaremos "zombie",
+
+27
+00:01:20,420 --> 00:01:23,280
+por el zombie que posteó ese tweet.
+
+28
+00:01:23,280 --> 00:01:26,860
+El primer problema que debemos resolver en nuestra aplicación web
+
+29
+00:01:26,860 --> 00:01:32,760
+es cómo obtener el objeto tweet, con la identidad igual a 3,
+
+30
+00:01:32,760 --> 00:01:37,610
+tal vez podamos mostrarlo en la página más adelante.
+
+31
+00:01:37,610 --> 00:01:39,240
+Antes de intentar resolver este desafío,
+
+32
+00:01:39,240 --> 00:01:43,030
+necesitamos asegurarnos de que todos comprendemos lo que es un "hash"
+
+33
+00:01:43,030 --> 00:01:45,400
+Tal vez lo recuerden de "Try Ruby".
+
+34
+00:01:45,400 --> 00:01:48,840
+Es, básicamente, múltiples claves y valores,
+
+35
+00:01:48,840 --> 00:01:51,950
+rodeados de llaves.
+
+36
+00:01:51,950 --> 00:01:56,260
+Aquí pueden ver la fila número 3 expresada como "hash".
+
+37
+00:01:56,260 --> 00:01:58,080
+Si solo tuviéramos una sola clave y valor,
+
+38
+00:01:58,080 --> 00:02:00,290
+podría verse así.
+
+39
+00:02:00,290 --> 00:02:04,990
+Y, podríamos decir que una "receta" de un hash, es algo así.
+
+40
+00:02:04,990 --> 00:02:06,870
+Mientras avanzamos en el curso,
+
+41
+00:02:06,870 --> 00:02:09,970
+vamos a ver algunas recetas diferentes,
+
+42
+00:02:09,970 --> 00:02:15,420
+cuando queramos mostrarles cómo es la sintaxis subyacente.
+
+43
+00:02:15,420 --> 00:02:19,060
+La anatomía del hash tiene claves y valores.
+
+44
+00:02:19,060 --> 00:02:23,790
+Entonces, identificación, estado y zombie son todas claves,
+
+45
+00:02:23,790 --> 00:02:26,730
+y los valores aquí son 3,
+
+46
+00:02:26,730 --> 00:02:29,080
+"Acabo de comer un delicioso cerebro", y "Jim".
+
+47
+00:02:29,080 --> 00:02:30,800
+El segundo son cadenas.
+
+48
+00:02:30,800 --> 00:02:33,440
+El primero es obviamente un entero.
+
+49
+00:02:33,440 --> 00:02:37,140
+Y a estos símbolos los llamamos "Símbolos Ruby",
+
+50
+00:02:37,140 --> 00:02:41,430
+porque tienen esos dos puntos adelante.
+
+51
+00:02:41,430 --> 00:02:45,340
+Entonces guardamos un nuevo hash dentro de esa variable "b",
+
+52
+00:02:45,340 --> 00:02:48,490
+pero ¿cómo leemos los valores de un hash?
+
+53
+00:02:48,490 --> 00:02:50,800
+Podemos hacerlo simplemente especificando
+
+54
+00:02:50,800 --> 00:02:54,170
+b y enviando la clave, [:status].
+
+55
+00:02:54,170 --> 00:02:57,540
+Nos devuelve: "Acabo de comer un cerebro delicioso".
+
+56
+00:02:57,540 --> 00:03:00,680
+Y así es como obtenemos el "zombie", nos devuelve: "Jim".
+
+57
+00:03:00,680 --> 00:03:02,650
+Podemos también juntar varias claves,
+
+58
+00:03:02,650 --> 00:03:06,770
+y concatenarlas en una cadena, para obtener: "Jim dijo:
+
+59
+00:03:06,770 --> 00:03:09,900
+Acabo de comer un cerebro delicioso".
+
+60
+00:03:09,900 --> 00:03:12,505
+Ésta es una receta para leer los valores del hash.
+
+61
+00:03:16,270 --> 00:03:18,090
+Volvemos a nuestro desafío del zombie,
+
+62
+00:03:18,090 --> 00:03:21,770
+donde queremos regresar al tweet con la identificación igual a 3.
+
+63
+00:03:21,770 --> 00:03:24,820
+En realidad, queremos los resultados de cualquier código
+
+64
+00:03:24,820 --> 00:03:28,760
+que escribamos para regresar algo como este hash,
+
+65
+00:03:28,760 --> 00:03:31,690
+para poder leer los valores de él.
+
+66
+00:03:31,690 --> 00:03:34,250
+Y el código necesario para resolver este desafío es algo así:
+
+67
+00:03:34,250 --> 00:03:36,895
+"t = Tweet.find(3)".
+
+68
+00:03:39,850 --> 00:03:42,080
+Que nos va a dar algo
+
+69
+00:03:42,080 --> 00:03:45,560
+que podemos mostrar en la pantalla.
+
+70
+00:03:45,560 --> 00:03:49,100
+En la aplicación Rails, cuando utilizamos la palabra "Tweet",
+
+71
+00:03:49,100 --> 00:03:54,100
+en singular y mayúscula,
+
+72
+00:03:54,100 --> 00:03:57,670
+nos va a permitir acceder a nuestra base de datos,
+
+73
+00:03:57,670 --> 00:04:04,170
+el nombre de la tabla, en minúscula y en plural, "tweets".
+
+74
+00:04:04,170 --> 00:04:07,210
+Cuando escribimos "find(3)", estamos utilizando un método
+
+75
+00:04:07,210 --> 00:04:10,150
+para el tweet que nos permitirá traer
+
+76
+00:04:10,150 --> 00:04:14,790
+el tweet con la identificación de 3 y guardarlo en la variable "t".
+
+77
+00:04:14,790 --> 00:04:20,360
+Entonces, si escribimos "puts t [:id]", obtenemos la identificación de 3.
+
+78
+00:04:20,360 --> 00:04:24,210
+Si escribimos "puts t [:status]", obtenemos "Acabo de comer un cerebro delicioso",
+
+79
+00:04:24,210 --> 00:04:26,770
+y si escribimos "puts t [:zombie]",
+
+80
+00:04:26,770 --> 00:04:31,762
+obtenemos "Jim", como podíamos suponer.
+
+81
+00:04:31,762 --> 00:04:34,320
+Cuando obtenemos valores en la base de datos,
+
+82
+00:04:34,320 --> 00:04:35,890
+no utilizamos sintaxis de hash.
+
+83
+00:04:35,890 --> 00:04:38,480
+Utilizamos sintaxis dot.
+
+84
+00:04:38,480 --> 00:04:45,040
+Normalmente diríamos "t.id", "t.status", o "t.zombie",
+
+85
+00:04:45,040 --> 00:04:47,270
+y obtenemos lo mismo.
+
+86
+00:04:47,270 --> 00:04:49,070
+Ven este símbolo aquí arriba.
+
+87
+00:04:49,070 --> 00:04:51,370
+Va a ser nuestro símbolo en este tutorial
+
+88
+00:04:51,370 --> 00:04:54,820
+para sintaxis alternativa, y da la casualidad de que es,
+
+89
+00:04:54,820 --> 00:04:58,770
+el símbolo internacional del Hombre de goma también.
+
+90
+00:04:58,770 --> 00:05:00,970
+Acabo de inventar eso.
+
+91
+00:05:00,970 --> 00:05:02,950
+Parece que un estudiante tiene una pregunta.
+
+92
+00:05:02,950 --> 00:05:07,020
+"¿Debemos utilizar la sintaxis hash o la sintaxis dot?"
+
+93
+00:05:07,020 --> 00:05:08,890
+En la mayoría de las aplicaciones Rails
+
+94
+00:05:08,890 --> 00:05:13,530
+verán que la gente utiliza sintaxis dot, así que utilizaremos esa de ahora
+
+95
+00:05:13,530 --> 00:05:15,650
+en adelante.
+
+96
+00:05:15,650 --> 00:05:18,370
+Digamos que teníamos una tabla de armas en nuestra base de datos,
+
+97
+00:05:18,370 --> 00:05:20,520
+y queremos sacar las armas de la base de datos
+
+98
+00:05:20,520 --> 00:05:23,920
+con la identificación 1.
+
+99
+00:05:23,920 --> 00:05:26,130
+Basados en lo que sabemos hasta ahora,
+
+100
+00:05:26,130 --> 00:05:30,790
+podemos escribir "w = Weapon.find (1)".
+
+101
+00:05:30,790 --> 00:05:33,540
+La "w" es solo el nombre de la variable,
+
+102
+00:05:33,540 --> 00:05:36,370
+y podríamos haberla llamado de cualquier manera,
+
+103
+00:05:36,370 --> 00:05:38,610
+pero entraría en nuestra tabla de armas
+
+104
+00:05:38,610 --> 00:05:40,460
+y sacaría nuestra arma, que luego
+
+105
+00:05:40,460 --> 00:05:43,904
+podríamos mostrar en la pantalla.
+
+106
+00:05:43,904 --> 00:05:45,570
+Deben preguntarse por qué este nivel
+
+107
+00:05:45,570 --> 00:05:47,300
+se llama "Dentro del CRUD":
+
+108
+00:05:47,300 --> 00:05:49,940
+"CRUD", en caso de que no lo conozcan,
+
+109
+00:05:49,940 --> 00:05:54,130
+es la sigla de Create (Crear), Read (Leer), Update (Actualizar) y Delete (Borrar).
+
+110
+00:05:54,130 --> 00:05:55,500
+Es lenguaje de base de datos.
+
+111
+00:05:55,500 --> 00:05:58,430
+Entonces, ahora vamos a averiguar cómo realizar cada una de estas actividades.
+
+112
+00:05:58,430 --> 00:06:00,690
+Ya sabemos cómo leer.
+
+113
+00:06:00,690 --> 00:06:03,760
+Podemos escribir "tweet.find(3).
+
+114
+00:06:03,760 --> 00:06:06,150
+¿Pero cómo podemos crear un tweet?
+
+115
+00:06:06,150 --> 00:06:09,720
+Para hacerlo debemos escribir "t = Tweet.new".
+
+116
+00:06:09,720 --> 00:06:12,240
+Así crearemos un nuevo tweet.
+
+117
+00:06:12,240 --> 00:06:15,260
+Podemos establecer algunos valores, cómo el "status",
+
+118
+00:06:15,260 --> 00:06:18,060
+y luego, escribiendo el método para guardar en nuestro tweet,
+
+119
+00:06:18,060 --> 00:06:19,760
+lo guardaremos en la base de datos.
+
+120
+00:06:19,760 --> 00:06:21,500
+Para actualizar el tweet, podemos primero
+
+121
+00:06:21,500 --> 00:06:26,680
+traerlo de nuestra base de datos, luego actualizar un valor,
+
+122
+00:06:26,680 --> 00:06:29,510
+y luego guardarlo, y Rails automáticamente
+
+123
+00:06:29,510 --> 00:06:31,425
+actualizará el registro de nuestra base de datos.
+
+124
+00:06:31,425 --> 00:06:35,060
+Para borrar un tweet, debemos encontrar uno existente,
+
+125
+00:06:35,060 --> 00:06:36,600
+y luego simplemente escribir "t.destroy".
+
+126
+00:06:39,310 --> 00:06:41,190
+Repasemos todos nuestros enunciados CRUD,
+
+127
+00:06:41,190 --> 00:06:44,490
+uno por vez, comenzando por la creación de un zombie.
+
+128
+00:06:44,490 --> 00:06:46,100
+Deben haber notado que
+
+129
+00:06:46,100 --> 00:06:49,780
+no debemos establecer una nueva identificación para este nuevo tweet.
+
+130
+00:06:49,780 --> 00:06:53,441
+Porque Rails se encarga de eso por nosotros.
+
+131
+00:06:53,441 --> 00:06:55,690
+La receta que pueden utilizar para otras tablas
+
+132
+00:06:55,690 --> 00:06:57,890
+es más o menos así.
+
+133
+00:06:57,890 --> 00:07:00,890
+Notarán que cada palabra en la tabla
+
+134
+00:07:00,890 --> 00:07:03,140
+va a estar en mayúsculas.
+
+135
+00:07:03,140 --> 00:07:06,540
+Hay dos sintáxis alternativas a las que deben prestar atención.
+
+136
+00:07:06,540 --> 00:07:09,450
+La primera es que podemos ingresar un hash
+
+137
+00:07:09,450 --> 00:07:12,750
+en "Tweet.new" con una serie de claves y valores,
+
+138
+00:07:12,750 --> 00:07:15,500
+que se establecerá en nuestro nuevo tweet.
+
+139
+00:07:15,500 --> 00:07:18,020
+Luego simplemente lo guardamos.
+
+140
+00:07:18,020 --> 00:07:20,080
+Aquí está la receta para eso.
+
+141
+00:07:20,080 --> 00:07:24,560
+Por último, si escribimos "tweet.create", e ingresamos un hash,
+
+142
+00:07:24,560 --> 00:07:27,030
+se creará un nuevo tweet,
+
+143
+00:07:27,030 --> 00:07:29,640
+y automáticamente se guardará en la base de datos.
+
+144
+00:07:29,640 --> 00:07:31,160
+Y aquí está la receta para eso.
+
+145
+00:07:33,710 --> 00:07:35,630
+Ahora continuemos con "Leer".
+
+146
+00:07:35,630 --> 00:07:39,050
+Vimos como escribir el método para encontrar, ingresar una identificación,
+
+147
+00:07:39,050 --> 00:07:42,250
+y obtener un tweet con la identificación 2.
+
+148
+00:07:42,250 --> 00:07:46,880
+Sin embargo, también podemos ingresar parámetros múltiples especificando
+
+149
+00:07:46,880 --> 00:07:50,390
+identificaciones múltiples, con lo que obtendremos una variedad de tweets
+
+150
+00:07:50,390 --> 00:07:51,865
+con estas identificaciones.
+
+151
+00:07:51,865 --> 00:07:54,970
+Podemos escribir "Tweet.first".
+
+152
+00:07:54,970 --> 00:07:57,020
+Obtendremos el primer tweet.
+
+153
+00:07:57,020 --> 00:08:00,630
+También podemos escribir "Tweet.last" para obtener el último tweet.
+
+154
+00:08:00,630 --> 00:08:02,950
+Y finalmente podemos escribir "Tweet.all",
+
+155
+00:08:02,950 --> 00:08:07,630
+y obtendremos todos los tweets.
+
+156
+00:08:07,630 --> 00:08:11,690
+Algunas funciones de lectura más, comenzando con "Count".
+
+157
+00:08:11,690 --> 00:08:15,500
+"Count" va a realizar una búsqueda en nuestra base de datos,
+
+158
+00:08:15,500 --> 00:08:18,520
+y obtendremos el número total de tweets.
+
+159
+00:08:18,520 --> 00:08:21,320
+También podemos especificar el orden en que queremos los tweets,
+
+160
+00:08:21,320 --> 00:08:25,285
+en este caso, ordenados por nombre de zombie.
+
+161
+00:08:25,285 --> 00:08:26,660
+Podemos limitar el número de tweets que obtenemos,
+
+162
+00:08:26,660 --> 00:08:29,190
+en este caso, 10.
+
+163
+00:08:29,190 --> 00:08:31,920
+Podemos también obtener todos los tweets donde
+
+164
+00:08:31,920 --> 00:08:36,500
+el nombre de zombie sea "Ash".
+
+165
+00:08:36,500 --> 00:08:39,179
+Aquí es donde Rails se vuelve realmente poderoso.
+
+166
+00:08:39,179 --> 00:08:42,090
+Pueden ver que muchos de estos métodos pueden encadenarse juntos
+
+167
+00:08:42,090 --> 00:08:44,380
+para crear una búsqueda compleja.
+
+168
+00:08:44,380 --> 00:08:46,210
+Déjenme mostrarles lo que quiero decir.
+
+169
+00:08:46,210 --> 00:08:50,130
+Ésta es una búsqueda que utiliza encadenamiento de métodos.
+
+170
+00:08:50,130 --> 00:08:51,910
+Veamos más de cerca.
+
+171
+00:08:51,910 --> 00:08:55,330
+Obtendremos solo los tweets de zombies
+
+172
+00:08:55,330 --> 00:08:58,180
+cuyo nombre es Ash, va a estar ordenado
+
+173
+00:08:58,180 --> 00:09:01,150
+por estado de tweet, y solo
+
+174
+00:09:01,150 --> 00:09:05,490
+vamos a obtener los primeros 10 de estos tweets.
+
+175
+00:09:05,490 --> 00:09:08,070
+Como vimos en la diapositiva anterior, cuando escribimos:
+
+176
+00:09:08,070 --> 00:09:12,560
+"Tweet.where(zombie: "ash")", vamos a obtener una lista.
+
+177
+00:09:12,560 --> 00:09:15,330
+Aunque haya solo un tweet del zombie Ash,
+
+178
+00:09:15,330 --> 00:09:18,150
+igualmente va a mostrar una lista.
+
+179
+00:09:18,150 --> 00:09:22,680
+Pero podríamos solo querer el primer tweet del zombie Ash,
+
+180
+00:09:22,680 --> 00:09:29,360
+en cuyo caso escribimos ".first", y solo nos muestra el primero.
+
+181
+00:09:29,360 --> 00:09:31,920
+Éste es el código que necesitamos para actualizar un zombie,
+
+182
+00:09:31,920 --> 00:09:33,670
+y ésta es la receta que corresponde,
+
+183
+00:09:33,670 --> 00:09:36,380
+no debería sorprendernos.
+
+184
+00:09:36,380 --> 00:09:38,390
+Aunque ésta es una sintaxis alternativa.
+
+185
+00:09:38,390 --> 00:09:41,850
+Podemos también establecer atributos múltiples para este tweet,
+
+186
+00:09:41,850 --> 00:09:46,870
+solo escribiendo "attributes =" e ingresando un hash.
+
+187
+00:09:46,870 --> 00:09:49,800
+Ésta es la receta.
+
+188
+00:09:49,800 --> 00:09:53,580
+Podemos simplificarlo más, utilizando el método de actualización,
+
+189
+00:09:53,580 --> 00:09:56,640
+que nos permite ingresar un hash de los atributos
+
+190
+00:09:56,640 --> 00:10:00,590
+que queremos actualizar, y este código automáticamente
+
+191
+00:10:00,590 --> 00:10:02,750
+guarda los valores en la base de datos.
+
+192
+00:10:02,750 --> 00:10:07,130
+Ésta es la receta, bastante simple.
+
+193
+00:10:07,130 --> 00:10:09,620
+Éste es el código para borrar un zombie,
+
+194
+00:10:09,620 --> 00:10:11,500
+y la receta que le corresponde.
+
+195
+00:10:11,500 --> 00:10:14,160
+Como pueden sospechar, podemos realizar todo ésto en una sola línea,
+
+196
+00:10:14,160 --> 00:10:18,580
+buscando y destruyendo el zombie, bastante simple.
+
+197
+00:10:18,580 --> 00:10:20,579
+Si alguna vez queremos borrar todos los tweets,
+
+198
+00:10:20,579 --> 00:10:22,120
+podemos escribir "Tweet.destroy_all".
+
+199
+00:10:27,302 --> 00:10:29,730
+Si son desarrolladores de software profesionales,
+
+200
+00:10:29,730 --> 00:10:33,370
+probablemente sospechan que estoy dejando de lado algunos detalles
+
+201
+00:10:33,370 --> 00:10:36,170
+sobre como todo esto se une,
+
+202
+00:10:36,170 --> 00:10:37,300
+pero no se preocupen.
+
+203
+00:10:37,300 --> 00:10:40,040
+Vamos a meternos en eso en el siguiente nivel.
+
+204
+00:10:40,040 --> 00:10:42,250
+Mientras tanto, resuelvan algunos desafíos,
+
+205
+00:10:42,250 --> 00:10:44,520
+y familiarícense con esta sintaxis.
+
+206
+00:10:44,520 --> 00:10:46,940
+Los veré en el próximo nivel.
+

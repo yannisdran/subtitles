@@ -1,0 +1,772 @@
+﻿1
+00:00:00,000 --> 00:00:02,816
+[CANTANDO] El cerebro tenemos que poner...
+
+2
+00:00:02,816 --> 00:00:05,774
+para Rails poder aprender,
+
+3
+00:00:05,774 --> 00:00:09,718
+hay algo nuevo en la ciudad,
+
+4
+00:00:09,718 --> 00:00:11,080
+"Rails para zombies" de Envy Labs.
+
+5
+00:00:15,154 --> 00:00:16,570
+Están viendo: "Rails para zombies",
+
+6
+00:00:16,570 --> 00:00:18,160
+y en el Nivel 2 vamos a
+
+7
+00:00:18,160 --> 00:00:20,330
+hablar sobre "Modelos",
+
+8
+00:00:20,330 --> 00:00:23,020
+el alma de la aplicación.
+
+9
+00:00:23,020 --> 00:00:24,760
+Ya han estado trabajando con modelos,
+
+10
+00:00:24,760 --> 00:00:26,520
+pero todavía no lo saben.
+
+11
+00:00:26,520 --> 00:00:30,420
+Los modelos son la forma de comunicarnos con nuestro almacenamiento de datos en Rails,
+
+12
+00:00:30,420 --> 00:00:35,840
+el alma de nuestra aplicación.
+
+13
+00:00:35,840 --> 00:00:37,500
+Éste es el navegador de un cliente,
+
+14
+00:00:37,500 --> 00:00:39,410
+y va a ingresar en la aplicación Rails.
+
+15
+00:00:39,410 --> 00:00:43,080
+Cuando lo haga, va a encontrarse con cuatro componentes,
+
+16
+00:00:43,080 --> 00:00:44,779
+como pueden ver.
+
+17
+00:00:44,779 --> 00:00:46,820
+Aprenderemos sobre estos componentes
+
+18
+00:00:46,820 --> 00:00:49,430
+en los próximos cuatro niveles,
+
+19
+00:00:49,430 --> 00:00:54,340
+comenzando con los modelos, que tenemos aquí.
+
+20
+00:00:54,340 --> 00:00:57,760
+En el nivel anterior, cuando escribíamos "Tweet find(3)",
+
+21
+00:00:57,760 --> 00:01:02,090
+e ingresaba en nuestra base de datos para encontrar la tabla de tweets,
+
+22
+00:01:02,090 --> 00:01:04,440
+en realidad podía hacer ésto,
+
+23
+00:01:04,440 --> 00:01:10,450
+sólo porque había un modelo llamado "tweet".
+
+24
+00:01:10,450 --> 00:01:15,120
+Es un archivo que está en el directorio de Modelos de Aplicación.
+
+25
+00:01:15,120 --> 00:01:19,870
+Tomen nota, es en singular y minúsculas, "tweet.rb".
+
+26
+00:01:19,870 --> 00:01:21,510
+Dentro de este archivo,
+
+27
+00:01:21,510 --> 00:01:27,380
+encontramos: "class Tweet", heredados de la base de registros activa.
+
+28
+00:01:27,380 --> 00:01:30,250
+Cuando escribimos "Tweet" en mayúsculas, en cualquier lado en la aplicación Rails,
+
+29
+00:01:30,250 --> 00:01:35,710
+estamos haciendo referencia al modelo Tweet.
+
+30
+00:01:35,710 --> 00:01:38,880
+Como este modelo Tweet hereda de la base de registros activa,
+
+31
+00:01:38,880 --> 00:01:43,030
+relaciona esta clase con la tabla,
+
+32
+00:01:43,030 --> 00:01:46,320
+en minúsculas y plural, "tweets".
+
+33
+00:01:50,370 --> 00:01:54,910
+Cuando escribimos "find(3)" en nuestra clase Tweet,
+
+34
+00:01:54,910 --> 00:01:57,640
+y el tipo de clase que es un modelo,
+
+35
+00:01:57,640 --> 00:02:01,500
+busca dentro de la tabla de tweets.
+
+36
+00:02:01,500 --> 00:02:03,060
+Lo que nos devuelve es una instancia
+
+37
+00:02:03,060 --> 00:02:06,190
+de esta clase, que tiene los valores para tweet
+
+38
+00:02:06,190 --> 00:02:07,810
+con la identificación 3.
+
+39
+00:02:07,810 --> 00:02:12,210
+Es lo que se establece en la variable "t".
+
+40
+00:02:12,210 --> 00:02:14,210
+¿Qué pasaría si creáramos un nuevo tweet,
+
+41
+00:02:14,210 --> 00:02:16,990
+e inmediatamente lo guardáramos sin establecer ningún valor?
+
+42
+00:02:16,990 --> 00:02:20,150
+Crearía un nuevo tweet
+
+43
+00:02:20,150 --> 00:02:22,290
+con estado en blanco y zombie en blanco,
+
+44
+00:02:22,290 --> 00:02:23,670
+que no es lo que queremos.
+
+45
+00:02:23,670 --> 00:02:25,980
+No queremos eso en nuestra base de datos.
+
+46
+00:02:25,980 --> 00:02:29,160
+¿Cómo lo solucionamos?
+
+47
+00:02:29,160 --> 00:02:31,740
+Primero que nada, si queremos asegurarnos de que el estado
+
+48
+00:02:31,740 --> 00:02:35,640
+nunca quede en blanco, podemos regresar a nuestra clase modelo,
+
+49
+00:02:35,640 --> 00:02:40,290
+y especificar "validates_presence_of :status" (valida presencia de estado).
+
+50
+00:02:40,290 --> 00:02:42,320
+Que significa que nuestro modelo va a validar
+
+51
+00:02:42,320 --> 00:02:44,580
+que tenemos un estado.
+
+52
+00:02:44,580 --> 00:02:48,440
+Y si no lo hace, no nos permitirá que lo guardemos.
+
+53
+00:02:48,440 --> 00:02:51,780
+Si vamos a la línea de comando y creamos un nuevo tweet ahora,
+
+54
+00:02:51,780 --> 00:02:56,460
+y escribimos t.save, nos devolverá "false".
+
+55
+00:02:56,460 --> 00:02:58,090
+Si no tuviéramos esta validación,
+
+56
+00:02:58,090 --> 00:03:00,710
+nos devolvería "true", que significaría
+
+57
+00:03:00,710 --> 00:03:02,746
+que se guardó exitosamente en la base de datos.
+
+58
+00:03:02,746 --> 00:03:08,050
+Para averiguar que estuvo mal, podemos escribir "t.errors.messages",
+
+59
+00:03:08,050 --> 00:03:11,440
+y nos devolverá un hash con valores
+
+60
+00:03:11,440 --> 00:03:13,610
+que nos muestran lo que estuvo mal.
+
+61
+00:03:13,610 --> 00:03:15,850
+Para mostrar sólo este mensaje de error,
+
+62
+00:03:15,850 --> 00:03:19,110
+podemos acceder a la cadena dentro del hash
+
+63
+00:03:19,110 --> 00:03:23,870
+escribiendo "t.errors status" y especificando
+
+64
+00:03:23,870 --> 00:03:26,370
+que queremos el error en la posición cero,
+
+65
+00:03:26,370 --> 00:03:27,709
+porque es una lista.
+
+66
+00:03:27,709 --> 00:03:28,500
+¿Ven esos corchetes?
+
+67
+00:03:31,780 --> 00:03:34,680
+Rails viene con un grupo de validaciones modelo
+
+68
+00:03:34,680 --> 00:03:35,630
+de fábrica.
+
+69
+00:03:35,630 --> 00:03:37,420
+Además de "validates_presence_of" (valida la presencia de),
+
+70
+00:03:37,420 --> 00:03:40,380
+tenemos "validates_numericality_of" (valida numericalidad de), para asegurarnos
+
+71
+00:03:40,380 --> 00:03:41,720
+de que sea un número.
+
+72
+00:03:41,720 --> 00:03:43,880
+Podemos decir "validates_uniqueness_of" (validad unicidad de),
+
+73
+00:03:43,880 --> 00:03:46,050
+para asegurarnos de que sea el único.
+
+74
+00:03:46,050 --> 00:03:47,730
+Tenemos "validates_confirmation_of" (valida confirmación de),
+
+75
+00:03:47,730 --> 00:03:50,540
+si tenemos dos campos, como una clave de acceso,
+
+76
+00:03:50,540 --> 00:03:52,480
+que es necesario que sean iguales.
+
+77
+00:03:52,480 --> 00:03:54,540
+Tenemos "validates_acceptance_of" (valida la aprobación de),
+
+78
+00:03:54,540 --> 00:03:57,870
+si existe, digamos, una casilla de verificación que hay que tildar,
+
+79
+00:03:57,870 --> 00:04:00,070
+como cuando se leen los "Términos de servicio".
+
+80
+00:04:00,070 --> 00:04:02,330
+Tenemos "validates_length_of" (valida largo de), para asegurarnos
+
+81
+00:04:02,330 --> 00:04:05,080
+de que lo que ingresamos tiene más de,
+
+82
+00:04:05,080 --> 00:04:06,420
+digamos, tres caracteres.
+
+83
+00:04:06,420 --> 00:04:08,140
+Tenemos "validates_format_of" (valida formato de),
+
+84
+00:04:08,140 --> 00:04:11,220
+si queremos especificar una expresión regular, por ejemplo,
+
+85
+00:04:11,220 --> 00:04:13,440
+para asegurarnos de que el email es válido.
+
+86
+00:04:13,440 --> 00:04:15,100
+Tenemos "validares_inclusion_of" (valida la inclusión de),
+
+87
+00:04:15,100 --> 00:04:17,640
+para asegurarnos de que un campo como "edad"
+
+88
+00:04:17,640 --> 00:04:20,010
+esté entre dos valores.
+
+89
+00:04:20,010 --> 00:04:22,750
+Y por último, "validates_exclusion_of" (valida la exclusión de),
+
+90
+00:04:22,750 --> 00:04:26,170
+para asegurarnos de que un valor no esté incluído en lo que el usuario ingresó.
+
+91
+00:04:28,960 --> 00:04:32,260
+Las validaciones tienen otra sintaxis más simple.
+
+92
+00:04:32,260 --> 00:04:35,040
+Podemos escribir "validates" y luego especificar
+
+93
+00:04:35,040 --> 00:04:38,080
+el atributo sobre el que queremos establecer validaciones,
+
+94
+00:04:38,080 --> 00:04:39,870
+y luego especificar lo que queremos validar,
+
+95
+00:04:39,870 --> 00:04:42,027
+por ejemplo, "presence :true" (presencia verdadera).
+
+96
+00:04:42,027 --> 00:04:44,110
+Si quisiéramos, podríamos escribir otra línea,
+
+97
+00:04:44,110 --> 00:04:46,960
+"validates :status, length: 3" (valida largo de estado tres).
+
+98
+00:04:46,960 --> 00:04:49,560
+Pero, como pueden imaginarse,
+
+99
+00:04:49,560 --> 00:04:50,880
+hay una forma mejor de hacerlo.
+
+100
+00:04:50,880 --> 00:04:53,820
+Podemos combinar éstas dos simplemente escribiendo:
+
+101
+00:04:53,820 --> 00:05:00,434
+"validate :status, presence: true, length 3" (valida estado, presencia verdadera, largo tres), todo en una sola línea.
+
+102
+00:05:00,434 --> 00:05:01,600
+Dije: "todo en una sola línea".
+
+103
+00:05:01,600 --> 00:05:04,270
+Pero pueden decirme que son tres líneas.
+
+104
+00:05:04,270 --> 00:05:06,760
+Eso sucede porque Ruby sabe
+
+105
+00:05:06,760 --> 00:05:09,630
+que las frases que terminan en una coma,
+
+106
+00:05:09,630 --> 00:05:13,189
+se consideran como una sola línea.
+
+107
+00:05:13,189 --> 00:05:15,230
+Tendremos otras partes en este tutorial
+
+108
+00:05:15,230 --> 00:05:17,510
+donde van a ver múltiples líneas,
+
+109
+00:05:17,510 --> 00:05:21,370
+pero Ruby las va a interpretar como una sola.
+
+110
+00:05:21,370 --> 00:05:23,174
+Como vieron en la diapositiva anterior,
+
+111
+00:05:23,174 --> 00:05:24,840
+hay un grupo de diferentes validaciones
+
+112
+00:05:24,840 --> 00:05:26,464
+que podemos utilizar con esta nueva sintaxis.
+
+113
+00:05:33,460 --> 00:05:35,210
+La mayoría de la gente que está programando aplicaciones Rails
+
+114
+00:05:35,210 --> 00:05:38,550
+utiliza alguna forma de base de datos relacional,
+
+115
+00:05:38,550 --> 00:05:40,960
+lo que quiere decir que tenemos múltiples bases de datos,
+
+116
+00:05:40,960 --> 00:05:43,150
+que tienen relación unas con otras.
+
+117
+00:05:43,150 --> 00:05:45,640
+Averigûemos cómo encontrar una relación
+
+118
+00:05:45,640 --> 00:05:47,740
+utilizando Ruby on Rails.
+
+119
+00:05:47,740 --> 00:05:49,810
+En este momento, en nuestra tabla de tweets,
+
+120
+00:05:49,810 --> 00:05:53,730
+estamos guardando el nombre del zombie que hizo cada tweet.
+
+121
+00:05:53,730 --> 00:05:57,360
+Pero queremos agregar atributos adicionales
+
+122
+00:05:57,360 --> 00:06:00,970
+a los zombies, por ejemplo, de qué tumba son,
+
+123
+00:06:00,970 --> 00:06:04,200
+en cuyo caso puede ser bueno y eliminar la duplicación,
+
+124
+00:06:04,200 --> 00:06:08,590
+si tuviéramos una tabla de zombies.
+
+125
+00:06:08,590 --> 00:06:13,110
+Modifiquemos nuestra tabla de tweets con una columna de identificación de zombie,
+
+126
+00:06:13,110 --> 00:06:16,970
+para referirse a qué zombie le corresponde cada tweet.
+
+127
+00:06:16,970 --> 00:06:18,840
+Se darán cuenta de que los tweets 1 y 4
+
+128
+00:06:18,840 --> 00:06:21,760
+corresponden a la misma identificación de zombie.
+
+129
+00:06:21,760 --> 00:06:23,600
+Y aquí está nuestra tabla de zombies.
+
+130
+00:06:23,600 --> 00:06:27,200
+Ahora especificamos el nombre del zombie y la tumba
+
+131
+00:06:27,200 --> 00:06:28,460
+a la que pertenece.
+
+132
+00:06:28,460 --> 00:06:31,650
+Se darán cuente de que la identificación en esta tabla
+
+133
+00:06:31,650 --> 00:06:36,686
+se refiere a la identificación en la tabla de tweets.
+
+134
+00:06:36,686 --> 00:06:38,310
+Lo único que queda por hacer
+
+135
+00:06:38,310 --> 00:06:42,050
+es averiguar cómo decirle a nuestra aplicación Rails
+
+136
+00:06:42,050 --> 00:06:44,850
+que esta relación existe.
+
+137
+00:06:44,850 --> 00:06:49,320
+Necesitamos relacionar estos dos modelos.
+
+138
+00:06:49,320 --> 00:06:51,820
+En nuestro caso, queremos especificar la relación
+
+139
+00:06:51,820 --> 00:06:54,270
+en ambas direcciones.
+
+140
+00:06:54,270 --> 00:06:57,527
+Necesitamos decirle a la aplicación Rails,
+
+141
+00:06:57,527 --> 00:06:59,485
+qué zombie tiene relación con qué tweet,
+
+142
+00:06:59,485 --> 00:07:02,020
+y que tweet tiene relación con qué zombie.
+
+143
+00:07:02,020 --> 00:07:04,190
+Primero, como pueden ver con esta tabla,
+
+144
+00:07:04,190 --> 00:07:10,990
+¿dónde expresamos que un zombie tiene muchos tweets?
+
+145
+00:07:10,990 --> 00:07:13,670
+Debemos ingresar al modelo Zombie, que probablemente
+
+146
+00:07:13,670 --> 00:07:16,900
+creamos cuando creamos la tabla Zombie,
+
+147
+00:07:16,900 --> 00:07:19,420
+y especificar: "has_many :tweets" (tiene muchos tweets).
+
+148
+00:07:19,420 --> 00:07:23,710
+Tengan en cuenta de que "tweets" está en minúscula y plural.
+
+149
+00:07:23,710 --> 00:07:27,280
+Eso es todo.
+
+150
+00:07:27,280 --> 00:07:30,890
+Ahora cambiemos las tablas y averigûemos
+
+151
+00:07:30,890 --> 00:07:33,160
+el otro lado de la relación.
+
+152
+00:07:33,160 --> 00:07:36,650
+Si tenemos que articular esta relación,
+
+153
+00:07:36,650 --> 00:07:43,880
+podríamos decir que un tweet pertenece a un zombie.
+
+154
+00:07:43,880 --> 00:07:47,690
+En nuestro modelo, necesitamos expresar esta relación.
+
+155
+00:07:47,690 --> 00:07:54,000
+Todo lo que debemos hacer es escribir: "belongs_to :zombie" (pertenece al zombie).
+
+156
+00:07:54,000 --> 00:07:55,510
+Y eso es todo.
+
+157
+00:07:55,510 --> 00:07:58,830
+Pero tengan en cuenta de que esté en singular,
+
+158
+00:07:58,830 --> 00:08:02,060
+porque cada tweet puede pertenecer a un zombie.
+
+159
+00:08:04,919 --> 00:08:06,460
+Ahora hagamos correr un código.
+
+160
+00:08:06,460 --> 00:08:09,810
+Primero, voy a tomar el zombie con identificación 1
+
+161
+00:08:09,810 --> 00:08:11,920
+y establecer que es igual a "Ash".
+
+162
+00:08:11,920 --> 00:08:14,300
+Vemos que lo que obtenemos,
+
+163
+00:08:14,300 --> 00:08:19,420
+es en verdad la instancia de nuestra clase zombie
+
+164
+00:08:19,420 --> 00:08:23,510
+con los valores de zombie "Ash".
+
+165
+00:08:23,510 --> 00:08:26,410
+Ahora, creamos un tweet para el zombie Ash.
+
+166
+00:08:26,410 --> 00:08:29,790
+Vamos a crear un tweet con estado,
+
+167
+00:08:29,790 --> 00:08:32,240
+"Tus párpados saben a tocino".
+
+168
+00:08:32,240 --> 00:08:35,669
+Y el segundo parámetro, en nuestro hash,
+
+169
+00:08:35,669 --> 00:08:38,750
+será zombie Ash.
+
+170
+00:08:38,750 --> 00:08:42,530
+Estamos ingresando el objeto "zombie".
+
+171
+00:08:42,530 --> 00:08:46,190
+Y Rails hará todo el esquema por nosotros.
+
+172
+00:08:46,190 --> 00:08:49,600
+Se darán cuenta de que lo que obtenemos es nuestro tweet,
+
+173
+00:08:49,600 --> 00:08:54,280
+con identificación 5, creó la identificación por nosotros, el estado correspondiente,
+
+174
+00:08:54,280 --> 00:08:59,400
+y tiene identificación de zombie 1, que es la identificación de "Ash".
+
+175
+00:08:59,400 --> 00:09:02,540
+Si escribimos "ash.tweets.count",
+
+176
+00:09:02,540 --> 00:09:06,250
+obtendremos que Ash tiene tres tweets ahora.
+
+177
+00:09:06,250 --> 00:09:09,150
+Si escribimos "ash.tweets",
+
+178
+00:09:09,150 --> 00:09:11,800
+que tiene muchas asociaciones,
+
+179
+00:09:11,800 --> 00:09:17,670
+obtendremos una lista con tres instancias de tweets,
+
+180
+00:09:17,670 --> 00:09:20,800
+que pertenecen a Ash.
+
+181
+00:09:20,800 --> 00:09:22,700
+Si volvemos a nuestra base de datos,
+
+182
+00:09:22,700 --> 00:09:25,480
+veremos que creó una nueva fila por nosotros
+
+183
+00:09:25,480 --> 00:09:29,540
+para los tweets de Ash.
+
+184
+00:09:29,540 --> 00:09:32,290
+Una cosa más, si tomamos este nuevo tweet
+
+185
+00:09:32,290 --> 00:09:36,350
+de la base de datos, podremos escribir "t.zombie".
+
+186
+00:09:36,350 --> 00:09:39,590
+Lo que obtendremos es una instancia
+
+187
+00:09:39,590 --> 00:09:42,890
+una instancia de "Ash".
+
+188
+00:09:42,890 --> 00:09:46,180
+Podemos también escribir "t.zombie.name",
+
+189
+00:09:46,180 --> 00:09:49,170
+con lo que obtendremos el nombre del zombie,
+
+190
+00:09:49,170 --> 00:09:51,400
+en este caso, "Ash".
+
+191
+00:09:51,400 --> 00:09:53,710
+Ahora es el momento para que practiquen
+
+192
+00:09:53,710 --> 00:09:55,510
+y creen algunos modelos propios,
+
+193
+00:09:55,510 --> 00:09:57,980
+y nos veremos en el Nivel 3.
+
