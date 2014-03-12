@@ -1,0 +1,672 @@
+1
+00:00:00,000 --> 00:00:00,080
+
+2
+00:00:00,080 --> 00:00:00,270
+[SINGING]
+
+3
+00:00:00,270 --> 00:00:03,280
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,280 --> 00:00:06,620
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,620 --> 00:00:09,860
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,860 --> 00:00:13,200
+The MapKit framework will help
+his world domination.
+
+7
+00:00:13,200 --> 00:00:16,940
+He'll land at the coordinates
+and load up his pack, the only
+
+8
+00:00:16,940 --> 00:00:20,680
+secret agent who can blow
+it off the map.
+
+9
+00:00:20,680 --> 00:00:21,930
+He's Mr. Higgie.
+
+10
+00:00:21,930 --> 00:00:28,180
+
+11
+00:00:28,180 --> 00:00:30,420
+Typically, when you're building
+an iPhone app, you
+
+12
+00:00:30,420 --> 00:00:33,010
+don't want to just take
+all map annotations
+
+13
+00:00:33,010 --> 00:00:34,330
+in at the same time.
+
+14
+00:00:34,330 --> 00:00:37,300
+You want to give the user a way
+to search for annotations
+
+15
+00:00:37,300 --> 00:00:40,780
+in a certain area or maybe even
+bring in annotations from
+
+16
+00:00:40,780 --> 00:00:43,255
+the area around the device
+that they're holding.
+
+17
+00:00:43,255 --> 00:00:45,740
+In this level, we'll look
+at how to do that.
+
+18
+00:00:45,740 --> 00:00:49,530
+Our Current Place Info API
+returns all places at once,
+
+19
+00:00:49,530 --> 00:00:52,320
+but we want to give the user the
+ability to return just a
+
+20
+00:00:52,320 --> 00:00:55,400
+smaller subset of places
+from our main database.
+
+21
+00:00:55,400 --> 00:00:58,490
+It turns out that our API has
+support for passing in a zip
+
+22
+00:00:58,490 --> 00:01:01,700
+code and getting back a smaller
+subset of locations
+
+23
+00:01:01,700 --> 00:01:03,480
+that are only found
+in that zip code.
+
+24
+00:01:03,480 --> 00:01:07,590
+
+25
+00:01:07,590 --> 00:01:10,290
+The way we'll set this up
+is to add a UI text
+
+26
+00:01:10,290 --> 00:01:12,530
+field to our map view.
+
+27
+00:01:12,530 --> 00:01:15,600
+And when the user types a zip
+code into that UI text field
+
+28
+00:01:15,600 --> 00:01:19,610
+and hits return, we'll query the
+API for new locations that
+
+29
+00:01:19,610 --> 00:01:21,420
+are just found inside
+that zip code.
+
+30
+00:01:21,420 --> 00:01:33,910
+
+31
+00:01:33,910 --> 00:01:36,650
+So first, in
+MapViewController.h, we'll add
+
+32
+00:01:36,650 --> 00:01:39,590
+a UI text field property
+named Zip Field.
+
+33
+00:01:39,590 --> 00:01:42,440
+And we'll also adopt the UI
+text field delegate, as we
+
+34
+00:01:42,440 --> 00:01:45,220
+usually need to do when we
+work with text fields.
+
+35
+00:01:45,220 --> 00:01:47,950
+You can see that we can adopt
+multiple delegate protocols in
+
+36
+00:01:47,950 --> 00:01:50,390
+the same class by putting
+commas in between
+
+37
+00:01:50,390 --> 00:01:51,540
+the protocol names.
+
+38
+00:01:51,540 --> 00:01:54,930
+So here, I'm adopting
+MKMapViewDelegate and
+
+39
+00:01:54,930 --> 00:01:56,180
+UITextFieldDelegate.
+
+40
+00:01:56,180 --> 00:01:58,020
+
+41
+00:01:58,020 --> 00:02:00,800
+Then in viewDidLoad, I'll create
+a new instance of our
+
+42
+00:02:00,800 --> 00:02:04,470
+text field, set some display
+properties, and then add it as
+
+43
+00:02:04,470 --> 00:02:06,080
+a sub4view to our main view.
+
+44
+00:02:06,080 --> 00:02:09,669
+
+45
+00:02:09,669 --> 00:02:12,400
+Since we want to submit an API
+request whenever the Return
+
+46
+00:02:12,400 --> 00:02:15,210
+key is tapped, we'll implement
+the textfieldShouldReturn
+
+47
+00:02:15,210 --> 00:02:16,660
+delegate method.
+
+48
+00:02:16,660 --> 00:02:19,320
+You might recall from a previous
+course that this code
+
+49
+00:02:19,320 --> 00:02:21,220
+is going to make the keyboard
+go away when the
+
+50
+00:02:21,220 --> 00:02:23,920
+Return key is tapped.
+
+51
+00:02:23,920 --> 00:02:26,300
+In addition to making the
+keyboard disappear, we'll want
+
+52
+00:02:26,300 --> 00:02:29,340
+to make an AFNetworking request,
+passing in the zip
+
+53
+00:02:29,340 --> 00:02:32,080
+code that the user entered
+into the text field.
+
+54
+00:02:32,080 --> 00:02:35,450
+We can do that by first creating
+an NSString and using
+
+55
+00:02:35,450 --> 00:02:38,490
+the value of the textfield.text
+property, which
+
+56
+00:02:38,490 --> 00:02:40,920
+should contain the zip code
+numbers that the user typed
+
+57
+00:02:40,920 --> 00:02:45,490
+in, to create a URL to
+our API end point.
+
+58
+00:02:45,490 --> 00:02:49,060
+Then we can take that URL and
+make an AFNetworking request
+
+59
+00:02:49,060 --> 00:02:53,690
+using our standard AFNetworking
+boilerplate code.
+
+60
+00:02:53,690 --> 00:02:56,540
+Since the response we're getting
+from our API endpoint
+
+61
+00:02:56,540 --> 00:02:59,350
+is still going to be an NSArray
+of NSDictionary
+
+62
+00:02:59,350 --> 00:03:02,710
+objects, we can use the same
+code that we used before.
+
+63
+00:03:02,710 --> 00:03:06,450
+We can pull the map locations
+from our JSON file, and we can
+
+64
+00:03:06,450 --> 00:03:09,470
+add all those locations as
+annotations and center the map
+
+65
+00:03:09,470 --> 00:03:12,820
+on them using our Add and Center
+on Locations method
+
+66
+00:03:12,820 --> 00:03:14,490
+that we created in the
+previous level.
+
+67
+00:03:14,490 --> 00:03:17,690
+
+68
+00:03:17,690 --> 00:03:20,270
+So now you see that when the
+user types in a zip code into
+
+69
+00:03:20,270 --> 00:03:23,130
+the text field and hits Return,
+the map region is
+
+70
+00:03:23,130 --> 00:03:25,520
+going to update to a region
+that contains all the
+
+71
+00:03:25,520 --> 00:03:28,580
+annotations that are valid
+for that zip code.
+
+72
+00:03:28,580 --> 00:03:31,390
+But you know how some apps allow
+you to get locations
+
+73
+00:03:31,390 --> 00:03:33,910
+around you without having
+to type in any zip code?
+
+74
+00:03:33,910 --> 00:03:36,090
+We can add that same
+functionality to our app by
+
+75
+00:03:36,090 --> 00:03:38,380
+using the User Location property
+that we've talked
+
+76
+00:03:38,380 --> 00:03:39,690
+about before.
+
+77
+00:03:39,690 --> 00:03:41,150
+But there's one catch.
+
+78
+00:03:41,150 --> 00:03:44,870
+The User Location property
+doesn't contain a zip code.
+
+79
+00:03:44,870 --> 00:03:46,990
+It contains a latitude
+and a longitude.
+
+80
+00:03:46,990 --> 00:03:49,020
+So we need to figure out a way
+to take our latitude and
+
+81
+00:03:49,020 --> 00:03:52,140
+longitude value and turn them
+into a zip code, because the
+
+82
+00:03:52,140 --> 00:03:56,050
+API we're using is expecting
+us to send it a zip code.
+
+83
+00:03:56,050 --> 00:03:57,950
+We can do that with something
+called a Geocoder.
+
+84
+00:03:57,950 --> 00:04:00,950
+
+85
+00:04:00,950 --> 00:04:03,900
+The Geocoder in iOS
+has two modes.
+
+86
+00:04:03,900 --> 00:04:08,030
+The first mode, called Forward
+Geocoding, allows you to pass
+
+87
+00:04:08,030 --> 00:04:10,610
+in an address and get
+a latitude and
+
+88
+00:04:10,610 --> 00:04:12,790
+longitude as a response.
+
+89
+00:04:12,790 --> 00:04:15,500
+A Reverse Geocode allows you
+to pass in a latitude and
+
+90
+00:04:15,500 --> 00:04:18,079
+longitude value and get
+an address back.
+
+91
+00:04:18,079 --> 00:04:20,600
+And part of the address that
+comes back is likely to
+
+92
+00:04:20,600 --> 00:04:21,810
+contain a zip code.
+
+93
+00:04:21,810 --> 00:04:24,510
+So Reverse Geocoding is what
+we want to do in our app.
+
+94
+00:04:24,510 --> 00:04:27,440
+
+95
+00:04:27,440 --> 00:04:30,840
+So in MapViewController, I've
+declared a method called
+
+96
+00:04:30,840 --> 00:04:34,490
+getDeviceZip in the Header
+file, and I've added a UI
+
+97
+00:04:34,490 --> 00:04:36,890
+button that calls
+the getDeviceZip
+
+98
+00:04:36,890 --> 00:04:38,590
+method when its tapped.
+
+99
+00:04:38,590 --> 00:04:41,810
+In this method, first I'll
+create a Geocoder object using
+
+100
+00:04:41,810 --> 00:04:45,960
+the CLGeocoder class, and then
+I'll pass the message
+
+101
+00:04:45,960 --> 00:04:49,240
+reverseGeocodeLocation
+completionHandler to that
+
+102
+00:04:49,240 --> 00:04:50,740
+Geocoder object.
+
+103
+00:04:50,740 --> 00:04:53,170
+The location value that I'll
+send in as an argument will
+
+104
+00:04:53,170 --> 00:04:54,420
+come from self.mapView.use
+rLocation.location.
+
+105
+00:04:54,420 --> 00:04:57,720
+
+106
+00:04:57,720 --> 00:05:02,250
+Remember that MKUserLocation is
+that User Location object,
+
+107
+00:05:02,250 --> 00:05:05,720
+and that has a CL location
+inside of it that the Geocoder
+
+108
+00:05:05,720 --> 00:05:06,760
+is expecting.
+
+109
+00:05:06,760 --> 00:05:10,220
+Now, this Completion Handler
+method returns an NSArray
+
+110
+00:05:10,220 --> 00:05:11,790
+called "placemarks".
+
+111
+00:05:11,790 --> 00:05:14,160
+And that's actually at an array
+of objects called "CL
+
+112
+00:05:14,160 --> 00:05:16,150
+placemarks."
+
+113
+00:05:16,150 --> 00:05:17,970
+Sometimes that placemarks
+array will have
+
+114
+00:05:17,970 --> 00:05:19,360
+more than one value.
+
+115
+00:05:19,360 --> 00:05:22,240
+But the first object in the
+array will always be the one
+
+116
+00:05:22,240 --> 00:05:24,340
+that's most accurate for
+the location that
+
+117
+00:05:24,340 --> 00:05:27,630
+you're trying to geocode.
+
+118
+00:05:27,630 --> 00:05:29,960
+If we look at the properties
+that are available inside of
+
+119
+00:05:29,960 --> 00:05:33,440
+the CLPlacemark class, you can
+see that we get quite a bit of
+
+120
+00:05:33,440 --> 00:05:34,740
+place information.
+
+121
+00:05:34,740 --> 00:05:37,790
+We get things like country,
+zip code, state,
+
+122
+00:05:37,790 --> 00:05:40,820
+county, city, and more.
+
+123
+00:05:40,820 --> 00:05:43,740
+But since we're trying to work
+with our zip code API, the
+
+124
+00:05:43,740 --> 00:05:45,450
+postal code property
+is going to be the
+
+125
+00:05:45,450 --> 00:05:48,610
+one we want to access.
+
+126
+00:05:48,610 --> 00:05:51,460
+So back in our Reverse Geocode
+method, we're pulling out the
+
+127
+00:05:51,460 --> 00:05:55,270
+placemark.postalCode value which
+contains our zip code,
+
+128
+00:05:55,270 --> 00:05:58,790
+and restoring it in an NSString
+named "Zip Code."
+
+129
+00:05:58,790 --> 00:06:01,270
+All that's left is to make an
+AFNetworking request like
+
+130
+00:06:01,270 --> 00:06:04,870
+we've done before, this time
+passing in this NSString zip
+
+131
+00:06:04,870 --> 00:06:06,220
+code into the API.
+
+132
+00:06:06,220 --> 00:06:09,520
+
+133
+00:06:09,520 --> 00:06:12,090
+You can see now that when
+we tap this new button,
+
+134
+00:06:12,090 --> 00:06:14,590
+annotations appear around
+the blue dot.
+
+135
+00:06:14,590 --> 00:06:17,340
+That means that we geocoded the
+location of the blue dot
+
+136
+00:06:17,340 --> 00:06:21,070
+to get a zip code, and we pass
+that zip code into our API to
+
+137
+00:06:21,070 --> 00:06:23,230
+return a list of locations
+around it.
+
+138
+00:06:23,230 --> 00:06:27,460
+It's important to note here that
+self.mapView.userLocation
+
+139
+00:06:27,460 --> 00:06:29,340
+is only going to exist if
+
+140
+00:06:29,340 --> 00:06:31,880
+showsUserLocation is set to yes.
+
+141
+00:06:31,880 --> 00:06:34,580
+So if you've turned
+showsUserLocation off, then
+
+142
+00:06:34,580 --> 00:06:37,230
+this approach will not work.
+
+143
+00:06:37,230 --> 00:06:39,540
+So now it's time for you to
+try some geocoding in the
+
+144
+00:06:39,540 --> 00:06:40,790
+challenges.
+
+145
+00:06:40,790 --> 00:06:46,252

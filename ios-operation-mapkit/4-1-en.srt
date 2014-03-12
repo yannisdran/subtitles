@@ -1,0 +1,808 @@
+1
+00:00:00,000 --> 00:00:00,080
+
+2
+00:00:00,080 --> 00:00:00,175
+[SINGING]
+
+3
+00:00:00,175 --> 00:00:03,280
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,280 --> 00:00:06,620
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,620 --> 00:00:09,910
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,910 --> 00:00:13,180
+The Map Kit framework will help
+his world domination.
+
+7
+00:00:13,180 --> 00:00:16,270
+He'll land at the coordinates
+and load up his pack.
+
+8
+00:00:16,270 --> 00:00:20,660
+The only secret agent who
+can blow it off the map.
+
+9
+00:00:20,660 --> 00:00:21,910
+He's Mr. Higgie.
+
+10
+00:00:21,910 --> 00:00:26,740
+
+11
+00:00:26,740 --> 00:00:28,820
+In this level, we're going
+to learn how to work with
+
+12
+00:00:28,820 --> 00:00:31,990
+multiple annotations at one
+time, and we're also going to
+
+13
+00:00:31,990 --> 00:00:37,050
+look at where that annotation
+data might be coming from.
+
+14
+00:00:37,050 --> 00:00:39,680
+Creating a variable to hold
+multiple annotations is as
+
+15
+00:00:39,680 --> 00:00:43,620
+simple as using an NSArray to
+store multiple dictionaries.
+
+16
+00:00:43,620 --> 00:00:47,220
+In this NSArray, we've got three
+dictionaries, one for
+
+17
+00:00:47,220 --> 00:00:49,280
+Lake Eola, one for
+Lake Lawsona, and
+
+18
+00:00:49,280 --> 00:00:51,020
+one for Lake Lucerne.
+
+19
+00:00:51,020 --> 00:00:53,420
+Since we need to create more
+than one annotation at one
+
+20
+00:00:53,420 --> 00:00:57,180
+time, a convenient way to do
+this is to use an enumerator.
+
+21
+00:00:57,180 --> 00:00:59,930
+So here, I'm enumerating through
+each NSDictionary in
+
+22
+00:00:59,930 --> 00:01:03,380
+the array in a variable called
+Location, and then I'm
+
+23
+00:01:03,380 --> 00:01:07,090
+creating a coordinate,
+initializing an annotation,
+
+24
+00:01:07,090 --> 00:01:09,050
+and then setting the properties
+of that annotation
+
+25
+00:01:09,050 --> 00:01:11,690
+before adding it to the map
+view inside of the loop.
+
+26
+00:01:11,690 --> 00:01:14,570
+
+27
+00:01:14,570 --> 00:01:17,400
+If we run this code, this is
+what we'll see, but you can
+
+28
+00:01:17,400 --> 00:01:19,070
+see that something's missing.
+
+29
+00:01:19,070 --> 00:01:22,050
+We added three annotation to the
+map view, but we're only
+
+30
+00:01:22,050 --> 00:01:24,900
+seeing two of them in the
+visible map region.
+
+31
+00:01:24,900 --> 00:01:28,830
+What we need to do is figure out
+a way to reset our region
+
+32
+00:01:28,830 --> 00:01:31,310
+to a region that contains
+all three of those map
+
+33
+00:01:31,310 --> 00:01:33,800
+points all at once.
+
+34
+00:01:33,800 --> 00:01:36,310
+To do this, we'll need some
+more information.
+
+35
+00:01:36,310 --> 00:01:39,540
+If we imagine that there's an
+invisible box that contains
+
+36
+00:01:39,540 --> 00:01:42,600
+each one of those three
+annotations, if we find the
+
+37
+00:01:42,600 --> 00:01:45,550
+center point of that box and
+the width and height of the
+
+38
+00:01:45,550 --> 00:01:49,450
+box, we'll be able to create a
+new MK coordinate region and
+
+39
+00:01:49,450 --> 00:01:53,860
+then use the SetRegion method
+to make that the new region.
+
+40
+00:01:53,860 --> 00:01:57,090
+So how do we figure out the
+center point and the width and
+
+41
+00:01:57,090 --> 00:02:00,360
+height points, which are
+also called the span?
+
+42
+00:02:00,360 --> 00:02:02,610
+Well, here's the three points
+that we have on our
+
+43
+00:02:02,610 --> 00:02:03,960
+map view right now.
+
+44
+00:02:03,960 --> 00:02:06,970
+We've got annotation one,
+annotation two, and annotation
+
+45
+00:02:06,970 --> 00:02:10,190
+three, and they each have
+their own latitude and
+
+46
+00:02:10,190 --> 00:02:12,350
+longitude coordinates.
+
+47
+00:02:12,350 --> 00:02:14,900
+In order to be able to find the
+boundaries of the box that
+
+48
+00:02:14,900 --> 00:02:18,200
+contains them, we'll need to
+find the biggest latitude and
+
+49
+00:02:18,200 --> 00:02:21,060
+biggest longitude of the bunch,
+and we'll also need to
+
+50
+00:02:21,060 --> 00:02:23,070
+find the smallest latitude
+and smallest
+
+51
+00:02:23,070 --> 00:02:24,350
+longitude of the bunch.
+
+52
+00:02:24,350 --> 00:02:26,460
+Here's the values that we're
+looking for, but we need to
+
+53
+00:02:26,460 --> 00:02:27,880
+figure out a way to do this
+programmatically.
+
+54
+00:02:27,880 --> 00:02:31,030
+
+55
+00:02:31,030 --> 00:02:34,520
+So first, I'll create two new
+NSMutable arrays, one to store
+
+56
+00:02:34,520 --> 00:02:37,450
+all the latitude values, and one
+to store all the longitude
+
+57
+00:02:37,450 --> 00:02:40,360
+values for each one of those
+three points that I'm trying
+
+58
+00:02:40,360 --> 00:02:42,000
+to center the map on.
+
+59
+00:02:42,000 --> 00:02:44,840
+Then we'll loop through each one
+of the locations again in
+
+60
+00:02:44,840 --> 00:02:48,560
+the for loop and build up the
+data inside of our lats and
+
+61
+00:02:48,560 --> 00:02:50,980
+longs NSMutable arrays.
+
+62
+00:02:50,980 --> 00:02:53,730
+Here's the contents of the lats
+and longs array after
+
+63
+00:02:53,730 --> 00:02:55,620
+running this code.
+
+64
+00:02:55,620 --> 00:02:58,480
+You can see that we've sized
+the value so you can easily
+
+65
+00:02:58,480 --> 00:03:00,800
+see which one is the biggest
+value and which one is the
+
+66
+00:03:00,800 --> 00:03:03,100
+smallest value in each array.
+
+67
+00:03:03,100 --> 00:03:05,700
+Then we can use an NSMutable
+array method called
+
+68
+00:03:05,700 --> 00:03:09,970
+sortUsingSelector and pass in
+this pre-defined selector
+
+69
+00:03:09,970 --> 00:03:11,640
+called Compare.
+
+70
+00:03:11,640 --> 00:03:14,700
+But the Compare selector does
+is it sorts the array from
+
+71
+00:03:14,700 --> 00:03:18,410
+ascending to descending order
+and changes the index of each
+
+72
+00:03:18,410 --> 00:03:21,020
+item in the array so that
+they're sorted.
+
+73
+00:03:21,020 --> 00:03:23,710
+After we sort the array, here's
+what it looks like.
+
+74
+00:03:23,710 --> 00:03:26,580
+"Index 0" in each one of the
+arrays is going to be the
+
+75
+00:03:26,580 --> 00:03:30,390
+lowest value in the list, and
+lastObject is going to give us
+
+76
+00:03:30,390 --> 00:03:33,290
+the highest value in the list.
+
+77
+00:03:33,290 --> 00:03:35,980
+So let's store the biggest
+and smallest latitude and
+
+78
+00:03:35,980 --> 00:03:37,950
+longitude in four separate
+variables
+
+79
+00:03:37,950 --> 00:03:39,610
+that are a type double.
+
+80
+00:03:39,610 --> 00:03:43,030
+smallestLat and smallestLng,
+we can get by accessing
+
+81
+00:03:43,030 --> 00:03:46,940
+the first object in the array,
+and biggest lat and biggest
+
+82
+00:03:46,940 --> 00:03:50,140
+long we can get by accessing the
+last object in the array.
+
+83
+00:03:50,140 --> 00:03:52,100
+You were probably hoping that
+there was a first object
+
+84
+00:03:52,100 --> 00:03:54,770
+message that you could past to
+your array to access the first
+
+85
+00:03:54,770 --> 00:03:59,810
+object, but unfortunately, no
+first object message exists.
+
+86
+00:03:59,810 --> 00:04:02,500
+Remember that the whole reason
+we wanted to find these points
+
+87
+00:04:02,500 --> 00:04:05,690
+was to find the center of the
+rectangle and the width and
+
+88
+00:04:05,690 --> 00:04:08,720
+height span that determine
+how wide and how
+
+89
+00:04:08,720 --> 00:04:11,000
+tall rectangle was.
+
+90
+00:04:11,000 --> 00:04:14,070
+So first let's find the center
+coordinate of that box.
+
+91
+00:04:14,070 --> 00:04:16,019
+We can do a little bit of
+simple math and add the
+
+92
+00:04:16,019 --> 00:04:18,959
+biggestLat and smallestLat
+together and divide them by
+
+93
+00:04:18,959 --> 00:04:21,010
+two, and that's going
+to give us the
+
+94
+00:04:21,010 --> 00:04:23,570
+midpoint for the latitude.
+
+95
+00:04:23,570 --> 00:04:26,250
+We can do the same thing with
+the longitude values and get
+
+96
+00:04:26,250 --> 00:04:28,080
+the midpoint for
+the longitude.
+
+97
+00:04:28,080 --> 00:04:30,790
+The latitude and longitude
+midpoints will be the center
+
+98
+00:04:30,790 --> 00:04:32,140
+of the box.
+
+99
+00:04:32,140 --> 00:04:34,050
+To get the width of the region,
+we can take the
+
+100
+00:04:34,050 --> 00:04:37,890
+biggest latitude and subtract
+the smallest latitude from it,
+
+101
+00:04:37,890 --> 00:04:39,140
+and then the same for
+the longitude.
+
+102
+00:04:39,140 --> 00:04:44,470
+
+103
+00:04:44,470 --> 00:04:47,980
+We'll then take that value and
+create an MKCoordinate span,
+
+104
+00:04:47,980 --> 00:04:50,450
+which is just a struct that
+contains the width and height
+
+105
+00:04:50,450 --> 00:04:52,730
+together, like a coordinate.
+
+106
+00:04:52,730 --> 00:04:56,060
+Now that we have the center and
+span, we can create a new
+
+107
+00:04:56,060 --> 00:04:59,230
+MKCoordinate region with those
+values and then call the
+
+108
+00:04:59,230 --> 00:05:00,480
+setRegion method.
+
+109
+00:05:00,480 --> 00:05:04,610
+
+110
+00:05:04,610 --> 00:05:07,180
+Running this code shows us
+that the map is indeed
+
+111
+00:05:07,180 --> 00:05:09,680
+centered on those three
+annotations.
+
+112
+00:05:09,680 --> 00:05:12,020
+So where are these annotations
+going to come from?
+
+113
+00:05:12,020 --> 00:05:16,360
+You're probably not going to
+have 100, 1,000 annotations
+
+114
+00:05:16,360 --> 00:05:18,410
+sitting inside of your app.
+
+115
+00:05:18,410 --> 00:05:20,350
+You're probably going to get
+them from something like an
+
+116
+00:05:20,350 --> 00:05:24,770
+API that's going to return a set
+of annotations from a JSON
+
+117
+00:05:24,770 --> 00:05:27,060
+file, so let's look at
+how to set that up.
+
+118
+00:05:27,060 --> 00:05:29,570
+
+119
+00:05:29,570 --> 00:05:33,040
+We've got an API endpoint that's
+going to return name,
+
+120
+00:05:33,040 --> 00:05:35,620
+lat, and long for
+a set of places.
+
+121
+00:05:35,620 --> 00:05:37,940
+The structure of this is
+an NSArray containing
+
+122
+00:05:37,940 --> 00:05:40,860
+NSDictionary objects, similar to
+the ones we've been working
+
+123
+00:05:40,860 --> 00:05:44,190
+with locally, and each
+NSDictionary, again, contains
+
+124
+00:05:44,190 --> 00:05:47,430
+one string representing the
+name of the place and two
+
+125
+00:05:47,430 --> 00:05:51,590
+NSNumbers representing the
+latitude and the longitude.
+
+126
+00:05:51,590 --> 00:05:53,980
+So first, in
+MapViewController.h, we're
+
+127
+00:05:53,980 --> 00:05:56,900
+going to add a property that's
+an NSArray called
+
+128
+00:05:56,900 --> 00:05:59,630
+mapLocations, and this is going
+to make it so we can
+
+129
+00:05:59,630 --> 00:06:02,000
+access these map locations from
+different parts of our
+
+130
+00:06:02,000 --> 00:06:03,600
+application.
+
+131
+00:06:03,600 --> 00:06:07,330
+Then in MapViewController.m,
+in our viewDidLoad method,
+
+132
+00:06:07,330 --> 00:06:10,520
+we'll create our boilerplate AF
+networking request, and the
+
+133
+00:06:10,520 --> 00:06:14,310
+URL we'll pass in is the URL
+of our API endpoint.
+
+134
+00:06:14,310 --> 00:06:16,450
+This should look familiar, as
+we've learned how to do this
+
+135
+00:06:16,450 --> 00:06:19,640
+in previous iOS courses
+at Code School.
+
+136
+00:06:19,640 --> 00:06:22,780
+Then in the success block of the
+AF networking request, we
+
+137
+00:06:22,780 --> 00:06:26,770
+can set self.mapLocations
+equal to the JSON object
+
+138
+00:06:26,770 --> 00:06:28,600
+that's been returned
+from the server.
+
+139
+00:06:28,600 --> 00:06:30,930
+Remember that the JSON object
+contained an array of
+
+140
+00:06:30,930 --> 00:06:34,050
+dictionaries, and our
+self.mapLocations variable is
+
+141
+00:06:34,050 --> 00:06:35,460
+also an NSArray.
+
+142
+00:06:35,460 --> 00:06:38,950
+So self.mapLocations now
+contains an array of
+
+143
+00:06:38,950 --> 00:06:41,010
+NSDictionaries.
+
+144
+00:06:41,010 --> 00:06:43,740
+Finally, we can take the same
+for loop that we just used to
+
+145
+00:06:43,740 --> 00:06:47,040
+create annotation from local
+data, and we can put them
+
+146
+00:06:47,040 --> 00:06:49,890
+inside of the AF networking
+success block.
+
+147
+00:06:49,890 --> 00:06:52,050
+This time, all of the
+NSDictionaries that we're
+
+148
+00:06:52,050 --> 00:06:54,690
+looping through are coming from
+our JSON object from the
+
+149
+00:06:54,690 --> 00:06:58,020
+server, and the end result is
+that we're going to have all
+
+150
+00:06:58,020 --> 00:07:00,460
+the annotations returned
+by the API loaded
+
+151
+00:07:00,460 --> 00:07:02,250
+onto the map view.
+
+152
+00:07:02,250 --> 00:07:04,270
+Now, this piece of code is
+something that we probably
+
+153
+00:07:04,270 --> 00:07:06,560
+want to put inside of a separate
+method because we
+
+154
+00:07:06,560 --> 00:07:10,010
+might be calling it at
+different places.
+
+155
+00:07:10,010 --> 00:07:12,350
+So if we declare a method in
+MapViewController called
+
+156
+00:07:12,350 --> 00:07:15,440
+addAndCenterOnLocations, we
+could take all of the code
+
+157
+00:07:15,440 --> 00:07:18,570
+from our for loop that creates
+annotations and put it inside
+
+158
+00:07:18,570 --> 00:07:20,040
+this method.
+
+159
+00:07:20,040 --> 00:07:22,730
+In addition, we can put all the
+code that centers the map
+
+160
+00:07:22,730 --> 00:07:27,690
+around those annotations inside
+the method as well.
+
+161
+00:07:27,690 --> 00:07:30,970
+Now, our AF networking request
+looks a lot cleaner.
+
+162
+00:07:30,970 --> 00:07:34,170
+We get the JSON object
+in from the response.
+
+163
+00:07:34,170 --> 00:07:38,620
+We assign it to our NSArray
+self.mapLocations, and then we
+
+164
+00:07:38,620 --> 00:07:39,290
+just call the
+
+165
+00:07:39,290 --> 00:07:41,320
+addAndCenterOnLocations method.
+
+166
+00:07:41,320 --> 00:07:44,510
+
+167
+00:07:44,510 --> 00:07:46,920
+And here, you can see a lot of
+different annotations are
+
+168
+00:07:46,920 --> 00:07:51,370
+being loaded into our map
+view from the server.
+
+169
+00:07:51,370 --> 00:07:53,780
+So now, it's your turn to
+practice connecting to an API
+
+170
+00:07:53,780 --> 00:07:55,440
+that returns multiple
+map locations.
+
+171
+00:07:55,440 --> 00:08:02,156

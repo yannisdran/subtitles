@@ -1,0 +1,665 @@
+1
+00:00:00,000 --> 00:00:00,080
+
+2
+00:00:00,080 --> 00:00:00,175
+[SINGING]
+
+3
+00:00:00,175 --> 00:00:03,280
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,280 --> 00:00:06,620
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,620 --> 00:00:09,860
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,860 --> 00:00:13,200
+The MapKit framework will help
+his world domination.
+
+7
+00:00:13,200 --> 00:00:16,940
+He'll land at the coordinates
+and load up his pack, the only
+
+8
+00:00:16,940 --> 00:00:20,680
+secret agent who can blow
+it off the map.
+
+9
+00:00:20,680 --> 00:00:21,930
+He's Mr. Higgy.
+
+10
+00:00:21,930 --> 00:00:28,200
+
+11
+00:00:28,200 --> 00:00:31,425
+Having the ability to view our
+added annotations both in a
+
+12
+00:00:31,425 --> 00:00:34,600
+map view and as cells in a table
+view is pretty cool.
+
+13
+00:00:34,600 --> 00:00:37,730
+But as it stands right now,
+we're not adding a whole lot
+
+14
+00:00:37,730 --> 00:00:39,720
+of information to
+that table view.
+
+15
+00:00:39,720 --> 00:00:42,600
+So let's look at how we can use
+the CoreLocation framework
+
+16
+00:00:42,600 --> 00:00:45,930
+to add the distance between each
+one of those points to
+
+17
+00:00:45,930 --> 00:00:49,070
+the point that the user
+is currently at.
+
+18
+00:00:49,070 --> 00:00:51,100
+You might remember that we
+added the CoreLocation
+
+19
+00:00:51,100 --> 00:00:53,520
+framework way back
+in level one.
+
+20
+00:00:53,520 --> 00:00:55,520
+And now we're going to make use
+of some of the functions
+
+21
+00:00:55,520 --> 00:00:56,650
+inside of it.
+
+22
+00:00:56,650 --> 00:00:59,280
+Right now, we're sending an
+array of map locations over to
+
+23
+00:00:59,280 --> 00:01:00,910
+ListTableViewController.
+
+24
+00:01:00,910 --> 00:01:03,200
+But if we want to be able to
+calculate the distance between
+
+25
+00:01:03,200 --> 00:01:05,820
+each one of those map locations
+and the current user
+
+26
+00:01:05,820 --> 00:01:08,140
+location, then we're also
+going to need to send
+
+27
+00:01:08,140 --> 00:01:10,920
+information about the current
+user location over to the
+
+28
+00:01:10,920 --> 00:01:12,040
+table view.
+
+29
+00:01:12,040 --> 00:01:16,560
+Since self.mapview.use
+rlocation.location contains
+
+30
+00:01:16,560 --> 00:01:19,790
+information about where the user
+currently is, I'll send
+
+31
+00:01:19,790 --> 00:01:22,970
+that over in a variable called
+userLocation to the istTable
+
+32
+00:01:22,970 --> 00:01:25,050
+View controller.
+
+33
+00:01:25,050 --> 00:01:27,130
+In ListTableViewController's
+header, I'm
+
+34
+00:01:27,130 --> 00:01:30,780
+adding a CLLocation property
+called userLocation, so that
+
+35
+00:01:30,780 --> 00:01:33,240
+it's ready for the data that's
+passed in from the map view
+
+36
+00:01:33,240 --> 00:01:34,100
+controller.
+
+37
+00:01:34,100 --> 00:01:36,600
+And I'm also going to want to
+import the CoreLocation
+
+38
+00:01:36,600 --> 00:01:38,760
+framework to this view
+controller, because we're
+
+39
+00:01:38,760 --> 00:01:44,180
+going to be calling some
+CoreLocation specific methods.
+
+40
+00:01:44,180 --> 00:01:47,750
+The method we want is called
+distance from location, and
+
+41
+00:01:47,750 --> 00:01:50,340
+the way that it works is if
+you have two CLLocation
+
+42
+00:01:50,340 --> 00:01:53,910
+objects, you can take the first
+location object, and
+
+43
+00:01:53,910 --> 00:01:56,400
+then pass at the message
+distance from location,
+
+44
+00:01:56,400 --> 00:01:59,380
+passing the second location as
+an argument, and it will
+
+45
+00:01:59,380 --> 00:02:01,850
+return to the distance
+in meters
+
+46
+00:02:01,850 --> 00:02:05,150
+between those two locations.
+
+47
+00:02:05,150 --> 00:02:07,330
+So let's think about what
+we have right now.
+
+48
+00:02:07,330 --> 00:02:12,150
+We have some dictionaries with
+keys for name, lat, and lng.
+
+49
+00:02:12,150 --> 00:02:14,130
+And what we want are
+dictionaries that have an
+
+50
+00:02:14,130 --> 00:02:16,760
+additional key for distance,
+so we can display that
+
+51
+00:02:16,760 --> 00:02:19,470
+distance in the table view,
+since these dictionaries make
+
+52
+00:02:19,470 --> 00:02:22,720
+up our data source for
+our table view.
+
+53
+00:02:22,720 --> 00:02:26,240
+So one way to add a key to an
+existing dictionary is to
+
+54
+00:02:26,240 --> 00:02:28,990
+create a mutable version of that
+dictionary, which means
+
+55
+00:02:28,990 --> 00:02:31,900
+that we can change the
+properties inside of it.
+
+56
+00:02:31,900 --> 00:02:34,380
+So I've created an NSMutableDictionary 
+called
+
+57
+00:02:34,380 --> 00:02:38,810
+mutableLocation, and I've set
+the default state of that
+
+58
+00:02:38,810 --> 00:02:42,860
+mutableLocation using the AddEntriesFromDictionary
+
+59
+00:02:42,860 --> 00:02:46,000
+message, which takes everything
+that's in the NS
+
+60
+00:02:46,000 --> 00:02:51,010
+Dictionary and puts it inside
+of the mutable dictionary.
+
+61
+00:02:51,010 --> 00:02:54,920
+Then I'll declares a double
+value for distance, which
+
+62
+00:02:54,920 --> 00:02:57,400
+we'll calculate in a second.
+
+63
+00:02:57,400 --> 00:03:00,320
+And then finally, I'll take my
+mutable dictionary and I'll
+
+64
+00:03:00,320 --> 00:03:03,270
+pass the set object
+for key message.
+
+65
+00:03:03,270 --> 00:03:06,380
+In the set object argument,
+I'll pass in an NS number
+
+66
+00:03:06,380 --> 00:03:10,710
+version of that distance we just
+created, and I'll set it
+
+67
+00:03:10,710 --> 00:03:13,290
+for the key distance.
+
+68
+00:03:13,290 --> 00:03:16,100
+What that's going to do now is
+add a distance key with a
+
+69
+00:03:16,100 --> 00:03:18,940
+value into this mutable
+dictionary.
+
+70
+00:03:18,940 --> 00:03:21,510
+The reason we had to create an
+NS number version of our
+
+71
+00:03:21,510 --> 00:03:24,490
+distance is that NS dictionaries
+and NS mutable
+
+72
+00:03:24,490 --> 00:03:27,550
+dictionaries can't take in
+primitive data types, like
+
+73
+00:03:27,550 --> 00:03:29,210
+double, as an argument.
+
+74
+00:03:29,210 --> 00:03:33,180
+They need to have an
+object version.
+
+75
+00:03:33,180 --> 00:03:35,860
+Next, since we've got more
+than one dictionary in
+
+76
+00:03:35,860 --> 00:03:38,910
+self.maplocations, we'll wrap
+the whole thing inside of a
+
+77
+00:03:38,910 --> 00:03:41,650
+for loop, so that we can make
+sure to create one new
+
+78
+00:03:41,650 --> 00:03:45,030
+dictionary with a new distance
+key for each dictionary that
+
+79
+00:03:45,030 --> 00:03:46,770
+was in the original
+locations array.
+
+80
+00:03:46,770 --> 00:03:49,390
+And finally, we'll add the code
+that actually calculates
+
+81
+00:03:49,390 --> 00:03:52,530
+and sets the distance.
+
+82
+00:03:52,530 --> 00:03:55,300
+So first we'll create a
+CLLocation object called
+
+83
+00:03:55,300 --> 00:03:56,990
+location to test.
+
+84
+00:03:56,990 --> 00:03:59,430
+And we'll use the
+initWithLatitude, Longitude
+
+85
+00:03:59,430 --> 00:04:02,460
+convenience initialization to
+pass in the current locations
+
+86
+00:04:02,460 --> 00:04:04,900
+lat and long as a
+double value.
+
+87
+00:04:04,900 --> 00:04:07,930
+This will give us a CLLocation
+object of the current map
+
+88
+00:04:07,930 --> 00:04:10,250
+location in the loop.
+
+89
+00:04:10,250 --> 00:04:14,280
+We'll calculate the distance
+as the location to test
+
+90
+00:04:14,280 --> 00:04:17,640
+distance from location
+userLocation.
+
+91
+00:04:17,640 --> 00:04:20,800
+And that's going to return a
+number, in meters, that's the
+
+92
+00:04:20,800 --> 00:04:24,530
+distance between the current
+location we're looking at and
+
+93
+00:04:24,530 --> 00:04:28,530
+the user's position
+on the map.
+
+94
+00:04:28,530 --> 00:04:31,120
+All of the work we're doing
+calculating distance is going
+
+95
+00:04:31,120 --> 00:04:33,840
+to be lost unless we figure out
+a way to get those new NS
+
+96
+00:04:33,840 --> 00:04:37,380
+mutable dictionaries into an
+array so we can access them
+
+97
+00:04:37,380 --> 00:04:39,080
+outside of the loop.
+
+98
+00:04:39,080 --> 00:04:41,890
+So here we've added code to
+create a temporary array
+
+99
+00:04:41,890 --> 00:04:44,350
+outside of the loop.
+
+100
+00:04:44,350 --> 00:04:47,550
+And then inside the loop, each
+one of those mutableLocation
+
+101
+00:04:47,550 --> 00:04:51,660
+NS dictionaries is being added
+to that mutable array.
+
+102
+00:04:51,660 --> 00:04:54,350
+And then finally, we'll take
+self.maplocations outside of
+
+103
+00:04:54,350 --> 00:04:57,470
+the array and reassign the
+value of it to our
+
+104
+00:04:57,470 --> 00:04:59,250
+tempLocations array.
+
+105
+00:04:59,250 --> 00:05:02,090
+So now all of the data we
+created inside that loop is
+
+106
+00:05:02,090 --> 00:05:05,620
+available outside of the loop.
+
+107
+00:05:05,620 --> 00:05:07,860
+The last step of this process
+is going to be to call
+
+108
+00:05:07,860 --> 00:05:10,750
+self.tableview reload data.
+
+109
+00:05:10,750 --> 00:05:13,430
+And that's going to make the
+table view update with any of
+
+110
+00:05:13,430 --> 00:05:16,460
+the new distances that
+have been calculated.
+
+111
+00:05:16,460 --> 00:05:19,460
+Now we need to get that newly
+calculated distance key into
+
+112
+00:05:19,460 --> 00:05:20,860
+our table view.
+
+113
+00:05:20,860 --> 00:05:22,580
+We can do that inside the
+cellForRowAtIndexPath
+
+114
+00:05:22,580 --> 00:05:26,380
+index path method by updating
+the detail text label property
+
+115
+00:05:26,380 --> 00:05:28,010
+of the cell.
+
+116
+00:05:28,010 --> 00:05:30,880
+First we should check if the
+distance key exists, because
+
+117
+00:05:30,880 --> 00:05:33,140
+the very first time the table's
+loaded, we won't have
+
+118
+00:05:33,140 --> 00:05:34,920
+calculated our distances yet.
+
+119
+00:05:34,920 --> 00:05:38,610
+So if the distance key exists,
+we'll pull that value out as a
+
+120
+00:05:38,610 --> 00:05:41,740
+double, and then we'll create an
+NSString with that double
+
+121
+00:05:41,740 --> 00:05:45,060
+value and set that equal to the
+detail text label, telling
+
+122
+00:05:45,060 --> 00:05:47,630
+how many meters away
+each location is
+
+123
+00:05:47,630 --> 00:05:48,880
+from our current location.
+
+124
+00:05:48,880 --> 00:05:52,480
+
+125
+00:05:52,480 --> 00:05:55,030
+But what if we don't want to
+display this in meters?
+
+126
+00:05:55,030 --> 00:05:57,190
+In the United States,
+we don't usually
+
+127
+00:05:57,190 --> 00:05:58,270
+use meters for distance.
+
+128
+00:05:58,270 --> 00:06:00,130
+We use miles.
+
+129
+00:06:00,130 --> 00:06:02,270
+It's really easy to
+convert the two.
+
+130
+00:06:02,270 --> 00:06:07,240
+All we have to do is divide our
+distance value by 1609.34,
+
+131
+00:06:07,240 --> 00:06:09,965
+and that will return the number
+of miles as a distance.
+
+132
+00:06:09,965 --> 00:06:13,340
+
+133
+00:06:13,340 --> 00:06:16,090
+So here we have our updated
+table view that now takes an a
+
+134
+00:06:16,090 --> 00:06:19,830
+array of map locations, checks
+the distance of each one of
+
+135
+00:06:19,830 --> 00:06:22,950
+those map locations to the
+user's current location, and
+
+136
+00:06:22,950 --> 00:06:25,330
+shows it as a detailed
+text label inside of
+
+137
+00:06:25,330 --> 00:06:26,580
+each one of the cells.
+
+138
+00:06:26,580 --> 00:06:40,810
+
+139
+00:06:40,810 --> 00:06:42,970
+And now it's time for you to
+try out some of these core
+
+140
+00:06:42,970 --> 00:06:44,800
+location methods yourself
+in the challenges.
+
+141
+00:06:44,800 --> 00:06:51,266

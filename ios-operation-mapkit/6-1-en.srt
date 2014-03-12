@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:00,080
+
+2
+00:00:00,080 --> 00:00:00,175
+[SINGING]
+
+3
+00:00:00,175 --> 00:00:03,280
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,280 --> 00:00:06,620
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,620 --> 00:00:10,070
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:10,070 --> 00:00:13,200
+The mapkit framework will help
+his world domination.
+
+7
+00:00:13,200 --> 00:00:16,325
+He'll land at the coordinates
+and load up his pack.
+
+8
+00:00:16,325 --> 00:00:20,680
+The only secret agent who
+can blow it off the map.
+
+9
+00:00:20,680 --> 00:00:21,930
+He's Mr. Higgie.
+
+10
+00:00:21,930 --> 00:00:28,190
+
+11
+00:00:28,190 --> 00:00:30,300
+In this level, we're going to
+look at different ways to
+
+12
+00:00:30,300 --> 00:00:32,740
+organize lots of
+map locations.
+
+13
+00:00:32,740 --> 00:00:35,550
+We're going to also learn how
+to enhance some of that map
+
+14
+00:00:35,550 --> 00:00:38,900
+data with core location
+methods.
+
+15
+00:00:38,900 --> 00:00:41,680
+So we've added a lot of
+locations to our MapView, but
+
+16
+00:00:41,680 --> 00:00:43,930
+at some point, we're going to
+have so many locations on the
+
+17
+00:00:43,930 --> 00:00:46,290
+screen that we're going to want
+a better way to visualize
+
+18
+00:00:46,290 --> 00:00:47,300
+all of them.
+
+19
+00:00:47,300 --> 00:00:50,480
+One way that iPhone apps do this
+is to provide a TableView
+
+20
+00:00:50,480 --> 00:00:54,450
+in addition to the map view to
+display a simple list of all
+
+21
+00:00:54,450 --> 00:00:57,150
+the locations that
+are visible.
+
+22
+00:00:57,150 --> 00:01:00,240
+So we'll add that
+now to our app.
+
+23
+00:01:00,240 --> 00:01:02,630
+Since the structure of our views
+and view controllers is
+
+24
+00:01:02,630 --> 00:01:05,150
+getting a little bigger, let's
+take a moment to remind
+
+25
+00:01:05,150 --> 00:01:06,870
+ourselves where we're at.
+
+26
+00:01:06,870 --> 00:01:10,790
+We've got a MapView controller
+that's got three subviews, an
+
+27
+00:01:10,790 --> 00:01:14,620
+MKMapView, a UIButton for
+finding the current user
+
+28
+00:01:14,620 --> 00:01:17,950
+location and adding annotations,
+and a UITextField
+
+29
+00:01:17,950 --> 00:01:20,660
+for typing in a zip code and
+getting annotations around
+
+30
+00:01:20,660 --> 00:01:22,370
+that zip code.
+
+31
+00:01:22,370 --> 00:01:25,980
+Inside of that MKMapView, we're
+adding MKAnnotationViews
+
+32
+00:01:25,980 --> 00:01:29,480
+for each one of the points that
+are visible on our map.
+
+33
+00:01:29,480 --> 00:01:31,950
+We can add a UITableView
+controller called
+
+34
+00:01:31,950 --> 00:01:33,810
+ListTableViewController.
+
+35
+00:01:33,810 --> 00:01:35,690
+And inside of that
+TableViewController, we'll
+
+36
+00:01:35,690 --> 00:01:37,990
+have a TableView with different
+cells showing
+
+37
+00:01:37,990 --> 00:01:39,050
+information.
+
+38
+00:01:39,050 --> 00:01:41,650
+We'll also want a UIButton
+so we can get back to the
+
+39
+00:01:41,650 --> 00:01:44,820
+MapViewController when we're
+done looking at the TableView.
+
+40
+00:01:44,820 --> 00:01:47,010
+We'll present the
+ListTableViewController
+
+41
+00:01:47,010 --> 00:01:50,250
+modally so we don't need to
+create a navigation controller
+
+42
+00:01:50,250 --> 00:01:53,630
+to have an interaction
+between the two.
+
+43
+00:01:53,630 --> 00:01:55,680
+We'll start with
+ListTableViewController which
+
+44
+00:01:55,680 --> 00:01:58,930
+needs to declare an NSArray
+property - I'm calling this one
+
+45
+00:01:58,930 --> 00:02:01,960
+map locations - that's going to
+store all the locations that
+
+46
+00:02:01,960 --> 00:02:05,130
+are passed over from
+MapViewController.
+
+47
+00:02:05,130 --> 00:02:07,860
+In addition, I'll go ahead and
+define my go back method that
+
+48
+00:02:07,860 --> 00:02:10,650
+will be called whatever the back
+button is tapped inside
+
+49
+00:02:10,650 --> 00:02:12,810
+of the TableView.
+
+50
+00:02:12,810 --> 00:02:16,720
+Then in the implementation file,
+I'll want to return the
+
+51
+00:02:16,720 --> 00:02:19,840
+count of self.map locations so
+that I get the correct number
+
+52
+00:02:19,840 --> 00:02:21,870
+of rows in the TableView.
+
+53
+00:02:21,870 --> 00:02:25,400
+Then in the TableView cell for
+row at index path method, I'll
+
+54
+00:02:25,400 --> 00:02:28,250
+want to set the textLabel.text
+property of the
+
+55
+00:02:28,250 --> 00:02:32,210
+cell equal to the name that's
+inside of the map locations NS
+
+56
+00:02:32,210 --> 00:02:33,460
+dictionary.
+
+57
+00:02:33,460 --> 00:02:38,920
+
+58
+00:02:38,920 --> 00:02:42,640
+In viewDidLoad, I'll create
+and add the back button, and
+
+59
+00:02:42,640 --> 00:02:44,970
+then in the go back method that
+gets called when the back
+
+60
+00:02:44,970 --> 00:02:47,820
+button is tapped, I'll just
+dismiss this view controller
+
+61
+00:02:47,820 --> 00:02:51,040
+since we're going to be
+presenting it modally.
+
+62
+00:02:51,040 --> 00:02:53,790
+In MapViewController, I've added
+some code that I'm not
+
+63
+00:02:53,790 --> 00:02:55,220
+showing here.
+
+64
+00:02:55,220 --> 00:02:57,730
+First, I've added a UIButton
+that's going to call this
+
+65
+00:02:57,730 --> 00:03:00,080
+method called ShowTableView.
+
+66
+00:03:00,080 --> 00:03:02,490
+I've declared the ShowTableView
+method in the
+
+67
+00:03:02,490 --> 00:03:04,450
+MapViewController header.
+
+68
+00:03:04,450 --> 00:03:08,150
+And then I've imported
+ListTableViewController.h into
+
+69
+00:03:08,150 --> 00:03:11,130
+MapViewController.m so that I
+can create a link between the
+
+70
+00:03:11,130 --> 00:03:12,610
+two classes.
+
+71
+00:03:12,610 --> 00:03:16,230
+In the ShowTableView method, I'm
+first creating an instance
+
+72
+00:03:16,230 --> 00:03:18,650
+of ListTableViewController.
+
+73
+00:03:18,650 --> 00:03:21,210
+And then I'm setting the map
+locations property of the
+
+74
+00:03:21,210 --> 00:03:24,570
+ListTableViewController equal
+to the current state of
+
+75
+00:03:24,570 --> 00:03:26,740
+self.map locations.
+
+76
+00:03:26,740 --> 00:03:28,830
+This is going to take whatever
+data is inside of our map
+
+77
+00:03:28,830 --> 00:03:32,420
+locations NSArray inside
+MapViewController and make
+
+78
+00:03:32,420 --> 00:03:33,610
+sure that it gets put into
+
+79
+00:03:33,610 --> 00:03:36,260
+ListTableViewController as well.
+
+80
+00:03:36,260 --> 00:03:38,740
+Then I'm setting a modal
+transition style of Flip
+
+81
+00:03:38,740 --> 00:03:40,920
+Horizontal just to add
+a different style
+
+82
+00:03:40,920 --> 00:03:43,340
+to the modal flip.
+
+83
+00:03:43,340 --> 00:03:44,750
+And then finally,
+I'll present the
+
+84
+00:03:44,750 --> 00:03:48,590
+ListTableViewController animated.
+
+85
+00:03:48,590 --> 00:03:52,300
+So now when we run our app,
+generate some locations, and
+
+86
+00:03:52,300 --> 00:03:55,910
+tap on the button that links
+to ListTableViewController,
+
+87
+00:03:55,910 --> 00:03:58,860
+you can see that we have a nice
+TableView of all of the
+
+88
+00:03:58,860 --> 00:04:01,510
+locations that are
+added to our map.
+
+89
+00:04:01,510 --> 00:04:05,510
+
+90
+00:04:05,510 --> 00:04:07,470
+Why don't you try a similar
+approach in the challenges?
+
+91
+00:04:07,470 --> 00:04:13,996

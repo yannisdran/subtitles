@@ -1,0 +1,979 @@
+1
+00:00:00,000 --> 00:00:00,040
+
+2
+00:00:00,040 --> 00:00:00,135
+[SINGING]
+
+3
+00:00:00,135 --> 00:00:03,230
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,230 --> 00:00:06,580
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,580 --> 00:00:09,720
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,720 --> 00:00:11,760
+The mapkit framework
+will help his--
+
+7
+00:00:11,760 --> 00:00:13,430
+World Domination.
+
+8
+00:00:13,430 --> 00:00:13,620
+[SINGING]
+
+9
+00:00:13,620 --> 00:00:16,900
+He'll land at the coordinates
+and load up his pack, the only
+
+10
+00:00:16,900 --> 00:00:20,600
+secret agent who can blow
+it off the map.
+
+11
+00:00:20,600 --> 00:00:21,850
+He's Mr. Higgie.
+
+12
+00:00:21,850 --> 00:00:27,630
+
+13
+00:00:27,630 --> 00:00:28,750
+Welcome back.
+
+14
+00:00:28,750 --> 00:00:31,290
+In this level, we'll be looking
+at how to add a map
+
+15
+00:00:31,290 --> 00:00:34,270
+inside your application so that
+you don't have to open up
+
+16
+00:00:34,270 --> 00:00:37,556
+the Apple Maps app every time
+you want to view map data.
+
+17
+00:00:37,556 --> 00:00:40,440
+The number one reason why you
+might want to add a map into
+
+18
+00:00:40,440 --> 00:00:43,950
+your own application is that
+once you redirect to the Apple
+
+19
+00:00:43,950 --> 00:00:47,400
+Maps application, there's no
+easy way to redirect back to
+
+20
+00:00:47,400 --> 00:00:49,360
+your own app.
+
+21
+00:00:49,360 --> 00:00:52,670
+The only way to do that is to
+close out the Apple Maps app
+
+22
+00:00:52,670 --> 00:00:54,810
+and then open up
+your app again.
+
+23
+00:00:54,810 --> 00:00:56,960
+And most users are going to find
+that really annoying and
+
+24
+00:00:56,960 --> 00:00:58,550
+inconvenient.
+
+25
+00:00:58,550 --> 00:01:00,590
+To get this in our own app,
+let's first add a view
+
+26
+00:01:00,590 --> 00:01:02,800
+controller called
+MapViewController.
+
+27
+00:01:02,800 --> 00:01:07,110
+And we'll add an object that's
+an MKMapView as a subview in
+
+28
+00:01:07,110 --> 00:01:08,910
+that view controller.
+
+29
+00:01:08,910 --> 00:01:10,980
+We've created a view controller
+to hold the map
+
+30
+00:01:10,980 --> 00:01:14,340
+inside of our app, called
+MapViewController.
+
+31
+00:01:14,340 --> 00:01:17,060
+And that MapViewController is
+going to have a subview that's
+
+32
+00:01:17,060 --> 00:01:19,190
+of type MKMapView.
+
+33
+00:01:19,190 --> 00:01:23,370
+MKMapView is the MapKit class
+that adds a map inside of an
+
+34
+00:01:23,370 --> 00:01:24,590
+application.
+
+35
+00:01:24,590 --> 00:01:27,510
+Just like before, we need to
+add the MapKit framework to
+
+36
+00:01:27,510 --> 00:01:30,360
+the MapViewController class
+in order to access
+
+37
+00:01:30,360 --> 00:01:32,880
+all the MapKit functions.
+
+38
+00:01:32,880 --> 00:01:34,870
+We also need to take an
+extra step, though.
+
+39
+00:01:34,870 --> 00:01:37,800
+We need to add a delegate
+protocol to this view
+
+40
+00:01:37,800 --> 00:01:40,880
+controller called
+MKMapViewDelegate.
+
+41
+00:01:40,880 --> 00:01:43,110
+This is a protocol that contains
+a bunch of useful
+
+42
+00:01:43,110 --> 00:01:45,760
+methods for working
+with map views.
+
+43
+00:01:45,760 --> 00:01:47,310
+And finally, we'll
+need to create a
+
+44
+00:01:47,310 --> 00:01:49,830
+property of type MKMapView.
+
+45
+00:01:49,830 --> 00:01:51,505
+And I'll call this
+one mapView.
+
+46
+00:01:51,505 --> 00:01:54,270
+
+47
+00:01:54,270 --> 00:01:57,620
+Next, in our MapViewController
+implementation file, we'll
+
+48
+00:01:57,620 --> 00:02:00,240
+want to create an MKMapView
+object using
+
+49
+00:02:00,240 --> 00:02:02,150
+the alloc init method.
+
+50
+00:02:02,150 --> 00:02:04,830
+Then we'll set the frame of
+that mapView to cover the
+
+51
+00:02:04,830 --> 00:02:06,230
+entire screen.
+
+52
+00:02:06,230 --> 00:02:09,210
+We'll remember to set the
+delegate of our mapView object
+
+53
+00:02:09,210 --> 00:02:12,670
+to self, because self is the
+class that contains our
+
+54
+00:02:12,670 --> 00:02:14,050
+delegate protocol.
+
+55
+00:02:14,050 --> 00:02:15,810
+And finally, we'll add
+our mapView as a
+
+56
+00:02:15,810 --> 00:02:17,740
+subview of the main view.
+
+57
+00:02:17,740 --> 00:02:20,360
+
+58
+00:02:20,360 --> 00:02:24,280
+The result of running that code
+as is looks like this.
+
+59
+00:02:24,280 --> 00:02:27,360
+This is really just a map view
+that encompasses most of the
+
+60
+00:02:27,360 --> 00:02:29,130
+United States.
+
+61
+00:02:29,130 --> 00:02:31,480
+What if we want to zoom in,
+though, and not show the
+
+62
+00:02:31,480 --> 00:02:35,010
+entire United States at once
+and just show one state?
+
+63
+00:02:35,010 --> 00:02:37,450
+Well, MapKit does not
+actually contain
+
+64
+00:02:37,450 --> 00:02:38,920
+any methods for zooming.
+
+65
+00:02:38,920 --> 00:02:41,910
+If you've worked with another
+map API, like Google Maps,
+
+66
+00:02:41,910 --> 00:02:45,610
+you're probably used to having
+a method that zooms directly.
+
+67
+00:02:45,610 --> 00:02:48,090
+MapKit does not provide that.
+
+68
+00:02:48,090 --> 00:02:49,810
+So we have two options.
+
+69
+00:02:49,810 --> 00:02:52,700
+The first one is to create
+a map region using the
+
+70
+00:02:52,700 --> 00:02:55,150
+MKCoordinateRegion class.
+
+71
+00:02:55,150 --> 00:02:58,070
+And to do that, we'll need the
+center latitude and longitude
+
+72
+00:02:58,070 --> 00:03:01,280
+point of where we want
+our map to display.
+
+73
+00:03:01,280 --> 00:03:03,910
+And we need a width and a height
+of the area that we
+
+74
+00:03:03,910 --> 00:03:06,540
+want to display on the screen.
+
+75
+00:03:06,540 --> 00:03:10,070
+The other option is to use
+something called an MKMapRect.
+
+76
+00:03:10,070 --> 00:03:12,840
+And with that option, we're
+actually creating a rectangle
+
+77
+00:03:12,840 --> 00:03:16,480
+with top left, top right, bottom
+left, and bottom right
+
+78
+00:03:16,480 --> 00:03:18,630
+points, and displaying
+a map that fits
+
+79
+00:03:18,630 --> 00:03:20,300
+inside of that rectangle.
+
+80
+00:03:20,300 --> 00:03:22,450
+Everything that we're going to
+need to do in this course,
+
+81
+00:03:22,450 --> 00:03:24,740
+we're going to be able to
+accomplish with regions.
+
+82
+00:03:24,740 --> 00:03:28,100
+So that's what we're going
+to be teaching you.
+
+83
+00:03:28,100 --> 00:03:31,680
+To set the display area with an
+MKCoordinateRegion, we need
+
+84
+00:03:31,680 --> 00:03:34,360
+a center latitude and
+longitude point.
+
+85
+00:03:34,360 --> 00:03:36,390
+And then we also need
+some dimensions.
+
+86
+00:03:36,390 --> 00:03:38,840
+We need to know the width of
+the region we're trying to
+
+87
+00:03:38,840 --> 00:03:40,860
+display and the height
+of the region that
+
+88
+00:03:40,860 --> 00:03:42,850
+we're trying to display.
+
+89
+00:03:42,850 --> 00:03:44,780
+Now when we're creating a
+region, the dimensions are
+
+90
+00:03:44,780 --> 00:03:48,680
+what's called best fit, which
+means that we might pass in a
+
+91
+00:03:48,680 --> 00:03:51,440
+region that doesn't perfectly
+fit in the dimensions of our
+
+92
+00:03:51,440 --> 00:03:52,760
+iPhone screen.
+
+93
+00:03:52,760 --> 00:03:55,190
+And MapKit is automatically
+going to try to scale that
+
+94
+00:03:55,190 --> 00:03:57,800
+region so that it fits
+the best that it can
+
+95
+00:03:57,800 --> 00:04:00,520
+inside of the view.
+
+96
+00:04:00,520 --> 00:04:03,180
+The code for setting a region
+starts out by creating a
+
+97
+00:04:03,180 --> 00:04:06,220
+CLLocationCoordinate2D
+that's the center
+
+98
+00:04:06,220 --> 00:04:07,730
+coordinate of the map.
+
+99
+00:04:07,730 --> 00:04:10,680
+Next we'll create variables
+for the region width and
+
+100
+00:04:10,680 --> 00:04:12,230
+region height.
+
+101
+00:04:12,230 --> 00:04:15,120
+And if we use the
+CLLocationDistance class, we
+
+102
+00:04:15,120 --> 00:04:16,860
+can actually just set those two
+
+103
+00:04:16,860 --> 00:04:19,279
+numbers that are in meters.
+
+104
+00:04:19,279 --> 00:04:23,340
+Once we've got a center region
+width and region height, we
+
+105
+00:04:23,340 --> 00:04:25,545
+can pass all of those values
+into the MKCoordinateRegi
+
+106
+00:04:25,545 --> 00:04:28,680
+onMakeWithDistance function.
+
+107
+00:04:28,680 --> 00:04:31,320
+That function is going to return
+an MK Coordinate Region
+
+108
+00:04:31,320 --> 00:04:34,730
+that we can then send into the
+map view using the setRegion
+
+109
+00:04:34,730 --> 00:04:36,990
+animated message.
+
+110
+00:04:36,990 --> 00:04:39,630
+Since you can call setRegion
+more than one time in a view
+
+111
+00:04:39,630 --> 00:04:43,980
+controller, setting the animated
+to yes means that the
+
+112
+00:04:43,980 --> 00:04:47,180
+region will animate its
+transition as opposed to just
+
+113
+00:04:47,180 --> 00:04:51,680
+replacing the old region
+with the new one.
+
+114
+00:04:51,680 --> 00:04:54,930
+Here's the result of calling
+the setRegion method.
+
+115
+00:04:54,930 --> 00:04:58,260
+Now, wouldn't it be nice to
+know where on this map the
+
+116
+00:04:58,260 --> 00:05:00,840
+phone that's running
+the app is?
+
+117
+00:05:00,840 --> 00:05:01,650
+You've seen it before.
+
+118
+00:05:01,650 --> 00:05:04,970
+There's a little blue dot that
+pulses on the screen, has a
+
+119
+00:05:04,970 --> 00:05:06,540
+little animated pulse.
+
+120
+00:05:06,540 --> 00:05:09,320
+How do we get that
+into our app?
+
+121
+00:05:09,320 --> 00:05:10,460
+Well, it's really easy.
+
+122
+00:05:10,460 --> 00:05:14,080
+All we need to do is set the
+showsUserLocation property of
+
+123
+00:05:14,080 --> 00:05:16,980
+the mapView object to yes.
+
+124
+00:05:16,980 --> 00:05:19,900
+And when we do that and re-run
+our app, we'll get that will
+
+125
+00:05:19,900 --> 00:05:22,450
+pop-up the first time that asks
+us if we want to share
+
+126
+00:05:22,450 --> 00:05:24,230
+our location with the app.
+
+127
+00:05:24,230 --> 00:05:27,320
+And if we say yes, then the blue
+dot will appear at our
+
+128
+00:05:27,320 --> 00:05:28,640
+current location.
+
+129
+00:05:28,640 --> 00:05:31,750
+I also want to note that the
+location tracking will stay on
+
+130
+00:05:31,750 --> 00:05:34,060
+until you set the
+showsUserLocation property
+
+131
+00:05:34,060 --> 00:05:35,480
+back to no.
+
+132
+00:05:35,480 --> 00:05:37,350
+This could be important in your
+app if you're worried
+
+133
+00:05:37,350 --> 00:05:40,065
+about battery performance,
+because the longer that you
+
+134
+00:05:40,065 --> 00:05:42,340
+leave location tracking
+on, the quicker the
+
+135
+00:05:42,340 --> 00:05:45,510
+battery will drain.
+
+136
+00:05:45,510 --> 00:05:48,280
+The iOS Simulator can actually
+simulate the location of the
+
+137
+00:05:48,280 --> 00:05:50,660
+device when you're running
+it on your Mac.
+
+138
+00:05:50,660 --> 00:05:53,470
+And you can do this by going
+into the Debug, Location,
+
+139
+00:05:53,470 --> 00:05:56,790
+Custom Location menu option
+and setting a latitude and
+
+140
+00:05:56,790 --> 00:05:59,090
+longitude for where that little
+blue dot will always
+
+141
+00:05:59,090 --> 00:06:00,450
+appear when you open the app.
+
+142
+00:06:00,450 --> 00:06:02,280
+This is not something you're
+going to have to do in our
+
+143
+00:06:02,280 --> 00:06:03,230
+challenges.
+
+144
+00:06:03,230 --> 00:06:05,500
+But if you're using Xcode at
+home, this is an important
+
+145
+00:06:05,500 --> 00:06:08,900
+feature that you'll
+want to look into.
+
+146
+00:06:08,900 --> 00:06:11,330
+Now that we've got the user
+location on the map, what if
+
+147
+00:06:11,330 --> 00:06:14,040
+we wanted to recenter our region
+so that it's centered
+
+148
+00:06:14,040 --> 00:06:16,130
+on the blue dot?
+
+149
+00:06:16,130 --> 00:06:18,800
+Well, you might try to do
+something like this, where
+
+150
+00:06:18,800 --> 00:06:21,515
+after you set the
+showsUserLocation property to
+
+151
+00:06:21,515 --> 00:06:25,590
+yes, you pass the
+setCenterCoordinate animated
+
+152
+00:06:25,590 --> 00:06:27,930
+message to the mapView.
+
+153
+00:06:27,930 --> 00:06:30,180
+And for that center coordinate,
+you pass in
+
+154
+00:06:30,180 --> 00:06:31,430
+self.mapView.use
+rLocation.location.coordinate.
+
+155
+00:06:31,430 --> 00:06:34,440
+
+156
+00:06:34,440 --> 00:06:36,820
+This is going to be the
+coordinate that represents the
+
+157
+00:06:36,820 --> 00:06:39,320
+location of the blue
+dot on the map.
+
+158
+00:06:39,320 --> 00:06:42,070
+Well, if you ran this code, this
+actually wouldn't work,
+
+159
+00:06:42,070 --> 00:06:44,750
+because the location is not
+found immediately when you
+
+160
+00:06:44,750 --> 00:06:46,660
+turn showsUserLocation on.
+
+161
+00:06:46,660 --> 00:06:49,240
+Sometimes there's a little delay
+from when you set it to
+
+162
+00:06:49,240 --> 00:06:52,260
+yes to where it actually
+finds your location.
+
+163
+00:06:52,260 --> 00:06:54,880
+So the next thing you might try
+would be to use one of the
+
+164
+00:06:54,880 --> 00:06:58,470
+many delegate methods in the
+MKMapView delegate protocol.
+
+165
+00:06:58,470 --> 00:06:59,730
+There's a delegate
+method called
+
+166
+00:06:59,730 --> 00:07:03,970
+mapView.didUpdateUserLocation
+that runs every time a new
+
+167
+00:07:03,970 --> 00:07:06,560
+location is tracked
+for the device.
+
+168
+00:07:06,560 --> 00:07:08,760
+This is actually going to
+cause another problem.
+
+169
+00:07:08,760 --> 00:07:12,010
+If we open our app and then try
+to swipe away from that
+
+170
+00:07:12,010 --> 00:07:15,150
+blue dot, every time we swipe
+it's going to be recentered on
+
+171
+00:07:15,150 --> 00:07:16,900
+the blue dot immediately.
+
+172
+00:07:16,900 --> 00:07:20,280
+This is because this method
+runs every time a location
+
+173
+00:07:20,280 --> 00:07:22,860
+update is received, which
+can be quite often.
+
+174
+00:07:22,860 --> 00:07:26,180
+So we'll need another
+approach.
+
+175
+00:07:26,180 --> 00:07:29,250
+One way to fix this is to add
+a Boolean property to the
+
+176
+00:07:29,250 --> 00:07:31,380
+MapViewController called
+userLocationUpdated.
+
+177
+00:07:31,380 --> 00:07:34,680
+
+178
+00:07:34,680 --> 00:07:37,280
+Back in our delegate method,
+we can check if the user
+
+179
+00:07:37,280 --> 00:07:39,660
+location has not been
+updated yet.
+
+180
+00:07:39,660 --> 00:07:41,700
+And if it hasn't been updated,
+that means that this is the
+
+181
+00:07:41,700 --> 00:07:44,870
+first time that this method
+has been run.
+
+182
+00:07:44,870 --> 00:07:47,270
+The first time it's run, we can
+set the center coordinate
+
+183
+00:07:47,270 --> 00:07:48,950
+on our user location.
+
+184
+00:07:48,950 --> 00:07:52,180
+And then we can flip that
+Boolean property to yes, which
+
+185
+00:07:52,180 --> 00:07:55,910
+means that this method will not
+get called the second time
+
+186
+00:07:55,910 --> 00:07:58,120
+that the location
+gets updated.
+
+187
+00:07:58,120 --> 00:08:01,170
+And as you can see now when we
+swipe, the center is not
+
+188
+00:08:01,170 --> 00:08:03,870
+constantly recentered
+on that blue dot.
+
+189
+00:08:03,870 --> 00:08:08,460
+
+190
+00:08:08,460 --> 00:08:10,140
+There's a few other map
+view properties
+
+191
+00:08:10,140 --> 00:08:11,380
+that might be useful.
+
+192
+00:08:11,380 --> 00:08:14,530
+One of them is called MapType,
+that allows you to set the map
+
+193
+00:08:14,530 --> 00:08:17,280
+type to either
+MkMapTypeStandard,
+
+194
+00:08:17,280 --> 00:08:21,880
+MkMapTypeSatellite, or
+MkMapTypeHybrid to determine
+
+195
+00:08:21,880 --> 00:08:26,280
+which type of map displays
+in your app.
+
+196
+00:08:26,280 --> 00:08:28,960
+There's also properties for
+turning the zoom and scroll
+
+197
+00:08:28,960 --> 00:08:30,620
+capabilities on and off.
+
+198
+00:08:30,620 --> 00:08:32,700
+And if you set these to no,
+then you won't be able to
+
+199
+00:08:32,700 --> 00:08:35,740
+pinch to zoom to change the
+region display on the map.
+
+200
+00:08:35,740 --> 00:08:37,720
+And you won't be able to scroll
+between different
+
+201
+00:08:37,720 --> 00:08:39,960
+locations on the map
+with your finger.
+
+202
+00:08:39,960 --> 00:08:42,220
+This might be useful if you
+want to show the user a
+
+203
+00:08:42,220 --> 00:08:45,370
+location on the map but you're
+not intending for them to be
+
+204
+00:08:45,370 --> 00:08:49,970
+able to find other locations
+by flicking and zooming.
+
+205
+00:08:49,970 --> 00:08:51,930
+Remember that you can always
+still do all of this
+
+206
+00:08:51,930 --> 00:08:54,860
+programmatically, setting
+zoomEnabled and scrollEnabled
+
+207
+00:08:54,860 --> 00:08:59,560
+to no does not mean that you
+can't still call setRegion
+
+208
+00:08:59,560 --> 00:09:01,870
+And it's time again for you to
+try some map view challenges.
+
+209
+00:09:01,870 --> 00:09:08,672

@@ -1,0 +1,1031 @@
+1
+00:00:00,000 --> 00:00:00,040
+
+2
+00:00:00,040 --> 00:00:00,130
+[SINGING]
+
+3
+00:00:00,130 --> 00:00:03,230
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,230 --> 00:00:06,580
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,580 --> 00:00:09,850
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,850 --> 00:00:13,440
+The MapKit framework will help
+his world domination.
+
+7
+00:00:13,440 --> 00:00:16,400
+He'll land at the coordinates
+and load up his pack.
+
+8
+00:00:16,400 --> 00:00:20,630
+The only secret agent who
+can blow it off the map.
+
+9
+00:00:20,630 --> 00:00:21,880
+He's Mr. Higgie.
+
+10
+00:00:21,880 --> 00:00:28,120
+
+11
+00:00:28,120 --> 00:00:30,750
+I'm Jon Friskics and
+this is iOS Maps.
+
+12
+00:00:30,750 --> 00:00:33,550
+We've got a problem, Mr. Higgie
+has gone missing, but
+
+13
+00:00:33,550 --> 00:00:35,650
+with the tools and tricks that
+we're going to learn in this
+
+14
+00:00:35,650 --> 00:00:38,230
+course, we're going to be able
+to find his location using the
+
+15
+00:00:38,230 --> 00:00:39,980
+MapKit framework.
+
+16
+00:00:39,980 --> 00:00:42,450
+In this course, we're going to
+be learning how to link to the
+
+17
+00:00:42,450 --> 00:00:44,290
+Apple Maps application.
+
+18
+00:00:44,290 --> 00:00:47,440
+We're going to be learning how
+to put a map in our own app,
+
+19
+00:00:47,440 --> 00:00:50,510
+and then we're going to learn
+how to track the user location
+
+20
+00:00:50,510 --> 00:00:54,170
+of our device, how to add points
+on that map, how to
+
+21
+00:00:54,170 --> 00:00:57,240
+bring in an existing set of
+points from the web, and even
+
+22
+00:00:57,240 --> 00:00:59,790
+calculate the distance between
+points on the map so we can
+
+23
+00:00:59,790 --> 00:01:01,580
+find out which points
+are closest to our
+
+24
+00:01:01,580 --> 00:01:03,440
+device at the time.
+
+25
+00:01:03,440 --> 00:01:06,540
+To do this, first we'll need to
+set up the MapKit framework
+
+26
+00:01:06,540 --> 00:01:08,860
+and we'll load some points
+into the Apple Maps
+
+27
+00:01:08,860 --> 00:01:12,470
+application which is installed
+on every iPhone.
+
+28
+00:01:12,470 --> 00:01:15,010
+When we first create a new
+project in Xcode, our screen
+
+29
+00:01:15,010 --> 00:01:16,940
+is going to look something
+like this.
+
+30
+00:01:16,940 --> 00:01:19,930
+To add the MapKit framework to
+this project, first we're
+
+31
+00:01:19,930 --> 00:01:22,640
+going to need to look in the
+file browser on the left side
+
+32
+00:01:22,640 --> 00:01:26,850
+of the project window, find our
+application target, and
+
+33
+00:01:26,850 --> 00:01:29,420
+then we'll need to scroll down
+and find the Linked Frameworks
+
+34
+00:01:29,420 --> 00:01:31,790
+and Libraries section
+in the middle part
+
+35
+00:01:31,790 --> 00:01:33,650
+of the project window.
+
+36
+00:01:33,650 --> 00:01:36,520
+There's a little plus icon at
+the bottom left of that window
+
+37
+00:01:36,520 --> 00:01:37,660
+that we need to tap.
+
+38
+00:01:37,660 --> 00:01:40,280
+And that's going to bring up a
+dialog that asks us to choose
+
+39
+00:01:40,280 --> 00:01:42,610
+frameworks and libraries
+to add.
+
+40
+00:01:42,610 --> 00:01:45,510
+If we search for the MapKit
+framework, and double click it
+
+41
+00:01:45,510 --> 00:01:48,590
+to add it, when we're done,
+our window should look
+
+42
+00:01:48,590 --> 00:01:51,420
+something like this.
+
+43
+00:01:51,420 --> 00:01:53,730
+Whenever you add the MapKit
+framework, it's a good idea to
+
+44
+00:01:53,730 --> 00:01:56,600
+also add the core location
+framework so you can repeat
+
+45
+00:01:56,600 --> 00:01:59,040
+the steps I just showed you to
+add that framework as well.
+
+46
+00:01:59,040 --> 00:02:01,540
+
+47
+00:02:01,540 --> 00:02:05,240
+So to start out, we have
+information about a place,
+
+48
+00:02:05,240 --> 00:02:08,150
+Envy Labs at this coordinate.
+
+49
+00:02:08,150 --> 00:02:11,400
+We want to leave our app and
+show this place in the Apple
+
+50
+00:02:11,400 --> 00:02:13,190
+Maps application.
+
+51
+00:02:13,190 --> 00:02:16,780
+So let's talk about what format
+that coordinate is in.
+
+52
+00:02:16,780 --> 00:02:19,980
+The format of our coordinate
+is latitude and longitude.
+
+53
+00:02:19,980 --> 00:02:22,570
+In case you're not familiar,
+latitude and longitude is a
+
+54
+00:02:22,570 --> 00:02:26,380
+way to find any place
+on planet Earth.
+
+55
+00:02:26,380 --> 00:02:29,880
+The latitude lines on a map
+run east and west and the
+
+56
+00:02:29,880 --> 00:02:32,780
+longitude lines run
+north and south.
+
+57
+00:02:32,780 --> 00:02:35,660
+And the combination of a
+latitude and longitude value
+
+58
+00:02:35,660 --> 00:02:39,000
+is enough to locate any
+place on earth.
+
+59
+00:02:39,000 --> 00:02:41,840
+While Earth is a 3D sphere,
+whenever we're looking at a
+
+60
+00:02:41,840 --> 00:02:45,330
+map of places on Earth on our
+phone, it's going to be a 2D
+
+61
+00:02:45,330 --> 00:02:46,440
+projection.
+
+62
+00:02:46,440 --> 00:02:48,630
+And there's a couple different
+types of projections that you
+
+63
+00:02:48,630 --> 00:02:52,250
+can use that distort the map
+in different ways and show
+
+64
+00:02:52,250 --> 00:02:55,200
+different parts of the map
+in tiny different ways.
+
+65
+00:02:55,200 --> 00:02:57,930
+One of those projections
+is equirectangular.
+
+66
+00:02:57,930 --> 00:03:00,980
+The very center of this map is
+at the latitude and longitude
+
+67
+00:03:00,980 --> 00:03:02,920
+zero, zero.
+
+68
+00:03:02,920 --> 00:03:08,200
+And latitude values range from
+positive 90 to minus 90, while
+
+69
+00:03:08,200 --> 00:03:10,100
+the longitude values
+range from minus
+
+70
+00:03:10,100 --> 00:03:12,660
+180 to positive 180.
+
+71
+00:03:12,660 --> 00:03:15,240
+The combination of any two
+latitude and longitude numbers
+
+72
+00:03:15,240 --> 00:03:18,970
+within that range is going to
+locate any point on a map.
+
+73
+00:03:18,970 --> 00:03:21,440
+The problem with an
+equirectangular projection is
+
+74
+00:03:21,440 --> 00:03:24,700
+that some of the top and bottom
+locations on the map
+
+75
+00:03:24,700 --> 00:03:26,800
+actually get distorted
+a little bit.
+
+76
+00:03:26,800 --> 00:03:29,700
+So Apple Maps uses a different
+projection called the Mercator
+
+77
+00:03:29,700 --> 00:03:30,820
+Projection.
+
+78
+00:03:30,820 --> 00:03:33,320
+The important thing to know
+about the Mercator Projection
+
+79
+00:03:33,320 --> 00:03:37,200
+is that it doesn't actually go
+all the way to positive 90 and
+
+80
+00:03:37,200 --> 00:03:41,190
+negative 90, it stops around
+positive 85 and negative 85.
+
+81
+00:03:41,190 --> 00:03:44,190
+This is going to be OK because
+the only locations that are
+
+82
+00:03:44,190 --> 00:03:47,260
+above and below those numbers
+are in some of the far regions
+
+83
+00:03:47,260 --> 00:03:49,040
+of the North Pole and
+the South Pole.
+
+84
+00:03:49,040 --> 00:03:51,440
+So most of the locations that
+we're going to be trying to
+
+85
+00:03:51,440 --> 00:03:54,370
+find on planet Earth are going
+to fit inside of this Mercator
+
+86
+00:03:54,370 --> 00:03:56,020
+Projection just fine.
+
+87
+00:03:56,020 --> 00:03:58,320
+So that coordinate we showed
+you a second ago was at
+
+88
+00:03:58,320 --> 00:04:05,070
+28.5407 latitude and negative
+81.3786 longitude and that's
+
+89
+00:04:05,070 --> 00:04:07,660
+actually the location of the
+Envy Labs office if you were
+
+90
+00:04:07,660 --> 00:04:09,700
+to plot it in a map.
+
+91
+00:04:09,700 --> 00:04:13,400
+And that's here in
+Orlando, Florida.
+
+92
+00:04:13,400 --> 00:04:15,740
+Now that we understand what
+these points mean, let's work
+
+93
+00:04:15,740 --> 00:04:19,130
+on getting some code inside of
+our app that is going to open
+
+94
+00:04:19,130 --> 00:04:21,930
+this coordinate in the Apple
+Maps application.
+
+95
+00:04:21,930 --> 00:04:23,420
+We've created a view
+controller called
+
+96
+00:04:23,420 --> 00:04:25,370
+MapLoadViewController.
+
+97
+00:04:25,370 --> 00:04:27,610
+And in the header of that
+ViewController, we'll import
+
+98
+00:04:27,610 --> 00:04:30,990
+the MapKit framework so that we
+can use the map code inside
+
+99
+00:04:30,990 --> 00:04:33,030
+of this ViewController.
+
+100
+00:04:33,030 --> 00:04:36,290
+We'll also create an array
+called map locations that's
+
+101
+00:04:36,290 --> 00:04:39,010
+going to store any locations
+that we want to
+
+102
+00:04:39,010 --> 00:04:41,330
+display on the map.
+
+103
+00:04:41,330 --> 00:04:43,850
+And then we'll also create a
+method called open in Apple
+
+104
+00:04:43,850 --> 00:04:45,950
+Maps that we're going to
+link up to a button.
+
+105
+00:04:45,950 --> 00:04:48,630
+And when that button is tapped,
+then we're going to be
+
+106
+00:04:48,630 --> 00:04:52,200
+directed to the Apple
+Maps application.
+
+107
+00:04:52,200 --> 00:04:56,030
+Over in the implementation file
+of MapLoadViewController,
+
+108
+00:04:56,030 --> 00:04:58,480
+we're going to create the
+map locations array.
+
+109
+00:04:58,480 --> 00:05:01,510
+This array right now contains
+an NS dictionary that has
+
+110
+00:05:01,510 --> 00:05:05,820
+three keys, name,
+lat, and long.
+
+111
+00:05:05,820 --> 00:05:10,920
+The value of name is going to be
+an NSString, Envy Labs, and
+
+112
+00:05:10,920 --> 00:05:15,060
+the value of lat and long are
+going to be NS numbers.
+
+113
+00:05:15,060 --> 00:05:17,730
+It's a good idea to start out
+with an array, if you think
+
+114
+00:05:17,730 --> 00:05:19,940
+you're only going to have one
+point because it's really easy
+
+115
+00:05:19,940 --> 00:05:21,840
+to add extra points
+later on once you
+
+116
+00:05:21,840 --> 00:05:24,790
+already have that array.
+
+117
+00:05:24,790 --> 00:05:27,730
+Next, we'll add a UIButton to
+the ViewController that when
+
+118
+00:05:27,730 --> 00:05:30,730
+tapped, calls the open
+in Apple Maps method.
+
+119
+00:05:30,730 --> 00:05:32,960
+This code should look familiar
+because we've taught this in
+
+120
+00:05:32,960 --> 00:05:35,710
+previous iOS courses here
+at Code School.
+
+121
+00:05:35,710 --> 00:05:38,320
+Before we write all the code
+for our open in Apple Maps
+
+122
+00:05:38,320 --> 00:05:41,140
+method, we're going to need to
+talk about what kind of data
+
+123
+00:05:41,140 --> 00:05:44,870
+Apple Maps is expecting to
+receive when this method runs.
+
+124
+00:05:44,870 --> 00:05:47,400
+So Apple Maps is expecting
+an object
+
+125
+00:05:47,400 --> 00:05:49,880
+that's of type MKMapItem.
+
+126
+00:05:49,880 --> 00:05:52,990
+And MKMapItem is a container
+that holds a couple different
+
+127
+00:05:52,990 --> 00:05:54,070
+properties inside of it.
+
+128
+00:05:54,070 --> 00:05:57,270
+So let's examine what those
+properties are.
+
+129
+00:05:57,270 --> 00:06:00,040
+The first property is called
+placemark and it's of type
+
+130
+00:06:00,040 --> 00:06:02,230
+MKPlacemark.
+
+131
+00:06:02,230 --> 00:06:04,780
+Now that has a lot of properties
+of its own.
+
+132
+00:06:04,780 --> 00:06:06,690
+But the one we're most concerned
+with is this
+
+133
+00:06:06,690 --> 00:06:09,445
+property called location that
+is of type CLLocation.
+
+134
+00:06:09,445 --> 00:06:12,090
+
+135
+00:06:12,090 --> 00:06:15,980
+CLLocation, like before, has
+some properties of its own.
+
+136
+00:06:15,980 --> 00:06:18,140
+But the one we're concerned
+with is a property called
+
+137
+00:06:18,140 --> 00:06:23,780
+coordinate that's of type CL
+location coordinate 2D.
+
+138
+00:06:23,780 --> 00:06:25,440
+Now notice how there's
+no star next to
+
+139
+00:06:25,440 --> 00:06:27,970
+CLLocation coordinate 2D.
+
+140
+00:06:27,970 --> 00:06:29,990
+That's because it's not
+actually an object.
+
+141
+00:06:29,990 --> 00:06:31,770
+It's a C struct.
+
+142
+00:06:31,770 --> 00:06:34,910
+Since Objective C is built on
+a C language, sometimes you
+
+143
+00:06:34,910 --> 00:06:39,300
+mix and match Objective C
+objects and regular C data
+
+144
+00:06:39,300 --> 00:06:40,920
+types like structs.
+
+145
+00:06:40,920 --> 00:06:44,270
+So our CLLocation coordinate
+2D is not an object.
+
+146
+00:06:44,270 --> 00:06:45,460
+It's actually just a struct.
+
+147
+00:06:45,460 --> 00:06:47,490
+And we'll look at how to access
+that in a second.
+
+148
+00:06:47,490 --> 00:06:51,290
+Finally, this struct contains
+two values of its own, one
+
+149
+00:06:51,290 --> 00:06:53,950
+called latitude and one called
+longitude that are both of
+
+150
+00:06:53,950 --> 00:06:57,170
+type double, which is just
+a floating point number.
+
+151
+00:06:57,170 --> 00:06:59,310
+This feels like a lot
+of different pieces.
+
+152
+00:06:59,310 --> 00:07:03,510
+So let's take each one of those
+pieces one at a time.
+
+153
+00:07:03,510 --> 00:07:05,750
+So first, we're going to want
+to create those double
+
+154
+00:07:05,750 --> 00:07:08,510
+versions of latitude
+and longitude.
+
+155
+00:07:08,510 --> 00:07:11,320
+And we can do that by accessing
+our map locations
+
+156
+00:07:11,320 --> 00:07:16,030
+array at position zero using
+the lat and long keys, and
+
+157
+00:07:16,030 --> 00:07:19,460
+then turning those NS numbers
+into double numbers by passing
+
+158
+00:07:19,460 --> 00:07:22,750
+them the double value message.
+
+159
+00:07:22,750 --> 00:07:26,170
+Next, we'll take those two lat
+and long double variables that
+
+160
+00:07:26,170 --> 00:07:30,870
+we just created and create a
+CLLocation coordinate 2D using
+
+161
+00:07:30,870 --> 00:07:34,480
+the CLLocation coordinate
+2D make function.
+
+162
+00:07:34,480 --> 00:07:38,020
+This function takes a latitude
+and longitude number and wraps
+
+163
+00:07:38,020 --> 00:07:42,230
+them up into a CLLocation
+coordinate 2D struct.
+
+164
+00:07:42,230 --> 00:07:45,440
+Then, we'll create our
+MKPlacemark object using the
+
+165
+00:07:45,440 --> 00:07:48,350
+standard alloc init pattern,
+although this time, we'll
+
+166
+00:07:48,350 --> 00:07:50,930
+actually use a convenience
+initializer called init with
+
+167
+00:07:50,930 --> 00:07:53,975
+coordinate address dictionary
+so that we can pass our
+
+168
+00:07:53,975 --> 00:07:58,680
+CLLocation coordinate 2D struct
+into the MKPlacemark
+
+169
+00:07:58,680 --> 00:08:01,360
+initializer all in one step.
+
+170
+00:08:01,360 --> 00:08:04,100
+And now that we have a placemark
+object, were finally
+
+171
+00:08:04,100 --> 00:08:07,900
+ready to create an MKMap item
+and we can do that using the
+
+172
+00:08:07,900 --> 00:08:11,390
+alloc init with placemark
+convenience initializer,
+
+173
+00:08:11,390 --> 00:08:15,560
+passing in our new MKPlacemark
+object to create the map item.
+
+174
+00:08:15,560 --> 00:08:18,180
+
+175
+00:08:18,180 --> 00:08:20,390
+We can set a few more properties
+on this map item
+
+176
+00:08:20,390 --> 00:08:23,040
+before we send it over
+to Apple Maps.
+
+177
+00:08:23,040 --> 00:08:25,380
+One of those is the name
+property, which is going to
+
+178
+00:08:25,380 --> 00:08:28,660
+show up in the call out bubble
+that appears whenever we tap
+
+179
+00:08:28,660 --> 00:08:30,930
+our pin in Apple Maps.
+
+180
+00:08:30,930 --> 00:08:34,289
+In addition to name, you can
+also set phone number or set
+
+181
+00:08:34,289 --> 00:08:37,469
+URL to pass some additional
+data over to Apple maps.
+
+182
+00:08:37,469 --> 00:08:39,980
+
+183
+00:08:39,980 --> 00:08:42,230
+And the moment you've all been
+waiting for, we're finally
+
+184
+00:08:42,230 --> 00:08:45,230
+going to open this map item in
+Apple Maps by passing at the
+
+185
+00:08:45,230 --> 00:08:47,830
+open in maps with launch
+options message.
+
+186
+00:08:47,830 --> 00:08:50,730
+As you can see here, we're not
+passing in any launch options.
+
+187
+00:08:50,730 --> 00:08:54,640
+Were just opening our map item
+in the Apple Maps application.
+
+188
+00:08:54,640 --> 00:08:56,490
+So you can see that we
+tap the button in
+
+189
+00:08:56,490 --> 00:09:00,220
+MapLoadViewController and the
+app switches over to Apple
+
+190
+00:09:00,220 --> 00:09:03,590
+Maps and shows our MKMap
+item on the map.
+
+191
+00:09:03,590 --> 00:09:06,990
+
+192
+00:09:06,990 --> 00:09:09,080
+There are some useful launch
+options that you might want to
+
+193
+00:09:09,080 --> 00:09:11,990
+pass in when you're opening
+Apple Maps and they come in
+
+194
+00:09:11,990 --> 00:09:14,420
+the form of an NS dictionary.
+
+195
+00:09:14,420 --> 00:09:18,570
+You've got MK launch options map
+type key, which allows you
+
+196
+00:09:18,570 --> 00:09:22,450
+to pass in one of three
+different map types, standard,
+
+197
+00:09:22,450 --> 00:09:23,570
+satellite, or hybrid.
+
+198
+00:09:23,570 --> 00:09:26,960
+And you actually pass those in
+as an NSNumber, either zero,
+
+199
+00:09:26,960 --> 00:09:28,550
+one, or two.
+
+200
+00:09:28,550 --> 00:09:32,220
+You can pass in the MAP Center
+or the Map Span which is going
+
+201
+00:09:32,220 --> 00:09:35,950
+to determine how much of
+the map area is shown.
+
+202
+00:09:35,950 --> 00:09:39,420
+You can pass in a Boolean that
+will show traffic or turn
+
+203
+00:09:39,420 --> 00:09:41,630
+traffic detection off.
+
+204
+00:09:41,630 --> 00:09:43,930
+And you can even launch
+directly into driving
+
+205
+00:09:43,930 --> 00:09:47,140
+directions from your current
+location by passing in the MK
+
+206
+00:09:47,140 --> 00:09:50,860
+launch options directions mode
+driving value or MK launch
+
+207
+00:09:50,860 --> 00:09:53,020
+options directions mode
+walking to get walking
+
+208
+00:09:53,020 --> 00:09:54,270
+directions.
+
+209
+00:09:54,270 --> 00:09:55,870
+
+210
+00:09:55,870 --> 00:09:57,770
+And here you can see the result
+of passing in some
+
+211
+00:09:57,770 --> 00:09:58,750
+launch options.
+
+212
+00:09:58,750 --> 00:10:01,910
+We're opening the map with a
+hybrid map display centered on
+
+213
+00:10:01,910 --> 00:10:03,980
+our placemark, and
+we're turning the
+
+214
+00:10:03,980 --> 00:10:05,230
+traffic detection on.
+
+215
+00:10:05,230 --> 00:10:08,380
+
+216
+00:10:08,380 --> 00:10:11,170
+So now it's your turn to work
+with MK map items in the
+
+217
+00:10:11,170 --> 00:10:12,420
+challenges.
+
+218
+00:10:12,420 --> 00:10:18,074

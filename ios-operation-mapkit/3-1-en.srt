@@ -1,0 +1,880 @@
+1
+00:00:00,000 --> 00:00:00,040
+
+2
+00:00:00,040 --> 00:00:00,130
+[SINGING]
+
+3
+00:00:00,130 --> 00:00:03,230
+He's got money in a suitcase
+and a map on his phone.
+
+4
+00:00:03,230 --> 00:00:06,580
+He's got the secret location
+of the deadliest drone.
+
+5
+00:00:06,580 --> 00:00:09,840
+He'll use pins and annotations
+to find his destination.
+
+6
+00:00:09,840 --> 00:00:11,760
+The MapKit framework
+will help his--
+
+7
+00:00:11,760 --> 00:00:13,160
+World Domination.
+
+8
+00:00:13,160 --> 00:00:13,290
+[SINGING]
+
+9
+00:00:13,290 --> 00:00:16,900
+He'll land at the coordinates
+and load up his pack, the only
+
+10
+00:00:16,900 --> 00:00:20,610
+secret agent who can blow
+it off the map.
+
+11
+00:00:20,610 --> 00:00:21,860
+He's Mr. Higgie.
+
+12
+00:00:21,860 --> 00:00:26,720
+
+13
+00:00:26,720 --> 00:00:28,260
+In this next level, we're
+going to look at how to
+
+14
+00:00:28,260 --> 00:00:30,890
+visualize points on a map
+using a feature called
+
+15
+00:00:30,890 --> 00:00:33,160
+annotations.
+
+16
+00:00:33,160 --> 00:00:35,300
+Annotations are probably one
+of the most recognizable
+
+17
+00:00:35,300 --> 00:00:36,470
+features of a map app.
+
+18
+00:00:36,470 --> 00:00:39,110
+And they're those little pins
+that drop down at different
+
+19
+00:00:39,110 --> 00:00:41,910
+locations that you can tap and
+find out more information
+
+20
+00:00:41,910 --> 00:00:45,020
+about that location
+on the app.
+
+21
+00:00:45,020 --> 00:00:47,640
+The default annotation in MapKit
+is actually this little
+
+22
+00:00:47,640 --> 00:00:49,520
+red pin icon.
+
+23
+00:00:49,520 --> 00:00:51,230
+And we'll look at how
+to change that to a
+
+24
+00:00:51,230 --> 00:00:53,670
+custom icon as well.
+
+25
+00:00:53,670 --> 00:00:56,790
+So to add the ability to show
+annotations, we need to create
+
+26
+00:00:56,790 --> 00:00:58,810
+an annotation model object.
+
+27
+00:00:58,810 --> 00:01:01,540
+The simplest version of this
+is just an NSObject that
+
+28
+00:01:01,540 --> 00:01:04,330
+adopts the MKAnnotation
+protocol.
+
+29
+00:01:04,330 --> 00:01:07,080
+By adopting that protocol,
+we also need to add a
+
+30
+00:01:07,080 --> 00:01:11,040
+CLLocationCoordinate2D property
+named coordinate.
+
+31
+00:01:11,040 --> 00:01:14,150
+I've created an annotation
+model called MyAnnotation
+
+32
+00:01:14,150 --> 00:01:17,060
+that's a subclass of NSObject.
+
+33
+00:01:17,060 --> 00:01:19,740
+I imported the MapKit framework
+into this annotation
+
+34
+00:01:19,740 --> 00:01:22,620
+object because, again, we're
+going to be using some MK
+
+35
+00:01:22,620 --> 00:01:26,140
+classes that come from that
+MapKit framework.
+
+36
+00:01:26,140 --> 00:01:28,950
+I adopted the MKAnnotation
+protocol.
+
+37
+00:01:28,950 --> 00:01:30,200
+And I added a property.
+
+38
+00:01:30,200 --> 00:01:32,700
+
+39
+00:01:32,700 --> 00:01:35,170
+The MyAnnotation implementation
+file doesn't
+
+40
+00:01:35,170 --> 00:01:37,290
+actually need to have
+any code in it.
+
+41
+00:01:37,290 --> 00:01:40,140
+Simple annotations will work
+fine without declaring any
+
+42
+00:01:40,140 --> 00:01:43,000
+special implementation.
+
+43
+00:01:43,000 --> 00:01:46,130
+Back in MapViewController.m,
+I'll want to import the
+
+44
+00:01:46,130 --> 00:01:50,030
+MyAnnotation.h file so that I
+can access all of the features
+
+45
+00:01:50,030 --> 00:01:51,570
+of that class.
+
+46
+00:01:51,570 --> 00:01:54,340
+And then somewhere in
+viewDidLoad, all I need to do
+
+47
+00:01:54,340 --> 00:01:57,940
+is create a coordinate,
+initialize a new annotation
+
+48
+00:01:57,940 --> 00:02:01,790
+object, set the
+annotation.coordinate property
+
+49
+00:02:01,790 --> 00:02:05,510
+equal to the coordinate I just
+created, and then call the
+
+50
+00:02:05,510 --> 00:02:11,280
+addAnnotation method, passing it
+in the annotation variable.
+
+51
+00:02:11,280 --> 00:02:13,760
+When we run this code, this
+is what we'll see.
+
+52
+00:02:13,760 --> 00:02:14,450
+This is great.
+
+53
+00:02:14,450 --> 00:02:16,920
+But that annotation is a little
+bit close to the edge
+
+54
+00:02:16,920 --> 00:02:17,890
+of the screen.
+
+55
+00:02:17,890 --> 00:02:20,630
+Wouldn't it be nice if we
+recentered the map region on
+
+56
+00:02:20,630 --> 00:02:23,490
+that annotation after
+it was created?
+
+57
+00:02:23,490 --> 00:02:25,060
+Doing this is really easy.
+
+58
+00:02:25,060 --> 00:02:28,070
+All we need to do is pass the
+setCenterCoordinate animated
+
+59
+00:02:28,070 --> 00:02:30,250
+message to the map view again.
+
+60
+00:02:30,250 --> 00:02:32,740
+Except this time, instead of
+using the user location
+
+61
+00:02:32,740 --> 00:02:35,090
+coordinate, we'll use the
+coordinate that's inside of
+
+62
+00:02:35,090 --> 00:02:36,820
+our annotation.
+
+63
+00:02:36,820 --> 00:02:38,140
+And then that's going
+to recenter the
+
+64
+00:02:38,140 --> 00:02:42,100
+map on that red pin.
+
+65
+00:02:42,100 --> 00:02:44,430
+Lots of apps don't use
+the default red pin.
+
+66
+00:02:44,430 --> 00:02:46,920
+And instead, they add their
+own image and add it as a
+
+67
+00:02:46,920 --> 00:02:49,270
+custom annotation view.
+
+68
+00:02:49,270 --> 00:02:50,520
+So let's look at
+how to do that.
+
+69
+00:02:50,520 --> 00:02:52,990
+
+70
+00:02:52,990 --> 00:02:55,150
+First, we need to understand
+the structure of how our
+
+71
+00:02:55,150 --> 00:02:58,250
+controller, model,
+and view relate.
+
+72
+00:02:58,250 --> 00:03:00,950
+Right now, we've got a
+MapViewController that asks
+
+73
+00:03:00,950 --> 00:03:02,970
+for a MyAnnotation object.
+
+74
+00:03:02,970 --> 00:03:05,270
+And that MyAnnotation object
+has a property called
+
+75
+00:03:05,270 --> 00:03:05,960
+coordinate.
+
+76
+00:03:05,960 --> 00:03:08,080
+Meanwhile, in the
+ViewController, we've got an
+
+77
+00:03:08,080 --> 00:03:10,050
+MKMapView subview.
+
+78
+00:03:10,050 --> 00:03:13,050
+And in that MKMapView,
+whenever we call the
+
+79
+00:03:13,050 --> 00:03:15,510
+addAnnotation method, it
+actually creates an
+
+80
+00:03:15,510 --> 00:03:20,280
+MKAnnotationView and adds
+the pin to the screen.
+
+81
+00:03:20,280 --> 00:03:24,330
+Now, that MKAnnotationView has
+a property called image.
+
+82
+00:03:24,330 --> 00:03:26,430
+And if we were to go in and
+change the value of that
+
+83
+00:03:26,430 --> 00:03:30,760
+property, we'll get a custom
+image to display.
+
+84
+00:03:30,760 --> 00:03:33,650
+Now I also want to note that
+there's a strange relationship
+
+85
+00:03:33,650 --> 00:03:38,640
+that happens with MKAnnotation
+objects and MKAnnotationViews.
+
+86
+00:03:38,640 --> 00:03:41,550
+Usually a view doesn't have any
+idea about the data that's
+
+87
+00:03:41,550 --> 00:03:43,310
+going to be displayed in it.
+
+88
+00:03:43,310 --> 00:03:46,470
+And the data doesn't really know
+where it's going to be
+
+89
+00:03:46,470 --> 00:03:48,050
+shown in a view.
+
+90
+00:03:48,050 --> 00:03:49,910
+But MKAnnotation is different.
+
+91
+00:03:49,910 --> 00:03:52,160
+There's actually a small
+relationship between an
+
+92
+00:03:52,160 --> 00:03:56,360
+MKAnnotation object and an
+MKAnnotation view, in that the
+
+93
+00:03:56,360 --> 00:03:59,680
+MKAnnotation view knows
+something about which
+
+94
+00:03:59,680 --> 00:04:01,420
+annotation it's connected to.
+
+95
+00:04:01,420 --> 00:04:03,200
+And that's going to be helpful
+when we're trying
+
+96
+00:04:03,200 --> 00:04:06,240
+to change the image.
+
+97
+00:04:06,240 --> 00:04:09,970
+So to start, we've got another
+delegate method called mapView
+
+98
+00:04:09,970 --> 00:04:11,590
+viewForAnnotation.
+
+99
+00:04:11,590 --> 00:04:14,400
+And this delegate method runs
+automatically every time the
+
+100
+00:04:14,400 --> 00:04:16,620
+addAnnotation method
+is called.
+
+101
+00:04:16,620 --> 00:04:18,630
+And you can see that this
+method returns an
+
+102
+00:04:18,630 --> 00:04:21,560
+MKAnnotationView, which will
+be great because we can
+
+103
+00:04:21,560 --> 00:04:24,880
+customize things inside of this
+method and return them as
+
+104
+00:04:24,880 --> 00:04:26,400
+a new view.
+
+105
+00:04:26,400 --> 00:04:28,850
+And it even keeps track of
+which annotation we're
+
+106
+00:04:28,850 --> 00:04:30,850
+currently looking at
+by passing in an
+
+107
+00:04:30,850 --> 00:04:32,100
+annotation model object.
+
+108
+00:04:32,100 --> 00:04:35,980
+
+109
+00:04:35,980 --> 00:04:38,570
+There's some boilerplate code
+that almost always shows up
+
+110
+00:04:38,570 --> 00:04:39,900
+inside of this method.
+
+111
+00:04:39,900 --> 00:04:44,040
+It starts out by creating
+MKAnnotationView object using
+
+112
+00:04:44,040 --> 00:04:44,335
+the dequeueReusableA
+
+113
+00:04:44,335 --> 00:04:48,140
+nnotationViewWithIdentifier method.
+
+114
+00:04:48,140 --> 00:04:49,790
+You should recognize
+this method from
+
+115
+00:04:49,790 --> 00:04:51,270
+working with table cells.
+
+116
+00:04:51,270 --> 00:04:53,100
+And the idea is the same.
+
+117
+00:04:53,100 --> 00:04:56,030
+We're not recreating a new
+MKAnnotationView unless we
+
+118
+00:04:56,030 --> 00:04:57,460
+absolutely need one.
+
+119
+00:04:57,460 --> 00:05:00,260
+And instead, we're pulling from
+this pool of available
+
+120
+00:05:00,260 --> 00:05:04,140
+MKAnnotationViews that might
+not be in use anymore.
+
+121
+00:05:04,140 --> 00:05:07,640
+For example, let's say the user
+scrolls the map away from
+
+122
+00:05:07,640 --> 00:05:09,470
+where an annotation
+is displayed.
+
+123
+00:05:09,470 --> 00:05:12,450
+An annotation offscreen is not
+necessarily removed from
+
+124
+00:05:12,450 --> 00:05:16,290
+memory, so the object can
+be used to display a new
+
+125
+00:05:16,290 --> 00:05:19,200
+annotation that's in our
+visible map area.
+
+126
+00:05:19,200 --> 00:05:22,850
+Next, if we don't have any
+MKAnnotationViews in that
+
+127
+00:05:22,850 --> 00:05:27,080
+reuse pool, then we'll create
+a brand new MKAnnotationView
+
+128
+00:05:27,080 --> 00:05:29,990
+using the annotation that
+gets passed in.
+
+129
+00:05:29,990 --> 00:05:31,980
+And we'll give it a reuse
+identifier, so that the
+
+130
+00:05:31,980 --> 00:05:36,010
+dequeue method can access
+it later on.
+
+131
+00:05:36,010 --> 00:05:38,690
+And finally, since this method
+returns something, we'll want
+
+132
+00:05:38,690 --> 00:05:41,340
+to return that MKAnnotationView
+so it can be
+
+133
+00:05:41,340 --> 00:05:42,590
+displayed on the map.
+
+134
+00:05:42,590 --> 00:05:47,270
+
+135
+00:05:47,270 --> 00:05:50,070
+We need to add a new image to
+our Xcode project if we're
+
+136
+00:05:50,070 --> 00:05:53,510
+going to make that available
+to our MKAnnotationView.
+
+137
+00:05:53,510 --> 00:05:55,550
+So I have added an image
+here called altPin.png.
+
+138
+00:05:55,550 --> 00:06:03,230
+
+139
+00:06:03,230 --> 00:06:06,200
+Then, back in the delegate
+method, all I need to do is
+
+140
+00:06:06,200 --> 00:06:09,930
+take that view and set the image
+property to a UI image
+
+141
+00:06:09,930 --> 00:06:12,040
+named altPin.png.
+
+142
+00:06:12,040 --> 00:06:14,160
+And when I run this code again,
+now there's a custom
+
+143
+00:06:14,160 --> 00:06:16,910
+image for each of those
+pins on the screen.
+
+144
+00:06:16,910 --> 00:06:18,470
+But there's another
+problem now.
+
+145
+00:06:18,470 --> 00:06:19,780
+The blue dot is gone.
+
+146
+00:06:19,780 --> 00:06:22,450
+We've actually replaced
+it with our red pin.
+
+147
+00:06:22,450 --> 00:06:24,200
+So let's look at how to fix
+this problem and bring the
+
+148
+00:06:24,200 --> 00:06:25,770
+blue dot back.
+
+149
+00:06:25,770 --> 00:06:28,230
+We can do a quick check back in
+our delegate method before
+
+150
+00:06:28,230 --> 00:06:30,020
+we try to display anything.
+
+151
+00:06:30,020 --> 00:06:32,830
+We can check if our current
+annotation has a class of
+
+152
+00:06:32,830 --> 00:06:35,180
+MKUserLocation.
+
+153
+00:06:35,180 --> 00:06:39,320
+The blue dot annotation that's
+returned by location services
+
+154
+00:06:39,320 --> 00:06:42,170
+is of type MKUserLocation.
+
+155
+00:06:42,170 --> 00:06:45,300
+So in other words, we're saying,
+if this is the blue
+
+156
+00:06:45,300 --> 00:06:49,190
+dot, then don't try to set any
+custom display and instead
+
+157
+00:06:49,190 --> 00:06:50,560
+return nil.
+
+158
+00:06:50,560 --> 00:06:52,640
+Everything else won't
+be the blue dot.
+
+159
+00:06:52,640 --> 00:06:54,540
+And then all the code can
+update the red pin
+
+160
+00:06:54,540 --> 00:06:55,790
+accordingly.
+
+161
+00:06:55,790 --> 00:06:58,090
+
+162
+00:06:58,090 --> 00:07:00,390
+So if we run this again,
+we can see that we got
+
+163
+00:07:00,390 --> 00:07:01,640
+our blue dot back.
+
+164
+00:07:01,640 --> 00:07:04,540
+
+165
+00:07:04,540 --> 00:07:06,770
+It's also very common that
+whenever you tap one of those
+
+166
+00:07:06,770 --> 00:07:09,910
+annotation views, a little
+bubble pops up with some
+
+167
+00:07:09,910 --> 00:07:10,970
+information in it.
+
+168
+00:07:10,970 --> 00:07:13,600
+That bubble is called
+a callout view.
+
+169
+00:07:13,600 --> 00:07:17,630
+And adding support for callout
+views is really easy also.
+
+170
+00:07:17,630 --> 00:07:21,030
+So first, we need to update
+our MyAnnotation object to
+
+171
+00:07:21,030 --> 00:07:22,660
+have two more properties.
+
+172
+00:07:22,660 --> 00:07:24,760
+Those properties should
+be NSStrings.
+
+173
+00:07:24,760 --> 00:07:27,030
+And the first property
+name should be title.
+
+174
+00:07:27,030 --> 00:07:29,020
+The second one should
+be subtitle.
+
+175
+00:07:29,020 --> 00:07:30,270
+The names here are important.
+
+176
+00:07:30,270 --> 00:07:33,780
+
+177
+00:07:33,780 --> 00:07:36,920
+Then, back in our
+MapViewController, in addition
+
+178
+00:07:36,920 --> 00:07:39,180
+to setting the annotation's
+coordinate property, we're
+
+179
+00:07:39,180 --> 00:07:42,110
+also going to want to set the
+title and subtitle properties.
+
+180
+00:07:42,110 --> 00:07:45,270
+Since this coordinate was Lake
+Eola in Orlando, I set the
+
+181
+00:07:45,270 --> 00:07:48,270
+title to "Lake Eola." And I
+set the subtitle to "Cool
+
+182
+00:07:48,270 --> 00:07:51,680
+swans," because there's cool
+swans in Lake Eola.
+
+183
+00:07:51,680 --> 00:07:53,890
+And then the last thing we
+need to do is back in our
+
+184
+00:07:53,890 --> 00:07:57,060
+MKAnnotationView delegate
+method, we need to set the
+
+185
+00:07:57,060 --> 00:07:59,705
+canShowCallout property
+of our view to yes.
+
+186
+00:07:59,705 --> 00:08:02,380
+
+187
+00:08:02,380 --> 00:08:05,670
+And then when we tap on that
+view, the call out bubble
+
+188
+00:08:05,670 --> 00:08:10,370
+appears with the information
+related to that annotation.
+
+189
+00:08:10,370 --> 00:08:12,930
+So now it's your turn to try
+to add some annotation into
+
+190
+00:08:12,930 --> 00:08:14,180
+your map view in
+the challenges.
+
+191
+00:08:14,180 --> 00:08:20,790
