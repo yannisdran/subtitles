@@ -1,0 +1,906 @@
+﻿1
+00:00:00,090 --> 00:00:01,631
+[SINGING] Is there
+anybody out there?
+
+2
+00:00:01,631 --> 00:00:02,910
+All the end points are closed.
+
+3
+00:00:02,910 --> 00:00:06,100
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:06,100 --> 00:00:08,830
+They're getting all the humans
+and then putting them down.
+
+5
+00:00:08,830 --> 00:00:12,065
+Patching all their clients
+and deleting the town.
+
+6
+00:00:12,065 --> 00:00:14,960
+Surviving through the night,
+we need authentication.
+
+7
+00:00:14,960 --> 00:00:17,670
+The secret to our broadcast
+is content negotiation.
+
+8
+00:00:17,670 --> 00:00:20,640
+They're after all our brains
+and we're biting our nails.
+
+9
+00:00:20,640 --> 00:00:25,120
+Surviving APIs with Rails.
+
+10
+00:00:27,060 --> 00:00:30,490
+My name is Carlos Souza, and
+you're watching Surviving APIs
+
+11
+00:00:30,490 --> 00:00:34,010
+With Rails. In this level,
+we're going to look at the post
+
+12
+00:00:34,010 --> 00:00:35,640
+method.
+
+13
+00:00:35,640 --> 00:00:38,630
+The post method is used
+for creating resources
+
+14
+00:00:38,630 --> 00:00:39,690
+on the server.
+
+15
+00:00:39,690 --> 00:00:42,440
+For example, if we want
+to create a new playlist,
+
+16
+00:00:42,440 --> 00:00:46,520
+we issue a post method
+on the playlist URI,
+
+17
+00:00:46,520 --> 00:00:50,170
+passing in the songs that we
+want to add to that playlist.
+
+18
+00:00:50,170 --> 00:00:52,100
+We get a response back
+from the server saying
+
+19
+00:00:52,100 --> 00:00:54,440
+whether our request
+was successful or not,
+
+20
+00:00:54,440 --> 00:00:57,510
+along with the playlist
+that was just created.
+
+21
+00:00:57,510 --> 00:00:59,620
+One thing to note
+about the post method
+
+22
+00:00:59,620 --> 00:01:03,369
+is that it's neither
+safe or idempotent.
+
+23
+00:01:03,369 --> 00:01:04,910
+You might have seen
+this confirmation
+
+24
+00:01:04,910 --> 00:01:06,790
+before in your
+browser window, which
+
+25
+00:01:06,790 --> 00:01:08,360
+is a way of the
+browser asking, are
+
+26
+00:01:08,360 --> 00:01:11,160
+you really sure you
+want to do this again?
+
+27
+00:01:11,160 --> 00:01:13,620
+Because it will
+resubmit post requests
+
+28
+00:01:13,620 --> 00:01:15,160
+that were already submitted.
+
+29
+00:01:15,160 --> 00:01:17,950
+For example, it might
+issue an additional payment
+
+30
+00:01:17,950 --> 00:01:19,240
+if you're in a payment window.
+
+31
+00:01:19,240 --> 00:01:21,350
+Or it might create
+another record on a record
+
+32
+00:01:21,350 --> 00:01:24,220
+that you've just created.
+
+33
+00:01:24,220 --> 00:01:27,110
+According to the HTTP
+spec, a couple things
+
+34
+00:01:27,110 --> 00:01:30,090
+are expected from a
+successful post request.
+
+35
+00:01:30,090 --> 00:01:32,770
+First, the status
+code for the response
+
+36
+00:01:32,770 --> 00:01:36,880
+should be 201-Created, which
+means that the request has been
+
+37
+00:01:36,880 --> 00:01:40,850
+fulfilled and resulted in a
+new resource being created.
+
+38
+00:01:40,850 --> 00:01:43,500
+The response body should
+include a representation
+
+39
+00:01:43,500 --> 00:01:45,490
+of the new resource.
+
+40
+00:01:45,490 --> 00:01:48,430
+And finally, the
+Location response header
+
+41
+00:01:48,430 --> 00:01:53,190
+should be set with the
+location of the new resource.
+
+42
+00:01:53,190 --> 00:01:56,597
+Let's start by writing a test
+to see what this looks like.
+
+43
+00:01:56,597 --> 00:01:58,055
+Our test needs to
+make sure that we
+
+44
+00:01:58,055 --> 00:02:00,700
+are able to create new episodes.
+
+45
+00:02:00,700 --> 00:02:03,480
+We start by issuing
+a post request
+
+46
+00:02:03,480 --> 00:02:05,420
+to our episode's resource.
+
+47
+00:02:05,420 --> 00:02:09,740
+We need to send a representation
+of the new episode resource,
+
+48
+00:02:09,740 --> 00:02:12,200
+and we're going to
+do it using JSON.
+
+49
+00:02:12,200 --> 00:02:15,500
+To do that, we passed in
+a hash with the properties
+
+50
+00:02:15,500 --> 00:02:17,400
+of our new episode.
+
+51
+00:02:17,400 --> 00:02:20,690
+And we must call to
+JSON on that hash.
+
+52
+00:02:20,690 --> 00:02:24,600
+We need to tell the server that
+we expect a response in JSON.
+
+53
+00:02:24,600 --> 00:02:26,710
+And we do that by using
+the Accept header.
+
+54
+00:02:26,710 --> 00:02:28,510
+And we also need
+to tell the server
+
+55
+00:02:28,510 --> 00:02:31,690
+how to parse the content
+of our post request.
+
+56
+00:02:31,690 --> 00:02:34,070
+And we do that with the
+Content-Type request
+
+57
+00:02:34,070 --> 00:02:36,840
+header set to Mime::JSON.
+
+58
+00:02:36,840 --> 00:02:39,560
+Notice that we need to
+call 2_s for this one.
+
+59
+00:02:39,560 --> 00:02:43,180
+We checked that the
+response is 201, for created,
+
+60
+00:02:43,180 --> 00:02:46,600
+that the content type of
+the response is JSON,
+
+61
+00:02:46,600 --> 00:02:49,780
+we parse the episode return
+to the response body,
+
+62
+00:02:49,780 --> 00:02:52,680
+and we check the Location
+response header to make sure
+
+63
+00:02:52,680 --> 00:02:55,060
+that it's pointing to its URL.
+
+64
+00:02:55,060 --> 00:02:59,380
+With the test failing, we
+move on to the implementation.
+
+65
+00:02:59,380 --> 00:03:02,520
+Inside of our Create action
+in our Episodes Controller,
+
+66
+00:03:02,520 --> 00:03:07,200
+we build a new Episode Object
+by using the episode params
+
+67
+00:03:07,200 --> 00:03:08,150
+method.
+
+68
+00:03:08,150 --> 00:03:10,790
+Inside of this method,
+we use strong parameters
+
+69
+00:03:10,790 --> 00:03:14,320
+to whitelist the data that
+comes in from the client.
+
+70
+00:03:14,320 --> 00:03:17,370
+Then, we save our
+episode to the database,
+
+71
+00:03:17,370 --> 00:03:21,810
+return its JSON representation,
+set the response status code
+
+72
+00:03:21,810 --> 00:03:24,900
+to 201, and add a
+location header,
+
+73
+00:03:24,900 --> 00:03:27,650
+set to the new episode's URL.
+
+74
+00:03:27,650 --> 00:03:30,910
+All we have to do is send
+in the ActiveRecord Object
+
+75
+00:03:30,910 --> 00:03:36,600
+to location, and it resolves to
+the full URL for the resource.
+
+76
+00:03:36,600 --> 00:03:40,200
+For the Status code, instead
+of using the 201 number,
+
+77
+00:03:40,200 --> 00:03:43,370
+we could also use the
+created symbol here.
+
+78
+00:03:43,370 --> 00:03:44,820
+Then, we run our test again.
+
+79
+00:03:44,820 --> 00:03:45,440
+And it passes.
+
+80
+00:03:48,100 --> 00:03:50,230
+Let's see how we can
+use Curl to issue a post
+
+81
+00:03:50,230 --> 00:03:52,030
+request to our API.
+
+82
+00:03:52,030 --> 00:03:54,770
+In this example, we
+use the -i option
+
+83
+00:03:54,770 --> 00:03:57,350
+which means that we want to
+see the response headers along
+
+84
+00:03:57,350 --> 00:03:58,720
+with the response body.
+
+85
+00:03:58,720 --> 00:04:01,620
+Then, the -X
+option, which allows
+
+86
+00:04:01,620 --> 00:04:05,070
+us to specify the method that
+we want our request to use.
+
+87
+00:04:05,070 --> 00:04:07,430
+In this case, we're
+going to use a post.
+
+88
+00:04:07,430 --> 00:04:10,100
+And -d which allows
+us to send data along
+
+89
+00:04:10,100 --> 00:04:11,310
+with the request.
+
+90
+00:04:11,310 --> 00:04:14,280
+And finally the URL
+for our API server.
+
+91
+00:04:14,280 --> 00:04:15,830
+When we run this
+command, we expect
+
+92
+00:04:15,830 --> 00:04:19,480
+it to work because the tests
+that we just wrote are passing.
+
+93
+00:04:19,480 --> 00:04:22,430
+But to our surprise, the
+command doesn't work.
+
+94
+00:04:22,430 --> 00:04:26,880
+And, instead, returns a
+422 unprocessable entity.
+
+95
+00:04:26,880 --> 00:04:28,120
+Why is that?
+
+96
+00:04:28,120 --> 00:04:32,430
+A 422 unprocessable entity
+means that the client submitted
+
+97
+00:04:32,430 --> 00:04:37,740
+a request that was well-formed
+but semantically invalid.
+
+98
+00:04:37,740 --> 00:04:40,860
+Turns out Rails checks
+for an authenticity token
+
+99
+00:04:40,860 --> 00:04:44,440
+on methods like POST, PUT, PATCH
+and DELETE, pretty much
+
+100
+00:04:44,440 --> 00:04:46,530
+any method that's not GET.
+
+101
+00:04:46,530 --> 00:04:49,720
+And this is to prevent
+cross-site request forgery
+
+102
+00:04:49,720 --> 00:04:52,540
+attacks on web apps.
+
+103
+00:04:52,540 --> 00:04:55,560
+So why didn't our tests
+catch that a moment ago?
+
+104
+00:04:55,560 --> 00:04:58,400
+Well, this feature
+is disabled in Tests.
+
+105
+00:04:58,400 --> 00:05:02,460
+So if we look under a
+config/enviroments/test.rb file,
+
+106
+00:05:02,460 --> 00:05:04,850
+you can see this line
+here which is the reason
+
+107
+00:05:04,850 --> 00:05:09,020
+that we didn't catch
+this error in testing.
+
+108
+00:05:09,020 --> 00:05:11,660
+Since our Rails application is
+going to be strictly serving
+
+109
+00:05:11,660 --> 00:05:15,470
+an API, we can change the
+protect from forgery method
+
+110
+00:05:15,470 --> 00:05:18,310
+from exception to null_session.
+
+111
+00:05:18,310 --> 00:05:21,880
+It's a common practice
+for APIs to be stateless.
+
+112
+00:05:21,880 --> 00:05:23,820
+This means that
+post requests really
+
+113
+00:05:23,820 --> 00:05:26,990
+shouldn't be relying
+on a session at all.
+
+114
+00:05:26,990 --> 00:05:29,270
+So what the null
+session option does
+
+115
+00:05:29,270 --> 00:05:32,440
+is that it allows to post
+requests with an invalid
+
+116
+00:05:32,440 --> 00:05:37,840
+authenticity token to go through
+and not use the session at all.
+
+117
+00:05:37,840 --> 00:05:40,630
+Now, when we repeat
+our Curl command,
+
+118
+00:05:40,630 --> 00:05:42,730
+we're able to create
+a new episode.
+
+119
+00:05:42,730 --> 00:05:47,290
+And we get a successful
+response back.
+
+120
+00:05:47,290 --> 00:05:51,620
+Not all successful responses
+need to send back content.
+
+121
+00:05:51,620 --> 00:05:54,040
+Ajax responses,
+for example, can be
+
+122
+00:05:54,040 --> 00:05:57,580
+made a lot faster
+with no response body.
+
+123
+00:05:57,580 --> 00:06:00,000
+Let's change our create
+action to do this.
+
+124
+00:06:00,000 --> 00:06:03,410
+Instead of responding
+with our episode in JSON,
+
+125
+00:06:03,410 --> 00:06:07,840
+we're going to use nothing: true,
+which returns an empty response
+
+126
+00:06:07,840 --> 00:06:08,770
+body.
+
+127
+00:06:08,770 --> 00:06:12,320
+We need to set the
+status code to 204.
+
+128
+00:06:12,320 --> 00:06:15,580
+204 No Content responses
+means the server
+
+129
+00:06:15,580 --> 00:06:18,170
+has fulfilled the
+request, but does not
+
+130
+00:06:18,170 --> 00:06:20,780
+need to respond
+with an entity body.
+
+131
+00:06:20,780 --> 00:06:25,220
+Lastly, we return the
+location of the episode.
+
+132
+00:06:25,220 --> 00:06:28,380
+Another way we can create
+responses with no content,
+
+133
+00:06:28,380 --> 00:06:30,380
+is by using the Head method.
+
+134
+00:06:30,380 --> 00:06:33,670
+The Head method creates
+responses consisting solely
+
+135
+00:06:33,670 --> 00:06:36,030
+of HTTP headers.
+
+136
+00:06:36,030 --> 00:06:38,270
+So instead of
+Render, we call Head,
+
+137
+00:06:38,270 --> 00:06:40,900
+passing in the 204 status code.
+
+138
+00:06:40,900 --> 00:06:42,960
+The Head method can
+also take arguments
+
+139
+00:06:42,960 --> 00:06:45,320
+which we'll use to
+patch in the location.
+
+140
+00:06:45,320 --> 00:06:48,565
+Instead of 204, we can
+also say, head :no_content.
+
+141
+00:06:51,530 --> 00:06:54,260
+Testing unsuccessful
+requests is just
+
+142
+00:06:54,260 --> 00:06:57,350
+as important as testing
+successful ones.
+
+143
+00:06:57,350 --> 00:07:00,710
+We don't want our API to
+be able to create episodes
+
+144
+00:07:00,710 --> 00:07:02,690
+with the title set to 'nil'.
+
+145
+00:07:02,690 --> 00:07:04,660
+So let's create a test for that.
+
+146
+00:07:04,660 --> 00:07:06,880
+We start off by
+calling the Post method
+
+147
+00:07:06,880 --> 00:07:08,950
+to the Episodes Resources.
+
+148
+00:07:08,950 --> 00:07:12,120
+We patch in the representation
+of an episode with the title
+
+149
+00:07:12,120 --> 00:07:13,630
+set to 'nil'.
+
+150
+00:07:13,630 --> 00:07:15,420
+Everything else
+you've seen before.
+
+151
+00:07:15,420 --> 00:07:19,600
+But now, we want to test
+for a status code of 422.
+
+152
+00:07:19,600 --> 00:07:22,970
+So remember, 422 means
+an error occurred,
+
+153
+00:07:22,970 --> 00:07:25,070
+and the client is to blame.
+
+154
+00:07:25,070 --> 00:07:27,060
+With our test failing,
+we're ready to implement
+
+155
+00:07:27,060 --> 00:07:29,260
+this functionality.
+
+156
+00:07:29,260 --> 00:07:34,580
+First, in our Episode model, we
+add the validation for title.
+
+157
+00:07:34,580 --> 00:07:37,390
+And in our EpisodesController 
+Create action,
+
+158
+00:07:37,390 --> 00:07:39,490
+we add an else block.
+
+159
+00:07:39,490 --> 00:07:42,620
+Which returns the
+episode errors in JSON
+
+160
+00:07:42,620 --> 00:07:44,680
+which can help API
+clients figure out
+
+161
+00:07:44,680 --> 00:07:46,670
+what the cause of the error was.
+
+162
+00:07:46,670 --> 00:07:49,330
+Finally, we set
+the status to 422
+
+163
+00:07:49,330 --> 00:07:52,470
+which can also be written
+using the unprocessable_entity
+
+164
+00:07:52,470 --> 00:07:54,240
+symbol.
+
+165
+00:07:54,240 --> 00:07:58,020
+Now, our test should pass.
+
+166
+00:07:58,020 --> 00:08:00,910
+What happens when you
+issue a request to an API
+
+167
+00:08:00,910 --> 00:08:03,700
+and it happens to hit
+some buggy code which
+
+168
+00:08:03,700 --> 00:08:07,390
+causes some weird
+internal server error?
+
+169
+00:08:07,390 --> 00:08:10,160
+Rails automatically
+handles that for you.
+
+170
+00:08:10,160 --> 00:08:13,060
+And it returns a 500 response.
+
+171
+00:08:13,060 --> 00:08:15,950
+So the difference between
+internal server error
+
+172
+00:08:15,950 --> 00:08:18,770
+and the 422 error
+that we just saw,
+
+173
+00:08:18,770 --> 00:08:22,020
+is that the latter is
+caused by the client.
+
+174
+00:08:22,020 --> 00:08:24,610
+An internal server
+error is caused
+
+175
+00:08:24,610 --> 00:08:27,980
+by some unexpected
+behavior on the server.
+
+176
+00:08:27,980 --> 00:08:30,480
+And the best way to
+prevent against that,
+
+177
+00:08:30,480 --> 00:08:32,260
+is by writing tests.
+
+178
+00:08:32,260 --> 00:08:35,130
+So when we try to issue
+a request, passing
+
+179
+00:08:35,130 --> 00:08:39,510
+in an invalid resource, the
+server responds with the 422.
+
+180
+00:08:39,510 --> 00:08:42,809
+But when we issue a valid
+request and something goes
+
+181
+00:08:42,809 --> 00:08:44,930
+wrong on the server
+side of things,
+
+182
+00:08:44,930 --> 00:08:47,580
+we get a 500
+internal server error
+
+183
+00:08:47,580 --> 00:08:50,350
+back, which is a way
+of gracefully handling
+
+184
+00:08:50,350 --> 00:08:51,930
+the unexpected.
+
+185
+00:08:51,930 --> 00:08:55,390
+So remember, the 500
+internal server error
+
+186
+00:08:55,390 --> 00:08:57,570
+means that the
+server encountered
+
+187
+00:08:57,570 --> 00:09:00,330
+an unexpected condition
+which prevented it
+
+188
+00:09:00,330 --> 00:09:03,300
+from fulfilling the request.
+
+189
+00:09:03,850 --> 00:09:05,300
+So it's time for challenges now.
+
+190
+00:09:05,300 --> 00:09:07,397
+And I'll see you back in a bit.
+

@@ -1,0 +1,637 @@
+﻿1
+00:00:02,029 --> 00:00:03,020
+Welcome back.
+
+2
+00:00:03,020 --> 00:00:05,880
+We're now going to look at
+a second alternative for API
+
+3
+00:00:05,880 --> 00:00:10,870
+authentication, called
+token based authentication.
+
+4
+00:00:10,870 --> 00:00:14,100
+Token based authentication
+is when API clients
+
+5
+00:00:14,100 --> 00:00:18,770
+use a token identifier for
+making authenticated HTTP
+
+6
+00:00:18,770 --> 00:00:20,040
+requests.
+
+7
+00:00:20,040 --> 00:00:22,770
+It has some benefits
+over basic auth,
+
+8
+00:00:22,770 --> 00:00:26,550
+like more convenience, as we
+can easily expire or regenerate
+
+9
+00:00:26,550 --> 00:00:30,760
+tokens, without affecting
+the user's account password.
+
+10
+00:00:30,760 --> 00:00:33,360
+It's more secure,
+even if compromised,
+
+11
+00:00:33,360 --> 00:00:37,030
+since vulnerability is
+limited to the API access
+
+12
+00:00:37,030 --> 00:00:39,610
+and not to the user's
+master account.
+
+13
+00:00:39,610 --> 00:00:41,710
+Also, it gives us
+the ability to have
+
+14
+00:00:41,710 --> 00:00:44,170
+multiple tokens for
+each user, which
+
+15
+00:00:44,170 --> 00:00:47,520
+they can use to grant access
+to different API clients,
+
+16
+00:00:47,520 --> 00:00:50,710
+and greater control for each
+token, so different access
+
+17
+00:00:50,710 --> 00:00:53,780
+rules can be implemented.
+
+18
+00:00:53,780 --> 00:00:55,710
+Just like we saw
+with basic auth,
+
+19
+00:00:55,710 --> 00:00:58,960
+token authentication uses
+the authorization header.
+
+20
+00:00:58,960 --> 00:01:00,710
+And this is what it looks like.
+
+21
+00:01:00,710 --> 00:01:04,790
+Authorization followed by
+token with the token value.
+
+22
+00:01:04,790 --> 00:01:07,970
+There's currently a draft
+for specifying HTTP token
+
+23
+00:01:07,970 --> 00:01:09,480
+based authentication.
+
+24
+00:01:09,480 --> 00:01:11,400
+For more info, visit
+the following URL.
+
+25
+00:01:14,230 --> 00:01:16,120
+Having an API
+client authenticate
+
+26
+00:01:16,120 --> 00:01:19,020
+using a token based
+auth usually starts
+
+27
+00:01:19,020 --> 00:01:21,790
+with visiting a specific
+services website
+
+28
+00:01:21,790 --> 00:01:24,670
+and getting access to
+that specific token.
+
+29
+00:01:24,670 --> 00:01:27,970
+They're usually displayed on the
+user profile page or settings
+
+30
+00:01:27,970 --> 00:01:29,000
+page.
+
+31
+00:01:29,000 --> 00:01:31,740
+Here's an example of getting
+the access token from Backpack,
+
+32
+00:01:31,740 --> 00:01:34,810
+which is a service by 37Signals.
+
+33
+00:01:34,810 --> 00:01:37,230
+And this is the token that
+we send in the Authorization
+
+34
+00:01:37,230 --> 00:01:39,140
+header.
+
+35
+00:01:39,140 --> 00:01:41,240
+So let's jump into our tests.
+
+36
+00:01:41,240 --> 00:01:44,140
+In the setup block, we
+create a new user record.
+
+37
+00:01:44,140 --> 00:01:46,510
+Then, we test for a
+valid authentication,
+
+38
+00:01:46,510 --> 00:01:48,130
+using the user token.
+
+39
+00:01:48,130 --> 00:01:51,910
+We make a get request to
+/episodes and include the user
+
+40
+00:01:51,910 --> 00:01:54,550
+unique token at as part of
+the Authorization header.
+
+41
+00:01:54,550 --> 00:01:57,970
+Then we check for a 200
+response and for the content
+
+42
+00:01:57,970 --> 00:01:59,880
+type set to JSON.
+
+43
+00:01:59,880 --> 00:02:03,450
+For invalid authentication, if
+we pass an invalid token, which
+
+44
+00:02:03,450 --> 00:02:05,910
+we are simulating by
+appending a string fake,
+
+45
+00:02:05,910 --> 00:02:08,970
+we need to get back
+a 401 status code.
+
+46
+00:02:08,970 --> 00:02:10,539
+The test's currently failing.
+
+47
+00:02:10,539 --> 00:02:13,630
+We move on to the
+implementation.
+
+48
+00:02:13,630 --> 00:02:16,910
+In our user model, we'll add
+a before_create callback,
+
+49
+00:02:16,910 --> 00:02:18,810
+called set_auth_token.
+
+50
+00:02:18,810 --> 00:02:20,770
+First thing we do it
+our callback method,
+
+51
+00:02:20,770 --> 00:02:23,710
+is to check if an auth
+token has already been set,
+
+52
+00:02:23,710 --> 00:02:25,090
+and return if so.
+
+53
+00:02:25,090 --> 00:02:27,100
+This is called a guard clause.
+
+54
+00:02:27,100 --> 00:02:30,350
+If not, we call the
+generate auth token method.
+
+55
+00:02:30,350 --> 00:02:33,107
+It is required that
+this token is unique,
+
+56
+00:02:33,107 --> 00:02:34,690
+because we're going
+to use it to fetch
+
+57
+00:02:34,690 --> 00:02:36,440
+the user from our database.
+
+58
+00:02:36,440 --> 00:02:39,050
+So we need to make
+sure that no other user
+
+59
+00:02:39,050 --> 00:02:41,570
+records have the same token.
+
+60
+00:02:41,570 --> 00:02:44,245
+So we're going to keep looping
+until a unique token is
+
+61
+00:02:44,245 --> 00:02:44,745
+generated.
+
+62
+00:02:47,520 --> 00:02:49,550
+Now, let's move on to
+our EpisodesController
+
+63
+00:02:49,550 --> 00:02:51,550
+and implement our
+authentication there.
+
+64
+00:02:51,550 --> 00:02:53,770
+This looks very
+similar to basic auth.
+
+65
+00:02:53,770 --> 00:02:56,410
+And rails also has
+built in support
+
+66
+00:02:56,410 --> 00:02:58,610
+for token based authentication.
+
+67
+00:02:58,610 --> 00:03:01,280
+So we create a before_
+action, call authenticate.
+
+68
+00:03:01,280 --> 00:03:04,090
+And inside of that method,
+we use the authenticate
+
+69
+00:03:04,090 --> 00:03:07,380
+or requests with
+http token, which
+
+70
+00:03:07,380 --> 00:03:09,620
+reads the token from
+the authorization header
+
+71
+00:03:09,620 --> 00:03:12,360
+and passes it as an
+argument to the block.
+
+72
+00:03:12,360 --> 00:03:14,660
+Inside of that block
+we can use the token
+
+73
+00:03:14,660 --> 00:03:16,990
+to look for the user
+in our database.
+
+74
+00:03:16,990 --> 00:03:21,190
+This code should be enough
+to get our test to pass.
+
+75
+00:03:21,190 --> 00:03:23,040
+Now, let's go back
+to our test file
+
+76
+00:03:23,040 --> 00:03:26,430
+and see how we can extract the
+generation of our Authorization
+
+77
+00:03:26,430 --> 00:03:30,110
+header to our test helper.
+
+78
+00:03:30,110 --> 00:03:32,810
+So instead of hard coding the
+format for the authorization
+
+79
+00:03:32,810 --> 00:03:34,960
+header, we're going to
+create a method called
+
+80
+00:03:34,960 --> 00:03:38,630
+token_header, which states
+the token as an argument.
+
+81
+00:03:38,630 --> 00:03:42,940
+We'll use the action controller,\HTTP authentication token,
+
+82
+00:03:42,940 --> 00:03:46,020
+and code credentials
+method that returns
+
+83
+00:03:46,020 --> 00:03:48,610
+the proper value for
+the token header.
+
+84
+00:03:48,610 --> 00:03:52,690
+And then we'll use that
+from inside of our test.
+
+85
+00:03:52,690 --> 00:03:55,890
+Just like basic auth,
+token based access also
+
+86
+00:03:55,890 --> 00:03:58,990
+uses realms for different
+protection spaces.
+
+87
+00:03:58,990 --> 00:04:02,320
+In this example, a 401
+unauthorized response
+
+88
+00:04:02,320 --> 00:04:06,540
+is return with the realm
+set to application.
+
+89
+00:04:06,540 --> 00:04:08,650
+If we want to use a
+custom realm instead,
+
+90
+00:04:08,650 --> 00:04:11,650
+we can pass that as an argument
+to our authenticate or request
+
+91
+00:04:11,650 --> 00:04:13,701
+with http token method.
+
+92
+00:04:13,701 --> 00:04:15,200
+And it will be added
+to the response
+
+93
+00:04:15,200 --> 00:04:18,269
+header for unauthorized
+responses, as we can see below.
+
+94
+00:04:18,269 --> 00:04:24,670
+Our WWW-Authenticate header is
+now set to the episodes realm
+
+95
+00:04:24,670 --> 00:04:28,300
+We could also use curl for token
+based authentication, since it
+
+96
+00:04:28,300 --> 00:04:30,550
+allows us to pass
+custom headers.
+
+97
+00:04:30,550 --> 00:04:33,130
+We can do that using
+the -H option,
+
+98
+00:04:33,130 --> 00:04:35,360
+followed by the value
+for the custom header.
+
+99
+00:04:35,360 --> 00:04:37,440
+In this case,
+authorization token,
+
+100
+00:04:37,440 --> 00:04:39,800
+followed by the
+value of our token.
+
+101
+00:04:39,800 --> 00:04:43,820
+And we get back a 200 response.
+
+102
+00:04:43,820 --> 00:04:46,610
+Our current solution is running
+into the same limitations
+
+103
+00:04:46,610 --> 00:04:48,280
+that we just saw.
+
+104
+00:04:48,280 --> 00:04:51,120
+As you can see here
+we have a curl request
+
+105
+00:04:51,120 --> 00:04:54,370
+that's using a fake token
+and asking specifically
+
+106
+00:04:54,370 --> 00:04:57,140
+for application/json.
+
+107
+00:04:57,140 --> 00:04:59,780
+However, the response we
+get back from the server
+
+108
+00:04:59,780 --> 00:05:01,425
+sets the content
+type, to text/html.
+
+109
+00:05:04,640 --> 00:05:07,250
+We can fix that by replacing
+our previous method
+
+110
+00:05:07,250 --> 00:05:11,380
+with a new authenticate with
+http token method, which
+
+111
+00:05:11,380 --> 00:05:13,570
+reads the token from
+the Authorization header
+
+112
+00:05:13,570 --> 00:05:15,460
+and simply returns a Boolean.
+
+113
+00:05:15,460 --> 00:05:17,630
+It does not halt the request.
+
+114
+00:05:17,630 --> 00:05:19,610
+Let's see how we can fix that.
+
+115
+00:05:19,610 --> 00:05:21,240
+In our EpisodesController,
+ we need
+
+116
+00:05:21,240 --> 00:05:23,480
+to make some changes
+to our previous code.
+
+117
+00:05:23,480 --> 00:05:26,065
+We have our before action,
+authenticate, and inside
+
+118
+00:05:26,065 --> 00:05:29,280
+of that method, we call
+authenticate token method,
+
+119
+00:05:29,280 --> 00:05:31,820
+or render unauthorized.
+
+120
+00:05:31,820 --> 00:05:34,610
+Inside of authenticate
+token, we use
+
+121
+00:05:34,610 --> 00:05:39,110
+authenticate with http token,
+which reads the token off
+
+122
+00:05:39,110 --> 00:05:42,680
+of the Authorization header
+and simply returns a Boolean.
+
+123
+00:05:42,680 --> 00:05:46,740
+It does not halt the request.
+
+124
+00:05:46,740 --> 00:05:49,310
+If the authentication
+fails, then we
+
+125
+00:05:49,310 --> 00:05:51,550
+call a render unauthorized.
+
+126
+00:05:51,550 --> 00:05:54,000
+Inside of render
+unauthorized, we manually
+
+127
+00:05:54,000 --> 00:05:57,500
+set the WWW-Authenticate
+header and respond
+
+128
+00:05:57,500 --> 00:05:58,810
+with the proper media type.
+
+129
+00:06:02,010 --> 00:06:05,910
+Now, if we make the same curl
+request as we did before,
+
+130
+00:06:05,910 --> 00:06:08,220
+we get a response back
+with the content type
+
+131
+00:06:08,220 --> 00:06:10,935
+set to the proper media
+type, application/json.
+
+132
+00:06:15,200 --> 00:06:17,410
+We've reached the
+end of this level.
+
+133
+00:06:17,410 --> 00:06:20,020
+Now it's time for some
+challenges on token based
+
+134
+00:06:20,020 --> 00:06:21,570
+authentication.
+

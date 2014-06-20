@@ -1,0 +1,759 @@
+﻿1
+00:00:00,090 --> 00:00:01,400
+[SINGING] Is there anybody out there?
+
+2
+00:00:01,400 --> 00:00:02,910
+All the endpoints are closed.
+
+3
+00:00:02,910 --> 00:00:05,360
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:05,360 --> 00:00:08,450
+They're getting all the humans
+and then putting them down.
+
+5
+00:00:08,450 --> 00:00:11,680
+Patching all the clients
+and deleting the toes.
+
+6
+00:00:11,680 --> 00:00:14,960
+Surviving through the night,
+we need authentication.
+
+7
+00:00:14,960 --> 00:00:17,680
+The secret to our broadcast
+is content negotiation.
+
+8
+00:00:17,680 --> 00:00:20,190
+They raptored all our brains
+and we're biting our nails.
+
+9
+00:00:20,190 --> 00:00:22,856
+Surviving APIs with Rails.
+
+10
+00:00:27,390 --> 00:00:29,040
+I'm Carlos Souza,
+and you're watching
+
+11
+00:00:29,040 --> 00:00:31,280
+Surviving APIs With Rails.
+
+12
+00:00:31,280 --> 00:00:35,970
+In this level, we're going to be
+looking at API authentication.
+
+13
+00:00:35,970 --> 00:00:40,020
+Authentication is how servers
+prevent unauthorized access
+
+14
+00:00:40,020 --> 00:00:42,070
+to protected resources.
+
+15
+00:00:42,070 --> 00:00:44,270
+For example, our
+server might need
+
+16
+00:00:44,270 --> 00:00:48,200
+to prevent public access to
+a user-specific payments.
+
+17
+00:00:48,200 --> 00:00:51,910
+So if Client A tries to access
+payments for a specific user,
+
+18
+00:00:51,910 --> 00:00:53,785
+but they don't send
+along proper credentials,
+
+19
+00:00:53,785 --> 00:00:56,210
+they'll get access denied.
+
+20
+00:00:56,210 --> 00:00:58,920
+Client B, on the other hand,
+with the correct credentials,
+
+21
+00:00:58,920 --> 00:01:02,119
+has access to that
+same resource.
+
+22
+00:01:02,119 --> 00:01:03,660
+We're going to be
+looking at two ways
+
+23
+00:01:03,660 --> 00:01:06,910
+that we can implement
+authentication on our API.
+
+24
+00:01:06,910 --> 00:01:09,170
+The first one is basic auth.
+
+25
+00:01:09,170 --> 00:01:11,220
+In basic auth,
+credentials must be
+
+26
+00:01:11,220 --> 00:01:13,920
+provided using the
+Authorization header.
+
+27
+00:01:13,920 --> 00:01:17,130
+This is what a request
+using basic auth looks like.
+
+28
+00:01:17,130 --> 00:01:21,590
+We can see Authorization header
+with the basic word, followed
+
+29
+00:01:21,590 --> 00:01:25,470
+by a Base64encoding of
+the user's credentials.
+
+30
+00:01:25,470 --> 00:01:32,860
+Basic auth is part of the
+HTTP spec under the RFC2617.
+
+31
+00:01:32,860 --> 00:01:37,390
+Credentials for basic auth are
+expected to be Base64 encoded.
+
+32
+00:01:37,390 --> 00:01:39,200
+Let's see what that looks like.
+
+33
+00:01:39,200 --> 00:01:41,710
+For example, we get the
+user name - in this case,
+
+34
+00:01:41,710 --> 00:01:46,440
+foo - followed by colon, followed
+by the password - in this case,
+
+35
+00:01:46,440 --> 00:01:47,020
+secret.
+
+36
+00:01:47,020 --> 00:01:50,460
+We Base64 encode it,
+and it looks like that.
+
+37
+00:01:50,460 --> 00:01:53,380
+If we want to try this in a Ruby
+console, all we'd have to do
+
+38
+00:01:53,380 --> 00:01:57,300
+is require the base 64
+library, and call the encode
+
+39
+00:01:57,300 --> 00:02:00,120
+64 method, with the
+credentials as an argument.
+
+40
+00:02:02,750 --> 00:02:06,160
+Before we implement basic
+auth, let's write a test.
+
+41
+00:02:06,160 --> 00:02:08,060
+In our set up block,
+we create a user,
+
+42
+00:02:08,060 --> 00:02:10,990
+with username, foo,
+and password, secret.
+
+43
+00:02:10,990 --> 00:02:14,340
+Our first ask will be for a
+valid username and password.
+
+44
+00:02:14,340 --> 00:02:17,490
+So we issue a get request
+to /episodes,
+
+45
+00:02:17,490 --> 00:02:20,820
+passing the Base64
+encoded credentials
+
+46
+00:02:20,820 --> 00:02:23,610
+as the value for the
+Authorization header.
+
+47
+00:02:23,610 --> 00:02:26,010
+We check for a
+200 response back.
+
+48
+00:02:26,010 --> 00:02:28,610
+Our next test is going to
+be for missing credentials.
+
+49
+00:02:28,610 --> 00:02:31,350
+So issuing a get request
+to /episodes
+
+50
+00:02:31,350 --> 00:02:33,490
+without any
+credentials is supposed
+
+51
+00:02:33,490 --> 00:02:36,410
+to return a 401 response back.
+
+52
+00:02:36,410 --> 00:02:40,282
+401 stands for
+unauthorized status code.
+
+53
+00:02:40,282 --> 00:02:42,615
+With our test failing, we
+move on to the implementation.
+
+54
+00:02:45,460 --> 00:02:49,890
+Turns out, Rails has built
+in support for basic auth.
+
+55
+00:02:49,890 --> 00:02:51,310
+In our EpisodesController 
+we are
+
+56
+00:02:51,310 --> 00:02:54,280
+going to create a before
+action, called authenticate.
+
+57
+00:02:54,280 --> 00:02:55,870
+Inside of the
+authenticate method,
+
+58
+00:02:55,870 --> 00:02:58,560
+we're going to call the
+authenticate or requests
+
+59
+00:02:58,560 --> 00:03:02,820
+with HTTP basic method
+built into Rails, which
+
+60
+00:03:02,820 --> 00:03:06,250
+reads and decodes username and
+password from the Authorization
+
+61
+00:03:06,250 --> 00:03:06,930
+header.
+
+62
+00:03:06,930 --> 00:03:10,210
+This method takes a
+block with two arguments,
+
+63
+00:03:10,210 --> 00:03:13,070
+that we can use to call
+our custom authentication
+
+64
+00:03:13,070 --> 00:03:16,190
+strategy, in this case
+user.authenticate.
+
+65
+00:03:16,190 --> 00:03:20,160
+And this is enough to
+get our task to pass.
+
+66
+00:03:20,160 --> 00:03:21,695
+Let's go back to
+our test and see
+
+67
+00:03:21,695 --> 00:03:23,570
+how it can remove the
+hard coded credentials.
+
+68
+00:03:26,910 --> 00:03:29,960
+First thing we do is, we
+create an encode method that
+
+69
+00:03:29,960 --> 00:03:32,840
+takes the username and
+password as an argument.
+
+70
+00:03:32,840 --> 00:03:36,500
+Inside of that method, we're
+going to use action controller
+
+71
+00:03:36,500 --> 00:03:41,320
+HTTP authentication basic
+dot encode credentials,
+
+72
+00:03:41,320 --> 00:03:43,240
+which is a helper
+method from Rails.
+
+73
+00:03:43,240 --> 00:03:46,110
+that takes username and
+password and returns
+
+74
+00:03:46,110 --> 00:03:47,750
+the encoded credentials.
+
+75
+00:03:47,750 --> 00:03:50,590
+Our task should
+still be passing.
+
+76
+00:03:50,590 --> 00:03:52,730
+We can take this
+one step further
+
+77
+00:03:52,730 --> 00:03:55,870
+and move our encode method
+to our test helper file,
+
+78
+00:03:55,870 --> 00:03:59,070
+so that it can be used
+across all different tests.
+
+79
+00:03:59,070 --> 00:04:01,150
+And our test file,
+looks a lot cleaner.
+
+80
+00:04:01,150 --> 00:04:04,230
+All we have to do is call our
+encode credentials method,
+
+81
+00:04:04,230 --> 00:04:07,590
+and our task should
+still be passing.
+
+82
+00:04:07,590 --> 00:04:09,718
+So let's take a
+closer look at what
+
+83
+00:04:09,718 --> 00:04:13,250
+a 401 unauthorized
+response looks like.
+
+84
+00:04:13,250 --> 00:04:16,690
+Unauthorized HTTP
+responses must include
+
+85
+00:04:16,690 --> 00:04:21,079
+the WWW-Authenticate header,
+which you can see here,
+
+86
+00:04:21,079 --> 00:04:25,910
+is set to basic
+realm application.
+
+87
+00:04:25,910 --> 00:04:28,430
+Basic means that
+the given resource
+
+88
+00:04:28,430 --> 00:04:31,840
+uses HTTP basic authentication.
+
+89
+00:04:31,840 --> 00:04:34,540
+And realm application
+means that the resource
+
+90
+00:04:34,540 --> 00:04:38,440
+is part of the
+application realm.
+
+91
+00:04:38,440 --> 00:04:41,060
+Realms allow resources
+to be partitioned
+
+92
+00:04:41,060 --> 00:04:43,330
+into different
+protection spaces.
+
+93
+00:04:43,330 --> 00:04:46,290
+This means that each
+realm can implement
+
+94
+00:04:46,290 --> 00:04:48,520
+its own authentication strategy.
+
+95
+00:04:48,520 --> 00:04:52,460
+In this example, we have three
+different realms, episodes,
+
+96
+00:04:52,460 --> 00:04:54,230
+forum, and admin.
+
+97
+00:04:54,230 --> 00:04:57,400
+Each one of those might require
+a different set of credentials.
+
+98
+00:04:57,400 --> 00:05:00,080
+So responding to
+unauthorized requests,
+
+99
+00:05:00,080 --> 00:05:03,460
+including the specific realm,
+might help the client figure
+
+100
+00:05:03,460 --> 00:05:05,340
+out what set of
+credentials they need
+
+101
+00:05:05,340 --> 00:05:07,455
+to use for that specific
+protection space.
+
+102
+00:05:09,980 --> 00:05:13,320
+We can respond to 401
+requests with a custom realm
+
+103
+00:05:13,320 --> 00:05:16,620
+by passing the value of
+the realm as the argument
+
+104
+00:05:16,620 --> 00:05:20,630
+to the authenticate or request
+with HTTP basic method.
+
+105
+00:05:20,630 --> 00:05:23,010
+As you can see,
+the response header
+
+106
+00:05:23,010 --> 00:05:27,830
+is properly set to
+basic realm episodes.
+
+107
+00:05:27,830 --> 00:05:31,240
+We can also use curl to make
+authenticated calls to our API
+
+108
+00:05:31,240 --> 00:05:32,000
+server.
+
+109
+00:05:32,000 --> 00:05:35,180
+And curl has built in
+support for basic auth.
+
+110
+00:05:35,180 --> 00:05:37,140
+We can send basic
+auth credentials
+
+111
+00:05:37,140 --> 00:05:38,870
+with a  -u option.
+
+112
+00:05:38,870 --> 00:05:41,790
+We could also send credentials
+as part of the URL,
+
+113
+00:05:41,790 --> 00:05:44,610
+before the host name,
+separated by a colon,
+
+114
+00:05:44,610 --> 00:05:49,720
+and ended by a
+net sign, like so.
+
+115
+00:05:49,720 --> 00:05:52,740
+There are some limitations with
+the authenticate or request
+
+116
+00:05:52,740 --> 00:05:54,940
+with HTTP basic method.
+
+117
+00:05:54,940 --> 00:05:57,860
+As you can see here, we're
+making a curl request,
+
+118
+00:05:57,860 --> 00:06:00,920
+asking specifically
+for JSON back,
+
+119
+00:06:00,920 --> 00:06:03,080
+but we're passing
+invalid credentials.
+
+120
+00:06:03,080 --> 00:06:06,540
+We get a 401 unauthorized
+response back,
+
+121
+00:06:06,540 --> 00:06:10,790
+but the content type is
+set to text/HTML, which
+
+122
+00:06:10,790 --> 00:06:14,760
+might break some API clients.
+
+123
+00:06:14,760 --> 00:06:17,660
+One way we can fix that, is
+by using the authenticate
+
+124
+00:06:17,660 --> 00:06:20,650
+with HTTP basic
+method, which gives us
+
+125
+00:06:20,650 --> 00:06:23,480
+more control over the response.
+
+126
+00:06:23,480 --> 00:06:25,140
+So back in our
+EpisodesController
+
+127
+00:06:25,140 --> 00:06:27,440
+we created before
+action authenticate.
+
+128
+00:06:27,440 --> 00:06:30,280
+But instead, we call
+authenticate basic auth
+
+129
+00:06:30,280 --> 00:06:32,940
+or render unauthorized.
+
+130
+00:06:32,940 --> 00:06:34,750
+The authenticate
+basic auth method
+
+131
+00:06:34,750 --> 00:06:37,550
+calls authenticate
+with HTTP basic, that
+
+132
+00:06:37,550 --> 00:06:39,380
+just like the
+previous method, takes
+
+133
+00:06:39,380 --> 00:06:41,470
+a block with the
+authentication strategy,
+
+134
+00:06:41,470 --> 00:06:44,110
+but instead it
+returns a Boolean.
+
+135
+00:06:44,110 --> 00:06:47,970
+It does not halt the request.
+
+136
+00:06:47,970 --> 00:06:50,330
+And in our render
+unauthorized method,
+
+137
+00:06:50,330 --> 00:06:54,370
+we must manually set the
+WWW-Authenticate header
+
+138
+00:06:54,370 --> 00:06:56,700
+and we respond with the
+proper content type.
+
+139
+00:07:01,140 --> 00:07:03,460
+Now, if we make the
+same curl request
+
+140
+00:07:03,460 --> 00:07:07,070
+as we did before, we get a
+response back with the content
+
+141
+00:07:07,070 --> 00:07:11,075
+type set to the proper media
+type, application slash JSON.
+
+142
+00:07:14,070 --> 00:07:18,640
+Basic auth authentication is
+simple but it's not secure.
+
+143
+00:07:18,640 --> 00:07:21,850
+Base64 credentials
+can be easily decided.
+
+144
+00:07:21,850 --> 00:07:23,680
+Let's take a look at an example.
+
+145
+00:07:23,680 --> 00:07:25,960
+In this case, we have
+user and password set
+
+146
+00:07:25,960 --> 00:07:27,720
+to carlos and secret.
+
+147
+00:07:27,720 --> 00:07:29,450
+We use a Rails
+helper method encode
+
+148
+00:07:29,450 --> 00:07:31,370
+credentials to encode those.
+
+149
+00:07:31,370 --> 00:07:34,670
+We can then use the
+base 64 decode 64 method
+
+150
+00:07:34,670 --> 00:07:36,460
+to decode those credentials.
+
+151
+00:07:36,460 --> 00:07:38,840
+And we have access to
+the original credentials.
+
+152
+00:07:38,840 --> 00:07:40,530
+Anyone sniffing
+the network traffic
+
+153
+00:07:40,530 --> 00:07:42,890
+can get access to your
+encoded credentials
+
+154
+00:07:42,890 --> 00:07:47,260
+and use base 64 decode 64
+to decode them, and then
+
+155
+00:07:47,260 --> 00:07:49,600
+have access to your actual
+username and password.
+
+156
+00:07:52,490 --> 00:07:54,450
+We've reached the
+end of the section
+
+157
+00:07:54,450 --> 00:07:57,970
+so get ready for some
+challenges on basic auth.
+

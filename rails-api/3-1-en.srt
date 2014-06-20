@@ -1,0 +1,512 @@
+﻿1
+00:00:00,100 --> 00:00:01,641
+[SINGING] Is there
+anybody out there,
+
+2
+00:00:01,641 --> 00:00:02,910
+all the endpoints are closed.
+
+3
+00:00:02,910 --> 00:00:05,530
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:05,530 --> 00:00:07,290
+They're getting all
+the humans and then
+
+5
+00:00:07,290 --> 00:00:09,580
+putting them down,
+patching all the clients
+
+6
+00:00:09,580 --> 00:00:11,700
+and deleting the town.
+
+7
+00:00:11,700 --> 00:00:14,960
+Surviving through the night
+we need authentication.
+
+8
+00:00:14,960 --> 00:00:17,680
+The secret to our broadcast
+is content negotiation.
+
+9
+00:00:17,680 --> 00:00:20,190
+They're after all our brains
+and we're biting our nails.
+
+10
+00:00:20,190 --> 00:00:21,930
+Surviving APIs with Rails.
+
+11
+00:00:26,776 --> 00:00:30,450
+I'm Carlos Souza, and you're
+watching surviving APIs
+
+12
+00:00:30,450 --> 00:00:31,550
+with Rails.
+
+13
+00:00:31,550 --> 00:00:35,420
+In this level, we're going to
+be covering content negotiation.
+
+14
+00:00:35,420 --> 00:00:39,290
+Web APIs need to cater to
+different types of applications
+
+15
+00:00:39,290 --> 00:00:41,890
+that understand
+different formats.
+
+16
+00:00:41,890 --> 00:00:44,140
+For example, a
+mobile application
+
+17
+00:00:44,140 --> 00:00:46,970
+might ask for the
+response in JSON.
+
+18
+00:00:46,970 --> 00:00:50,900
+An enterprise application might
+ask for the response in XML.
+
+19
+00:00:50,900 --> 00:00:51,590
+Ha ha!
+
+20
+00:00:51,590 --> 00:00:53,720
+Business!
+
+21
+00:00:53,720 --> 00:00:56,710
+A third application might
+ask for a different format
+
+22
+00:00:56,710 --> 00:01:00,260
+HTML in a completely
+different language.
+
+23
+00:01:00,260 --> 00:01:04,680
+So the process in which client
+and server determine the best
+
+24
+00:01:04,680 --> 00:01:09,020
+representation for the response
+is called content negotiation.
+
+25
+00:01:09,020 --> 00:01:13,200
+The same web API should be
+able to respond properly
+
+26
+00:01:13,200 --> 00:01:15,450
+to all of these three different
+types of applications.
+
+27
+00:01:18,470 --> 00:01:20,750
+Rails gives us a nice
+way to play around
+
+28
+00:01:20,750 --> 00:01:24,980
+with the different formats by
+changing the URI extension.
+
+29
+00:01:24,980 --> 00:01:27,130
+If we want our zombies
+in JSON format,
+
+30
+00:01:27,130 --> 00:01:30,923
+we can simply say .json or
+for XML, we can say .xml.
+
+31
+00:01:35,470 --> 00:01:36,990
+And that's what
+the format option
+
+32
+00:01:36,990 --> 00:01:39,740
+means in our routes.
+ The ability to play around
+
+33
+00:01:39,740 --> 00:01:42,130
+with the extension is
+a nicety from Rails
+
+34
+00:01:42,130 --> 00:01:44,270
+and it's not a standard.
+
+35
+00:01:44,270 --> 00:01:49,770
+So do not write API clients
+that rely on this feature.
+
+36
+00:01:49,770 --> 00:01:52,730
+The proper way to
+request specific formats
+
+37
+00:01:52,730 --> 00:01:55,100
+is by using the accept header.
+
+38
+00:01:55,100 --> 00:01:57,730
+Let's see what that looks
+like by writing a test.
+
+39
+00:01:57,730 --> 00:01:59,360
+In this test, we
+want to make sure
+
+40
+00:01:59,360 --> 00:02:01,820
+that our API is able
+to return zombies
+
+41
+00:02:01,820 --> 00:02:04,920
+both in JSON and in XML.
+
+42
+00:02:04,920 --> 00:02:07,490
+We start with a GET
+request for Zombies.
+
+43
+00:02:07,490 --> 00:02:09,440
+The second argument
+to the GET method
+
+44
+00:02:09,440 --> 00:02:12,550
+is the parameters that we want
+to send along with the request.
+
+45
+00:02:12,550 --> 00:02:14,900
+For now, we don't
+want to send anything.
+
+46
+00:02:14,900 --> 00:02:19,870
+The third argument to the GET
+request is the request headers.
+
+47
+00:02:19,870 --> 00:02:22,630
+So that's where we're going
+to place our accept header
+
+48
+00:02:22,630 --> 00:02:24,740
+set to Mime::JSON.
+
+49
+00:02:24,740 --> 00:02:27,840
+Telling the server that
+we want JSON format.
+
+50
+00:02:27,840 --> 00:02:30,760
+MIME types, which are
+now called media types,
+
+51
+00:02:30,760 --> 00:02:34,470
+specify this scheme for the
+resource representation.
+
+52
+00:02:34,470 --> 00:02:37,830
+Then we check for the
+proper status code of 200.
+
+53
+00:02:37,830 --> 00:02:39,750
+And finally, we
+check that the server
+
+54
+00:02:39,750 --> 00:02:42,100
+was able to respond
+with the proper format
+
+55
+00:02:42,100 --> 00:02:44,650
+by looking at the
+content type header.
+
+56
+00:02:44,650 --> 00:02:47,070
+Now we'll do the
+same thing for XML,
+
+57
+00:02:47,070 --> 00:02:50,160
+but instead of passing Mime::JSON
+on the accept header,
+
+58
+00:02:50,160 --> 00:02:52,200
+we use mine XML.
+
+59
+00:02:52,200 --> 00:02:56,240
+So now let's implement
+and make the test pass.
+
+60
+00:02:56,240 --> 00:02:58,440
+Here we are in the
+zombies controller.
+
+61
+00:02:58,440 --> 00:03:01,300
+And you might notice
+that this class is not
+
+62
+00:03:01,300 --> 00:03:03,720
+under the API module anymore.
+
+63
+00:03:03,720 --> 00:03:05,980
+This is because from
+now on our application
+
+64
+00:03:05,980 --> 00:03:09,350
+is strictly serving a
+web API, not a website.
+
+65
+00:03:09,350 --> 00:03:12,840
+Well define the index action,
+then fetch all the zombies.
+
+66
+00:03:12,840 --> 00:03:14,990
+Then, we'll use the
+respond_to method
+
+67
+00:03:14,990 --> 00:03:17,790
+which allows us to control
+the different types of formats
+
+68
+00:03:17,790 --> 00:03:19,710
+that our application
+will respond to.
+
+69
+00:03:19,710 --> 00:03:22,300
+Inside of that, we'll
+implement our JSON response
+
+70
+00:03:22,300 --> 00:03:25,800
+sending back the zombies
+with a status code 200.
+
+71
+00:03:25,800 --> 00:03:29,290
+And this is what the response
+body looks like in JSON.
+
+72
+00:03:29,290 --> 00:03:31,030
+If we look at the
+response headers,
+
+73
+00:03:31,030 --> 00:03:32,880
+we'll notice that
+Content-Type is
+
+74
+00:03:32,880 --> 00:03:37,780
+set to the proper 
+application/json media type.
+
+75
+00:03:37,780 --> 00:03:43,020
+Checking response headers is
+super useful when debugging.
+
+76
+00:03:43,020 --> 00:03:45,180
+Next, let's make
+our index action
+
+77
+00:03:45,180 --> 00:03:47,530
+respond to the XML format.
+
+78
+00:03:47,530 --> 00:03:49,440
+The code looks very similar.
+
+79
+00:03:49,440 --> 00:03:52,165
+And here's what the response
+body looks like in XML.
+
+80
+00:03:54,730 --> 00:03:56,930
+Again, if we check
+the response headers,
+
+81
+00:03:56,930 --> 00:03:58,570
+we'll see the
+content type header
+
+82
+00:03:58,570 --> 00:04:01,910
+was set to
+application/xml.
+
+83
+00:04:01,910 --> 00:04:05,370
+So does this mean that I can
+simply do format.anything
+
+84
+00:04:05,370 --> 00:04:07,220
+and Rails knows what to do?
+
+85
+00:04:07,220 --> 00:04:08,830
+Well, not quite.
+
+86
+00:04:08,830 --> 00:04:13,370
+Rails ships with 21 different
+media types out of the box.
+
+87
+00:04:13,370 --> 00:04:15,760
+If you want to list them all,
+you can fire up your Rails
+
+88
+00:04:15,760 --> 00:04:20,810
+console and type Mime::SET which
+will list all supported media
+
+89
+00:04:20,810 --> 00:04:21,310
+types.
+
+90
+00:04:24,584 --> 00:04:26,500
+Here you can see all the
+different media types
+
+91
+00:04:26,500 --> 00:04:27,583
+in a more readable output.
+
+92
+00:04:31,560 --> 00:04:34,030
+So our test now passed.
+
+93
+00:04:34,030 --> 00:04:35,590
+We can also use
+Curl to make sure
+
+94
+00:04:35,590 --> 00:04:38,450
+that our application responds
+to the different formats.
+
+95
+00:04:38,450 --> 00:04:42,380
+To send custom headers, we
+use the -H option followed
+
+96
+00:04:42,380 --> 00:04:44,130
+by the header that
+we want to send.
+
+97
+00:04:44,130 --> 00:04:47,780
+In this case, 
+"Accept: application/json".
+
+98
+00:04:47,780 --> 00:04:52,170
+We can see that the response
+is 200 OK and that the content
+
+99
+00:04:52,170 --> 00:04:55,110
+type in the response is
+set to application/json,
+
+100
+00:04:55,110 --> 00:04:57,220
+the JSON format.
+
+101
+00:04:57,220 --> 00:04:59,230
+And the same thing for XML.
+
+102
+00:04:59,230 --> 00:05:02,180
+If we send the header
+"Accept: application/xml",
+
+103
+00:05:02,180 --> 00:05:05,130
+the response we get back
+sets the content type
+
+104
+00:05:05,130 --> 00:05:06,885
+to application/xml.
+
+105
+00:05:10,247 --> 00:05:11,830
+Why don't you play
+around a little bit
+
+106
+00:05:11,830 --> 00:05:14,090
+with negotiating
+media types before we
+
+107
+00:05:14,090 --> 00:05:16,440
+move on to the next section?
+

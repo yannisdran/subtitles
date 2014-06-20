@@ -1,0 +1,665 @@
+﻿1
+00:00:00,100 --> 00:00:01,641
+[SINGING] Is there
+anybody out there?
+
+2
+00:00:01,641 --> 00:00:02,910
+All the endpoints are closed.
+
+3
+00:00:02,910 --> 00:00:05,260
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:05,260 --> 00:00:06,985
+They're getting all
+the humans and then
+
+5
+00:00:06,985 --> 00:00:09,590
+putting them down,
+patching all the clients
+
+6
+00:00:09,590 --> 00:00:11,700
+and deleting the town.
+
+7
+00:00:11,700 --> 00:00:14,960
+Surviving through the night,
+we need authentication.
+
+8
+00:00:14,960 --> 00:00:17,680
+The secret to our broadcast
+is content negotiation.
+
+9
+00:00:17,680 --> 00:00:20,210
+They're after all our brains
+and we're biting our nails.
+
+10
+00:00:20,210 --> 00:00:21,930
+Surviving APIs With Rails.
+
+11
+00:00:26,785 --> 00:00:28,610
+I'm Carlos Souza,
+and you're watching
+
+12
+00:00:28,610 --> 00:00:31,370
+Surviving APIs with Rails.
+
+13
+00:00:31,370 --> 00:00:34,890
+In this level, we're going to
+be looking at API versioning.
+
+14
+00:00:34,890 --> 00:00:37,040
+Once your API is
+deployed to production
+
+15
+00:00:37,040 --> 00:00:40,110
+and then you have clients
+that start relying on it,
+
+16
+00:00:40,110 --> 00:00:43,500
+you have to be very cautious
+about introducing changes.
+
+17
+00:00:43,500 --> 00:00:47,630
+API versioning helps prevent
+major changes to your API
+
+18
+00:00:47,630 --> 00:00:50,460
+from breaking these
+existing clients.
+
+19
+00:00:50,460 --> 00:00:52,110
+Let's say your API
+is in production
+
+20
+00:00:52,110 --> 00:00:54,120
+and you start having
+clients relying on it.
+
+21
+00:00:54,120 --> 00:00:56,520
+For example, client
+A and client B.
+
+22
+00:00:56,520 --> 00:00:58,580
+If you need to introduce
+a breaking change
+
+23
+00:00:58,580 --> 00:01:01,700
+to your service, you don't
+want to force existing clients
+
+24
+00:01:01,700 --> 00:01:04,946
+to adapt to that
+change right away.
+
+25
+00:01:04,946 --> 00:01:06,320
+If you have any
+new features, you
+
+26
+00:01:06,320 --> 00:01:08,350
+don't want to introduce
+that in version one.
+
+27
+00:01:08,350 --> 00:01:10,740
+Instead you want to create
+another version, a newer
+
+28
+00:01:10,740 --> 00:01:12,250
+version, version two.
+
+29
+00:01:12,250 --> 00:01:14,670
+Old clients will need
+to adapt to version two,
+
+30
+00:01:14,670 --> 00:01:16,640
+so they won't be able
+to use it right away.
+
+31
+00:01:16,640 --> 00:01:19,290
+But they can still
+rely on version one
+
+32
+00:01:19,290 --> 00:01:20,800
+and keep functioning it.
+
+33
+00:01:20,800 --> 00:01:24,200
+On the other hand, new
+clients can join in
+
+34
+00:01:24,200 --> 00:01:26,350
+and start using
+version two of your API
+
+35
+00:01:26,350 --> 00:01:28,660
+and use the latest features.
+
+36
+00:01:28,660 --> 00:01:31,760
+API versioning is a
+very controversial topic
+
+37
+00:01:31,760 --> 00:01:35,510
+in the REST community, and there
+are different ways to do it.
+
+38
+00:01:35,510 --> 00:01:39,930
+The takeaway is we should avoid
+introducing breaking changes as
+
+39
+00:01:39,930 --> 00:01:42,570
+much as possible
+so that versioning
+
+40
+00:01:42,570 --> 00:01:45,670
+doesn't become a big issue.
+
+41
+00:01:45,670 --> 00:01:47,620
+The first strategy
+for API versioning
+
+42
+00:01:47,620 --> 00:01:50,670
+that we're going to be
+looking at is using the URI.
+
+43
+00:01:50,670 --> 00:01:54,120
+Our application now needs to
+support two different versions
+
+44
+00:01:54,120 --> 00:01:56,220
+of our zombies resources.
+
+45
+00:01:56,220 --> 00:01:58,140
+Using the namespace
+method, we're
+
+46
+00:01:58,140 --> 00:02:02,760
+going to create namespace
+for v1 and namespace for v2.
+
+47
+00:02:02,760 --> 00:02:05,280
+Namespaces can help
+us isolate controllers
+
+48
+00:02:05,280 --> 00:02:06,970
+for the different versions.
+
+49
+00:02:06,970 --> 00:02:09,190
+They also affect the URL.
+
+50
+00:02:09,190 --> 00:02:12,515
+For version one, the URL for
+our zombies resources is going
+
+51
+00:02:12,515 --> 00:02:13,265
+to be /v1/zombies.
+
+52
+00:02:16,000 --> 00:02:17,440
+For version two, /v2/zombies.
+
+53
+00:02:22,350 --> 00:02:26,490
+Before we go any further,
+let's run a routes test.
+
+54
+00:02:26,490 --> 00:02:29,560
+Routes test helps
+ensure that URIs
+
+55
+00:02:29,560 --> 00:02:32,460
+are mapped to the proper
+controller actions.
+
+56
+00:02:32,460 --> 00:02:38,200
+Using the assert generates
+method, we pass in /v1/zombies,
+
+57
+00:02:38,200 --> 00:02:40,710
+and we need to make sure
+that it's properly routed
+
+58
+00:02:40,710 --> 00:02:45,420
+to the controller under
+v1/zombies in the action index.
+
+59
+00:02:45,420 --> 00:02:51,630
+For /v2/zombies, it needs to
+map to v2/ZombiesController
+
+60
+00:02:51,630 --> 00:02:53,330
+in the action index.
+
+61
+00:02:53,330 --> 00:02:55,560
+The assert_generates
+method asserts
+
+62
+00:02:55,560 --> 00:02:57,680
+that the provided
+options can be used
+
+63
+00:02:57,680 --> 00:03:00,030
+to generate the expected path.
+
+64
+00:03:00,030 --> 00:03:04,070
+You run that test and it fails.
+
+65
+00:03:04,070 --> 00:03:08,500
+To make our test pass, we
+implement V1 ZombiesController
+
+66
+00:03:08,500 --> 00:03:11,180
+and V2 ZombiesController.
+
+67
+00:03:11,180 --> 00:03:15,700
+Each controller lives under
+its own version namespace.
+
+68
+00:03:15,700 --> 00:03:16,990
+Test pass.
+
+69
+00:03:16,990 --> 00:03:21,770
+Now let's see how we can reuse
+code across different versions.
+
+70
+00:03:21,770 --> 00:03:25,310
+In this example, we have
+a V1 ZombiesController
+
+71
+00:03:25,310 --> 00:03:29,480
+with a before action that reads
+the remote IP from the API
+
+72
+00:03:29,480 --> 00:03:34,190
+client, sets it to the remote
+IP instance variable, and uses
+
+73
+00:03:34,190 --> 00:03:37,190
+that to compose the JSON
+respond that it send back.
+
+74
+00:03:37,190 --> 00:03:39,260
+That same before
+action is repeated
+
+75
+00:03:39,260 --> 00:03:41,580
+for V2 ZombiesController.
+
+76
+00:03:41,580 --> 00:03:44,650
+So how might we remove
+this duplication?
+
+77
+00:03:44,650 --> 00:03:48,830
+Before we do anything,
+let's write a test.
+
+78
+00:03:48,830 --> 00:03:51,830
+In our set up block, we populate
+the IP instance variable
+
+79
+00:03:51,830 --> 00:03:53,670
+with a dummy IP value.
+
+80
+00:03:53,670 --> 00:03:59,360
+The first test issues a
+get request to /v1/zombies,
+
+81
+00:03:59,360 --> 00:04:04,370
+passing the IP set to the
+remote ADDR request header.
+
+82
+00:04:04,370 --> 00:04:08,800
+In real life this remote ADDR
+is set by your web server.
+
+83
+00:04:08,800 --> 00:04:11,610
+We assert that the response
+and get back is a 200
+
+84
+00:04:11,610 --> 00:04:15,200
+and that the response body
+includes the value for that IP
+
+85
+00:04:15,200 --> 00:04:17,269
+followed by the
+string version one.
+
+86
+00:04:17,269 --> 00:04:21,440
+In a similar way, the test
+for /v2 is supposed to return
+
+87
+00:04:21,440 --> 00:04:23,610
+the string for version two.
+
+88
+00:04:23,610 --> 00:04:28,590
+So we issue a get request as
+/v2/zombies passing in the same
+
+89
+00:04:28,590 --> 00:04:29,990
+IP value.
+
+90
+00:04:29,990 --> 00:04:33,110
+We check for 200 status
+code back, and finally
+
+91
+00:04:33,110 --> 00:04:36,490
+check that the response body
+includes the IP value followed
+
+92
+00:04:36,490 --> 00:04:38,670
+by the Version Two string.
+
+93
+00:04:38,670 --> 00:04:42,110
+Notice that the API
+version is part of the URI.
+
+94
+00:04:42,110 --> 00:04:43,570
+This is important.
+
+95
+00:04:43,570 --> 00:04:45,430
+Now that we have a
+failing test, let's
+
+96
+00:04:45,430 --> 00:04:48,160
+see how we can make it pass.
+
+97
+00:04:48,160 --> 00:04:50,580
+So we're going to extract
+the common code out
+
+98
+00:04:50,580 --> 00:04:56,810
+of those two controllers and
+into a common base API class.
+
+99
+00:04:56,810 --> 00:05:00,400
+And because our app
+strictly serves a web API,
+
+100
+00:05:00,400 --> 00:05:02,950
+we can use the application
+controller for that.
+
+101
+00:05:02,950 --> 00:05:05,650
+So the before action now in
+our application controller
+
+102
+00:05:05,650 --> 00:05:07,630
+is going to run
+before all actions
+
+103
+00:05:07,630 --> 00:05:10,450
+across controllers
+of all versions.
+
+104
+00:05:10,450 --> 00:05:13,040
+This is enough to
+get our test to pass.
+
+105
+00:05:13,040 --> 00:05:15,470
+But we go back to
+our ZombiesController
+
+106
+00:05:15,470 --> 00:05:19,680
+on both versions and remove
+the before actions from those.
+
+107
+00:05:19,680 --> 00:05:22,460
+The remote IP instance
+variable is now
+
+108
+00:05:22,460 --> 00:05:24,850
+being sent from
+application controller
+
+109
+00:05:24,850 --> 00:05:26,250
+and our tests still pass.
+
+110
+00:05:28,870 --> 00:05:30,280
+Let's look at another example.
+
+111
+00:05:30,280 --> 00:05:35,210
+But now we're using a feature
+that's specific to one version.
+
+112
+00:05:35,210 --> 00:05:38,410
+In this example, we have
+a V2 ZombiesController
+
+113
+00:05:38,410 --> 00:05:42,260
+with the before action
+audit_logging_for_V2.
+
+114
+00:05:42,260 --> 00:05:44,330
+That same before
+action is repeated
+
+115
+00:05:44,330 --> 00:05:45,700
+for V2 EpisodesController.
+
+116
+00:05:49,070 --> 00:05:51,330
+Unlike we did with
+the previous example,
+
+117
+00:05:51,330 --> 00:05:53,650
+we can't simply extract
+that before action
+
+118
+00:05:53,650 --> 00:05:55,600
+to application
+controller, because we
+
+119
+00:05:55,600 --> 00:05:58,660
+don't want this auditing
+running for all versions,
+
+120
+00:05:58,660 --> 00:06:00,960
+just for version two.
+
+121
+00:06:00,960 --> 00:06:03,120
+What we can do
+instead is to create
+
+122
+00:06:03,120 --> 00:06:06,330
+a base class that's
+specific to version two.
+
+123
+00:06:06,330 --> 00:06:09,570
+We're going to call it V2
+VersionController, which
+
+124
+00:06:09,570 --> 00:06:11,452
+inherits from
+application controller.
+
+125
+00:06:11,452 --> 00:06:13,160
+And we're going to
+move our before action
+
+126
+00:06:13,160 --> 00:06:16,130
+inside of this class.
+
+127
+00:06:16,130 --> 00:06:18,590
+Because VersionController's
+a base class
+
+128
+00:06:18,590 --> 00:06:22,190
+and it's not supposed to
+expose actions of its own,
+
+129
+00:06:22,190 --> 00:06:24,420
+we're going to call
+the abstract method.
+
+130
+00:06:24,420 --> 00:06:28,200
+Using abstract also makes your
+code easier to understand.
+
+131
+00:06:28,200 --> 00:06:30,870
+Because next time a
+developer looks at this class
+
+132
+00:06:30,870 --> 00:06:33,090
+and sees the abstract
+call, they'll
+
+133
+00:06:33,090 --> 00:06:35,675
+know right away that this
+is purely a base class.
+
+134
+00:06:38,540 --> 00:06:40,810
+Finally, we need to
+add this new class
+
+135
+00:06:40,810 --> 00:06:43,990
+as a base class for our
+version 2 controllers.
+
+136
+00:06:43,990 --> 00:06:48,300
+So V2 ZombiesController
+and V2 EpisodesController
+
+137
+00:06:48,300 --> 00:06:52,150
+both inherit from
+version controller.
+
+138
+00:06:52,150 --> 00:06:54,020
+We've reached the
+end of the section,
+
+139
+00:06:54,020 --> 00:06:57,420
+so get ready for some
+challenges on URI versioning.
+

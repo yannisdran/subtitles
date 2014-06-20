@@ -1,0 +1,998 @@
+﻿1
+00:00:00,090 --> 00:00:01,631
+[SINGING] Is there
+anybody out there?
+
+2
+00:00:01,631 --> 00:00:02,910
+All the endpoints are closed.
+
+3
+00:00:02,910 --> 00:00:05,260
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:05,260 --> 00:00:07,300
+They're getting all
+the humans and then
+
+5
+00:00:07,300 --> 00:00:09,580
+putting them down,
+hatching all the clients
+
+6
+00:00:09,580 --> 00:00:11,700
+and deleting the town.
+
+7
+00:00:11,700 --> 00:00:14,960
+Surviving through the night,
+we need authentication.
+
+8
+00:00:14,960 --> 00:00:17,490
+The secret to our broadcast
+is content negotiation.
+
+9
+00:00:17,490 --> 00:00:20,190
+They're after all our brains
+and we're biting our nails.
+
+10
+00:00:20,190 --> 00:00:22,150
+Surviving APIs with Rails.
+
+11
+00:00:27,060 --> 00:00:28,780
+My name is Carlos
+Souza and you're
+
+12
+00:00:28,780 --> 00:00:32,009
+watching Surviving
+APIs with Rails.
+
+13
+00:00:32,009 --> 00:00:33,780
+In this level, we're
+going to be looking
+
+14
+00:00:33,780 --> 00:00:36,980
+at resources and the GET method.
+
+15
+00:00:36,980 --> 00:00:39,620
+REST is all
+about the resources.
+
+16
+00:00:39,620 --> 00:00:43,720
+Pretty much anything that can be
+given a name can be a resource.
+
+17
+00:00:43,720 --> 00:00:47,690
+For example, a Music
+Playlist, a Song,
+
+18
+00:00:47,690 --> 00:00:51,720
+The leader of the
+Zombie horde, Survivors,
+
+19
+00:00:51,720 --> 00:00:56,610
+and Remaining Medical Kits,
+are all examples of resources.
+
+20
+00:00:56,610 --> 00:00:59,670
+Quoting Steve Klabnik
+on this, a resource
+
+21
+00:00:59,670 --> 00:01:03,660
+is a conceptual mapping
+to a set of entities,
+
+22
+00:01:03,660 --> 00:01:06,520
+not the entity that
+corresponds to the mapping
+
+23
+00:01:06,520 --> 00:01:08,950
+at any particular point in time.
+
+24
+00:01:08,950 --> 00:01:11,310
+If that sounds a little
+confusing, don't worry.
+
+25
+00:01:11,310 --> 00:01:14,400
+Let's see how that
+looks in practice.
+
+26
+00:01:14,400 --> 00:01:17,870
+First, let's understand
+how the GET method works.
+
+27
+00:01:17,870 --> 00:01:21,430
+We use the GET method
+to retrieve information
+
+28
+00:01:21,430 --> 00:01:23,310
+from a given URI.
+
+29
+00:01:23,310 --> 00:01:26,430
+For example, to read
+a specific playlist,
+
+30
+00:01:26,430 --> 00:01:33,110
+a client issues a GET request to
+/playlist/13, which is the URI.
+
+31
+00:01:33,110 --> 00:01:35,450
+The server then might
+respond with OK.
+
+32
+00:01:35,450 --> 00:01:38,850
+And return all the songs
+that belong to that playlist.
+
+33
+00:01:38,850 --> 00:01:41,940
+Two important characteristics
+about the GET method
+
+34
+00:01:41,940 --> 00:01:43,550
+is that it's safe.
+
+35
+00:01:43,550 --> 00:01:46,490
+Meaning that it should
+not take any action
+
+36
+00:01:46,490 --> 00:01:48,080
+other than retrieval.
+
+37
+00:01:48,080 --> 00:01:51,730
+It should not create or update
+any resources on the server.
+
+38
+00:01:51,730 --> 00:01:54,940
+And it's also
+idempotent, which means
+
+39
+00:01:54,940 --> 00:01:57,820
+that sequential GET
+requests to the same URI
+
+40
+00:01:57,820 --> 00:02:01,450
+should not cause
+any side effect.
+
+41
+00:02:01,450 --> 00:02:04,650
+The best way to understand how
+the GET method works in Rails
+
+42
+00:02:04,650 --> 00:02:06,320
+is by writing tests.
+
+43
+00:02:06,320 --> 00:02:09,160
+Integration tests, also
+known as black box,
+
+44
+00:02:09,160 --> 00:02:11,230
+simulate how API
+clients are going
+
+45
+00:02:11,230 --> 00:02:13,570
+to interact with
+our API server.
+
+46
+00:02:13,570 --> 00:02:16,510
+So here we have a routes
+file with the API namespace
+
+47
+00:02:16,510 --> 00:02:20,339
+in a constraint
+for the API sub-domain.
+
+48
+00:02:20,339 --> 00:02:22,130
+We're going to start
+writing an integration
+
+49
+00:02:22,130 --> 00:02:24,810
+test for listing our zombies.
+
+50
+00:02:24,810 --> 00:02:26,990
+The first thing
+that we have to do
+
+51
+00:02:26,990 --> 00:02:29,670
+is called the host bang method.
+
+52
+00:02:29,670 --> 00:02:32,740
+This is required for
+testing with sub-domains.
+
+53
+00:02:32,740 --> 00:02:35,160
+Rails uses the
+example.com domain,
+
+54
+00:02:35,160 --> 00:02:38,050
+whenever it runs your
+application and test.
+
+55
+00:02:38,050 --> 00:02:41,140
+So we need to override that
+with our specific sub-domain.
+
+56
+00:02:41,140 --> 00:02:44,570
+In this case, api.example.com.
+
+57
+00:02:44,570 --> 00:02:48,570
+Once we do that, we can start
+writing our actual tests.
+
+58
+00:02:48,570 --> 00:02:51,890
+Our first test is going
+to list all the zombies.
+
+59
+00:02:51,890 --> 00:02:54,950
+We use the GET method,
+which issues a GET request
+
+60
+00:02:54,950 --> 00:02:57,880
+to the given URI, /zombies.
+
+61
+00:02:57,880 --> 00:03:00,230
+First thing we do is
+create an assertion
+
+62
+00:03:00,230 --> 00:03:03,320
+for the status code,
+which needs to be 200.
+
+63
+00:03:03,320 --> 00:03:07,690
+The 200 status code means that
+the request has succeeded.
+
+64
+00:03:07,690 --> 00:03:10,840
+The 200 status
+code also indicates
+
+65
+00:03:10,840 --> 00:03:13,650
+that the response should include
+the resource in the response
+
+66
+00:03:13,650 --> 00:03:14,830
+body.
+
+67
+00:03:14,830 --> 00:03:17,450
+Another way we can write this
+assertion is by using a helper
+
+68
+00:03:17,450 --> 00:03:22,470
+method from Rack Utils,
+assert response.success?,
+
+69
+00:03:22,470 --> 00:03:23,930
+which is the same thing.
+
+70
+00:03:23,930 --> 00:03:26,000
+Whenever you see
+this symbol up here,
+
+71
+00:03:26,000 --> 00:03:29,020
+it means that we're
+learning a new status code.
+
+72
+00:03:29,020 --> 00:03:30,890
+This other symbol
+means that we're
+
+73
+00:03:30,890 --> 00:03:32,707
+talking about a test file.
+
+74
+00:03:32,707 --> 00:03:34,790
+And because we're going
+to be going back and forth
+
+75
+00:03:34,790 --> 00:03:36,720
+between writing
+a test that fails
+
+76
+00:03:36,720 --> 00:03:39,460
+and writing the production
+code to make that task pass,
+
+77
+00:03:39,460 --> 00:03:41,280
+we have this little
+badge here at the top
+
+78
+00:03:41,280 --> 00:03:44,540
+that indicates whether the
+task is passing or not.
+
+79
+00:03:44,540 --> 00:03:46,810
+If you haven't seen test
+code like this before,
+
+80
+00:03:46,810 --> 00:03:50,350
+I highly recommend you check
+out Rails Testing for Zombies,
+
+81
+00:03:50,350 --> 00:03:51,850
+a code school
+course that teaches
+
+82
+00:03:51,850 --> 00:03:55,250
+you all the basics on test unit.
+
+83
+00:03:55,250 --> 00:03:58,130
+Let's implement our
+resource listing.
+
+84
+00:03:58,130 --> 00:04:00,170
+Inside of our
+zombies controller,
+
+85
+00:04:00,170 --> 00:04:04,630
+which is part of the API module,
+we created the index action.
+
+86
+00:04:04,630 --> 00:04:07,920
+Inside of that, we start
+by fetching all the zombies
+
+87
+00:04:07,920 --> 00:04:10,980
+and returning them as JSON.
+
+88
+00:04:10,980 --> 00:04:14,440
+Behind the scenes, Rails is
+calling the to_json method,
+
+89
+00:04:14,440 --> 00:04:17,990
+which serializes all the
+properties of all our zombies
+
+90
+00:04:17,990 --> 00:04:20,360
+to JSON like this.
+
+91
+00:04:20,360 --> 00:04:23,560
+If we call to_json on
+a single zombie object,
+
+92
+00:04:23,560 --> 00:04:26,840
+it would serialize
+just that one object.
+
+93
+00:04:26,840 --> 00:04:30,870
+By default, Rails returns a 200
+response for calls to render.
+
+94
+00:04:30,870 --> 00:04:33,250
+But we can be a little
+bit more explicit
+
+95
+00:04:33,250 --> 00:04:37,380
+and pass the status code as
+the second option to render.
+
+96
+00:04:37,380 --> 00:04:40,320
+The to_json method
+is built into Rails,
+
+97
+00:04:40,320 --> 00:04:43,760
+but it doesn't scale well when
+your logic for serializing
+
+98
+00:04:43,760 --> 00:04:46,420
+objects gets too complex.
+
+99
+00:04:46,420 --> 00:04:50,050
+For more advanced solution for
+serialized objects to JSON,
+
+100
+00:04:50,050 --> 00:04:53,880
+you might want to check out
+ActiveModel Serializers.
+
+101
+00:04:53,880 --> 00:04:56,490
+For representing
+resources on the URL,
+
+102
+00:04:56,490 --> 00:05:00,900
+Rails uses what is called
+Path Segmented Expansion which
+
+103
+00:05:00,900 --> 00:05:05,950
+means that arguments in the URI
+are separated using a slash.
+
+104
+00:05:05,950 --> 00:05:08,510
+For example, when you want
+a fetch a specific zombie,
+
+105
+00:05:08,510 --> 00:05:11,450
+you add /zombie/:id to the URI.
+
+106
+00:05:11,450 --> 00:05:14,020
+And the same thing for
+any additional arguments.
+
+107
+00:05:14,020 --> 00:05:18,550
+This means that if you
+access /zombies?id=1,
+
+108
+00:05:18,550 --> 00:05:21,330
+it will not be routed
+to Zombies#show
+
+109
+00:05:21,330 --> 00:05:23,850
+but to Zombies#index.
+
+110
+00:05:23,850 --> 00:05:27,600
+Most URIs will not depend
+on query string parameters,
+
+111
+00:05:27,600 --> 00:05:30,400
+but it's OK to use
+them sometimes.
+
+112
+00:05:30,400 --> 00:05:32,150
+One example is filters.
+
+113
+00:05:32,150 --> 00:05:34,770
+In this case, we're
+listing all the zombies,
+
+114
+00:05:34,770 --> 00:05:38,900
+but filtering for only those
+whose weapon is an axe.
+
+115
+00:05:38,900 --> 00:05:40,580
+Or searches, if
+we want to search
+
+116
+00:05:40,580 --> 00:05:43,410
+for all the zombies
+with the keyword John.
+
+117
+00:05:43,410 --> 00:05:45,220
+And also for
+pagination, if we want
+
+118
+00:05:45,220 --> 00:05:51,470
+to list all the zombies in page 2
+with 25 zombies per page.
+
+119
+00:05:51,470 --> 00:05:54,080
+So let's implement this filter
+that you see here on top.
+
+120
+00:05:54,080 --> 00:05:56,510
+And we'll start
+by writing a test.
+
+121
+00:05:56,510 --> 00:05:58,410
+First, in our set
+up we need to tell
+
+122
+00:05:58,410 --> 00:06:01,360
+that our host is going to
+be using the API sub-domain.
+
+123
+00:06:01,360 --> 00:06:03,190
+In our test block,
+we want to return
+
+124
+00:06:03,190 --> 00:06:05,450
+zombies filtered by weapon.
+
+125
+00:06:05,450 --> 00:06:08,290
+First is John, whose
+weapon is an axe.
+
+126
+00:06:08,290 --> 00:06:12,450
+Second is Joanna, whose
+weapon is a shotgun.
+
+127
+00:06:12,450 --> 00:06:15,640
+For now, our object creation
+logic is pretty simple.
+
+128
+00:06:15,640 --> 00:06:18,230
+But if it gets too
+verbose or too complex,
+
+129
+00:06:18,230 --> 00:06:21,550
+it's OK to move on to using
+fixtures or another solution
+
+130
+00:06:21,550 --> 00:06:22,870
+like FactoryGirl.
+
+131
+00:06:22,870 --> 00:06:25,200
+Next, we checked
+for the status code.
+
+132
+00:06:25,200 --> 00:06:27,210
+Now, we need to parse
+out the response
+
+133
+00:06:27,210 --> 00:06:28,890
+body that was returned.
+
+134
+00:06:28,890 --> 00:06:32,650
+We use JSON.parse for that,
+passing a symbolize_names
+
+135
+00:06:32,650 --> 00:06:34,030
+option.
+
+136
+00:06:34,030 --> 00:06:37,660
+This option will convert the
+keys of the hash from strings
+
+137
+00:06:37,660 --> 00:06:39,910
+to symbols, which
+is how we typically
+
+138
+00:06:39,910 --> 00:06:42,070
+work with hashes in Ruby.
+
+139
+00:06:42,070 --> 00:06:44,900
+We loop over the zombie
+names that are returned
+
+140
+00:06:44,900 --> 00:06:48,070
+and make sure that John, which
+is the zombie with the weapon,
+
+141
+00:06:48,070 --> 00:06:49,480
+is included.
+
+142
+00:06:49,480 --> 00:06:52,240
+And Joanna, which is a
+zombie with a shotgun,
+
+143
+00:06:52,240 --> 00:06:53,800
+is not included.
+
+144
+00:06:53,800 --> 00:06:55,730
+We haven't implemented
+this feature yet,
+
+145
+00:06:55,730 --> 00:06:57,770
+so our tests are
+currently failing.
+
+146
+00:07:01,400 --> 00:07:04,090
+Inside of our API,
+ZombiesController,
+
+147
+00:07:04,090 --> 00:07:07,000
+we start by fetching
+all of the zombies.
+
+148
+00:07:07,000 --> 00:07:09,880
+Then, we check for
+a weapons parameter.
+
+149
+00:07:09,880 --> 00:07:13,070
+If it's present, we're going
+to filter our query only
+
+150
+00:07:13,070 --> 00:07:15,630
+to the zombies with
+that specific weapon.
+
+151
+00:07:15,630 --> 00:07:18,220
+If you're wondering
+about Zombie.all
+
+152
+00:07:18,220 --> 00:07:20,780
+issuing a query to
+the database, remember
+
+153
+00:07:20,780 --> 00:07:23,820
+that starting in
+Rails 4 the all method
+
+154
+00:07:23,820 --> 00:07:26,630
+returns a chainable
+scope, which allows
+
+155
+00:07:26,630 --> 00:07:28,420
+us to add filters dynamically.
+
+156
+00:07:28,420 --> 00:07:29,790
+Like we're doing here.
+
+157
+00:07:29,790 --> 00:07:35,090
+Lastly we'll return our zombies
+as JSON with the status 200,
+
+158
+00:07:35,090 --> 00:07:36,370
+which makes our test pass.
+
+159
+00:07:38,900 --> 00:07:41,620
+Now let's see how we can
+retrieve one specific zombie.
+
+160
+00:07:41,620 --> 00:07:43,740
+And we'll start by
+writing the test.
+
+161
+00:07:43,740 --> 00:07:46,300
+So, we create a zombie
+record named Joanna.
+
+162
+00:07:46,300 --> 00:07:48,890
+And we issue a GET
+request to that zombie ID,
+
+163
+00:07:48,890 --> 00:07:51,150
+which gets routed
+to Zombies#show.
+
+164
+00:07:51,150 --> 00:07:54,150
+We check for a 200
+status code and again, we
+
+165
+00:07:54,150 --> 00:07:56,330
+parse the response body back.
+
+166
+00:07:56,330 --> 00:07:58,690
+Lastly, we check that
+the name that we got back
+
+167
+00:07:58,690 --> 00:08:01,410
+in the response matches
+the name of the object
+
+168
+00:08:01,410 --> 00:08:03,330
+that we just created.
+
+169
+00:08:03,330 --> 00:08:07,830
+With the test failing, we
+move on to the implementation.
+
+170
+00:08:07,830 --> 00:08:11,490
+On our API ZombiesController,
+we create the show action,
+
+171
+00:08:11,490 --> 00:08:15,880
+fetch the zombie by its ID, and
+return it's JSON representation
+
+172
+00:08:15,880 --> 00:08:20,071
+with the status 200--
+which makes our test pass.
+
+173
+00:08:20,071 --> 00:08:21,820
+Another way that we
+can define this status
+
+174
+00:08:21,820 --> 00:08:24,480
+is instead of using
+the number 200,
+
+175
+00:08:24,480 --> 00:08:28,450
+we can use the OK symbol,
+which is the same thing.
+
+176
+00:08:28,450 --> 00:08:31,780
+Visit this URL for a list
+of all numeric status codes
+
+177
+00:08:31,780 --> 00:08:35,570
+and symbols that are
+supported by Rails.
+
+178
+00:08:35,570 --> 00:08:37,159
+Let's go back to our
+test file and see
+
+179
+00:08:37,159 --> 00:08:38,980
+how we can clean
+it up a little bit.
+
+180
+00:08:38,980 --> 00:08:41,620
+You may have noticed that
+we're using this JSON.parse
+
+181
+00:08:41,620 --> 00:08:44,390
+method over and over
+again, across all
+
+182
+00:08:44,390 --> 00:08:46,050
+our different integration tests.
+
+183
+00:08:46,050 --> 00:08:49,880
+So we're going to extract
+that into a helper method.
+
+184
+00:08:49,880 --> 00:08:51,860
+It's going to look
+like this, simply
+
+185
+00:08:51,860 --> 00:08:55,470
+JSON which takes the
+(response.body) as an argument.
+
+186
+00:08:55,470 --> 00:08:58,220
+To implement this method, we
+go back to our test helper
+
+187
+00:08:58,220 --> 00:09:03,280
+file and place it inside of the
+active support test case class.
+
+188
+00:09:03,280 --> 00:09:07,270
+We can now use this method
+across all our different tests.
+
+189
+00:09:07,270 --> 00:09:11,400
+Another helpful way that we can
+test our API as we develop it,
+
+190
+00:09:11,400 --> 00:09:13,420
+is using the Curl command.
+
+191
+00:09:13,420 --> 00:09:18,030
+Curl is a command line tool that
+allows this to issue real HTTP
+
+192
+00:09:18,030 --> 00:09:19,950
+requests over the network.
+
+193
+00:09:19,950 --> 00:09:22,260
+To use it, we call Curl
+from the command line,
+
+194
+00:09:22,260 --> 00:09:24,440
+passing the URL as an argument.
+
+195
+00:09:24,440 --> 00:09:27,740
+And it defaults to a
+GET request to that URL.
+
+196
+00:09:27,740 --> 00:09:30,830
+A lot of tools use Curl as part
+of the installation process,
+
+197
+00:09:30,830 --> 00:09:32,650
+which you might
+have used before.
+
+198
+00:09:32,650 --> 00:09:33,580
+For example, rvm.
+
+199
+00:09:37,010 --> 00:09:40,220
+So here's the results that we
+get from running this command.
+
+200
+00:09:40,220 --> 00:09:43,470
+It displays the response
+body on the terminal.
+
+201
+00:09:43,470 --> 00:09:45,940
+Curl is shipped
+with OS X and Linux,
+
+202
+00:09:45,940 --> 00:09:48,150
+but there's also Windows
+installer available.
+
+203
+00:09:50,790 --> 00:09:53,760
+Curl also works fine with query
+strings, as you can see here.
+
+204
+00:09:56,930 --> 00:09:58,960
+If we want to display
+the response headers,
+
+205
+00:09:58,960 --> 00:10:01,360
+we can use the -I option.
+
+206
+00:10:05,830 --> 00:10:07,600
+We've reached the
+end of level two.
+
+207
+00:10:07,600 --> 00:10:10,250
+Time to jump into some
+challenges on resources
+
+208
+00:10:10,250 --> 00:10:12,100
+and GET.
+

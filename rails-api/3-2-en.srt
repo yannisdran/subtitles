@@ -1,0 +1,427 @@
+﻿1
+00:00:02,130 --> 00:00:05,240
+Now it's time to take a look
+at how to negotiate responses
+
+2
+00:00:05,240 --> 00:00:06,860
+in different languages.
+
+3
+00:00:06,860 --> 00:00:08,610
+We'll start out with a test.
+
+4
+00:00:08,610 --> 00:00:11,950
+We want to return the list
+of zombies in English.
+
+5
+00:00:11,950 --> 00:00:16,030
+For language negotiation, we
+use the accept language request
+
+6
+00:00:16,030 --> 00:00:16,910
+header.
+
+7
+00:00:16,910 --> 00:00:18,900
+Inside of our
+test block, our get
+
+8
+00:00:18,900 --> 00:00:23,500
+request is going to set the
+accept language to English, 'en'.
+
+9
+00:00:23,500 --> 00:00:26,830
+We also want to make sure that
+the response format is JSON.
+
+10
+00:00:26,830 --> 00:00:29,490
+So there's the accept header
+that we've just seen before.
+
+11
+00:00:29,490 --> 00:00:32,689
+We make sure the status
+code in the response is 200.
+
+12
+00:00:32,689 --> 00:00:35,340
+We parse back the
+response body and verify
+
+13
+00:00:35,340 --> 00:00:37,550
+that the message is
+written in English.
+
+14
+00:00:37,550 --> 00:00:39,290
+Watch out for Zombie name.
+
+15
+00:00:42,330 --> 00:00:44,220
+Let's write another
+test to make sure
+
+16
+00:00:44,220 --> 00:00:48,400
+that our API is also able
+to respond to Portuguese.
+
+17
+00:00:48,400 --> 00:00:52,770
+We set accept language
+header to 'pt-BR'
+
+18
+00:00:52,770 --> 00:00:55,970
+and then make sure that the
+message is in Portuguese.
+
+19
+00:00:55,970 --> 00:00:58,600
+Cuidado com,
+The zombie name.
+
+20
+00:00:58,600 --> 00:01:02,360
+With the test failing, let's
+move on to implement this.
+
+21
+00:01:02,360 --> 00:01:04,420
+To implement
+internationalization,
+
+22
+00:01:04,420 --> 00:01:06,890
+we'll jump into our
+application controller
+
+23
+00:01:06,890 --> 00:01:10,160
+and create a before
+action called set_locale.
+
+24
+00:01:10,160 --> 00:01:12,330
+Inside of the set
+locale method, we'll
+
+25
+00:01:12,330 --> 00:01:14,480
+set the language
+from the value that's
+
+26
+00:01:14,480 --> 00:01:16,800
+passed in the accept
+language header.
+
+27
+00:01:16,800 --> 00:01:19,180
+We can use the 
+request.headers method
+
+28
+00:01:19,180 --> 00:01:20,680
+to access request headers.
+
+29
+00:01:24,650 --> 00:01:26,420
+Inside of a zombie's
+controller, we
+
+30
+00:01:26,420 --> 00:01:28,180
+need to change a couple things.
+
+31
+00:01:28,180 --> 00:01:32,500
+We're still calling format.json,
+but instead of using a block,
+
+32
+00:01:32,500 --> 00:01:34,400
+we're going to use
+a j builder template
+
+33
+00:01:34,400 --> 00:01:36,760
+to customize our response.
+
+34
+00:01:36,760 --> 00:01:38,530
+J builder is a
+library that provides
+
+35
+00:01:38,530 --> 00:01:42,070
+a DSL for customizing
+JSON responses.
+
+36
+00:01:42,070 --> 00:01:45,620
+Inside of our template, we have
+access to the JSON object,
+
+37
+00:01:45,620 --> 00:01:48,350
+which you can use to
+build up our response.
+
+38
+00:01:48,350 --> 00:01:50,610
+First method recall
+is array, which
+
+39
+00:01:50,610 --> 00:01:53,320
+insures that a JSON
+array is returned.
+
+40
+00:01:53,320 --> 00:01:55,360
+Then we pass in a
+block that takes
+
+41
+00:01:55,360 --> 00:01:57,060
+each zombie as an argument.
+
+42
+00:01:57,060 --> 00:02:01,620
+For each zombie, we'll use the
+properties ID, named, and age.
+
+43
+00:02:01,620 --> 00:02:04,740
+And we also want to add another
+property called message, which
+
+44
+00:02:04,740 --> 00:02:07,640
+will be our internationalize
+message that we sent back
+
+45
+00:02:07,640 --> 00:02:08,870
+to our client.
+
+46
+00:02:08,870 --> 00:02:13,300
+Will use the I18NT method,
+which stands for translation.
+
+47
+00:02:13,300 --> 00:02:15,620
+Passing in a key,
+which will be used
+
+48
+00:02:15,620 --> 00:02:17,290
+to look up the translation.
+
+49
+00:02:17,290 --> 00:02:20,480
+We also passing the zombie
+name as a second argument.
+
+50
+00:02:20,480 --> 00:02:22,210
+In order to get this
+to work, we need
+
+51
+00:02:22,210 --> 00:02:24,740
+to build our translations file.
+
+52
+00:02:24,740 --> 00:02:27,479
+The English translation
+files provided to us by Rails
+
+53
+00:02:27,479 --> 00:02:32,020
+and it's under
+config/locales/en.yml.
+
+54
+00:02:32,330 --> 00:02:34,430
+We add an entry for
+a zombie message,
+
+55
+00:02:34,430 --> 00:02:36,820
+passing in our
+message in English,
+
+56
+00:02:36,820 --> 00:02:39,060
+and a placeholder for the name.
+
+57
+00:02:39,060 --> 00:02:42,000
+This is the syntax used
+for interpolation inside
+
+58
+00:02:42,000 --> 00:02:43,790
+of our locale templates.
+
+59
+00:02:43,790 --> 00:02:46,750
+That gives us the
+response in English.
+
+60
+00:02:46,750 --> 00:02:49,564
+For the response in Portuguese,
+we need to create another file
+
+61
+00:02:49,564 --> 00:02:54,900
+under config/locales/pt-BR.yml.
+
+62
+00:02:55,910 --> 00:02:57,800
+We add an entry for
+our zombie message
+
+63
+00:02:57,800 --> 00:03:00,990
+with a message in Portuguese
+in the same placeholder.
+
+64
+00:03:00,990 --> 00:03:03,420
+That generates the
+response in Portuguese.
+
+65
+00:03:03,420 --> 00:03:04,670
+And now our test passed.
+
+66
+00:03:07,890 --> 00:03:10,780
+We've just looked at one
+way that we can add support
+
+67
+00:03:10,780 --> 00:03:14,120
+to our API for negotiating
+different languages.
+
+68
+00:03:14,120 --> 00:03:16,830
+Our current implementation
+is very simple
+
+69
+00:03:16,830 --> 00:03:20,190
+and it's not fully
+compliant with HTTP spec.
+
+70
+00:03:20,190 --> 00:03:22,600
+Which very few API are.
+
+71
+00:03:22,600 --> 00:03:25,550
+But if you're looking for
+a more robust solution,
+
+72
+00:03:25,550 --> 00:03:29,360
+I suggest you check out
+the HTTP_Accept_Language
+
+73
+00:03:29,360 --> 00:03:32,400
+gem, which comes with a
+bunch of additional features.
+
+74
+00:03:32,400 --> 00:03:36,440
+Like for example, it sanitizes
+the list of preferred languages,
+
+75
+00:03:36,440 --> 00:03:38,760
+its sorts the list of
+preferred languages,
+
+76
+00:03:38,760 --> 00:03:41,620
+and it finds the best one in
+case multiple languages
+
+77
+00:03:41,620 --> 00:03:42,670
+are supported.
+
+78
+00:03:42,670 --> 00:03:45,900
+Here's an example of using
+the gem. To use the gem,
+
+79
+00:03:45,900 --> 00:03:49,200
+you simply add it to
+gem file, run bundle,
+
+80
+00:03:49,200 --> 00:03:52,170
+and then you have access
+to the HTTP accept language
+
+81
+00:03:52,170 --> 00:03:55,440
+object, which you
+can call methods on.
+
+82
+00:03:55,440 --> 00:03:58,640
+For example the compatible
+language from method,
+
+83
+00:03:58,640 --> 00:04:01,560
+which takes as an argument
+the available locales,
+
+84
+00:04:01,560 --> 00:04:03,640
+looks into the accept
+language header
+
+85
+00:04:03,640 --> 00:04:08,030
+and returns the first
+language compatible with it.
+
+86
+00:04:08,030 --> 00:04:09,870
+We've reached the end
+of the second part
+
+87
+00:04:09,870 --> 00:04:11,830
+of content negotiation.
+
+88
+00:04:11,830 --> 00:04:14,520
+Now you're ready to do some
+challenges for negotiating
+
+89
+00:04:14,520 --> 00:04:17,720
+languages and I'll see
+you in the next level.
+

@@ -1,0 +1,869 @@
+1
+00:00:00,110 --> 00:00:01,410
+Is there anybody out there?
+
+2
+00:00:01,410 --> 00:00:02,910
+All the endpoints are closed.
+
+3
+00:00:02,910 --> 00:00:05,260
+We haven't any rest
+since the zombies arose.
+
+4
+00:00:05,260 --> 00:00:06,980
+They're getting all
+the humans, and then
+
+5
+00:00:06,980 --> 00:00:09,580
+putting them down,
+patching all the clients,
+
+6
+00:00:09,580 --> 00:00:11,700
+and deleting the town.
+
+7
+00:00:11,700 --> 00:00:14,960
+Surviving through the night
+we need authentication.
+
+8
+00:00:14,960 --> 00:00:17,660
+The secret to our broadcast
+is content negotiation.
+
+9
+00:00:17,660 --> 00:00:19,265
+They're after all
+our brains and we're
+
+10
+00:00:19,265 --> 00:00:22,120
+biting our nails,
+Surviving APIs with Rails.
+
+11
+00:00:27,126 --> 00:00:29,100
+I'm Carlos Souza,
+and you're watching
+
+12
+00:00:29,100 --> 00:00:31,840
+Surviving APIs with Rails.
+
+13
+00:00:31,840 --> 00:00:35,470
+In this level, we're going to
+be going over rest, routes,
+
+14
+00:00:35,470 --> 00:00:38,280
+constraints, and namespaces.
+
+15
+00:00:38,280 --> 00:00:40,520
+But before we dive
+into these concepts,
+
+16
+00:00:40,520 --> 00:00:42,720
+let's take a look at
+a web-based service
+
+17
+00:00:42,720 --> 00:00:45,460
+from the perspective
+of an end user.
+
+18
+00:00:45,460 --> 00:00:49,230
+We're going to look at how a
+music streaming service works.
+
+19
+00:00:49,230 --> 00:00:51,690
+Let's take a look at
+an example application
+
+20
+00:00:51,690 --> 00:00:53,850
+that uses a web API.
+
+21
+00:00:53,850 --> 00:00:56,080
+This is a music
+streaming service,
+
+22
+00:00:56,080 --> 00:00:58,900
+and it can be accessed from
+different applications.
+
+23
+00:00:58,900 --> 00:01:01,740
+You can access it through a
+web browser and, for example,
+
+24
+00:01:01,740 --> 00:01:04,410
+create a play list--
+which you can access later
+
+25
+00:01:04,410 --> 00:01:07,200
+from a different application,
+say, a mobile phone.
+
+26
+00:01:07,200 --> 00:01:09,220
+The phone connects
+to that same playlist
+
+27
+00:01:09,220 --> 00:01:11,740
+by reading the web API,
+which would provide data
+
+28
+00:01:11,740 --> 00:01:15,400
+for all different
+sorts of applications.
+
+29
+00:01:15,400 --> 00:01:18,540
+Let's explore a little bit how
+the communication might happen
+
+30
+00:01:18,540 --> 00:01:22,300
+back and forth between the web
+API and its different clients.
+
+31
+00:01:22,300 --> 00:01:24,400
+In this example,
+we have a client
+
+32
+00:01:24,400 --> 00:01:26,999
+that first creates a playlist.
+
+33
+00:01:26,999 --> 00:01:28,540
+That communication
+might be something
+
+34
+00:01:28,540 --> 00:01:32,050
+like a Create command
+to a specific thing,
+
+35
+00:01:32,050 --> 00:01:35,510
+in this case Playlist, passing
+a couple of arguments-- song
+
+36
+00:01:35,510 --> 00:01:37,600
+1, song 2, and song 3.
+
+37
+00:01:37,600 --> 00:01:39,520
+We get a response
+back from the server
+
+38
+00:01:39,520 --> 00:01:42,830
+that says, OK, here's a
+playlist that you've created.
+
+39
+00:01:42,830 --> 00:01:45,000
+And it's called Playlist 13.
+
+40
+00:01:45,000 --> 00:01:47,510
+Then later, if we want
+to read a playlist,
+
+41
+00:01:47,510 --> 00:01:51,690
+we can issue commands
+like Read /playlist 13/.
+
+42
+00:01:51,690 --> 00:01:55,580
+Then the server responds with,
+OK, songs 1, 2, and 3
+
+43
+00:01:55,580 --> 00:01:57,210
+belong to that playlist.
+
+44
+00:01:57,210 --> 00:01:59,690
+And the same thing-- if you
+want to read all the playlists
+
+45
+00:01:59,690 --> 00:02:03,700
+that you have, you can ask the
+server to return that for you.
+
+46
+00:02:03,700 --> 00:02:05,980
+And a response
+might be, OK, here's
+
+47
+00:02:05,980 --> 00:02:09,110
+all the playlists that you
+have-- playlists 11, 12,
+
+48
+00:02:09,110 --> 00:02:10,100
+and 13.
+
+49
+00:02:10,100 --> 00:02:14,030
+At the same time, if you ask for
+a playlist that doesn't exist,
+
+50
+00:02:14,030 --> 00:02:15,890
+the server might
+respond with an error
+
+51
+00:02:15,890 --> 00:02:18,290
+message saying Invalid Playlist.
+
+52
+00:02:18,290 --> 00:02:21,360
+The server knows how to respond
+to different kinds of requests,
+
+53
+00:02:21,360 --> 00:02:23,920
+including invalid requests.
+
+54
+00:02:23,920 --> 00:02:25,050
+Notice the pattern here.
+
+55
+00:02:25,050 --> 00:02:27,710
+We're talking about
+a set of commands
+
+56
+00:02:27,710 --> 00:02:32,340
+that are performed on things,
+which generates responses.
+
+57
+00:02:32,340 --> 00:02:36,500
+This is the foundation
+of a REST API.
+
+58
+00:02:36,500 --> 00:02:40,500
+As you may know, REST stands
+for Representational State
+
+59
+00:02:40,500 --> 00:02:43,550
+Transfer, which allows
+building an infrastructure that
+
+60
+00:02:43,550 --> 00:02:46,560
+can support different
+types of applications
+
+61
+00:02:46,560 --> 00:02:50,762
+by following a very
+strict set of operations.
+
+62
+00:02:50,762 --> 00:02:52,220
+Throughout this
+course, we're going
+
+63
+00:02:52,220 --> 00:02:55,990
+to be talking all about how
+to build REST APIs in Rails,
+
+64
+00:02:55,990 --> 00:02:58,580
+and some common practices
+to keep in mind.
+
+65
+00:02:58,580 --> 00:03:01,190
+A good starting point
+for implementing our API
+
+66
+00:03:01,190 --> 00:03:02,630
+is a Routes file.
+
+67
+00:03:02,630 --> 00:03:05,060
+In this example, we have
+a resources definition
+
+68
+00:03:05,060 --> 00:03:06,260
+for zombies.
+
+69
+00:03:06,260 --> 00:03:08,130
+As you may know, the
+Rate Routes command
+
+70
+00:03:08,130 --> 00:03:10,630
+gives us a bunch of information
+related to the resources
+
+71
+00:03:10,630 --> 00:03:12,480
+that we have available for us.
+
+72
+00:03:12,480 --> 00:03:15,460
+So we can see all the different
+HTTP verbs-- or methods--
+
+73
+00:03:15,460 --> 00:03:20,020
+listed, and the URIs that
+are available for us.
+
+74
+00:03:20,020 --> 00:03:21,910
+We may not need all
+of these routes,
+
+75
+00:03:21,910 --> 00:03:24,730
+and the resources method
+gives us some options
+
+76
+00:03:24,730 --> 00:03:27,680
+that we can use to restrict
+the routes that we have.
+
+77
+00:03:27,680 --> 00:03:29,810
+This will help us
+improve memory use
+
+78
+00:03:29,810 --> 00:03:32,600
+and can also speed up
+the routing process.
+
+79
+00:03:32,600 --> 00:03:37,030
+Using 'except' here, we can
+restrict the 'destroy' action so
+
+80
+00:03:37,030 --> 00:03:38,530
+when we run RATE
+routes, we can see
+
+81
+00:03:38,530 --> 00:03:40,555
+that the 'destroy'
+action is unreachable.
+
+82
+00:03:44,130 --> 00:03:47,500
+Using the 'only' option, we
+can restrict our routes
+
+83
+00:03:47,500 --> 00:03:49,615
+to only allow the 'index' action.
+
+84
+00:03:53,810 --> 00:03:56,080
+Both 'only' and
+'except' can also take
+
+85
+00:03:56,080 --> 00:03:58,790
+an array of actions--
+in this case,
+
+86
+00:03:58,790 --> 00:04:00,560
+restricting the
+zombies' resource
+
+87
+00:04:00,560 --> 00:04:03,510
+to only allow for
+'index' and 'show' actions,
+
+88
+00:04:03,510 --> 00:04:09,380
+and the humans' resources do not
+allow 'destroy', 'edit' and 'update'.
+
+89
+00:04:09,380 --> 00:04:10,790
+Here's what our
+routes look like.
+
+90
+00:04:15,690 --> 00:04:17,700
+Here in this routes
+file, you can
+
+91
+00:04:17,700 --> 00:04:20,820
+see that we're using the same
+restriction over and over
+
+92
+00:04:20,820 --> 00:04:21,649
+again.
+
+93
+00:04:21,649 --> 00:04:24,600
+The 'with_options' method
+is an elegant way
+
+94
+00:04:24,600 --> 00:04:27,720
+to remove duplication
+out of a routes file.
+
+95
+00:04:27,720 --> 00:04:29,580
+Here you can see we're
+calling 'with_option'
+
+96
+00:04:29,580 --> 00:04:32,560
+with 'only: :index' as an argument.
+
+97
+00:04:32,560 --> 00:04:34,620
+The arguments are
+automatically added
+
+98
+00:04:34,620 --> 00:04:38,450
+to the resources
+inside of that block.
+
+99
+00:04:38,450 --> 00:04:40,440
+You might have seen
+before APIs that
+
+100
+00:04:40,440 --> 00:04:42,650
+reside on its own sub-domain.
+
+101
+00:04:42,650 --> 00:04:44,380
+And this is smart,
+because it allows
+
+102
+00:04:44,380 --> 00:04:47,990
+us to load balance traffic
+at the DNS level, which
+
+103
+00:04:47,990 --> 00:04:51,100
+is way faster than doing it
+at the application level.
+
+104
+00:04:51,100 --> 00:04:52,720
+Here in our routes
+file, we can see
+
+105
+00:04:52,720 --> 00:04:55,210
+we have the episodes
+resources, which
+
+106
+00:04:55,210 --> 00:04:58,350
+can be accessed through
+the top-level domain.
+
+107
+00:04:58,350 --> 00:05:01,100
+We also have the zombies
+and humans resources,
+
+108
+00:05:01,100 --> 00:05:04,800
+which can only be accessed
+through the API sub-domain.
+
+109
+00:05:04,800 --> 00:05:07,530
+We can do that using
+the 'constraints' option,
+
+110
+00:05:07,530 --> 00:05:10,170
+passing in the sub-domain
+that we want to use.
+
+111
+00:05:10,170 --> 00:05:14,010
+Another way we can write this
+is using the 'constraints' method,
+
+112
+00:05:14,010 --> 00:05:17,740
+that takes the sub-domain as
+an argument and our resources
+
+113
+00:05:17,740 --> 00:05:19,290
+inside of a block.
+
+114
+00:05:19,290 --> 00:05:21,870
+This technique is
+extremely useful
+
+115
+00:05:21,870 --> 00:05:23,920
+if you're using
+the same Rails code
+
+116
+00:05:23,920 --> 00:05:28,760
+base to serve both a
+website and a web API.
+
+117
+00:05:28,760 --> 00:05:31,090
+Now, before we can run
+this in development,
+
+118
+00:05:31,090 --> 00:05:32,610
+there's a couple
+things that we have
+
+119
+00:05:32,610 --> 00:05:35,300
+to do to our network
+configuration.
+
+120
+00:05:35,300 --> 00:05:37,770
+If you're using
+OS X or Linux, you
+
+121
+00:05:37,770 --> 00:05:40,570
+want to edit your
+ETC hosts file.
+
+122
+00:05:40,570 --> 00:05:42,170
+Inside of that
+file, we're going
+
+123
+00:05:42,170 --> 00:05:45,330
+to map our local network
+interface-- which
+
+124
+00:05:45,330 --> 00:05:51,370
+is 127.0.0.1-- to URLs that
+we can use in development.
+
+125
+00:05:51,370 --> 00:05:54,020
+A pattern that I like
+to use is to append
+
+126
+00:05:54,020 --> 00:05:57,530
+-dev to whatever
+website I'm working on.
+
+127
+00:05:57,530 --> 00:06:00,420
+In this example,
+cs-zombies.com
+
+128
+00:06:00,420 --> 00:06:02,820
+is the production URL.
+
+129
+00:06:02,820 --> 00:06:06,070
+So we're going to create
+cs-zombies-dev.com
+
+130
+00:06:06,070 --> 00:06:09,200
+for the
+top-level domain,
+
+131
+00:06:09,200 --> 00:06:17,170
+and API.cs-zombies-dev.com
+in the API sub-domain.
+
+132
+00:06:17,170 --> 00:06:20,790
+The following URLs are now
+available on our local machine.
+
+133
+00:06:20,790 --> 00:06:24,130
+Keep in mind that the port
+number is still required.
+
+134
+00:06:24,130 --> 00:06:27,510
+Other alternatives to do
+this are tools like POW,
+
+135
+00:06:27,510 --> 00:06:30,890
+or services like
+LVH.me, which we're not
+
+136
+00:06:30,890 --> 00:06:33,170
+going to go over in this
+course, but here's the URL
+
+137
+00:06:33,170 --> 00:06:35,320
+so you can check it out.
+
+138
+00:06:35,320 --> 00:06:37,590
+Going back to our
+previous Routes file,
+
+139
+00:06:37,590 --> 00:06:40,100
+let's see how we can keep our
+controllers a little bit more
+
+140
+00:06:40,100 --> 00:06:41,270
+organized.
+
+141
+00:06:41,270 --> 00:06:43,780
+In this example, all
+of our controllers
+
+142
+00:06:43,780 --> 00:06:45,920
+are under the same
+namespace, which
+
+143
+00:06:45,920 --> 00:06:49,160
+means under the same folder,
+which might be a little bit
+
+144
+00:06:49,160 --> 00:06:54,450
+confusing once you start adding
+more classes to your project.
+
+145
+00:06:54,450 --> 00:06:58,130
+To fix this, we can create
+a separate namespace just
+
+146
+00:06:58,130 --> 00:07:01,870
+for API controllers.
+
+147
+00:07:01,870 --> 00:07:04,260
+As you can see,
+our API controllers
+
+148
+00:07:04,260 --> 00:07:07,190
+are now under the API folder.
+
+149
+00:07:07,190 --> 00:07:09,530
+We now have our
+zombies' resources,
+
+150
+00:07:09,530 --> 00:07:11,430
+which are part of
+the API namespace.
+
+151
+00:07:15,160 --> 00:07:18,620
+This means that when we define
+our zombies controller class,
+
+152
+00:07:18,620 --> 00:07:22,110
+it needs to go inside
+of the API module.
+
+153
+00:07:22,110 --> 00:07:26,190
+And that file needs to go
+under the API directory.
+
+154
+00:07:26,190 --> 00:07:29,440
+Our pages controller, which
+is not part of our API,
+
+155
+00:07:29,440 --> 00:07:34,130
+still remains at the
+top-level main space.
+
+156
+00:07:34,130 --> 00:07:37,000
+Enforcing both the
+sub-domain constraint
+
+157
+00:07:37,000 --> 00:07:40,590
+and an API namespace gives
+us the following URI,
+
+158
+00:07:40,590 --> 00:07:41,880
+which is kind of ugly.
+
+159
+00:07:41,880 --> 00:07:43,385
+There's unnecessary duplication.
+
+160
+00:07:43,385 --> 00:07:47,140
+We're repeating API
+both at the sub-domain
+
+161
+00:07:47,140 --> 00:07:49,430
+and as part of our path.
+
+162
+00:07:49,430 --> 00:07:53,290
+We can fix that by passing a
+Path option to our namespace,
+
+163
+00:07:53,290 --> 00:07:56,310
+specifying route-- just '/'
+
+164
+00:07:56,310 --> 00:08:00,450
+This way we strip out
+the API part of our URI,
+
+165
+00:08:00,450 --> 00:08:02,570
+but still preserve
+the namespace,
+
+166
+00:08:02,570 --> 00:08:04,020
+which looks much better.
+
+167
+00:08:06,900 --> 00:08:10,520
+We can use a shorter syntax by
+passing both the constraints
+
+168
+00:08:10,520 --> 00:08:15,500
+and path as options to
+the namespace method.
+
+169
+00:08:15,500 --> 00:08:17,490
+You might have noticed
+that when we defined
+
+170
+00:08:17,490 --> 00:08:21,430
+our zombies controller class,
+we wrote our API module
+
+171
+00:08:21,430 --> 00:08:23,980
+in CamelCase, which
+is Rails' default
+
+172
+00:08:23,980 --> 00:08:25,830
+convention for naming classes.
+
+173
+00:08:25,830 --> 00:08:28,200
+But it's kind of weird,
+because we typically
+
+174
+00:08:28,200 --> 00:08:30,530
+write acronyms all in caps.
+
+175
+00:08:30,530 --> 00:08:34,559
+But if we try writing API all
+in caps, it wouldn't work.
+
+176
+00:08:34,559 --> 00:08:36,570
+To make it work, we
+need to add an entry
+
+177
+00:08:36,570 --> 00:08:39,340
+to our inflections file for API.
+
+178
+00:08:39,340 --> 00:08:42,110
+Now we can write our
+API module all in caps,
+
+179
+00:08:42,110 --> 00:08:45,570
+which makes it a little
+bit easier to read.
+
+180
+00:08:45,570 --> 00:08:46,750
+So that's it for Level One.
+
+181
+00:08:46,750 --> 00:08:49,290
+Now get ready for
+some challenges.
+
