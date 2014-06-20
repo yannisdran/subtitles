@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:02,029
+
+2
+00:00:02,029 --> 00:00:03,050
+Welcome back.
+
+3
+00:00:03,050 --> 00:00:05,750
+In this section, we're going to
+be looking at the new iOS 7
+
+4
+00:00:05,750 --> 00:00:09,920
+UI view snapshotting API.
+
+5
+00:00:09,920 --> 00:00:12,490
+The new snapshotting API is
+really just a fast way to
+
+6
+00:00:12,490 --> 00:00:16,079
+flatten an entire view hierarchy
+into a single
+
+7
+00:00:16,079 --> 00:00:17,900
+rendered view.
+
+8
+00:00:17,900 --> 00:00:20,310
+And that view is really useful
+when you're pairing it with
+
+9
+00:00:20,310 --> 00:00:22,935
+things like animated and
+interactive transitions.
+
+10
+00:00:22,935 --> 00:00:25,490
+
+11
+00:00:25,490 --> 00:00:28,500
+The code to create this snapshot
+is pretty simple.
+
+12
+00:00:28,500 --> 00:00:31,560
+We just pass the Snapshot View
+After Screen Updates
+
+13
+00:00:31,560 --> 00:00:33,990
+method to some view.
+
+14
+00:00:33,990 --> 00:00:37,610
+And we store the result inside
+of a new UI View Object.
+
+15
+00:00:37,610 --> 00:00:40,560
+Now there is one argument to
+this method that's a boolean,
+
+16
+00:00:40,560 --> 00:00:43,540
+indicating whether or not
+snapshot view is going to
+
+17
+00:00:43,540 --> 00:00:47,050
+contain recent changes
+made to self.view.
+
+18
+00:00:47,050 --> 00:00:50,950
+So let's take a look
+at what that means.
+
+19
+00:00:50,950 --> 00:00:54,180
+In this demo app, when we tap
+one of these buttons, the top
+
+20
+00:00:54,180 --> 00:00:56,680
+square is assigned a
+random color, and
+
+21
+00:00:56,680 --> 00:00:58,140
+a snapshot is taken.
+
+22
+00:00:58,140 --> 00:01:01,190
+If we pass in No to the snapshot
+method, then the
+
+23
+00:01:01,190 --> 00:01:05,390
+color is applied after the
+snapshot is taken, meaning
+
+24
+00:01:05,390 --> 00:01:09,390
+that the two boxes will never
+have the same color in them.
+
+25
+00:01:09,390 --> 00:01:13,010
+If we pass Yes into the snapshot
+method, then the
+
+26
+00:01:13,010 --> 00:01:16,870
+snapshot is taken after the
+color is applied, thus, the
+
+27
+00:01:16,870 --> 00:01:21,170
+two squares will have the
+same color in them.
+
+28
+00:01:21,170 --> 00:01:22,540
+So the previous example
+showed that
+
+29
+00:01:22,540 --> 00:01:24,050
+snapshots are really fast.
+
+30
+00:01:24,050 --> 00:01:26,720
+And that makes them great to
+use in custom animated
+
+31
+00:01:26,720 --> 00:01:29,650
+transitions, because it allows
+you to animate a single
+
+32
+00:01:29,650 --> 00:01:33,570
+snapshotted view instead of
+an entire view hierarchy.
+
+33
+00:01:33,570 --> 00:01:35,880
+And that's going to result in
+a much higher frame rate
+
+34
+00:01:35,880 --> 00:01:37,130
+during animations.
+
+35
+00:01:37,130 --> 00:01:39,190
+
+36
+00:01:39,190 --> 00:01:41,070
+Let's look at that a
+little bit closer.
+
+37
+00:01:41,070 --> 00:01:43,880
+For this login view controller
+that we've been animating in
+
+38
+00:01:43,880 --> 00:01:47,400
+previous examples, this is what
+the view hierarchy might
+
+39
+00:01:47,400 --> 00:01:49,630
+look like if we were to
+not use snapshotting.
+
+40
+00:01:49,630 --> 00:01:52,410
+So you can see, we've got at
+least 20 different views in
+
+41
+00:01:52,410 --> 00:01:55,660
+here that have to be moved. l
+And frames have to be changed
+
+42
+00:01:55,660 --> 00:01:57,600
+every time an animation
+happens.
+
+43
+00:01:57,600 --> 00:02:01,190
+If instead, we were able to use
+a UI View snapshot instead
+
+44
+00:02:01,190 --> 00:02:04,920
+of the full UI View hierarchy,
+we could reduce that down to
+
+45
+00:02:04,920 --> 00:02:08,400
+one single view.
+
+46
+00:02:08,400 --> 00:02:10,910
+We covered animated transitions
+in great detail in
+
+47
+00:02:10,910 --> 00:02:12,560
+level three of this course.
+
+48
+00:02:12,560 --> 00:02:15,090
+But we're going to review some
+of the more relevant set-up
+
+49
+00:02:15,090 --> 00:02:17,250
+pieces to what we're
+doing right now.
+
+50
+00:02:17,250 --> 00:02:20,120
+First, inside of our Animate
+Transition method, we need to
+
+51
+00:02:20,120 --> 00:02:25,560
+insert the modal view into the
+transition view's hierarchy.
+
+52
+00:02:25,560 --> 00:02:28,350
+Next, we need to set the
+starting position of our modal
+
+53
+00:02:28,350 --> 00:02:31,220
+view, which, in this case, is
+our login view controller,
+
+54
+00:02:31,220 --> 00:02:32,620
+represented here by toVC.
+
+55
+00:02:32,620 --> 00:02:35,140
+
+56
+00:02:35,140 --> 00:02:38,070
+Then we'll animate the modal
+view in the position using UI
+
+57
+00:02:38,070 --> 00:02:42,590
+View Animations or
+UI Kit Dynamics.
+
+58
+00:02:42,590 --> 00:02:44,880
+And finally, we'll complete
+the transition once the
+
+59
+00:02:44,880 --> 00:02:46,130
+animations have finished.
+
+60
+00:02:46,130 --> 00:02:49,190
+
+61
+00:02:49,190 --> 00:02:51,630
+So to start updating this
+transition to take advantage
+
+62
+00:02:51,630 --> 00:02:54,930
+of the new snapshotting APIs,
+we first want to create a
+
+63
+00:02:54,930 --> 00:02:59,710
+snapshot view from toVC.view.
+
+64
+00:02:59,710 --> 00:03:02,120
+And we definitely want to make
+sure and take the snapshot
+
+65
+00:03:02,120 --> 00:03:05,710
+after the screen updates, or
+the snapshot will be blank,
+
+66
+00:03:05,710 --> 00:03:08,380
+because it's part of that
+animated transition.
+
+67
+00:03:08,380 --> 00:03:11,310
+Then we'll update the snapshot
+view's frame to be equal to
+
+68
+00:03:11,310 --> 00:03:14,960
+the toVC.view's frame.
+
+69
+00:03:14,960 --> 00:03:18,860
+Then in the UI View Animation
+block, instead of animating
+
+70
+00:03:18,860 --> 00:03:22,860
+the toVC.view's frame, we
+animate the snapshot views
+
+71
+00:03:22,860 --> 00:03:24,110
+frame into place.
+
+72
+00:03:24,110 --> 00:03:27,270
+
+73
+00:03:27,270 --> 00:03:30,540
+And finally, in the completion
+block, we need to swap the
+
+74
+00:03:30,540 --> 00:03:35,200
+snapshot view for the actual
+toVC.view before we complete
+
+75
+00:03:35,200 --> 00:03:36,310
+the transition.
+
+76
+00:03:36,310 --> 00:03:39,210
+We need to do this because the
+snapshot view was just a
+
+77
+00:03:39,210 --> 00:03:43,160
+temporary copy we made to make
+our transition go faster.
+
+78
+00:03:43,160 --> 00:03:45,010
+And ultimately, we
+want the actual
+
+79
+00:03:45,010 --> 00:03:47,630
+toVC.view to be in place.
+
+80
+00:03:47,630 --> 00:03:53,050
+
+81
+00:03:53,050 --> 00:03:55,936
+And now it's your turn to get
+those frame rates up with UI
+
+82
+00:03:55,936 --> 00:03:58,040
+View snapshotting in
+the challenges.
+
+83
+00:03:58,040 --> 00:03:59,420
+Have fun.
+
+84
+00:03:59,420 --> 00:04:00,380
+[BEEP]
+
+85
+00:04:00,380 --> 00:04:01,626
+Push a new navigation--
+
+86
+00:04:01,626 --> 00:04:02,830
+[BEEP]
+
+87
+00:04:02,830 --> 00:04:07,210
+And rotated around an access--
+
+88
+00:04:07,210 --> 00:04:08,060
+Why did I even try?
+
+89
+00:04:08,060 --> 00:04:08,400
+[BEEP]
+
+90
+00:04:08,400 --> 00:04:11,016
+Look at how we can
+fix this problem.
+
+91
+00:04:11,016 --> 00:04:12,190
+Did I get it?
+
+92
+00:04:12,190 --> 00:04:13,390
+Yeah.
+
+93
+00:04:13,390 --> 00:04:14,940
+[BEEP]

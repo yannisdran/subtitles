@@ -1,0 +1,1026 @@
+1
+00:00:00,000 --> 00:00:02,040
+
+2
+00:00:02,040 --> 00:00:03,180
+Welcome back.
+
+3
+00:00:03,180 --> 00:00:06,060
+In continuing the theme of
+adding depth using the new iOS
+
+4
+00:00:06,060 --> 00:00:08,980
+7 APIs, is in this section we're
+going to look at how we
+
+5
+00:00:08,980 --> 00:00:14,060
+can add blur to views to
+give a sense of depth.
+
+6
+00:00:14,060 --> 00:00:16,180
+You can see examples of
+this all over the
+
+7
+00:00:16,180 --> 00:00:18,410
+standard iOS 7 controls.
+
+8
+00:00:18,410 --> 00:00:21,460
+Things like the frosted blur
+affect in Control Center and
+
+9
+00:00:21,460 --> 00:00:24,520
+Notification Center, where you
+can see the view that's
+
+10
+00:00:24,520 --> 00:00:27,280
+underneath it shining through
+a little bit.
+
+11
+00:00:27,280 --> 00:00:29,820
+And even a slight blur that's
+applied to the views
+
+12
+00:00:29,820 --> 00:00:34,180
+underneath, whenever a UI
+alert view pops up.
+
+13
+00:00:34,180 --> 00:00:35,830
+So there are two main
+types of blurs that
+
+14
+00:00:35,830 --> 00:00:37,100
+we'll be working with.
+
+15
+00:00:37,100 --> 00:00:40,770
+The first, static blurs,
+don't change after the
+
+16
+00:00:40,770 --> 00:00:42,420
+blur has been applied.
+
+17
+00:00:42,420 --> 00:00:44,830
+And we're going to be using a
+category that Apple actually
+
+18
+00:00:44,830 --> 00:00:48,100
+provides to us on UI image
+to make that blur.
+
+19
+00:00:48,100 --> 00:00:51,220
+And the second, dynamic blurs,
+actually update the blur
+
+20
+00:00:51,220 --> 00:00:54,890
+effect as the view underneath
+moves, like we see in Control
+
+21
+00:00:54,890 --> 00:00:58,350
+Center and Notification View.
+
+22
+00:00:58,350 --> 00:01:01,080
+So in this simple example, you
+can see that we've got a UI
+
+23
+00:01:01,080 --> 00:01:04,110
+view that's floating above
+a UI web view.
+
+24
+00:01:04,110 --> 00:01:06,990
+And as we go through and click
+the pre-defined buttons in the
+
+25
+00:01:06,990 --> 00:01:10,960
+toolbar that we have set up for
+light, extra light, dark,
+
+26
+00:01:10,960 --> 00:01:14,930
+and tint color, you can see that
+the simple static blur
+
+27
+00:01:14,930 --> 00:01:17,390
+effect is applied to that
+floating UI view.
+
+28
+00:01:17,390 --> 00:01:19,920
+
+29
+00:01:19,920 --> 00:01:22,280
+Let's start to recreate
+this in code.
+
+30
+00:01:22,280 --> 00:01:23,960
+There are going to be
+three basic steps to
+
+31
+00:01:23,960 --> 00:01:25,980
+create a static blur.
+
+32
+00:01:25,980 --> 00:01:29,150
+The first is that we need to
+take a snapshot image of the
+
+33
+00:01:29,150 --> 00:01:30,430
+view underneath--
+
+34
+00:01:30,430 --> 00:01:32,390
+in this case, a UI web view--
+
+35
+00:01:32,390 --> 00:01:33,845
+using a method called
+drawViewHierarch
+
+36
+00:01:33,845 --> 00:01:37,150
+yInRect:afterScreenUpdates.
+
+37
+00:01:37,150 --> 00:01:40,730
+Next, we'll add that UI image
+ImageEffects category that
+
+38
+00:01:40,730 --> 00:01:43,040
+Apple gives us to our project.
+
+39
+00:01:43,040 --> 00:01:45,910
+And finally, we'll apply that
+image effect to the snapshot
+
+40
+00:01:45,910 --> 00:01:49,060
+image and set the placeholder
+image view that's floating
+
+41
+00:01:49,060 --> 00:01:52,320
+above the web view.
+
+42
+00:01:52,320 --> 00:01:54,970
+We've configured our sample
+app to call the light blur
+
+43
+00:01:54,970 --> 00:01:57,690
+method whenever that light
+button is tapped in the
+
+44
+00:01:57,690 --> 00:02:00,260
+toolbar of our sample app.
+
+45
+00:02:00,260 --> 00:02:03,590
+And we want this light blur
+method to apply the blur to
+
+46
+00:02:03,590 --> 00:02:04,855
+that floating UI view.
+
+47
+00:02:04,855 --> 00:02:09,090
+So first, we'll create an image
+context using the size
+
+48
+00:02:09,090 --> 00:02:10,990
+of the button view's frame.
+
+49
+00:02:10,990 --> 00:02:14,300
+This will give us the correct
+area that we'll be applying to
+
+50
+00:02:14,300 --> 00:02:16,770
+that UI view.
+
+51
+00:02:16,770 --> 00:02:20,200
+Next, we'll call the
+drawViewHierarchyInRect after
+
+52
+00:02:20,200 --> 00:02:24,010
+screen updates method
+on the self.web.
+
+53
+00:02:24,010 --> 00:02:27,660
+And we'll pass in
+self.buttonview.bounds as the
+
+54
+00:02:27,660 --> 00:02:30,120
+rect that we're trying
+to draw into.
+
+55
+00:02:30,120 --> 00:02:34,870
+Next, we'll pull an actual UI
+image out of that context now
+
+56
+00:02:34,870 --> 00:02:36,650
+that we've taken the
+screen shot.
+
+57
+00:02:36,650 --> 00:02:39,540
+And finally, we'll end
+of the image context.
+
+58
+00:02:39,540 --> 00:02:42,240
+And if we look at what that new
+UI image we created looks
+
+59
+00:02:42,240 --> 00:02:44,350
+like, we can see that we've
+got a little bit
+
+60
+00:02:44,350 --> 00:02:45,990
+of a problem here.
+
+61
+00:02:45,990 --> 00:02:50,130
+The overall frame is correct,
+but the stuff inside of it
+
+62
+00:02:50,130 --> 00:02:52,010
+looks like it's all
+shrunk down.
+
+63
+00:02:52,010 --> 00:02:54,480
+Looks like we didn't take
+the correct screen shot.
+
+64
+00:02:54,480 --> 00:02:56,220
+What we really want is a
+screen shot that looks
+
+65
+00:02:56,220 --> 00:03:00,120
+something like this, that's a
+representative smaller piece
+
+66
+00:03:00,120 --> 00:03:03,190
+of that UI web view, rather than
+the entire web view just
+
+67
+00:03:03,190 --> 00:03:04,900
+scrunched up into
+a smaller frame.
+
+68
+00:03:04,900 --> 00:03:07,470
+
+69
+00:03:07,470 --> 00:03:09,950
+So to fix this, we first need
+to convert the bounds of the
+
+70
+00:03:09,950 --> 00:03:13,580
+button into the web view's
+coordinate space.
+
+71
+00:03:13,580 --> 00:03:16,670
+And we can do this by using
+the convert rect to view
+
+72
+00:03:16,670 --> 00:03:21,140
+method, passing in the button
+view's bounds as the rect we
+
+73
+00:03:21,140 --> 00:03:25,370
+want to convert and the self.web
+view as the view's
+
+74
+00:03:25,370 --> 00:03:28,160
+coordinate system that we
+want to convert to.
+
+75
+00:03:28,160 --> 00:03:30,750
+So now we've converted that
+coordinate system, we'll want
+
+76
+00:03:30,750 --> 00:03:34,310
+to store the result of this
+a CG point variable.
+
+77
+00:03:34,310 --> 00:03:36,890
+Here, we're calling it
+button in web view.
+
+78
+00:03:36,890 --> 00:03:39,670
+And then we can take that CG
+point and use it to offset the
+
+79
+00:03:39,670 --> 00:03:43,030
+bounds of the web view, using
+the CG rect offset function.
+
+80
+00:03:43,030 --> 00:03:46,500
+
+81
+00:03:46,500 --> 00:03:49,870
+This is going to give us the
+appropriate sub rect inside of
+
+82
+00:03:49,870 --> 00:03:52,480
+the web view that we want to
+actually take a screen shot of
+
+83
+00:03:52,480 --> 00:03:54,040
+so that we're not taking
+a screen shot of
+
+84
+00:03:54,040 --> 00:03:55,570
+the entire web view.
+
+85
+00:03:55,570 --> 00:03:58,070
+So now we'll use the
+drawHierarchyInRect after
+
+86
+00:03:58,070 --> 00:04:01,620
+screen update methods to take
+that screen shot again.
+
+87
+00:04:01,620 --> 00:04:04,790
+Then, we finish up by grabbing a
+UI image out of that context
+
+88
+00:04:04,790 --> 00:04:06,340
+and ending the context.
+
+89
+00:04:06,340 --> 00:04:08,840
+And you can see now that we've
+got an appropriately-sized
+
+90
+00:04:08,840 --> 00:04:12,060
+image that we're going to use
+inside of our UI view.
+
+91
+00:04:12,060 --> 00:04:14,930
+
+92
+00:04:14,930 --> 00:04:15,960
+We've got our screen shot.
+
+93
+00:04:15,960 --> 00:04:18,110
+But the whole point of even
+taking this screen shot was
+
+94
+00:04:18,110 --> 00:04:21,140
+that we wanted to apply a blur
+effect to it and re-add it
+
+95
+00:04:21,140 --> 00:04:23,170
+back into our view hierarchy.
+
+96
+00:04:23,170 --> 00:04:26,590
+So to do that, we'll need that
+UI ImageEffects category that
+
+97
+00:04:26,590 --> 00:04:29,260
+Apple provides to us that
+I mentioned earlier.
+
+98
+00:04:29,260 --> 00:04:32,310
+We've re-hosted that UI image
+effects category on Github so
+
+99
+00:04:32,310 --> 00:04:34,270
+you can download it easily.
+
+100
+00:04:34,270 --> 00:04:37,280
+And once you've downloaded an
+expanded that zip file, you'll
+
+101
+00:04:37,280 --> 00:04:40,210
+add these two UI image
+plus ImageEffects
+
+102
+00:04:40,210 --> 00:04:41,720
+files to your project.
+
+103
+00:04:41,720 --> 00:04:44,660
+And then you'll import that UI
+ImageEffects header into
+
+104
+00:04:44,660 --> 00:04:47,470
+whatever class you want
+to apply the blur to.
+
+105
+00:04:47,470 --> 00:04:49,360
+In this case, it's our class
+called RootViewController.
+
+106
+00:04:49,360 --> 00:04:53,360
+
+107
+00:04:53,360 --> 00:04:56,460
+The UI ImageEffects category
+gives us access to a couple
+
+108
+00:04:56,460 --> 00:04:58,750
+methods that blur in
+different ways.
+
+109
+00:04:58,750 --> 00:05:02,030
+And here, we'll use the method
+apply light effect to give us
+
+110
+00:05:02,030 --> 00:05:04,820
+the light blur that
+we're looking for.
+
+111
+00:05:04,820 --> 00:05:08,910
+So after we create this new bg
+image from our image context,
+
+112
+00:05:08,910 --> 00:05:11,830
+we'll go and find our self.blur
+view, which is that
+
+113
+00:05:11,830 --> 00:05:15,060
+floating smaller view on
+top of the web view.
+
+114
+00:05:15,060 --> 00:05:17,450
+And we'll set the image property
+of that equal to the
+
+115
+00:05:17,450 --> 00:05:20,950
+image return by applying
+the light effect
+
+116
+00:05:20,950 --> 00:05:23,390
+to our new bg image.
+
+117
+00:05:23,390 --> 00:05:25,160
+And that's going to give
+us the resulting blur
+
+118
+00:05:25,160 --> 00:05:26,410
+image you see below.
+
+119
+00:05:26,410 --> 00:05:30,100
+
+120
+00:05:30,100 --> 00:05:32,680
+ApplyLightEffect is just one of
+the options you have when
+
+121
+00:05:32,680 --> 00:05:34,140
+you use this category.
+
+122
+00:05:34,140 --> 00:05:36,580
+There's also
+applyExtraLightEffect, which
+
+123
+00:05:36,580 --> 00:05:40,550
+applies the blur and then makes
+it a little bit lighter.
+
+124
+00:05:40,550 --> 00:05:43,180
+ApplyDarkEffect, which
+darkens it.
+
+125
+00:05:43,180 --> 00:05:46,550
+And applyTinyEffectWithColor,
+which is going to try to find
+
+126
+00:05:46,550 --> 00:05:49,780
+the tint color that you have set
+for that view and apply a
+
+127
+00:05:49,780 --> 00:05:51,310
+little bit of a tint adjustment
+
+128
+00:05:51,310 --> 00:05:52,560
+to whatever is blurred.
+
+129
+00:05:52,560 --> 00:05:55,240
+
+130
+00:05:55,240 --> 00:05:56,790
+Our blur is definitely
+working.
+
+131
+00:05:56,790 --> 00:05:59,510
+But what happens if we try to
+scroll the content underneath
+
+132
+00:05:59,510 --> 00:06:02,310
+it, scroll this web
+view up and down?
+
+133
+00:06:02,310 --> 00:06:03,950
+You can see that it looks
+like it's just
+
+134
+00:06:03,950 --> 00:06:05,520
+setting the initial blur.
+
+135
+00:06:05,520 --> 00:06:08,280
+And that it's not updating
+that blur as we move the
+
+136
+00:06:08,280 --> 00:06:10,230
+content underneath it,
+which is obviously
+
+137
+00:06:10,230 --> 00:06:11,470
+not an ideal situation.
+
+138
+00:06:11,470 --> 00:06:15,870
+We want the blur to update
+as the content changes.
+
+139
+00:06:15,870 --> 00:06:19,260
+So let's look at
+how to do that.
+
+140
+00:06:19,260 --> 00:06:20,540
+There's probably a couple
+different ways
+
+141
+00:06:20,540 --> 00:06:21,450
+to pull this off.
+
+142
+00:06:21,450 --> 00:06:24,790
+But one of the easiest ways
+right now is to do a little
+
+143
+00:06:24,790 --> 00:06:29,930
+bit of a hack by creating a UI
+toolbar and borrowing the CA
+
+144
+00:06:29,930 --> 00:06:34,120
+layer property of that UI
+toolbar to apply a blur to it.
+
+145
+00:06:34,120 --> 00:06:37,190
+This will work great, because a
+UI toolbar actually already
+
+146
+00:06:37,190 --> 00:06:39,220
+has that blurring effect.
+
+147
+00:06:39,220 --> 00:06:42,490
+And it will update live without
+us having to write any
+
+148
+00:06:42,490 --> 00:06:44,230
+custom code.
+
+149
+00:06:44,230 --> 00:06:47,430
+So in root view controller's
+viewDidLoad method, we were
+
+150
+00:06:47,430 --> 00:06:49,960
+already creating our
+button view.
+
+151
+00:06:49,960 --> 00:06:54,170
+And now we'll also create
+a UI toolbar using our
+
+152
+00:06:54,170 --> 00:06:56,380
+entire views frame.
+
+153
+00:06:56,380 --> 00:06:59,635
+And we'll set the bar style to
+UI bar style default so that
+
+154
+00:06:59,635 --> 00:07:01,970
+we get that default translucency
+and blurring
+
+155
+00:07:01,970 --> 00:07:03,670
+effect inside the bar.
+
+156
+00:07:03,670 --> 00:07:07,140
+And then, we'll insert the
+toolbars layer into the button
+
+157
+00:07:07,140 --> 00:07:09,590
+view layer's hierarchy, making
+sure that we're putting it at
+
+158
+00:07:09,590 --> 00:07:11,010
+the very bottom.
+
+159
+00:07:11,010 --> 00:07:13,610
+And that's going to make sure
+that our button view now has
+
+160
+00:07:13,610 --> 00:07:17,720
+this transparent blurred
+background, and that blurred
+
+161
+00:07:17,720 --> 00:07:20,150
+background updates automatically
+as the content
+
+162
+00:07:20,150 --> 00:07:22,580
+underneath it changes,
+like this.
+
+163
+00:07:22,580 --> 00:07:34,340
+
+164
+00:07:34,340 --> 00:07:36,610
+There are other ways that using
+this insert sub layer
+
+165
+00:07:36,610 --> 00:07:39,320
+method can help us
+out on iOS 7.
+
+166
+00:07:39,320 --> 00:07:42,860
+One example is when we're
+dealing with bar tint colors.
+
+167
+00:07:42,860 --> 00:07:45,970
+So let's say we're setting the
+bar tint color to this
+
+168
+00:07:45,970 --> 00:07:48,850
+orange-ish, brownish
+kind of color here.
+
+169
+00:07:48,850 --> 00:07:51,480
+When we actually set the tint
+color, if we look at the
+
+170
+00:07:51,480 --> 00:07:54,920
+resulting screen, you can see
+that it's obviously not the
+
+171
+00:07:54,920 --> 00:07:56,050
+same color.
+
+172
+00:07:56,050 --> 00:07:59,230
+It's a little bit desaturated
+because of that transparent
+
+173
+00:07:59,230 --> 00:08:01,281
+blur on the nav bar.
+
+174
+00:08:01,281 --> 00:08:04,370
+
+175
+00:08:04,370 --> 00:08:07,180
+So to fix this and make that
+color a lot stronger in the
+
+176
+00:08:07,180 --> 00:08:09,710
+nav bar and a lot closer to the
+color that we're hoping
+
+177
+00:08:09,710 --> 00:08:12,720
+for, we can use a similar
+approach that we used in the
+
+178
+00:08:12,720 --> 00:08:13,750
+previous example.
+
+179
+00:08:13,750 --> 00:08:16,290
+And instead of creating
+a UI toolbar, we can
+
+180
+00:08:16,290 --> 00:08:18,240
+just create a UI view.
+
+181
+00:08:18,240 --> 00:08:21,520
+We need to set our UI view's
+frame equal to the frame of
+
+182
+00:08:21,520 --> 00:08:22,840
+the nav bar.
+
+183
+00:08:22,840 --> 00:08:25,340
+We'll make sure that you can't
+interact with that view, so it
+
+184
+00:08:25,340 --> 00:08:27,910
+doesn't interfere with any of
+the interaction that's already
+
+185
+00:08:27,910 --> 00:08:30,340
+enabled on the nav bar.
+
+186
+00:08:30,340 --> 00:08:32,510
+And we'll set the alpha and the
+background color to the
+
+187
+00:08:32,510 --> 00:08:34,070
+colors that we want.
+
+188
+00:08:34,070 --> 00:08:37,600
+Then in our navigation bar,
+we'll insert the strong color
+
+189
+00:08:37,600 --> 00:08:39,990
+views layer as a sub layer.
+
+190
+00:08:39,990 --> 00:08:42,289
+It's very important, if
+we do this, we have to
+
+191
+00:08:42,289 --> 00:08:44,490
+insert it at index 1.
+
+192
+00:08:44,490 --> 00:08:46,240
+Index 1 is the only
+place where this
+
+193
+00:08:46,240 --> 00:08:47,490
+trick is going to work.
+
+194
+00:08:47,490 --> 00:08:50,310
+
+195
+00:08:50,310 --> 00:08:52,980
+So you can see that the
+navigation bar's bar tint
+
+196
+00:08:52,980 --> 00:08:55,590
+color is a lot closer to
+the original color
+
+197
+00:08:55,590 --> 00:08:56,670
+we were hoping for.
+
+198
+00:08:56,670 --> 00:08:58,560
+But we've got another problem.
+
+199
+00:08:58,560 --> 00:09:01,230
+Whenever we push a new view
+controller onto the navigation
+
+200
+00:09:01,230 --> 00:09:04,730
+stack, the layer is actually
+appearing over the navigation
+
+201
+00:09:04,730 --> 00:09:05,970
+items instead of
+underneath it.
+
+202
+00:09:05,970 --> 00:09:08,490
+And that's making them look
+a little bit transparent.
+
+203
+00:09:08,490 --> 00:09:10,080
+So let's look at how we
+can fix this problem.
+
+204
+00:09:10,080 --> 00:09:13,130
+
+205
+00:09:13,130 --> 00:09:15,950
+To fix this, we need to reapply
+that insert sub layer
+
+206
+00:09:15,950 --> 00:09:19,290
+method after the transition
+is finished.
+
+207
+00:09:19,290 --> 00:09:22,490
+And we can do this by adopting
+the UI navigation controller
+
+208
+00:09:22,490 --> 00:09:27,370
+delegate, setting our nav
+controller's delegate to self,
+
+209
+00:09:27,370 --> 00:09:29,720
+and then overriding the
+navigation controller
+
+210
+00:09:29,720 --> 00:09:32,480
+didShowViewController
+animated method.
+
+211
+00:09:32,480 --> 00:09:35,510
+This method will fire whatever
+that transition from one view
+
+212
+00:09:35,510 --> 00:09:37,380
+controller to another
+finishes.
+
+213
+00:09:37,380 --> 00:09:40,220
+Inside of that delegate method,
+we'll remove strong
+
+214
+00:09:40,220 --> 00:09:42,330
+color views layer.
+
+215
+00:09:42,330 --> 00:09:45,140
+And then will re-insert it
+into the navigation bar.
+
+216
+00:09:45,140 --> 00:09:48,780
+
+217
+00:09:48,780 --> 00:09:50,940
+And here you can see the result
+of that working, and
+
+218
+00:09:50,940 --> 00:09:54,030
+the navigation items no longer
+being obscured by that layer.
+
+219
+00:09:54,030 --> 00:09:56,660
+
+220
+00:09:56,660 --> 00:09:58,930
+Now it's time for you to work
+with blurs in the challenges.
+
+221
+00:09:58,930 --> 00:10:01,628

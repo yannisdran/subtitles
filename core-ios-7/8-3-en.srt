@@ -1,0 +1,1114 @@
+﻿1
+00:00:02,000 --> 00:00:03,260
+Welcome back.
+
+2
+00:00:03,260 --> 00:00:06,190
+In the last section, we
+used NSURL session methods
+
+3
+00:00:06,190 --> 00:00:08,646
+to initiate a video download.
+
+4
+00:00:08,646 --> 00:00:10,270
+But we still haven't
+solved the problem
+
+5
+00:00:10,270 --> 00:00:12,996
+of allowing that download to
+continue in the background
+
+6
+00:00:12,996 --> 00:00:14,245
+after the app has been closed.
+
+7
+00:00:18,210 --> 00:00:20,240
+First, let's look
+conceptually at how
+
+8
+00:00:20,240 --> 00:00:23,320
+background downloads work.
+
+9
+00:00:23,320 --> 00:00:26,030
+We create an NSURL
+session configuration,
+
+10
+00:00:26,030 --> 00:00:28,540
+just like we did
+before, except this time
+
+11
+00:00:28,540 --> 00:00:31,060
+we'll give it a special
+identifier so that we can know
+
+12
+00:00:31,060 --> 00:00:32,910
+that it's our
+background session.
+
+13
+00:00:32,910 --> 00:00:35,770
+Then we initiate a
+request with that session.
+
+14
+00:00:35,770 --> 00:00:37,460
+This is actually no
+different than when
+
+15
+00:00:37,460 --> 00:00:39,330
+we made a foreground request.
+
+16
+00:00:39,330 --> 00:00:41,560
+The request code
+is exactly the same
+
+17
+00:00:41,560 --> 00:00:44,570
+for foreground and
+background downloads.
+
+18
+00:00:44,570 --> 00:00:47,970
+At that point, the NSURL session
+background Daemon actually
+
+19
+00:00:47,970 --> 00:00:50,840
+processes the request
+and periodically it
+
+20
+00:00:50,840 --> 00:00:53,890
+reports the progress
+of the download.
+
+21
+00:00:53,890 --> 00:00:56,550
+If, at this point,
+the app were to exit,
+
+22
+00:00:56,550 --> 00:00:58,120
+the background
+Daemon would still
+
+23
+00:00:58,120 --> 00:01:01,190
+continue to download your
+data until you either
+
+24
+00:01:01,190 --> 00:01:04,239
+open the app again or
+the download finishes.
+
+25
+00:01:04,239 --> 00:01:06,700
+And at that point, the
+app will be reloaded,
+
+26
+00:01:06,700 --> 00:01:10,950
+the NSURL session, background
+session, will be reconnected,
+
+27
+00:01:10,950 --> 00:01:13,320
+and the completion delegate
+method will be called.
+
+28
+00:01:16,720 --> 00:01:18,460
+So here's the code
+we have currently
+
+29
+00:01:18,460 --> 00:01:21,190
+in our video view
+controller before modifying
+
+30
+00:01:21,190 --> 00:01:24,285
+it to work with
+background downloads.
+
+31
+00:01:24,285 --> 00:01:26,410
+If you were to look through
+the Apple documentation
+
+32
+00:01:26,410 --> 00:01:29,190
+on NSURL session
+configuration, you'd
+
+33
+00:01:29,190 --> 00:01:32,700
+see a method called background
+session configuration.
+
+34
+00:01:32,700 --> 00:01:36,140
+This method accepts a string
+as a unique identifier
+
+35
+00:01:36,140 --> 00:01:39,320
+in order to set up a
+background session.
+
+36
+00:01:39,320 --> 00:01:41,330
+Here we're calling
+ours MySession.
+
+37
+00:01:41,330 --> 00:01:43,310
+So we need to take
+extra steps to make sure
+
+38
+00:01:43,310 --> 00:01:46,130
+that only one of
+these is ever created,
+
+39
+00:01:46,130 --> 00:01:47,870
+and the easiest way
+for us to do that is
+
+40
+00:01:47,870 --> 00:01:49,920
+to use the Dispatch
+Once function.
+
+41
+00:01:52,560 --> 00:01:55,890
+By creating a static
+NSURL session object
+
+42
+00:01:55,890 --> 00:01:58,330
+and using the Dispatch
+Once function,
+
+43
+00:01:58,330 --> 00:02:02,940
+we can make sure that only one
+background session is created.
+
+44
+00:02:02,940 --> 00:02:04,590
+Now that your
+session's created, you
+
+45
+00:02:04,590 --> 00:02:06,440
+can go ahead and make
+requests just like you
+
+46
+00:02:06,440 --> 00:02:08,910
+did when you were making
+foreground requests.
+
+47
+00:02:08,910 --> 00:02:10,630
+But let's say that
+the app closes
+
+48
+00:02:10,630 --> 00:02:13,360
+in the middle of your download.
+
+49
+00:02:13,360 --> 00:02:14,810
+Well there's a
+method to override
+
+50
+00:02:14,810 --> 00:02:17,670
+in the app delegate called
+application handle events
+
+51
+00:02:17,670 --> 00:02:21,060
+for background URL
+session completion handler
+
+52
+00:02:21,060 --> 00:02:23,860
+that runs whenever background
+downloads have finished
+
+53
+00:02:23,860 --> 00:02:25,430
+and the app is closed.
+
+54
+00:02:25,430 --> 00:02:28,520
+Inside of this method, you need
+to recreate your background
+
+55
+00:02:28,520 --> 00:02:32,474
+session using the same
+identifier and configuration
+
+56
+00:02:32,474 --> 00:02:33,015
+and delegate.
+
+57
+00:02:36,730 --> 00:02:37,720
+So that's easy enough.
+
+58
+00:02:37,720 --> 00:02:41,120
+We can just copy in our
+NSURL session configuration
+
+59
+00:02:41,120 --> 00:02:46,840
+and session object, but we have
+a little bit of an issue here.
+
+60
+00:02:46,840 --> 00:02:51,030
+If we set our delegate to self
+inside of the app delegate,
+
+61
+00:02:51,030 --> 00:02:54,390
+we're saying that the app
+delegate serves as our session
+
+62
+00:02:54,390 --> 00:02:56,670
+delegate which it does not.
+
+63
+00:02:56,670 --> 00:02:59,827
+Video view controller
+was our session delegate.
+
+64
+00:02:59,827 --> 00:03:02,160
+So we need to figure out a
+way to have the same delegate
+
+65
+00:03:02,160 --> 00:03:06,476
+class accessible from both the
+app delegate and video view
+
+66
+00:03:06,476 --> 00:03:06,975
+controller.
+
+67
+00:03:10,540 --> 00:03:13,900
+Here's another way to visualize
+the problem we're having.
+
+68
+00:03:13,900 --> 00:03:15,560
+If we go into video
+view controller
+
+69
+00:03:15,560 --> 00:03:18,290
+and start a background
+download session,
+
+70
+00:03:18,290 --> 00:03:20,300
+our self.download
+session object
+
+71
+00:03:20,300 --> 00:03:23,680
+is created like we'd expect,
+and the delegate for our session
+
+72
+00:03:23,680 --> 00:03:26,810
+is our video view controller.
+
+73
+00:03:26,810 --> 00:03:29,840
+If we were to then navigate away
+from our video view controller
+
+74
+00:03:29,840 --> 00:03:34,560
+and open up another video and
+try to start that download,
+
+75
+00:03:34,560 --> 00:03:38,950
+because our self.download
+session only gets created once,
+
+76
+00:03:38,950 --> 00:03:41,670
+the same download
+session will be used
+
+77
+00:03:41,670 --> 00:03:44,880
+but the delegate will still
+point to the first video view
+
+78
+00:03:44,880 --> 00:03:48,455
+controller not the new video
+view controller that we want.
+
+79
+00:03:53,160 --> 00:03:54,580
+So the quickest
+solution is going
+
+80
+00:03:54,580 --> 00:03:57,660
+to be to remove the delegate
+protocol from the video view
+
+81
+00:03:57,660 --> 00:04:00,240
+controller and
+instead put it inside
+
+82
+00:04:00,240 --> 00:04:03,100
+of another class that will
+sit in between the video view
+
+83
+00:04:03,100 --> 00:04:06,650
+controller and the session.
+
+84
+00:04:06,650 --> 00:04:09,590
+We're going to call that
+class, video downloader.
+
+85
+00:04:09,590 --> 00:04:12,350
+And it will adopt the
+NSURL session protocol
+
+86
+00:04:12,350 --> 00:04:14,100
+instead of the video
+view controller.
+
+87
+00:04:17,149 --> 00:04:18,940
+Since this video
+downloader class
+
+88
+00:04:18,940 --> 00:04:21,750
+will act as our shared
+session manager,
+
+89
+00:04:21,750 --> 00:04:24,220
+we'll take that dispatch
+once code and move it
+
+90
+00:04:24,220 --> 00:04:27,650
+from the video view controller
+into the video downloader
+
+91
+00:04:27,650 --> 00:04:29,700
+in a method called shared.
+
+92
+00:04:29,700 --> 00:04:31,370
+This is a class
+method that we can
+
+93
+00:04:31,370 --> 00:04:33,670
+call anytime we want
+to return an instance
+
+94
+00:04:33,670 --> 00:04:35,960
+of the video downloader.
+
+95
+00:04:35,960 --> 00:04:37,730
+Using dispatch
+once will make sure
+
+96
+00:04:37,730 --> 00:04:40,520
+that every time we call
+this shared method, we'll
+
+97
+00:04:40,520 --> 00:04:43,709
+get the same video
+downloader object making sure
+
+98
+00:04:43,709 --> 00:04:45,125
+that we're using
+the same session.
+
+99
+00:04:49,850 --> 00:04:53,920
+We'll also take our NSURL
+session configuration and NSURL
+
+100
+00:04:53,920 --> 00:04:56,130
+session object
+creation and move it
+
+101
+00:04:56,130 --> 00:04:59,880
+inside to the video downloader
+so it can all be in one place.
+
+102
+00:04:59,880 --> 00:05:02,830
+Notice that when we create
+the NSURL session object,
+
+103
+00:05:02,830 --> 00:05:06,550
+we're setting the delegate to
+self and self, in this case,
+
+104
+00:05:06,550 --> 00:05:08,560
+is the video downloader class.
+
+105
+00:05:08,560 --> 00:05:10,790
+And that's going to solve
+our problem of needing
+
+106
+00:05:10,790 --> 00:05:12,855
+to have the delegate
+in two places at once.
+
+107
+00:05:16,830 --> 00:05:19,440
+Now that we have the video
+downloader initializer set up
+
+108
+00:05:19,440 --> 00:05:22,190
+properly, we need to make
+a slight modification
+
+109
+00:05:22,190 --> 00:05:25,880
+to video view controller to
+use that video downloader.
+
+110
+00:05:25,880 --> 00:05:28,220
+So the code we have right
+now is sending the download
+
+111
+00:05:28,220 --> 00:05:30,690
+task with URL
+message to the self.download
+
+112
+00:05:30,690 --> 00:05:32,930
+session object.
+
+113
+00:05:32,930 --> 00:05:34,780
+Instead we want to
+send that method
+
+114
+00:05:34,780 --> 00:05:37,330
+to the video downloader
+shared object.
+
+115
+00:05:45,430 --> 00:05:47,180
+That means that we
+actually need to define
+
+116
+00:05:47,180 --> 00:05:49,350
+this method in the
+video downloader.
+
+117
+00:05:49,350 --> 00:05:52,420
+And the implementation of this
+method in video downloader
+
+118
+00:05:52,420 --> 00:05:56,340
+can be as simple as just
+returning the result of sending
+
+119
+00:05:56,340 --> 00:05:59,370
+the download task with
+URL method to the session.
+
+120
+00:06:03,270 --> 00:06:04,990
+Back in our video
+view controller,
+
+121
+00:06:04,990 --> 00:06:08,154
+we also need to add some
+notification observers that
+
+122
+00:06:08,154 --> 00:06:09,570
+are going to be
+listening for when
+
+123
+00:06:09,570 --> 00:06:14,030
+the video downloader completes
+certain parts of the request.
+
+124
+00:06:14,030 --> 00:06:15,870
+Here we've created one
+observer that we'll
+
+125
+00:06:15,870 --> 00:06:19,730
+call the update progress method
+whenever the download progress
+
+126
+00:06:19,730 --> 00:06:22,330
+notification is received
+and another that we'll
+
+127
+00:06:22,330 --> 00:06:24,800
+call the finished download
+method whenever the download
+
+128
+00:06:24,800 --> 00:06:27,640
+completion notification
+is received.
+
+129
+00:06:27,640 --> 00:06:30,910
+Video downloader will
+broadcast these notifications
+
+130
+00:06:30,910 --> 00:06:33,620
+and that will let video
+view controller know
+
+131
+00:06:33,620 --> 00:06:34,580
+to take certain steps.
+
+132
+00:06:38,429 --> 00:06:40,470
+So let's look at where to
+add these notifications
+
+133
+00:06:40,470 --> 00:06:43,110
+inside a video downloader.
+
+134
+00:06:43,110 --> 00:06:46,600
+We'll start with the method that
+tracks progress of a download.
+
+135
+00:06:46,600 --> 00:06:49,470
+Before, we were updating the
+progress indicator directly
+
+136
+00:06:49,470 --> 00:06:50,880
+in this method.
+
+137
+00:06:50,880 --> 00:06:54,770
+But since the progress indicator
+is now in video view controller
+
+138
+00:06:54,770 --> 00:06:57,900
+and the delegate method
+is in video downloader,
+
+139
+00:06:57,900 --> 00:07:00,310
+we can instead just track
+that progress the same way
+
+140
+00:07:00,310 --> 00:07:04,620
+we did before and then post it
+as a notification with a user
+
+141
+00:07:04,620 --> 00:07:05,930
+info dictionary.
+
+142
+00:07:05,930 --> 00:07:08,100
+This will allow the
+observer to read the data
+
+143
+00:07:08,100 --> 00:07:10,060
+inside of that
+dictionary, so it knows
+
+144
+00:07:10,060 --> 00:07:12,110
+how much progress has been made.
+
+145
+00:07:12,110 --> 00:07:14,460
+If this is the first time
+you've heard of the user info
+
+146
+00:07:14,460 --> 00:07:17,830
+dictionary, it's kind of
+an oddly named parameter.
+
+147
+00:07:17,830 --> 00:07:20,870
+It actually has nothing to
+do with the user of your app,
+
+148
+00:07:20,870 --> 00:07:25,110
+and it's probably more aptly
+named developer extra info.
+
+149
+00:07:25,110 --> 00:07:27,755
+It's just a way for you to
+take some extra bits of info
+
+150
+00:07:27,755 --> 00:07:30,120
+that you want to pass
+along with the notification
+
+151
+00:07:30,120 --> 00:07:32,100
+and attach them to the
+notification that's
+
+152
+00:07:32,100 --> 00:07:34,044
+being posted.
+
+153
+00:07:34,044 --> 00:07:35,960
+With the progress
+notification out of the way,
+
+154
+00:07:35,960 --> 00:07:39,594
+we can now tackle the
+download finish notification.
+
+155
+00:07:39,594 --> 00:07:41,010
+Here we'll just
+create a reference
+
+156
+00:07:41,010 --> 00:07:44,950
+to the spot in our app where we
+want this download to be saved.
+
+157
+00:07:44,950 --> 00:07:48,890
+And then call our copy
+item at path to path method
+
+158
+00:07:48,890 --> 00:07:50,650
+to copy it from
+the temp location
+
+159
+00:07:50,650 --> 00:07:53,450
+to its final
+location on our app.
+
+160
+00:07:53,450 --> 00:07:56,110
+Then we'll create another
+user info dictionary.
+
+161
+00:07:56,110 --> 00:07:59,820
+This time it will contain the
+URL of our downloaded video.
+
+162
+00:07:59,820 --> 00:08:02,447
+And then we'll pass that along
+with the download completion
+
+163
+00:08:02,447 --> 00:08:03,280
+posted notification.
+
+164
+00:08:06,560 --> 00:08:08,340
+So we have the
+notifications being
+
+165
+00:08:08,340 --> 00:08:10,930
+posted from the video
+downloader and we
+
+166
+00:08:10,930 --> 00:08:14,300
+have them being observed in
+the video view controller.
+
+167
+00:08:14,300 --> 00:08:18,000
+So let's look at those methods
+that the observer calls.
+
+168
+00:08:18,000 --> 00:08:20,050
+First, in update
+progress, we want
+
+169
+00:08:20,050 --> 00:08:23,240
+to update that progress
+indicator using information
+
+170
+00:08:23,240 --> 00:08:27,120
+in the notifications
+user info dictionary.
+
+171
+00:08:27,120 --> 00:08:30,810
+So we can do that on the
+main queue like this.
+
+172
+00:08:30,810 --> 00:08:33,590
+Then when our finished
+download method gets called,
+
+173
+00:08:33,590 --> 00:08:35,840
+we'll again use that
+URL parameter that's
+
+174
+00:08:35,840 --> 00:08:38,230
+part of our user
+info dictionary then
+
+175
+00:08:38,230 --> 00:08:41,169
+we'll check if that name's
+equal to the name of the video
+
+176
+00:08:41,169 --> 00:08:44,000
+that we're currently displaying
+in the video view controller.
+
+177
+00:08:44,000 --> 00:08:48,320
+If it is, then we'll turn off
+the download progress indicator,
+
+178
+00:08:48,320 --> 00:08:50,740
+we'll hide the progress
+bar and instead
+
+179
+00:08:50,740 --> 00:08:55,760
+show a check mark to show
+that the download is finished.
+
+180
+00:08:55,760 --> 00:08:57,750
+Finally, if our
+download is completed,
+
+181
+00:08:57,750 --> 00:09:00,840
+we know that we no longer need
+our notification listeners
+
+182
+00:09:00,840 --> 00:09:03,490
+for progress or completion.
+
+183
+00:09:03,490 --> 00:09:08,450
+So we'll remove those from
+the notification center.
+
+184
+00:09:08,450 --> 00:09:11,870
+We've now successfully moved
+all of our NSURL session
+
+185
+00:09:11,870 --> 00:09:16,220
+and delegate information into
+the video downloader class.
+
+186
+00:09:16,220 --> 00:09:19,490
+We've also modified our
+video view controller
+
+187
+00:09:19,490 --> 00:09:24,250
+to make requests from that
+video downloader class instead.
+
+188
+00:09:24,250 --> 00:09:26,640
+So only one part remains.
+
+189
+00:09:26,640 --> 00:09:28,400
+We need to modify
+the app delegate
+
+190
+00:09:28,400 --> 00:09:31,870
+so that it will properly respond
+to requests that are started
+
+191
+00:09:31,870 --> 00:09:34,430
+and stopped from the
+video downloader.
+
+192
+00:09:34,430 --> 00:09:37,500
+To set this up, we'll start
+by declaring a block property
+
+193
+00:09:37,500 --> 00:09:39,040
+on the app delegate.
+
+194
+00:09:39,040 --> 00:09:41,580
+Now remember that any time
+you declare block property,
+
+195
+00:09:41,580 --> 00:09:44,200
+you need to use the
+copy keyword instead of
+
+196
+00:09:44,200 --> 00:09:46,680
+the weak or strong keyword.
+
+197
+00:09:46,680 --> 00:09:49,160
+Next, inside of our
+application handle
+
+198
+00:09:49,160 --> 00:09:51,420
+events for background
+URL session completion
+
+199
+00:09:51,420 --> 00:09:55,510
+handler method, we'll store
+that completion handler
+
+200
+00:09:55,510 --> 00:09:58,990
+inside of this new block
+property that we created.
+
+201
+00:09:58,990 --> 00:10:02,090
+Once we have it stored, we'll
+initialize a video downloader
+
+202
+00:10:02,090 --> 00:10:03,940
+with the shared message.
+
+203
+00:10:03,940 --> 00:10:06,060
+That's going to create the
+video downloader object
+
+204
+00:10:06,060 --> 00:10:08,910
+and it's going to reconnect
+the session to the background
+
+205
+00:10:08,910 --> 00:10:12,180
+Daemon even if the user
+hasn't opened the app.
+
+206
+00:10:14,707 --> 00:10:16,790
+So now that we have that
+completion handler stored
+
+207
+00:10:16,790 --> 00:10:20,370
+as a property, we can
+implement the URL session,
+
+208
+00:10:20,370 --> 00:10:22,680
+did finish events
+for background URL
+
+209
+00:10:22,680 --> 00:10:27,110
+session delegate method,
+inside of the video downloader.
+
+210
+00:10:27,110 --> 00:10:30,860
+We'll start by getting a
+reference to our app delegate,
+
+211
+00:10:30,860 --> 00:10:34,620
+and then we'll check if that
+property has been set.
+
+212
+00:10:34,620 --> 00:10:38,740
+If it has, we'll execute the
+completion handler which
+
+213
+00:10:38,740 --> 00:10:41,580
+will update the app snapshot,
+letting the background service
+
+214
+00:10:41,580 --> 00:10:44,189
+know that we've
+handled the request.
+
+215
+00:10:44,189 --> 00:10:45,730
+And then we'll set
+that property back
+
+216
+00:10:45,730 --> 00:10:47,990
+to nil so that it's ready
+for the next request that
+
+217
+00:10:47,990 --> 00:10:48,680
+comes through.
+
+218
+00:10:51,890 --> 00:10:54,980
+Finally, we can see everything
+all working together.
+
+219
+00:10:54,980 --> 00:11:02,530
+We open our app and navigate
+to a specific video page
+
+220
+00:11:02,530 --> 00:11:04,700
+and start downloading our video.
+
+221
+00:11:04,700 --> 00:11:06,695
+We can see that our
+progress gets updated.
+
+222
+00:11:09,810 --> 00:11:13,330
+And the video appears inside
+of our app as downloaded.
+
+223
+00:11:13,330 --> 00:11:16,630
+If we then switch to
+another video, download
+
+224
+00:11:16,630 --> 00:11:19,880
+that video but then close
+the app before the video
+
+225
+00:11:19,880 --> 00:11:23,440
+finishes downloading,
+the background download
+
+226
+00:11:23,440 --> 00:11:29,870
+will still finish and
+when we reload our app,
+
+227
+00:11:29,870 --> 00:11:32,095
+the video still shows as
+being already downloaded.
+
+228
+00:11:36,899 --> 00:11:38,440
+And now it's time
+for you to practice
+
+229
+00:11:38,440 --> 00:11:41,700
+using background downloads
+in the challenges.
+

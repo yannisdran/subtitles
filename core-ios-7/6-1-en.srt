@@ -1,0 +1,1224 @@
+1
+00:00:00,000 --> 00:00:02,029
+
+2
+00:00:02,029 --> 00:00:05,070
+Welcome back to level
+six of Core IOS 7.
+
+3
+00:00:05,070 --> 00:00:07,580
+In this level, we're going to be
+talking about parallax and
+
+4
+00:00:07,580 --> 00:00:09,370
+motion effects.
+
+5
+00:00:09,370 --> 00:00:12,110
+But when I say parallax, what
+does that actually mean?
+
+6
+00:00:12,110 --> 00:00:16,720
+Well, in the case of the IOS 7
+app, it's a technique to add
+
+7
+00:00:16,720 --> 00:00:19,240
+depth to an otherwise
+flat interface.
+
+8
+00:00:19,240 --> 00:00:22,470
+As you can see here, we
+have a view sitting on
+
+9
+00:00:22,470 --> 00:00:23,460
+top of another view.
+
+10
+00:00:23,460 --> 00:00:27,160
+And when we tilt the phone in
+various ways, the view moves
+
+11
+00:00:27,160 --> 00:00:30,380
+so you can see more of
+what's underneath.
+
+12
+00:00:30,380 --> 00:00:33,520
+This effect simulates that one
+view is on top of the other
+
+13
+00:00:33,520 --> 00:00:38,230
+and gives the feeling
+of a 3D interface.
+
+14
+00:00:38,230 --> 00:00:41,490
+As you can see, when there's no
+tilt on the horizontal axis
+
+15
+00:00:41,490 --> 00:00:44,630
+on the phone, the top view
+sits right in the center.
+
+16
+00:00:44,630 --> 00:00:48,935
+Then when the device tilts to
+the left, the top view moves a
+
+17
+00:00:48,935 --> 00:00:49,780
+little to the left.
+
+18
+00:00:49,780 --> 00:00:52,330
+And when the phone is tilted
+to the right, the top view
+
+19
+00:00:52,330 --> 00:00:55,530
+moves to the right.
+
+20
+00:00:55,530 --> 00:00:58,560
+The same idea works for
+the vertical axis.
+
+21
+00:00:58,560 --> 00:01:00,440
+When you're looking straight
+on, the view is
+
+22
+00:01:00,440 --> 00:01:01,560
+right in the center.
+
+23
+00:01:01,560 --> 00:01:04,180
+When you tilt it down a little
+bit, the view goes down.
+
+24
+00:01:04,180 --> 00:01:06,350
+And when you tilt it up,
+the view goes up.
+
+25
+00:01:06,350 --> 00:01:09,020
+
+26
+00:01:09,020 --> 00:01:12,270
+To implement this parallax
+effect in our IOS 7 apps,
+
+27
+00:01:12,270 --> 00:01:15,980
+there's a new API called
+UIMotionEffects, which is a
+
+28
+00:01:15,980 --> 00:01:19,840
+set of classes that performs
+changes based on the tilt on
+
+29
+00:01:19,840 --> 00:01:22,510
+the x and y-access, like
+we saw earlier.
+
+30
+00:01:22,510 --> 00:01:24,960
+This is much easier to implement
+than just looking at
+
+31
+00:01:24,960 --> 00:01:27,010
+the raw device motion
+updates, which you
+
+32
+00:01:27,010 --> 00:01:28,610
+could have done before.
+
+33
+00:01:28,610 --> 00:01:33,550
+But this saves you a couple
+hundred lines of code.
+
+34
+00:01:33,550 --> 00:01:35,700
+So let's jump into some code
+and look how we would
+
+35
+00:01:35,700 --> 00:01:38,980
+implement this parallax effect
+on our Login View controller
+
+36
+00:01:38,980 --> 00:01:40,490
+that we were just looking at.
+
+37
+00:01:40,490 --> 00:01:43,120
+As you can see here, we're
+in the viewDidLoad.
+
+38
+00:01:43,120 --> 00:01:47,300
+And we're creating a new UI
+interpolating motion effect.
+
+39
+00:01:47,300 --> 00:01:49,890
+To create this object, we're
+using the Init With Key Path
+
+40
+00:01:49,890 --> 00:01:52,140
+type initializer.
+
+41
+00:01:52,140 --> 00:01:55,750
+And we're passing in the
+center.x key path, which is
+
+42
+00:01:55,750 --> 00:01:57,920
+the property that we're
+going to change.
+
+43
+00:01:57,920 --> 00:02:00,900
+And the type is UI Interpolating
+Motion Effect
+
+44
+00:02:00,900 --> 00:02:04,400
+Type Tilt Along Horizontal Axis,
+which means we'll be
+
+45
+00:02:04,400 --> 00:02:07,270
+working on the horizontal
+axis in this effect.
+
+46
+00:02:07,270 --> 00:02:09,949
+And then finally, we're going
+to add this motion effect to
+
+47
+00:02:09,949 --> 00:02:12,740
+our Login View controller's
+view.
+
+48
+00:02:12,740 --> 00:02:16,500
+Because we set the key path to
+center x, the Login View
+
+49
+00:02:16,500 --> 00:02:20,750
+controller's views center x
+property will change when the
+
+50
+00:02:20,750 --> 00:02:22,070
+device is tilted--
+
+51
+00:02:22,070 --> 00:02:25,540
+in this case, in the
+horizontal axis.
+
+52
+00:02:25,540 --> 00:02:28,690
+But how much, in this case, does
+center x change when the
+
+53
+00:02:28,690 --> 00:02:30,150
+device is tilted?
+
+54
+00:02:30,150 --> 00:02:33,690
+Well, to specify that, we have
+to set the maximum relative
+
+55
+00:02:33,690 --> 00:02:39,160
+value and the minimum relative
+value on the center x object.
+
+56
+00:02:39,160 --> 00:02:42,980
+These two properties specify
+the range of motion on this
+
+57
+00:02:42,980 --> 00:02:44,440
+motion effect.
+
+58
+00:02:44,440 --> 00:02:47,500
+So in this case, the most the
+value will change will be 20
+
+59
+00:02:47,500 --> 00:02:49,700
+points to the right and
+20 points to the left.
+
+60
+00:02:49,700 --> 00:02:53,080
+
+61
+00:02:53,080 --> 00:02:56,470
+So we've set our maximum and
+minimum relative values on our
+
+62
+00:02:56,470 --> 00:02:57,390
+motion effect.
+
+63
+00:02:57,390 --> 00:03:00,100
+But what about all those points
+in between when, say,
+
+64
+00:03:00,100 --> 00:03:03,220
+the device is only
+tilted by 25%?
+
+65
+00:03:03,220 --> 00:03:06,290
+Well, that's where the
+interpolating part of the UI
+
+66
+00:03:06,290 --> 00:03:09,380
+Interpolating Motion Effect
+class comes in.
+
+67
+00:03:09,380 --> 00:03:14,980
+So for example, if the offset
+value is 0.25, our relative
+
+68
+00:03:14,980 --> 00:03:18,420
+value is 20, then the change
+in the center x is 5.
+
+69
+00:03:18,420 --> 00:03:21,010
+Now you don't actually need to
+do any of this calculation
+
+70
+00:03:21,010 --> 00:03:23,760
+yourself, because UI
+Interpolating Motion Effect
+
+71
+00:03:23,760 --> 00:03:24,860
+takes care of that for you.
+
+72
+00:03:24,860 --> 00:03:27,270
+But it's good to know what's
+going on under the hood.
+
+73
+00:03:27,270 --> 00:03:30,190
+
+74
+00:03:30,190 --> 00:03:33,375
+Now that we've implemented the
+horizontal tilt effect, we can
+
+75
+00:03:33,375 --> 00:03:36,670
+go ahead and do the same thing
+for the vertical tilt effect.
+
+76
+00:03:36,670 --> 00:03:38,750
+As you can see here, not
+much has changed.
+
+77
+00:03:38,750 --> 00:03:40,920
+We're still creating
+a UI Interpolating
+
+78
+00:03:40,920 --> 00:03:43,150
+Motion Effect object.
+
+79
+00:03:43,150 --> 00:03:46,340
+And we are passing in center y
+this time to the Init Width
+
+80
+00:03:46,340 --> 00:03:47,370
+Key Path argument.
+
+81
+00:03:47,370 --> 00:03:51,280
+And we're using the vertical
+axis constant instead of the
+
+82
+00:03:51,280 --> 00:03:53,140
+horizontal axis one.
+
+83
+00:03:53,140 --> 00:03:56,300
+We're also setting the same
+maximum and minimum relative
+
+84
+00:03:56,300 --> 00:03:59,540
+values for this motion effect
+and then, once again, adding
+
+85
+00:03:59,540 --> 00:04:01,940
+it to our view.
+
+86
+00:04:01,940 --> 00:04:05,690
+Now our view has multiple motion
+effects, which means it
+
+87
+00:04:05,690 --> 00:04:09,650
+would be better if we grouped
+these motion effects in a UI
+
+88
+00:04:09,650 --> 00:04:11,550
+Motion Effect group.
+
+89
+00:04:11,550 --> 00:04:14,490
+To do that, we just need to
+create a new instance of UI
+
+90
+00:04:14,490 --> 00:04:18,610
+Motion Affect group and then set
+the center x and center y
+
+91
+00:04:18,610 --> 00:04:22,040
+objects as that group's
+motion effects.
+
+92
+00:04:22,040 --> 00:04:24,910
+And then instead of adding the
+individual effects to the
+
+93
+00:04:24,910 --> 00:04:28,230
+view, we add the
+group instead.
+
+94
+00:04:28,230 --> 00:04:31,210
+When you have multiple motion
+effects on the same view,
+
+95
+00:04:31,210 --> 00:04:34,370
+you'll want to use a UI Motion
+Effect group so those effects
+
+96
+00:04:34,370 --> 00:04:36,450
+get applied at the same time.
+
+97
+00:04:36,450 --> 00:04:40,750
+And it's more efficient
+that way.
+
+98
+00:04:40,750 --> 00:04:43,930
+Now we have a working parallax
+effect on both the vertical
+
+99
+00:04:43,930 --> 00:04:45,180
+and horizontal axis.
+
+100
+00:04:45,180 --> 00:04:47,810
+
+101
+00:04:47,810 --> 00:04:51,440
+In addition to creating parallax
+effects, UI Motion
+
+102
+00:04:51,440 --> 00:04:54,930
+Effects can be used to change
+any property that is
+
+103
+00:04:54,930 --> 00:04:59,670
+animatable by core animation on
+UIView, such as the frame,
+
+104
+00:04:59,670 --> 00:05:02,520
+the bounds, the alpha value.
+
+105
+00:05:02,520 --> 00:05:05,910
+And you can use them to change
+any of the views layer
+
+106
+00:05:05,910 --> 00:05:10,550
+properties, such as border
+width, anchor point, bounds,
+
+107
+00:05:10,550 --> 00:05:14,030
+and even the shadow offset.
+
+108
+00:05:14,030 --> 00:05:17,730
+For example, we could move the
+shadows position as device is
+
+109
+00:05:17,730 --> 00:05:20,650
+tilted to create this dynamic
+lighting effect,
+
+110
+00:05:20,650 --> 00:05:21,900
+as you can see here.
+
+111
+00:05:21,900 --> 00:05:24,660
+
+112
+00:05:24,660 --> 00:05:27,040
+So let's run through real
+quick how we'd actually
+
+113
+00:05:27,040 --> 00:05:28,480
+accomplish this.
+
+114
+00:05:28,480 --> 00:05:31,020
+We're inside of a View
+Controller's viewDidLoad
+
+115
+00:05:31,020 --> 00:05:32,220
+method here.
+
+116
+00:05:32,220 --> 00:05:35,820
+We create the gray block view,
+as you can see on screen here.
+
+117
+00:05:35,820 --> 00:05:38,770
+And then we get access
+to its layer.
+
+118
+00:05:38,770 --> 00:05:40,910
+Now before we animate anything,
+we're going to have
+
+119
+00:05:40,910 --> 00:05:44,410
+to set up the initial state of
+the shadow on this block view,
+
+120
+00:05:44,410 --> 00:05:46,100
+as you can see here.
+
+121
+00:05:46,100 --> 00:05:48,620
+Notice that we're setting the
+initial state of the shadow
+
+122
+00:05:48,620 --> 00:05:52,210
+offset to 0, 0, meaning that
+it's going to be directly
+
+123
+00:05:52,210 --> 00:05:53,780
+behind the view.
+
+124
+00:05:53,780 --> 00:05:57,330
+Setting the shadow offset to
+0, 0 is important, because
+
+125
+00:05:57,330 --> 00:05:59,570
+this is the property that we're
+going to be animating
+
+126
+00:05:59,570 --> 00:06:01,070
+with our motion effects
+in a minute.
+
+127
+00:06:01,070 --> 00:06:04,280
+
+128
+00:06:04,280 --> 00:06:08,115
+Now that we have our initial
+view and shadow set up, we can
+
+129
+00:06:08,115 --> 00:06:10,290
+go ahead and add our
+motion effects.
+
+130
+00:06:10,290 --> 00:06:13,400
+Now most of this code is going
+to look almost exactly like
+
+131
+00:06:13,400 --> 00:06:15,410
+our previous example.
+
+132
+00:06:15,410 --> 00:06:17,950
+Notice though that are key
+paths have changed.
+
+133
+00:06:17,950 --> 00:06:22,340
+We're using the layer shadow
+offset width key path.
+
+134
+00:06:22,340 --> 00:06:27,240
+And that works because shadow
+offset is a CGSize struct.
+
+135
+00:06:27,240 --> 00:06:29,450
+The other thing to note is
+that we've inverted the
+
+136
+00:06:29,450 --> 00:06:32,290
+maximum and minimum
+relative values.
+
+137
+00:06:32,290 --> 00:06:35,420
+That way the shadow will move
+how you would expect it to.
+
+138
+00:06:35,420 --> 00:06:38,450
+
+139
+00:06:38,450 --> 00:06:40,930
+So there's a lot of repeated
+code here.
+
+140
+00:06:40,930 --> 00:06:44,500
+For example, what if we wanted
+to use this shadow effect on
+
+141
+00:06:44,500 --> 00:06:45,360
+another view?
+
+142
+00:06:45,360 --> 00:06:48,310
+We wouldn't want to have to
+type all this out again.
+
+143
+00:06:48,310 --> 00:06:50,980
+So how might we go about
+refactoring this?
+
+144
+00:06:50,980 --> 00:06:55,000
+One way to clean up this code
+is to implement a new custom
+
+145
+00:06:55,000 --> 00:06:57,200
+subclass of UI Motion Effect.
+
+146
+00:06:57,200 --> 00:07:00,235
+And all we have to do in that
+subclass is implement the key
+
+147
+00:07:00,235 --> 00:07:03,600
+paths and relative values for
+Viewer Offset method.
+
+148
+00:07:03,600 --> 00:07:06,690
+
+149
+00:07:06,690 --> 00:07:09,860
+So we create a new class called
+Shadow Motion Effect.
+
+150
+00:07:09,860 --> 00:07:13,350
+In the implementation of the Key
+Path's method, we need to
+
+151
+00:07:13,350 --> 00:07:15,840
+return an NS dictionary.
+
+152
+00:07:15,840 --> 00:07:19,670
+This dictionary is going to
+define which properties change
+
+153
+00:07:19,670 --> 00:07:21,220
+and by how much.
+
+154
+00:07:21,220 --> 00:07:24,880
+To calculate how much the shadow
+offset's width and
+
+155
+00:07:24,880 --> 00:07:28,030
+height should change,
+we use the Viewer
+
+156
+00:07:28,030 --> 00:07:29,680
+Offset Object [? Path ?]
+
+157
+00:07:29,680 --> 00:07:30,730
+In.
+
+158
+00:07:30,730 --> 00:07:33,530
+Since we're no longer using the
+UI Interpolating Motion
+
+159
+00:07:33,530 --> 00:07:36,860
+Effect class, we have to
+multiply our viewer offset
+
+160
+00:07:36,860 --> 00:07:40,580
+values by the min and max
+relative values, which in this
+
+161
+00:07:40,580 --> 00:07:43,750
+case is 50, but could be
+whatever you felt was
+
+162
+00:07:43,750 --> 00:07:45,000
+appropriate.
+
+163
+00:07:45,000 --> 00:07:47,370
+
+164
+00:07:47,370 --> 00:07:48,760
+So that's all the set
+up we need for
+
+165
+00:07:48,760 --> 00:07:50,670
+our new custom subclass.
+
+166
+00:07:50,670 --> 00:07:51,760
+Now we can use it in our
+
+167
+00:07:51,760 --> 00:07:54,970
+implementation, just like this.
+
+168
+00:07:54,970 --> 00:07:58,570
+You can use this new custom
+subclass in UI Motion Effect
+
+169
+00:07:58,570 --> 00:08:00,490
+groups, just like any
+other motion effect.
+
+170
+00:08:00,490 --> 00:08:04,240
+
+171
+00:08:04,240 --> 00:08:05,920
+What if we wanted to build
+something a little more
+
+172
+00:08:05,920 --> 00:08:10,380
+complex and interesting, like
+this mock Safari tab view
+
+173
+00:08:10,380 --> 00:08:14,230
+here, where we're rotating
+these views in 3D space.
+
+174
+00:08:14,230 --> 00:08:15,790
+How do we do that?
+
+175
+00:08:15,790 --> 00:08:18,690
+Well, we'd have to dive
+in a little bit more
+
+176
+00:08:18,690 --> 00:08:20,580
+into the Views layer.
+
+177
+00:08:20,580 --> 00:08:24,550
+
+178
+00:08:24,550 --> 00:08:27,620
+Every UIView has a backing
+the layer, which is
+
+179
+00:08:27,620 --> 00:08:30,370
+an instance of CALayer.
+
+180
+00:08:30,370 --> 00:08:33,419
+Now CALayer handles things like
+rendering and layout and
+
+181
+00:08:33,419 --> 00:08:37,659
+animation, while UIView handles
+user interaction.
+
+182
+00:08:37,659 --> 00:08:41,799
+CALayer will also give you
+access to features that UIView
+
+183
+00:08:41,799 --> 00:08:45,580
+doesn't have, such as shadows
+that we just saw, rounded
+
+184
+00:08:45,580 --> 00:08:47,770
+corners, colored borders.
+
+185
+00:08:47,770 --> 00:08:51,690
+And most relevant to this
+example, it gives us access to
+
+186
+00:08:51,690 --> 00:08:53,990
+3D transforms and positioning.
+
+187
+00:08:53,990 --> 00:08:58,290
+
+188
+00:08:58,290 --> 00:09:02,210
+So let's jump into the code to
+create a really simple example
+
+189
+00:09:02,210 --> 00:09:06,680
+of this 3D rotation motion
+effect using the layer's 3D
+
+190
+00:09:06,680 --> 00:09:09,260
+transforms.
+
+191
+00:09:09,260 --> 00:09:12,370
+So here we're setting up our
+initial state in viewDidLoad.
+
+192
+00:09:12,370 --> 00:09:15,830
+And we're just creating a single
+view and adding that to
+
+193
+00:09:15,830 --> 00:09:17,080
+our view hierarchy.
+
+194
+00:09:17,080 --> 00:09:20,610
+
+195
+00:09:20,610 --> 00:09:24,270
+So first, we get access to the
+Block View Layers transform.
+
+196
+00:09:24,270 --> 00:09:28,420
+Then we're going to rotate the
+transform by 45 degrees around
+
+197
+00:09:28,420 --> 00:09:34,010
+the x-axis by calling the CA
+Transform 3D Rotate function.
+
+198
+00:09:34,010 --> 00:09:37,720
+And finally, we'll apply that
+transform to the layer.
+
+199
+00:09:37,720 --> 00:09:41,270
+As you can see here, it looks
+like something has gone wrong.
+
+200
+00:09:41,270 --> 00:09:44,450
+Our gray box here just looks
+like it got a little shorter
+
+201
+00:09:44,450 --> 00:09:47,520
+instead of looking like
+it's in 3D space.
+
+202
+00:09:47,520 --> 00:09:49,990
+And that's because it's
+missing perspective.
+
+203
+00:09:49,990 --> 00:09:52,020
+So how do we add that back in?
+
+204
+00:09:52,020 --> 00:09:54,970
+
+205
+00:09:54,970 --> 00:09:58,650
+To set a 3D perspective on this
+transform, we have to set
+
+206
+00:09:58,650 --> 00:10:01,250
+the m34 property.
+
+207
+00:10:01,250 --> 00:10:05,930
+We do that by dividing negative
+1 by some number.
+
+208
+00:10:05,930 --> 00:10:08,310
+In this case, we're dividing
+it by 500.
+
+209
+00:10:08,310 --> 00:10:11,520
+This number specifies the
+distance between the imaginary
+
+210
+00:10:11,520 --> 00:10:14,540
+camera and the screen
+endpoints.
+
+211
+00:10:14,540 --> 00:10:17,060
+You can play around with this
+number to see how it affects
+
+212
+00:10:17,060 --> 00:10:20,950
+the display and to find out
+which value works best.
+
+213
+00:10:20,950 --> 00:10:25,070
+By setting that m34 property,
+our gray box now looks like
+
+214
+00:10:25,070 --> 00:10:28,290
+it's been rotated in 3D space,
+as you can see here.
+
+215
+00:10:28,290 --> 00:10:31,780
+
+216
+00:10:31,780 --> 00:10:35,590
+That work we just did was to
+set the rotation manually.
+
+217
+00:10:35,590 --> 00:10:39,160
+But now we want to create a
+vertical motion effect to have
+
+218
+00:10:39,160 --> 00:10:42,640
+the view rotate as the
+device is tilted.
+
+219
+00:10:42,640 --> 00:10:45,780
+To do that, we create new
+interpolating motion effect,
+
+220
+00:10:45,780 --> 00:10:49,210
+and we set the key path
+to layer transform.
+
+221
+00:10:49,210 --> 00:10:52,310
+We create new default transform
+using the CA
+
+222
+00:10:52,310 --> 00:10:55,520
+Transform 3D Identity
+constant.
+
+223
+00:10:55,520 --> 00:10:58,040
+And then we use that new
+transform to create new
+
+224
+00:10:58,040 --> 00:11:01,470
+minimum and maximum rotated
+transforms that we're going to
+
+225
+00:11:01,470 --> 00:11:05,330
+use on our maximum and minimum
+relative values.
+
+226
+00:11:05,330 --> 00:11:09,000
+One thing to note is that we
+have to wrap those transforms
+
+227
+00:11:09,000 --> 00:11:14,100
+in an NS value before we set
+them on the maximum or minimum
+
+228
+00:11:14,100 --> 00:11:16,210
+relative value properties.
+
+229
+00:11:16,210 --> 00:11:17,910
+Then all we have to do
+is add that motion
+
+230
+00:11:17,910 --> 00:11:19,160
+effect to the view.
+
+231
+00:11:19,160 --> 00:11:25,960
+
+232
+00:11:25,960 --> 00:11:28,840
+Now you can see that our view is
+rotating in response to the
+
+233
+00:11:28,840 --> 00:11:30,440
+device's motion.
+
+234
+00:11:30,440 --> 00:11:33,720
+But it's rotating around the
+center point of view when we
+
+235
+00:11:33,720 --> 00:11:37,340
+want it to rotate around the top
+of the view, like it does
+
+236
+00:11:37,340 --> 00:11:39,460
+in the Safari Tab view.
+
+237
+00:11:39,460 --> 00:11:42,470
+And to fix that, we have
+to update the View
+
+238
+00:11:42,470 --> 00:11:43,720
+Layers anchor point.
+
+239
+00:11:43,720 --> 00:11:46,210
+
+240
+00:11:46,210 --> 00:11:49,690
+So let's see how changing the
+anchor point of a layer
+
+241
+00:11:49,690 --> 00:11:51,240
+effects rotation.
+
+242
+00:11:51,240 --> 00:11:55,320
+By default, the anchor point is
+in the center of the view,
+
+243
+00:11:55,320 --> 00:11:58,390
+or 0.5 by 0.5.
+
+244
+00:11:58,390 --> 00:12:02,280
+And when we rotate that view
+by 45 degrees, it rotates
+
+245
+00:12:02,280 --> 00:12:03,770
+around that point.
+
+246
+00:12:03,770 --> 00:12:08,360
+Now, if we update the anchor
+point to, say, 0, 0, which is
+
+247
+00:12:08,360 --> 00:12:13,990
+in the top left of the layer,
+when we rotate by 45 degrees,
+
+248
+00:12:13,990 --> 00:12:18,730
+it now rotates in
+a different way.
+
+249
+00:12:18,730 --> 00:12:22,090
+So for this example, since we
+want to rotate around the top,
+
+250
+00:12:22,090 --> 00:12:26,690
+we can just set the point to 0.5
+and 0, which, as you can
+
+251
+00:12:26,690 --> 00:12:29,340
+see, will rotate around
+the top center.
+
+252
+00:12:29,340 --> 00:12:32,000
+
+253
+00:12:32,000 --> 00:12:35,080
+So back in the code, we just
+set our anchor point on the
+
+254
+00:12:35,080 --> 00:12:41,490
+layer to a new CG
+point of 0.5, 0.
+
+255
+00:12:41,490 --> 00:12:43,610
+One thing to note though is that
+you're going to want to
+
+256
+00:12:43,610 --> 00:12:47,680
+set the view's frame after you
+set the anchor point, because
+
+257
+00:12:47,680 --> 00:12:50,850
+the anchor point will move the
+bounds of the view, and it'll
+
+258
+00:12:50,850 --> 00:12:53,380
+be out of position.
+
+259
+00:12:53,380 --> 00:12:56,930
+Now you can see that when we
+tilt the device, the view is
+
+260
+00:12:56,930 --> 00:13:01,190
+rotating in 3D space around
+the top of its view.
+
+261
+00:13:01,190 --> 00:13:08,300
+
+262
+00:13:08,300 --> 00:13:10,690
+Now it's time for you to
+practice motion effects and
+
+263
+00:13:10,690 --> 00:13:12,640
+parallax in the challenges.
+
+264
+00:13:12,640 --> 00:13:13,890
+Good luck.
+
+265
+00:13:13,890 --> 00:13:15,654

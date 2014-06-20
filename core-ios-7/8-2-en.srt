@@ -1,0 +1,776 @@
+﻿1
+00:00:02,050 --> 00:00:03,224
+Welcome back.
+
+2
+00:00:03,224 --> 00:00:04,640
+In this section,
+we'll look at how
+
+3
+00:00:04,640 --> 00:00:07,210
+to use iOS 7's new
+background transfer
+
+4
+00:00:07,210 --> 00:00:10,290
+APIs to keep
+downloads running even
+
+5
+00:00:10,290 --> 00:00:13,980
+after an app has been closed.
+
+6
+00:00:13,980 --> 00:00:16,830
+Now, it was possible
+to do this in iOS 6
+
+7
+00:00:16,830 --> 00:00:19,210
+in a very limited capacity.
+
+8
+00:00:19,210 --> 00:00:21,150
+You would call this
+Begin Background
+
+9
+00:00:21,150 --> 00:00:24,030
+Task with Expiration
+Handler method.
+
+10
+00:00:24,030 --> 00:00:26,750
+And then you would put your
+code to download things inside
+
+11
+00:00:26,750 --> 00:00:28,140
+of that.
+
+12
+00:00:28,140 --> 00:00:30,570
+But there were some
+problems with it.
+
+13
+00:00:30,570 --> 00:00:33,470
+First off, it didn't allow
+your device to go to sleep.
+
+14
+00:00:33,470 --> 00:00:35,220
+So if you were in the
+middle of a transfer
+
+15
+00:00:35,220 --> 00:00:37,480
+and the device went
+into sleep mode,
+
+16
+00:00:37,480 --> 00:00:40,010
+the transfer would
+immediately be canceled.
+
+17
+00:00:40,010 --> 00:00:41,690
+Related to this, your
+app could actually
+
+18
+00:00:41,690 --> 00:00:44,610
+be terminated in the middle
+of a download or an upload--
+
+19
+00:00:44,610 --> 00:00:48,100
+again, immediately
+canceling the request.
+
+20
+00:00:48,100 --> 00:00:50,780
+And if your app crashed in the
+middle of a download or upload,
+
+21
+00:00:50,780 --> 00:00:52,450
+you'd have to
+restart that request
+
+22
+00:00:52,450 --> 00:00:53,660
+when the app loaded again.
+
+23
+00:00:56,670 --> 00:01:01,350
+In iOS 7, background transfers
+have been greatly improved.
+
+24
+00:01:01,350 --> 00:01:04,280
+Now downloads and uploads
+are not limited by time.
+
+25
+00:01:04,280 --> 00:01:06,720
+You can start a really long
+download in the background.
+
+26
+00:01:06,720 --> 00:01:09,530
+And it will just continue even
+after your app's been closed,
+
+27
+00:01:09,530 --> 00:01:11,690
+even when you move
+into another app.
+
+28
+00:01:11,690 --> 00:01:13,710
+You can even start these
+background transfers
+
+29
+00:01:13,710 --> 00:01:16,210
+when your app has
+already been closed.
+
+30
+00:01:16,210 --> 00:01:18,240
+Transfers can be
+resumed really easily
+
+31
+00:01:18,240 --> 00:01:19,870
+if there's a network failure.
+
+32
+00:01:19,870 --> 00:01:22,720
+And the UI can be updated
+in the background when
+
+33
+00:01:22,720 --> 00:01:26,580
+a task completes before
+the app has been reloaded.
+
+34
+00:01:26,580 --> 00:01:29,381
+Just like before,
+NSURLSession is the class
+
+35
+00:01:29,381 --> 00:01:31,130
+that powers all of
+this new functionality.
+
+36
+00:01:34,310 --> 00:01:36,200
+We've modified our
+Searchagrams app
+
+37
+00:01:36,200 --> 00:01:40,662
+to now display both
+images and video.
+
+38
+00:01:40,662 --> 00:01:42,120
+So from inside the
+app, we're going
+
+39
+00:01:42,120 --> 00:01:43,370
+to be able to watch the video.
+
+40
+00:01:48,460 --> 00:01:50,880
+We're going to be able to
+download the video locally
+
+41
+00:01:50,880 --> 00:01:53,430
+and show a progress bar
+while it's downloading.
+
+42
+00:01:56,980 --> 00:01:59,350
+And we're going to write
+code that allows the download
+
+43
+00:01:59,350 --> 00:02:01,930
+to continue even after
+we've closed the app.
+
+44
+00:02:10,490 --> 00:02:12,510
+We've modified the app
+structure a little bit
+
+45
+00:02:12,510 --> 00:02:13,800
+from the first section.
+
+46
+00:02:13,800 --> 00:02:16,110
+And now our PhotosViewController
+has the ability
+
+47
+00:02:16,110 --> 00:02:19,720
+to load a VideoViewController
+from the Watch Video
+
+48
+00:02:19,720 --> 00:02:21,025
+and Download Video buttons.
+
+49
+00:02:24,620 --> 00:02:27,310
+We'll start by creating
+an NSURLSession that we're
+
+50
+00:02:27,310 --> 00:02:29,910
+storing in the Download
+Session property
+
+51
+00:02:29,910 --> 00:02:31,815
+inside of VideoViewController.
+
+52
+00:02:31,815 --> 00:02:34,060
+We'll even give the
+session a description,
+
+53
+00:02:34,060 --> 00:02:36,140
+calling it Video
+Downloader, so we
+
+54
+00:02:36,140 --> 00:02:38,940
+can make sure to isolate it
+from the rest of our sessions
+
+55
+00:02:38,940 --> 00:02:40,440
+that are already
+inside of this app.
+
+56
+00:02:43,970 --> 00:02:46,390
+The Download Video
+method is run every time
+
+57
+00:02:46,390 --> 00:02:49,000
+the Download Video
+button is tapped.
+
+58
+00:02:49,000 --> 00:02:51,730
+Inside of that method, we're
+creating a download URL
+
+59
+00:02:51,730 --> 00:02:53,320
+from data in our model.
+
+60
+00:02:53,320 --> 00:02:56,170
+Then we're creating an
+NSURLSession download task
+
+61
+00:02:56,170 --> 00:03:00,370
+object by passing the download
+task with URL completion
+
+62
+00:03:00,370 --> 00:03:02,979
+handler message to our session.
+
+63
+00:03:02,979 --> 00:03:05,020
+This is the method that's
+going to be downloading
+
+64
+00:03:05,020 --> 00:03:08,500
+the video that we request.
+
+65
+00:03:08,500 --> 00:03:11,170
+The location object that gets
+passed into this completion
+
+66
+00:03:11,170 --> 00:03:15,720
+handler contains the temporary
+location in the iOS file system
+
+67
+00:03:15,720 --> 00:03:17,600
+where the video has
+been downloaded.
+
+68
+00:03:17,600 --> 00:03:19,730
+So we need to copy
+that downloaded video
+
+69
+00:03:19,730 --> 00:03:23,010
+from the temporary
+location to a location
+
+70
+00:03:23,010 --> 00:03:26,410
+inside of our own app which
+is being generated with this
+
+71
+00:03:26,410 --> 00:03:28,750
+build file path method.
+
+72
+00:03:28,750 --> 00:03:31,900
+This will permanently save
+that video inside of our app
+
+73
+00:03:31,900 --> 00:03:34,410
+once the request completes.
+
+74
+00:03:34,410 --> 00:03:36,900
+That's all we need to do
+to download that video.
+
+75
+00:03:36,900 --> 00:03:39,337
+But if we want to show
+the download progress,
+
+76
+00:03:39,337 --> 00:03:40,420
+we need a few extra steps.
+
+77
+00:03:43,920 --> 00:03:47,270
+The first thing we need to do
+is adopt a delegate class inside
+
+78
+00:03:47,270 --> 00:03:50,510
+of VideoViewController and
+then set our download sessions
+
+79
+00:03:50,510 --> 00:03:53,660
+delegate to that class.
+
+80
+00:03:53,660 --> 00:03:55,760
+You're probably familiar
+with directly assigning
+
+81
+00:03:55,760 --> 00:03:59,420
+a delegate using the delegate
+property of your class.
+
+82
+00:03:59,420 --> 00:04:02,650
+But with sessions,
+you can't do that.
+
+83
+00:04:02,650 --> 00:04:05,730
+Instead, you need to use the
+session with configuration
+
+84
+00:04:05,730 --> 00:04:08,830
+delegate delegateQueue
+method and then
+
+85
+00:04:08,830 --> 00:04:10,650
+pass in Self for that delegate.
+
+86
+00:04:13,720 --> 00:04:15,590
+Realistically, most
+of the time, you'll
+
+87
+00:04:15,590 --> 00:04:17,649
+be setting a delegate
+on your session.
+
+88
+00:04:17,649 --> 00:04:19,870
+Delegates enable things
+like background downloads
+
+89
+00:04:19,870 --> 00:04:26,080
+and uploads, authentication,
+SSL certificate validation,
+
+90
+00:04:26,080 --> 00:04:29,610
+uploading data from
+a stream, limiting
+
+91
+00:04:29,610 --> 00:04:35,790
+caching programmatically,
+controlling HTTP redirects,
+
+92
+00:04:35,790 --> 00:04:38,740
+and-- most importantly for us
+right now-- getting updates
+
+93
+00:04:38,740 --> 00:04:39,710
+on download progress.
+
+94
+00:04:43,240 --> 00:04:45,200
+We need to choose
+the proper method
+
+95
+00:04:45,200 --> 00:04:50,430
+to use from the four protocols
+of the session-pocalypse.
+
+96
+00:04:50,430 --> 00:04:51,760
+Uh, yeah.
+
+97
+00:04:51,760 --> 00:04:54,970
+So we have NSURLSessionDelegate.
+
+98
+00:04:54,970 --> 00:04:57,560
+And that's to handle
+session level events.
+
+99
+00:04:57,560 --> 00:05:00,410
+NSURLSessionTaskDelegate,
+for events
+
+100
+00:05:00,410 --> 00:05:04,550
+common to all tasks;
+NSURLSessionDateDelegate,
+
+101
+00:05:04,550 --> 00:05:08,520
+for events common to data and
+upload tasks; and finally,
+
+102
+00:05:08,520 --> 00:05:11,850
+NSURLSessionDownloadDelegate,
+for methods
+
+103
+00:05:11,850 --> 00:05:15,737
+to handle task events that
+are related to download tasks.
+
+104
+00:05:15,737 --> 00:05:17,320
+That sounds like the
+one that we want,
+
+105
+00:05:17,320 --> 00:05:21,340
+since we're trying to check
+the progress of a download.
+
+106
+00:05:21,340 --> 00:05:23,990
+There's three optional methods
+inside of this download
+
+107
+00:05:23,990 --> 00:05:26,710
+delegate are going to
+be important to us.
+
+108
+00:05:26,710 --> 00:05:29,510
+There's one that's called
+when the download finishes,
+
+109
+00:05:29,510 --> 00:05:32,970
+which is going to take the
+place of our completion handler.
+
+110
+00:05:32,970 --> 00:05:35,610
+There's one that's called
+as the data is downloading,
+
+111
+00:05:35,610 --> 00:05:38,099
+which we'll use for progress.
+
+112
+00:05:38,099 --> 00:05:39,890
+And there's one that's
+called if a download
+
+113
+00:05:39,890 --> 00:05:42,290
+task is resumed
+with resume data.
+
+114
+00:05:42,290 --> 00:05:43,790
+And we'll use that
+if a task gets
+
+115
+00:05:43,790 --> 00:05:45,620
+canceled and we want
+to resume it later on.
+
+116
+00:05:48,210 --> 00:05:49,870
+So back in our
+download video method,
+
+117
+00:05:49,870 --> 00:05:53,610
+that again is called whenever we
+tap the Download Video button,
+
+118
+00:05:53,610 --> 00:05:55,930
+we'll start by implementing
+the delegate method that
+
+119
+00:05:55,930 --> 00:05:58,510
+tracks download progress.
+
+120
+00:05:58,510 --> 00:06:00,150
+Calculating our
+current progress is
+
+121
+00:06:00,150 --> 00:06:03,220
+as simple as creating
+a CGFloat variable
+
+122
+00:06:03,220 --> 00:06:06,610
+and then dividing the
+total bytes written divided
+
+123
+00:06:06,610 --> 00:06:09,220
+by total bytes
+expected to write.
+
+124
+00:06:09,220 --> 00:06:12,044
+And that's going to give
+us the percent completion.
+
+125
+00:06:12,044 --> 00:06:13,710
+And then we can use
+that progress number
+
+126
+00:06:13,710 --> 00:06:16,760
+to update our progress
+indicator, which is stored here
+
+127
+00:06:16,760 --> 00:06:19,510
+in self.downloadProgress.
+
+128
+00:06:19,510 --> 00:06:22,510
+Next, we need to refactor our
+code to not use the completion
+
+129
+00:06:22,510 --> 00:06:24,210
+handler, because
+that's only going
+
+130
+00:06:24,210 --> 00:06:26,750
+to run at the very
+end of a request.
+
+131
+00:06:26,750 --> 00:06:29,130
+And instead, we'll use
+this delegate method
+
+132
+00:06:29,130 --> 00:06:32,159
+that runs whenever
+the task is completed.
+
+133
+00:06:32,159 --> 00:06:34,450
+Remember that we have three
+different delegate methods.
+
+134
+00:06:34,450 --> 00:06:37,810
+And so far, we've
+handled the first two--
+
+135
+00:06:37,810 --> 00:06:40,482
+a method for when the
+download is finished
+
+136
+00:06:40,482 --> 00:06:42,440
+and a method for when
+the download is currently
+
+137
+00:06:42,440 --> 00:06:42,940
+in progress.
+
+138
+00:06:46,800 --> 00:06:49,250
+If we run the app now
+and navigate to an image
+
+139
+00:06:49,250 --> 00:06:50,750
+and click the
+Download Video button,
+
+140
+00:06:50,750 --> 00:06:54,170
+we would expect to see the
+progress indicator moving.
+
+141
+00:06:54,170 --> 00:06:56,020
+But we don't see that.
+
+142
+00:06:56,020 --> 00:06:57,830
+It just stays blank
+and then shows us
+
+143
+00:06:57,830 --> 00:06:59,470
+that we've finished
+the download.
+
+144
+00:06:59,470 --> 00:07:02,120
+That progress view isn't
+updating because we're not
+
+145
+00:07:02,120 --> 00:07:04,560
+running our UI code on
+the main thread here
+
+146
+00:07:04,560 --> 00:07:05,590
+like we're supposed to.
+
+147
+00:07:08,460 --> 00:07:11,910
+Since we set our delegateQueue
+to nil inside of our session
+
+148
+00:07:11,910 --> 00:07:15,030
+configuration, there's
+a chance that we're not
+
+149
+00:07:15,030 --> 00:07:19,650
+updating our UI on
+the main thread.
+
+150
+00:07:19,650 --> 00:07:21,800
+And remember, any
+time you access the UI
+
+151
+00:07:21,800 --> 00:07:23,730
+off the main thread,
+you have a chance
+
+152
+00:07:23,730 --> 00:07:27,130
+of either failing silently
+or even crashing your app.
+
+153
+00:07:29,880 --> 00:07:33,170
+So to be safe, we'll wrap
+our progress updater inside
+
+154
+00:07:33,170 --> 00:07:36,260
+of an NSOperationQueue
+on the main queue
+
+155
+00:07:36,260 --> 00:07:38,240
+to make sure that
+that UI update always
+
+156
+00:07:38,240 --> 00:07:39,470
+happens on the main thread.
+
+157
+00:07:44,500 --> 00:07:47,180
+Now when we navigate to a video
+and hit the Download Video
+
+158
+00:07:47,180 --> 00:07:49,610
+button, you can see
+that progress indicator
+
+159
+00:07:49,610 --> 00:07:51,710
+updating until the
+download has completed.
+
+160
+00:07:56,502 --> 00:07:58,960
+And now it's time for you to
+work with the session delegate
+
+161
+00:07:58,960 --> 00:08:01,310
+methods in the challenges.
+

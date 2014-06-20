@@ -1,0 +1,554 @@
+﻿1
+00:00:02,029 --> 00:00:03,440
+Welcome back.
+
+2
+00:00:03,440 --> 00:00:06,410
+So when we finished the last
+section, we started a download,
+
+3
+00:00:06,410 --> 00:00:09,150
+and then we put our app
+into the background.
+
+4
+00:00:09,150 --> 00:00:11,000
+And then we finished
+the download
+
+5
+00:00:11,000 --> 00:00:13,360
+and opened up that
+app again, but our app
+
+6
+00:00:13,360 --> 00:00:14,852
+forgot where it was.
+
+7
+00:00:14,852 --> 00:00:18,780
+It didn't open back up into
+the Video View Controller.
+
+8
+00:00:18,780 --> 00:00:21,800
+Instead, it jumped right back
+to the Tag List View Controller.
+
+9
+00:00:25,020 --> 00:00:27,970
+So by implementing some
+simple State Restoration,
+
+10
+00:00:27,970 --> 00:00:30,850
+we'll make sure that our app
+always returns to the point
+
+11
+00:00:30,850 --> 00:00:33,590
+that it left off when it
+was put into the background.
+
+12
+00:00:33,590 --> 00:00:36,300
+State Restoration has
+been around since iOS 6,
+
+13
+00:00:36,300 --> 00:00:38,380
+but it's especially
+important now
+
+14
+00:00:38,380 --> 00:00:41,270
+that background
+downloading is a feature.
+
+15
+00:00:41,270 --> 00:00:46,480
+So there's four steps in order
+to save and restore your UI.
+
+16
+00:00:46,480 --> 00:00:48,490
+The first step is
+to opt in to State
+
+17
+00:00:48,490 --> 00:00:51,310
+Restoration in your AppDelegate.
+
+18
+00:00:51,310 --> 00:00:54,210
+The second step is to
+move initialization code
+
+19
+00:00:54,210 --> 00:00:57,030
+to
+application-willFinishLaunchingWithOptions
+
+20
+00:00:57,030 --> 00:00:59,280
+instead of
+application-didFinishLaunchingWithOptions.
+
+21
+00:01:02,320 --> 00:01:05,209
+The third step is to assign
+restoration identifiers
+
+22
+00:01:05,209 --> 00:01:07,706
+to different view controllers.
+
+23
+00:01:07,706 --> 00:01:09,080
+And then finally,
+the fourth step
+
+24
+00:01:09,080 --> 00:01:12,100
+is to assign restoration
+classes to view controllers that
+
+25
+00:01:12,100 --> 00:01:14,870
+need to have extra
+information restored.
+
+26
+00:01:14,870 --> 00:01:17,760
+If you want to go into great
+detail about this topic,
+
+27
+00:01:17,760 --> 00:01:20,580
+you should check out What's New
+in State Restoration session
+
+28
+00:01:20,580 --> 00:01:25,200
+from WWDC 2013.
+
+29
+00:01:25,200 --> 00:01:26,700
+So let's get started.
+
+30
+00:01:26,700 --> 00:01:28,800
+Step one is really easy.
+
+31
+00:01:28,800 --> 00:01:31,400
+All we need to do is implement
+these two methods inside
+
+32
+00:01:31,400 --> 00:01:34,730
+of our AppDelegate, and
+return yes from both of them.
+
+33
+00:01:34,730 --> 00:01:38,600
+And that tells the app that we
+want to use State Restoration.
+
+34
+00:01:38,600 --> 00:01:40,530
+Next, we'll take the
+code that's usually
+
+35
+00:01:40,530 --> 00:01:43,400
+in
+application-didFinishLaunchingWithOptions
+
+36
+00:01:43,400 --> 00:01:46,766
+and we'll put it in
+application-willFinishLaunchingWithOptions.
+
+37
+00:01:46,766 --> 00:01:49,970
+That's because the did Finish
+Launching method actually
+
+38
+00:01:49,970 --> 00:01:52,830
+runs after all of the
+State Restoration methods.
+
+39
+00:01:52,830 --> 00:01:55,260
+So it'll be too late at that
+point for State Restoration
+
+40
+00:01:55,260 --> 00:01:56,900
+to work.
+
+41
+00:01:56,900 --> 00:02:00,450
+The will method runs before
+State Restoration starts,
+
+42
+00:02:00,450 --> 00:02:02,610
+so that's where we want to
+initialize our root view
+
+43
+00:02:02,610 --> 00:02:03,770
+controller.
+
+44
+00:02:03,770 --> 00:02:07,390
+So inside of that method, we'll
+set the restoration identifier
+
+45
+00:02:07,390 --> 00:02:09,940
+for our Windows
+root view controller
+
+46
+00:02:09,940 --> 00:02:11,730
+equal to some string.
+
+47
+00:02:11,730 --> 00:02:14,450
+Here, we're using
+RootViewController.
+
+48
+00:02:14,450 --> 00:02:17,402
+The actual string you use
+isn't as important as the fact
+
+49
+00:02:17,402 --> 00:02:19,620
+that these strings
+need to be unique.
+
+50
+00:02:19,620 --> 00:02:21,980
+And setting this
+restoration identifier
+
+51
+00:02:21,980 --> 00:02:24,120
+will let UIKit know
+that it's going
+
+52
+00:02:24,120 --> 00:02:26,870
+to try to save and restore
+the state for this controller.
+
+53
+00:02:30,670 --> 00:02:32,640
+Next, any other view
+controllers that you
+
+54
+00:02:32,640 --> 00:02:35,300
+want to be a part of
+this restoration system
+
+55
+00:02:35,300 --> 00:02:37,870
+need to have their own
+restoration identifiers.
+
+56
+00:02:37,870 --> 00:02:39,470
+And it's probably
+best to set those
+
+57
+00:02:39,470 --> 00:02:42,330
+in those controllers
+init methods.
+
+58
+00:02:42,330 --> 00:02:45,470
+If you're saving and restoring
+the state of view controllers
+
+59
+00:02:45,470 --> 00:02:48,930
+that don't have any
+dynamic content in them,
+
+60
+00:02:48,930 --> 00:02:50,910
+then it's as simple as this.
+
+61
+00:02:50,910 --> 00:02:53,790
+But any time there's any
+kind of dynamic content,
+
+62
+00:02:53,790 --> 00:02:56,670
+like, let's say a search term
+that determines which photos
+
+63
+00:02:56,670 --> 00:02:58,740
+to display, you're
+going to need to take
+
+64
+00:02:58,740 --> 00:03:01,475
+a few extra steps to include
+that inside of your State
+
+65
+00:03:01,475 --> 00:03:01,975
+Restoration.
+
+66
+00:03:05,920 --> 00:03:08,380
+Photos View Controller
+displays a list of photos
+
+67
+00:03:08,380 --> 00:03:10,610
+according to a search term.
+
+68
+00:03:10,610 --> 00:03:12,370
+So here we've created
+a new initializer
+
+69
+00:03:12,370 --> 00:03:13,453
+called initWithSearchTerm.
+
+70
+00:03:16,080 --> 00:03:18,610
+And then once that
+object has been created,
+
+71
+00:03:18,610 --> 00:03:22,650
+we're setting the
+search term property,
+
+72
+00:03:22,650 --> 00:03:27,090
+updating the title to
+show that search term,
+
+73
+00:03:27,090 --> 00:03:29,540
+setting our photos view
+controllers restoration
+
+74
+00:03:29,540 --> 00:03:32,700
+identifier, and then setting
+this extra property called
+
+75
+00:03:32,700 --> 00:03:37,550
+restoration class equal to our
+photos view controller class.
+
+76
+00:03:37,550 --> 00:03:39,900
+This is a necessary
+step any time
+
+77
+00:03:39,900 --> 00:03:42,805
+you're also updating properties
+when a view controller
+
+78
+00:03:42,805 --> 00:03:43,805
+state is being restored.
+
+79
+00:03:47,290 --> 00:03:49,850
+And the way that we actually
+archive those properties
+
+80
+00:03:49,850 --> 00:03:52,850
+is by using the
+encodeRestorableStateWithCoder
+
+81
+00:03:52,850 --> 00:03:54,420
+method.
+
+82
+00:03:54,420 --> 00:03:56,580
+This is a method that
+becomes available to you
+
+83
+00:03:56,580 --> 00:03:58,790
+when you're using
+State Restoration.
+
+84
+00:03:58,790 --> 00:04:01,154
+This works just like the
+encodeWithCoder method
+
+85
+00:04:01,154 --> 00:04:03,070
+that you might have seen
+before if you've ever
+
+86
+00:04:03,070 --> 00:04:05,140
+used the NSCoding protocol.
+
+87
+00:04:05,140 --> 00:04:07,307
+So inside, we just
+need to encode objects
+
+88
+00:04:07,307 --> 00:04:08,890
+for each one of the
+properties that we
+
+89
+00:04:08,890 --> 00:04:11,392
+want to save using a unique key.
+
+90
+00:04:11,392 --> 00:04:12,850
+And then these
+properties are going
+
+91
+00:04:12,850 --> 00:04:16,300
+to be archived, along
+with the state of the UI
+
+92
+00:04:16,300 --> 00:04:17,780
+whenever State
+Restoration happens.
+
+93
+00:04:20,459 --> 00:04:24,520
+Next, we'll implement the
+viewControllerWithRestorationIdentifierPath
+
+94
+00:04:24,520 --> 00:04:25,940
+coder method.
+
+95
+00:04:25,940 --> 00:04:28,240
+And that's sort of equivalent
+to the initWithCoder
+
+96
+00:04:28,240 --> 00:04:30,560
+method in NSCoding.
+
+97
+00:04:30,560 --> 00:04:33,350
+This method will run inside
+of Photos View Controller
+
+98
+00:04:33,350 --> 00:04:37,200
+every time the app detects that
+it's trying to restore state.
+
+99
+00:04:37,200 --> 00:04:39,950
+And inside, we'll
+decode our search term
+
+100
+00:04:39,950 --> 00:04:43,200
+and use it to re initialize
+our Photos View Controller.
+
+101
+00:04:43,200 --> 00:04:46,410
+You'll need to repeat these
+encode and decode steps
+
+102
+00:04:46,410 --> 00:04:49,076
+for any view controller
+that has properties in it.
+
+103
+00:04:52,890 --> 00:04:56,510
+Now you can see that
+when we run our app,
+
+104
+00:04:56,510 --> 00:05:00,720
+and start a video
+being downloaded,
+
+105
+00:05:00,720 --> 00:05:07,339
+and then exit out of
+that app and close it,
+
+106
+00:05:07,339 --> 00:05:09,130
+the download will finish
+in the background.
+
+107
+00:05:12,400 --> 00:05:14,250
+And then when we
+reload our app, it
+
+108
+00:05:14,250 --> 00:05:17,490
+remembers that we were on
+that video's download page
+
+109
+00:05:17,490 --> 00:05:21,190
+instead of shooting us back
+out to the main tag list.
+
+110
+00:05:21,190 --> 00:05:24,030
+So now it's time for you to try
+the final challenges of Core
+
+111
+00:05:24,030 --> 00:05:24,990
+iOS 7.
+
+112
+00:05:24,990 --> 00:05:28,240
+Congratulations on
+making it this far.
+
+113
+00:05:28,240 --> 00:05:32,210
+--divided into multiple
+different classes, so that--
+
+114
+00:05:32,210 --> 00:05:34,910
+This cache is she--
+ca-sheh-sheh--
+
+115
+00:05:34,910 --> 00:05:37,976
+--download
+progresses-- progress.
+

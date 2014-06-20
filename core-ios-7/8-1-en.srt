@@ -1,0 +1,1291 @@
+﻿1
+00:00:02,060 --> 00:00:05,260
+Welcome to Level 8 of Core iOS7.
+
+2
+00:00:05,260 --> 00:00:07,600
+In this level, we'll be
+looking at the improvements
+
+3
+00:00:07,600 --> 00:00:11,190
+that iOS7 brings to networking
+and multitasking APIs.
+
+4
+00:00:13,940 --> 00:00:17,880
+In iOS7, there's new APIs
+for background uploads
+
+5
+00:00:17,880 --> 00:00:23,830
+and downloads, background
+updates like background fetch,
+
+6
+00:00:23,830 --> 00:00:27,570
+silent push notifications,
+and a brand new networking
+
+7
+00:00:27,570 --> 00:00:32,079
+API called NSURL session that
+replaces NSURL connection.
+
+8
+00:00:34,790 --> 00:00:36,630
+First, let's talk
+about the things
+
+9
+00:00:36,630 --> 00:00:41,510
+that the new NSURL session
+updated architecture brings.
+
+10
+00:00:41,510 --> 00:00:44,520
+First, you can now initiate
+background downloads
+
+11
+00:00:44,520 --> 00:00:47,830
+and uploads over standard
+HTTP connections.
+
+12
+00:00:47,830 --> 00:00:50,260
+This is when your app
+closes, it can actually
+
+13
+00:00:50,260 --> 00:00:54,350
+still finish downloads
+after it closes.
+
+14
+00:00:54,350 --> 00:00:57,670
+Next, there's advanced support
+for pausable and resumable
+
+15
+00:00:57,670 --> 00:00:58,380
+requests.
+
+16
+00:00:58,380 --> 00:01:00,104
+So while a user
+is using your app,
+
+17
+00:01:00,104 --> 00:01:01,520
+they can decide
+to stop a download
+
+18
+00:01:01,520 --> 00:01:03,510
+once it's already started.
+
+19
+00:01:03,510 --> 00:01:06,210
+You can now isolate
+caching cookies
+
+20
+00:01:06,210 --> 00:01:09,750
+and other types of
+credentials to an app where
+
+21
+00:01:09,750 --> 00:01:12,360
+before these were all global.
+
+22
+00:01:12,360 --> 00:01:15,590
+And finally, it enables you
+to build private browsing HTTP
+
+23
+00:01:15,590 --> 00:01:17,710
+sessions into your
+own applications.
+
+24
+00:01:17,710 --> 00:01:19,270
+Previously, this
+was just available
+
+25
+00:01:19,270 --> 00:01:21,280
+in the Safari application.
+
+26
+00:01:21,280 --> 00:01:24,690
+So we need to look at how we can
+transition from the old NSURL
+
+27
+00:01:24,690 --> 00:01:28,430
+connection API to the
+new NSURL session API.
+
+28
+00:01:31,240 --> 00:01:33,610
+In iOS6, the way that
+this worked was you
+
+29
+00:01:33,610 --> 00:01:39,750
+had NSURL, NSURL request,
+and NSURL cache classes.
+
+30
+00:01:39,750 --> 00:01:42,380
+And you would combine them
+with an NSURL connection
+
+31
+00:01:42,380 --> 00:01:44,520
+class and its various
+methods and delegate
+
+32
+00:01:44,520 --> 00:01:48,220
+methods to make requests
+and retrieve responses.
+
+33
+00:01:48,220 --> 00:01:52,640
+In iOS7, those URL methods
+are the same basic classes,
+
+34
+00:01:52,640 --> 00:01:54,970
+but the NSURL
+connection API has been
+
+35
+00:01:54,970 --> 00:01:58,520
+replaced with the NSURL session
+class and various helper
+
+36
+00:01:58,520 --> 00:02:02,520
+and delegate classes, like NSURL
+session data task, download
+
+37
+00:02:02,520 --> 00:02:05,430
+task, upload task, and
+session configuration.
+
+38
+00:02:12,250 --> 00:02:14,930
+There's several different ways
+to create a session object,
+
+39
+00:02:14,930 --> 00:02:17,640
+depending on the type of
+session that you need.
+
+40
+00:02:17,640 --> 00:02:20,470
+If you need a session that
+mimics the way that NSURL
+
+41
+00:02:20,470 --> 00:02:25,050
+connection worked, you can just
+pass the shared session message
+
+42
+00:02:25,050 --> 00:02:27,830
+to the NSURL session class.
+
+43
+00:02:27,830 --> 00:02:29,380
+Most of the time
+though, you'll want
+
+44
+00:02:29,380 --> 00:02:32,500
+to declare a configuration
+profile first.
+
+45
+00:02:32,500 --> 00:02:35,310
+And to do that, you can
+just create an NSURL session
+
+46
+00:02:35,310 --> 00:02:38,130
+configuration object
+and then create
+
+47
+00:02:38,130 --> 00:02:42,150
+a session using the session
+with configuration initializer.
+
+48
+00:02:42,150 --> 00:02:45,060
+To create a session that's going
+to support background downloads
+
+49
+00:02:45,060 --> 00:02:49,620
+and uploads, you'll again create
+a URL session configuration
+
+50
+00:02:49,620 --> 00:02:53,810
+and you'll pass it a unique key
+using the background session
+
+51
+00:02:53,810 --> 00:02:55,880
+configuration message.
+
+52
+00:02:55,880 --> 00:02:58,730
+And you can even modify
+that session configuration
+
+53
+00:02:58,730 --> 00:03:01,720
+to do things like allow
+cellular access or not.
+
+54
+00:03:01,720 --> 00:03:04,270
+Which would allow you to
+limit cellular downloads
+
+55
+00:03:04,270 --> 00:03:05,785
+for data inside of your app.
+
+56
+00:03:08,970 --> 00:03:11,640
+We built a sample app to
+use in this section called
+
+57
+00:03:11,640 --> 00:03:13,280
+Searchagrams.
+
+58
+00:03:13,280 --> 00:03:16,710
+Searchagrams is powered
+by the Instagram API.
+
+59
+00:03:16,710 --> 00:03:19,870
+And every time we make a
+request for a search term,
+
+60
+00:03:19,870 --> 00:03:22,200
+we get a standard JSON response.
+
+61
+00:03:22,200 --> 00:03:24,870
+Our JSON response contains
+an array of images
+
+62
+00:03:24,870 --> 00:03:27,545
+that we'll use to display data
+inside of our application.
+
+63
+00:03:34,060 --> 00:03:37,790
+If we were to make this request
+using the NSURL connection API,
+
+64
+00:03:37,790 --> 00:03:39,810
+it might look
+something like this.
+
+65
+00:03:39,810 --> 00:03:43,010
+One of the screens in our app
+is the photos view controller
+
+66
+00:03:43,010 --> 00:03:45,080
+which returns a
+list of photos based
+
+67
+00:03:45,080 --> 00:03:47,020
+on a search term
+that's been entered.
+
+68
+00:03:47,020 --> 00:03:49,050
+Every time this photos
+view controller loads,
+
+69
+00:03:49,050 --> 00:03:52,610
+the refresh photos method fires.
+
+70
+00:03:52,610 --> 00:03:55,860
+And if we were to use the old
+NSURL connection approach,
+
+71
+00:03:55,860 --> 00:03:57,320
+it might look
+something like this.
+
+72
+00:03:59,856 --> 00:04:01,230
+The problem with
+this approach is
+
+73
+00:04:01,230 --> 00:04:03,520
+there's no way to handle
+any kind of authentication
+
+74
+00:04:03,520 --> 00:04:07,490
+challenges, any redirects, or
+even cancel the request if you
+
+75
+00:04:07,490 --> 00:04:09,240
+want to cancel it after
+it's been started.
+
+76
+00:04:13,080 --> 00:04:16,120
+So is iOS7, we replaced
+the NSURL connection
+
+77
+00:04:16,120 --> 00:04:19,730
+calls with their NSURL
+session equivalents.
+
+78
+00:04:19,730 --> 00:04:23,220
+Notice that all of the NSURL
+and NSURL request set up
+
+79
+00:04:23,220 --> 00:04:24,840
+is exactly the same.
+
+80
+00:04:24,840 --> 00:04:27,180
+But now we create a
+session configuration,
+
+81
+00:04:27,180 --> 00:04:30,420
+turn on the session, and
+then pass the data task
+
+82
+00:04:30,420 --> 00:04:34,264
+with request completion handler
+message to that session.
+
+83
+00:04:34,264 --> 00:04:35,930
+There's a little more
+we have to do here
+
+84
+00:04:35,930 --> 00:04:37,550
+to get this working properly.
+
+85
+00:04:37,550 --> 00:04:40,170
+The completion handler, which
+fires whenever the request is
+
+86
+00:04:40,170 --> 00:04:43,430
+complete, is not guaranteed
+to run on the main thread
+
+87
+00:04:43,430 --> 00:04:45,680
+when you're using
+an NSURL session.
+
+88
+00:04:45,680 --> 00:04:49,220
+So we need to force that code
+in the completion handler
+
+89
+00:04:49,220 --> 00:04:51,030
+to run on the main thread.
+
+90
+00:04:51,030 --> 00:04:55,090
+Remember that any UI update
+has to run on the main thread.
+
+91
+00:04:55,090 --> 00:04:58,750
+So we can force it to run there
+by using an NS operation queue
+
+92
+00:04:58,750 --> 00:05:01,820
+and calling our table
+view reload data method
+
+93
+00:05:01,820 --> 00:05:03,630
+inside of that block.
+
+94
+00:05:03,630 --> 00:05:05,250
+Now all this code
+is determining what
+
+95
+00:05:05,250 --> 00:05:08,050
+happens when the session
+finishes running.
+
+96
+00:05:08,050 --> 00:05:09,690
+But we're missing
+an important step.
+
+97
+00:05:09,690 --> 00:05:12,398
+We haven't actually
+started the session yet.
+
+98
+00:05:19,570 --> 00:05:21,730
+There are many different
+ways to create a task
+
+99
+00:05:21,730 --> 00:05:24,970
+but just creating a task
+does not make the request.
+
+100
+00:05:24,970 --> 00:05:27,075
+We have to first resume
+the task to start.
+
+101
+00:05:34,880 --> 00:05:37,200
+And here you see the
+request working properly.
+
+102
+00:05:37,200 --> 00:05:40,120
+We're able to click on a
+tag and see a response that
+
+103
+00:05:40,120 --> 00:05:43,570
+contains different users,
+time stamps, and eventually
+
+104
+00:05:43,570 --> 00:05:46,012
+photos posted by those users.
+
+105
+00:05:46,012 --> 00:05:47,720
+But obviously, you
+can see that we're not
+
+106
+00:05:47,720 --> 00:05:49,460
+displaying those photos yet.
+
+107
+00:05:49,460 --> 00:05:51,340
+So we need to write
+another request
+
+108
+00:05:51,340 --> 00:05:55,220
+to actually grab those
+images from the server.
+
+109
+00:05:55,220 --> 00:05:57,550
+Since this is a table
+view, these images
+
+110
+00:05:57,550 --> 00:05:59,970
+will be loaded in the
+table view cell for row
+
+111
+00:05:59,970 --> 00:06:02,730
+at index path method.
+
+112
+00:06:02,730 --> 00:06:04,230
+And here you can
+see what that would
+
+113
+00:06:04,230 --> 00:06:07,490
+look like if we were using
+the old NSURL connection API.
+
+114
+00:06:10,560 --> 00:06:13,230
+Again, we'll replace all
+that NSURL connection
+
+115
+00:06:13,230 --> 00:06:16,110
+code with a session
+configuration,
+
+116
+00:06:16,110 --> 00:06:21,320
+create our session object,
+start a session data task,
+
+117
+00:06:21,320 --> 00:06:23,100
+and then in the
+completion handler,
+
+118
+00:06:23,100 --> 00:06:25,340
+instead of reloading
+the table, we'll
+
+119
+00:06:25,340 --> 00:06:28,080
+update the cells image
+view on the main thread,
+
+120
+00:06:28,080 --> 00:06:31,300
+remembering to pass the resume
+message to the task object
+
+121
+00:06:31,300 --> 00:06:33,200
+so the request starts.
+
+122
+00:06:33,200 --> 00:06:35,554
+This will actually load
+the images just fine,
+
+123
+00:06:35,554 --> 00:06:36,970
+but there's another
+problem that's
+
+124
+00:06:36,970 --> 00:06:41,160
+a little bit harder to diagnose
+and it's a performance problem.
+
+125
+00:06:41,160 --> 00:06:43,550
+Because the cell for
+row at index path method
+
+126
+00:06:43,550 --> 00:06:46,650
+runs over and over
+again, we're actually
+
+127
+00:06:46,650 --> 00:06:49,660
+creating a new session
+object for every cell
+
+128
+00:06:49,660 --> 00:06:51,950
+that we create multiple times.
+
+129
+00:06:51,950 --> 00:06:53,710
+And we just want
+one session object
+
+130
+00:06:53,710 --> 00:06:55,570
+that each one of
+these cells can use.
+
+131
+00:06:59,400 --> 00:07:02,390
+To fix this, inside of our
+photos view controller header,
+
+132
+00:07:02,390 --> 00:07:06,040
+we'll declare an
+NSURL session property
+
+133
+00:07:06,040 --> 00:07:08,160
+and then we'll create
+the session inside a view
+
+134
+00:07:08,160 --> 00:07:12,110
+did load instead of the
+cell creation method.
+
+135
+00:07:12,110 --> 00:07:14,325
+This way we'll only
+ever have one session.
+
+136
+00:07:18,280 --> 00:07:21,600
+Then back in the cell for
+row at index path method,
+
+137
+00:07:21,600 --> 00:07:23,620
+we'll replace all
+our local references
+
+138
+00:07:23,620 --> 00:07:27,645
+to that NSURL session with our
+self.image session property.
+
+139
+00:07:32,070 --> 00:07:33,330
+And here's our app working.
+
+140
+00:07:33,330 --> 00:07:36,580
+If we tap on a tag and we
+scroll through the table view,
+
+141
+00:07:36,580 --> 00:07:40,000
+each of the images for
+that table view load.
+
+142
+00:07:40,000 --> 00:07:42,090
+But what if we were to
+hit the Back button,
+
+143
+00:07:42,090 --> 00:07:44,910
+and then tap on
+the same tag again?
+
+144
+00:07:44,910 --> 00:07:46,720
+It seems like all
+these images should
+
+145
+00:07:46,720 --> 00:07:49,430
+be cached so we don't have
+to download them again.
+
+146
+00:07:49,430 --> 00:07:51,970
+But if we inspect
+the HTTP traffic,
+
+147
+00:07:51,970 --> 00:07:54,797
+you can see that these images
+are being requested again
+
+148
+00:07:54,797 --> 00:07:56,880
+when we go back to the
+same table view controller.
+
+149
+00:07:59,570 --> 00:08:03,290
+To fix this, we can modify
+the URL cache property inside
+
+150
+00:08:03,290 --> 00:08:06,570
+of our NSURL session
+configuration object.
+
+151
+00:08:06,570 --> 00:08:09,340
+And by default, every
+request is stored
+
+152
+00:08:09,340 --> 00:08:11,700
+in the same global cache.
+
+153
+00:08:11,700 --> 00:08:12,980
+But we don't want that.
+
+154
+00:08:12,980 --> 00:08:14,540
+We want to create
+a separate cache
+
+155
+00:08:14,540 --> 00:08:16,025
+for just our image requests.
+
+156
+00:08:20,390 --> 00:08:23,120
+And you can see here, if we
+were to dig into the cache
+
+157
+00:08:23,120 --> 00:08:25,900
+database, which is
+an SQLite3 database,
+
+158
+00:08:25,900 --> 00:08:29,200
+we can see all of the requests
+that were cached inside.
+
+159
+00:08:29,200 --> 00:08:31,850
+Again, this is the
+global NSURL cache.
+
+160
+00:08:34,929 --> 00:08:39,110
+To create a custom cache, we'll
+update our URL cache object
+
+161
+00:08:39,110 --> 00:08:42,990
+using the init with memory
+capacity, disk capacity, disk
+
+162
+00:08:42,990 --> 00:08:45,160
+path initializer.
+
+163
+00:08:45,160 --> 00:08:47,670
+Now the memory capacity
+and disk capacity here,
+
+164
+00:08:47,670 --> 00:08:49,440
+we're just making
+large enough to make
+
+165
+00:08:49,440 --> 00:08:52,000
+sure we can store
+all of our requests.
+
+166
+00:08:52,000 --> 00:08:53,790
+And the disk path
+is really important.
+
+167
+00:08:53,790 --> 00:08:56,560
+That's going to be the
+name of our custom cache
+
+168
+00:08:56,560 --> 00:08:59,300
+that's not global anymore.
+
+169
+00:08:59,300 --> 00:09:01,760
+I also want to mention that
+there are different caching
+
+170
+00:09:01,760 --> 00:09:04,500
+policies for
+different situations.
+
+171
+00:09:04,500 --> 00:09:06,300
+But in this case
+the default policy
+
+172
+00:09:06,300 --> 00:09:07,550
+will be the one that we use.
+
+173
+00:09:13,900 --> 00:09:16,580
+Here you can see that if
+we reset our global cache
+
+174
+00:09:16,580 --> 00:09:28,140
+inside of the simulator, and
+then reload the application,
+
+175
+00:09:28,140 --> 00:09:31,590
+all of our images load without
+making new requests which
+
+176
+00:09:31,590 --> 00:09:35,830
+you would see in the console on
+the right side of the screen.
+
+177
+00:09:35,830 --> 00:09:39,110
+This means that our custom cache
+is set up and working properly.
+
+178
+00:09:42,560 --> 00:09:45,460
+Creating caches for
+certain types of data
+
+179
+00:09:45,460 --> 00:09:48,390
+is really useful, especially
+when you have multiple session
+
+180
+00:09:48,390 --> 00:09:51,170
+requests for different
+types of data.
+
+181
+00:09:51,170 --> 00:09:53,750
+Here we're using a
+custom images cache only
+
+182
+00:09:53,750 --> 00:09:57,670
+for situations where we're
+requesting image data directly.
+
+183
+00:09:57,670 --> 00:09:59,520
+Other requests inside
+of our application,
+
+184
+00:09:59,520 --> 00:10:03,240
+like those for a search term,
+still happen on the main cache.
+
+185
+00:10:09,610 --> 00:10:13,100
+Properly caching requests,
+even in a best case scenario,
+
+186
+00:10:13,100 --> 00:10:16,750
+is always a good idea, but also
+testing under the worst case
+
+187
+00:10:16,750 --> 00:10:18,710
+scenario can help
+you uncover bugs
+
+188
+00:10:18,710 --> 00:10:21,070
+that you might not normally see.
+
+189
+00:10:21,070 --> 00:10:24,370
+To simulate that worst case
+scenario for network requests,
+
+190
+00:10:24,370 --> 00:10:27,490
+Apple provides a tool called
+Network Link Conditioner
+
+191
+00:10:27,490 --> 00:10:31,130
+that you can download
+from the dev site.
+
+192
+00:10:31,130 --> 00:10:34,260
+When you open up that DMG,
+there's a network link
+
+193
+00:10:34,260 --> 00:10:38,030
+conditioner .prefpane file
+that you can just drag and drop
+
+194
+00:10:38,030 --> 00:10:40,600
+into your system
+preferences window.
+
+195
+00:10:40,600 --> 00:10:43,440
+Then you can turn the
+network link conditioner on
+
+196
+00:10:43,440 --> 00:10:45,740
+and change your profile
+to simulate everything
+
+197
+00:10:45,740 --> 00:10:51,340
+from really bad edge
+network to super fast WiFi.
+
+198
+00:10:51,340 --> 00:10:53,327
+Now your app will respond
+accordingly inside
+
+199
+00:10:53,327 --> 00:10:54,035
+of the simulator.
+
+200
+00:10:57,350 --> 00:10:59,270
+Here's one bug that
+only becomes apparent
+
+201
+00:10:59,270 --> 00:11:02,090
+when the network
+performance is really bad.
+
+202
+00:11:02,090 --> 00:11:03,920
+You can see here that
+we loaded up a tag,
+
+203
+00:11:03,920 --> 00:11:05,806
+and we're scrolling
+through these images.
+
+204
+00:11:05,806 --> 00:11:07,430
+And we're waiting
+for all of our images
+
+205
+00:11:07,430 --> 00:11:10,010
+to download and something
+really weird's happening.
+
+206
+00:11:10,010 --> 00:11:11,690
+After the images
+have been downloaded,
+
+207
+00:11:11,690 --> 00:11:14,330
+they seem to just
+randomly change.
+
+208
+00:11:14,330 --> 00:11:17,300
+What's happening is that cells
+from the top of the table view
+
+209
+00:11:17,300 --> 00:11:19,270
+are actually being
+reused when we scroll
+
+210
+00:11:19,270 --> 00:11:22,850
+to the bottom of the table view
+before any image requests have
+
+211
+00:11:22,850 --> 00:11:25,260
+finished.
+
+212
+00:11:25,260 --> 00:11:27,580
+So to fix this, we need
+to make sure to cancel
+
+213
+00:11:27,580 --> 00:11:30,030
+a request every time
+the cell is reused.
+
+214
+00:11:33,240 --> 00:11:36,040
+Back in our original code in
+the cell for row at index path
+
+215
+00:11:36,040 --> 00:11:39,030
+method, you can see
+that we're not currently
+
+216
+00:11:39,030 --> 00:11:41,395
+associating a task with a cell.
+
+217
+00:11:46,940 --> 00:11:50,400
+So to fix this, we can create
+a UI table view cell subclass
+
+218
+00:11:50,400 --> 00:11:54,730
+that we're calling MyPhotoCell
+and move the task object
+
+219
+00:11:54,730 --> 00:11:56,660
+to that subclass.
+
+220
+00:11:56,660 --> 00:11:59,160
+And we're not showing you all
+the code inside of that custom
+
+221
+00:11:59,160 --> 00:12:01,810
+subclass because you've done
+this kind of thing before.
+
+222
+00:12:01,810 --> 00:12:05,390
+There's just a property that's
+of type NSURL session data
+
+223
+00:12:05,390 --> 00:12:08,800
+task inside of that subclass.
+
+224
+00:12:08,800 --> 00:12:10,720
+The most important
+thing this lets us do
+
+225
+00:12:10,720 --> 00:12:14,340
+is to check if the cell has
+a task currently running
+
+226
+00:12:14,340 --> 00:12:17,265
+and then cancel that task if
+the cell is trying to be reused.
+
+227
+00:12:20,900 --> 00:12:24,276
+Now when we run the app and
+we scroll in the table view,
+
+228
+00:12:24,276 --> 00:12:25,900
+we can see that our
+images still aren't
+
+229
+00:12:25,900 --> 00:12:29,040
+loading in the way
+we'd expect them to.
+
+230
+00:12:29,040 --> 00:12:30,720
+This is because our
+completion handler
+
+231
+00:12:30,720 --> 00:12:34,790
+gets called every single
+time that request happens.
+
+232
+00:12:34,790 --> 00:12:37,580
+But it's not currently
+taking into account
+
+233
+00:12:37,580 --> 00:12:40,552
+what happens if a request got
+canceled right in the middle.
+
+234
+00:12:40,552 --> 00:12:42,010
+It's still trying
+to load an image,
+
+235
+00:12:42,010 --> 00:12:43,590
+and then it doesn't
+have one to load.
+
+236
+00:12:46,490 --> 00:12:48,570
+This completion
+handler is being called
+
+237
+00:12:48,570 --> 00:12:53,030
+when the request completes and
+when the request is canceled.
+
+238
+00:12:53,030 --> 00:12:54,954
+But right now, no
+matter what happens,
+
+239
+00:12:54,954 --> 00:12:56,620
+we're trying to create
+an image with it.
+
+240
+00:12:59,490 --> 00:13:01,380
+To fix this, we can
+first check if there's
+
+241
+00:13:01,380 --> 00:13:03,740
+an error inside the
+completion handler.
+
+242
+00:13:03,740 --> 00:13:06,760
+And if there is, that means
+the task was canceled.
+
+243
+00:13:06,760 --> 00:13:08,250
+And if it wasn't
+canceled, then we
+
+244
+00:13:08,250 --> 00:13:11,680
+can continue loading the image.
+
+245
+00:13:11,680 --> 00:13:14,522
+Finally, here you can
+see our app working.
+
+246
+00:13:14,522 --> 00:13:15,980
+There's still one
+more little tweak
+
+247
+00:13:15,980 --> 00:13:18,230
+we can make to our code to
+make this a little bit more
+
+248
+00:13:18,230 --> 00:13:19,260
+efficient.
+
+249
+00:13:19,260 --> 00:13:21,520
+Right now, we're only
+canceling requests
+
+250
+00:13:21,520 --> 00:13:23,900
+if a cell is trying
+to be reused.
+
+251
+00:13:23,900 --> 00:13:26,120
+But what if we start
+loading a bunch of images
+
+252
+00:13:26,120 --> 00:13:28,130
+and then immediately
+hit the Back button?
+
+253
+00:13:28,130 --> 00:13:30,140
+We should probably cancel
+all of our requests
+
+254
+00:13:30,140 --> 00:13:32,680
+when we hit the Back button too.
+
+255
+00:13:32,680 --> 00:13:35,430
+This is really easy to
+do with NSURL sessions.
+
+256
+00:13:35,430 --> 00:13:38,670
+You need to pass the
+invalidate and cancel message
+
+257
+00:13:38,670 --> 00:13:40,040
+to your session.
+
+258
+00:13:40,040 --> 00:13:43,240
+And that's going to wipe
+out any active requests.
+
+259
+00:13:43,240 --> 00:13:46,480
+You can do this either in
+dealloc method for photos view
+
+260
+00:13:46,480 --> 00:13:48,540
+controller.
+
+261
+00:13:48,540 --> 00:13:50,430
+You can also
+invalidate a session
+
+262
+00:13:50,430 --> 00:13:52,422
+and allow the tasks
+to finish if you
+
+263
+00:13:52,422 --> 00:13:54,630
+know you aren't going to be
+using this session again.
+
+264
+00:13:58,559 --> 00:14:00,100
+And now it's time
+for you to practice
+
+265
+00:14:00,100 --> 00:14:02,950
+using NSURL session
+in the challenges.
+
+266
+00:14:02,950 --> 00:14:04,540
+Good luck.
+

@@ -1,0 +1,816 @@
+1
+00:00:00,000 --> 00:00:02,050
+
+2
+00:00:02,050 --> 00:00:04,150
+In this section, we're going
+to look at how we can apply
+
+3
+00:00:04,150 --> 00:00:06,970
+Auto Layout to working with some
+of the topics we covered
+
+4
+00:00:06,970 --> 00:00:08,270
+in level two--
+
+5
+00:00:08,270 --> 00:00:11,670
+namely UI Text Views and the
+new Dynamic Type system
+
+6
+00:00:11,670 --> 00:00:12,920
+that's in IOS 7.
+
+7
+00:00:12,920 --> 00:00:15,220
+
+8
+00:00:15,220 --> 00:00:17,930
+Auto Layout is perfect for
+working with variable-height
+
+9
+00:00:17,930 --> 00:00:21,000
+text views and Dynamic Type.
+
+10
+00:00:21,000 --> 00:00:24,440
+You'll recall from level two
+that variable-height text
+
+11
+00:00:24,440 --> 00:00:27,480
+fields come into play whenever
+you have data coming over from
+
+12
+00:00:27,480 --> 00:00:30,450
+a network request and you don't
+know how much you'll
+
+13
+00:00:30,450 --> 00:00:33,110
+have after the request
+is complete.
+
+14
+00:00:33,110 --> 00:00:35,650
+So your text view might contain
+a little bit of text.
+
+15
+00:00:35,650 --> 00:00:37,810
+It might contain
+a lot of text.
+
+16
+00:00:37,810 --> 00:00:40,490
+We'll be able to use Auto Layout
+in a creative way in
+
+17
+00:00:40,490 --> 00:00:45,290
+order to size the UI Text
+View accordingly.
+
+18
+00:00:45,290 --> 00:00:47,950
+We're going to set up these
+constraints in Senator Detail
+
+19
+00:00:47,950 --> 00:00:49,330
+View controller.
+
+20
+00:00:49,330 --> 00:00:51,990
+This view controller comes into
+play after one of the
+
+21
+00:00:51,990 --> 00:00:54,740
+senator [? shaoyun ?] games
+has been complete.
+
+22
+00:00:54,740 --> 00:00:57,350
+And when we click one of the
+history items from the History
+
+23
+00:00:57,350 --> 00:01:01,200
+View controller, the Detail View
+controller pops up and
+
+24
+00:01:01,200 --> 00:01:04,860
+gives us information in the form
+of a picture and a text
+
+25
+00:01:04,860 --> 00:01:07,790
+view for whichever senator
+was involved in that
+
+26
+00:01:07,790 --> 00:01:09,230
+round of the game.
+
+27
+00:01:09,230 --> 00:01:12,310
+So to get started with this
+layout in Interface Builder,
+
+28
+00:01:12,310 --> 00:01:14,650
+we'll want to first make sure
+that everything is inside of a
+
+29
+00:01:14,650 --> 00:01:16,140
+UIScrollView.
+
+30
+00:01:16,140 --> 00:01:19,670
+Remember from the last section
+that if we wait until after
+
+31
+00:01:19,670 --> 00:01:21,940
+we've added all the constraints
+to embed things in
+
+32
+00:01:21,940 --> 00:01:24,270
+the Scroll View, those
+constraints will go away, and
+
+33
+00:01:24,270 --> 00:01:26,160
+we'll have to do double
+the work.
+
+34
+00:01:26,160 --> 00:01:28,340
+So here we'll start with
+a UIScrollView.
+
+35
+00:01:28,340 --> 00:01:31,750
+And we'll set the top, leading,
+center horizontally,
+
+36
+00:01:31,750 --> 00:01:34,350
+and center vertically
+constraints in order to make
+
+37
+00:01:34,350 --> 00:01:36,680
+sure that scroll view takes up
+as much space as it needs.
+
+38
+00:01:36,680 --> 00:01:39,290
+
+39
+00:01:39,290 --> 00:01:42,910
+Next, we'll drag in the toolbar
+and segmented control,
+
+40
+00:01:42,910 --> 00:01:46,590
+the label for the senator's
+name, any the UIImageView for
+
+41
+00:01:46,590 --> 00:01:48,020
+the senator's picture.
+
+42
+00:01:48,020 --> 00:01:50,100
+And we'll add some constraints
+that position
+
+43
+00:01:50,100 --> 00:01:52,190
+each of these views.
+
+44
+00:01:52,190 --> 00:01:54,890
+Then we'll grab our text view,
+represented here by the pink
+
+45
+00:01:54,890 --> 00:01:58,040
+square, and give it the
+remaining available space
+
+46
+00:01:58,040 --> 00:02:01,770
+underneath the UIImageView and
+the bottom of the Scroll View
+
+47
+00:02:01,770 --> 00:02:04,420
+with a little bit of room
+on the edge for padding.
+
+48
+00:02:04,420 --> 00:02:08,229
+Then we'll add the Leading,
+Trailing, and Center X to
+
+49
+00:02:08,229 --> 00:02:11,330
+Container constraints in order
+to give that little bit of
+
+50
+00:02:11,330 --> 00:02:14,980
+padding on the left and the
+right side and give it the
+
+51
+00:02:14,980 --> 00:02:18,260
+exposition by centering it
+inside of the Scroll View.
+
+52
+00:02:18,260 --> 00:02:21,910
+Then we'll need to set a fixed
+height for the text view.
+
+53
+00:02:21,910 --> 00:02:23,120
+This is really important.
+
+54
+00:02:23,120 --> 00:02:26,250
+And it's not obvious, because
+if our text view is variable
+
+55
+00:02:26,250 --> 00:02:28,590
+height, it doesn't seem like
+we'd be setting a fixed height
+
+56
+00:02:28,590 --> 00:02:29,500
+inside of it.
+
+57
+00:02:29,500 --> 00:02:31,560
+But we'll fix that
+in just a second.
+
+58
+00:02:31,560 --> 00:02:34,270
+Finally, we'll add a bottom
+constraint to the text view
+
+59
+00:02:34,270 --> 00:02:37,180
+and repeat our trick from the
+previous section, where we set
+
+60
+00:02:37,180 --> 00:02:40,440
+the constant to zero, thus
+allowing the scroll view's
+
+61
+00:02:40,440 --> 00:02:43,530
+content size to expand
+to be as big or small
+
+62
+00:02:43,530 --> 00:02:47,260
+as it needs to be.
+
+63
+00:02:47,260 --> 00:02:50,110
+To be able to change that height
+constraint after we've
+
+64
+00:02:50,110 --> 00:02:53,370
+added it in Interface Builder,
+we need to jump into a little
+
+65
+00:02:53,370 --> 00:02:54,890
+bit of code.
+
+66
+00:02:54,890 --> 00:02:58,440
+So in Senator Detail VC's
+header, we'll add two
+
+67
+00:02:58,440 --> 00:02:59,630
+properties.
+
+68
+00:02:59,630 --> 00:03:03,460
+The first one will be a weak
+property that's an IB Outlet
+
+69
+00:03:03,460 --> 00:03:05,730
+for the text view.
+
+70
+00:03:05,730 --> 00:03:09,310
+And the next property will also
+be weak and an IB Outlet,
+
+71
+00:03:09,310 --> 00:03:12,410
+but this time it'll be for
+NS Layout Constraint.
+
+72
+00:03:12,410 --> 00:03:14,230
+And we'll call this constraint
+Text View Height.
+
+73
+00:03:14,230 --> 00:03:17,710
+
+74
+00:03:17,710 --> 00:03:19,890
+You'll remember that once we've
+declared a property with
+
+75
+00:03:19,890 --> 00:03:23,220
+the IB Outlet designation, that
+means we can create an
+
+76
+00:03:23,220 --> 00:03:27,790
+outlet in the outline view
+between the file's owner and
+
+77
+00:03:27,790 --> 00:03:29,390
+the constraint itself.
+
+78
+00:03:29,390 --> 00:03:30,800
+And you see here that
+we're choosing the
+
+79
+00:03:30,800 --> 00:03:33,130
+name Text View Height.
+
+80
+00:03:33,130 --> 00:03:36,430
+So now we've created a link
+between our Text View Height
+
+81
+00:03:36,430 --> 00:03:40,820
+property in code and the Text
+View Height constraint in
+
+82
+00:03:40,820 --> 00:03:43,780
+Interface Builder, which is
+going to allow us to change
+
+83
+00:03:43,780 --> 00:03:46,840
+that constraint in code and
+have Auto Layout update
+
+84
+00:03:46,840 --> 00:03:48,090
+accordingly.
+
+85
+00:03:48,090 --> 00:03:50,300
+
+86
+00:03:50,300 --> 00:03:52,900
+Since we're working with
+constraints and Auto Layout,
+
+87
+00:03:52,900 --> 00:03:56,280
+instead of using view will
+layout subviews or view did
+
+88
+00:03:56,280 --> 00:03:59,840
+load to set our frames, we'll
+instead use the updated view
+
+89
+00:03:59,840 --> 00:04:03,460
+constraints method that's part
+of any UI view controller.
+
+90
+00:04:03,460 --> 00:04:06,170
+Inside of that method, we'll
+call super update view
+
+91
+00:04:06,170 --> 00:04:07,450
+constraints.
+
+92
+00:04:07,450 --> 00:04:11,390
+And then we'll set the text view
+heights constant equal to
+
+93
+00:04:11,390 --> 00:04:12,950
+this new method that
+we've defined
+
+94
+00:04:12,950 --> 00:04:14,310
+called Text View Height.
+
+95
+00:04:14,310 --> 00:04:16,980
+
+96
+00:04:16,980 --> 00:04:19,730
+If we look at the code inside
+of Text View Height, you'll
+
+97
+00:04:19,730 --> 00:04:22,970
+notice that it's the same code
+that we used in level two.
+
+98
+00:04:22,970 --> 00:04:25,520
+We're passing the insure layout
+for text container
+
+99
+00:04:25,520 --> 00:04:26,830
+method to the text view.
+
+100
+00:04:26,830 --> 00:04:29,790
+And then we're capturing the
+usedRect for text container,
+
+101
+00:04:29,790 --> 00:04:33,790
+which gives us a CGRect that
+contains the full bounds of
+
+102
+00:04:33,790 --> 00:04:35,070
+our text container.
+
+103
+00:04:35,070 --> 00:04:37,840
+And finally, we're returning the
+height of that Rect plus
+
+104
+00:04:37,840 --> 00:04:40,960
+the insets at the top and the
+bottom of the text container.
+
+105
+00:04:40,960 --> 00:04:43,710
+This is the same set of code we
+used in level two in order
+
+106
+00:04:43,710 --> 00:04:45,400
+to size our text views.
+
+107
+00:04:45,400 --> 00:04:48,070
+Here, we've just wrapped it a
+nice convenience method that
+
+108
+00:04:48,070 --> 00:04:51,070
+allows us to pass in a text
+view and get the ultimate
+
+109
+00:04:51,070 --> 00:04:54,830
+height of that text container
+as a return value so that in
+
+110
+00:04:54,830 --> 00:04:58,300
+Update View Constraints, the
+constant is always going to be
+
+111
+00:04:58,300 --> 00:05:01,355
+set to the ultimate height
+of that text view.
+
+112
+00:05:01,355 --> 00:05:03,970
+
+113
+00:05:03,970 --> 00:05:06,280
+So now, if we watch this working
+inside of the Senator
+
+114
+00:05:06,280 --> 00:05:09,260
+Detail View Controller, you
+can see that scrolling is
+
+115
+00:05:09,260 --> 00:05:10,520
+working pretty well.
+
+116
+00:05:10,520 --> 00:05:13,610
+We can switch between the two
+different tabs in the toolbar.
+
+117
+00:05:13,610 --> 00:05:16,420
+And the text view height and
+scroll height update
+
+118
+00:05:16,420 --> 00:05:17,680
+accordingly.
+
+119
+00:05:17,680 --> 00:05:20,320
+But if we try to rotate the
+device, we'll see that
+
+120
+00:05:20,320 --> 00:05:21,750
+something's gone wrong.
+
+121
+00:05:21,750 --> 00:05:24,150
+Looks like that that text
+view height is not being
+
+122
+00:05:24,150 --> 00:05:25,740
+successfully set.
+
+123
+00:05:25,740 --> 00:05:27,720
+And it's resulting in some
+strange behavior
+
+124
+00:05:27,720 --> 00:05:30,970
+with the text view.
+
+125
+00:05:30,970 --> 00:05:33,940
+Fortunately, the fix for
+this is really easy.
+
+126
+00:05:33,940 --> 00:05:37,050
+All we need to do is implement
+the Will Animate Rotation to
+
+127
+00:05:37,050 --> 00:05:41,010
+Interface Orientation Duration
+method inside of Senator
+
+128
+00:05:41,010 --> 00:05:42,990
+Detail View Controller.
+
+129
+00:05:42,990 --> 00:05:47,000
+And then we just need to call
+Set Needs Update Constraints
+
+130
+00:05:47,000 --> 00:05:49,070
+on the self.view object.
+
+131
+00:05:49,070 --> 00:05:51,810
+This is going to re-trigger the
+update view constraints
+
+132
+00:05:51,810 --> 00:05:54,750
+method, which is going to
+recalculate the height of the
+
+133
+00:05:54,750 --> 00:05:58,650
+text view and reapply that
+height into the height
+
+134
+00:05:58,650 --> 00:05:59,900
+constraint.
+
+135
+00:05:59,900 --> 00:06:03,050
+
+136
+00:06:03,050 --> 00:06:05,360
+So here you can see
+that scrolling and
+
+137
+00:06:05,360 --> 00:06:06,850
+rotation are now working.
+
+138
+00:06:06,850 --> 00:06:21,270
+
+139
+00:06:21,270 --> 00:06:23,230
+So that covers working
+with the text view.
+
+140
+00:06:23,230 --> 00:06:25,490
+But what about dynamic type?
+
+141
+00:06:25,490 --> 00:06:27,460
+Well, we've looked at the
+dynamic type code
+
+142
+00:06:27,460 --> 00:06:29,140
+before in level two.
+
+143
+00:06:29,140 --> 00:06:31,590
+And you'll recall that it looks
+something like this.
+
+144
+00:06:31,590 --> 00:06:34,730
+We have a method called content
+size changed that gets
+
+145
+00:06:34,730 --> 00:06:37,530
+called in response to a
+notification that the system
+
+146
+00:06:37,530 --> 00:06:41,040
+posts whenever the user
+changes the text size.
+
+147
+00:06:41,040 --> 00:06:43,170
+And then inside of that method,
+we do something like
+
+148
+00:06:43,170 --> 00:06:45,260
+reapplying a text style.
+
+149
+00:06:45,260 --> 00:06:48,670
+We reset the font for that
+particular text view using
+
+150
+00:06:48,670 --> 00:06:51,540
+size zero so that it knows
+to use the automatically
+
+151
+00:06:51,540 --> 00:06:54,310
+calculated system size.
+
+152
+00:06:54,310 --> 00:06:57,070
+And then again, all we need to
+do in here is pass the Set
+
+153
+00:06:57,070 --> 00:07:00,960
+Needs Update Constraints
+method to self.view.
+
+154
+00:07:00,960 --> 00:07:04,330
+And then that will re-trigger
+update view constraints again.
+
+155
+00:07:04,330 --> 00:07:06,970
+And then the text will
+be size accordingly.
+
+156
+00:07:06,970 --> 00:07:09,280
+And the scroll view will
+be the right height.
+
+157
+00:07:09,280 --> 00:07:11,080
+And everything will
+rotate properly.
+
+158
+00:07:11,080 --> 00:07:14,110
+
+159
+00:07:14,110 --> 00:07:16,530
+So here you can see the result
+of the dynamic height
+
+160
+00:07:16,530 --> 00:07:19,375
+adjustment and dynamic type
+working together beautifully.
+
+161
+00:07:19,375 --> 00:07:35,390
+
+162
+00:07:35,390 --> 00:07:37,570
+Now it's time for you to work
+with some text views in the
+
+163
+00:07:37,570 --> 00:07:38,380
+challenges.
+
+164
+00:07:38,380 --> 00:07:40,670
+Good luck.
+
+165
+00:07:40,670 --> 00:07:41,652
+You'll--
+
+166
+00:07:41,652 --> 00:07:42,416
+[CLEARS THROAT]
+
+167
+00:07:42,416 --> 00:07:42,800
+Ah.
+
+168
+00:07:42,800 --> 00:07:43,420
+You'll--
+
+169
+00:07:43,420 --> 00:07:44,020
+[BEEP]
+
+170
+00:07:44,020 --> 00:07:44,450
+Ta--
+
+171
+00:07:44,450 --> 00:07:44,765
+[SIGHS]
+
+172
+00:07:44,765 --> 00:07:45,450
+Tata.
+
+173
+00:07:45,450 --> 00:07:45,830
+[LAUGHTER]
+
+174
+00:07:45,830 --> 00:07:46,410
+[BEEP]
+
+175
+00:07:46,410 --> 00:07:47,310
+While we're--
+
+176
+00:07:47,310 --> 00:07:47,910
+wow we're?
+
+177
+00:07:47,910 --> 00:07:48,210
+[LAUGHTER]
+
+178
+00:07:48,210 --> 00:07:49,760
+[BEEP]

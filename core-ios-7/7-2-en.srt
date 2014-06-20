@@ -1,0 +1,1006 @@
+1
+00:00:00,000 --> 00:00:02,000
+
+2
+00:00:02,000 --> 00:00:03,580
+Welcome back.
+
+3
+00:00:03,580 --> 00:00:06,320
+In this level, we're going to
+take the Senator Showdown app
+
+4
+00:00:06,320 --> 00:00:09,710
+that we used in level one and
+we're going to reimplement
+
+5
+00:00:09,710 --> 00:00:13,950
+some of the layout using
+Auto Layout.
+
+6
+00:00:13,950 --> 00:00:16,630
+We've already completed the
+initial steps of dragging in
+
+7
+00:00:16,630 --> 00:00:17,870
+each of the views--
+
+8
+00:00:17,870 --> 00:00:20,360
+in this case, all UI labels.
+
+9
+00:00:20,360 --> 00:00:22,920
+We've set their initial
+properties, like their frame
+
+10
+00:00:22,920 --> 00:00:24,700
+and their text color.
+
+11
+00:00:24,700 --> 00:00:27,600
+And we've arranged them all
+around the general location
+
+12
+00:00:27,600 --> 00:00:29,240
+that we want them to be.
+
+13
+00:00:29,240 --> 00:00:32,130
+If we run the app that contains
+this layout, it's
+
+14
+00:00:32,130 --> 00:00:34,180
+going to look something
+like this.
+
+15
+00:00:34,180 --> 00:00:36,440
+Obviously, we've got a little
+bit of work to do before this
+
+16
+00:00:36,440 --> 00:00:38,250
+is working perfectly.
+
+17
+00:00:38,250 --> 00:00:41,050
+So we need to add constraints to
+position each one of these
+
+18
+00:00:41,050 --> 00:00:44,210
+views in the right spot and to
+make sure that these labels
+
+19
+00:00:44,210 --> 00:00:45,460
+don't get truncated.
+
+20
+00:00:45,460 --> 00:00:47,850
+
+21
+00:00:47,850 --> 00:00:50,280
+Before we add any constraints,
+we'll want to make sure that
+
+22
+00:00:50,280 --> 00:00:53,020
+our outline view is
+easily readable.
+
+23
+00:00:53,020 --> 00:00:55,410
+Because there's lots of views,
+there's going to be lots of
+
+24
+00:00:55,410 --> 00:00:56,530
+constraints.
+
+25
+00:00:56,530 --> 00:00:59,510
+So the more descriptive we can
+make our names and the shorter
+
+26
+00:00:59,510 --> 00:01:02,060
+we can make those descriptions,
+the easier it's
+
+27
+00:01:02,060 --> 00:01:03,910
+going to be to read those
+constraints once
+
+28
+00:01:03,910 --> 00:01:06,280
+they've been added.
+
+29
+00:01:06,280 --> 00:01:08,760
+So something like this where
+we're repeating the word
+
+30
+00:01:08,760 --> 00:01:11,610
+"label" a lot is going to get
+really confusing when we see
+
+31
+00:01:11,610 --> 00:01:14,930
+it listed multiple times.
+
+32
+00:01:14,930 --> 00:01:18,180
+Instead, we'll rename each of
+our views to more concise
+
+33
+00:01:18,180 --> 00:01:22,670
+names, and we'll order them in
+the outline from top down.
+
+34
+00:01:22,670 --> 00:01:25,000
+So now, when we're looking at
+the order of our views in the
+
+35
+00:01:25,000 --> 00:01:28,190
+outline, it mimics the order
+that those views
+
+36
+00:01:28,190 --> 00:01:29,440
+appear in the editor.
+
+37
+00:01:29,440 --> 00:01:32,520
+
+38
+00:01:32,520 --> 00:01:33,750
+There's two different
+ways to add
+
+39
+00:01:33,750 --> 00:01:35,980
+constraints in this layout.
+
+40
+00:01:35,980 --> 00:01:38,470
+The first one is right clicking
+and dragging between
+
+41
+00:01:38,470 --> 00:01:40,920
+views in the Editor panel.
+
+42
+00:01:40,920 --> 00:01:43,840
+The pro is that this is visual
+and it's easy to understand
+
+43
+00:01:43,840 --> 00:01:45,910
+the constraints that
+you're applying.
+
+44
+00:01:45,910 --> 00:01:49,170
+But the con is that it's very
+easy to accidentally click and
+
+45
+00:01:49,170 --> 00:01:53,200
+drag onto the wrong view or
+one of its super views.
+
+46
+00:01:53,200 --> 00:01:54,940
+And if you do this, you're going
+to end up adding the
+
+47
+00:01:54,940 --> 00:01:56,190
+wrong constraint.
+
+48
+00:01:56,190 --> 00:02:05,140
+
+49
+00:02:05,140 --> 00:02:08,190
+The second approach is to right
+click and drag directly
+
+50
+00:02:08,190 --> 00:02:11,370
+between views in the outline.
+
+51
+00:02:11,370 --> 00:02:13,690
+And the pro of this is that you
+don't need to worry about
+
+52
+00:02:13,690 --> 00:02:16,830
+creating constraints between the
+wrong views because you're
+
+53
+00:02:16,830 --> 00:02:19,490
+directly adding them from
+one to the other.
+
+54
+00:02:19,490 --> 00:02:22,470
+But it becomes much harder to
+visualize exactly how these
+
+55
+00:02:22,470 --> 00:02:24,120
+constraints work together
+in the layout.
+
+56
+00:02:24,120 --> 00:02:26,770
+
+57
+00:02:26,770 --> 00:02:29,310
+Once you get used to both of
+these approaches, it's not
+
+58
+00:02:29,310 --> 00:02:32,840
+uncommon to mix and match and go
+back and forth while you're
+
+59
+00:02:32,840 --> 00:02:34,090
+working on a layout.
+
+60
+00:02:34,090 --> 00:02:36,210
+
+61
+00:02:36,210 --> 00:02:39,350
+Here, I'll add constraints
+directly into the editor.
+
+62
+00:02:39,350 --> 00:02:42,580
+But you'll notice that, as I
+add a top constraint and a
+
+63
+00:02:42,580 --> 00:02:46,210
+leading space constraint, that
+the constraints turn blue
+
+64
+00:02:46,210 --> 00:02:48,525
+without having to add a
+width and a height.
+
+65
+00:02:48,525 --> 00:02:49,770
+And that's kind of strange.
+
+66
+00:02:49,770 --> 00:02:53,730
+We said before that we always
+need to have an X, Y, width,
+
+67
+00:02:53,730 --> 00:02:56,050
+and height constraint
+in order for the
+
+68
+00:02:56,050 --> 00:02:57,920
+constraints to turn blue.
+
+69
+00:02:57,920 --> 00:03:00,500
+So why do we only need to
+declare X and Y here?
+
+70
+00:03:00,500 --> 00:03:03,230
+
+71
+00:03:03,230 --> 00:03:05,950
+Well, some views have something
+called an intrinsic
+
+72
+00:03:05,950 --> 00:03:09,950
+content size that determines
+their width and height at run
+
+73
+00:03:09,950 --> 00:03:14,170
+time based on their font
+and text properties.
+
+74
+00:03:14,170 --> 00:03:18,890
+So things like UI labels, UI
+buttons, and even UI image
+
+75
+00:03:18,890 --> 00:03:21,340
+views that have an image inside
+of them in Interface
+
+76
+00:03:21,340 --> 00:03:25,550
+Builder all define an intrinsic
+content size,
+
+77
+00:03:25,550 --> 00:03:29,210
+meaning their width and height
+is predetermined.
+
+78
+00:03:29,210 --> 00:03:32,280
+In fact, you don't want to set
+width and height constraints
+
+79
+00:03:32,280 --> 00:03:35,000
+on views that have an intrinsic
+content size,
+
+80
+00:03:35,000 --> 00:03:37,530
+because they'll automatically
+be calculated for you
+
+81
+00:03:37,530 --> 00:03:38,780
+when the app runs.
+
+82
+00:03:38,780 --> 00:03:41,860
+
+83
+00:03:41,860 --> 00:03:44,380
+Since these are all UI labels,
+we're only going to need to
+
+84
+00:03:44,380 --> 00:03:47,890
+add X and Y positions for
+each of these views.
+
+85
+00:03:47,890 --> 00:03:50,330
+We'll start by adding a
+constraint between the Won and
+
+86
+00:03:50,330 --> 00:03:53,610
+Lost labels using the horizontal
+spacing and
+
+87
+00:03:53,610 --> 00:03:55,600
+baseline constraints.
+
+88
+00:03:55,600 --> 00:03:58,760
+Then we'll connect up the Won
+and Lost number place holders
+
+89
+00:03:58,760 --> 00:04:03,300
+using vertical spacing and
+center X so that W and L stay
+
+90
+00:04:03,300 --> 00:04:05,850
+centered on the Won and Lost.
+
+91
+00:04:05,850 --> 00:04:09,620
+We'll connect up the percent
+sign to the W using vertical
+
+92
+00:04:09,620 --> 00:04:13,430
+spacing and to the super view
+using center horizontally so
+
+93
+00:04:13,430 --> 00:04:16,769
+it stays in the middle of the
+view, and then connect up the
+
+94
+00:04:16,769 --> 00:04:19,790
+rest of these views at the
+bottom, mainly using vertical
+
+95
+00:04:19,790 --> 00:04:23,480
+spacing and either left or right
+positioning, just to
+
+96
+00:04:23,480 --> 00:04:25,240
+keep them aligned with
+each other and fixed
+
+97
+00:04:25,240 --> 00:04:26,625
+inside of this grid.
+
+98
+00:04:26,625 --> 00:04:29,510
+When we're all finished, these
+constraints turn blue.
+
+99
+00:04:29,510 --> 00:04:31,670
+And again, that's a sign that
+we've done something right.
+
+100
+00:04:31,670 --> 00:04:35,470
+
+101
+00:04:35,470 --> 00:04:37,900
+Now, if we run this in the
+simulator, we can see that our
+
+102
+00:04:37,900 --> 00:04:39,590
+layout looks a lot better
+than it did
+
+103
+00:04:39,590 --> 00:04:41,790
+before in portrait mode.
+
+104
+00:04:41,790 --> 00:04:44,690
+If we rotate the device into
+landscape mode, we've got a
+
+105
+00:04:44,690 --> 00:04:46,160
+few problems.
+
+106
+00:04:46,160 --> 00:04:49,050
+First everything's pushed over
+to the left a little bit.
+
+107
+00:04:49,050 --> 00:04:51,980
+And we probably want all of
+that to be in the center.
+
+108
+00:04:51,980 --> 00:04:54,730
+And since landscape doesn't have
+as much vertical space,
+
+109
+00:04:54,730 --> 00:04:57,370
+now we need to put all of this
+inside of a scroll view so
+
+110
+00:04:57,370 --> 00:04:59,335
+that we can scroll and see
+all of the content.
+
+111
+00:04:59,335 --> 00:05:02,500
+
+112
+00:05:02,500 --> 00:05:04,480
+Let's tackle the first problem
+that some of the
+
+113
+00:05:04,480 --> 00:05:06,110
+views are not centered.
+
+114
+00:05:06,110 --> 00:05:08,010
+If we look at all of our
+constraints, we've got a
+
+115
+00:05:08,010 --> 00:05:11,020
+leading space constraint
+on the Won label.
+
+116
+00:05:11,020 --> 00:05:13,900
+This constraint is actually
+saying to always position the
+
+117
+00:05:13,900 --> 00:05:18,600
+Won label that amount of points
+from the left edge.
+
+118
+00:05:18,600 --> 00:05:20,770
+And that's why it's pulling it
+over to the left when we
+
+119
+00:05:20,770 --> 00:05:22,380
+rotate the screen.
+
+120
+00:05:22,380 --> 00:05:24,950
+If we delete the leading
+constraint and replace it with
+
+121
+00:05:24,950 --> 00:05:28,750
+a center horizontally in
+container constraint, then
+
+122
+00:05:28,750 --> 00:05:31,390
+we're going to be able to center
+everything inside of
+
+123
+00:05:31,390 --> 00:05:33,880
+the superview.
+
+124
+00:05:33,880 --> 00:05:36,180
+Notice that when we do this,
+the center constraint is
+
+125
+00:05:36,180 --> 00:05:39,095
+actually offset by 59 points.
+
+126
+00:05:39,095 --> 00:05:41,900
+And this is because the Won
+label doesn't appear directly
+
+127
+00:05:41,900 --> 00:05:43,810
+in the center of the layout.
+
+128
+00:05:43,810 --> 00:05:46,830
+It's offset over to the left
+by a little bit, but it's
+
+129
+00:05:46,830 --> 00:05:48,400
+still anchored to that center.
+
+130
+00:05:48,400 --> 00:05:51,130
+
+131
+00:05:51,130 --> 00:05:53,820
+Now, when we re-run this in
+the simulator and view in
+
+132
+00:05:53,820 --> 00:05:56,300
+landscape mode, everything
+is centered.
+
+133
+00:05:56,300 --> 00:05:58,600
+But we still have the problem
+of not being able to see all
+
+134
+00:05:58,600 --> 00:06:00,740
+the content because we
+need to embed all of
+
+135
+00:06:00,740 --> 00:06:01,993
+this in a scroll view.
+
+136
+00:06:01,993 --> 00:06:05,240
+
+137
+00:06:05,240 --> 00:06:07,800
+Now, there's some good
+and bad news here.
+
+138
+00:06:07,800 --> 00:06:10,740
+The good news is that Xcode
+provides a menu option to
+
+139
+00:06:10,740 --> 00:06:14,650
+directly create a scroll view
+for a set of views.
+
+140
+00:06:14,650 --> 00:06:16,990
+So we'll start by highlighting
+all the views that we want to
+
+141
+00:06:16,990 --> 00:06:20,870
+put in the scroll view and then
+choose Editor, Embed in
+
+142
+00:06:20,870 --> 00:06:22,650
+Scroll View.
+
+143
+00:06:22,650 --> 00:06:25,160
+And when we choose that, all of
+those views will get placed
+
+144
+00:06:25,160 --> 00:06:26,781
+directly inside of
+a scroll view.
+
+145
+00:06:26,781 --> 00:06:29,670
+
+146
+00:06:29,670 --> 00:06:32,200
+The bad news is that all of the
+constraints have now been
+
+147
+00:06:32,200 --> 00:06:35,320
+reset because our superview
+has changed.
+
+148
+00:06:35,320 --> 00:06:37,790
+So we'll need to go through the
+process of re-adding all
+
+149
+00:06:37,790 --> 00:06:39,940
+of these constraints.
+
+150
+00:06:39,940 --> 00:06:42,910
+In addition, we need to add
+constraints for the scroll
+
+151
+00:06:42,910 --> 00:06:45,270
+view itself so that
+it sits correctly
+
+152
+00:06:45,270 --> 00:06:47,370
+inside of the main view.
+
+153
+00:06:47,370 --> 00:06:49,800
+Adding constraints for the
+scroll view is pretty easy,
+
+154
+00:06:49,800 --> 00:06:52,270
+though, because we need it to
+always take up the entire
+
+155
+00:06:52,270 --> 00:06:53,880
+available space.
+
+156
+00:06:53,880 --> 00:06:57,810
+So we can do that by adding a
+top space, leading space,
+
+157
+00:06:57,810 --> 00:07:01,700
+center horizontally, and center
+vertically constraint.
+
+158
+00:07:01,700 --> 00:07:04,110
+And then that scroll view will
+always take up the entire
+
+159
+00:07:04,110 --> 00:07:06,760
+available space of the view
+in either portrait
+
+160
+00:07:06,760 --> 00:07:08,010
+or landscape mode.
+
+161
+00:07:08,010 --> 00:07:23,980
+
+162
+00:07:23,980 --> 00:07:25,810
+We've gone through the process
+of adding all those
+
+163
+00:07:25,810 --> 00:07:29,260
+constraints back, so we don't
+have to show it again here.
+
+164
+00:07:29,260 --> 00:07:32,020
+But you'll notice that that
+orange arrow is now appearing
+
+165
+00:07:32,020 --> 00:07:34,210
+when we add those constraints.
+
+166
+00:07:34,210 --> 00:07:37,860
+And if we click on it to see
+the debugging inspector,
+
+167
+00:07:37,860 --> 00:07:40,380
+you'll see that we have a new
+error called Scrollable
+
+168
+00:07:40,380 --> 00:07:44,510
+Content Size Ambiguity for both
+the height and the width.
+
+169
+00:07:44,510 --> 00:07:46,480
+We're getting this error,
+because we need to set the
+
+170
+00:07:46,480 --> 00:07:48,920
+content size for our
+scroll view.
+
+171
+00:07:48,920 --> 00:07:51,710
+Now, unfortunately, there's no
+option in the Inspector panel
+
+172
+00:07:51,710 --> 00:07:55,060
+in Interface Builder to just
+set a content size.
+
+173
+00:07:55,060 --> 00:07:57,460
+But we can use Auto
+Layout to set it.
+
+174
+00:07:57,460 --> 00:08:00,440
+
+175
+00:08:00,440 --> 00:08:03,180
+To do this, you'll want to find
+the view in the scroll
+
+176
+00:08:03,180 --> 00:08:06,910
+view that is closest to
+the bottom and right
+
+177
+00:08:06,910 --> 00:08:08,430
+of the scroll view.
+
+178
+00:08:08,430 --> 00:08:11,420
+In this case, our Party label
+is both the closest to the
+
+179
+00:08:11,420 --> 00:08:13,580
+right edge and the bottom
+of the screen.
+
+180
+00:08:13,580 --> 00:08:16,640
+
+181
+00:08:16,640 --> 00:08:20,240
+Next, we'll add trailing and
+bottom constraints to that
+
+182
+00:08:20,240 --> 00:08:21,490
+Party label.
+
+183
+00:08:21,490 --> 00:08:25,640
+
+184
+00:08:25,640 --> 00:08:28,650
+And finally, in the editor,
+we'll double click each of
+
+185
+00:08:28,650 --> 00:08:33,720
+those constraints and reset the
+constant to be equal to 0.
+
+186
+00:08:33,720 --> 00:08:36,789
+Here, you can see setting the
+trailing constraint constant
+
+187
+00:08:36,789 --> 00:08:40,640
+to 0 and the bottom constraint
+constant to 0.
+
+188
+00:08:40,640 --> 00:08:43,210
+
+189
+00:08:43,210 --> 00:08:45,400
+This is a little bit of
+Auto Layout magic.
+
+190
+00:08:45,400 --> 00:08:49,050
+Setting those constants to 0
+let's Auto Layout know to use
+
+191
+00:08:49,050 --> 00:08:53,020
+the minimum amount of space
+needed for the content size of
+
+192
+00:08:53,020 --> 00:08:54,740
+the scroll view.
+
+193
+00:08:54,740 --> 00:08:57,710
+And here, you can see that as we
+switch between portrait and
+
+194
+00:08:57,710 --> 00:09:00,550
+landscape, we're able to scroll
+and see all of the
+
+195
+00:09:00,550 --> 00:09:04,960
+available content in
+our layout now.
+
+196
+00:09:04,960 --> 00:09:07,840
+There's another great new
+feature in iOS 7 that you can
+
+197
+00:09:07,840 --> 00:09:12,060
+activate by navigating to the
+very top left of your outline
+
+198
+00:09:12,060 --> 00:09:15,090
+view and choosing
+Preview and then
+
+199
+00:09:15,090 --> 00:09:16,480
+highlighting the xib file.
+
+200
+00:09:16,480 --> 00:09:20,430
+
+201
+00:09:20,430 --> 00:09:23,640
+Now, if you hold Shift and
+Option at the same time and
+
+202
+00:09:23,640 --> 00:09:27,940
+click on that file, you'll get
+this little display inspector.
+
+203
+00:09:27,940 --> 00:09:31,730
+If you double tap on the right
+panel, it'll actually open up
+
+204
+00:09:31,730 --> 00:09:34,500
+a second preview window
+inside of the editor.
+
+205
+00:09:34,500 --> 00:09:37,070
+
+206
+00:09:37,070 --> 00:09:40,130
+If you then click on the Apply
+Landscape Orientation button
+
+207
+00:09:40,130 --> 00:09:43,630
+at the bottom right, you'll be
+able to get a live preview of
+
+208
+00:09:43,630 --> 00:09:47,140
+both the portrait mode and the
+landscape mode while you're
+
+209
+00:09:47,140 --> 00:09:49,750
+editing and changing
+your constraints.
+
+210
+00:09:49,750 --> 00:09:51,690
+This is a great new feature,
+because it means that you
+
+211
+00:09:51,690 --> 00:09:53,930
+don't always have to keep
+re-running the app in the
+
+212
+00:09:53,930 --> 00:09:57,340
+simulator and flipping the
+orientation manually in order
+
+213
+00:09:57,340 --> 00:09:59,700
+to see the changes that you're
+making to your Auto Layout
+
+214
+00:09:59,700 --> 00:10:00,950
+constraints.
+
+215
+00:10:00,950 --> 00:10:03,370
+
+216
+00:10:03,370 --> 00:10:05,780
+Now, it's time for you to work
+with Auto Layout and scroll
+
+217
+00:10:05,780 --> 00:10:07,270
+views in the challenges.
+
+218
+00:10:07,270 --> 00:10:08,520
+Good luck.
+
+219
+00:10:08,520 --> 00:10:10,521
