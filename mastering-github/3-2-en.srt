@@ -1,0 +1,503 @@
+1
+00:00:00,000 --> 00:00:02,040
+
+2
+00:00:02,040 --> 00:00:04,735
+In the last section, we
+looked at release tags.
+
+3
+00:00:04,735 --> 00:00:07,110
+In this section, we're going
+to take a little bit of time
+
+4
+00:00:07,110 --> 00:00:09,300
+to look at where and
+when it makes sense
+
+5
+00:00:09,300 --> 00:00:12,050
+to use release
+branches, as well.
+
+6
+00:00:12,050 --> 00:00:15,120
+Whatever happens, you'll want
+to create release tags whenever
+
+7
+00:00:15,120 --> 00:00:16,602
+you push to production.
+
+8
+00:00:16,602 --> 00:00:18,310
+And most of the time
+that's all you need.
+
+9
+00:00:18,310 --> 00:00:21,730
+But occasionally, you also
+need release branches, as well,
+
+10
+00:00:21,730 --> 00:00:25,900
+where you need to make changes
+to a particular release
+
+11
+00:00:25,900 --> 00:00:28,900
+without affecting
+your master branch.
+
+12
+00:00:28,900 --> 00:00:30,815
+That's where release
+branches come in.
+
+13
+00:00:30,815 --> 00:00:32,030
+
+14
+00:00:32,030 --> 00:00:35,065
+Release tags point to a
+single commit, which is great.
+
+15
+00:00:35,065 --> 00:00:36,150
+
+16
+00:00:36,150 --> 00:00:40,400
+But what happens if you need
+to make changes to that commit?
+
+17
+00:00:40,400 --> 00:00:42,930
+Let's say, you need
+to make a hotfix,
+
+18
+00:00:42,930 --> 00:00:45,670
+because you found in
+your manual QA process
+
+19
+00:00:45,670 --> 00:00:47,990
+that there's a bug in
+your production release.
+
+20
+00:00:47,990 --> 00:00:49,430
+
+21
+00:00:49,430 --> 00:00:51,220
+In that case,
+you're going to need
+
+22
+00:00:51,220 --> 00:00:55,430
+to support a release branch
+that will allow you to make
+
+23
+00:00:55,430 --> 00:00:59,870
+the additional commits to fix
+any bugs that you might find.
+
+24
+00:00:59,870 --> 00:01:03,850
+So we can see here on the left
+that we have the master branch
+
+25
+00:01:03,850 --> 00:01:05,494
+with a number of commits.
+
+26
+00:01:05,494 --> 00:01:08,240
+It looks like we've pushed
+two of them to production.
+
+27
+00:01:08,240 --> 00:01:11,850
+And we've created release
+tags for those two commits.
+
+28
+00:01:11,850 --> 00:01:15,890
+A version 1.0.0, and
+then a point release
+
+29
+00:01:15,890 --> 00:01:18,950
+for a hotfix, version 1.0.1.
+
+30
+00:01:18,950 --> 00:01:21,780
+On the right, we
+can see that we also
+
+31
+00:01:21,780 --> 00:01:24,480
+have a master branch
+with a number of commits.
+
+32
+00:01:24,480 --> 00:01:28,430
+But in this case, we've
+created two release branches,
+
+33
+00:01:28,430 --> 00:01:33,670
+one for the 1.0 branch,
+and one for the 1.1 branch.
+
+34
+00:01:33,670 --> 00:01:37,850
+And in both cases, we will
+make changes and then create
+
+35
+00:01:37,850 --> 00:01:41,040
+release tags for
+the various hotfixes
+
+36
+00:01:41,040 --> 00:01:42,595
+we end up pushing to production.
+
+37
+00:01:42,595 --> 00:01:46,110
+
+38
+00:01:46,110 --> 00:01:47,950
+There are three
+key reasons why you
+
+39
+00:01:47,950 --> 00:01:50,130
+would choose to create
+a release branch.
+
+40
+00:01:50,130 --> 00:01:52,380
+The first is, if you
+have a lot of manual QA.
+
+41
+00:01:52,380 --> 00:01:53,680
+
+42
+00:01:53,680 --> 00:01:56,355
+The second, is if you
+have long running releases
+
+43
+00:01:56,355 --> 00:01:59,750
+that you need to support
+and update over time.
+
+44
+00:01:59,750 --> 00:02:03,340
+And the third, is just
+creating them on demand,
+
+45
+00:02:03,340 --> 00:02:05,570
+when you need them,
+when you have hotfixes.
+
+46
+00:02:05,570 --> 00:02:06,840
+
+47
+00:02:06,840 --> 00:02:09,240
+Let's look at each
+one of those three.
+
+48
+00:02:09,240 --> 00:02:13,140
+If you have a manual QA
+process, and you almost always
+
+49
+00:02:13,140 --> 00:02:17,310
+have a number of hotfixes
+to every production release,
+
+50
+00:02:17,310 --> 00:02:19,800
+it probably makes
+sense to start off
+
+51
+00:02:19,800 --> 00:02:22,430
+by creating a release
+branch every time
+
+52
+00:02:22,430 --> 00:02:24,730
+you choose to push
+to production.
+
+53
+00:02:24,730 --> 00:02:28,270
+That way, your QA team can
+work on the release branch,
+
+54
+00:02:28,270 --> 00:02:30,560
+provide feedback
+to your developers,
+
+55
+00:02:30,560 --> 00:02:32,990
+they can create a
+number of hotfixes,
+
+56
+00:02:32,990 --> 00:02:36,170
+and then you don't need to
+tag and push to production
+
+57
+00:02:36,170 --> 00:02:39,940
+until the release
+branch is ready to go.
+
+58
+00:02:39,940 --> 00:02:41,690
+Here, you can see
+a case where we
+
+59
+00:02:41,690 --> 00:02:44,310
+have a release branch
+that we created.
+
+60
+00:02:44,310 --> 00:02:46,690
+And we made a couple
+of hotfixes on it
+
+61
+00:02:46,690 --> 00:02:50,390
+before we finally decided to
+create a release tag for it.
+
+62
+00:02:50,390 --> 00:02:52,620
+And then, once we've
+made those changes,
+
+63
+00:02:52,620 --> 00:02:55,780
+we needed to get the hotfixes
+back into the master branch,
+
+64
+00:02:55,780 --> 00:02:58,670
+so we merged them
+back into master
+
+65
+00:02:58,670 --> 00:02:59,865
+after pushing to production.
+
+66
+00:02:59,865 --> 00:03:02,330
+
+67
+00:03:02,330 --> 00:03:05,030
+Another reason to
+create a release branch
+
+68
+00:03:05,030 --> 00:03:06,690
+is, if you have a
+long running releases
+
+69
+00:03:06,690 --> 00:03:08,845
+that you need to
+support over time.
+
+70
+00:03:08,845 --> 00:03:10,470
+So for example, if
+you've got customers
+
+71
+00:03:10,470 --> 00:03:14,910
+paying you to support version
+1, version 2, and version
+
+72
+00:03:14,910 --> 00:03:18,090
+3 of your code for a
+number of months or years,
+
+73
+00:03:18,090 --> 00:03:20,880
+you're going to have to keep
+those release branches so
+
+74
+00:03:20,880 --> 00:03:23,410
+every time you have
+security updates,
+
+75
+00:03:23,410 --> 00:03:25,760
+or other critical
+patches, you can
+
+76
+00:03:25,760 --> 00:03:28,040
+patch each one of
+those release branches
+
+77
+00:03:28,040 --> 00:03:30,515
+and then send them off to
+the appropriate customers.
+
+78
+00:03:30,515 --> 00:03:32,050
+
+79
+00:03:32,050 --> 00:03:33,660
+For many teams,
+if you don't need
+
+80
+00:03:33,660 --> 00:03:36,030
+to support long running
+feature branches,
+
+81
+00:03:36,030 --> 00:03:39,860
+and you don't have an extensive
+manual QA process that often
+
+82
+00:03:39,860 --> 00:03:42,500
+finds bugs in your
+code, you may not
+
+83
+00:03:42,500 --> 00:03:45,157
+need to start with
+release branches at all.
+
+84
+00:03:45,157 --> 00:03:47,615
+Instead, what you should do is
+start with the release tags.
+
+85
+00:03:47,615 --> 00:03:48,780
+
+86
+00:03:48,780 --> 00:03:51,970
+And you can see here we have
+release tags, release 1,
+
+87
+00:03:51,970 --> 00:03:54,010
+and 1.1.
+
+88
+00:03:54,010 --> 00:03:56,150
+So what happened
+here was, we started
+
+89
+00:03:56,150 --> 00:03:58,172
+by just creating release tags.
+
+90
+00:03:58,172 --> 00:03:59,630
+But then we realized
+that we needed
+
+91
+00:03:59,630 --> 00:04:03,420
+to make a hotfix to release 1.1.
+
+92
+00:04:03,420 --> 00:04:05,840
+So we checked out the tag.
+
+93
+00:04:05,840 --> 00:04:10,570
+We created a new branch,
+called release branch 1.1,
+
+94
+00:04:10,570 --> 00:04:13,480
+and then we made the
+hotfix on that branch,
+
+95
+00:04:13,480 --> 00:04:15,799
+so it didn't get
+confused with changes
+
+96
+00:04:15,799 --> 00:04:17,910
+we were making on
+the master branch.
+
+97
+00:04:17,910 --> 00:04:24,970
+Then what we did was we tagged
+that hotfix as a release 1.1.1
+
+98
+00:04:24,970 --> 00:04:28,580
+and pushed that to production,
+merged the changes back
+
+99
+00:04:28,580 --> 00:04:32,960
+into master, and then
+deleted the release branch.
+
+100
+00:04:32,960 --> 00:04:36,600
+So it's possible to just
+create your release branches
+
+101
+00:04:36,600 --> 00:04:40,560
+on the fly, after the fact,
+if and when you need them.
+
+102
+00:04:40,560 --> 00:04:41,680
+
+103
+00:04:41,680 --> 00:04:43,690
+And that's often
+the best strategy
+
+104
+00:04:43,690 --> 00:04:44,850
+for the majority of teams.
+
+105
+00:04:44,850 --> 00:04:47,250
+
+106
+00:04:47,250 --> 00:04:50,760
+So now it's your turn to create
+a release branch on the fly,
+
+107
+00:04:50,760 --> 00:04:54,100
+and I'll see you back
+here when you're done.
+
+108
+00:04:54,100 --> 00:04:54,706

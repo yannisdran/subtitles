@@ -1,0 +1,302 @@
+﻿1
+00:00:02,220 --> 00:00:05,040
+In this section, we're going
+to look at releases, which
+
+2
+00:00:05,040 --> 00:00:08,930
+are a GitHub-specific feature
+that allow you to add more
+
+3
+00:00:08,930 --> 00:00:11,810
+information and
+functionality to your tags.
+
+4
+00:00:13,590 --> 00:00:16,329
+There are two key
+benefits to releases.
+
+5
+00:00:16,329 --> 00:00:19,820
+The first is that they
+allow you to share binaries
+
+6
+00:00:19,820 --> 00:00:23,240
+with your users through
+GitHub without having
+
+7
+00:00:23,240 --> 00:00:26,090
+to check the binaries into Git.
+
+8
+00:00:26,090 --> 00:00:29,840
+The second benefit is that they
+provide you with the ability
+
+9
+00:00:29,840 --> 00:00:33,190
+to put extended release
+notes in a way that's
+
+10
+00:00:33,190 --> 00:00:35,860
+easy to share with
+anybody who's using
+
+11
+00:00:35,860 --> 00:00:37,055
+your code or your project.
+
+12
+00:00:38,300 --> 00:00:41,370
+There are two ways to
+create releases on GitHub.
+
+13
+00:00:41,370 --> 00:00:44,140
+The first is to
+select an existing tag
+
+14
+00:00:44,140 --> 00:00:48,920
+and to add binaries, notes,
+or additional information.
+
+15
+00:00:48,920 --> 00:00:52,100
+The other option is to
+go into the Releases tab,
+
+16
+00:00:52,100 --> 00:00:54,560
+and create a new
+release from scratch.
+
+17
+00:00:54,560 --> 00:00:58,610
+And it will automatically add
+a tag as part of the process.
+
+18
+00:00:58,610 --> 00:01:02,720
+One other benefit of releases
+is that they allow your users
+
+19
+00:01:02,720 --> 00:01:05,870
+to be able to download a
+copy of your source code
+
+20
+00:01:05,870 --> 00:01:09,645
+from a zip file without having
+to clone the repository.
+
+21
+00:01:11,370 --> 00:01:14,290
+So within the Release tabs,
+one of the things you can do
+
+22
+00:01:14,290 --> 00:01:15,375
+is edit a tag.
+
+23
+00:01:16,420 --> 00:01:19,620
+And when you click on that, it
+allows you to, in this case,
+
+24
+00:01:19,620 --> 00:01:22,390
+we're selecting an existing
+tag, and we're just
+
+25
+00:01:22,390 --> 00:01:25,530
+adding an additional
+description to the tag.
+
+26
+00:01:25,530 --> 00:01:27,970
+You could also just drag
+and drop binaries here
+
+27
+00:01:27,970 --> 00:01:32,450
+to attach them to the release,
+making it very easy for people
+
+28
+00:01:32,450 --> 00:01:36,980
+to download executables
+or other compiled source.
+
+29
+00:01:36,980 --> 00:01:39,160
+If you want to, you
+can also highlight
+
+30
+00:01:39,160 --> 00:01:42,580
+if this release is a prerelease
+version and something
+
+31
+00:01:42,580 --> 00:01:46,340
+people should be wary about
+when downloading or using.
+
+32
+00:01:46,340 --> 00:01:48,010
+When you're done
+with making changes,
+
+33
+00:01:48,010 --> 00:01:50,620
+you can click on the
+"Publish release" button,
+
+34
+00:01:50,620 --> 00:01:54,120
+and it will save and
+publish your changes.
+
+35
+00:01:54,120 --> 00:01:57,000
+The other way you can
+create a release on GitHub
+
+36
+00:01:57,000 --> 00:02:00,020
+is to actually go
+and find a commit
+
+37
+00:02:00,020 --> 00:02:02,390
+that you want to
+add a release to.
+
+38
+00:02:02,390 --> 00:02:04,440
+As we look through
+our commit history,
+
+39
+00:02:04,440 --> 00:02:08,340
+I see that there was a pull
+request for the kill list.
+
+40
+00:02:08,340 --> 00:02:10,479
+And at the moment, we
+don't have a tag for that.
+
+41
+00:02:10,479 --> 00:02:12,090
+And it seems like
+that's probably
+
+42
+00:02:12,090 --> 00:02:14,620
+a release we'd want to tag.
+
+43
+00:02:14,620 --> 00:02:20,255
+So go to the "Releases" tab and
+click on "Draft new release."
+
+44
+00:02:21,860 --> 00:02:25,760
+We have no tag version, but
+if you go to the target,
+
+45
+00:02:25,760 --> 00:02:30,080
+and select "Recent Commits,"
+you can then scroll down
+
+46
+00:02:30,080 --> 00:02:32,390
+to find the commit that
+you want to select.
+
+47
+00:02:33,680 --> 00:02:36,070
+You can then give
+it a tag version.
+
+48
+00:02:36,070 --> 00:02:39,360
+We'll call this 1.0.0.
+
+49
+00:02:39,360 --> 00:02:43,490
+And a release title
+describing the release.
+
+50
+00:02:43,490 --> 00:02:47,130
+And then you can add longer
+release notes explaining
+
+51
+00:02:47,130 --> 00:02:49,890
+the purpose of this
+particular commit.
+
+52
+00:02:49,890 --> 00:02:51,800
+Again, if you want
+to, you can highlight
+
+53
+00:02:51,800 --> 00:02:53,730
+that it was a
+prerelease And then
+
+54
+00:02:53,730 --> 00:02:56,390
+you can publish this release.
+
+55
+00:02:56,390 --> 00:02:59,190
+And now, when we go back
+to the releases page,
+
+56
+00:02:59,190 --> 00:03:03,000
+you will see that we can see
+both of these releases, one
+
+57
+00:03:03,000 --> 00:03:06,360
+of which was created by a
+tag on the command line,
+
+58
+00:03:06,360 --> 00:03:09,400
+and then enhanced through
+GitHub, and the other of which
+
+59
+00:03:09,400 --> 00:03:14,100
+was created in GitHub, adding
+the tag after the fact.
+
+60
+00:03:16,760 --> 00:03:19,200
+And now it's your turn
+again - in this case,
+
+61
+00:03:19,200 --> 00:03:21,390
+to create some releases.
+
+62
+00:03:21,390 --> 00:03:23,610
+See you after the challenges.
+

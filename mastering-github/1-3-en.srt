@@ -1,0 +1,474 @@
+﻿1
+00:00:02,020 --> 00:00:04,850
+So you were trying to
+collaborate on a repository
+
+2
+00:00:04,850 --> 00:00:06,860
+that you didn't have
+permissions for.
+
+3
+00:00:06,860 --> 00:00:10,620
+So you made a fork so there
+was your copy on GitHub.
+
+4
+00:00:10,620 --> 00:00:13,460
+You cloned that down to your
+laptop, made the changes,
+
+5
+00:00:13,460 --> 00:00:15,850
+and pushed them
+back to your clone.
+
+6
+00:00:15,850 --> 00:00:17,910
+But wouldn't it be great
+if you could somehow
+
+7
+00:00:17,910 --> 00:00:20,620
+get the changes or
+improvements you've made back
+
+8
+00:00:20,620 --> 00:00:22,700
+into that original project?
+
+9
+00:00:22,700 --> 00:00:27,900
+Well, you can and the mechanism
+to do that is a pull request.
+
+10
+00:00:27,900 --> 00:00:30,155
+As we can see here,
+this is a case
+
+11
+00:00:30,155 --> 00:00:34,060
+where there was an original
+project, you made a fork of it,
+
+12
+00:00:34,060 --> 00:00:36,190
+you cloned it down
+to your laptop,
+
+13
+00:00:36,190 --> 00:00:38,470
+and you've pushed
+your changes back up.
+
+14
+00:00:38,470 --> 00:00:42,670
+When you send the pull request,
+the owner of the original repo
+
+15
+00:00:42,670 --> 00:00:45,800
+is then notified so
+they can go and check
+
+16
+00:00:45,800 --> 00:00:49,100
+the status of your pull request
+and decide whether to accept it
+
+17
+00:00:49,100 --> 00:00:51,020
+or not.
+
+18
+00:00:51,020 --> 00:00:54,770
+You can think of a
+fork as a branch.
+
+19
+00:00:54,770 --> 00:00:57,810
+So in this diagram,
+you can see that we've
+
+20
+00:00:57,810 --> 00:01:03,670
+forked the Code School repo and
+created our own copy of that.
+
+21
+00:01:03,670 --> 00:01:06,010
+And we've got our
+master branch that we're
+
+22
+00:01:06,010 --> 00:01:08,800
+making certain commits to,
+and then at the same time,
+
+23
+00:01:08,800 --> 00:01:12,450
+commits are being made to
+the master branch or the Code
+
+24
+00:01:12,450 --> 00:01:13,540
+School repo.
+
+25
+00:01:13,540 --> 00:01:16,510
+The pull request
+is us requesting
+
+26
+00:01:16,510 --> 00:01:19,840
+that the changes on
+our master branch
+
+27
+00:01:19,840 --> 00:01:24,520
+get merged in to the master
+branch in the Code School repo.
+
+28
+00:01:24,520 --> 00:01:26,600
+And if a pull
+request is accepted,
+
+29
+00:01:26,600 --> 00:01:31,880
+that's exactly what it will do -
+it will create a merge commit.
+
+30
+00:01:31,880 --> 00:01:35,914
+So let's look at the process
+of creating a pull request.
+
+31
+00:01:35,914 --> 00:01:37,330
+In this case, I'm
+going to request
+
+32
+00:01:37,330 --> 00:01:41,720
+that the changes I made to my
+fork, my copy of the dojo rules
+
+33
+00:01:41,720 --> 00:01:47,610
+repository get pulled into the
+original deadlyvipers repo.
+
+34
+00:01:47,610 --> 00:01:50,490
+So the first thing I do
+is in the top right hand
+
+35
+00:01:50,490 --> 00:01:52,910
+corner there is a
+"Pull Request" button.
+
+36
+00:01:52,910 --> 00:01:55,380
+So I'm going to click
+that and then click
+
+37
+00:01:55,380 --> 00:01:58,480
+"New Pull Request"
+when that appears.
+
+38
+00:01:58,480 --> 00:02:01,760
+You'll notice that I am
+requesting the changes
+
+39
+00:02:01,760 --> 00:02:05,720
+for my master branch to be
+merged in to the deadlvipers
+
+40
+00:02:05,720 --> 00:02:07,410
+master branch.
+
+41
+00:02:07,410 --> 00:02:11,720
+I click on the "Create
+New Pull Request" button,
+
+42
+00:02:11,720 --> 00:02:13,770
+enter any information,
+and then click
+
+43
+00:02:13,770 --> 00:02:18,160
+on the "Submit Pull Request."
+
+44
+00:02:18,160 --> 00:02:20,760
+And here we are with a
+created pull request.
+
+45
+00:02:20,760 --> 00:02:24,420
+Notice that we're on the deadlyvipers
+ copy of the repository
+
+46
+00:02:24,420 --> 00:02:27,670
+because that's where the pull
+request was created because we
+
+47
+00:02:27,670 --> 00:02:30,760
+are asking them to
+accept the changes
+
+48
+00:02:30,760 --> 00:02:33,980
+into their copy
+of the repository.
+
+49
+00:02:33,980 --> 00:02:36,655
+The next time that
+deadlyvipers logs in,
+
+50
+00:02:36,655 --> 00:02:39,030
+they're probably going to look
+through a list of the pull
+
+51
+00:02:39,030 --> 00:02:42,030
+requests they've
+received, including ours.
+
+52
+00:02:42,030 --> 00:02:46,150
+On a public GitHub repo,
+anybody can review and comment
+
+53
+00:02:46,150 --> 00:02:47,490
+on a pull request.
+
+54
+00:02:47,490 --> 00:02:50,730
+They can check your
+branch, run the code,
+
+55
+00:02:50,730 --> 00:02:52,510
+and perhaps run some
+tests against it
+
+56
+00:02:52,510 --> 00:02:53,720
+to make sure it's running.
+
+57
+00:02:53,720 --> 00:02:55,180
+And if they have
+permissions, they
+
+58
+00:02:55,180 --> 00:02:58,130
+can then accept the pull
+request and merge it
+
+59
+00:02:58,130 --> 00:02:59,155
+into their repository.
+
+60
+00:03:02,330 --> 00:03:05,430
+Let's imagine somebody comes
+across your pull request
+
+61
+00:03:05,430 --> 00:03:08,270
+and they click on
+the pull request
+
+62
+00:03:08,270 --> 00:03:11,330
+and decide to go
+look at your code.
+
+63
+00:03:11,330 --> 00:03:14,519
+But this person thinks
+you've gone too far.
+
+64
+00:03:14,519 --> 00:03:16,060
+What they can do is
+they can actually
+
+65
+00:03:16,060 --> 00:03:19,890
+make a comment right in the pull
+request suggesting that you've
+
+66
+00:03:19,890 --> 00:03:23,810
+gone too far and
+submit that change.
+
+67
+00:03:23,810 --> 00:03:28,080
+When they do so, you're going
+to get an email notification.
+
+68
+00:03:28,080 --> 00:03:30,540
+When you do that, if
+you agree with them,
+
+69
+00:03:30,540 --> 00:03:35,010
+you can then go back into a
+terminal window, edit a file,
+
+70
+00:03:35,010 --> 00:03:37,100
+and make a change
+that seems to be
+
+71
+00:03:37,100 --> 00:03:40,750
+consistent with their feedback.
+
+72
+00:03:40,750 --> 00:03:43,800
+You can then add and
+commit that change
+
+73
+00:03:43,800 --> 00:03:46,630
+and push it up to GitHub.
+
+74
+00:03:46,630 --> 00:03:49,610
+And because pull requests
+point to a branch,
+
+75
+00:03:49,610 --> 00:03:52,900
+not a specific commit,
+that will automatically get
+
+76
+00:03:52,900 --> 00:03:54,480
+added to the pull request.
+
+77
+00:03:54,480 --> 00:03:57,240
+So now your new commit
+becomes part of the pull
+
+78
+00:03:57,240 --> 00:04:00,470
+request as soon as you
+push it to your fork.
+
+79
+00:04:00,470 --> 00:04:03,269
+They can then look
+at your changes,
+
+80
+00:04:03,269 --> 00:04:04,810
+and if they're
+comfortable with them,
+
+81
+00:04:04,810 --> 00:04:07,940
+they can make a comment
+saying that they're + 1
+
+82
+00:04:07,940 --> 00:04:10,380
+and that they think
+you should ship this.
+
+83
+00:04:10,380 --> 00:04:12,460
+And when you get that,
+depending upon the rules
+
+84
+00:04:12,460 --> 00:04:15,000
+that you use in your
+team for maybe one or two
+
+85
+00:04:15,000 --> 00:04:17,450
+other members of your
+team, you can then
+
+86
+00:04:17,450 --> 00:04:20,700
+click on the button to
+merge the pull request.
+
+87
+00:04:20,700 --> 00:04:23,600
+And now we can look at the
+commit history in the deadly
+
+88
+00:04:23,600 --> 00:04:26,330
+vipers copy of the
+dojo rules repository
+
+89
+00:04:26,330 --> 00:04:29,050
+and see the commit
+we made and the merge
+
+90
+00:04:29,050 --> 00:04:32,376
+commit that closed
+the pull request.
+
+91
+00:04:32,376 --> 00:04:34,000
+And you'll notice
+that the merge commit
+
+92
+00:04:34,000 --> 00:04:36,680
+even has a reference
+back to the pull request
+
+93
+00:04:36,680 --> 00:04:39,270
+so we can link back
+to the pull request
+
+94
+00:04:39,270 --> 00:04:42,330
+and see any discussion that
+might have occurred while we
+
+95
+00:04:42,330 --> 00:04:45,740
+were working on
+this functionality.
+
+96
+00:04:45,740 --> 00:04:47,920
+Time for you to
+submit a pull request
+
+97
+00:04:47,920 --> 00:04:51,280
+and then we'll see you
+back in the next section.
+

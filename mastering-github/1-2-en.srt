@@ -1,0 +1,287 @@
+﻿1
+00:00:02,200 --> 00:00:03,080
+Welcome back.
+
+2
+00:00:03,080 --> 00:00:07,030
+In this section we're going to
+go through forking and cloning.
+
+3
+00:00:07,030 --> 00:00:08,960
+If you're already familiar
+with both of those,
+
+4
+00:00:08,960 --> 00:00:12,210
+you might want to just skip
+ahead to the challenges.
+
+5
+00:00:12,210 --> 00:00:14,600
+When you create a new
+repository on GitHub,
+
+6
+00:00:14,600 --> 00:00:17,720
+the first thing you're going
+to want to do is clone that so
+
+7
+00:00:17,720 --> 00:00:20,140
+that you're downloading
+a copy of the repository
+
+8
+00:00:20,140 --> 00:00:21,630
+to your local machine.
+
+9
+00:00:21,630 --> 00:00:24,490
+And then you can make changes
+locally and push those
+
+10
+00:00:24,490 --> 00:00:27,130
+back up to GitHub.
+
+11
+00:00:27,130 --> 00:00:29,590
+If someone else has
+created a project on GitHub
+
+12
+00:00:29,590 --> 00:00:31,940
+and they've added you
+as a collaborator,
+
+13
+00:00:31,940 --> 00:00:35,450
+again, you can just clone
+a copy of the repository,
+
+14
+00:00:35,450 --> 00:00:38,110
+make any changes you want,
+and push them back up.
+
+15
+00:00:38,110 --> 00:00:42,060
+Because they've given
+you permission to do so.
+
+16
+00:00:42,060 --> 00:00:45,870
+However, if someone's created
+a public repository on GitHub
+
+17
+00:00:45,870 --> 00:00:48,430
+and they've not added
+you as a collaborator,
+
+18
+00:00:48,430 --> 00:00:50,040
+you can still clone
+that repository
+
+19
+00:00:50,040 --> 00:00:51,470
+to make a local copy.
+
+20
+00:00:51,470 --> 00:00:53,250
+You could use the files.
+
+21
+00:00:53,250 --> 00:00:55,769
+You can commit and
+make changes locally,
+
+22
+00:00:55,769 --> 00:00:58,060
+but you're not going to be
+able to push your changes up
+
+23
+00:00:58,060 --> 00:01:01,740
+to GitHub because you don't
+have the permission to do so.
+
+24
+00:01:01,740 --> 00:01:05,000
+So the question is, how do you
+collaborate on a repository
+
+25
+00:01:05,000 --> 00:01:07,450
+that you don't have
+permission to push to?
+
+26
+00:01:07,450 --> 00:01:11,380
+Well, the answer is, you
+create a fork of the project.
+
+27
+00:01:11,380 --> 00:01:14,370
+When you create a fork,
+you're creating your own copy
+
+28
+00:01:14,370 --> 00:01:17,410
+of the repository,
+still up on GitHub,
+
+29
+00:01:17,410 --> 00:01:21,140
+but under your username,
+or organization name
+
+30
+00:01:21,140 --> 00:01:23,470
+if you're running
+an organization.
+
+31
+00:01:23,470 --> 00:01:27,080
+And what this does is it
+creates a copy on GitHub
+
+32
+00:01:27,080 --> 00:01:29,060
+that you have full
+permissions to.
+
+33
+00:01:29,060 --> 00:01:32,070
+So now you can then
+clone that copy,
+
+34
+00:01:32,070 --> 00:01:36,160
+make changes locally, commit
+them, and push them up
+
+35
+00:01:36,160 --> 00:01:39,630
+to your fork.
+
+36
+00:01:39,630 --> 00:01:42,860
+Notice that I'm looking
+here at the dojo rules
+
+37
+00:01:42,860 --> 00:01:46,220
+repository, which is owned
+by the deadlyvipers.
+
+38
+00:01:46,220 --> 00:01:48,790
+If I want to make a
+change to this repository
+
+39
+00:01:48,790 --> 00:01:52,670
+I'm going to have to fork it
+so that I have my own copy.
+
+40
+00:01:52,670 --> 00:01:54,560
+So let's look at that process.
+
+41
+00:01:54,560 --> 00:01:58,060
+I'm going to go click the
+fork button in the top right.
+
+42
+00:01:58,060 --> 00:02:00,800
+Then I'm going to choose
+where to fork it to.
+
+43
+00:02:00,800 --> 00:02:05,010
+In this case, I'm going to
+fork it to my personal account.
+
+44
+00:02:05,010 --> 00:02:07,370
+Once the fork is made,
+notice that now there's
+
+45
+00:02:07,370 --> 00:02:13,252
+a new copy of the repository
+at my username slash repo name.
+
+46
+00:02:13,252 --> 00:02:14,710
+And now that I've
+forked it, I just
+
+47
+00:02:14,710 --> 00:02:17,300
+need to clone it, to
+download it to my laptop.
+
+48
+00:02:17,300 --> 00:02:21,870
+So I'm going to copy the clone
+url, go into a terminal window,
+
+49
+00:02:21,870 --> 00:02:24,870
+and clone the repository.
+
+50
+00:02:24,870 --> 00:02:27,620
+And now I can go in
+here and make changes.
+
+51
+00:02:27,620 --> 00:02:31,080
+I could open up a
+file, and I could
+
+52
+00:02:31,080 --> 00:02:34,020
+make some changes
+to edit that file.
+
+53
+00:02:34,020 --> 00:02:38,470
+Once I've made my changes I can
+add and commit those to Git.
+
+54
+00:02:38,470 --> 00:02:40,760
+And because I'm
+pulling from a fork,
+
+55
+00:02:40,760 --> 00:02:44,980
+I can now push my changes
+back up to my fork.
+
+56
+00:02:44,980 --> 00:02:47,500
+And I'll see that when
+I go back to the fork
+
+57
+00:02:47,500 --> 00:02:51,720
+and look at the list of commits,
+I'll see my commit right there.
+
+58
+00:02:54,370 --> 00:02:56,310
+Now it's time for you
+to go fork a repo,
+
+59
+00:02:56,310 --> 00:02:58,850
+and I'll see you
+in the next video.
+

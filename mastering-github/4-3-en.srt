@@ -1,0 +1,606 @@
+﻿1
+00:00:02,080 --> 00:00:05,360
+Have you ever wanted to host a
+simple static website relating
+
+2
+00:00:05,360 --> 00:00:08,140
+to a project or an organization
+you're involved with?
+
+3
+00:00:09,260 --> 00:00:12,250
+GitHub Pages can
+allow you to do that,
+
+4
+00:00:12,250 --> 00:00:15,760
+adding it to an existing repo
+or an organizational account.
+
+5
+00:00:16,900 --> 00:00:20,400
+There are two main use
+cases for GitHub Pages.
+
+6
+00:00:20,400 --> 00:00:24,120
+The first is to add richer
+documentation and information
+
+7
+00:00:24,120 --> 00:00:25,100
+to a specific project.
+
+8
+00:00:26,190 --> 00:00:30,620
+The other is to create a page
+either for a user on GitHub
+
+9
+00:00:30,620 --> 00:00:31,620
+or for an organization.
+
+10
+00:00:32,820 --> 00:00:36,700
+Let's say you wanted to create
+a web page just for yourself.
+
+11
+00:00:37,859 --> 00:00:39,400
+Well, the first thing
+you'd want to do
+
+12
+00:00:39,400 --> 00:00:41,850
+to do that using
+GitHub Pages is create
+
+13
+00:00:41,850 --> 00:00:44,175
+a repo for your
+username.github.io.
+
+14
+00:00:46,920 --> 00:00:49,890
+It's important you follow that
+convention when naming it.
+
+15
+00:00:49,890 --> 00:00:53,110
+Then you can go
+into the settings,
+
+16
+00:00:53,110 --> 00:00:55,890
+scroll down to the
+GitHub Pages area,
+
+17
+00:00:55,890 --> 00:00:59,320
+use the auto page generator,
+write your content,
+
+18
+00:00:59,320 --> 00:01:01,380
+pick a theme, and publish.
+
+19
+00:01:01,380 --> 00:01:03,940
+Let's look at how that
+works step-by-step.
+
+20
+00:01:05,700 --> 00:01:09,690
+In this case, we want to create
+a page for deadly vipers.
+
+21
+00:01:09,690 --> 00:01:12,180
+So it's an organization
+rather than a user.
+
+22
+00:01:12,180 --> 00:01:15,330
+But it's exactly the
+same process either way.
+
+23
+00:01:15,330 --> 00:01:19,360
+You start by clicking on the
+link to add a new repository,
+
+24
+00:01:19,360 --> 00:01:23,000
+and you name the repository
+as user or organization name
+
+25
+00:01:23,000 --> 00:01:23,500
+.github.io.
+
+26
+00:01:25,660 --> 00:01:29,130
+When you do that it'll
+create the standard page,
+
+27
+00:01:29,130 --> 00:01:32,770
+and you'd usually expect
+to have to push content up.
+
+28
+00:01:32,770 --> 00:01:34,480
+We're going to do
+something different.
+
+29
+00:01:34,480 --> 00:01:38,360
+Just click on "Settings,"
+scroll down the page
+
+30
+00:01:38,360 --> 00:01:42,600
+to the GitHub Pages section,
+and click on the "Automatic page
+
+31
+00:01:42,600 --> 00:01:43,100
+generator."
+
+32
+00:01:44,500 --> 00:01:47,520
+That will then give
+you the very first page
+
+33
+00:01:47,520 --> 00:01:52,060
+and you can start by putting
+some content in as a title
+
+34
+00:01:52,060 --> 00:01:56,370
+and by updating the description
+to describe what you want
+
+35
+00:01:56,370 --> 00:01:59,840
+about your organization
+or your user account.
+
+36
+00:01:59,840 --> 00:02:02,550
+Click the button at the
+bottom to save the content,
+
+37
+00:02:02,550 --> 00:02:04,535
+and then you get
+to select a theme.
+
+38
+00:02:05,410 --> 00:02:05,910
+Don't worry.
+
+39
+00:02:05,910 --> 00:02:09,016
+You can create
+custom HTML and CSS.
+
+40
+00:02:09,016 --> 00:02:10,724
+This is just to give
+you a starting point
+
+41
+00:02:10,724 --> 00:02:12,730
+so you can make
+something that looks
+
+42
+00:02:12,730 --> 00:02:15,160
+fairly attractive quickly.
+
+43
+00:02:15,160 --> 00:02:18,900
+Once you've selected a theme,
+click on the "Publish" button
+
+44
+00:02:18,900 --> 00:02:22,570
+and it will take you to a
+page showing all of the HTML,
+
+45
+00:02:22,570 --> 00:02:26,120
+CSS, and other content
+that was generated.
+
+46
+00:02:26,120 --> 00:02:28,020
+And at the top of
+the page it tells you
+
+47
+00:02:28,020 --> 00:02:32,280
+the URL you will need to
+go to to view this page.
+
+48
+00:02:32,280 --> 00:02:34,240
+If you go to that
+page immediately
+
+49
+00:02:34,240 --> 00:02:36,590
+you'll probably not
+see anything at all.
+
+50
+00:02:36,590 --> 00:02:38,620
+But if you give it
+about 10 minutes
+
+51
+00:02:38,620 --> 00:02:40,900
+you will then see
+that the site has
+
+52
+00:02:40,900 --> 00:02:43,690
+been pushed live to that URL.
+
+53
+00:02:43,690 --> 00:02:46,700
+And in general, changes
+take about 10 minutes
+
+54
+00:02:46,700 --> 00:02:48,200
+to get pushed up.
+
+55
+00:02:49,940 --> 00:02:53,329
+If you want to create
+GitHub pages for a project,
+
+56
+00:02:53,329 --> 00:02:54,870
+this is often
+something you would do.
+
+57
+00:02:54,870 --> 00:02:58,160
+You started with a README
+file, you upgraded to a wiki,
+
+58
+00:02:58,160 --> 00:03:00,470
+but eventually you
+want not just room
+
+59
+00:03:00,470 --> 00:03:03,970
+for more content but also a
+more attractive look and feel.
+
+60
+00:03:03,970 --> 00:03:06,730
+If you want to do this it's
+basically the same process
+
+61
+00:03:06,730 --> 00:03:09,710
+as you'd do if you were
+creating a new site
+
+62
+00:03:09,710 --> 00:03:11,955
+for a username or
+an organization.
+
+63
+00:03:13,040 --> 00:03:15,080
+The difference is
+that you're not
+
+64
+00:03:15,080 --> 00:03:17,440
+going to create a
+new project, it's
+
+65
+00:03:17,440 --> 00:03:20,325
+going to create a new branch
+within an existing project.
+
+66
+00:03:21,330 --> 00:03:26,220
+So you just go into settings,
+select the GitHub Pages
+
+67
+00:03:26,220 --> 00:03:30,490
+Automatic Page Generator, write
+the content, select a layout,
+
+68
+00:03:30,490 --> 00:03:32,930
+publish it, and the
+content you created
+
+69
+00:03:32,930 --> 00:03:37,160
+will now be in your
+gh-pages branch.
+
+70
+00:03:37,160 --> 00:03:39,010
+Let's go through this process.
+
+71
+00:03:39,010 --> 00:03:41,480
+So we've got an
+existing repository.
+
+72
+00:03:41,480 --> 00:03:42,420
+We click on "Settings."
+
+73
+00:03:43,920 --> 00:03:47,510
+Scroll down to "GitHub Pages,"
+and click on the "Automatic page
+
+74
+00:03:47,510 --> 00:03:48,010
+generator."
+
+75
+00:03:50,060 --> 00:03:53,380
+It then gives us a form for
+entering our initial content.
+
+76
+00:03:53,380 --> 00:03:56,890
+We change the title,
+replace the description
+
+77
+00:03:56,890 --> 00:04:00,375
+with the content we want to
+share, and save the page.
+
+78
+00:04:03,660 --> 00:04:05,030
+We then pick a theme.
+
+79
+00:04:07,390 --> 00:04:10,630
+And once we're done with that
+we click on the "Publish" button.
+
+80
+00:04:10,630 --> 00:04:15,180
+For a user or organization page,
+the URL is going to be the user
+
+81
+00:04:15,180 --> 00:04:17,079
+or organization name .github.io.
+
+82
+00:04:19,579 --> 00:04:22,660
+For a project page
+though, the default URL
+
+83
+00:04:22,660 --> 00:04:28,900
+is going to be
+username.github.io slash
+
+84
+00:04:28,900 --> 00:04:30,620
+repository name.
+
+85
+00:04:30,620 --> 00:04:32,790
+So for example,
+in this case, it's
+
+86
+00:04:32,790 --> 00:04:34,206
+deadlyvipers.github.io/dojo
+rules.
+
+87
+00:04:44,370 --> 00:04:47,030
+If you want to be able to
+access your GitHub Pages
+
+88
+00:04:47,030 --> 00:04:49,890
+content at a custom
+domain name, you
+
+89
+00:04:49,890 --> 00:04:51,720
+can set that up really easily.
+
+90
+00:04:51,720 --> 00:04:54,950
+You just create a
+file called "CNAME"
+
+91
+00:04:54,950 --> 00:04:56,925
+that is in the root
+of your repository.
+
+92
+00:04:56,925 --> 00:04:59,050
+And of course, it's got to
+to be on the same branch
+
+93
+00:04:59,050 --> 00:05:01,430
+as your GitHub Pages content.
+
+94
+00:05:01,430 --> 00:05:03,290
+And then all you need
+to do is configure
+
+95
+00:05:03,290 --> 00:05:05,460
+that CNAME with your DNS host.
+
+96
+00:05:07,420 --> 00:05:09,280
+So let's look at the process.
+
+97
+00:05:09,280 --> 00:05:12,480
+Here we're going to
+create a custom URL
+
+98
+00:05:12,480 --> 00:05:15,620
+to get to the deadly
+vipers homepage.
+
+99
+00:05:15,620 --> 00:05:19,200
+Firstly, we go to the
+pages repo that we created.
+
+100
+00:05:19,200 --> 00:05:21,530
+So we're working here
+in the master branch.
+
+101
+00:05:21,530 --> 00:05:24,260
+Then we want to add
+a file called CNAME.
+
+102
+00:05:24,260 --> 00:05:27,450
+We could clone the repository,
+download it, and make changes
+
+103
+00:05:27,450 --> 00:05:29,490
+locally, but let's
+just make the change
+
+104
+00:05:29,490 --> 00:05:34,730
+by clicking to add a new
+file right through GitHub.
+
+105
+00:05:34,730 --> 00:05:36,080
+We'll name that file "CNAME."
+
+106
+00:05:37,470 --> 00:05:40,690
+All we need to put in this
+file is the domain name
+
+107
+00:05:40,690 --> 00:05:44,090
+that we want to point to
+this GitHub Pages site.
+
+108
+00:05:45,350 --> 00:05:49,255
+We need to put a commit message
+in and save this change.
+
+109
+00:05:50,510 --> 00:05:54,910
+Next, we need to go to our DNS
+provider to add a new record.
+
+110
+00:05:54,910 --> 00:05:59,480
+And all we need to do
+is find the domain name,
+
+111
+00:05:59,480 --> 00:06:04,220
+look at the host records, and
+add a new CNAME for whatever
+
+112
+00:06:04,220 --> 00:06:07,830
+subdomain we want, in this
+case pages.deadlyviper.com,
+
+113
+00:06:07,830 --> 00:06:12,230
+and point that to the
+username.github.io.
+
+114
+00:06:14,824 --> 00:06:16,490
+So in this case,
+deadlyvipers.github.io.
+
+115
+00:06:19,130 --> 00:06:20,720
+Let's see what that's done.
+
+116
+00:06:20,720 --> 00:06:23,780
+Well, if you go to
+the original URL,
+
+117
+00:06:23,780 --> 00:06:25,660
+you see that the
+content is here.
+
+118
+00:06:25,660 --> 00:06:28,150
+But if we go straight to
+pages.deadlyviper.com,
+
+119
+00:06:28,150 --> 00:06:30,640
+you see there's nothing here.
+
+120
+00:06:30,640 --> 00:06:33,220
+And in fact, you'll
+have to wait usually
+
+121
+00:06:33,220 --> 00:06:37,880
+10 or 15 minutes for the DNS to
+propogate to get to the point
+
+122
+00:06:37,880 --> 00:06:41,040
+where you can see the content
+at pages.deadlyviper.com.
+
+123
+00:06:44,815 --> 00:06:46,600
+We're done with this section.
+
+124
+00:06:46,600 --> 00:06:50,029
+You might want to create a
+GitHub Pages for your username
+
+125
+00:06:50,029 --> 00:06:51,195
+or even for an organization.
+
+126
+00:06:52,840 --> 00:06:55,970
+Have fun, and we'll see
+you in the next level.
+

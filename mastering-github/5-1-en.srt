@@ -1,0 +1,1029 @@
+1
+00:00:00,499 --> 00:00:02,996
+[SINGING] She will clone and
+ fork your repos faster than you
+
+2
+00:00:02,996 --> 00:00:05,140
+can blink, and then tag,
+push, and pull requests
+
+3
+00:00:05,140 --> 00:00:06,850
+while pouring a drink.
+
+4
+00:00:06,850 --> 00:00:09,570
+She's studied wikis and
+pages to promote her skills,
+
+5
+00:00:09,570 --> 00:00:11,270
+but it's the branching
+and the merging
+
+6
+00:00:11,270 --> 00:00:12,478
+which will pay all the bills.
+
+7
+00:00:12,978 --> 00:00:15,790
+Your only chance to find
+her is the user workflow.
+
+8
+00:00:15,790 --> 00:00:18,770
+Commit to her release and
+you can access control.
+
+9
+00:00:18,770 --> 00:00:21,690
+You'll be pushing past security
+to join her at the club,
+
+10
+00:00:21,690 --> 00:00:28,527
+just to catch a glimpse
+of her Mastering GitHub.
+
+11
+00:00:28,527 --> 00:00:30,360
+There are a number of
+options available when
+
+12
+00:00:30,360 --> 00:00:32,082
+you configure a new repository.
+
+13
+00:00:32,082 --> 00:00:34,040
+Most of them you'll be
+familiar, with but there
+
+14
+00:00:34,040 --> 00:00:37,070
+might be one or two that
+you've not encountered before.
+
+15
+00:00:37,070 --> 00:00:40,060
+Once you've created a
+repository, go into Settings
+
+16
+00:00:40,060 --> 00:00:41,690
+and click on the Options tab.
+
+17
+00:00:41,690 --> 00:00:43,440
+There are a couple of
+interesting settings
+
+18
+00:00:43,440 --> 00:00:45,520
+under the Options tab.
+
+19
+00:00:45,520 --> 00:00:48,070
+One of the first is
+the ability to change
+
+20
+00:00:48,070 --> 00:00:50,470
+the name of your repository.
+
+21
+00:00:50,470 --> 00:00:53,100
+And the best part is,
+if you rename your repo,
+
+22
+00:00:53,100 --> 00:00:55,780
+any existing links to
+it will still work.
+
+23
+00:00:55,780 --> 00:00:57,772
+They would just get
+forwarded right along.
+
+24
+00:00:57,772 --> 00:00:59,480
+Another interesting
+option is the ability
+
+25
+00:00:59,480 --> 00:01:01,730
+to change the default
+branch from master.
+
+26
+00:01:02,790 --> 00:01:04,900
+Most of the time,
+you wouldn't do this,
+
+27
+00:01:04,900 --> 00:01:07,410
+but let's say that you
+had a whole bunch of users
+
+28
+00:01:07,410 --> 00:01:09,450
+very comfortable
+with subversion.
+
+29
+00:01:09,450 --> 00:01:11,880
+If you wanted to, you could
+create a new branch called
+
+30
+00:01:11,880 --> 00:01:14,730
+"Trunk" and make that
+the default branch.
+
+31
+00:01:14,730 --> 00:01:16,320
+Why does the default
+branch matter?
+
+32
+00:01:16,320 --> 00:01:18,500
+Well, it's used for
+a number of things.
+
+33
+00:01:18,500 --> 00:01:22,750
+One example would be when you
+close an issue using a commit,
+
+34
+00:01:22,750 --> 00:01:25,180
+the issue won't be
+closed until that
+
+35
+00:01:25,180 --> 00:01:28,500
+commit is merged into
+the default branch.
+
+36
+00:01:28,500 --> 00:01:30,610
+So it's important to think
+what default branch you
+
+37
+00:01:30,610 --> 00:01:33,540
+want and configure
+that correctly.
+
+38
+00:01:33,540 --> 00:01:37,770
+Of course, you can also
+configure wikis and issues,
+
+39
+00:01:37,770 --> 00:01:40,485
+switching them on and off, as
+we saw in earlier sections.
+
+40
+00:01:42,210 --> 00:01:46,310
+And, you can configure GitHub
+pages to use the Automatic Page
+
+41
+00:01:46,310 --> 00:01:48,540
+Generator to create
+your GH pages
+
+42
+00:01:48,540 --> 00:01:52,760
+branch with some content
+for showcasing your project.
+
+43
+00:01:55,200 --> 00:01:58,100
+There are a few options you
+need to be careful about.
+
+44
+00:01:58,100 --> 00:02:02,510
+You can take a repository and
+change its status from public
+
+45
+00:02:02,510 --> 00:02:05,030
+to private, or vice versa.
+
+46
+00:02:05,030 --> 00:02:08,080
+You can transfer the
+ownership to any other user
+
+47
+00:02:08,080 --> 00:02:11,000
+or an organization that
+you're responsible for,
+
+48
+00:02:11,000 --> 00:02:12,460
+or you can delete
+the repository.
+
+49
+00:02:14,670 --> 00:02:16,330
+Under the "Collaborators"
+tab, you can
+
+50
+00:02:16,330 --> 00:02:19,400
+add new people, based on
+their GitHub username,
+
+51
+00:02:19,400 --> 00:02:21,900
+to collaborate with
+you on a project.
+
+52
+00:02:21,900 --> 00:02:24,560
+If it's a private repository,
+you need to do this for them
+
+53
+00:02:24,560 --> 00:02:25,726
+to be able to see it at all.
+
+54
+00:02:26,280 --> 00:02:28,580
+If it's a public repo,
+you're giving them full
+
+55
+00:02:28,580 --> 00:02:30,870
+read and write access.
+
+56
+00:02:30,870 --> 00:02:32,930
+But you're not giving them
+administrative access.
+
+57
+00:02:32,930 --> 00:02:35,720
+So, for example, they can't
+change settings for the site
+
+58
+00:02:35,720 --> 00:02:38,560
+or add new collaborators
+themselves.
+
+59
+00:02:38,560 --> 00:02:42,380
+There are settings for
+managing webhooks and services
+
+60
+00:02:42,380 --> 00:02:45,620
+and deploy keys, but we'll be
+looking at those little later
+
+61
+00:02:45,620 --> 00:02:46,770
+in this course.
+
+62
+00:02:46,770 --> 00:02:48,750
+Let's quickly go
+through the process
+
+63
+00:02:48,750 --> 00:02:50,670
+of configuring a new repository.
+
+64
+00:02:50,670 --> 00:02:53,140
+In this case, we're going
+to add a new repository
+
+65
+00:02:53,140 --> 00:02:54,850
+to this organization,
+to deadlyvipers.
+
+66
+00:02:55,930 --> 00:02:58,440
+We're going to give it a
+name, make sure it's unique,
+
+67
+00:02:58,440 --> 00:03:00,984
+and, optionally, give
+it a short description.
+
+68
+00:03:00,984 --> 00:03:02,650
+And in this case,
+we're to initialize it
+
+69
+00:03:02,650 --> 00:03:04,330
+with a README file
+so we don't need
+
+70
+00:03:04,330 --> 00:03:07,570
+to create files locally and
+push them up to the server.
+
+71
+00:03:08,580 --> 00:03:11,490
+We do that, and now we
+have a new repository
+
+72
+00:03:11,490 --> 00:03:13,090
+with a README file.
+
+73
+00:03:13,090 --> 00:03:14,720
+Now let's go into Settings.
+
+74
+00:03:14,720 --> 00:03:16,450
+And in this case,
+we want to limit it
+
+75
+00:03:16,450 --> 00:03:19,970
+so that only collaborators
+can add and change content
+
+76
+00:03:19,970 --> 00:03:20,540
+on the wiki.
+
+77
+00:03:21,550 --> 00:03:23,710
+And let's rename the
+project, as well.
+
+78
+00:03:29,810 --> 00:03:31,760
+Now, let's talk a little
+bit about managing
+
+79
+00:03:31,760 --> 00:03:33,260
+a project using GitHub.
+
+80
+00:03:33,260 --> 00:03:36,475
+Let's say you were getting
+started with the Rails Project.
+
+81
+00:03:36,475 --> 00:03:38,850
+Well, the first thing you want
+to do with any new project
+
+82
+00:03:38,850 --> 00:03:40,650
+is look at the README file.
+
+83
+00:03:40,650 --> 00:03:44,490
+It should give you information
+on the goals of the project
+
+84
+00:03:44,490 --> 00:03:47,460
+and how to download
+and get it configured
+
+85
+00:03:47,460 --> 00:03:49,760
+so you can get it
+running locally
+
+86
+00:03:49,760 --> 00:03:51,000
+and start to run the tests.
+
+87
+00:03:52,280 --> 00:03:53,920
+Next, you might want
+to see what people
+
+88
+00:03:53,920 --> 00:03:56,340
+have been doing on
+the project recently.
+
+89
+00:03:56,340 --> 00:03:58,750
+And a good way to do that
+is, on the right-hand side
+
+90
+00:03:58,750 --> 00:04:01,960
+of the screen,
+there's a Pulse tab.
+
+91
+00:04:01,960 --> 00:04:04,600
+If you click on that,
+it's going to show you
+
+92
+00:04:04,600 --> 00:04:07,840
+an overview of the
+recent activity - what's
+
+93
+00:04:07,840 --> 00:04:12,390
+been going on in the last
+few days, weeks, or months.
+
+94
+00:04:12,390 --> 00:04:15,440
+Let's look at the information on
+this page one piece at a time.
+
+95
+00:04:16,850 --> 00:04:21,420
+Firstly, you can look at an
+overview of pull requests,
+
+96
+00:04:21,420 --> 00:04:23,460
+showing the number
+of merged pull
+
+97
+00:04:23,460 --> 00:04:26,090
+requests, how many features
+are being completed
+
+98
+00:04:26,090 --> 00:04:28,300
+over the period of
+time, and then secondly,
+
+99
+00:04:28,300 --> 00:04:30,440
+looking at the proposed
+pull requests -
+
+100
+00:04:30,440 --> 00:04:32,830
+how many new features
+have been added
+
+101
+00:04:32,830 --> 00:04:36,920
+to the project in the
+last week or month.
+
+102
+00:04:36,920 --> 00:04:39,300
+You can also see some
+statistics around issues
+
+103
+00:04:39,300 --> 00:04:42,520
+to see how many
+issues were closed
+
+104
+00:04:42,520 --> 00:04:45,340
+and how many new
+issues were added.
+
+105
+00:04:45,340 --> 00:04:47,590
+Most of the time,
+hopefully the first number
+
+106
+00:04:47,590 --> 00:04:48,895
+will be bigger than the second.
+
+107
+00:04:50,680 --> 00:04:52,850
+You can also get an
+overview of who's
+
+108
+00:04:52,850 --> 00:04:55,670
+been doing what to see
+the number of authors,
+
+109
+00:04:55,670 --> 00:04:59,720
+how many commits they've
+made, and how many additions
+
+110
+00:04:59,720 --> 00:05:02,140
+and deletions there have
+been to the code base
+
+111
+00:05:02,140 --> 00:05:03,640
+in terms of lines of code.
+
+112
+00:05:05,670 --> 00:05:08,200
+As we scroll down
+the Pulse page,
+
+113
+00:05:08,200 --> 00:05:11,690
+it shows us a listing of
+the pull requests that
+
+114
+00:05:11,690 --> 00:05:14,410
+were merged and proposed.
+
+115
+00:05:14,410 --> 00:05:17,070
+This is a great way to just
+get a sense as to what people
+
+116
+00:05:17,070 --> 00:05:19,160
+are working on
+and talking about.
+
+117
+00:05:21,130 --> 00:05:23,230
+As we go further
+down the page, you'll
+
+118
+00:05:23,230 --> 00:05:24,840
+see that there's
+an issue listing,
+
+119
+00:05:24,840 --> 00:05:28,220
+as well, so you can see
+the specific issues that
+
+120
+00:05:28,220 --> 00:05:31,255
+have been closed
+and opened recently.
+
+121
+00:05:32,280 --> 00:05:33,880
+This is a great
+way to get a sense
+
+122
+00:05:33,880 --> 00:05:37,100
+of what kind of functionality
+you're having trouble with
+
+123
+00:05:37,100 --> 00:05:41,070
+and what kinds of things you're
+successfully clearing out.
+
+124
+00:05:42,370 --> 00:05:45,280
+Another important
+part of the Pulse page
+
+125
+00:05:45,280 --> 00:05:48,260
+gives you the
+conversations listings.
+
+126
+00:05:48,260 --> 00:05:49,860
+Now, these are
+conversations that
+
+127
+00:05:49,860 --> 00:05:55,730
+occurred on old issues or pull
+requests that aren't closed yet.
+
+128
+00:05:55,730 --> 00:05:59,850
+It's a good way to pick up other
+bits and pieces of activity
+
+129
+00:05:59,850 --> 00:06:03,475
+that might have been reflected
+under issues or pull requests.
+
+130
+00:06:05,040 --> 00:06:07,240
+An important thing to
+realize about Pulse
+
+131
+00:06:07,240 --> 00:06:09,020
+is that it's showing deltas.
+
+132
+00:06:09,020 --> 00:06:11,690
+It'ss showing you how many
+pull requests were merged
+
+133
+00:06:11,690 --> 00:06:16,520
+or proposed, or how many
+issues were opened and closed.
+
+134
+00:06:16,520 --> 00:06:19,900
+But what it's not showing
+you is the total number
+
+135
+00:06:19,900 --> 00:06:22,690
+of pull requests
+that are outstanding
+
+136
+00:06:22,690 --> 00:06:26,290
+or the total number of
+issues that are still live.
+
+137
+00:06:26,290 --> 00:06:28,370
+So Pulse is a good
+tool for getting
+
+138
+00:06:28,370 --> 00:06:31,210
+a sense of the directionality
+of the project,
+
+139
+00:06:31,210 --> 00:06:33,620
+but the next thing you're
+going to want to do
+
+140
+00:06:33,620 --> 00:06:36,250
+is look at some
+absolute information.
+
+141
+00:06:37,990 --> 00:06:39,972
+For high-level information,
+it's also worth
+
+142
+00:06:39,972 --> 00:06:41,305
+checking out the Graphs section.
+
+143
+00:06:42,430 --> 00:06:46,890
+There are four graphs here for
+Contributors, Commit activity,
+
+144
+00:06:46,890 --> 00:06:49,020
+Code frequency, and a Punch card.
+
+145
+00:06:49,831 --> 00:06:51,205
+Let's look at what
+each one does.
+
+146
+00:06:52,750 --> 00:06:54,610
+The Contributors
+graph allows you
+
+147
+00:06:54,610 --> 00:06:57,200
+to find your most
+valuable developers.
+
+148
+00:06:57,200 --> 00:06:59,570
+It allows you to see
+who's been doing the most
+
+149
+00:06:59,570 --> 00:07:02,070
+work over a period of time.
+
+150
+00:07:02,070 --> 00:07:05,150
+By default, it will show
+you the number of commits.
+
+151
+00:07:05,150 --> 00:07:08,450
+But if you want, you can
+see the most active people
+
+152
+00:07:08,450 --> 00:07:11,580
+based upon the number of
+additions or deletions
+
+153
+00:07:11,580 --> 00:07:12,510
+to the code base.
+
+154
+00:07:13,930 --> 00:07:18,620
+And you have the ability to
+easily select a period of time.
+
+155
+00:07:18,620 --> 00:07:22,030
+You just drag your mouse
+over a part of the graph,
+
+156
+00:07:22,030 --> 00:07:24,990
+and you'll be able to see
+who the key commiters were
+
+157
+00:07:24,990 --> 00:07:26,360
+in that period of time.
+
+158
+00:07:27,400 --> 00:07:31,120
+The Commits graph shows the
+busiest days and the busiest
+
+159
+00:07:31,120 --> 00:07:31,950
+weeks.
+
+160
+00:07:31,950 --> 00:07:34,580
+At the top, it shows
+you a series of weeks
+
+161
+00:07:34,580 --> 00:07:37,970
+so you can see how activity
+has changed over time.
+
+162
+00:07:37,970 --> 00:07:39,940
+And at the bottom, it
+shows you the number
+
+163
+00:07:39,940 --> 00:07:41,820
+of commits per day of the week.
+
+164
+00:07:41,820 --> 00:07:44,370
+So it looks like
+Wednesday is a great day
+
+165
+00:07:44,370 --> 00:07:45,660
+to code on the Rails Project.
+
+166
+00:07:48,300 --> 00:07:51,280
+The Code frequency graph is
+particularly interesting,
+
+167
+00:07:51,280 --> 00:07:55,000
+because what it allows you to do
+is see the number of additions
+
+168
+00:07:55,000 --> 00:07:58,280
+and deletions over
+a period of time.
+
+169
+00:07:58,280 --> 00:08:00,101
+So for example, we
+can see that there
+
+170
+00:08:00,101 --> 00:08:02,600
+was a point towards the middle
+of this graph where there was
+
+171
+00:08:02,600 --> 00:08:05,740
+a lot of refactoring
+going on in the code base,
+
+172
+00:08:05,740 --> 00:08:07,480
+even though the
+number of commits
+
+173
+00:08:07,480 --> 00:08:10,530
+might not have been that much
+greater than steady state.
+
+174
+00:08:12,220 --> 00:08:17,230
+And finally, the Punch card graph
+allows you to get a sense what
+
+175
+00:08:17,230 --> 00:08:21,150
+times of day and days of the
+week are getting the most
+
+176
+00:08:21,150 --> 00:08:22,120
+commits.
+
+177
+00:08:22,120 --> 00:08:25,310
+It's a function of the number of
+commits made over the project's
+
+178
+00:08:25,310 --> 00:08:29,510
+life during any given
+hour of any day.
+
+179
+00:08:29,510 --> 00:08:32,320
+The Punch card graph
+gives you an idea
+
+180
+00:08:32,320 --> 00:08:36,900
+of the most productive times of
+the day and days of the week.
+
+181
+00:08:36,900 --> 00:08:40,929
+Each punch is a function of
+the percentage of the project's
+
+182
+00:08:40,929 --> 00:08:43,700
+commits, over its
+lifetime, that have
+
+183
+00:08:43,700 --> 00:08:48,010
+been made on a particular
+hour in a particular day.
+
+184
+00:08:48,010 --> 00:08:50,820
+So it just gives you
+a quick, easy view
+
+185
+00:08:50,820 --> 00:08:52,565
+of what days and
+hours people have
+
+186
+00:08:52,565 --> 00:08:54,185
+been committing most frequently.
+
+187
+00:08:55,500 --> 00:08:58,130
+Next, you probably want
+to look at that absolute
+
+188
+00:08:58,130 --> 00:08:59,480
+state of the issues.
+
+189
+00:08:59,480 --> 00:09:01,430
+How many issues are
+there outstanding,
+
+190
+00:09:01,430 --> 00:09:02,430
+and what are they about?
+
+191
+00:09:03,840 --> 00:09:05,460
+And as we saw earlier
+in the course,
+
+192
+00:09:05,460 --> 00:09:08,200
+you can filter these based
+upon whether they relate
+
+193
+00:09:08,200 --> 00:09:11,345
+to you or particular
+labels or milestones.
+
+194
+00:09:12,940 --> 00:09:15,160
+And you're also going to
+want to look at the absolute
+
+195
+00:09:15,160 --> 00:09:19,160
+state of pull requests to
+see how many outstanding pull
+
+196
+00:09:19,160 --> 00:09:22,440
+requests are there and
+what are people working on.
+
+197
+00:09:22,440 --> 00:09:25,030
+This is the best
+screen for seeing work
+
+198
+00:09:25,030 --> 00:09:26,610
+in progress for the team.
+
+199
+00:09:28,110 --> 00:09:30,700
+Finally, it might
+be worth looking
+
+200
+00:09:30,700 --> 00:09:33,340
+at the absolute state
+of branches, too.
+
+201
+00:09:33,340 --> 00:09:35,580
+It will show you how
+many different branches
+
+202
+00:09:35,580 --> 00:09:39,840
+you have in the repository,
+irrespective of whether or not
+
+203
+00:09:39,840 --> 00:09:41,870
+they're connected
+to a pull request.
+
+204
+00:09:41,870 --> 00:09:45,100
+Most of the time, there will be
+a correlation between branches
+
+205
+00:09:45,100 --> 00:09:45,875
+and pull requests.
+
+206
+00:09:46,880 --> 00:09:50,405
+But, if somebody's doing a pull
+request from a remote fork,
+
+207
+00:09:50,405 --> 00:09:51,405
+there won't be a branch.
+
+208
+00:09:52,407 --> 00:09:53,990
+And if somebody's
+been doing some work
+
+209
+00:09:53,990 --> 00:09:55,990
+and has shared it on
+GitHub but has not yet
+
+210
+00:09:55,990 --> 00:09:58,560
+started the conversation,
+the pull request,
+
+211
+00:09:58,560 --> 00:10:00,790
+you may have a branch
+without a pull request.
+
+212
+00:10:03,294 --> 00:10:05,460
+Time for you to take a look
+at some of these graphs,
+
+213
+00:10:05,460 --> 00:10:07,870
+and I'll see you in
+the next section.
+

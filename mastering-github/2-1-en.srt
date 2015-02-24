@@ -1,0 +1,486 @@
+﻿1
+00:00:00,062 --> 00:00:02,270
+[SINGING] She'll clone and
+fork your repos
+
+2
+00:00:02,270 --> 00:00:03,495
+faster than you can blink.
+
+3
+00:00:03,495 --> 00:00:06,860
+And then tag, push and pull
+request while pouring a drink.
+
+4
+00:00:06,860 --> 00:00:09,570
+She's studied wikis and
+pages to promote her skills,
+
+5
+00:00:09,570 --> 00:00:11,270
+but it's the branching
+and the merging
+
+6
+00:00:11,270 --> 00:00:12,960
+which will pay all the bills.
+
+7
+00:00:12,960 --> 00:00:15,790
+Your only chance to find
+her is the user work flow.
+
+8
+00:00:15,790 --> 00:00:18,760
+Commit to her release and
+you can access control.
+
+9
+00:00:18,760 --> 00:00:21,910
+You'll be pushing past security
+to join her at the club just
+
+10
+00:00:21,910 --> 00:00:24,020
+to catch a glimpse of
+her mastering GitHub.
+
+11
+00:00:28,900 --> 00:00:30,690
+Forked based
+collaboration is great
+
+12
+00:00:30,690 --> 00:00:33,260
+for occasional
+contributors, but if you're
+
+13
+00:00:33,260 --> 00:00:35,977
+working with a team
+on a regular basis
+
+14
+00:00:35,977 --> 00:00:37,810
+you're probably going
+to want to collaborate
+
+15
+00:00:37,810 --> 00:00:39,050
+using a single repository.
+
+16
+00:00:40,330 --> 00:00:43,570
+In this level, we're going
+to look at how to do that.
+
+17
+00:00:43,570 --> 00:00:46,320
+Let's say you're working with
+a team of three other people
+
+18
+00:00:46,320 --> 00:00:48,860
+and you're using a
+fork based workflow,
+
+19
+00:00:48,860 --> 00:00:50,470
+you're going to
+have your own fork
+
+20
+00:00:50,470 --> 00:00:52,080
+that you need to
+set up as a remote
+
+21
+00:00:52,080 --> 00:00:53,920
+to pull from and push to.
+
+22
+00:00:55,160 --> 00:00:57,930
+You're also going to have to
+set up the upstream as a remote
+
+23
+00:00:57,930 --> 00:01:00,570
+so that you can pull
+any pull requests that
+
+24
+00:01:00,570 --> 00:01:03,810
+have been accepted from
+other members of your team.
+
+25
+00:01:03,810 --> 00:01:05,960
+But in addition to
+those two remotes,
+
+26
+00:01:05,960 --> 00:01:07,450
+you're probably
+also going to have
+
+27
+00:01:07,450 --> 00:01:10,350
+to add three other
+remotes for the three
+
+28
+00:01:10,350 --> 00:01:13,990
+other members of your team
+to pull from their forks,
+
+29
+00:01:13,990 --> 00:01:15,940
+because if you don't
+do that you won't
+
+30
+00:01:15,940 --> 00:01:19,400
+be able to pull from and
+download a copy of any changes
+
+31
+00:01:19,400 --> 00:01:22,800
+that they're working on that
+have not yet been accepted
+
+32
+00:01:22,800 --> 00:01:26,130
+as pull requests into
+the upstream repo.
+
+33
+00:01:26,130 --> 00:01:27,790
+In practice this
+is a lot to keep
+
+34
+00:01:27,790 --> 00:01:32,350
+track of so most teams instead
+use a single repository
+
+35
+00:01:32,350 --> 00:01:33,350
+workflow.
+
+36
+00:01:33,350 --> 00:01:36,000
+With a single repository
+workflow everyone
+
+37
+00:01:36,000 --> 00:01:39,821
+is working directly with a
+clone of the same repository
+
+38
+00:01:39,821 --> 00:01:40,320
+on GitHub.
+
+39
+00:01:41,380 --> 00:01:42,845
+No folks required.
+
+40
+00:01:42,845 --> 00:01:46,380
+And because of that, it's very
+easy to keep things updated.
+
+41
+00:01:46,380 --> 00:01:50,910
+You just have a clone of that
+single repository on GitHub
+
+42
+00:01:50,910 --> 00:01:54,700
+and you can pull or push from
+that to get all of the changes
+
+43
+00:01:54,700 --> 00:01:55,940
+that everyone is working on.
+
+44
+00:01:58,472 --> 00:02:00,180
+However, you have to
+be careful if you're
+
+45
+00:02:00,180 --> 00:02:02,120
+working with
+multiple contributors
+
+46
+00:02:02,120 --> 00:02:05,720
+on a single repository, because
+if everyone commits directly
+
+47
+00:02:05,720 --> 00:02:07,530
+to the master
+branch you're going
+
+48
+00:02:07,530 --> 00:02:09,579
+to run into conflicts
+on a regular basis.
+
+49
+00:02:11,840 --> 00:02:14,090
+So instead what
+you need to do is
+
+50
+00:02:14,090 --> 00:02:18,800
+you need to use a feature
+branch strategy where everyone
+
+51
+00:02:18,800 --> 00:02:23,340
+is contributing on their own
+separate feature branches
+
+52
+00:02:23,340 --> 00:02:25,610
+on that single
+repository on GitHub.
+
+53
+00:02:27,780 --> 00:02:32,150
+This makes it easy for people
+to contribute to other people's
+
+54
+00:02:32,150 --> 00:02:34,780
+work because all
+you need to do is
+
+55
+00:02:34,780 --> 00:02:37,620
+fetch the changes from
+the remote server,
+
+56
+00:02:37,620 --> 00:02:41,610
+look at a list of all your
+branches doing a git branch -a
+
+57
+00:02:41,610 --> 00:02:44,030
+and then check out
+any other branch
+
+58
+00:02:44,030 --> 00:02:46,550
+that any member of your team
+has pushed up to GitHub.
+
+59
+00:02:48,610 --> 00:02:52,120
+And then once a feature is
+done, any member of the team
+
+60
+00:02:52,120 --> 00:02:55,940
+can check it out, make sure
+that the tests run well,
+
+61
+00:02:55,940 --> 00:02:59,716
+and then merge the work
+into the master branch
+
+62
+00:02:59,716 --> 00:03:00,840
+and push that up to GitHub.
+
+63
+00:03:03,690 --> 00:03:07,030
+Pull requests add another
+level of collaboration
+
+64
+00:03:07,030 --> 00:03:07,735
+to this process.
+
+65
+00:03:08,750 --> 00:03:11,490
+Rather than having
+to check out a branch
+
+66
+00:03:11,490 --> 00:03:13,860
+and send emails to members
+of your teams saying,
+
+67
+00:03:13,860 --> 00:03:16,380
+"I like this, but could
+you make a change?"
+
+68
+00:03:16,380 --> 00:03:20,460
+With a pull request you can
+have multiple developers
+
+69
+00:03:20,460 --> 00:03:24,350
+collaborating on a branch
+and commenting on it directly
+
+70
+00:03:24,350 --> 00:03:25,660
+on GitHub
+
+71
+00:03:25,660 --> 00:03:29,470
+And this is the GitHub flow,
+where every developer creates
+
+72
+00:03:29,470 --> 00:03:32,140
+their own feature branch,
+or the developers work
+
+73
+00:03:32,140 --> 00:03:33,330
+on a single repository.
+
+74
+00:03:34,590 --> 00:03:36,910
+And then the developers,
+when they're ready,
+
+75
+00:03:36,910 --> 00:03:40,510
+create a pull request requesting
+that the rest of the team
+
+76
+00:03:40,510 --> 00:03:43,400
+review their work and
+then eventually merge it
+
+77
+00:03:43,400 --> 00:03:44,360
+into the master branch.
+
+78
+00:03:45,830 --> 00:03:47,920
+So let's look at this in action.
+
+79
+00:03:47,920 --> 00:03:50,075
+Let's say we wanted
+to add a new feature.
+
+80
+00:03:51,280 --> 00:03:56,220
+We would create a branch locally
+and then go do some coding.
+
+81
+00:03:56,220 --> 00:03:58,860
+We might create a
+file and populate
+
+82
+00:03:58,860 --> 00:04:00,060
+that with some content.
+
+83
+00:04:02,360 --> 00:04:06,550
+We then add that
+change, commit it,
+
+84
+00:04:06,550 --> 00:04:09,390
+and push it up to
+the remote server.
+
+85
+00:04:09,390 --> 00:04:12,270
+And the way we do that
+is using a Git push
+
+86
+00:04:12,270 --> 00:04:17,089
+-u origin branch
+name, which does two things.
+
+87
+00:04:17,089 --> 00:04:20,440
+It pushes the changes up
+to a new branch on GitHub
+
+88
+00:04:20,440 --> 00:04:24,760
+with the same name, but it
+also sets the default upstream
+
+89
+00:04:24,760 --> 00:04:28,850
+for that branch, which we can
+see here in our docket /config
+
+90
+00:04:28,850 --> 00:04:30,170
+file.
+
+91
+00:04:30,170 --> 00:04:34,670
+So in future, if we want to
+push or pull from that branch
+
+92
+00:04:34,670 --> 00:04:36,350
+we can do that.
+
+93
+00:04:36,350 --> 00:04:39,990
+Once we're ready to get
+feedback on this branch then
+
+94
+00:04:39,990 --> 00:04:43,580
+we go into GitHub and
+create a pull request.
+
+95
+00:04:43,580 --> 00:04:46,830
+We can select from a drop
+down list of all the branches
+
+96
+00:04:46,830 --> 00:04:51,830
+to pick which branch we want
+to create the pull request on,
+
+97
+00:04:51,830 --> 00:04:55,050
+which branch we're
+requesting that we merge back
+
+98
+00:04:55,050 --> 00:04:56,010
+into the master branch.
+
+99
+00:04:57,150 --> 00:05:00,957
+Then we create the pull
+request, and wait for feedback
+
+100
+00:05:00,957 --> 00:05:02,040
+from the rest of the team.
+
+101
+00:05:05,140 --> 00:05:09,040
+Why don't you go ahead and try
+to create a pull request now.
+

@@ -1,0 +1,555 @@
+﻿1
+00:00:02,160 --> 00:00:04,870
+Whether you are just proposing
+a new potential feature,
+
+2
+00:00:04,870 --> 00:00:08,109
+or whether you think your
+code is ready to merge,
+
+3
+00:00:08,109 --> 00:00:11,620
+there will usually be some kind
+of discussion or collaboration
+
+4
+00:00:11,620 --> 00:00:14,520
+around most of the pull
+requests you create.
+
+5
+00:00:14,520 --> 00:00:17,210
+When you're collaborating
+on a single repository,
+
+6
+00:00:17,210 --> 00:00:19,510
+there's nothing to stop
+you merging your pull
+
+7
+00:00:19,510 --> 00:00:23,200
+request in without any feedback
+from the rest of the team.
+
+8
+00:00:23,200 --> 00:00:25,300
+But don't do it,
+it's a bad idea.
+
+9
+00:00:25,300 --> 00:00:28,240
+Let's take one more
+look at the workflow.
+
+10
+00:00:28,240 --> 00:00:30,730
+The first thing you
+do is create a branch.
+
+11
+00:00:30,730 --> 00:00:32,833
+In this case,
+we've called it F1.
+
+12
+00:00:32,833 --> 00:00:37,020
+And then you make at least
+one commit on that branch,
+
+13
+00:00:37,020 --> 00:00:39,130
+and push it up to GitHub
+
+14
+00:00:39,130 --> 00:00:40,990
+Once you've got at
+least one commit,
+
+15
+00:00:40,990 --> 00:00:43,690
+you can now create
+a pull request,
+
+16
+00:00:43,690 --> 00:00:46,740
+to start to get feedback
+from the rest of your team
+
+17
+00:00:46,740 --> 00:00:48,670
+on the code that
+you're working on.
+
+18
+00:00:48,670 --> 00:00:52,560
+You can then get comments from
+different people on the team.
+
+19
+00:00:52,560 --> 00:00:55,480
+And if you want to make
+changes, you can simply
+
+20
+00:00:55,480 --> 00:00:59,600
+make those changes on the
+branch, push them up to GitHub
+
+21
+00:00:59,600 --> 00:01:02,790
+and they will automatically
+be added to the pull request.
+
+22
+00:01:02,790 --> 00:01:06,940
+Because pull requests point
+to the head of the branch,
+
+23
+00:01:06,940 --> 00:01:08,810
+not to a particular commit.
+
+24
+00:01:08,810 --> 00:01:11,270
+Once at least one or
+two people on your team
+
+25
+00:01:11,270 --> 00:01:14,460
+have approved the
+changes, you or they
+
+26
+00:01:14,460 --> 00:01:17,830
+can then go ahead and
+merge those changes back
+
+27
+00:01:17,830 --> 00:01:21,120
+into the master
+branch, either by using
+
+28
+00:01:21,120 --> 00:01:24,600
+the web-based interface
+to merge the pull request,
+
+29
+00:01:24,600 --> 00:01:29,010
+or by merging the feature branch
+locally on the command line,
+
+30
+00:01:29,010 --> 00:01:33,810
+and then pushing those
+changes up to GitHub.
+
+31
+00:01:33,810 --> 00:01:35,310
+There are three
+types of comments
+
+32
+00:01:35,310 --> 00:01:38,090
+they could be made
+on a pull request.
+
+33
+00:01:38,090 --> 00:01:39,760
+They could be made
+at a high level
+
+34
+00:01:39,760 --> 00:01:41,560
+on the pull request itself.
+
+35
+00:01:41,560 --> 00:01:43,760
+I think this is a great feature.
+
+36
+00:01:43,760 --> 00:01:46,290
+They could be made
+at a commit level.
+
+37
+00:01:46,290 --> 00:01:49,070
+"Oh, I'm not sure I agree
+with the changes you
+
+38
+00:01:49,070 --> 00:01:51,110
+made to this code."
+
+39
+00:01:51,110 --> 00:01:53,550
+They can even be
+made at a line level.
+
+40
+00:01:53,550 --> 00:01:58,010
+"I really don't think you
+should have deleted line 12."
+
+41
+00:01:58,010 --> 00:02:00,440
+Let's look at collaborating
+on a pull request,
+
+42
+00:02:00,440 --> 00:02:02,090
+and see how it works.
+
+43
+00:02:02,090 --> 00:02:06,450
+Anybody on the team can make
+comments on a pull request.
+
+44
+00:02:06,450 --> 00:02:10,250
+Pull requests are designed to
+make it easy to collaborate.
+
+45
+00:02:10,250 --> 00:02:13,670
+So one thing you should consider
+is "at" mentioning members
+
+46
+00:02:13,670 --> 00:02:16,730
+of your team using
+their GitHub usernames.
+
+47
+00:02:16,730 --> 00:02:19,710
+That way they'll get
+notified by email
+
+48
+00:02:19,710 --> 00:02:22,310
+whether you're looking for them
+to review some of your code,
+
+49
+00:02:22,310 --> 00:02:25,680
+or you're providing feedback
+on changes they've made.
+
+50
+00:02:25,680 --> 00:02:28,740
+The pull request window
+updates automatically,
+
+51
+00:02:28,740 --> 00:02:30,900
+so you could have a
+close to real time
+
+52
+00:02:30,900 --> 00:02:32,930
+chat with other
+members of your team,
+
+53
+00:02:32,930 --> 00:02:34,630
+as they're making changes.
+
+54
+00:02:34,630 --> 00:02:36,600
+Here, you can see that
+somebody commented
+
+55
+00:02:36,600 --> 00:02:38,800
+on a specific line of code.
+
+56
+00:02:38,800 --> 00:02:41,600
+And if you see a comment
+that you agree with,
+
+57
+00:02:41,600 --> 00:02:43,890
+you might want to go back
+into the command line
+
+58
+00:02:43,890 --> 00:02:46,410
+to make the requested change.
+
+59
+00:02:46,410 --> 00:02:49,760
+In this case, to remove
+Budd from the kill list.
+
+60
+00:02:49,760 --> 00:02:53,520
+And then as usual, you add
+and commit your changes,
+
+61
+00:02:53,520 --> 00:02:56,190
+and push them to
+the remote server.
+
+62
+00:02:56,190 --> 00:02:58,460
+And then, when we go back
+into the pull request,
+
+63
+00:02:58,460 --> 00:03:03,210
+you see that your changes have
+now shown up as another commit,
+
+64
+00:03:03,210 --> 00:03:05,150
+as part of the pull request.
+
+65
+00:03:05,150 --> 00:03:06,900
+And if your team
+agrees with the changes
+
+66
+00:03:06,900 --> 00:03:10,690
+you've made, you can then just
+merge the pull request in,
+
+67
+00:03:10,690 --> 00:03:14,110
+so that your changes become
+part of the master branch,
+
+68
+00:03:14,110 --> 00:03:16,300
+and the pull
+request gets closed.
+
+69
+00:03:16,300 --> 00:03:18,302
+So let's briefly look
+at the commands we'd
+
+70
+00:03:18,302 --> 00:03:21,110
+use when reviewing
+a pull request.
+
+71
+00:03:21,110 --> 00:03:24,000
+First thing we do is
+git fetch, to download
+
+72
+00:03:24,000 --> 00:03:26,710
+all of the latest changes
+and all of the branches,
+
+73
+00:03:26,710 --> 00:03:29,190
+to have a copy of everything
+that everyone else has
+
+74
+00:03:29,190 --> 00:03:31,550
+worked on, and push to GitHub
+
+75
+00:03:31,550 --> 00:03:35,530
+Then we do a git branch-a
+to show all the branches,
+
+76
+00:03:35,530 --> 00:03:37,660
+including the remote branches.
+
+77
+00:03:37,660 --> 00:03:39,360
+Then if there's
+a branch that you
+
+78
+00:03:39,360 --> 00:03:42,150
+want to work on, that
+relates to a pull request,
+
+79
+00:03:42,150 --> 00:03:45,730
+you can git checkout
+that branch name,
+
+80
+00:03:45,730 --> 00:03:48,420
+and it will automatically
+create a local branch,
+
+81
+00:03:48,420 --> 00:03:50,920
+pointing to your
+remote tracking branch.
+
+82
+00:03:50,920 --> 00:03:53,690
+There you can make
+whatever changes you want.
+
+83
+00:03:53,690 --> 00:03:56,520
+You can commit
+them, and push them,
+
+84
+00:03:56,520 --> 00:04:00,250
+and now your changes will
+be part of the pull request
+
+85
+00:04:00,250 --> 00:04:04,420
+that was created by
+one of your team.
+
+86
+00:04:04,420 --> 00:04:07,940
+So far we've focused on other
+people reviewing our work.
+
+87
+00:04:07,940 --> 00:04:10,320
+But often, we'll
+want to review what
+
+88
+00:04:10,320 --> 00:04:12,112
+someone else has
+been working on.
+
+89
+00:04:12,112 --> 00:04:13,820
+Let's say someone is
+working on a feature
+
+90
+00:04:13,820 --> 00:04:16,240
+and we want to see
+how it's going.
+
+91
+00:04:16,240 --> 00:04:19,620
+We can start by viewing
+the pull request
+
+92
+00:04:19,620 --> 00:04:21,800
+and making some comments online.
+
+93
+00:04:21,800 --> 00:04:23,660
+But eventually,
+we're going to want
+
+94
+00:04:23,660 --> 00:04:26,800
+to check out and run their code.
+
+95
+00:04:26,800 --> 00:04:31,150
+All we need to do is git pull
+to download all of the changes
+
+96
+00:04:31,150 --> 00:04:33,330
+that people have
+been working on.
+
+97
+00:04:33,330 --> 00:04:35,760
+Then we can do a
+git branch-a to see
+
+98
+00:04:35,760 --> 00:04:39,570
+a list of all of the
+branches that are there.
+
+99
+00:04:39,570 --> 00:04:42,860
+And we can see that there's
+an equipment list branch.
+
+100
+00:04:42,860 --> 00:04:45,140
+So let's git checkout
+equipment list,
+
+101
+00:04:45,140 --> 00:04:50,910
+so that we can go see and
+make a change to that branch.
+
+102
+00:04:50,910 --> 00:04:54,690
+In this case, let's add a little
+more equipment to the list,
+
+103
+00:04:54,690 --> 00:04:58,290
+just to make sure we're well
+supplied for our next mission.
+
+104
+00:04:58,290 --> 00:05:08,000
+We add and commit the changes,
+push them up to GitHub,
+
+105
+00:05:08,000 --> 00:05:12,760
+and then if we go back in to
+GItHub in the pull request,
+
+106
+00:05:12,760 --> 00:05:15,100
+we now see the
+change that we made
+
+107
+00:05:15,100 --> 00:05:17,760
+to a pull request
+and a branch that
+
+108
+00:05:17,760 --> 00:05:21,000
+were created by somebody
+else on that team.
+
+109
+00:05:21,000 --> 00:05:25,500
+Finally, we can make
+comments, other team members
+
+110
+00:05:25,500 --> 00:05:28,690
+can make comments, and when
+we are ready and comfortable
+
+111
+00:05:28,690 --> 00:05:30,900
+with the changes
+made, we can then
+
+112
+00:05:30,900 --> 00:05:34,730
+merge the pull
+request using GItHub.
+
+113
+00:05:34,730 --> 00:05:36,880
+So why don't you give
+it a try, and we'll see you
+
+114
+00:05:36,880 --> 00:05:38,860
+in the next section.
+

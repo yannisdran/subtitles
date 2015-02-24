@@ -1,0 +1,445 @@
+﻿1
+00:00:02,040 --> 00:00:03,560
+Welcome back.
+
+2
+00:00:03,560 --> 00:00:04,990
+In this level,
+we're going to look
+
+3
+00:00:04,990 --> 00:00:08,720
+at various ways of enhancing
+your GitHub experience.
+
+4
+00:00:08,720 --> 00:00:12,300
+Everything from integrating
+third party applications,
+
+5
+00:00:12,300 --> 00:00:14,695
+to working directly
+with the GitHub API.
+
+6
+00:00:16,450 --> 00:00:20,400
+There are a range of pre-built
+services available for easily
+
+7
+00:00:20,400 --> 00:00:23,470
+integrating well-known
+applications like Basecamp,
+
+8
+00:00:23,470 --> 00:00:27,880
+CircleCI, or Asana
+into your repository.
+
+9
+00:00:27,880 --> 00:00:29,530
+There's a list of
+all of the supported
+
+10
+00:00:29,530 --> 00:00:33,160
+services along with
+documentation explaining
+
+11
+00:00:33,160 --> 00:00:36,920
+what the integration is, and
+how to use it in the Git hub
+
+12
+00:00:36,920 --> 00:00:40,005
+services repo in
+the Docs directory.
+
+13
+00:00:41,880 --> 00:00:46,250
+If you want to add an existing
+service to your GitHub repo,
+
+14
+00:00:46,250 --> 00:00:49,450
+just going to the Settings
+tab for your repository,
+
+15
+00:00:49,450 --> 00:00:52,850
+click on the Webhooks
+and Services option,
+
+16
+00:00:52,850 --> 00:00:55,595
+and then select a service
+from the drop down list.
+
+17
+00:00:57,470 --> 00:01:00,340
+So let's go through the
+process of adding a third party
+
+18
+00:01:00,340 --> 00:01:02,500
+service to a GitHub repo.
+
+19
+00:01:02,500 --> 00:01:04,190
+Start by clicking on Settings.
+
+20
+00:01:06,720 --> 00:01:09,600
+Then click on the Webhooks
+ and Services tab.
+
+21
+00:01:10,690 --> 00:01:13,100
+And then, after
+clicking add services,
+
+22
+00:01:13,100 --> 00:01:15,380
+you can start to type
+the name of the service
+
+23
+00:01:15,380 --> 00:01:16,660
+you want to integrate.
+
+24
+00:01:16,660 --> 00:01:20,530
+In this case, we're going to
+use Code Climate as an example.
+
+25
+00:01:20,530 --> 00:01:22,740
+It may ask you
+for your password.
+
+26
+00:01:22,740 --> 00:01:25,720
+And then, once you've
+entered that you just
+
+27
+00:01:25,720 --> 00:01:28,210
+need to follow the
+install notes that
+
+28
+00:01:28,210 --> 00:01:31,330
+are specific to the application
+you're working with.
+
+29
+00:01:31,330 --> 00:01:34,540
+And once you've done
+that, click on "Add service"
+
+30
+00:01:34,540 --> 00:01:38,290
+and you see the service
+listed under your services.
+
+31
+00:01:38,290 --> 00:01:40,400
+And it's easy to add
+multiple services.
+
+32
+00:01:40,400 --> 00:01:43,320
+Let's take a moment
+here and add Basecamp
+
+33
+00:01:43,320 --> 00:01:46,000
+And you would enter the
+information it asks for,
+
+34
+00:01:46,000 --> 00:01:47,200
+add service.
+
+35
+00:01:47,200 --> 00:01:49,180
+And it'll add it to your list.
+
+36
+00:01:49,180 --> 00:01:51,090
+It's equally easy
+to remove services
+
+37
+00:01:51,090 --> 00:01:55,067
+just by clicking "Delete "next to
+the service you no longer want
+
+38
+00:01:55,067 --> 00:01:56,400
+integrated with this repository.
+
+39
+00:01:57,500 --> 00:01:59,770
+Most of the popular
+projects you work with
+
+40
+00:01:59,770 --> 00:02:02,254
+should already have
+a service created
+
+41
+00:02:02,254 --> 00:02:03,420
+for integrating with GitHub.
+
+42
+00:02:05,736 --> 00:02:07,110
+Each one has
+different behaviors.
+
+43
+00:02:08,229 --> 00:02:11,080
+For example, if you use
+the Basecamp or AgileZen
+
+44
+00:02:11,080 --> 00:02:14,240
+integration, it'll just
+add a list of your commits
+
+45
+00:02:14,240 --> 00:02:15,730
+to the progress page.
+
+46
+00:02:15,730 --> 00:02:17,470
+That's all it currently does.
+
+47
+00:02:17,470 --> 00:02:20,190
+Whereas if you something
+like JIRA integration,
+
+48
+00:02:20,190 --> 00:02:22,220
+you can actually resolve
+issues in the same way
+
+49
+00:02:22,220 --> 00:02:24,170
+as you're doing
+GitHub issues just
+
+50
+00:02:24,170 --> 00:02:27,820
+by adding the appropriate
+text to your commit messages
+
+51
+00:02:27,820 --> 00:02:29,780
+and merging them into
+your default branch.
+
+52
+00:02:29,780 --> 00:02:31,610
+Another common
+type of integration
+
+53
+00:02:31,610 --> 00:02:33,960
+is with a continuous
+integration tool -
+
+54
+00:02:33,960 --> 00:02:38,690
+Jenkins, Travis CI, CircleCI,
+something like that.
+
+55
+00:02:38,690 --> 00:02:40,690
+And those will allow your
+tests to automatically
+
+56
+00:02:40,690 --> 00:02:44,310
+be run every time you make
+commits to the repository.
+
+57
+00:02:44,310 --> 00:02:47,790
+With CircleCI, you just sign
+up a CircleCI with your GitHub
+
+58
+00:02:47,790 --> 00:02:49,590
+credentials, and
+you don't even need
+
+59
+00:02:49,590 --> 00:02:51,340
+to configure the
+settings in GitHub.
+
+60
+00:02:51,340 --> 00:02:54,430
+It will automatically
+run your tests every time
+
+61
+00:02:54,430 --> 00:02:56,490
+you push changes to
+your GitHub repository.
+
+62
+00:02:59,310 --> 00:03:02,250
+We've seen how we can integrate
+existing services work
+
+63
+00:03:02,250 --> 00:03:03,390
+with GitHub.
+
+64
+00:03:03,390 --> 00:03:07,370
+But it's also possible to use
+custom webhooks to integrate
+
+65
+00:03:07,370 --> 00:03:09,570
+your own applications with
+your GitHub repository.
+
+66
+00:03:11,900 --> 00:03:13,635
+In GitHub, you can
+create webhooks.
+
+67
+00:03:15,290 --> 00:03:20,070
+These are HTTP calls that
+will notify your application
+
+68
+00:03:20,070 --> 00:03:24,080
+every time a specific event
+happens within a repository.
+
+69
+00:03:24,080 --> 00:03:25,830
+These hooks can be
+used for anything
+
+70
+00:03:25,830 --> 00:03:28,430
+from updating an
+external issue tracker,
+
+71
+00:03:28,430 --> 00:03:30,790
+to triggering continuous
+integration builds,
+
+72
+00:03:30,790 --> 00:03:33,440
+or deploying to a
+production server.
+
+73
+00:03:33,440 --> 00:03:37,645
+It's basically a post-request
+that will get sent to a URL
+
+74
+00:03:37,645 --> 00:03:40,970
+that you provide to
+GitHub in the next screen.
+
+75
+00:03:42,660 --> 00:03:44,910
+When you add a webhook,
+you need to start
+
+76
+00:03:44,910 --> 00:03:47,020
+by entering the payload URL.
+
+77
+00:03:47,020 --> 00:03:49,220
+This is the URL
+that you want GitHub
+
+78
+00:03:49,220 --> 00:03:53,670
+to call every time a
+notification is fired.
+
+79
+00:03:53,670 --> 00:03:55,790
+You can select the
+content type, usually
+
+80
+00:03:55,790 --> 00:03:58,110
+you'll use application JSON.
+
+81
+00:03:58,110 --> 00:04:01,540
+And if you want, you can
+provide a secret so you
+
+82
+00:04:01,540 --> 00:04:04,300
+that the call is
+coming from GitHub.
+
+83
+00:04:04,300 --> 00:04:07,580
+Then finally, you can decide
+what should your application
+
+84
+00:04:07,580 --> 00:04:09,080
+be notified about.
+
+85
+00:04:09,080 --> 00:04:11,860
+It can just be notified
+about push events -
+
+86
+00:04:11,860 --> 00:04:14,170
+when somebody pushes
+changes to GitHub.
+
+87
+00:04:14,170 --> 00:04:16,839
+It can be notified of
+every kind of event that
+
+88
+00:04:16,839 --> 00:04:20,350
+occurs relating to
+your repo, or, you
+
+89
+00:04:20,350 --> 00:04:23,616
+can select the individual events
+that you want your application
+
+90
+00:04:23,616 --> 00:04:24,490
+to be notified about.
+
+91
+00:04:27,290 --> 00:04:29,190
+So why don't you
+create a webhook,
+
+92
+00:04:29,190 --> 00:04:32,480
+and we'll see you back
+in the next section.
+

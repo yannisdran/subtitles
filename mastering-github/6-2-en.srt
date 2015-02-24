@@ -1,0 +1,387 @@
+﻿1
+00:00:02,009 --> 00:00:03,610
+Welcome back.
+
+2
+00:00:03,610 --> 00:00:06,980
+If you want to integrate your
+custom application with GitHub
+
+3
+00:00:06,980 --> 00:00:09,620
+sometimes a webhook's
+ all you need.
+
+4
+00:00:09,620 --> 00:00:12,160
+If you want to get notified
+every time somebody pushes
+
+5
+00:00:12,160 --> 00:00:15,340
+new commits to get up, a
+webhook would do that fine.
+
+6
+00:00:16,540 --> 00:00:20,090
+But what happens if you wanted
+to see the history of all
+
+7
+00:00:20,090 --> 00:00:22,570
+of the commits in a repository?
+
+8
+00:00:22,570 --> 00:00:25,380
+Or list of all the users who've
+committed to that repository?
+
+9
+00:00:26,770 --> 00:00:29,930
+In that case you'd need
+to do something different.
+
+10
+00:00:29,930 --> 00:00:32,610
+And that's where the
+GitHub API comes in.
+
+11
+00:00:32,610 --> 00:00:36,140
+You'll probably end up working
+with a GitHub API using
+
+12
+00:00:36,140 --> 00:00:38,550
+a programming language
+of your choice.
+
+13
+00:00:38,550 --> 00:00:41,610
+But let's use curl
+and the command
+
+14
+00:00:41,610 --> 00:00:45,125
+line to see some of the kinds of
+commands that the API supports.
+
+15
+00:00:46,830 --> 00:00:49,540
+Let's start with the
+simplest possible request.
+
+16
+00:00:49,540 --> 00:00:52,335
+Let's just use curl to
+call API.GitHub.com.
+
+17
+00:00:54,900 --> 00:00:57,960
+And as you see that,
+returns a discoverable list
+
+18
+00:00:57,960 --> 00:01:00,805
+of all of the API calls
+that are available.
+
+19
+00:01:01,870 --> 00:01:03,880
+You can even do things
+like see a full list
+
+20
+00:01:03,880 --> 00:01:07,330
+of the emojis supported
+by GitHub by curling
+
+21
+00:01:07,330 --> 00:01:13,070
+https://api.GitHub.com/emojis.
+
+22
+00:01:13,070 --> 00:01:15,710
+Let's try to get a little
+publicly accessible information
+
+23
+00:01:15,710 --> 00:01:17,360
+about a particular user.
+
+24
+00:01:17,360 --> 00:01:25,000
+We just curl
+API.github.com/users/username.
+
+25
+00:01:25,000 --> 00:01:27,830
+And now let's run
+it with the -i flag
+
+26
+00:01:27,830 --> 00:01:30,660
+so that we can see all
+of the header information
+
+27
+00:01:30,660 --> 00:01:32,810
+as well as just the response.
+
+28
+00:01:32,810 --> 00:01:36,025
+And you want to notice in
+particular here, the RateLimit
+
+29
+00:01:36,025 --> 00:01:39,740
+limit, and RateLimit
+remaining headers, which
+
+30
+00:01:39,740 --> 00:01:43,850
+show you how many more requests
+that you can make, typically
+
+31
+00:01:43,850 --> 00:01:45,690
+within the next hour.
+
+32
+00:01:45,690 --> 00:01:48,540
+We can also do things like
+getting a list of the publicly
+
+33
+00:01:48,540 --> 00:01:51,429
+accessible repositories
+for a user by using curl
+
+34
+00:01:51,429 --> 00:01:52,970
+API.github.com/u
+sers/username/repos.
+
+35
+00:01:59,230 --> 00:02:01,680
+If we're going to do anything
+more interesting than this,
+
+36
+00:02:01,680 --> 00:02:03,920
+we'll probably need
+to authenticate.
+
+37
+00:02:03,920 --> 00:02:07,290
+The best way to do that is to
+create a personal access token,
+
+38
+00:02:07,290 --> 00:02:10,320
+and to use that for
+testing the API.
+
+39
+00:02:10,320 --> 00:02:12,840
+Easiest way to do that
+is through the website,
+
+40
+00:02:12,840 --> 00:02:15,910
+and then you can take
+that token and use
+
+41
+00:02:15,910 --> 00:02:18,750
+that to make
+authentication course.
+
+42
+00:02:18,750 --> 00:02:22,420
+So let's say I wanted to get
+more information about my user
+
+43
+00:02:22,420 --> 00:02:23,324
+account.
+
+44
+00:02:23,324 --> 00:02:24,740
+I could run the
+following command.
+
+45
+00:02:25,900 --> 00:02:30,200
+I'm going to curl -i
+to get the headers, -h.
+
+46
+00:02:30,200 --> 00:02:34,660
+And in the header, I'm going
+to ask my authentication token.
+
+47
+00:02:34,660 --> 00:02:38,910
+And I'm going to call
+api.github.com/user to get
+
+48
+00:02:38,910 --> 00:02:40,130
+my user information.
+
+49
+00:02:41,840 --> 00:02:43,660
+And it will return
+all the information
+
+50
+00:02:43,660 --> 00:02:45,770
+that's available
+about me as a user.
+
+51
+00:02:49,200 --> 00:02:51,510
+If I want to create
+a repository,
+
+52
+00:02:51,510 --> 00:02:54,470
+I can do another curl command
+where I pass the authorization
+
+53
+00:02:54,470 --> 00:02:59,510
+token, and with -d, put the
+name for the repository,
+
+54
+00:02:59,510 --> 00:03:06,170
+and go to
+api.github.com/user/repos.
+
+55
+00:03:06,170 --> 00:03:10,080
+So I'm posting information
+here to add a new repository.
+
+56
+00:03:27,910 --> 00:03:30,430
+How about adding an
+issue to that repo?
+
+57
+00:03:30,430 --> 00:03:33,375
+Well, if I just type a slightly
+different command here,
+
+58
+00:03:33,375 --> 00:03:40,320
+and now I'm going to create
+a title, a body, and let's
+
+59
+00:03:40,320 --> 00:03:41,785
+say a label of critical.
+
+60
+00:03:42,800 --> 00:03:45,825
+And I'm going to send this
+payload to api.github/repos
+
+61
+00:03:45,825 --> 00:03:47,116
+/myusername/thereponame/issues.
+
+62
+00:03:56,680 --> 00:04:00,110
+And by doing that, as you can
+see, it creates a new issue.
+
+63
+00:04:00,110 --> 00:04:02,160
+And if we go to
+the website, we see
+
+64
+00:04:02,160 --> 00:04:04,180
+that that issue has been
+created successfully.
+
+65
+00:04:09,170 --> 00:04:13,240
+But API supports providing
+information on activity,
+
+66
+00:04:13,240 --> 00:04:16,130
+it allows you to create
+gists, it provides access
+
+67
+00:04:16,130 --> 00:04:18,880
+to read and write
+more git objects,
+
+68
+00:04:18,880 --> 00:04:21,160
+so you could really
+get into the git db.
+
+69
+00:04:21,160 --> 00:04:23,330
+And it allows you
+to implement any git
+
+70
+00:04:23,330 --> 00:04:25,880
+functionality via the API.
+
+71
+00:04:25,880 --> 00:04:30,000
+It also supports working
+with issues, organizations,
+
+72
+00:04:30,000 --> 00:04:35,040
+pull requests, repos,
+search, and users, as well
+
+73
+00:04:35,040 --> 00:04:36,790
+as some miscellaneous
+bits and pieces,
+
+74
+00:04:36,790 --> 00:04:39,610
+like listing the
+emojis, or getting
+
+75
+00:04:39,610 --> 00:04:41,630
+more templates, or
+things like that.
+
+76
+00:04:43,490 --> 00:04:45,409
+Not everyone needs to
+use the GitHub API,
+
+77
+00:04:45,409 --> 00:04:47,450
+so we're not going to
+create a challenge on that.
+
+78
+00:04:47,450 --> 00:04:50,097
+But it's important to understand
+the functionality is there,
+
+79
+00:04:50,097 --> 00:04:50,930
+if you ever need it.
+
+80
+00:04:52,140 --> 00:04:54,480
+See you in the next level.
+

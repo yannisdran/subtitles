@@ -1,0 +1,824 @@
+﻿1
+00:00:02,020 --> 00:00:03,450
+Welcome back.
+
+2
+00:00:03,450 --> 00:00:05,370
+So far, we've looked
+at the logistics
+
+3
+00:00:05,370 --> 00:00:08,020
+for working with pull requests.
+
+4
+00:00:08,020 --> 00:00:09,850
+In this section,
+we're going to look
+
+5
+00:00:09,850 --> 00:00:12,150
+at three key
+considerations that you
+
+6
+00:00:12,150 --> 00:00:14,270
+need to think about
+every time you're
+
+7
+00:00:14,270 --> 00:00:17,540
+going to merge a pull request.
+
+8
+00:00:17,540 --> 00:00:20,290
+The three key considerations
+are whether you
+
+9
+00:00:20,290 --> 00:00:25,350
+should use an interactive
+rebase to simplify your history,
+
+10
+00:00:25,350 --> 00:00:29,650
+whether you should use a rebase
+to create a linear history,
+
+11
+00:00:29,650 --> 00:00:32,770
+so it looks like you worked
+from one feature at a time,
+
+12
+00:00:32,770 --> 00:00:37,190
+and/or whether you should
+use fast-forward or recursive
+
+13
+00:00:37,190 --> 00:00:39,170
+merges when you're
+merging feature
+
+14
+00:00:39,170 --> 00:00:42,900
+branches into your
+master branch.
+
+15
+00:00:42,900 --> 00:00:45,890
+Careful use of
+interactive rebases
+
+16
+00:00:45,890 --> 00:00:49,646
+can do a great job of
+simplifying your history.
+
+17
+00:00:49,646 --> 00:00:51,270
+Generally when you're
+working with Git,
+
+18
+00:00:51,270 --> 00:00:54,050
+you'll be committing
+every 5-10 minutes.
+
+19
+00:00:54,050 --> 00:00:55,760
+And sometimes you
+just don't need
+
+20
+00:00:55,760 --> 00:00:59,510
+to keep that granularity
+of information.
+
+21
+00:00:59,510 --> 00:01:02,940
+So before you merge
+a feature branch in,
+
+22
+00:01:02,940 --> 00:01:06,190
+you should absolutely go back
+and look over your history
+
+23
+00:01:06,190 --> 00:01:10,640
+and see, are there any commits
+that could be reordered?
+
+24
+00:01:10,640 --> 00:01:12,900
+Maybe where the commit
+message could be changed.
+
+25
+00:01:12,900 --> 00:01:16,420
+Or even where you could
+squash or fix up a number of
+
+26
+00:01:16,420 --> 00:01:19,500
+commits to simplify history.
+
+27
+00:01:19,500 --> 00:01:21,850
+If you're not familiar
+with interactive rebase,
+
+28
+00:01:21,850 --> 00:01:24,370
+make sure to check
+out Git Real 2.
+
+29
+00:01:24,370 --> 00:01:27,710
+It's important to avoid a common
+anti pattern, which is just
+
+30
+00:01:27,710 --> 00:01:30,930
+taking all of the commits
+on a feature branch,
+
+31
+00:01:30,930 --> 00:01:32,770
+and squashing them into one.
+
+32
+00:01:32,770 --> 00:01:34,520
+Occasionally, this
+can make sense.
+
+33
+00:01:34,520 --> 00:01:37,850
+But most of the time, you want
+to keep a more granular history
+
+34
+00:01:37,850 --> 00:01:38,880
+than that.
+
+35
+00:01:38,880 --> 00:01:41,990
+So just because you decide
+to do interactive rebases,
+
+36
+00:01:41,990 --> 00:01:44,690
+does not mean you should
+squash every feature
+
+37
+00:01:44,690 --> 00:01:47,540
+branch into just
+a single commit.
+
+38
+00:01:47,540 --> 00:01:50,650
+The next question is whether
+you should use a rebase
+
+39
+00:01:50,650 --> 00:01:53,060
+to create a linear history?
+
+40
+00:01:53,060 --> 00:01:56,070
+So instead of it showing
+the truth where maybe you're
+
+41
+00:01:56,070 --> 00:02:00,060
+working on five, or six,
+or 10 features at a time,
+
+42
+00:02:00,060 --> 00:02:03,260
+you history will look
+like your development team
+
+43
+00:02:03,260 --> 00:02:07,240
+only ever started,
+worked on, and delivered
+
+44
+00:02:07,240 --> 00:02:08,930
+one feature at a time.
+
+45
+00:02:08,930 --> 00:02:14,120
+It's not always truthful, but
+it's generally much more useful
+
+46
+00:02:14,120 --> 00:02:17,150
+to use rebase in this
+way to give yourself
+
+47
+00:02:17,150 --> 00:02:21,170
+a clean linear history
+so that you can look back
+
+48
+00:02:21,170 --> 00:02:24,290
+on what you've done, and
+other people can better
+
+49
+00:02:24,290 --> 00:02:28,170
+understand what your
+team's been working on.
+
+50
+00:02:28,170 --> 00:02:31,950
+And to do that, you just
+check out the feature branch,
+
+51
+00:02:31,950 --> 00:02:35,050
+and git rebase master.
+
+52
+00:02:35,050 --> 00:02:37,970
+Resolving any rebase
+conflicts in the same ways as
+
+53
+00:02:37,970 --> 00:02:40,930
+you'd resolve merge conflicts,
+if there are conflicts
+
+54
+00:02:40,930 --> 00:02:44,100
+between the changes on
+your feature branch,
+
+55
+00:02:44,100 --> 00:02:48,810
+and the changes that were
+made on the master branch.
+
+56
+00:02:48,810 --> 00:02:51,090
+Then the final
+question is whether you
+
+57
+00:02:51,090 --> 00:02:56,840
+should use a recursive merge
+or a fast-forward merge?
+
+58
+00:02:56,840 --> 00:02:59,220
+The benefits of a
+fast-forward merge
+
+59
+00:02:59,220 --> 00:03:01,240
+are that you get less commits.
+
+60
+00:03:01,240 --> 00:03:04,100
+Because the commits
+from your feature branch
+
+61
+00:03:04,100 --> 00:03:07,470
+are put straight on to the
+master branch with no merge
+
+62
+00:03:07,470 --> 00:03:09,070
+commit.
+
+63
+00:03:09,070 --> 00:03:12,940
+The downside, is it's much
+harder to tell what commits
+
+64
+00:03:12,940 --> 00:03:15,630
+were made on what
+feature branch.
+
+65
+00:03:15,630 --> 00:03:20,600
+So generally, I recommend using
+a recursive merge even if there
+
+66
+00:03:20,600 --> 00:03:24,280
+was no changes on master
+because you've rebased,
+
+67
+00:03:24,280 --> 00:03:28,030
+and you would be able to
+do a fast-forward merge.
+
+68
+00:03:28,030 --> 00:03:31,120
+If you want to make sure that
+you have a recursive merge,
+
+69
+00:03:31,120 --> 00:03:36,510
+just check out master, and git
+merge --no-ff,
+
+70
+00:03:36,510 --> 00:03:39,790
+no fast-forward
+the feature branch
+
+71
+00:03:39,790 --> 00:03:43,340
+And that way, you'll be
+guaranteed a merge commit,
+
+72
+00:03:43,340 --> 00:03:46,860
+which will make it
+very clear what commits
+
+73
+00:03:46,860 --> 00:03:48,700
+were made on a feature
+branch because they
+
+74
+00:03:48,700 --> 00:03:50,650
+won't be added to
+the master branch.
+
+75
+00:03:50,650 --> 00:03:53,250
+And it will also give
+you a single commit
+
+76
+00:03:53,250 --> 00:03:56,510
+that you can revert if you
+want to remove this feature
+
+77
+00:03:56,510 --> 00:03:59,060
+branch from history.
+
+78
+00:03:59,060 --> 00:04:01,690
+To summarize, with
+fast-forward merges,
+
+79
+00:04:01,690 --> 00:04:05,650
+you do get less commits, because
+you don't get the merge commit
+
+80
+00:04:05,650 --> 00:04:08,470
+every time you merge
+a feature branch it.
+
+81
+00:04:08,470 --> 00:04:12,110
+But I generally recommend
+to use recursive merges,
+
+82
+00:04:12,110 --> 00:04:14,910
+because firstly, it
+makes it very clear
+
+83
+00:04:14,910 --> 00:04:20,279
+that every commit was made on a
+feature branch, not on master.
+
+84
+00:04:20,279 --> 00:04:23,510
+And secondly, it gives
+you that single commit
+
+85
+00:04:23,510 --> 00:04:27,640
+that you could revert
+to remove that feature
+
+86
+00:04:27,640 --> 00:04:30,800
+branch from your history.
+
+87
+00:04:30,800 --> 00:04:33,480
+Looking at these three
+key considerations when
+
+88
+00:04:33,480 --> 00:04:37,870
+merging pull requests, generally
+you should interactively
+
+89
+00:04:37,870 --> 00:04:42,050
+rebase to simplify your
+history, but only removing
+
+90
+00:04:42,050 --> 00:04:45,150
+commits that don't
+add value when
+
+91
+00:04:45,150 --> 00:04:47,930
+looking at how the
+project was built.
+
+92
+00:04:47,930 --> 00:04:50,590
+You should definitely
+consider rebasing
+
+93
+00:04:50,590 --> 00:04:52,510
+to create a linear
+history, so it
+
+94
+00:04:52,510 --> 00:04:55,920
+looks like you only built
+one feature at a time.
+
+95
+00:04:55,920 --> 00:04:59,190
+And finally, you should
+use recursive merges
+
+96
+00:04:59,190 --> 00:05:03,050
+because they provide more
+clarity about where commits
+
+97
+00:05:03,050 --> 00:05:07,710
+were made, and make it very
+easy to revert a feature branch.
+
+98
+00:05:07,710 --> 00:05:11,960
+So let's look at going through
+this process end-to-end.
+
+99
+00:05:11,960 --> 00:05:15,150
+We've got a pull request
+here with a number of commits
+
+100
+00:05:15,150 --> 00:05:16,990
+that are a little confused.
+
+101
+00:05:16,990 --> 00:05:19,230
+So let's go into
+a terminal window.
+
+102
+00:05:19,230 --> 00:05:22,820
+And we can see here that we've
+got five commits on the action
+
+103
+00:05:22,820 --> 00:05:24,250
+plan branch.
+
+104
+00:05:24,250 --> 00:05:26,230
+And we probably
+don't need that many.
+
+105
+00:05:26,230 --> 00:05:31,090
+So we want to rebase
+interactive from the Gotta kill
+
+106
+00:05:31,090 --> 00:05:32,970
+Bill commit.
+
+107
+00:05:32,970 --> 00:05:36,440
+So let's check out the
+action plan branch.
+
+108
+00:05:36,440 --> 00:05:38,890
+Have a look at the log now.
+
+109
+00:05:38,890 --> 00:05:43,410
+And we see now that our head
+is at 2e03 on the action plan
+
+110
+00:05:43,410 --> 00:05:44,780
+branch.
+
+111
+00:05:44,780 --> 00:05:49,940
+So now, we can git rebase
+interactive, HEAD~5
+
+112
+00:05:49,940 --> 00:05:53,410
+to rebase the last five commits.
+
+113
+00:05:53,410 --> 00:05:57,680
+Most of the time, you'd want to
+keep a number of these commits.
+
+114
+00:05:57,680 --> 00:06:01,540
+Most of the time, you wouldn't
+squash all of these commits.
+
+115
+00:06:01,540 --> 00:06:04,890
+But in this case, there really
+was only one substantive thing
+
+116
+00:06:04,890 --> 00:06:05,660
+we did.
+
+117
+00:06:05,660 --> 00:06:08,700
+We built a simple list
+of people to kill.
+
+118
+00:06:08,700 --> 00:06:12,710
+So let's reword the
+first commit so that we
+
+119
+00:06:12,710 --> 00:06:14,490
+can change the commit message.
+
+120
+00:06:14,490 --> 00:06:17,660
+And then let's fix up
+all of the other commits
+
+121
+00:06:17,660 --> 00:06:20,340
+to squash them into
+that first commit
+
+122
+00:06:20,340 --> 00:06:23,190
+and discard their
+commit messages.
+
+123
+00:06:23,190 --> 00:06:25,260
+When we're done with this,
+it will throw us back
+
+124
+00:06:25,260 --> 00:06:28,510
+into our text editor
+and give us a chance
+
+125
+00:06:28,510 --> 00:06:33,190
+to change the commit message
+for the one commit we're saving.
+
+126
+00:06:33,190 --> 00:06:34,750
+We put the new
+commit message in.
+
+127
+00:06:39,630 --> 00:06:41,900
+It continues with the rebase.
+
+128
+00:06:41,900 --> 00:06:43,920
+And now if we're to
+look at our git log,
+
+129
+00:06:43,920 --> 00:06:48,650
+we see that there's just
+a single new commit, d99e,
+
+130
+00:06:48,650 --> 00:06:50,790
+that is at the
+head of action plan
+
+131
+00:06:50,790 --> 00:06:53,370
+that has all of our changes.
+
+132
+00:06:53,370 --> 00:06:55,700
+Now, we can push those changes.
+
+133
+00:06:55,700 --> 00:06:59,380
+dash f, we're going to force
+push them up to GitHub.
+
+134
+00:06:59,380 --> 00:07:01,760
+And then when we go back
+into the pull request,
+
+135
+00:07:01,760 --> 00:07:04,560
+we see that instead of
+five different commits,
+
+136
+00:07:04,560 --> 00:07:09,710
+we now see just a single simple
+commit for this pull request.
+
+137
+00:07:09,710 --> 00:07:12,110
+So we've done the
+rebase interactive
+
+138
+00:07:12,110 --> 00:07:14,350
+and we see in the
+file it's adding
+
+139
+00:07:14,350 --> 00:07:16,420
+all the content we wanted.
+
+140
+00:07:16,420 --> 00:07:19,650
+Now, we want to rebase this
+against the master branch
+
+141
+00:07:19,650 --> 00:07:22,195
+because we can see that there
+was some commits on the master
+
+142
+00:07:22,195 --> 00:07:22,695
+branch.
+
+143
+00:07:22,695 --> 00:07:25,660
+And we want to make it
+look like we didn't start
+
+144
+00:07:25,660 --> 00:07:29,535
+working on the action plan until
+those commits were finished
+
+145
+00:07:29,535 --> 00:07:31,100
+and merged.
+
+146
+00:07:31,100 --> 00:07:35,650
+So from the action plan branch,
+we will git rebase master.
+
+147
+00:07:35,650 --> 00:07:39,570
+And that will replay our commits
+on top of the master branch.
+
+148
+00:07:39,570 --> 00:07:41,380
+So now when we
+look at the log, we
+
+149
+00:07:41,380 --> 00:07:45,360
+can see that the action
+plan branch looks
+
+150
+00:07:45,360 --> 00:07:49,150
+like it was started after all
+of the other commits on master
+
+151
+00:07:49,150 --> 00:07:50,149
+were finished.
+
+152
+00:07:50,149 --> 00:07:51,690
+And again, we're
+going to have to git
+
+153
+00:07:51,690 --> 00:07:55,240
+push -f to
+force this change.
+
+154
+00:07:55,240 --> 00:07:59,480
+Because we've changed the
+sha1 hash of this commit.
+
+155
+00:07:59,480 --> 00:08:02,800
+And indeed we see when we
+refresh the page in github,
+
+156
+00:08:02,800 --> 00:08:05,740
+that there is still only a
+single commit on the pull
+
+157
+00:08:05,740 --> 00:08:09,540
+request, but now it has
+a different sha1 hash.
+
+158
+00:08:09,540 --> 00:08:14,630
+Then finally, all we need to
+do is git checkout master.
+
+159
+00:08:14,630 --> 00:08:18,810
+And then git merge, no
+fast-forward our feature
+
+160
+00:08:18,810 --> 00:08:20,870
+branch.
+
+161
+00:08:20,870 --> 00:08:24,560
+We enter a commit message.
+
+162
+00:08:24,560 --> 00:08:27,570
+And then push those
+changes to GitHub
+
+163
+00:08:27,570 --> 00:08:30,630
+And because pull
+requests are closed
+
+164
+00:08:30,630 --> 00:08:32,490
+when the branch that
+they point to gets
+
+165
+00:08:32,490 --> 00:08:36,620
+merged into the default branch
+on this repository master,
+
+166
+00:08:36,620 --> 00:08:43,036
+on GitHub the pull request has
+now been merged and closed.
+
+167
+00:08:43,036 --> 00:08:44,910
+I know that's a lot to
+wrap your head around,
+
+168
+00:08:44,910 --> 00:08:47,326
+but it's important you get
+used to working with these best
+
+169
+00:08:47,326 --> 00:08:47,850
+practices.
+
+170
+00:08:47,850 --> 00:08:50,060
+So why don't you give
+it a try yourself?
+
+171
+00:08:50,060 --> 00:08:52,610
+And I'll see you
+in the next level.
+

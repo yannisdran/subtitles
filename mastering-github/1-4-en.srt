@@ -1,0 +1,418 @@
+﻿1
+00:00:02,029 --> 00:00:04,070
+When you're collaborating
+using forks,
+
+2
+00:00:04,070 --> 00:00:06,560
+it's important to
+update your fork
+
+3
+00:00:06,560 --> 00:00:08,010
+to capture changes
+that have been
+
+4
+00:00:08,010 --> 00:00:09,195
+made by other collaborators.
+
+5
+00:00:10,310 --> 00:00:13,000
+In this section, we're going
+to explore how to do that.
+
+6
+00:00:14,130 --> 00:00:16,770
+Let's say that we
+have two developers
+
+7
+00:00:16,770 --> 00:00:21,120
+don't want to collaborate on a
+single repository using forks.
+
+8
+00:00:22,800 --> 00:00:26,100
+We're going to start with
+the initial repository.
+
+9
+00:00:26,100 --> 00:00:28,780
+We're going to call that
+the upstream because both
+
+10
+00:00:28,780 --> 00:00:32,850
+of the developers are going to
+create downstream forks of that
+
+11
+00:00:32,850 --> 00:00:35,520
+so that they have their
+own copy of the repository.
+
+12
+00:00:35,520 --> 00:00:37,170
+And then both of
+the developers are
+
+13
+00:00:37,170 --> 00:00:39,190
+going to clone
+those repositories
+
+14
+00:00:39,190 --> 00:00:41,410
+to their individual laptops.
+
+15
+00:00:41,410 --> 00:00:45,430
+They're going to do coding,
+add and commit their changes,
+
+16
+00:00:45,430 --> 00:00:48,930
+and push those changes
+up to their forks.
+
+17
+00:00:48,930 --> 00:00:52,500
+Then both of them are going
+to submit pull requests
+
+18
+00:00:52,500 --> 00:00:56,340
+with their changes which
+eventually will get accepted
+
+19
+00:00:56,340 --> 00:00:58,210
+and merged into the
+upstream repository.
+
+20
+00:00:59,230 --> 00:01:02,590
+Well, the problem is,
+each developer now only
+
+21
+00:01:02,590 --> 00:01:04,610
+has their changes.
+
+22
+00:01:04,610 --> 00:01:07,120
+They don't have a copy
+of the changes made
+
+23
+00:01:07,120 --> 00:01:08,500
+by the other developer.
+
+24
+00:01:08,500 --> 00:01:12,510
+Because those changes are only
+on the other developer's fork
+
+25
+00:01:12,510 --> 00:01:14,710
+and on the upstream repo.
+
+26
+00:01:14,710 --> 00:01:16,560
+So what they need
+to be able to do
+
+27
+00:01:16,560 --> 00:01:20,390
+is they have to pull
+from the upstream repo
+
+28
+00:01:20,390 --> 00:01:24,480
+to be able to get the
+accepted pull requests made
+
+29
+00:01:24,480 --> 00:01:28,080
+by the other developer
+to update their fork.
+
+30
+00:01:30,210 --> 00:01:33,580
+So to look at the commands
+required to do that.
+
+31
+00:01:33,580 --> 00:01:37,340
+The first command is you're
+going to add a remote,
+
+32
+00:01:37,340 --> 00:01:42,520
+using git, pointing to
+the upstream repository
+
+33
+00:01:42,520 --> 00:01:45,570
+with the path to
+whatever that repo is.
+
+34
+00:01:45,570 --> 00:01:49,340
+You're then going to fetch the
+changes from that upstream repo
+
+35
+00:01:49,340 --> 00:01:53,080
+and merge the changes that
+were in the upstream master
+
+36
+00:01:53,080 --> 00:01:56,950
+branch with your local
+master branch in your laptop.
+
+37
+00:01:56,950 --> 00:01:59,440
+And then finally, you're
+going to push those changes
+
+38
+00:01:59,440 --> 00:02:03,670
+to your fork so that it
+has all of the changes made
+
+39
+00:02:03,670 --> 00:02:04,687
+by the other developer.
+
+40
+00:02:04,687 --> 00:02:06,270
+This is something
+you're going to want
+
+41
+00:02:06,270 --> 00:02:08,919
+to do every time
+a pull request
+
+42
+00:02:08,919 --> 00:02:11,500
+is accepted into
+the upstream repo.
+
+43
+00:02:13,180 --> 00:02:15,200
+So let's see this in practice.
+
+44
+00:02:15,200 --> 00:02:19,060
+Let's imagine that somebody
+comes to the deadlyvipers dojo
+
+45
+00:02:19,060 --> 00:02:20,580
+rules repository.
+
+46
+00:02:20,580 --> 00:02:24,020
+And they make their
+own fork of the repo
+
+47
+00:02:24,020 --> 00:02:26,600
+and they decide
+to make a change.
+
+48
+00:02:26,600 --> 00:02:28,010
+They go to view a file.
+
+49
+00:02:28,010 --> 00:02:30,070
+And notice here,
+the Edit button that
+
+50
+00:02:30,070 --> 00:02:32,830
+allows them to make a
+change right on GitHub,
+
+51
+00:02:32,830 --> 00:02:34,510
+and to commit that change.
+
+52
+00:02:34,510 --> 00:02:36,980
+They go into the
+dojo rules file,
+
+53
+00:02:36,980 --> 00:02:40,280
+and they add a simple
+commit message,
+
+54
+00:02:40,280 --> 00:02:41,705
+and then commit that change.
+
+55
+00:02:43,090 --> 00:02:45,140
+Then, they create
+a pull request,
+
+56
+00:02:45,140 --> 00:02:48,900
+requesting that this change be
+merged into the deadlyvipers
+
+57
+00:02:48,900 --> 00:02:50,600
+copy of the repository.
+
+58
+00:02:50,600 --> 00:02:54,530
+Now let's go in and look at the
+pull request that they created.
+
+59
+00:02:54,530 --> 00:02:57,380
+Now, if I log in as a
+member of the deadlyvipers,
+
+60
+00:02:57,380 --> 00:02:59,830
+I can go look at
+their pull request,
+
+61
+00:02:59,830 --> 00:03:02,890
+look at the change they made,
+and if I'm OK with that,
+
+62
+00:03:02,890 --> 00:03:05,150
+I can merge that
+pull request in.
+
+63
+00:03:05,150 --> 00:03:09,690
+And I get the chance to
+type a merge commit message
+
+64
+00:03:09,690 --> 00:03:13,570
+if I want to make it clear
+what work I was bringing in,
+
+65
+00:03:13,570 --> 00:03:15,320
+or why I accepted it.
+
+66
+00:03:15,320 --> 00:03:19,030
+So we've merged their changes
+into the upstream repository.
+
+67
+00:03:19,030 --> 00:03:22,210
+And we can see that
+right here on GitHub.
+
+68
+00:03:22,210 --> 00:03:25,590
+So if we go back to our
+console as our original user -
+
+69
+00:03:25,590 --> 00:03:30,140
+remember this is Peter Bell who
+has a fork of the deadlyvipers
+
+70
+00:03:30,140 --> 00:03:30,920
+repo.
+
+71
+00:03:30,920 --> 00:03:34,200
+We git pull, but it
+doesn't download anything.
+
+72
+00:03:34,200 --> 00:03:37,620
+And when we look at the
+contents of the dojo rules file,
+
+73
+00:03:37,620 --> 00:03:40,430
+we see that it doesn't
+have the change that
+
+74
+00:03:40,430 --> 00:03:44,390
+was accepted and merged
+into the upstream repo.
+
+75
+00:03:44,390 --> 00:03:48,420
+So to fix this, what we need to
+do, is we need to add a remote.
+
+76
+00:03:48,420 --> 00:03:50,910
+The convention is
+we'll call it upstream.
+
+77
+00:03:50,910 --> 00:03:53,590
+And we've got to point
+that to the deadlyvipers
+
+78
+00:03:53,590 --> 00:03:55,370
+copy of the repository.
+
+79
+00:03:55,370 --> 00:03:59,180
+And then what we need to do
+is pull those changes down.
+
+80
+00:04:00,420 --> 00:04:02,690
+Now that we've pulled
+those changes down,
+
+81
+00:04:02,690 --> 00:04:06,050
+you can see that we now have
+the changed content for the dojo
+
+82
+00:04:06,050 --> 00:04:07,580
+rules file.
+
+83
+00:04:07,580 --> 00:04:10,240
+And the next time we
+push up to our fork,
+
+84
+00:04:10,240 --> 00:04:13,200
+that will push the
+changes to our copy
+
+85
+00:04:13,200 --> 00:04:15,280
+of the repository
+on GitHub as well.
+
+86
+00:04:16,950 --> 00:04:18,470
+Time for you give this a try,
+
+87
+00:04:18,470 --> 00:04:21,000
+and I'll see you
+in the next level.
+

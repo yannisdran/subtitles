@@ -1,0 +1,485 @@
+﻿1
+00:00:02,040 --> 00:00:03,640
+Welcome back.
+
+2
+00:00:03,640 --> 00:00:07,020
+It's always a best practice
+to create a README.md
+
+3
+00:00:07,020 --> 00:00:10,220
+file in the root
+directory of your project.
+
+4
+00:00:10,220 --> 00:00:13,050
+It allows you to tell people
+what the project's about,
+
+5
+00:00:13,050 --> 00:00:16,270
+why they should use it,
+and how to install it,
+
+6
+00:00:16,270 --> 00:00:18,170
+and even how to
+contribute back to it.
+
+7
+00:00:18,170 --> 00:00:21,990
+But as your project gets
+larger and more complex,
+
+8
+00:00:21,990 --> 00:00:23,680
+eventually the
+README file is going
+
+9
+00:00:23,680 --> 00:00:26,317
+to get a little too
+large to work with.
+
+10
+00:00:26,317 --> 00:00:27,900
+When that happens,
+you should consider
+
+11
+00:00:27,900 --> 00:00:31,940
+setting up and GitHub Wiki
+to provide more information
+
+12
+00:00:31,940 --> 00:00:33,710
+about the project you've built.
+
+13
+00:00:34,740 --> 00:00:37,230
+You may have noticed
+earlier, enabling
+
+14
+00:00:37,230 --> 00:00:39,260
+wikis for a project is
+done on the same page
+
+15
+00:00:39,260 --> 00:00:40,560
+as enabling issues.
+
+16
+00:00:40,560 --> 00:00:43,000
+You just go to
+Settings, Options,
+
+17
+00:00:43,000 --> 00:00:46,190
+and under Features make sure to
+check the box next to wikis.
+
+18
+00:00:46,190 --> 00:00:48,180
+There's an extra
+option for wikis which
+
+19
+00:00:48,180 --> 00:00:52,870
+allows you to restrict editing
+on a public repository only
+
+20
+00:00:52,870 --> 00:00:53,987
+to collaborators.
+
+21
+00:00:53,987 --> 00:00:56,320
+So if you don't want everyone
+changing the documentation
+
+22
+00:00:56,320 --> 00:00:59,260
+for your project, make
+sure to check that box.
+
+23
+00:00:59,260 --> 00:01:02,420
+Let's say you want to add
+a wiki to your project.
+
+24
+00:01:02,420 --> 00:01:05,260
+Start by clicking on the
+Wiki tab on the right.
+
+25
+00:01:05,260 --> 00:01:08,470
+And you'll see that it gives
+you a welcome page to the wiki,
+
+26
+00:01:08,470 --> 00:01:12,580
+and asks you to click a button
+to create your initial page.
+
+27
+00:01:12,580 --> 00:01:15,600
+When you click that button,
+it'll give you a form.
+
+28
+00:01:15,600 --> 00:01:18,460
+By default, it'll set the
+title for the page to Home,
+
+29
+00:01:18,460 --> 00:01:20,540
+but you can change
+that if you want.
+
+30
+00:01:20,540 --> 00:01:22,140
+And then it gives
+you a text area
+
+31
+00:01:22,140 --> 00:01:25,480
+where you can enter the
+content for that initial page.
+
+32
+00:01:26,720 --> 00:01:28,960
+Creating links is really easy.
+
+33
+00:01:28,960 --> 00:01:31,450
+You just click on
+the Link button.
+
+34
+00:01:31,450 --> 00:01:34,280
+And then insert the
+link text, which
+
+35
+00:01:34,280 --> 00:01:38,520
+can be any description you want,
+and the URL, which is either
+
+36
+00:01:38,520 --> 00:01:43,400
+going to be the name of another
+page on the wiki or a full URL
+
+37
+00:01:43,400 --> 00:01:46,730
+if it wants to be a link to
+something outside of your wiki.
+
+38
+00:01:48,510 --> 00:01:51,352
+There were a number of
+buttons above the text area
+
+39
+00:01:51,352 --> 00:01:52,560
+when you're entering content.
+
+40
+00:01:53,700 --> 00:01:57,980
+You can use these to create
+headings, links, bolds,
+
+41
+00:01:57,980 --> 00:01:59,920
+italics, and the like.
+
+42
+00:01:59,920 --> 00:02:01,990
+But this isn't a WIZIWIG editor.
+
+43
+00:02:01,990 --> 00:02:05,020
+All it's going to do is
+generate Markdown for you.
+
+44
+00:02:05,020 --> 00:02:08,610
+So instead, use these if you
+can't remember the Markdown.
+
+45
+00:02:08,610 --> 00:02:10,560
+But once you've used
+them a few times,
+
+46
+00:02:10,560 --> 00:02:13,040
+you'll probably just
+start typing the Markdown
+
+47
+00:02:13,040 --> 00:02:14,560
+straight into the text area.
+
+48
+00:02:15,970 --> 00:02:20,310
+The Markdown we work with in
+README files and in the wiki
+
+49
+00:02:20,310 --> 00:02:22,040
+is GitHub Flavored Markdown.
+
+50
+00:02:23,060 --> 00:02:24,900
+If you're new to
+Markdown you'll obviously
+
+51
+00:02:24,900 --> 00:02:27,010
+want to learn the
+basics of this.
+
+52
+00:02:27,010 --> 00:02:29,650
+But even if you've been using
+Markdown for a number of years
+
+53
+00:02:29,650 --> 00:02:33,020
+in other projects, take
+the time to go to the URL
+
+54
+00:02:33,020 --> 00:02:36,040
+at the bottom of this
+screen and learn more
+
+55
+00:02:36,040 --> 00:02:38,350
+about GitHub Flavored
+Markdown, because there
+
+56
+00:02:38,350 --> 00:02:40,220
+are a number of
+specific differences,
+
+57
+00:02:40,220 --> 00:02:43,175
+compared to other flavors
+of Markdown that exist.
+
+58
+00:02:44,760 --> 00:02:48,430
+One thing you might want to add
+to your wiki is status badges.
+
+59
+00:02:48,430 --> 00:02:51,600
+Here's an example in
+the Rails Arel Project,
+
+60
+00:02:51,600 --> 00:02:53,200
+where we're seeing
+badges to show
+
+61
+00:02:53,200 --> 00:02:56,660
+that the build is currently
+passing in Travis CI,
+
+62
+00:02:56,660 --> 00:02:59,460
+and that the dependencies
+are all up to date,
+
+63
+00:02:59,460 --> 00:03:00,980
+according to Gemnasium.
+
+64
+00:03:00,980 --> 00:03:03,680
+We're really just
+putting images in here.
+
+65
+00:03:03,680 --> 00:03:07,620
+But those images get
+updated by those projects.
+
+66
+00:03:07,620 --> 00:03:11,390
+So it's a really easy
+way to dynamically show
+
+67
+00:03:11,390 --> 00:03:14,080
+the state of your
+project in your wiki.
+
+68
+00:03:14,080 --> 00:03:16,780
+This is a general feature
+of GitHub Markdown.
+
+69
+00:03:16,780 --> 00:03:19,950
+And it can be used in
+wikis or in README files.
+
+70
+00:03:19,950 --> 00:03:22,300
+In fact, the example,
+we're using here comes
+
+71
+00:03:22,300 --> 00:03:25,220
+from the Arel README file,
+rather than its wiki.
+
+72
+00:03:26,270 --> 00:03:29,870
+So let's look at the
+process of building a wiki.
+
+73
+00:03:29,870 --> 00:03:32,730
+The first thing we do is
+click on the "Wiki" tab,
+
+74
+00:03:32,730 --> 00:03:36,310
+and it's going to say,
+Welcome to your wiki.
+
+75
+00:03:36,310 --> 00:03:38,500
+Create the first page.
+
+76
+00:03:38,500 --> 00:03:41,480
+Click on the link,
+and all you need to do
+
+77
+00:03:41,480 --> 00:03:44,755
+is go into the content area
+and add some information.
+
+78
+00:03:46,780 --> 00:03:49,245
+Once you're done with
+that, click on "Save Page."
+
+79
+00:03:50,270 --> 00:03:52,780
+And notice the little
+metadata is stored here
+
+80
+00:03:52,780 --> 00:03:56,020
+about who made the change
+and when it was made.
+
+81
+00:03:56,020 --> 00:03:59,230
+Now let's add a new page,
+because the whole power wiki's
+
+82
+00:03:59,230 --> 00:04:01,920
+is linking across
+multiple pages.
+
+83
+00:04:01,920 --> 00:04:06,240
+We can give it a title,
+enter a description,
+
+84
+00:04:06,240 --> 00:04:08,710
+and when we're
+done, save the page.
+
+85
+00:04:08,710 --> 00:04:10,580
+Now let's go back
+to the home page
+
+86
+00:04:10,580 --> 00:04:13,480
+and create a link
+to our new page.
+
+87
+00:04:13,480 --> 00:04:16,019
+And to do that,
+all we need to do
+
+88
+00:04:16,019 --> 00:04:20,649
+is type the text before the
+link, click on the link button,
+
+89
+00:04:20,649 --> 00:04:24,380
+and enter the description we
+want for the link and the page
+
+90
+00:04:24,380 --> 00:04:25,890
+it should link to.
+
+91
+00:04:25,890 --> 00:04:28,830
+And notice, we can just go in
+and change that description,
+
+92
+00:04:28,830 --> 00:04:29,840
+for example.
+
+93
+00:04:29,840 --> 00:04:31,560
+It's just a text file.
+
+94
+00:04:31,560 --> 00:04:34,760
+Now when we go to the home page,
+after saving that page,
+
+95
+00:04:34,760 --> 00:04:37,030
+we can click on
+that link and see
+
+96
+00:04:37,030 --> 00:04:39,770
+that it takes us to
+our new Rules page.
+
+97
+00:04:39,770 --> 00:04:42,710
+You'll also notice that
+all of the pages we add
+
+98
+00:04:42,710 --> 00:04:46,305
+are added to a navigation box
+on the right of the wiki page.
+
+99
+00:04:48,130 --> 00:04:50,150
+So have fun playing
+with you wikis
+
+100
+00:04:50,150 --> 00:04:53,200
+and I'll see you in
+the next section.
+

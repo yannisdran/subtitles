@@ -1,0 +1,1080 @@
+﻿1
+00:00:00,557 --> 00:00:02,890
+[SINGING] She will clone and
+fork your repos faster than
+
+2
+00:00:02,890 --> 00:00:03,610
+you can blink.
+
+3
+00:00:03,610 --> 00:00:06,850
+And then tag, push, and pull
+requests while pouring a drink.
+
+4
+00:00:06,850 --> 00:00:09,570
+She's studied wikis and
+pages to promote her skills,
+
+5
+00:00:09,570 --> 00:00:11,260
+but it's the branching
+and the merging
+
+6
+00:00:11,260 --> 00:00:12,950
+which will pay all the bills.
+
+7
+00:00:12,950 --> 00:00:15,820
+Your only chance to find
+her is to use her work flow.
+
+8
+00:00:15,820 --> 00:00:18,770
+Commit to her release, and
+you can access control.
+
+9
+00:00:18,770 --> 00:00:21,910
+You'll be pushing past security
+to join her at the club just
+
+10
+00:00:21,910 --> 00:00:24,096
+to catch a glimpse of
+her mastering GitHub.
+
+11
+00:00:28,950 --> 00:00:31,100
+You're watching Level
+One of Mastering GitHub.
+
+12
+00:00:31,100 --> 00:00:33,692
+I'm Peter Bell.
+
+13
+00:00:33,692 --> 00:00:35,400
+In this course, we're
+going to be looking
+
+14
+00:00:35,400 --> 00:00:39,030
+at the process of using GitHub
+to collaborate effectively
+
+15
+00:00:39,030 --> 00:00:40,460
+with your team.
+
+16
+00:00:40,460 --> 00:00:43,760
+GitHub is more than just a place
+to store your Git repositories.
+
+17
+00:00:43,760 --> 00:00:46,310
+It's a place for
+sharing your code,
+
+18
+00:00:46,310 --> 00:00:47,989
+discussing it with
+your team members,
+
+19
+00:00:47,989 --> 00:00:49,655
+and even doing
+lightweight code reviews.
+
+20
+00:00:50,532 --> 00:00:52,240
+There are lots of
+different ways that you
+
+21
+00:00:52,240 --> 00:00:55,620
+can work with Git and
+tools like GitHub,
+
+22
+00:00:55,620 --> 00:00:58,180
+but we're going to be
+focusing on proven best
+
+23
+00:00:58,180 --> 00:01:01,010
+practices for using GitHub
+to collaborate effectively.
+
+24
+00:01:02,080 --> 00:01:03,580
+We're going to make
+some assumptions
+
+25
+00:01:03,580 --> 00:01:04,810
+at the start of this class.
+
+26
+00:01:04,810 --> 00:01:06,518
+We're going to assume
+that you're already
+
+27
+00:01:06,518 --> 00:01:09,330
+familiar with the basics of
+adding and committing files
+
+28
+00:01:09,330 --> 00:01:14,240
+to a git repository, using
+feature branches effectively,
+
+29
+00:01:14,240 --> 00:01:19,380
+branching, merging, rebasing,
+and dealing with conflicts
+
+30
+00:01:19,380 --> 00:01:21,962
+if you've got a merge
+or rebase conflict.
+
+31
+00:01:21,962 --> 00:01:24,170
+So if you're not comfortable
+with any of those things
+
+32
+00:01:24,170 --> 00:01:26,090
+or you feel like you
+need a refresher,
+
+33
+00:01:26,090 --> 00:01:30,560
+make sure to check out the Code
+School classes for Git Real
+
+34
+00:01:30,560 --> 00:01:32,840
+and Git Real 2 that
+will run you through all
+
+35
+00:01:32,840 --> 00:01:34,710
+of that material
+in great detail.
+
+36
+00:01:36,712 --> 00:01:39,170
+Let's start by making sure you
+have your Git configurations
+
+37
+00:01:39,170 --> 00:01:42,070
+set up the way you need it
+for the rest of this course,
+
+38
+00:01:42,070 --> 00:01:44,260
+and hopefully you'll learn
+one or two tips or tricks
+
+39
+00:01:44,260 --> 00:01:45,780
+along the way.
+
+40
+00:01:45,780 --> 00:01:47,670
+As we go through
+this course, make
+
+41
+00:01:47,670 --> 00:01:49,230
+sure to keep a
+console window open
+
+42
+00:01:49,230 --> 00:01:51,620
+and follow along
+with the commands.
+
+43
+00:01:51,620 --> 00:01:54,700
+That way you're going to be able
+to get some hands on experience
+
+44
+00:01:54,700 --> 00:01:57,840
+plus the challenges are going
+to be in the console, as well.
+
+45
+00:01:57,840 --> 00:02:00,760
+So you'll be there and
+ready to complete them.
+
+46
+00:02:00,760 --> 00:02:04,100
+There are three different
+levels of configuration in Git.
+
+47
+00:02:04,100 --> 00:02:08,017
+You can configure at a local,
+global, or system level.
+
+48
+00:02:08,017 --> 00:02:10,100
+Most of the configuration
+you're going to be doing
+
+49
+00:02:10,100 --> 00:02:12,720
+is at a global level for
+all of the repositories
+
+50
+00:02:12,720 --> 00:02:15,530
+that you work on
+in this machine.
+
+51
+00:02:15,530 --> 00:02:19,120
+But sometimes you might want
+to set a local configuration.
+
+52
+00:02:19,120 --> 00:02:23,050
+For example, if you wanted to
+override your email address.
+
+53
+00:02:23,050 --> 00:02:25,660
+If you're account leader in
+most of your work for a company
+
+54
+00:02:25,660 --> 00:02:27,940
+but you're working on
+one open source project,
+
+55
+00:02:27,940 --> 00:02:30,400
+you might want to
+get git config --
+
+56
+00:02:30,400 --> 00:02:35,141
+local your user dot email just
+for that open source project.
+
+57
+00:02:35,141 --> 00:02:37,390
+And occasionally you might
+want to configure something
+
+58
+00:02:37,390 --> 00:02:41,190
+at a system level, which is for
+all of the users of the system
+
+59
+00:02:41,190 --> 00:02:43,210
+irrespective of who
+they're logged in as.
+
+60
+00:02:43,210 --> 00:02:46,460
+So, for example, you might
+want to set the system color
+
+61
+00:02:46,460 --> 00:02:50,667
+UI to true for all of
+the users of the system
+
+62
+00:02:50,667 --> 00:02:52,250
+because it's something
+that everyone's
+
+63
+00:02:52,250 --> 00:02:53,624
+going to need to
+have configured.
+
+64
+00:02:56,300 --> 00:02:57,800
+So let's start
+quickly by checking
+
+65
+00:02:57,800 --> 00:02:59,450
+your global configuration.
+
+66
+00:02:59,450 --> 00:03:03,710
+If you git config --
+global user dot name.
+
+67
+00:03:03,710 --> 00:03:07,180
+That's going to get and
+return your username.
+
+68
+00:03:07,180 --> 00:03:11,660
+And if you git config --
+global user dot email,
+
+69
+00:03:11,660 --> 00:03:16,150
+that's going to display your
+currently configured global
+
+70
+00:03:16,150 --> 00:03:17,300
+user email.
+
+71
+00:03:18,174 --> 00:03:20,590
+If you're happy with those,
+you can leave them as you are.
+
+72
+00:03:20,590 --> 00:03:22,589
+If not, you can actually
+jump in and change them
+
+73
+00:03:22,589 --> 00:03:24,740
+just by using the same
+command but by putting
+
+74
+00:03:24,740 --> 00:03:25,730
+a value on the end.
+
+75
+00:03:28,320 --> 00:03:31,350
+There are two ways you can look
+at your global configurations.
+
+76
+00:03:31,350 --> 00:03:34,770
+You can certainly git
+config -- global --
+
+77
+00:03:34,770 --> 00:03:38,690
+list to use git to list all
+of your global configuration
+
+78
+00:03:38,690 --> 00:03:39,190
+settings.
+
+79
+00:03:39,190 --> 00:03:41,481
+But the other thing you can
+do is you can actually just
+
+80
+00:03:41,481 --> 00:03:43,740
+look at the underlying
+configuration file.
+
+81
+00:03:43,740 --> 00:03:47,570
+If you just cat to catalog
+or output the contents
+
+82
+00:03:47,570 --> 00:03:52,060
+of the ~/.gitconfig file,
+that will take this file from
+
+83
+00:03:52,060 --> 00:03:55,150
+your home directory and
+show all of your global git
+
+84
+00:03:55,150 --> 00:03:57,070
+configuration settings.
+
+85
+00:03:57,070 --> 00:04:00,700
+And, in fact, you can even edit
+this file using a text editor.
+
+86
+00:04:00,700 --> 00:04:03,000
+Let's look at an
+example of that.
+
+87
+00:04:03,000 --> 00:04:07,950
+Here we're going in to
+our global git config
+
+88
+00:04:07,950 --> 00:04:10,650
+and let's say we wanted to
+change our email address.
+
+89
+00:04:10,650 --> 00:04:14,450
+You just go into that,
+change it, save the changes
+
+90
+00:04:14,450 --> 00:04:16,300
+to your file, and
+then when you look
+
+91
+00:04:16,300 --> 00:04:19,901
+at your git config at a global
+level for your user email,
+
+92
+00:04:19,901 --> 00:04:21,650
+you will see that it
+has now been changed.
+
+93
+00:04:23,780 --> 00:04:25,830
+Viewing local
+configuration settings
+
+94
+00:04:25,830 --> 00:04:28,250
+is very similar to
+viewing the global ones.
+
+95
+00:04:28,250 --> 00:04:34,410
+You could git config -- local
+-- list to list them using git.
+
+96
+00:04:34,410 --> 00:04:36,870
+Or you could just look at
+your local git configuration
+
+97
+00:04:36,870 --> 00:04:40,750
+file, which is in the dot git
+directory in a file called
+
+98
+00:04:40,750 --> 00:04:41,676
+config.
+
+99
+00:04:41,676 --> 00:04:43,050
+And, again, this
+is something you
+
+100
+00:04:43,050 --> 00:04:45,210
+could edit using a text
+editor if you wanted.
+
+101
+00:04:47,869 --> 00:04:50,410
+Have you ever had the experience
+that it looked like somebody
+
+102
+00:04:50,410 --> 00:04:53,590
+had changed every single line
+in three or four different files
+
+103
+00:04:53,590 --> 00:04:55,110
+but when you looked
+at the changes
+
+104
+00:04:55,110 --> 00:04:56,992
+they made they
+didn't actually seem
+
+105
+00:04:56,992 --> 00:04:58,450
+to have changed
+any of the content?
+
+106
+00:04:59,560 --> 00:05:01,740
+This can occur when
+you have people working
+
+107
+00:05:01,740 --> 00:05:03,870
+on different operating
+systems and perhaps you've
+
+108
+00:05:03,870 --> 00:05:05,840
+got line feeds at
+the end of each line
+
+109
+00:05:05,840 --> 00:05:08,150
+and perhaps they were using
+Windows and added carriage
+
+110
+00:05:08,150 --> 00:05:09,870
+returns, as well.
+
+111
+00:05:09,870 --> 00:05:12,170
+One of the most important
+configuration settings
+
+112
+00:05:12,170 --> 00:05:17,850
+you can use is autocrlf, or
+auto Carriage Return Line Feed,
+
+113
+00:05:17,850 --> 00:05:20,210
+which allows you to
+solve this problem.
+
+114
+00:05:20,210 --> 00:05:21,870
+Depending on your
+operating system,
+
+115
+00:05:21,870 --> 00:05:22,780
+these are the
+commands you're going
+
+116
+00:05:22,780 --> 00:05:25,430
+to want to run to make sure you
+don't run into that problem.
+
+117
+00:05:28,190 --> 00:05:30,440
+Another important setting,
+especially if you're not
+
+118
+00:05:30,440 --> 00:05:35,182
+on Git 2.0 or later yet, is
+configuring your push default.
+
+119
+00:05:35,182 --> 00:05:36,890
+Historically, the push
+default was always
+
+120
+00:05:36,890 --> 00:05:39,840
+set to matching, which meant
+that whenever you pushed
+
+121
+00:05:39,840 --> 00:05:41,800
+to a remote server
+like GitHub, it
+
+122
+00:05:41,800 --> 00:05:44,270
+would push all of the
+matching branches.
+
+123
+00:05:44,270 --> 00:05:46,400
+You might push changes
+to three or four branches
+
+124
+00:05:46,400 --> 00:05:48,490
+without realizing
+what you were doing.
+
+125
+00:05:48,490 --> 00:05:50,820
+You probably want to
+configure your push default
+
+126
+00:05:50,820 --> 00:05:53,000
+to Simple, which
+means it's only going
+
+127
+00:05:53,000 --> 00:05:56,160
+to push the changes on the
+branch you're currently on,
+
+128
+00:05:56,160 --> 00:05:58,210
+which is a much more
+intuitive choice.
+
+129
+00:05:58,210 --> 00:06:05,750
+And that's actually now
+the default in Git 2.0.
+
+130
+00:06:05,750 --> 00:06:08,190
+Another important
+configuration setting
+
+131
+00:06:08,190 --> 00:06:10,220
+is to configure
+your pull default.
+
+132
+00:06:11,350 --> 00:06:15,150
+Often what people will
+do is they will git pull
+
+133
+00:06:15,150 --> 00:06:20,100
+and because a pull is a
+fetch plus a merge, what
+
+134
+00:06:20,100 --> 00:06:23,070
+it does is it creates these
+merge commits where it's taking
+
+135
+00:06:23,070 --> 00:06:25,300
+their local commits with
+whatever commits they
+
+136
+00:06:25,300 --> 00:06:27,650
+downloaded and adding
+this spurious merge
+
+137
+00:06:27,650 --> 00:06:30,270
+commit that really adds
+no useful information
+
+138
+00:06:30,270 --> 00:06:32,170
+to the repository's history.
+
+139
+00:06:32,170 --> 00:06:35,035
+You are usually much
+better to rebase on pull.
+
+140
+00:06:35,035 --> 00:06:37,370
+So to do a git pull -- rebase.
+
+141
+00:06:38,400 --> 00:06:40,850
+The problem is it's
+sometimes hard to remember
+
+142
+00:06:40,850 --> 00:06:42,654
+to do that on a regular basis.
+
+143
+00:06:42,654 --> 00:06:44,820
+And if you're not quite
+sure what I'm talking about,
+
+144
+00:06:44,820 --> 00:06:47,400
+remember, we covered
+this in Git Real 2.
+
+145
+00:06:47,400 --> 00:06:49,062
+So do check out that
+Code School class
+
+146
+00:06:49,062 --> 00:06:50,270
+if you want more information.
+
+147
+00:06:53,090 --> 00:06:56,070
+So if you want to make sure
+that you're pull defaults are
+
+148
+00:06:56,070 --> 00:06:59,950
+configured correctly so that you
+always fetch and then rebase,
+
+149
+00:06:59,950 --> 00:07:02,940
+what you want to
+do is git config --
+
+150
+00:07:02,940 --> 00:07:05,560
+global pull dot rebase to true.
+
+151
+00:07:05,560 --> 00:07:08,040
+And this means for all
+of your repositories,
+
+152
+00:07:08,040 --> 00:07:10,950
+it will rebase when you
+pull instead of merging.
+
+153
+00:07:12,480 --> 00:07:13,950
+One problem that
+can occur is when
+
+154
+00:07:13,950 --> 00:07:17,440
+you need to resolve the same
+merge conflicts multiple times.
+
+155
+00:07:17,440 --> 00:07:19,340
+Perhaps if you
+are cherry picking
+
+156
+00:07:19,340 --> 00:07:22,750
+a commit to multiple long
+running release branches
+
+157
+00:07:22,750 --> 00:07:28,230
+or perhaps if you are rebasing
+regularly or merging in
+
+158
+00:07:28,230 --> 00:07:31,949
+and then backing out of merge
+after integration testing.
+
+159
+00:07:31,949 --> 00:07:33,490
+Likely there's a
+configuration option
+
+160
+00:07:33,490 --> 00:07:35,750
+that can save you a lot
+of trouble doing this.
+
+161
+00:07:35,750 --> 00:07:40,510
+With ReReRe, or Reuse Recorded
+Resolution, what you can do
+
+162
+00:07:40,510 --> 00:07:45,440
+is ask Git to capture every time
+you resolve a merge conflict
+
+163
+00:07:45,440 --> 00:07:47,240
+and then in the future
+if you have exactly
+
+164
+00:07:47,240 --> 00:07:52,020
+that same merge conflict, it
+will remake the same change
+
+165
+00:07:52,020 --> 00:07:54,120
+but still give you a
+chance to review it just
+
+166
+00:07:54,120 --> 00:07:55,880
+to make sure it's acceptable.
+
+167
+00:07:55,880 --> 00:08:00,170
+So I'd strongly encourage you
+to configure ReReRe and enable
+
+168
+00:08:00,170 --> 00:08:02,460
+that and set that
+to true so that you
+
+169
+00:08:02,460 --> 00:08:04,720
+can take advantage
+of this feature.
+
+170
+00:08:04,720 --> 00:08:08,242
+Finally, if you're running an
+old version of Git, 1, 8, 4,
+
+171
+00:08:08,242 --> 00:08:11,620
+or earlier, it's important to
+configure at a global level
+
+172
+00:08:11,620 --> 00:08:14,080
+to set the color.UI to true.
+
+173
+00:08:14,080 --> 00:08:17,160
+This is what gives you the
+green and red coloration in Git
+
+174
+00:08:17,160 --> 00:08:19,990
+so that you can see more
+easily what's going on.
+
+175
+00:08:22,050 --> 00:08:25,530
+There are some very
+powerful options in Git,
+
+176
+00:08:25,530 --> 00:08:28,580
+but some of them can
+require a lot of typing.
+
+177
+00:08:28,580 --> 00:08:30,860
+Aliases allow you to
+create your own custom
+
+178
+00:08:30,860 --> 00:08:32,909
+commands that do
+just what you want.
+
+179
+00:08:32,909 --> 00:08:34,450
+And there's a couple
+of aliases we're
+
+180
+00:08:34,450 --> 00:08:37,690
+going to recommended that you
+use throughout this course.
+
+181
+00:08:37,690 --> 00:08:40,574
+The first alias we're going
+to recommend is git s.
+
+182
+00:08:41,580 --> 00:08:43,429
+If you look at a
+git status, you'll
+
+183
+00:08:43,429 --> 00:08:47,730
+notice that it takes up a lot of
+space to show you information,
+
+184
+00:08:47,730 --> 00:08:51,410
+whereas if you do git status
+ -s, or silent mode,
+
+185
+00:08:51,410 --> 00:08:53,730
+it gives you just the
+information you need most
+
+186
+00:08:53,730 --> 00:08:55,455
+of the time in much less space.
+
+187
+00:08:56,780 --> 00:09:02,560
+So if git config an alias
+called S for status -s,
+
+188
+00:09:02,560 --> 00:09:06,650
+that will allow you to
+output status in silent mode
+
+189
+00:09:06,650 --> 00:09:08,850
+just by typing git s.
+
+190
+00:09:10,750 --> 00:09:14,890
+Git log is a great command,
+but by itself it doesn't really
+
+191
+00:09:14,890 --> 00:09:16,390
+give a very useful
+output because it
+
+192
+00:09:16,390 --> 00:09:18,730
+takes lines and lines
+of information just
+
+193
+00:09:18,730 --> 00:09:20,910
+to show you the last
+two or three commits.
+
+194
+00:09:22,070 --> 00:09:26,110
+Wouldn't it be great if we had a
+command like git lg, let's say,
+
+195
+00:09:26,110 --> 00:09:28,890
+which wouldn't be too much
+typing that would show us
+
+196
+00:09:28,890 --> 00:09:32,270
+every commit on it's own line
+that would decorate those
+
+197
+00:09:32,270 --> 00:09:34,270
+commits with things
+like the head,
+
+198
+00:09:34,270 --> 00:09:38,990
+the branches, and perhaps even
+tags, and that would show us
+
+199
+00:09:38,990 --> 00:09:42,530
+things like the graph as
+well so we could see what
+
+200
+00:09:42,530 --> 00:09:44,240
+ commits were made
+on what branches.
+
+201
+00:09:45,360 --> 00:09:48,900
+Well, we can do that if we
+create a git configuration
+
+202
+00:09:48,900 --> 00:09:53,940
+option with an alias of lg
+that is a log with the one line
+
+203
+00:09:53,940 --> 00:09:58,315
+decorate all and
+graph options set.
+
+204
+00:10:01,590 --> 00:10:05,930
+Git configurations are specific
+to the machine you're on.
+
+205
+00:10:05,930 --> 00:10:08,080
+They don't get
+shared when you push,
+
+206
+00:10:08,080 --> 00:10:10,076
+pull, or clone a repository.
+
+207
+00:10:10,076 --> 00:10:11,950
+Because of that, it's
+important to figure out
+
+208
+00:10:11,950 --> 00:10:15,340
+how you do want to share some
+settings between team members,
+
+209
+00:10:15,340 --> 00:10:17,650
+whether it's the same
+aliases or making sure
+
+210
+00:10:17,650 --> 00:10:20,370
+that everyone rebases on pull.
+
+211
+00:10:20,370 --> 00:10:22,490
+There are two common
+patterns for doing this.
+
+212
+00:10:22,490 --> 00:10:25,800
+One is to just put your
+configuration options in a wiki
+
+213
+00:10:25,800 --> 00:10:29,060
+so people can cut and paste
+them and run those configuration
+
+214
+00:10:29,060 --> 00:10:31,230
+commands whenever they
+set up a new machine.
+
+215
+00:10:31,230 --> 00:10:34,350
+The other option is to create
+a repository for your dot files
+
+216
+00:10:34,350 --> 00:10:36,240
+where you can put
+your dot git config
+
+217
+00:10:36,240 --> 00:10:39,382
+and any other important dot
+files and share them easily
+
+218
+00:10:39,382 --> 00:10:40,590
+between members of your team.
+
+219
+00:10:41,817 --> 00:10:43,900
+Now it's time for you to
+jump into some challenges
+
+220
+00:10:43,900 --> 00:10:46,760
+and make sure you've got
+your configuration set up.
+
+221
+00:10:46,760 --> 00:10:49,630
+I'll see you in
+the next section.
+
