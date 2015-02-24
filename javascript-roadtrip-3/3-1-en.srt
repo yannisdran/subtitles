@@ -1,0 +1,1584 @@
+﻿1
+00:00:00,500 --> 00:00:03,630
+[SINGING] From the Labyrinth of
+Loops to the Variable Valley,
+
+2
+00:00:03,630 --> 00:00:06,250
+we'll see the Cliffs of
+Value first. JavaScript's
+
+3
+00:00:06,250 --> 00:00:07,180
+right up your alley.
+
+4
+00:00:07,180 --> 00:00:10,490
+Built-ins Bluff, Files
+Falls, Array Archipelago,
+
+5
+00:00:10,490 --> 00:00:12,300
+declarations in a
+desert where you'll
+
+6
+00:00:12,300 --> 00:00:13,670
+find out how far you'll go.
+
+7
+00:00:13,670 --> 00:00:14,985
+Learn to program, take a ride.
+
+8
+00:00:14,985 --> 00:00:16,732
+Buy a ticket, step inside.
+
+9
+00:00:16,732 --> 00:00:18,190
+All aboard! You're
+at the station
+
+10
+00:00:18,190 --> 00:00:20,060
+to increase your education.
+
+11
+00:00:20,060 --> 00:00:22,510
+Bon voyage and skinny
+dip! As long as functions
+
+12
+00:00:22,510 --> 00:00:27,515
+you don't skip on this
+the JavaScript Road Trip.
+
+13
+00:00:31,980 --> 00:00:34,750
+Ever have one of your
+programs produce errors,
+
+14
+00:00:34,750 --> 00:00:37,720
+not because your logic or
+your problem solving design
+
+15
+00:00:37,720 --> 00:00:40,170
+is incorrect,
+necessarily, but instead
+
+16
+00:00:40,170 --> 00:00:42,150
+because the load order
+of the functionality
+
+17
+00:00:42,150 --> 00:00:44,150
+within your website
+seems to be getting
+
+18
+00:00:44,150 --> 00:00:46,530
+in the way of your success?
+
+19
+00:00:46,530 --> 00:00:49,720
+Turns out load order is a very
+important thing in JavaScript,
+
+20
+00:00:49,720 --> 00:00:53,490
+especially when parts of your
+program rely on other parts
+
+21
+00:00:53,490 --> 00:00:56,680
+very heavily to succeed,
+but can't find those parts
+
+22
+00:00:56,680 --> 00:00:58,690
+exactly when they need them.
+
+23
+00:00:58,690 --> 00:01:00,850
+Now, this level may
+seem a little short,
+
+24
+00:01:00,850 --> 00:01:02,290
+but don't let that deceive you.
+
+25
+00:01:02,290 --> 00:01:05,274
+Because this packs on
+a very important bit
+
+26
+00:01:05,274 --> 00:01:08,890
+of broader perspective
+for you as a developer.
+
+27
+00:01:08,890 --> 00:01:12,140
+And with that, enjoy your
+hike in the Hoisting Hills.
+
+28
+00:01:15,780 --> 00:01:17,690
+Hey guys, welcome
+back to Level Three.
+
+29
+00:01:17,690 --> 00:01:19,770
+This is the Hoisting Hills.
+
+30
+00:01:19,770 --> 00:01:23,120
+Now in JavaScript, hoisting
+is not something that you do.
+
+31
+00:01:23,120 --> 00:01:25,740
+It's just something we
+want to make you aware of.
+
+32
+00:01:25,740 --> 00:01:28,540
+It's a concept about
+program load order.
+
+33
+00:01:28,540 --> 00:01:30,800
+So let's take a look at
+this program right here.
+
+34
+00:01:30,800 --> 00:01:33,150
+You can see it's got
+three functions in it
+
+35
+00:01:33,150 --> 00:01:35,910
+as well as two global variables.
+
+36
+00:01:35,910 --> 00:01:39,760
+And within that, function two is
+going to call two subfunctions
+
+37
+00:01:39,760 --> 00:01:43,490
+as well as initialize another
+local variable inside function
+
+38
+00:01:43,490 --> 00:01:44,950
+two's scope.
+
+39
+00:01:44,950 --> 00:01:47,140
+If all the stuff that's
+in function to works OK,
+
+40
+00:01:47,140 --> 00:01:48,820
+then function two will be great.
+
+41
+00:01:48,820 --> 00:01:51,820
+And then if everything in the
+global scope works all right,
+
+42
+00:01:51,820 --> 00:01:55,550
+then our program
+will be just fine.
+
+43
+00:01:55,550 --> 00:01:58,010
+Sometimes though in
+the process of coding,
+
+44
+00:01:58,010 --> 00:02:00,340
+we produce a code order
+that doesn't produce
+
+45
+00:02:00,340 --> 00:02:04,860
+a correct output because the
+way that JavaScript prioritizes
+
+46
+00:02:04,860 --> 00:02:07,990
+the loading of variables
+and functions into memory.
+
+47
+00:02:07,990 --> 00:02:11,380
+So now we're going to look
+at the load order in tandem
+
+48
+00:02:11,380 --> 00:02:14,050
+with this concept
+called hoisting.
+
+49
+00:02:14,050 --> 00:02:18,410
+For example, if in our
+function two local variable one
+
+50
+00:02:18,410 --> 00:02:20,910
+needs sub function
+two for something
+
+51
+00:02:20,910 --> 00:02:24,910
+but it's not loaded yet, then
+local variable one will fail.
+
+52
+00:02:24,910 --> 00:02:27,640
+And ultimately,
+function two would fail.
+
+53
+00:02:27,640 --> 00:02:30,820
+And if function two's failing
+and our entire program depends
+
+54
+00:02:30,820 --> 00:02:33,780
+upon it, then our
+program fails too.
+
+55
+00:02:33,780 --> 00:02:36,310
+So we're going to look at
+this load order concept,
+
+56
+00:02:36,310 --> 00:02:40,380
+a concept we call hoisting,
+so that you can always be sure
+
+57
+00:02:40,380 --> 00:02:41,835
+that your programs
+run correctly.
+
+58
+00:02:44,920 --> 00:02:49,580
+So think about when we initially
+open a scope in JavaScript.
+
+59
+00:02:49,580 --> 00:02:52,290
+The first thing that's going
+to happen inside that scope
+
+60
+00:02:52,290 --> 00:02:54,110
+is that memory is
+going to be set aside
+
+61
+00:02:54,110 --> 00:02:56,460
+for all of the
+necessary variables
+
+62
+00:02:56,460 --> 00:02:59,870
+and the declared functions
+that the compiler sees
+
+63
+00:02:59,870 --> 00:03:02,450
+within the scope you have built.
+
+64
+00:03:02,450 --> 00:03:05,370
+So let's take as an
+example this sum of squares
+
+65
+00:03:05,370 --> 00:03:07,320
+function that you can
+see we've built here.
+
+66
+00:03:07,320 --> 00:03:11,350
+Inside it you see the variable
+x being declared and then
+
+67
+00:03:11,350 --> 00:03:14,950
+assigned a value that comes
+back from an add function.
+
+68
+00:03:14,950 --> 00:03:17,186
+And then that
+variable is returned.
+
+69
+00:03:17,186 --> 00:03:18,560
+Towards the end
+of the scope, you
+
+70
+00:03:18,560 --> 00:03:20,590
+can see the add function
+being declared just
+
+71
+00:03:20,590 --> 00:03:22,700
+as a regular declare function.
+
+72
+00:03:22,700 --> 00:03:25,420
+Now, that's what we see in
+our code when we write it.
+
+73
+00:03:25,420 --> 00:03:27,290
+But let's look at how
+JavaScript actually
+
+74
+00:03:27,290 --> 00:03:30,580
+sees it when the compiler
+runs the program.
+
+75
+00:03:30,580 --> 00:03:32,080
+So the first thing
+that happens is
+
+76
+00:03:32,080 --> 00:03:35,190
+that the variable x
+is hoisted to the top.
+
+77
+00:03:35,190 --> 00:03:38,800
+It's given memory space at the
+very beginning of the scope
+
+78
+00:03:38,800 --> 00:03:39,950
+initialization.
+
+79
+00:03:39,950 --> 00:03:42,370
+But it has no value.
+
+80
+00:03:42,370 --> 00:03:45,230
+The very first value
+that it has is undefined.
+
+81
+00:03:45,230 --> 00:03:47,840
+The next thing that
+happens is the whole
+
+82
+00:03:47,840 --> 00:03:51,090
+declared function is hoisted
+to the top of the scope
+
+83
+00:03:51,090 --> 00:03:55,360
+and sits there in memory
+waiting for us to use it.
+
+84
+00:03:55,360 --> 00:03:58,980
+And then, and only then,
+the executable code,
+
+85
+00:03:58,980 --> 00:04:01,740
+the stuff that we actually
+want our function to do,
+
+86
+00:04:01,740 --> 00:04:04,604
+that's when that gets run.
+
+87
+00:04:04,604 --> 00:04:06,770
+Now, this is a great example
+of a function the works
+
+88
+00:04:06,770 --> 00:04:11,060
+exactly as we would want to work
+when it loads and when it runs.
+
+89
+00:04:11,060 --> 00:04:15,140
+But let's take a look at a few
+examples where hoisting has not
+
+90
+00:04:15,140 --> 00:04:17,634
+quite the impact
+we would expect.
+
+91
+00:04:17,634 --> 00:04:19,050
+So first here we're
+going to build
+
+92
+00:04:19,050 --> 00:04:21,430
+a function called
+get mystery number.
+
+93
+00:04:21,430 --> 00:04:23,870
+And inside that
+function, we first
+
+94
+00:04:23,870 --> 00:04:26,760
+declared a function
+called choose mystery.
+
+95
+00:04:26,760 --> 00:04:28,292
+And it's going to return 12.
+
+96
+00:04:28,292 --> 00:04:29,750
+And then following
+that, we're just
+
+97
+00:04:29,750 --> 00:04:35,070
+going to say return the result
+of the choose mystery function.
+
+98
+00:04:35,070 --> 00:04:36,740
+Then after that,
+you can see I've
+
+99
+00:04:36,740 --> 00:04:40,990
+declared another function
+called choose mystery again
+
+100
+00:04:40,990 --> 00:04:43,750
+and that returns 7.
+
+101
+00:04:43,750 --> 00:04:46,340
+So if we were to call
+get mystery number,
+
+102
+00:04:46,340 --> 00:04:50,260
+what do you think
+happens in this case?
+
+103
+00:04:50,260 --> 00:04:51,510
+Little tricky.
+
+104
+00:04:51,510 --> 00:04:56,100
+So all of this code loads
+like this in the compiler.
+
+105
+00:04:56,100 --> 00:04:58,980
+The first thing that
+happens is the very first
+
+106
+00:04:58,980 --> 00:05:01,820
+declared function gets hoisted
+all the way to the top.
+
+107
+00:05:01,820 --> 00:05:03,470
+That's the first choose mystery.
+
+108
+00:05:03,470 --> 00:05:06,710
+But then the lower
+choose mystery,
+
+109
+00:05:06,710 --> 00:05:08,310
+the one at the
+bottom of the code,
+
+110
+00:05:08,310 --> 00:05:12,270
+gets hoisted also to be the
+second function in line.
+
+111
+00:05:12,270 --> 00:05:15,750
+When that happens, the original
+choose mystery function
+
+112
+00:05:15,750 --> 00:05:17,560
+is completely overridden.
+
+113
+00:05:17,560 --> 00:05:20,450
+It is no longer there.
+
+114
+00:05:20,450 --> 00:05:23,840
+Then the final and only
+executable statement
+
+115
+00:05:23,840 --> 00:05:27,426
+says return the result of
+calling choose mystery.
+
+116
+00:05:27,426 --> 00:05:29,050
+So what's actually
+going to happen here
+
+117
+00:05:29,050 --> 00:05:30,430
+when we call get mystery number?
+
+118
+00:05:30,430 --> 00:05:33,272
+We get a 7.
+
+119
+00:05:33,272 --> 00:05:36,730
+Again, this is the case
+because all the functions have
+
+120
+00:05:36,730 --> 00:05:40,500
+been hoisted up to the top
+and then one was redefined.
+
+121
+00:05:40,500 --> 00:05:43,050
+It's completely gone because
+of the second function.
+
+122
+00:05:46,090 --> 00:05:49,530
+Let's take a look at another
+build of the get mystery number
+
+123
+00:05:49,530 --> 00:05:50,492
+function.
+
+124
+00:05:50,492 --> 00:05:52,700
+This one's going to involve
+function expressions now.
+
+125
+00:05:52,700 --> 00:05:56,760
+Something to note here is that
+function expressions are never
+
+126
+00:05:56,760 --> 00:05:57,390
+hoisted.
+
+127
+00:05:57,390 --> 00:05:59,770
+They are always
+treated as assignments.
+
+128
+00:05:59,770 --> 00:06:00,887
+So let's take a look.
+
+129
+00:06:00,887 --> 00:06:03,470
+First thing I've got here is a
+variable called choose mystery,
+
+130
+00:06:03,470 --> 00:06:05,720
+and I'm assigning to it
+a function expression
+
+131
+00:06:05,720 --> 00:06:07,660
+that returns 12.
+
+132
+00:06:07,660 --> 00:06:10,360
+Following that, here's
+my executable statement,
+
+133
+00:06:10,360 --> 00:06:12,730
+the return statement
+of choose mystery.
+
+134
+00:06:12,730 --> 00:06:16,170
+And then after that,
+another function expression
+
+135
+00:06:16,170 --> 00:06:19,000
+that's also called choose
+mystery in the variable.
+
+136
+00:06:19,000 --> 00:06:21,500
+But that one returns 7.
+
+137
+00:06:21,500 --> 00:06:23,090
+What do you think
+will happen now
+
+138
+00:06:23,090 --> 00:06:26,720
+when we call the get
+mystery number function?
+
+139
+00:06:26,720 --> 00:06:28,380
+Well here's how
+JavaScript loads it.
+
+140
+00:06:28,380 --> 00:06:32,470
+The first thing that happens
+is the variable choose mystery
+
+141
+00:06:32,470 --> 00:06:35,440
+is hoisted to the top and
+memory space is provided for it
+
+142
+00:06:35,440 --> 00:06:38,480
+and the value is
+set to undefined.
+
+143
+00:06:38,480 --> 00:06:40,650
+So JavaScript has
+no idea right now
+
+144
+00:06:40,650 --> 00:06:43,490
+whether that's going to be a
+number, a string, an array,
+
+145
+00:06:43,490 --> 00:06:45,400
+or a function expression.
+
+146
+00:06:45,400 --> 00:06:48,730
+Following that, the second
+variable declaration
+
+147
+00:06:48,730 --> 00:06:50,960
+of choose mystery is
+hoisted to the top,
+
+148
+00:06:50,960 --> 00:06:53,990
+which is also undefined and
+that completely overrides
+
+149
+00:06:53,990 --> 00:06:58,930
+the other choose mystery
+variable that was undefined.
+
+150
+00:06:58,930 --> 00:07:02,030
+Then we arrive at an
+executable statement,
+
+151
+00:07:02,030 --> 00:07:05,220
+that is when the choose
+mystery variable gets assigned
+
+152
+00:07:05,220 --> 00:07:08,540
+a function expression,
+this one returning 12.
+
+153
+00:07:08,540 --> 00:07:12,090
+Following that, we see the
+executable statement return
+
+154
+00:07:12,090 --> 00:07:13,410
+choose mystery.
+
+155
+00:07:13,410 --> 00:07:18,000
+And so this function is going
+to terminate at this line.
+
+156
+00:07:18,000 --> 00:07:20,530
+It's actually going to
+call the choose mystery
+
+157
+00:07:20,530 --> 00:07:23,420
+function right now.
+
+158
+00:07:23,420 --> 00:07:27,670
+And then this later assignment
+of a function expression
+
+159
+00:07:27,670 --> 00:07:30,230
+to the choose mystery
+variable is actually
+
+160
+00:07:30,230 --> 00:07:33,890
+unreachable as a result
+of that return statement.
+
+161
+00:07:33,890 --> 00:07:36,680
+So again, once
+we've returned, we
+
+162
+00:07:36,680 --> 00:07:39,740
+can never reach that code
+that's underneath the return
+
+163
+00:07:39,740 --> 00:07:41,060
+statement.
+
+164
+00:07:41,060 --> 00:07:43,600
+So when we call
+get mystery number,
+
+165
+00:07:43,600 --> 00:07:45,850
+the only function
+expression that's
+
+166
+00:07:45,850 --> 00:07:49,490
+ever been associated with choose
+mystery by the time we return
+
+167
+00:07:49,490 --> 00:07:51,150
+is the one that returns 12.
+
+168
+00:07:55,940 --> 00:07:58,090
+OK, so let's shuffle around
+the build a little bit
+
+169
+00:07:58,090 --> 00:08:00,850
+and see how hoisting might
+impact this situation.
+
+170
+00:08:00,850 --> 00:08:04,130
+What if we move the return
+statement up to the top?
+
+171
+00:08:04,130 --> 00:08:08,130
+That's the very first thing
+that our function sees.
+
+172
+00:08:08,130 --> 00:08:10,460
+And then we put our two
+expressions, our two function
+
+173
+00:08:10,460 --> 00:08:13,660
+expression assignments,
+down underneath the return
+
+174
+00:08:13,660 --> 00:08:15,110
+statement.
+
+175
+00:08:15,110 --> 00:08:17,360
+What do you think the get
+mystery number function will
+
+176
+00:08:17,360 --> 00:08:19,980
+return in this case?
+
+177
+00:08:19,980 --> 00:08:21,210
+Let's take a look.
+
+178
+00:08:21,210 --> 00:08:25,839
+So the first thing that
+happens is the first variable
+
+179
+00:08:25,839 --> 00:08:28,130
+that's ever declared, which
+is the first choose mystery
+
+180
+00:08:28,130 --> 00:08:30,870
+you see on the left, that
+gets hoisted to the top
+
+181
+00:08:30,870 --> 00:08:33,030
+and it's assigned
+an undefined value.
+
+182
+00:08:33,030 --> 00:08:36,760
+Same thing happens for the
+second choose mystery variable.
+
+183
+00:08:36,760 --> 00:08:38,440
+And the first one is gone.
+
+184
+00:08:38,440 --> 00:08:40,240
+It's completely overwritten.
+
+185
+00:08:40,240 --> 00:08:43,419
+Then we tackle the return
+choose mystery statement,
+
+186
+00:08:43,419 --> 00:08:45,510
+because that's the
+first executable
+
+187
+00:08:45,510 --> 00:08:47,740
+code in our function.
+
+188
+00:08:47,740 --> 00:08:49,340
+But there's a problem.
+
+189
+00:08:49,340 --> 00:08:50,740
+Because check it out.
+
+190
+00:08:50,740 --> 00:08:55,650
+After that return statement,
+both of the choose mystery
+
+191
+00:08:55,650 --> 00:08:57,414
+assignments are
+completely unreachable
+
+192
+00:08:57,414 --> 00:08:59,080
+because the function
+thinks "Oh well, I'm
+
+193
+00:08:59,080 --> 00:09:01,460
+just going to return and call
+this random choose mystery
+
+194
+00:09:01,460 --> 00:09:03,430
+variable that he's assigned."
+
+195
+00:09:03,430 --> 00:09:06,730
+And as a result,
+we get an error.
+
+196
+00:09:06,730 --> 00:09:09,230
+So this function does
+not complete it all
+
+197
+00:09:09,230 --> 00:09:12,520
+and never returns anything that
+we would want it to return,
+
+198
+00:09:12,520 --> 00:09:14,170
+neither 12 nor 7.
+
+199
+00:09:18,100 --> 00:09:23,300
+So remember our train system
+from Road Trips one and two?
+
+200
+00:09:23,300 --> 00:09:28,380
+Let's take a look how hoisting
+might impact a capacity status
+
+201
+00:09:28,380 --> 00:09:31,540
+function for the
+JavaScript Express.
+
+202
+00:09:31,540 --> 00:09:34,450
+So we will build a capacity
+status function that
+
+203
+00:09:34,450 --> 00:09:37,670
+takes in the current number
+of passengers on the train,
+
+204
+00:09:37,670 --> 00:09:41,330
+as well as the
+capacity for the train.
+
+205
+00:09:41,330 --> 00:09:44,060
+Then if the train
+is full, we want
+
+206
+00:09:44,060 --> 00:09:47,040
+to execute a function here
+that alerts a message that
+
+207
+00:09:47,040 --> 00:09:50,020
+says no seats remain and
+then returns us a false
+
+208
+00:09:50,020 --> 00:09:54,910
+so we know that we don't
+have any seats left.
+
+209
+00:09:54,910 --> 00:09:57,510
+Next, if the train
+is not full, we
+
+210
+00:09:57,510 --> 00:10:00,010
+want to execute a function
+that alerts a message with how
+
+211
+00:10:00,010 --> 00:10:04,480
+many seats actually do
+remain and then returns true.
+
+212
+00:10:04,480 --> 00:10:06,280
+So what would this
+look like in code?
+
+213
+00:10:06,280 --> 00:10:08,810
+Well we would say if
+the number of passengers
+
+214
+00:10:08,810 --> 00:10:10,840
+currently equals
+the capacity, that
+
+215
+00:10:10,840 --> 00:10:13,000
+means we've got a
+full train, then
+
+216
+00:10:13,000 --> 00:10:15,800
+we'll call a function
+called no seats.
+
+217
+00:10:15,800 --> 00:10:18,510
+Now, we haven't defined that
+yet, but we will in a bit.
+
+218
+00:10:18,510 --> 00:10:21,052
+Otherwise, well, if the
+number of passengers
+
+219
+00:10:21,052 --> 00:10:22,510
+doesn't equal the
+capacity, we know
+
+220
+00:10:22,510 --> 00:10:24,220
+we have some seats remaining.
+
+221
+00:10:24,220 --> 00:10:27,910
+So we'll call a function
+now called seats avail.
+
+222
+00:10:27,910 --> 00:10:30,750
+And that will tell how
+many seats are available.
+
+223
+00:10:30,750 --> 00:10:33,980
+Now let's work on those
+particular functions.
+
+224
+00:10:33,980 --> 00:10:36,220
+First we'll look at no seats.
+
+225
+00:10:36,220 --> 00:10:38,270
+What if we in our
+normal coding process
+
+226
+00:10:38,270 --> 00:10:42,160
+just started to assign a no
+seats variable a function
+
+227
+00:10:42,160 --> 00:10:43,760
+expression?
+
+228
+00:10:43,760 --> 00:10:47,530
+And we said, "Alert,
+no seats left."
+
+229
+00:10:47,530 --> 00:10:49,900
+And then we return to false.
+
+230
+00:10:49,900 --> 00:10:53,910
+Next, if we did the same thing
+on the seats avail function
+
+231
+00:10:53,910 --> 00:10:56,620
+and we just assigned a function
+expression to the seats avail
+
+232
+00:10:56,620 --> 00:10:59,590
+variable, inside the
+seats avail function,
+
+233
+00:10:59,590 --> 00:11:01,550
+we would just alert a
+message that tells us
+
+234
+00:11:01,550 --> 00:11:04,320
+how many seats are
+left for passengers.
+
+235
+00:11:04,320 --> 00:11:08,680
+And that function
+would return true.
+
+236
+00:11:08,680 --> 00:11:10,060
+So now let's test this out.
+
+237
+00:11:10,060 --> 00:11:12,910
+What if we called
+capacity status with 60?
+
+238
+00:11:12,910 --> 00:11:15,990
+And 60, that means we have a
+capacity of 60 on our train
+
+239
+00:11:15,990 --> 00:11:19,230
+as well as the train is
+full, we have 60 passengers.
+
+240
+00:11:19,230 --> 00:11:21,070
+So let's trace our
+code and see what
+
+241
+00:11:21,070 --> 00:11:24,119
+the hoisting does in this case.
+
+242
+00:11:24,119 --> 00:11:26,160
+The first thing that
+happens is the two variables
+
+243
+00:11:26,160 --> 00:11:28,830
+that will eventually get
+function expressions are
+
+244
+00:11:28,830 --> 00:11:32,760
+hoisted to the top and they
+will have undefined values.
+
+245
+00:11:32,760 --> 00:11:34,350
+After those variables
+are hoisted,
+
+246
+00:11:34,350 --> 00:11:37,780
+we have the whole slew
+of executable code.
+
+247
+00:11:37,780 --> 00:11:40,370
+The first part is the
+conditional statements.
+
+248
+00:11:40,370 --> 00:11:43,140
+If we have the same amount
+of passengers as capacity,
+
+249
+00:11:43,140 --> 00:11:44,130
+we'll call no seats.
+
+250
+00:11:44,130 --> 00:11:46,120
+Otherwise we'll
+call seats avail.
+
+251
+00:11:46,120 --> 00:11:50,090
+Following that
+happens the assignment
+
+252
+00:11:50,090 --> 00:11:51,620
+of the function expressions.
+
+253
+00:11:51,620 --> 00:11:55,380
+That's when no seats
+and seats avail actually
+
+254
+00:11:55,380 --> 00:11:57,680
+get their functions.
+
+255
+00:11:57,680 --> 00:11:59,100
+So do you already
+see the problem?
+
+256
+00:11:59,100 --> 00:12:00,891
+Hopefully you already
+see the problem here.
+
+257
+00:12:00,891 --> 00:12:04,060
+Because when we get to if
+the number of passengers
+
+258
+00:12:04,060 --> 00:12:06,640
+equals the capacity, we
+will get a true on that
+
+259
+00:12:06,640 --> 00:12:08,630
+because it is true
+that our capacity does
+
+260
+00:12:08,630 --> 00:12:09,930
+equal our number of passengers.
+
+261
+00:12:09,930 --> 00:12:13,400
+And then the compiler
+will call no seats.
+
+262
+00:12:13,400 --> 00:12:16,970
+But uh-oh, it doesn't
+even exist yet by the time
+
+263
+00:12:16,970 --> 00:12:18,390
+that it is called.
+
+264
+00:12:18,390 --> 00:12:20,600
+So this function will
+completely error out
+
+265
+00:12:20,600 --> 00:12:22,570
+and we will not have
+any message at all.
+
+266
+00:12:27,460 --> 00:12:30,660
+So, well, we now know that
+hoisting causes problems.
+
+267
+00:12:30,660 --> 00:12:33,740
+What can we do to
+fix these problems?
+
+268
+00:12:33,740 --> 00:12:34,560
+Couple ways.
+
+269
+00:12:34,560 --> 00:12:35,752
+Let's take a look at one.
+
+270
+00:12:35,752 --> 00:12:38,550
+First thing we could
+do is actually change
+
+271
+00:12:38,550 --> 00:12:40,300
+the order of our code.
+
+272
+00:12:40,300 --> 00:12:42,370
+If we push all the
+variable declarations
+
+273
+00:12:42,370 --> 00:12:45,910
+and their assignments
+north up to the top and all
+
+274
+00:12:45,910 --> 00:12:48,920
+of the conditional code
+down to the bottom,
+
+275
+00:12:48,920 --> 00:12:51,570
+the variable declarations
+will happen in the hoisting
+
+276
+00:12:51,570 --> 00:12:55,430
+as well as the assignments will
+happen directly after that.
+
+277
+00:12:55,430 --> 00:12:57,840
+So if we look at that
+capacity status test case
+
+278
+00:12:57,840 --> 00:13:00,570
+again with 60 and 60, the
+first thing that happens
+
+279
+00:13:00,570 --> 00:13:02,580
+is the variables get
+hoisted to the top.
+
+280
+00:13:02,580 --> 00:13:05,330
+They're both undefined,
+but the cool thing here
+
+281
+00:13:05,330 --> 00:13:09,360
+is that they immediately get
+assigned their expressions.
+
+282
+00:13:09,360 --> 00:13:09,910
+Woo-hoo.
+
+283
+00:13:09,910 --> 00:13:11,170
+We like that.
+
+284
+00:13:11,170 --> 00:13:13,730
+And then the conditional code
+is all the way in the bottom,
+
+285
+00:13:13,730 --> 00:13:16,110
+so we don't have to
+worry about any execution
+
+286
+00:13:16,110 --> 00:13:19,050
+until everything's hoisted,
+all the assignments are made,
+
+287
+00:13:19,050 --> 00:13:21,400
+and then we can
+make an execution.
+
+288
+00:13:21,400 --> 00:13:24,810
+So now when we check to see
+if none passengers equals
+
+289
+00:13:24,810 --> 00:13:26,430
+a capacity, it still does.
+
+290
+00:13:26,430 --> 00:13:29,430
+But this time when we call
+no seats, everything's fine.
+
+291
+00:13:29,430 --> 00:13:31,310
+There's a function in
+the no seats variable
+
+292
+00:13:31,310 --> 00:13:32,460
+and we're good to roll.
+
+293
+00:13:32,460 --> 00:13:35,010
+And we get our
+nice alert message.
+
+294
+00:13:35,010 --> 00:13:35,970
+"No seats left!"
+
+295
+00:13:40,300 --> 00:13:44,800
+Second way to fix this
+particular hoisting problem
+
+296
+00:13:44,800 --> 00:13:48,540
+would be to not have
+function expressions at all.
+
+297
+00:13:48,540 --> 00:13:51,680
+Instead we could have
+declared functions.
+
+298
+00:13:51,680 --> 00:13:53,430
+We're going to try
+another test case here.
+
+299
+00:13:53,430 --> 00:13:55,230
+We're going to put
+20 in so that we
+
+300
+00:13:55,230 --> 00:13:58,490
+can see how the else part
+of our conditional works.
+
+301
+00:13:58,490 --> 00:13:59,680
+Because in this case, what?
+
+302
+00:13:59,680 --> 00:14:02,150
+The number of passengers
+will not equal the capacity.
+
+303
+00:14:02,150 --> 00:14:06,080
+And let's see what happens in
+the hoisting of this situation.
+
+304
+00:14:06,080 --> 00:14:08,960
+First thing, all the
+functions pop up to the top.
+
+305
+00:14:08,960 --> 00:14:11,660
+They are loaded
+into memory and sit
+
+306
+00:14:11,660 --> 00:14:14,020
+there waiting for
+us to use them.
+
+307
+00:14:14,020 --> 00:14:16,090
+Again, the conditionals
+fall to the bottom
+
+308
+00:14:16,090 --> 00:14:19,495
+because they are the
+executable portion of the code.
+
+309
+00:14:19,495 --> 00:14:21,870
+Then we'll get a check to see
+if the number of passengers
+
+310
+00:14:21,870 --> 00:14:23,000
+is equal to the capacity.
+
+311
+00:14:23,000 --> 00:14:25,640
+In our new case, it is not.
+
+312
+00:14:25,640 --> 00:14:28,170
+And so we'll skip
+that if statement.
+
+313
+00:14:28,170 --> 00:14:30,350
+And we'll head
+straight to the else
+
+314
+00:14:30,350 --> 00:14:31,770
+and we will call
+seats available.
+
+315
+00:14:31,770 --> 00:14:33,990
+And guess what, seats
+avail is already in memory.
+
+316
+00:14:33,990 --> 00:14:35,700
+We'll get a very
+nice status that
+
+317
+00:14:35,700 --> 00:14:38,020
+says there are 40 seats left.
+
+318
+00:14:38,020 --> 00:14:41,090
+That's because 60
+minus 20 is 40.
+
+319
+00:14:41,090 --> 00:14:41,590
+All day.
+
+320
+00:14:46,067 --> 00:14:47,650
+This was kind of a
+short level, but we
+
+321
+00:14:47,650 --> 00:14:51,050
+wanted to make sure that you
+understand that hoisting is not
+
+322
+00:14:51,050 --> 00:14:52,650
+something you do as you code.
+
+323
+00:14:52,650 --> 00:14:55,090
+It's something that sort of
+happens to you on the back end
+
+324
+00:14:55,090 --> 00:14:56,600
+when your programs get loaded.
+
+325
+00:14:56,600 --> 00:14:58,741
+So be very careful as
+you code, and we're
+
+326
+00:14:58,741 --> 00:15:00,240
+going to send you
+to some challenges
+
+327
+00:15:00,240 --> 00:15:03,120
+now to make sure you understand
+the hoisting concepts well.
+
+328
+00:15:03,120 --> 00:15:04,043
+See you soon.
+
+329
+00:15:07,150 --> 00:15:08,980
+If I have the puberty thing.
+
+330
+00:15:08,980 --> 00:15:10,500
+Because it will pop out.
+
+331
+00:15:10,500 --> 00:15:12,910
+Think about what you think.
+
+332
+00:15:12,910 --> 00:15:15,247
+JavaScripts Road
+Trips [INAUDIBLE].

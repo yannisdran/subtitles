@@ -1,0 +1,597 @@
+﻿1
+00:00:02,060 --> 00:00:05,310
+So now that we've had a
+chance to melt your brain
+
+2
+00:00:05,310 --> 00:00:07,630
+with some closures,
+we want to show you
+
+3
+00:00:07,630 --> 00:00:10,020
+some common mistakes
+that happen with closures
+
+4
+00:00:10,020 --> 00:00:12,400
+and then maybe give you
+some preventative measures
+
+5
+00:00:12,400 --> 00:00:16,320
+to make sure that you don't
+make those same mistakes.
+
+6
+00:00:16,320 --> 00:00:20,110
+The most common mistakes with
+closures occur inside loops.
+
+7
+00:00:20,110 --> 00:00:21,540
+So what we're going
+to do is we're
+
+8
+00:00:21,540 --> 00:00:24,530
+going to try to make a torpedo
+assigner for our Cove's
+
+9
+00:00:24,530 --> 00:00:25,230
+Submarine.
+
+10
+00:00:25,230 --> 00:00:27,350
+Let's take a look at that.
+
+11
+00:00:27,350 --> 00:00:30,020
+We'll build a function
+called assignTorpedo.
+
+12
+00:00:30,020 --> 00:00:31,940
+That means we're
+going to try to give
+
+13
+00:00:31,940 --> 00:00:34,110
+a specific passenger
+on the submarine
+
+14
+00:00:34,110 --> 00:00:36,690
+a torpedo to be in charge of.
+
+15
+00:00:36,690 --> 00:00:38,740
+We'll pass in the
+name of a passenger
+
+16
+00:00:38,740 --> 00:00:41,120
+as well as a list
+of those passengers.
+
+17
+00:00:41,120 --> 00:00:43,360
+We'll establish a torpedo
+assignment variable.
+
+18
+00:00:43,360 --> 00:00:48,060
+That's going to eventually hold
+our torpedoAssignment function.
+
+19
+00:00:48,060 --> 00:00:50,860
+And now we'll build a loop that
+checks the entire passenger
+
+20
+00:00:50,860 --> 00:00:53,000
+array for the specific
+passenger that we
+
+21
+00:00:53,000 --> 00:00:55,500
+want to assign a torpedo to.
+
+22
+00:00:55,500 --> 00:00:57,830
+So when we find
+the passenger, we
+
+23
+00:00:57,830 --> 00:01:00,340
+will start to build a function.
+
+24
+00:01:00,340 --> 00:01:03,070
+And inside that
+function, we'll alert
+
+25
+00:01:03,070 --> 00:01:05,340
+"ahoy" to whoever
+the passenger is.
+
+26
+00:01:05,340 --> 00:01:07,780
+"Man your post at
+torpedo number."
+
+27
+00:01:07,780 --> 00:01:11,840
+And then we will use their
+index value, adjusted for zero,
+
+28
+00:01:11,840 --> 00:01:14,160
+to assign them to the
+right torpedo number.
+
+29
+00:01:19,525 --> 00:01:20,900
+Then, of course,
+at the very end,
+
+30
+00:01:20,900 --> 00:01:23,680
+we'll return our
+torpedoAssignment variable
+
+31
+00:01:23,680 --> 00:01:25,360
+that holds our
+function expression.
+
+32
+00:01:28,370 --> 00:01:31,830
+Now we'll establish an
+array called subPassengers.
+
+33
+00:01:31,830 --> 00:01:34,120
+And we'll put a whole bunch
+of passengers in there
+
+34
+00:01:34,120 --> 00:01:36,040
+that you may recognize.
+
+35
+00:01:36,040 --> 00:01:39,040
+Next, we'll make a new
+variable for a new function
+
+36
+00:01:39,040 --> 00:01:40,850
+called giveAssignment.
+
+37
+00:01:40,850 --> 00:01:44,020
+And then we will call our
+assignTorpedo function.
+
+38
+00:01:44,020 --> 00:01:46,230
+We'll pass in Chewie
+as the passenger
+
+39
+00:01:46,230 --> 00:01:48,840
+we want to assign a
+torpedo too as well as
+
+40
+00:01:48,840 --> 00:01:51,660
+the list of all of
+the sub passengers.
+
+41
+00:01:51,660 --> 00:01:54,710
+Then when we call our
+giveAssignment function,
+
+42
+00:01:54,710 --> 00:01:59,090
+we should expect that-- Oh, no.
+
+43
+00:01:59,090 --> 00:02:00,040
+What happened?
+
+44
+00:02:00,040 --> 00:02:00,750
+"Ahoy, Chewie.
+
+45
+00:02:00,750 --> 00:02:02,910
+Man your post at torpedo 9"?
+
+46
+00:02:02,910 --> 00:02:04,110
+That's no good.
+
+47
+00:02:04,110 --> 00:02:05,720
+Chewie's not in index 9.
+
+48
+00:02:05,720 --> 00:02:06,560
+What happened?
+
+49
+00:02:06,560 --> 00:02:08,385
+It should be torpedo 4.
+
+50
+00:02:11,580 --> 00:02:14,720
+So the mistake that
+we made here is not
+
+51
+00:02:14,720 --> 00:02:17,430
+knowing that
+closures bind values
+
+52
+00:02:17,430 --> 00:02:20,180
+at their very last opportunity.
+
+53
+00:02:20,180 --> 00:02:22,140
+It's really important
+that we pay attention
+
+54
+00:02:22,140 --> 00:02:26,270
+to when we return our functions
+and the final variable states
+
+55
+00:02:26,270 --> 00:02:29,210
+that happen when
+we do the return.
+
+56
+00:02:29,210 --> 00:02:33,190
+So way before torpedoAssignment
+ever gets returned,
+
+57
+00:02:33,190 --> 00:02:35,120
+the I loop counter
+has progressed
+
+58
+00:02:35,120 --> 00:02:39,500
+in value, all the way to
+8, and stopped the loop.
+
+59
+00:02:39,500 --> 00:02:42,370
+What happens then
+is that 8 plus 1
+
+60
+00:02:42,370 --> 00:02:48,250
+happens to be 9 when the
+torpedoAssignment variable is
+
+61
+00:02:48,250 --> 00:02:49,860
+returned.
+
+62
+00:02:49,860 --> 00:02:55,475
+The function's actual return is
+really when the closure occurs.
+
+63
+00:02:55,475 --> 00:02:57,600
+That's when the environment
+is packaged up together
+
+64
+00:02:57,600 --> 00:03:01,200
+with all of the necessary
+variables and returned.
+
+65
+00:03:01,200 --> 00:03:04,580
+So when we called our
+torpedo assigner for Chewie,
+
+66
+00:03:04,580 --> 00:03:08,630
+the I value that was actually
+in the function was 8.
+
+67
+00:03:08,630 --> 00:03:10,690
+And so he got torpedo 9.
+
+68
+00:03:13,870 --> 00:03:16,920
+But what can we do to sort
+of ensure the correct value
+
+69
+00:03:16,920 --> 00:03:18,110
+every time?
+
+70
+00:03:18,110 --> 00:03:20,580
+There are several options
+that we could use.
+
+71
+00:03:20,580 --> 00:03:22,340
+Let's take a look.
+
+72
+00:03:22,340 --> 00:03:24,240
+Well, first of
+all, if we get rid
+
+73
+00:03:24,240 --> 00:03:26,360
+of the torpedoAssignment
+variable
+
+74
+00:03:26,360 --> 00:03:30,540
+entirely and just have
+a function expression--
+
+75
+00:03:30,540 --> 00:03:34,390
+then if we scoot our function
+keyword over and automatically
+
+76
+00:03:34,390 --> 00:03:38,890
+and instantly return as soon
+as we find our passenger,
+
+77
+00:03:38,890 --> 00:03:41,960
+then we will have
+locked i into place.
+
+78
+00:03:41,960 --> 00:03:44,890
+And when we call
+our function, we
+
+79
+00:03:44,890 --> 00:03:49,080
+find out that Chewie is assigned
+to exactly the right torpedo.
+
+80
+00:03:49,080 --> 00:03:51,230
+And that's because
+i, the i value,
+
+81
+00:03:51,230 --> 00:03:53,755
+our loop counter, was
+not allowed to progress.
+
+82
+00:03:59,600 --> 00:04:02,690
+A second a way that we can
+ensure the correct value
+
+83
+00:04:02,690 --> 00:04:05,580
+is to design our
+torpedo assigners
+
+84
+00:04:05,580 --> 00:04:08,630
+just like we did
+our ticket makers
+
+85
+00:04:08,630 --> 00:04:10,110
+for the modes of transport.
+
+86
+00:04:10,110 --> 00:04:11,630
+Let's take a look at that.
+
+87
+00:04:11,630 --> 00:04:16,070
+So we'll change our function's
+name to makeTorpedoAssigner.
+
+88
+00:04:16,070 --> 00:04:19,969
+But this time, we will only
+pass in the passengerArray--
+
+89
+00:04:19,969 --> 00:04:21,510
+not the name and
+the passengerArray,
+
+90
+00:04:21,510 --> 00:04:23,740
+because the 'name'
+variable we're going
+
+91
+00:04:23,740 --> 00:04:26,160
+to pass into our
+function expression.
+
+92
+00:04:31,900 --> 00:04:35,870
+Inside our function expression
+we'll have our loop.
+
+93
+00:04:35,870 --> 00:04:38,050
+Notice now that
+the loop is inside
+
+94
+00:04:38,050 --> 00:04:39,960
+of the function expression.
+
+95
+00:04:39,960 --> 00:04:41,860
+Something to note
+here as well is
+
+96
+00:04:41,860 --> 00:04:45,340
+that passengerArray is actually
+being closed into our function
+
+97
+00:04:45,340 --> 00:04:46,330
+expression.
+
+98
+00:04:46,330 --> 00:04:50,240
+Notice that passengerArray is
+a parameter and not a variable
+
+99
+00:04:50,240 --> 00:04:52,980
+we ever established
+inside of our function.
+
+100
+00:04:52,980 --> 00:04:57,429
+That's because parameters
+can be closed up too.
+
+101
+00:04:57,429 --> 00:04:58,970
+So inside our loop,
+we'll, of course,
+
+102
+00:04:58,970 --> 00:05:01,230
+check to make sure that
+we've found the right name.
+
+103
+00:05:01,230 --> 00:05:03,210
+And when we do, we'll
+alert our message.
+
+104
+00:05:09,200 --> 00:05:10,700
+Again, the only
+closed variable that
+
+105
+00:05:10,700 --> 00:05:13,470
+ever comes from the external
+scope is passengerArray.
+
+106
+00:05:13,470 --> 00:05:15,070
+And that never changes.
+
+107
+00:05:15,070 --> 00:05:18,800
+Woo-hoo, we love that.
+
+108
+00:05:18,800 --> 00:05:22,200
+And now we can pass torpedoes
+out like they are candy.
+
+109
+00:05:22,200 --> 00:05:25,485
+TIE fighter dead ahead, but
+we're sort of underwater.
+
+110
+00:05:25,485 --> 00:05:26,480
+It's a submarine.
+
+111
+00:05:26,480 --> 00:05:30,550
+Anyway, so when we finally
+make our torpedo assigner
+
+112
+00:05:30,550 --> 00:05:35,150
+and then we pass Chewie to
+our getTorpedoFor variable,
+
+113
+00:05:35,150 --> 00:05:39,300
+we'll get the Chewie has
+torpedo 4, just like we wanted.
+
+114
+00:05:39,300 --> 00:05:43,330
+Additionally, we could call it
+again, but this time, for R2-D2.
+
+115
+00:05:43,330 --> 00:05:46,610
+And we should get that
+torpedo 6 belongs to R2-D2.
+
+116
+00:05:46,610 --> 00:05:47,470
+And we do.
+
+117
+00:05:52,250 --> 00:05:53,410
+Super cool.
+
+118
+00:05:53,410 --> 00:05:55,034
+You're a closure master.
+
+119
+00:05:55,034 --> 00:05:56,700
+And we will see you
+very soon, after you
+
+120
+00:05:56,700 --> 00:05:58,680
+tackle these
+exciting challenges.
+
+121
+00:06:01,918 --> 00:06:02,902
+[INAUDIBLE]
+
+122
+00:06:02,902 --> 00:06:07,281
+[BEEP]
+
+123
+00:06:07,281 --> 00:06:07,822
+You broke it.
+
+124
+00:06:07,822 --> 00:06:08,314
+[BEEP]
+
+125
+00:06:08,314 --> 00:06:09,022
+That time of day.
+
+126
+00:06:09,022 --> 00:06:09,790
+[BEEP]
+
+127
+00:06:09,790 --> 00:06:12,170
+I've had no beers.

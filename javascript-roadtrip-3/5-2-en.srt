@@ -1,0 +1,1693 @@
+﻿1
+00:00:02,160 --> 00:00:02,800
+Welcome back.
+
+2
+00:00:02,800 --> 00:00:04,466
+Hope you enjoyed that
+set of challenges.
+
+3
+00:00:04,466 --> 00:00:08,010
+You are now in section two
+of the Plains of Prototypes.
+
+4
+00:00:08,010 --> 00:00:10,170
+In this section, the first
+thing we're going to do
+
+5
+00:00:10,170 --> 00:00:11,860
+is take a look at a
+second way to build
+
+6
+00:00:11,860 --> 00:00:14,066
+objects using object.create.
+
+7
+00:00:14,066 --> 00:00:18,510
+And it will tie-in very
+importantly with prototypes.
+
+8
+00:00:18,510 --> 00:00:21,200
+Using inheritance, we
+can create new objects
+
+9
+00:00:21,200 --> 00:00:25,240
+with our existing
+objects as prototypes.
+
+10
+00:00:25,240 --> 00:00:27,450
+So here we're going
+to go ahead and set up
+
+11
+00:00:27,450 --> 00:00:29,770
+a new object, a new shoe.
+
+12
+00:00:29,770 --> 00:00:32,240
+And we're going to give it
+a size, property - a gender
+
+13
+00:00:32,240 --> 00:00:35,200
+property, as well as a
+construction property.
+
+14
+00:00:35,200 --> 00:00:39,160
+If we wanted to create a
+new object that used shoe
+
+15
+00:00:39,160 --> 00:00:43,790
+as a prototype, we'll create
+a variable called magic Shoe.
+
+16
+00:00:43,790 --> 00:00:46,660
+And we will use the
+object.create method
+
+17
+00:00:46,660 --> 00:00:48,720
+and pass in shoe.
+
+18
+00:00:48,720 --> 00:00:51,850
+Whatever you pass in
+to the create method
+
+19
+00:00:51,850 --> 00:00:56,540
+will be the prototype
+for the new object.
+
+20
+00:00:56,540 --> 00:00:58,130
+If we logged out
+our magic Shoe now,
+
+21
+00:00:58,130 --> 00:01:02,620
+we would see that the object
+is exactly the same as the shoe
+
+22
+00:01:02,620 --> 00:01:04,150
+object.
+
+23
+00:01:04,150 --> 00:01:05,860
+It inherited all
+of its properties
+
+24
+00:01:05,860 --> 00:01:10,039
+from shoe, just like we'd
+expect from our prototype.
+
+25
+00:01:10,039 --> 00:01:12,330
+Now, on this new object, we
+could add a few properties.
+
+26
+00:01:12,330 --> 00:01:13,990
+Let's say jewels
+would be "ruby".
+
+27
+00:01:13,990 --> 00:01:16,480
+We could say travel Action
+would be "click heels".
+
+28
+00:01:16,480 --> 00:01:18,220
+Is this sounding familiar?
+
+29
+00:01:18,220 --> 00:01:21,000
+And then the actions
+required would be three.
+
+30
+00:01:21,000 --> 00:01:23,060
+And then we would get a
+ruby slipper out of it.
+
+31
+00:01:23,060 --> 00:01:24,150
+Fantastic.
+
+32
+00:01:24,150 --> 00:01:26,130
+If we log out the
+magic Shoe now, you
+
+33
+00:01:26,130 --> 00:01:30,870
+can see that we have all
+of the new properties added
+
+34
+00:01:30,870 --> 00:01:33,230
+to our object.
+
+35
+00:01:33,230 --> 00:01:36,030
+Just to show that our original
+prototype object has not
+
+36
+00:01:36,030 --> 00:01:38,090
+changed at all, we
+can log out shoe.
+
+37
+00:01:38,090 --> 00:01:40,700
+And we can see that everything
+has stayed exactly the same.
+
+38
+00:01:43,270 --> 00:01:46,050
+Let's take a closer look
+at the inheritance inside
+
+39
+00:01:46,050 --> 00:01:49,200
+of our new shoe set up.
+
+40
+00:01:49,200 --> 00:01:50,940
+We can actually use
+an inherited method
+
+41
+00:01:50,940 --> 00:01:53,340
+from the object
+prototype to demonstrate
+
+42
+00:01:53,340 --> 00:01:56,310
+our newly created
+prototype chain.
+
+43
+00:01:56,310 --> 00:01:57,880
+Take a look at
+this line of code.
+
+44
+00:01:57,880 --> 00:01:59,546
+It says,
+Object.prototype.isPrototypeOf.
+
+45
+00:02:02,184 --> 00:02:03,600
+Do you remember
+that property from
+
+46
+00:02:03,600 --> 00:02:06,180
+the
+Object.prototype.isPrototypeOf?
+
+47
+00:02:06,180 --> 00:02:09,169
+What it will do is look
+at the object on the left
+
+48
+00:02:09,169 --> 00:02:12,910
+and see if it's a prototype
+of the parameter object.
+
+49
+00:02:12,910 --> 00:02:16,220
+So in this case, we're
+asking, is Object.prototype
+
+50
+00:02:16,220 --> 00:02:18,770
+a prototype of shoe?
+
+51
+00:02:18,770 --> 00:02:21,910
+Since that is true - the
+object prototype is, in fact,
+
+52
+00:02:21,910 --> 00:02:24,250
+a prototype of shoe -
+we'll get a true
+
+53
+00:02:24,250 --> 00:02:25,790
+returned from that method.
+
+54
+00:02:28,333 --> 00:02:30,582
+Next, if we were to call
+shoe.
+
+55
+00:02:30,582 --> 00:02:36,360
+isPrototypeOf( magicShoe), we will also get a true.
+
+56
+00:02:36,360 --> 00:02:41,270
+That's because we used shoe
+as the prototype of magic Shoe.
+
+57
+00:02:44,190 --> 00:02:45,980
+That goes to show
+that we don't always
+
+58
+00:02:45,980 --> 00:02:47,360
+get true from this situation.
+
+59
+00:02:47,360 --> 00:02:49,109
+If we called
+magicShoe.isPrototypeOf( shoe
+
+60
+00:02:49,109 --> 00:02:54,112
+), we would see
+that that is false.
+
+61
+00:02:54,112 --> 00:02:55,570
+That's because the
+magic Shoe is not
+
+62
+00:02:55,570 --> 00:02:56,875
+at all the prototype of shoe.
+
+63
+00:02:59,264 --> 00:03:01,763
+Now, what happens if we call
+Object.prototype.isPrototypeOf(
+
+64
+00:03:01,763 --> 00:03:02,262
+magicShoe )?
+
+65
+00:03:06,859 --> 00:03:09,150
+Well, you might think false
+because object prototype is
+
+66
+00:03:09,150 --> 00:03:12,420
+way up there and magic Shoe
+is way down there.
+
+67
+00:03:12,420 --> 00:03:14,670
+But actually, this returns true.
+
+68
+00:03:14,670 --> 00:03:19,020
+And that's because isPrototypeOf
+looks all the way upward,
+
+69
+00:03:19,020 --> 00:03:21,350
+through the entire
+prototype chain,
+
+70
+00:03:21,350 --> 00:03:25,430
+to see if the object that's
+on the left-hand side
+
+71
+00:03:25,430 --> 00:03:28,880
+is ever a direct ancestor
+of the object that's
+
+72
+00:03:28,880 --> 00:03:30,610
+passed in as a parameter.
+
+73
+00:03:30,610 --> 00:03:33,260
+In this case, it only
+has to go two steps up
+
+74
+00:03:33,260 --> 00:03:34,760
+to find the object prototype.
+
+75
+00:03:34,760 --> 00:03:36,560
+And so we get a
+true value returned.
+
+76
+00:03:39,550 --> 00:03:40,050
+Cool.
+
+77
+00:03:40,050 --> 00:03:43,520
+So now, what if there
+were other kinds of shoes?
+
+78
+00:03:43,520 --> 00:03:47,800
+Could we use the same prototype
+to create boots, sneakers,
+
+79
+00:03:47,800 --> 00:03:51,900
+sandals, or whatever that is?
+
+80
+00:03:51,900 --> 00:03:53,480
+Well, let's check
+it out and see.
+
+81
+00:03:53,480 --> 00:03:54,940
+So here's our shoe
+variable, right?
+
+82
+00:03:54,940 --> 00:03:55,814
+We've got a size six.
+
+83
+00:03:55,814 --> 00:03:57,340
+We've got a gender of "women".
+
+84
+00:03:57,340 --> 00:03:59,770
+We've got a construction
+of "slipper".
+
+85
+00:03:59,770 --> 00:04:02,320
+If we've decided to make
+a variable called "mens Boot"
+
+86
+00:04:02,320 --> 00:04:04,350
+and assigned to
+it the new object
+
+87
+00:04:04,350 --> 00:04:09,705
+that comes out of object.create
+on shoe, what do we get?
+
+88
+00:04:09,705 --> 00:04:13,390
+We get a men's boot with a
+size of six, a gender of women,
+
+89
+00:04:13,390 --> 00:04:14,890
+and a construction on slipper.
+
+90
+00:04:14,890 --> 00:04:15,798
+That's no good.
+
+91
+00:04:15,798 --> 00:04:16,589
+That kind of sucks.
+
+92
+00:04:16,589 --> 00:04:18,880
+We're not really getting what
+we were looking for here.
+
+93
+00:04:21,920 --> 00:04:22,420
+Hm.
+
+94
+00:04:22,420 --> 00:04:24,370
+What can we do about
+that kind of situation?
+
+95
+00:04:24,370 --> 00:04:27,030
+Well, we might build
+a prototype that
+
+96
+00:04:27,030 --> 00:04:29,124
+has just empty properties -
+all of the properties
+
+97
+00:04:29,124 --> 00:04:30,290
+that we want that are empty.
+
+98
+00:04:30,290 --> 00:04:32,930
+Let's see what happens
+when we do that.
+
+99
+00:04:32,930 --> 00:04:34,790
+If we make our
+shoe variable have
+
+100
+00:04:34,790 --> 00:04:36,670
+all of those same
+properties, but now set
+
+101
+00:04:36,670 --> 00:04:38,694
+all of those properties
+to undefined,
+
+102
+00:04:38,694 --> 00:04:40,610
+well, so now we have a
+prototype that's empty.
+
+103
+00:04:40,610 --> 00:04:42,200
+But what do we do with it?
+
+104
+00:04:42,200 --> 00:04:44,800
+Well, let's try making
+a mens Boot variable
+
+105
+00:04:44,800 --> 00:04:46,730
+and assigning to
+it the object that
+
+106
+00:04:46,730 --> 00:04:50,080
+comes out of
+object.create on shoe.
+
+107
+00:04:50,080 --> 00:04:53,250
+What we get, then, is just
+an empty shoe object, right?
+
+108
+00:04:53,250 --> 00:04:55,800
+And then we have to assign
+all of the properties
+
+109
+00:04:55,800 --> 00:04:57,394
+their specific values.
+
+110
+00:04:57,394 --> 00:04:59,810
+We'd also need to do the same
+thing with a variable called
+
+111
+00:04:59,810 --> 00:05:00,590
+"flipflop."
+
+112
+00:05:00,590 --> 00:05:02,557
+We could create a
+shoe - an empty shoe -
+
+113
+00:05:02,557 --> 00:05:04,140
+and then assign all
+of the properties.
+
+114
+00:05:07,780 --> 00:05:08,580
+Guess what?
+
+115
+00:05:08,580 --> 00:05:09,670
+This kind of sucks.
+
+116
+00:05:09,670 --> 00:05:11,420
+You could see, already,
+how tedious this
+
+117
+00:05:11,420 --> 00:05:14,370
+would be if every time you
+went to create a new shoe,
+
+118
+00:05:14,370 --> 00:05:16,500
+off the generic empty
+shoe, you needed
+
+119
+00:05:16,500 --> 00:05:21,510
+to put every single property
+in each one of those objects.
+
+120
+00:05:21,510 --> 00:05:23,260
+That would be kind of terrible.
+
+121
+00:05:23,260 --> 00:05:27,060
+And actually, all of
+that is way more code
+
+122
+00:05:27,060 --> 00:05:30,276
+than it would take to just start
+out by coding an object literal
+
+123
+00:05:30,276 --> 00:05:31,650
+and putting all
+of the properties
+
+124
+00:05:31,650 --> 00:05:33,810
+in on your very
+first object literal.
+
+125
+00:05:33,810 --> 00:05:37,210
+So we need a different way
+that won't be so cumbersome
+
+126
+00:05:37,210 --> 00:05:41,680
+and that will automate
+our property assignment.
+
+127
+00:05:41,680 --> 00:05:42,880
+Let's take a look.
+
+128
+00:05:42,880 --> 00:05:45,122
+Pretty cool.
+
+129
+00:05:45,122 --> 00:05:46,580
+First thing we need
+to do: we need
+
+130
+00:05:46,580 --> 00:05:50,070
+to determine a whole bunch of
+common properties of a shoe
+
+131
+00:05:50,070 --> 00:05:50,900
+class.
+
+132
+00:05:50,900 --> 00:05:51,990
+What's a class?
+
+133
+00:05:51,990 --> 00:05:55,750
+It's a set of objects
+that all share and inherit
+
+134
+00:05:55,750 --> 00:05:57,595
+from the same basic prototype.
+
+135
+00:06:01,490 --> 00:06:04,760
+So size - we know that's one
+that a shoe should have, right?
+
+136
+00:06:04,760 --> 00:06:05,804
+All shoes have a size.
+
+137
+00:06:05,804 --> 00:06:06,470
+How about color?
+
+138
+00:06:06,470 --> 00:06:06,970
+Yep.
+
+139
+00:06:06,970 --> 00:06:08,570
+That's All Shoes.
+
+140
+00:06:08,570 --> 00:06:09,440
+Gender?
+
+141
+00:06:09,440 --> 00:06:10,850
+Yeah.
+
+142
+00:06:10,850 --> 00:06:11,920
+Construction?
+
+143
+00:06:11,920 --> 00:06:13,610
+Sounds good.
+
+144
+00:06:13,610 --> 00:06:15,170
+How about lace color?
+
+145
+00:06:15,170 --> 00:06:16,960
+Well, some shoes don't
+really have laces.
+
+146
+00:06:16,960 --> 00:06:19,240
+Look at the slipper, I
+mean, or the flip-flop
+
+147
+00:06:19,240 --> 00:06:20,710
+doesn't have any laces.
+
+148
+00:06:20,710 --> 00:06:23,660
+So let's go ahead and put
+that under Some Shoes.
+
+149
+00:06:23,660 --> 00:06:25,280
+How about the function lace Up?
+
+150
+00:06:25,280 --> 00:06:28,500
+Say, if we had a function
+that laced up the shoes,
+
+151
+00:06:28,500 --> 00:06:29,830
+does that belong to All Shoes?
+
+152
+00:06:29,830 --> 00:06:31,510
+No, because not all
+shoes have laces.
+
+153
+00:06:31,510 --> 00:06:33,180
+So we'll put that
+under Some Shoes.
+
+154
+00:06:33,180 --> 00:06:34,430
+How about jewels?
+
+155
+00:06:34,430 --> 00:06:38,360
+Thankfully, not all
+shoes have jewels.
+
+156
+00:06:38,360 --> 00:06:39,450
+What about bow position?
+
+157
+00:06:39,450 --> 00:06:39,990
+Well, no.
+
+158
+00:06:39,990 --> 00:06:43,376
+I don't imagine there's
+many bows on work boots.
+
+159
+00:06:43,376 --> 00:06:44,860
+What about put On?
+
+160
+00:06:44,860 --> 00:06:45,360
+Well, yeah.
+
+161
+00:06:45,360 --> 00:06:48,770
+We could have a function for
+All Shoes that puts on the shoe.
+
+162
+00:06:48,770 --> 00:06:51,630
+dimensional Travel, like,
+say, for the ruby slippers.
+
+163
+00:06:51,630 --> 00:06:53,380
+I'm pretty sure
+dimensional Travel is just
+
+164
+00:06:53,380 --> 00:06:54,560
+Some Shoes.
+
+165
+00:06:54,560 --> 00:06:56,470
+Don't quote me.
+
+166
+00:06:56,470 --> 00:06:59,710
+And take Off, take Off is
+probably an All Shoes function.
+
+167
+00:06:59,710 --> 00:07:02,290
+Now, with a good set
+of these properties
+
+168
+00:07:02,290 --> 00:07:05,520
+we can expect all of
+the shoes to have,
+
+169
+00:07:05,520 --> 00:07:07,720
+we're going to be ready,
+now, to build what's
+
+170
+00:07:07,720 --> 00:07:10,810
+called a constructor
+for our class.
+
+171
+00:07:10,810 --> 00:07:12,580
+These other ones
+we'd get to later.
+
+172
+00:07:16,740 --> 00:07:19,210
+So now we will build
+a constructor function
+
+173
+00:07:19,210 --> 00:07:21,670
+for our shoe object.
+
+174
+00:07:21,670 --> 00:07:25,830
+A constructor is going to allow
+us to set up an inheritance,
+
+175
+00:07:25,830 --> 00:07:28,500
+as well as assign
+specific property
+
+176
+00:07:28,500 --> 00:07:31,900
+values for a specific
+instance of the object.
+
+177
+00:07:31,900 --> 00:07:33,760
+That's pretty cool.
+
+178
+00:07:33,760 --> 00:07:36,490
+Looking down here, you can see
+we've established a function,
+
+179
+00:07:36,490 --> 00:07:39,950
+and we've called it
+Shoe with a capital S.
+
+180
+00:07:39,950 --> 00:07:43,490
+That's important because
+capitalizing a function's name
+
+181
+00:07:43,490 --> 00:07:46,230
+sort of distinguishes
+it, in JavaScript,
+
+182
+00:07:46,230 --> 00:07:50,822
+as a maker of an entire
+class of objects.
+
+183
+00:07:50,822 --> 00:07:52,780
+Now, each of these
+parameters that you see here
+
+184
+00:07:52,780 --> 00:07:57,860
+will be specific values for
+a specific kind of a shoe.
+
+185
+00:07:57,860 --> 00:08:01,420
+The Constructor function will
+construct a brand new shoe
+
+186
+00:08:01,420 --> 00:08:03,400
+and then pass these
+specific parameters
+
+187
+00:08:03,400 --> 00:08:08,099
+into that particular
+instance of the shoe.
+
+188
+00:08:08,099 --> 00:08:09,140
+Now, how will it do that?
+
+189
+00:08:09,140 --> 00:08:11,098
+How will it take the
+parameters of the function
+
+190
+00:08:11,098 --> 00:08:14,600
+and put it into a
+new shoe object?
+
+191
+00:08:14,600 --> 00:08:16,620
+Well, we will use the
+this keyword, here.
+
+192
+00:08:16,620 --> 00:08:19,400
+And again, the this
+keyword is very useful.
+
+193
+00:08:19,400 --> 00:08:21,650
+The this keyword is going
+to have some unique behavior
+
+194
+00:08:21,650 --> 00:08:22,920
+inside of our function.
+
+195
+00:08:22,920 --> 00:08:25,180
+It's automatically
+going to refer
+
+196
+00:08:25,180 --> 00:08:28,480
+to the new instance of
+the class that is made.
+
+197
+00:08:28,480 --> 00:08:31,720
+So when we set this.size
+equal to shoeSize,
+
+198
+00:08:31,720 --> 00:08:34,320
+as well as these other
+assignments, what's happening
+
+199
+00:08:34,320 --> 00:08:36,120
+is the Shoe
+Constructor is building
+
+200
+00:08:36,120 --> 00:08:39,470
+a new instance of a shoe and
+passing all of these parameters
+
+201
+00:08:39,470 --> 00:08:43,169
+into that particular
+object from the class.
+
+202
+00:08:43,169 --> 00:08:45,050
+We could also add some
+functionality here.
+
+203
+00:08:45,050 --> 00:08:47,740
+Here's our putOn and
+takeOff functions,
+
+204
+00:08:47,740 --> 00:08:50,050
+which we've assigned as
+function expressions.
+
+205
+00:08:50,050 --> 00:08:53,020
+Inside one, we've got an alert
+that says, "Shoes on!"
+
+206
+00:08:53,020 --> 00:08:54,760
+And then, in the
+takeOff function,
+
+207
+00:08:54,760 --> 00:08:58,040
+we've got an alert that
+says, uh, what's that smell?
+
+208
+00:08:58,040 --> 00:09:00,170
+The important thing to note
+is that these functions
+
+209
+00:09:00,170 --> 00:09:03,095
+will be common to
+all shoes everywhere.
+
+210
+00:09:08,837 --> 00:09:10,420
+Now we've got to
+figure out how to use
+
+211
+00:09:10,420 --> 00:09:15,460
+the Constructor to actually
+make the new shoe object.
+
+212
+00:09:15,460 --> 00:09:16,970
+Well, we've got a
+new keyword here.
+
+213
+00:09:16,970 --> 00:09:19,360
+And it is new, in fact.
+
+214
+00:09:19,360 --> 00:09:22,740
+What we'll do is we'll establish
+a new beachShoe variable.
+
+215
+00:09:22,740 --> 00:09:24,410
+And we'll assign
+to it the object
+
+216
+00:09:24,410 --> 00:09:26,950
+that comes out of the
+Constructor function.
+
+217
+00:09:26,950 --> 00:09:28,710
+How do we call the
+Constructor function?
+
+218
+00:09:28,710 --> 00:09:33,390
+You can see there that that
+new keyword asks the Shoe
+
+219
+00:09:33,390 --> 00:09:36,250
+Constructor to
+make a new instance
+
+220
+00:09:36,250 --> 00:09:38,820
+with these particular
+parameters,
+
+221
+00:09:38,820 --> 00:09:42,650
+meaning "10" and "blue"
+and "women" and "flipflop".
+
+222
+00:09:42,650 --> 00:09:45,650
+If we go ahead and
+log out beach Shoe,
+
+223
+00:09:45,650 --> 00:09:48,490
+we can see that we
+get a Shoe object.
+
+224
+00:09:48,490 --> 00:09:50,880
+Notice that the front
+of the object, its name
+
+225
+00:09:50,880 --> 00:09:53,570
+has changed from object to Shoe.
+
+226
+00:09:53,570 --> 00:09:56,870
+It's because we have a Shoe
+object, and inside of it,
+
+227
+00:09:56,870 --> 00:09:59,590
+all of the exactly
+correct properties that we
+
+228
+00:09:59,590 --> 00:10:02,350
+would expect, plus
+some functions.
+
+229
+00:10:02,350 --> 00:10:05,250
+If we were to now
+call beach Shoe.put On,
+
+230
+00:10:05,250 --> 00:10:07,820
+we'll get a pop-up that
+says, "Shoes on!"
+
+231
+00:10:07,820 --> 00:10:12,170
+That's because the put On method
+is accessible to any shoe
+
+232
+00:10:12,170 --> 00:10:13,690
+that we create at any time.
+
+233
+00:10:16,860 --> 00:10:18,690
+We could even add
+properties that
+
+234
+00:10:18,690 --> 00:10:20,180
+are more shoe-specific, later.
+
+235
+00:10:20,180 --> 00:10:22,562
+For example, on a flip-flop,
+there's two straps.
+
+236
+00:10:22,562 --> 00:10:24,020
+And we might want
+to add that there
+
+237
+00:10:24,020 --> 00:10:25,790
+are two straps to
+that beach shoe.
+
+238
+00:10:25,790 --> 00:10:28,772
+So we would say,
+beach Shoe.straps is equal to 2.
+
+239
+00:10:28,772 --> 00:10:29,980
+And it would add it right in.
+
+240
+00:10:33,190 --> 00:10:33,840
+But wait.
+
+241
+00:10:33,840 --> 00:10:35,190
+Hold on.
+
+242
+00:10:35,190 --> 00:10:37,470
+Where is my efficient
+inheritance?
+
+243
+00:10:37,470 --> 00:10:38,550
+Yeah, I don't see any.
+
+244
+00:10:38,550 --> 00:10:39,600
+There's not any here.
+
+245
+00:10:39,600 --> 00:10:42,340
+We've got an object builder,
+but we haven't really
+
+246
+00:10:42,340 --> 00:10:44,840
+used the concept of
+JavaScript inheritance
+
+247
+00:10:44,840 --> 00:10:47,580
+that we were promised
+by the Constructor.
+
+248
+00:10:47,580 --> 00:10:50,800
+So far, it looks like
+our Constructor just
+
+249
+00:10:50,800 --> 00:10:54,150
+builds an object with
+a bunch of data values
+
+250
+00:10:54,150 --> 00:10:55,920
+and a bunch of functions.
+
+251
+00:10:55,920 --> 00:10:59,490
+In other words, all of the
+properties that each Shoe has
+
+252
+00:10:59,490 --> 00:11:01,600
+belong to that Shoe.
+
+253
+00:11:01,600 --> 00:11:03,240
+They aren't stored
+somewhere else
+
+254
+00:11:03,240 --> 00:11:05,600
+and then accessed by the Shoe.
+
+255
+00:11:05,600 --> 00:11:07,570
+That's really important.
+
+256
+00:11:07,570 --> 00:11:10,450
+We want to make sure that we
+have a normal inheritance set
+
+257
+00:11:10,450 --> 00:11:14,310
+up here, so that we can have a
+really efficient data storage.
+
+258
+00:11:14,310 --> 00:11:15,030
+Hm.
+
+259
+00:11:15,030 --> 00:11:18,280
+Do we see anything
+about our shoe
+
+260
+00:11:18,280 --> 00:11:22,480
+that will be the
+same for all shoes?
+
+261
+00:11:22,480 --> 00:11:22,980
+Hm.
+
+262
+00:11:22,980 --> 00:11:24,790
+Let's check it out.
+
+263
+00:11:24,790 --> 00:11:28,730
+Every single shoe is going
+to have those two functions.
+
+264
+00:11:28,730 --> 00:11:29,860
+But why?
+
+265
+00:11:29,860 --> 00:11:32,580
+Wouldn't it be better to have
+those two functions in one
+
+266
+00:11:32,580 --> 00:11:36,120
+object that every shoe
+everywhere can access?
+
+267
+00:11:36,120 --> 00:11:37,160
+Yes, it would.
+
+268
+00:11:37,160 --> 00:11:39,070
+So let's try that.
+
+269
+00:11:39,070 --> 00:11:42,440
+First thing we need to
+do is assign a prototype
+
+270
+00:11:42,440 --> 00:11:43,420
+to a Constructor.
+
+271
+00:11:43,420 --> 00:11:46,060
+That's right, a Constructor
+is not a prototype, right?
+
+272
+00:11:46,060 --> 00:11:47,310
+Constructor's just a function.
+
+273
+00:11:47,310 --> 00:11:50,410
+And a Constructor
+has a prototype.
+
+274
+00:11:50,410 --> 00:11:53,820
+So by setting a Constructor's
+prototype property,
+
+275
+00:11:53,820 --> 00:11:56,500
+every new instance that
+we ever make every time we
+
+276
+00:11:56,500 --> 00:12:00,650
+instantiate an object, it will
+refer to that new prototype
+
+277
+00:12:00,650 --> 00:12:04,240
+we've made for all of these
+cool, extra properties.
+
+278
+00:12:04,240 --> 00:12:06,360
+So here, with our
+shoe.prototype,
+
+279
+00:12:06,360 --> 00:12:08,860
+we're going to go ahead and
+build a new, secret object,
+
+280
+00:12:08,860 --> 00:12:11,950
+within the Constructor
+function's prototype property.
+
+281
+00:12:11,950 --> 00:12:14,780
+This will tell every
+created shoe to inherit
+
+282
+00:12:14,780 --> 00:12:16,789
+from that object.
+
+283
+00:12:16,789 --> 00:12:18,330
+You might notice
+something else here.
+
+284
+00:12:18,330 --> 00:12:20,080
+We haven't drawn
+attention to it yet,
+
+285
+00:12:20,080 --> 00:12:23,680
+but every time we've called
+any prototype, at all, be it
+
+286
+00:12:23,680 --> 00:12:26,600
+Array.prototype,
+string.prototype,
+
+287
+00:12:26,600 --> 00:12:28,800
+or the Object.prototype,
+we have always
+
+288
+00:12:28,800 --> 00:12:32,400
+called it as a property of a
+certain class's Constructor
+
+289
+00:12:32,400 --> 00:12:34,990
+function, using
+the dot operator.
+
+290
+00:12:34,990 --> 00:12:36,160
+That's no different here.
+
+291
+00:12:36,160 --> 00:12:40,360
+We've got the shoe.prototype
+ready to roll.
+
+292
+00:12:40,360 --> 00:12:41,790
+Inside our prototype,
+we're going
+
+293
+00:12:41,790 --> 00:12:44,210
+to build two properties--
+put On and take Off.
+
+294
+00:12:44,210 --> 00:12:46,780
+Notice they take a
+property style now.
+
+295
+00:12:46,780 --> 00:12:49,430
+To put some values in those
+particular properties,
+
+296
+00:12:49,430 --> 00:12:52,390
+we'll just build some
+anonymous function expressions
+
+297
+00:12:52,390 --> 00:12:54,340
+that alert our desired messages.
+
+298
+00:12:56,880 --> 00:12:58,730
+Notice, now, that
+our Shoe Constructor
+
+299
+00:12:58,730 --> 00:13:00,410
+gets considerably smaller.
+
+300
+00:13:00,410 --> 00:13:03,530
+And that means that every
+object we instantiate,
+
+301
+00:13:03,530 --> 00:13:06,320
+every shoe we make,
+will also be smaller.
+
+302
+00:13:06,320 --> 00:13:07,820
+That saves a lot
+of data, especially
+
+303
+00:13:07,820 --> 00:13:10,170
+if you're running a
+shoe store, right?
+
+304
+00:13:10,170 --> 00:13:12,280
+By putting both of those
+functions in the shoe
+
+305
+00:13:12,280 --> 00:13:15,980
+prototype, we force
+every Shoe object
+
+306
+00:13:15,980 --> 00:13:20,090
+to inherit those functions
+when it needs them.
+
+307
+00:13:20,090 --> 00:13:22,457
+So let's come back to
+our beachShoe variable.
+
+308
+00:13:22,457 --> 00:13:24,040
+We're going to create
+it the same way.
+
+309
+00:13:24,040 --> 00:13:28,850
+And if, this time, we were to
+console.log(beachShoe.gender),
+
+310
+00:13:28,850 --> 00:13:32,730
+what happens is beach Shoe just
+looks directly within itself
+
+311
+00:13:32,730 --> 00:13:36,450
+for the "gender" property,
+finds it, and logs it out.
+
+312
+00:13:36,450 --> 00:13:37,300
+And we get "women".
+
+313
+00:13:40,970 --> 00:13:44,660
+But then what happens when
+we do beach Shoe.take Off?
+
+314
+00:13:44,660 --> 00:13:46,800
+Well, that's a method
+that beach Shoe does not
+
+315
+00:13:46,800 --> 00:13:48,340
+find in itself.
+
+316
+00:13:48,340 --> 00:13:51,560
+So what it does is it
+looks up to its prototype.
+
+317
+00:13:51,560 --> 00:13:53,130
+What is its prototype?
+
+318
+00:13:53,130 --> 00:13:55,740
+Well, that would
+be shoe.prototype.
+
+319
+00:13:55,740 --> 00:13:58,520
+So it looks up there, and it
+says, "Hey, shoe prototype,
+
+320
+00:13:58,520 --> 00:14:00,670
+do you have the take Off method?"
+
+321
+00:14:00,670 --> 00:14:07,020
+Shoe prototype nods and says,
+"Yes, I do, and you may use it."
+
+322
+00:14:07,020 --> 00:14:10,510
+As a result, we get the alert
+message, "Hh, what's that smell?"
+
+323
+00:14:13,580 --> 00:14:16,690
+If we were to call
+beach Shoe.has Own Property
+
+324
+00:14:16,690 --> 00:14:20,880
+on the string "construction",
+well, neither beachShoe
+
+325
+00:14:20,880 --> 00:14:25,890
+nor the shoe prototype own
+that property, hasOwnProperty.
+
+326
+00:14:25,890 --> 00:14:28,900
+So what happens is we
+go up even another step,
+
+327
+00:14:28,900 --> 00:14:32,840
+back to the object prototype, to
+find the hasOwnProperty method.
+
+328
+00:14:32,840 --> 00:14:34,370
+And there it is.
+
+329
+00:14:34,370 --> 00:14:36,660
+And the object prototype
+says, "Yes, beach Shoe,
+
+330
+00:14:36,660 --> 00:14:39,720
+you may use this
+property, here you go."
+
+331
+00:14:39,720 --> 00:14:41,710
+But then what happens?
+
+332
+00:14:41,710 --> 00:14:44,110
+The has Own Property
+function now looks
+
+333
+00:14:44,110 --> 00:14:48,450
+to see if beach Shoe,
+itself, has the property
+
+334
+00:14:48,450 --> 00:14:51,050
+"construction", which it does.
+
+335
+00:14:51,050 --> 00:14:53,850
+And so we get a true value
+out of that line of code.
+
+336
+00:14:59,100 --> 00:15:01,040
+Now, here's something
+very useful.
+
+337
+00:15:01,040 --> 00:15:05,730
+Prototypes can actually refer
+back to their instances,
+
+338
+00:15:05,730 --> 00:15:07,440
+to pick up some data.
+
+339
+00:15:07,440 --> 00:15:10,980
+Let's see about modifying
+our message functions
+
+340
+00:15:10,980 --> 00:15:14,180
+with some of the data
+in our shoe objects.
+
+341
+00:15:14,180 --> 00:15:17,860
+So let's go ahead and get rid
+of our current alert messages.
+
+342
+00:15:17,860 --> 00:15:19,370
+So now on our new
+function, we'll
+
+343
+00:15:19,370 --> 00:15:26,010
+say "Your", whatever style
+the shoe is, "is on."
+
+344
+00:15:26,010 --> 00:15:28,950
+Inside the take Off function,
+now our alert message
+
+345
+00:15:28,950 --> 00:15:31,360
+will say, "Phew,
+somebody's size,"
+
+346
+00:15:31,360 --> 00:15:35,700
+and whatever the size
+is, "are fragrant."
+
+347
+00:15:35,700 --> 00:15:37,800
+What's important here
+is that the this keyword
+
+348
+00:15:37,800 --> 00:15:42,170
+will look back down to the
+particular shoe instance that
+
+349
+00:15:42,170 --> 00:15:45,480
+called the function and pull all
+of the property data from it.
+
+350
+00:15:54,550 --> 00:15:57,170
+So if we call now,
+beach Shoe.put On
+
+351
+00:15:57,170 --> 00:15:59,470
+we'll get "Your
+flipflops on!"
+
+352
+00:15:59,470 --> 00:16:05,520
+instead of just "Your shoes on."
+
+353
+00:16:05,520 --> 00:16:07,910
+And if we call
+beach Shoe.take Off, we'll get,
+
+354
+00:16:07,910 --> 00:16:14,540
+"Phew, somebody's size
+10's are fragrant."
+
+355
+00:16:14,540 --> 00:16:18,640
+And now you have a few more very
+useful skills with prototypes.
+
+356
+00:16:18,640 --> 00:16:21,870
+And we will release you
+to a few more challenges,
+
+357
+00:16:21,870 --> 00:16:23,470
+to see how you do there.
+
+358
+00:16:23,470 --> 00:16:26,100
+We'll see you back
+in the next section.

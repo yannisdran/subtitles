@@ -1,0 +1,881 @@
+﻿1
+00:00:02,080 --> 00:00:02,670
+Welcome back.
+
+2
+00:00:02,670 --> 00:00:04,560
+I hope you enjoyed
+those challenges.
+
+3
+00:00:04,560 --> 00:00:07,580
+And we're on to the
+third section of Level 4.
+
+4
+00:00:07,580 --> 00:00:10,110
+We're going to try to count
+some fish in our tank.
+
+5
+00:00:10,110 --> 00:00:13,650
+What if we wanted to know
+exactly how many fish we have
+
+6
+00:00:13,650 --> 00:00:15,990
+inside of our tank
+at any given time?
+
+7
+00:00:15,990 --> 00:00:17,960
+Let's take a look.
+
+8
+00:00:17,960 --> 00:00:19,410
+So we've got our
+aquarium object.
+
+9
+00:00:19,410 --> 00:00:21,474
+And we've just some
+icons here for shorthand.
+
+10
+00:00:21,474 --> 00:00:23,390
+But just know that those
+represent the objects
+
+11
+00:00:23,390 --> 00:00:26,070
+that we've added or that
+were in there earlier.
+
+12
+00:00:26,070 --> 00:00:27,612
+You'll notice that
+we put Bubbles up
+
+13
+00:00:27,612 --> 00:00:29,070
+near the front with
+the other fish,
+
+14
+00:00:29,070 --> 00:00:32,070
+just to have a little bit better
+organization for this task.
+
+15
+00:00:32,070 --> 00:00:33,070
+So let's count our fish.
+
+16
+00:00:33,070 --> 00:00:35,252
+Let's see how many fish
+we've got going on here.
+
+17
+00:00:35,252 --> 00:00:36,710
+The first one is
+the Nemo property.
+
+18
+00:00:36,710 --> 00:00:38,126
+And if we look at
+its type, we see
+
+19
+00:00:38,126 --> 00:00:41,954
+that Nemo is definitely a fish.
+
+20
+00:00:41,954 --> 00:00:43,120
+We'll follow that with Dory.
+
+21
+00:00:43,120 --> 00:00:46,270
+Dory is also a fish.
+
+22
+00:00:46,270 --> 00:00:47,210
+Bubbles is a fish.
+
+23
+00:00:50,190 --> 00:00:52,520
+But Peach is an econaderm.
+
+24
+00:00:52,520 --> 00:00:53,750
+We call it a star fish.
+
+25
+00:00:53,750 --> 00:00:55,580
+It's not really a fish.
+
+26
+00:00:55,580 --> 00:00:57,680
+Then we move onto
+the coral castle.
+
+27
+00:00:57,680 --> 00:01:00,419
+And that's an environment.
+
+28
+00:01:00,419 --> 00:01:01,710
+Well, add Critter is a function.
+
+29
+00:01:01,710 --> 00:01:02,834
+It's definitely not a fish.
+
+30
+00:01:02,834 --> 00:01:06,830
+And take Out, same thing--
+it's definitely not a fish.
+
+31
+00:01:06,830 --> 00:01:08,610
+So three fish total.
+
+32
+00:01:08,610 --> 00:01:11,690
+And how we did that
+feels like a loop.
+
+33
+00:01:11,690 --> 00:01:13,550
+So intuitively, we
+think maybe if we
+
+34
+00:01:13,550 --> 00:01:16,340
+loop over the properties
+of our object,
+
+35
+00:01:16,340 --> 00:01:18,560
+we could find out how
+many fish are in there
+
+36
+00:01:18,560 --> 00:01:20,290
+just by checking the type.
+
+37
+00:01:20,290 --> 00:01:21,870
+There's one caveat here though.
+
+38
+00:01:21,870 --> 00:01:25,000
+And that's that the aquarium
+does not have a length.
+
+39
+00:01:25,000 --> 00:01:26,710
+That's completely undefined.
+
+40
+00:01:26,710 --> 00:01:29,770
+It's not like an array where we
+can just count the cells using
+
+41
+00:01:29,770 --> 00:01:32,800
+the length property because
+generic objects don't really
+
+42
+00:01:32,800 --> 00:01:35,830
+have a native length,
+like arrays or strings,
+
+43
+00:01:35,830 --> 00:01:39,160
+we would not be able to use
+that length inside of a loop
+
+44
+00:01:39,160 --> 00:01:40,140
+parameter.
+
+45
+00:01:40,140 --> 00:01:41,347
+We need a different way.
+
+46
+00:01:44,150 --> 00:01:47,650
+Welcome to enumeration
+using the for-in loop.
+
+47
+00:01:47,650 --> 00:01:50,360
+It's a new kind of loop we're
+going to show you right now.
+
+48
+00:01:50,360 --> 00:01:52,840
+The for-in loop
+will let us access
+
+49
+00:01:52,840 --> 00:01:56,780
+each of the innumerable
+properties in turn.
+
+50
+00:01:56,780 --> 00:01:59,720
+You might ask what
+innumerable means.
+
+51
+00:01:59,720 --> 00:02:02,670
+For right now, you should just
+know that it means every object
+
+52
+00:02:02,670 --> 00:02:07,460
+or property that we have added
+to this object ourselves.
+
+53
+00:02:07,460 --> 00:02:09,300
+We'll go into exactly
+what innumerable
+
+54
+00:02:09,300 --> 00:02:11,060
+means in a later course.
+
+55
+00:02:11,060 --> 00:02:14,890
+So here we have our very
+special for-in loop.
+
+56
+00:02:14,890 --> 00:02:16,820
+You can see the for
+keyword, which looks just
+
+57
+00:02:16,820 --> 00:02:18,520
+like the for-loop keyword.
+
+58
+00:02:18,520 --> 00:02:21,330
+But inside the
+parameters of this loop,
+
+59
+00:02:21,330 --> 00:02:23,300
+you can see on the
+left-hand side,
+
+60
+00:02:23,300 --> 00:02:27,050
+the word key and in between
+the two words is in.
+
+61
+00:02:27,050 --> 00:02:29,900
+And on the right-hand
+side is aquarium.
+
+62
+00:02:29,900 --> 00:02:32,610
+Now, key here represents
+every single property
+
+63
+00:02:32,610 --> 00:02:34,990
+that is present
+inside of aquarium.
+
+64
+00:02:34,990 --> 00:02:38,450
+And the end keyword
+will look in the object
+
+65
+00:02:38,450 --> 00:02:42,460
+on the right-hand side
+for every possible key
+
+66
+00:02:42,460 --> 00:02:43,630
+on the left-hand side.
+
+67
+00:02:43,630 --> 00:02:45,130
+You could think of
+it like accessing
+
+68
+00:02:45,130 --> 00:02:47,680
+each index of an array.
+
+69
+00:02:47,680 --> 00:02:50,610
+Now, if we were to log out each
+of these keys, which you know are just
+
+70
+00:02:50,610 --> 00:02:55,160
+property names, we would get
+Nemo, Dory, Bubbles, Peach,
+
+71
+00:02:55,160 --> 00:02:59,430
+Coral Castle, add Critter,
+and lastly take Out.
+
+72
+00:02:59,430 --> 00:03:01,580
+Something to note here is
+that our word key is not
+
+73
+00:03:01,580 --> 00:03:03,110
+any special keyword or anything.
+
+74
+00:03:03,110 --> 00:03:06,070
+We could use whatever name
+we want before the in keyword
+
+75
+00:03:06,070 --> 00:03:10,180
+to refer to each property
+inside the object, such as, say,
+
+76
+00:03:10,180 --> 00:03:13,150
+item or even the
+letter p for property
+
+77
+00:03:13,150 --> 00:03:16,420
+or any real intuitive
+word that you like.
+
+78
+00:03:16,420 --> 00:03:19,000
+Think of it like a
+parameter that points only
+
+79
+00:03:19,000 --> 00:03:21,840
+to the string names
+of the properties.
+
+80
+00:03:21,840 --> 00:03:24,470
+The cool thing is that it's
+a name you get to create.
+
+81
+00:03:24,470 --> 00:03:26,928
+For now, though, we're going
+to go ahead and stick with key
+
+82
+00:03:26,928 --> 00:03:29,680
+since it's an often-used word to
+describe the name of a property
+
+83
+00:03:29,680 --> 00:03:32,750
+within an object.
+
+84
+00:03:32,750 --> 00:03:34,860
+Now that we've got our
+enumeration set up,
+
+85
+00:03:34,860 --> 00:03:38,090
+we need a way to determine
+which properties in the aquarium
+
+86
+00:03:38,090 --> 00:03:41,170
+are actually fish.
+
+87
+00:03:41,170 --> 00:03:43,560
+First thing we'll do is we'll
+set up a variable called
+
+88
+00:03:43,560 --> 00:03:44,060
+num Fish.
+
+89
+00:03:44,060 --> 00:03:45,710
+That's going to be our counter.
+
+90
+00:03:45,710 --> 00:03:49,750
+Then we set up a conditional
+where we ask the aquarium
+
+91
+00:03:49,750 --> 00:03:51,530
+if the current
+key that we're on,
+
+92
+00:03:51,530 --> 00:03:53,960
+which is just a
+property name string,
+
+93
+00:03:53,960 --> 00:03:56,190
+has a type that is fish.
+
+94
+00:03:59,420 --> 00:04:01,550
+Something to note here
+is that once we've
+
+95
+00:04:01,550 --> 00:04:04,620
+accessed the object
+that the key refers to,
+
+96
+00:04:04,620 --> 00:04:06,600
+we can just check
+out its type property
+
+97
+00:04:06,600 --> 00:04:09,520
+to see if it matches
+the string fish.
+
+98
+00:04:09,520 --> 00:04:11,350
+And if that's true,
+we'll go ahead and just
+
+99
+00:04:11,350 --> 00:04:15,010
+increment our num Fish variable.
+
+100
+00:04:15,010 --> 00:04:17,959
+What happens, though, when
+we get to the add Critter
+
+101
+00:04:17,959 --> 00:04:21,480
+function, which is way down
+there at the end of the object
+
+102
+00:04:21,480 --> 00:04:24,300
+and we try to access
+it and then see
+
+103
+00:04:24,300 --> 00:04:26,260
+what its type property holds?
+
+104
+00:04:26,260 --> 00:04:27,820
+Well, that's going
+to be undefined.
+
+105
+00:04:27,820 --> 00:04:30,690
+So that's still OK because
+undefined does not equal fish.
+
+106
+00:04:30,690 --> 00:04:36,140
+So we will never increment our
+numFish variable on a function.
+
+107
+00:04:36,140 --> 00:04:39,070
+So let's check out how our
+loop actually progresses.
+
+108
+00:04:39,070 --> 00:04:42,200
+The first thing that happens
+is that key becomes a Nemo.
+
+109
+00:04:42,200 --> 00:04:45,120
+That's our very first
+current property.
+
+110
+00:04:45,120 --> 00:04:48,500
+And so our conditional looks
+up aquarium Nemo and asks,
+
+111
+00:04:48,500 --> 00:04:50,020
+does it have a doc type?
+
+112
+00:04:50,020 --> 00:04:51,490
+Does it have a type property?
+
+113
+00:04:51,490 --> 00:04:53,159
+Yes, it does.
+
+114
+00:04:53,159 --> 00:04:53,950
+Let's check it out.
+
+115
+00:04:53,950 --> 00:04:54,449
+What is it?
+
+116
+00:04:54,449 --> 00:04:55,450
+It's fish.
+
+117
+00:04:55,450 --> 00:04:56,810
+So does type equal fish?
+
+118
+00:04:56,810 --> 00:04:57,460
+Yes, it does.
+
+119
+00:04:57,460 --> 00:04:58,260
+That's true.
+
+120
+00:04:58,260 --> 00:05:01,840
+And our num Fish variable
+is incremented to 1.
+
+121
+00:05:01,840 --> 00:05:03,530
+The same thing happens for Dory.
+
+122
+00:05:03,530 --> 00:05:05,090
+It does have a type property.
+
+123
+00:05:05,090 --> 00:05:06,230
+And that type is fish.
+
+124
+00:05:06,230 --> 00:05:08,777
+So we get num Fish
+incremented to 2.
+
+125
+00:05:08,777 --> 00:05:11,110
+And then when we do Bubbles,
+the same procedure happens.
+
+126
+00:05:11,110 --> 00:05:14,150
+And we get num Fish
+incremented to 3.
+
+127
+00:05:14,150 --> 00:05:16,980
+But then we get to Peach.
+
+128
+00:05:16,980 --> 00:05:19,230
+And it does have
+a type property.
+
+129
+00:05:19,230 --> 00:05:20,730
+But it's type is not fish.
+
+130
+00:05:20,730 --> 00:05:22,360
+It's econaderm.
+
+131
+00:05:22,360 --> 00:05:24,220
+So type is not equal to fish.
+
+132
+00:05:24,220 --> 00:05:27,230
+And we do not increment
+the num Fish variable.
+
+133
+00:05:27,230 --> 00:05:29,800
+Same thing occurs
+with the Coral Castle
+
+134
+00:05:29,800 --> 00:05:33,430
+because its type is environment.
+
+135
+00:05:33,430 --> 00:05:35,454
+Lastly, we get to add Critter.
+
+136
+00:05:35,454 --> 00:05:37,120
+And it doesn't even
+have a type variable
+
+137
+00:05:37,120 --> 00:05:38,530
+so it will be undefined.
+
+138
+00:05:38,530 --> 00:05:40,220
+And that will stay
+false when we try
+
+139
+00:05:40,220 --> 00:05:42,460
+to check whether the
+type is the fish.
+
+140
+00:05:42,460 --> 00:05:44,540
+And we will not
+increment num Fish
+
+141
+00:05:44,540 --> 00:05:48,270
+for either add Critter
+or take Out.
+
+142
+00:05:48,270 --> 00:05:50,660
+And if we try to log out
+our num Fish variable,
+
+143
+00:05:50,660 --> 00:05:53,230
+we can see we have three
+fish inside of our aquarium.
+
+144
+00:05:56,520 --> 00:05:58,880
+Now we've built all this
+functionality outside
+
+145
+00:05:58,880 --> 00:05:59,690
+of the object.
+
+146
+00:05:59,690 --> 00:06:02,620
+We really want to put
+that inside the aquarium
+
+147
+00:06:02,620 --> 00:06:07,610
+so that we can call an
+aquarium fish counter.
+
+148
+00:06:07,610 --> 00:06:09,162
+So let's scoot our
+stuff over here.
+
+149
+00:06:09,162 --> 00:06:11,120
+And we'll go ahead and
+establish a new property
+
+150
+00:06:11,120 --> 00:06:14,960
+inside of our aquarium
+called aquarium.countFish.
+
+151
+00:06:14,960 --> 00:06:17,050
+And we'll assign a
+function expression
+
+152
+00:06:17,050 --> 00:06:20,190
+to that particular property.
+
+153
+00:06:20,190 --> 00:06:22,870
+Inside it, all of our
+code that we built.
+
+154
+00:06:22,870 --> 00:06:25,670
+Now something special needs
+to happen inside of our code,
+
+155
+00:06:25,670 --> 00:06:29,060
+though, because every place that
+we had aquarium-- can you think
+
+156
+00:06:29,060 --> 00:06:30,650
+of what we're going
+to place here?
+
+157
+00:06:30,650 --> 00:06:32,879
+We're going to put
+the this keyword.
+
+158
+00:06:32,879 --> 00:06:33,420
+That's right.
+
+159
+00:06:33,420 --> 00:06:37,290
+Because it needs to refer to
+the owner object of the function
+
+160
+00:06:37,290 --> 00:06:39,980
+that's being called.
+
+161
+00:06:39,980 --> 00:06:42,100
+Additionally, since we're
+building a function,
+
+162
+00:06:42,100 --> 00:06:44,260
+we now need to return
+something from that function.
+
+163
+00:06:44,260 --> 00:06:47,890
+So we'll go ahead and
+return our num Fish variable.
+
+164
+00:06:47,890 --> 00:06:50,150
+Magically, our
+count Fish function
+
+165
+00:06:50,150 --> 00:06:53,270
+appears inside of
+our aquarium object.
+
+166
+00:06:53,270 --> 00:06:56,680
+And when we call
+aquarium.countFish, we get 3.
+
+167
+00:06:56,680 --> 00:06:58,770
+Awesome.
+
+168
+00:06:58,770 --> 00:07:00,160
+Let's take Dory out.
+
+169
+00:07:00,160 --> 00:07:03,130
+We'll establish a
+poor Dory variable.
+
+170
+00:07:03,130 --> 00:07:06,930
+And we'll call
+aquarium.takeOut on Dory.
+
+171
+00:07:06,930 --> 00:07:08,580
+Dory pops right out.
+
+172
+00:07:08,580 --> 00:07:10,640
+We'll scoot our
+objects closer here.
+
+173
+00:07:10,640 --> 00:07:12,820
+And the delete that
+happens inside of take Out
+
+174
+00:07:12,820 --> 00:07:14,370
+will return us a true.
+
+175
+00:07:14,370 --> 00:07:17,880
+And now Dory is held
+inside of poor Dory.
+
+176
+00:07:17,880 --> 00:07:20,420
+If we were to now call
+aquarium.countFish,
+
+177
+00:07:20,420 --> 00:07:23,000
+we appropriately get
+2 because now there
+
+178
+00:07:23,000 --> 00:07:25,800
+are only two fish inside
+the aquarium object.
+
+179
+00:07:30,110 --> 00:07:33,059
+And that is the end of
+the Ocean of Objects.
+
+180
+00:07:33,059 --> 00:07:34,600
+Now we've got a
+bunch more challenges
+
+181
+00:07:34,600 --> 00:07:37,490
+here for you to
+really test the work
+
+182
+00:07:37,490 --> 00:07:39,492
+that you've done
+with these objects.
+
+183
+00:07:39,492 --> 00:07:40,700
+Hope you've had a great time.
+
+184
+00:07:40,700 --> 00:07:42,425
+And we'll see you back
+in the next level.
+
+185
+00:07:45,220 --> 00:07:46,690
+And that's what
+gets [INAUDIBLE] -
+
+186
+00:07:46,690 --> 00:07:48,640
+[LAUGHTER]
+
+187
+00:07:48,640 --> 00:07:51,202
+We need to delete [INAUDIBLE] -
+
+188
+00:07:51,202 --> 00:07:52,500
+[LAUGHTER]
+
+189
+00:07:52,500 --> 00:07:55,290
+The colossal fail.

@@ -1,0 +1,1459 @@
+﻿1
+00:00:00,500 --> 00:00:03,630
+[SINGING] From the Labyrinth of
+Loops to the Variable Valley,
+
+2
+00:00:03,630 --> 00:00:05,630
+we'll see the Cliffs
+of Value first.
+
+3
+00:00:05,630 --> 00:00:07,180
+JavaScript's right
+up your alley.
+
+4
+00:00:07,180 --> 00:00:10,490
+Built-ins Bluff, Files
+Falls, Array Archipelago,
+
+5
+00:00:10,490 --> 00:00:12,300
+declarations in a
+desert where you'll
+
+6
+00:00:12,300 --> 00:00:13,670
+find out how far you'll go.
+
+7
+00:00:13,670 --> 00:00:14,990
+Learn to program, take a ride.
+
+8
+00:00:14,990 --> 00:00:16,759
+Buy a ticket, step inside.
+
+9
+00:00:16,759 --> 00:00:18,555
+All aboard, you're
+at the station
+
+10
+00:00:18,555 --> 00:00:19,680
+to increase your education.
+
+11
+00:00:19,680 --> 00:00:22,510
+Bon voyage and skinny
+dip, as long as functions
+
+12
+00:00:22,510 --> 00:00:27,700
+you don't skip on this
+the JavaScript Road Trip.
+
+13
+00:00:32,164 --> 00:00:33,080
+Whew, you made it out of those, huh?
+
+14
+00:00:33,080 --> 00:00:34,890
+I hope they weren't
+too challenging.
+
+15
+00:00:34,890 --> 00:00:36,710
+But these might be.
+
+16
+00:00:36,710 --> 00:00:38,310
+So in this level,
+we'll be looking
+
+17
+00:00:38,310 --> 00:00:41,050
+at the broad concept
+of inheritance, which
+
+18
+00:00:41,050 --> 00:00:43,880
+is a very common object
+oriented practice.
+
+19
+00:00:43,880 --> 00:00:45,460
+And specifically,
+we'll be looking
+
+20
+00:00:45,460 --> 00:00:47,280
+at how it relates to JavaScript.
+
+21
+00:00:47,280 --> 00:00:49,500
+Periodically when
+we code, we want
+
+22
+00:00:49,500 --> 00:00:52,020
+to build a program that has
+a vast amount of objects,
+
+23
+00:00:52,020 --> 00:00:54,360
+all of which share
+some small amount
+
+24
+00:00:54,360 --> 00:00:56,474
+of similar functionality.
+
+25
+00:00:56,474 --> 00:00:57,890
+Now, we don't
+really want to build
+
+26
+00:00:57,890 --> 00:01:00,790
+that similar functionality
+inside every one
+
+27
+00:01:00,790 --> 00:01:01,760
+of those objects.
+
+28
+00:01:01,760 --> 00:01:03,480
+Can you imagine the
+memory storage issues
+
+29
+00:01:03,480 --> 00:01:04,489
+that might occur?
+
+30
+00:01:04,489 --> 00:01:06,790
+So instead,
+JavaScript provides us
+
+31
+00:01:06,790 --> 00:01:08,910
+with a very nice
+blueprint object
+
+32
+00:01:08,910 --> 00:01:12,140
+that will pass those
+similar properties out
+
+33
+00:01:12,140 --> 00:01:16,120
+to every single one of those
+objects that we have made.
+
+34
+00:01:16,120 --> 00:01:19,420
+So saddle up boys and
+girls and grab your lasso,
+
+35
+00:01:19,420 --> 00:01:22,280
+because you've reached the
+dusty and dangerous Plains
+
+36
+00:01:22,280 --> 00:01:23,910
+of Prototypes.
+
+37
+00:01:23,910 --> 00:01:24,890
+Watch out for twisters.
+
+38
+00:01:27,770 --> 00:01:28,540
+Welcome back.
+
+39
+00:01:28,540 --> 00:01:32,125
+This is a Level Five,
+the Plains of Prototypes.
+
+40
+00:01:34,990 --> 00:01:35,850
+Surprise.
+
+41
+00:01:35,850 --> 00:01:36,470
+Guess what?
+
+42
+00:01:36,470 --> 00:01:40,500
+The objects we have built so
+far have some secret properties
+
+43
+00:01:40,500 --> 00:01:42,780
+that we never saw
+or talked about.
+
+44
+00:01:42,780 --> 00:01:43,340
+That's right.
+
+45
+00:01:43,340 --> 00:01:46,970
+Nemo, Bubbles, the book,
+the box, the castle, Dory,
+
+46
+00:01:46,970 --> 00:01:51,190
+and the aquarium all have
+a bunch of properties
+
+47
+00:01:51,190 --> 00:01:54,690
+that they were given just
+as soon as we created them.
+
+48
+00:01:54,690 --> 00:01:57,460
+These are properties like
+value of, constructor,
+
+49
+00:01:57,460 --> 00:02:01,950
+to Locale String, to
+String, is Prototype Of,
+
+50
+00:02:01,950 --> 00:02:06,001
+property Is Enumerable,
+and has Own Property.
+
+51
+00:02:06,001 --> 00:02:06,500
+Hmm.
+
+52
+00:02:06,500 --> 00:02:07,650
+Interesting.
+
+53
+00:02:07,650 --> 00:02:09,240
+Where did these come from?
+
+54
+00:02:09,240 --> 00:02:12,300
+All these objects have a
+mysterious parent object
+
+55
+00:02:12,300 --> 00:02:14,790
+that gives them some
+extra properties.
+
+56
+00:02:14,790 --> 00:02:17,620
+We want to remove
+that mystery for you.
+
+57
+00:02:17,620 --> 00:02:20,640
+An object's parent is
+called its prototype.
+
+58
+00:02:20,640 --> 00:02:23,780
+And all of these methods that
+you see come from something
+
+59
+00:02:23,780 --> 00:02:25,290
+called the object prototype.
+
+60
+00:02:28,630 --> 00:02:30,480
+When a generic
+object is created,
+
+61
+00:02:30,480 --> 00:02:34,070
+its prototype is going to pass
+it many important properties.
+
+62
+00:02:34,070 --> 00:02:36,920
+So when we made that aquarium
+object before and put
+
+63
+00:02:36,920 --> 00:02:39,500
+a whole bunch of stuff in
+it, the object prototype
+
+64
+00:02:39,500 --> 00:02:42,775
+passed it tons of
+extra properties.
+
+65
+00:02:45,760 --> 00:02:48,170
+A prototype is like
+a blueprint object
+
+66
+00:02:48,170 --> 00:02:50,930
+for the object we
+are trying to create.
+
+67
+00:02:50,930 --> 00:02:53,270
+JavaScript has a
+set of properties
+
+68
+00:02:53,270 --> 00:02:56,480
+that it wants every
+object to have.
+
+69
+00:02:56,480 --> 00:02:59,930
+And so the highest prototype,
+the object prototype,
+
+70
+00:02:59,930 --> 00:03:04,420
+passes all those
+properties to every object.
+
+71
+00:03:04,420 --> 00:03:07,700
+Passing down properties
+is called inheritance.
+
+72
+00:03:07,700 --> 00:03:10,570
+Inheritance is a super important
+thing inside of programming
+
+73
+00:03:10,570 --> 00:03:14,080
+and it goes a long way to
+helping us avoid over coding.
+
+74
+00:03:14,080 --> 00:03:17,100
+It helps prevent building
+multiple, multiple properties
+
+75
+00:03:17,100 --> 00:03:21,290
+and methods that are exactly
+the same into similar objects.
+
+76
+00:03:21,290 --> 00:03:24,070
+In other words, it helps us
+not have a billion storage
+
+77
+00:03:24,070 --> 00:03:26,450
+locations for the
+exact same information.
+
+78
+00:03:30,790 --> 00:03:32,540
+So far all of the
+objects literals
+
+79
+00:03:32,540 --> 00:03:34,850
+that we've made with
+the curly brackets,
+
+80
+00:03:34,850 --> 00:03:38,570
+they inherit directly from the
+very highest level and the js
+
+81
+00:03:38,570 --> 00:03:39,330
+hierarchy.
+
+82
+00:03:39,330 --> 00:03:40,655
+That's the object prototype.
+
+83
+00:03:43,700 --> 00:03:46,770
+Turns out though, that
+all of the JavaScript data
+
+84
+00:03:46,770 --> 00:03:48,680
+structures that you
+can think of will all
+
+85
+00:03:48,680 --> 00:03:51,870
+inherit their properties
+and methods from their very
+
+86
+00:03:51,870 --> 00:03:55,120
+own prototypes, not just
+the object prototype.
+
+87
+00:03:55,120 --> 00:03:56,730
+Let's take a look.
+
+88
+00:03:56,730 --> 00:04:00,510
+If I had an array and it has
+a bunch of strings in it,
+
+89
+00:04:00,510 --> 00:04:03,050
+the array actually
+inherits from something
+
+90
+00:04:03,050 --> 00:04:05,500
+called the array prototype.
+
+91
+00:04:05,500 --> 00:04:09,190
+So all of those array methods
+that we've seen or used inside
+
+92
+00:04:09,190 --> 00:04:10,970
+of the previous
+Road Trip course,
+
+93
+00:04:10,970 --> 00:04:15,110
+like length, pop and push,
+and shift, and some others,
+
+94
+00:04:15,110 --> 00:04:17,730
+they all come from
+the array prototype.
+
+95
+00:04:17,730 --> 00:04:20,620
+And those are passed down
+into the array object
+
+96
+00:04:20,620 --> 00:04:25,020
+that we've created so that we
+can call each of those methods
+
+97
+00:04:25,020 --> 00:04:27,800
+or properties on our my Array.
+
+98
+00:04:30,630 --> 00:04:32,280
+Same thing goes with strings.
+
+99
+00:04:32,280 --> 00:04:34,180
+If we established a
+variable called my String
+
+100
+00:04:34,180 --> 00:04:36,240
+and we built a
+string inside of it,
+
+101
+00:04:36,240 --> 00:04:40,650
+that string is secretly a
+child of the string prototype.
+
+102
+00:04:40,650 --> 00:04:43,080
+And the string prototype
+passes a whole bunch
+
+103
+00:04:43,080 --> 00:04:47,820
+of string properties and methods
+to our my String variable.
+
+104
+00:04:47,820 --> 00:04:49,670
+That's how come we
+can call the length
+
+105
+00:04:49,670 --> 00:04:51,330
+property on a
+my String as well as
+
+106
+00:04:51,330 --> 00:04:54,360
+char At and various
+other string methods.
+
+107
+00:04:57,610 --> 00:05:01,040
+Similarly, the number prototype
+passes a few properties
+
+108
+00:05:01,040 --> 00:05:02,855
+into every number variable.
+
+109
+00:05:08,360 --> 00:05:11,960
+And lastly but certainly not
+least, the function prototype
+
+110
+00:05:11,960 --> 00:05:15,630
+will pass a few properties
+and methods to every function
+
+111
+00:05:15,630 --> 00:05:17,870
+declared or otherwise
+that you create.
+
+112
+00:05:21,010 --> 00:05:22,390
+So are you ready for this?
+
+113
+00:05:22,390 --> 00:05:25,760
+Not only do all those values
+inherit from their prototypes,
+
+114
+00:05:25,760 --> 00:05:28,300
+but the prototypes
+inherit directly
+
+115
+00:05:28,300 --> 00:05:30,630
+from the object prototype.
+
+116
+00:05:30,630 --> 00:05:34,370
+That means that the array,
+string, number, and function
+
+117
+00:05:34,370 --> 00:05:36,930
+prototypes as well as all
+the other prototypes that
+
+118
+00:05:36,930 --> 00:05:41,680
+exist in JavaScript have
+access to all of those object
+
+119
+00:05:41,680 --> 00:05:44,720
+prototype properties.
+
+120
+00:05:44,720 --> 00:05:46,570
+So coming back to
+my String, which
+
+121
+00:05:46,570 --> 00:05:48,820
+inherits from the
+string prototype,
+
+122
+00:05:48,820 --> 00:05:51,680
+not only does it get all the
+string prototype methods,
+
+123
+00:05:51,680 --> 00:05:55,650
+but it also gets all of the
+object prototype methods.
+
+124
+00:05:55,650 --> 00:05:59,510
+Because the object
+prototype is an ancestor
+
+125
+00:05:59,510 --> 00:06:02,650
+of the string prototype
+and thus the my String.
+
+126
+00:06:06,260 --> 00:06:08,660
+Now, inheritance is
+really cool because it
+
+127
+00:06:08,660 --> 00:06:12,320
+avoids a whole bunch of
+duplicate memory storage.
+
+128
+00:06:12,320 --> 00:06:16,450
+So instead of hard coding all
+of those properties and methods
+
+129
+00:06:16,450 --> 00:06:18,600
+into every object we
+could ever create,
+
+130
+00:06:18,600 --> 00:06:22,650
+instead they inherit from
+one very nice location.
+
+131
+00:06:22,650 --> 00:06:24,385
+But it's really
+important to recognize
+
+132
+00:06:24,385 --> 00:06:26,820
+that though properties
+are inherited,
+
+133
+00:06:26,820 --> 00:06:29,820
+they're still owned
+by the prototypes,
+
+134
+00:06:29,820 --> 00:06:32,280
+not the inheriting object.
+
+135
+00:06:32,280 --> 00:06:33,530
+So what does that mean?
+
+136
+00:06:33,530 --> 00:06:36,370
+That means that the properties
+that belong to the object
+
+137
+00:06:36,370 --> 00:06:39,860
+prototype are actually stored
+there and they stay there.
+
+138
+00:06:39,860 --> 00:06:43,980
+And that's good, because we want
+them to only be in one location
+
+139
+00:06:43,980 --> 00:06:45,900
+so that every
+object that we make
+
+140
+00:06:45,900 --> 00:06:48,115
+can inherit from
+that one location.
+
+141
+00:06:50,810 --> 00:06:53,620
+For example, the
+has Own Property
+
+142
+00:06:53,620 --> 00:06:55,730
+is owned by the
+object prototype,
+
+143
+00:06:55,730 --> 00:06:59,220
+so that when we would call
+it on my string what happens
+
+144
+00:06:59,220 --> 00:07:02,100
+is my string looks up to the
+string prototype to say,"Hey,
+
+145
+00:07:02,100 --> 00:07:03,910
+do you have this has
+own Property Thing?
+
+146
+00:07:03,910 --> 00:07:04,910
+Because I don't have it."
+
+147
+00:07:04,910 --> 00:07:08,910
+String prototype says no, and
+so the search continues up
+
+148
+00:07:08,910 --> 00:07:12,980
+what's called the
+prototype chain.
+
+149
+00:07:12,980 --> 00:07:15,080
+When the search gets to
+the object prototype,
+
+150
+00:07:15,080 --> 00:07:17,620
+the object prototype
+says, "Yes, I have
+
+151
+00:07:17,620 --> 00:07:19,490
+the has own property method.
+
+152
+00:07:19,490 --> 00:07:21,760
+And let's go ahead and
+let my String use it."
+
+153
+00:07:21,760 --> 00:07:22,450
+Why?
+
+154
+00:07:22,450 --> 00:07:25,480
+Because object
+prototype is an ancestor
+
+155
+00:07:25,480 --> 00:07:28,180
+of the my String variable.
+
+156
+00:07:28,180 --> 00:07:30,460
+Something to note
+here is that my String
+
+157
+00:07:30,460 --> 00:07:34,760
+has access to the has own
+property method without it
+
+158
+00:07:34,760 --> 00:07:37,740
+needing to be stored inside
+the myString variable.
+
+159
+00:07:40,940 --> 00:07:42,280
+Pretty cool, right?
+
+160
+00:07:42,280 --> 00:07:44,520
+So the same goes with a
+common string property
+
+161
+00:07:44,520 --> 00:07:46,500
+like chartAt, which
+you've seen before
+
+162
+00:07:46,500 --> 00:07:48,140
+in Road Trips one and two.
+
+163
+00:07:48,140 --> 00:07:50,810
+my String looks up to the
+string prototype and says,
+
+164
+00:07:50,810 --> 00:07:54,570
+"Yo, string prototype, do
+you have a char At method?"
+
+165
+00:07:54,570 --> 00:07:57,360
+String prototype says yes,
+"I have a charAt method,
+
+166
+00:07:57,360 --> 00:08:00,070
+and you are most
+welcome to use it."
+
+167
+00:08:00,070 --> 00:08:02,350
+Since the string
+prototype owns the char At,
+
+168
+00:08:02,350 --> 00:08:04,625
+the search is going
+to stop right there.
+
+169
+00:08:04,625 --> 00:08:06,750
+The string prototype will
+grant my String the access
+
+170
+00:08:06,750 --> 00:08:07,940
+to the function.
+
+171
+00:08:07,940 --> 00:08:09,560
+Inheritance is pretty awesome.
+
+172
+00:08:12,089 --> 00:08:14,380
+We're going to try to blow
+your mind a little bit here.
+
+173
+00:08:14,380 --> 00:08:17,130
+What if we wanted
+to add some base
+
+174
+00:08:17,130 --> 00:08:22,570
+values or some functionality to
+all objects of a similar type?
+
+175
+00:08:22,570 --> 00:08:23,730
+Hmm.
+
+176
+00:08:23,730 --> 00:08:27,820
+Yes, we can add inheritable
+properties to prototypes.
+
+177
+00:08:27,820 --> 00:08:29,920
+Let's say here that we
+had a bunch of strings
+
+178
+00:08:29,920 --> 00:08:32,059
+in whatever program
+we were working on
+
+179
+00:08:32,059 --> 00:08:35,340
+and we needed to be able to
+count the amount of any letter
+
+180
+00:08:35,340 --> 00:08:36,940
+within each string.
+
+181
+00:08:36,940 --> 00:08:38,919
+For example, in
+these strings, if we
+
+182
+00:08:38,919 --> 00:08:40,909
+wanted to know the
+amount of A's we
+
+183
+00:08:40,909 --> 00:08:44,340
+could see that witch would have
+one, Scarecrow four, Glinda
+
+184
+00:08:44,340 --> 00:08:48,300
+one, Dorothy one, Lion has
+two, the wizard has four,
+
+185
+00:08:48,300 --> 00:08:52,300
+and the Tin Man has five.
+
+186
+00:08:52,300 --> 00:08:54,480
+Additionally, if we want
+to know how many E's were
+
+187
+00:08:54,480 --> 00:08:58,472
+in these strings, we would
+get three, five, seven, four,
+
+188
+00:08:58,472 --> 00:09:00,905
+three, five, five in
+order for those strings.
+
+189
+00:09:04,470 --> 00:09:05,970
+Well, that seems
+pretty easy, right?
+
+190
+00:09:05,970 --> 00:09:07,090
+Counting letters?
+
+191
+00:09:07,090 --> 00:09:09,170
+But since this functionality
+doesn't actually
+
+192
+00:09:09,170 --> 00:09:13,200
+exist in the ready made
+JavaScript string methods
+
+193
+00:09:13,200 --> 00:09:15,820
+we'd have to build that
+functionality ourselves,
+
+194
+00:09:15,820 --> 00:09:18,260
+either in declared function
+or a function expression
+
+195
+00:09:18,260 --> 00:09:19,670
+or something like that.
+
+196
+00:09:19,670 --> 00:09:23,620
+Turns out though that we can add
+such a function to the string
+
+197
+00:09:23,620 --> 00:09:25,500
+prototype as a property.
+
+198
+00:09:25,500 --> 00:09:27,490
+And then all of the
+strings that we build
+
+199
+00:09:27,490 --> 00:09:31,350
+will have access to that
+property to use at any time.
+
+200
+00:09:31,350 --> 00:09:32,867
+That's inheritance.
+
+201
+00:09:32,867 --> 00:09:33,950
+That's pretty cool, right?
+
+202
+00:09:33,950 --> 00:09:35,330
+So let's try it.
+
+203
+00:09:35,330 --> 00:09:37,920
+We'll start to build a new
+function inside of the string
+
+204
+00:09:37,920 --> 00:09:38,790
+prototype.
+
+205
+00:09:38,790 --> 00:09:41,610
+Now, this dot notation
+that you see here
+
+206
+00:09:41,610 --> 00:09:46,990
+finds the prototype for all
+string values everywhere.
+
+207
+00:09:46,990 --> 00:09:49,972
+To add our function directly
+to the string prototype,
+
+208
+00:09:49,972 --> 00:09:51,430
+we're just going
+to use another dot
+
+209
+00:09:51,430 --> 00:09:54,450
+and assign a new property
+name called count All.
+
+210
+00:09:54,450 --> 00:09:58,716
+Because we're going to be
+counting a bunch of letters.
+
+211
+00:09:58,716 --> 00:10:00,340
+By adding this to
+the string prototype,
+
+212
+00:10:00,340 --> 00:10:03,180
+we've now made it
+inheritable to all strings
+
+213
+00:10:03,180 --> 00:10:06,257
+everywhere, even ones
+that already exist.
+
+214
+00:10:06,257 --> 00:10:08,090
+So we'll assign to it
+a function expression,
+
+215
+00:10:08,090 --> 00:10:09,730
+and since we're
+giving the function
+
+216
+00:10:09,730 --> 00:10:11,680
+to the overarching
+string prototype,
+
+217
+00:10:11,680 --> 00:10:14,170
+we won't really need to
+pass the function a string
+
+218
+00:10:14,170 --> 00:10:19,520
+because the string will be
+calling the function itself.
+
+219
+00:10:19,520 --> 00:10:21,720
+All we need to give
+it is a letter.
+
+220
+00:10:21,720 --> 00:10:23,650
+We need to make sure
+we give it a letter so
+
+221
+00:10:23,650 --> 00:10:27,310
+that the function knows which
+letter we're looking for.
+
+222
+00:10:27,310 --> 00:10:28,990
+Next we'll get a for loop going.
+
+223
+00:10:28,990 --> 00:10:29,970
+Check this out.
+
+224
+00:10:29,970 --> 00:10:34,370
+So inside we've got our
+loop counter set up.
+
+225
+00:10:34,370 --> 00:10:38,320
+And we're only going to
+run so long as we have not
+
+226
+00:10:38,320 --> 00:10:41,332
+reached the end of the string.
+
+227
+00:10:41,332 --> 00:10:43,040
+Now since the string
+we are interested in
+
+228
+00:10:43,040 --> 00:10:46,410
+is going to be the very string
+that is calling count All,
+
+229
+00:10:46,410 --> 00:10:49,280
+we want to use the very
+important this key word
+
+230
+00:10:49,280 --> 00:10:52,890
+to refer back to
+that caller string.
+
+231
+00:10:52,890 --> 00:10:55,370
+Now before you saw
+that this was being
+
+232
+00:10:55,370 --> 00:10:57,080
+used to refer to an owner.
+
+233
+00:10:57,080 --> 00:10:58,840
+And that's because
+the owner was actually
+
+234
+00:10:58,840 --> 00:11:01,190
+the caller of the property.
+
+235
+00:11:01,190 --> 00:11:03,690
+So here you can see
+in a little more depth
+
+236
+00:11:03,690 --> 00:11:07,560
+that the this keyword always
+refers to the calling object,
+
+237
+00:11:07,560 --> 00:11:09,590
+whether that caller
+is the actual owner
+
+238
+00:11:09,590 --> 00:11:13,490
+of the property
+being called or not.
+
+239
+00:11:13,490 --> 00:11:14,740
+Now here's where the money is.
+
+240
+00:11:14,740 --> 00:11:16,198
+This is the
+conditional that checks
+
+241
+00:11:16,198 --> 00:11:18,920
+to see if we have found
+the right letter as we
+
+242
+00:11:18,920 --> 00:11:20,740
+move through the stream.
+
+243
+00:11:20,740 --> 00:11:23,130
+Let's look at the left hand
+side of this conditional.
+
+244
+00:11:23,130 --> 00:11:26,340
+We have this, which refers
+to the string that's
+
+245
+00:11:26,340 --> 00:11:27,840
+calling count all.
+
+246
+00:11:27,840 --> 00:11:29,780
+And then we have char At
+I. What's that doing?
+
+247
+00:11:29,780 --> 00:11:30,905
+You know what that's doing.
+
+248
+00:11:30,905 --> 00:11:35,710
+It's looking at a particular
+letter inside of the string.
+
+249
+00:11:35,710 --> 00:11:38,920
+Then we have a dot to uppercase.
+
+250
+00:11:38,920 --> 00:11:41,070
+That's a very cool and
+useful string method,
+
+251
+00:11:41,070 --> 00:11:44,100
+but how is that going to work
+if we only get a character back
+
+252
+00:11:44,100 --> 00:11:46,040
+from the char At method?
+
+253
+00:11:46,040 --> 00:11:49,230
+Well, it turns out that
+char At gives us back in fact
+
+254
+00:11:49,230 --> 00:11:53,300
+a string that just happens
+to be one character long.
+
+255
+00:11:53,300 --> 00:11:55,600
+Now to uppercase will
+take any string even,
+
+256
+00:11:55,600 --> 00:11:57,900
+one that is only
+one character long,
+
+257
+00:11:57,900 --> 00:12:00,620
+and convert any alphabetic
+characters inside it
+
+258
+00:12:00,620 --> 00:12:02,120
+to uppercase.
+
+259
+00:12:02,120 --> 00:12:04,310
+You can see here
+that a lowercase "bam!"
+
+260
+00:12:04,310 --> 00:12:07,880
+with an exclamation point
+becomes a Batman style bam when
+
+261
+00:12:07,880 --> 00:12:09,750
+to uppercase gets a hold of it.
+
+262
+00:12:13,590 --> 00:12:14,970
+Now why would we be doing this?
+
+263
+00:12:14,970 --> 00:12:17,030
+Well let's check out
+the right hand side.
+
+264
+00:12:17,030 --> 00:12:20,920
+The letter dot to uppercase will
+return whichever letter we've
+
+265
+00:12:20,920 --> 00:12:23,140
+passed in as an
+uppercase letter.
+
+266
+00:12:23,140 --> 00:12:24,360
+What does this do?
+
+267
+00:12:24,360 --> 00:12:26,610
+It means that our
+comparison is only
+
+268
+00:12:26,610 --> 00:12:29,930
+looking at capitalized
+letters the whole time.
+
+269
+00:12:29,930 --> 00:12:32,660
+And that way we don't have to
+have these complex conditionals
+
+270
+00:12:32,660 --> 00:12:35,340
+that look for lowercase
+and uppercase altogether.
+
+271
+00:12:35,340 --> 00:12:37,810
+We've taken care of it
+with one line of code.
+
+272
+00:12:37,810 --> 00:12:40,390
+Something to note about
+the to uppercase method
+
+273
+00:12:40,390 --> 00:12:42,030
+is that if the letter
+you're looking at
+
+274
+00:12:42,030 --> 00:12:47,140
+is already uppercase, it
+will just stay uppercase.
+
+275
+00:12:47,140 --> 00:12:49,560
+So if we have a match, then
+inside that conditional
+
+276
+00:12:49,560 --> 00:12:51,930
+we should adjust our
+letter count to say yes.
+
+277
+00:12:51,930 --> 00:12:54,800
+We have found one of the
+letters we're looking for.
+
+278
+00:12:54,800 --> 00:12:56,520
+At the end of our
+function, we'll
+
+279
+00:12:56,520 --> 00:13:00,941
+just return the amount
+of letters that we found.
+
+280
+00:13:00,941 --> 00:13:01,440
+Great.
+
+281
+00:13:01,440 --> 00:13:05,390
+We've added a function
+to the string prototype
+
+282
+00:13:05,390 --> 00:13:09,490
+that all strings everywhere
+should now be able to access.
+
+283
+00:13:09,490 --> 00:13:12,500
+First, let's try calling
+count all on the witch string
+
+284
+00:13:12,500 --> 00:13:17,830
+and let's pass in I as the
+letter that we are looking for.
+
+285
+00:13:17,830 --> 00:13:20,140
+You'll notice there's an
+I inside aisle as well
+
+286
+00:13:20,140 --> 00:13:23,580
+as in little, for
+a total of two I's.
+
+287
+00:13:23,580 --> 00:13:25,770
+Then we can call count
+all on Scarecrow.
+
+288
+00:13:25,770 --> 00:13:27,900
+Notice this is a completely
+different string.
+
+289
+00:13:27,900 --> 00:13:31,210
+That's because we added count
+all to the string prototype.
+
+290
+00:13:31,210 --> 00:13:34,750
+If we pass in O to our count
+all method on Scarecrow,
+
+291
+00:13:34,750 --> 00:13:41,960
+we find the O's in some,
+people, without, do, lot,
+
+292
+00:13:41,960 --> 00:13:43,860
+of, and don't.
+
+293
+00:13:43,860 --> 00:13:46,940
+For a total of seven O's.
+
+294
+00:13:46,940 --> 00:13:50,050
+Similarly, if we call
+count all on lion with K,
+
+295
+00:13:50,050 --> 00:13:52,990
+we would see the K in
+junkyard for a total of one.
+
+296
+00:13:52,990 --> 00:13:55,850
+And if we called it
+on tin man with N,
+
+297
+00:13:55,850 --> 00:13:59,950
+we would find the N's in
+now, no, and breaking,
+
+298
+00:13:59,950 --> 00:14:01,500
+for a total of three.
+
+299
+00:14:04,820 --> 00:14:05,380
+Sweet.
+
+300
+00:14:05,380 --> 00:14:07,150
+Now you know all
+about prototypes.
+
+301
+00:14:07,150 --> 00:14:09,780
+Well, not all about prototypes,
+but a lot about prototypes.
+
+302
+00:14:09,780 --> 00:14:13,410
+And you also know how to add
+functions into those prototypes
+
+303
+00:14:13,410 --> 00:14:17,830
+so that all of your objects
+can use different functionality
+
+304
+00:14:17,830 --> 00:14:19,490
+that you've put
+into the prototypes.
+
+305
+00:14:19,490 --> 00:14:21,865
+We're going to give you a few
+challenges on these topics,
+
+306
+00:14:21,865 --> 00:14:24,480
+and we'll see you back
+in the next section.

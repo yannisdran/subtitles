@@ -1,0 +1,456 @@
+﻿1
+00:00:02,009 --> 00:00:02,640
+Welcome back.
+
+2
+00:00:02,640 --> 00:00:04,014
+In this section,
+we'll be looking
+
+3
+00:00:04,014 --> 00:00:06,400
+at how to use function
+expressions with the map
+
+4
+00:00:06,400 --> 00:00:08,230
+method of arrays.
+
+5
+00:00:08,230 --> 00:00:11,020
+Now, a function expression
+is just that, an expression.
+
+6
+00:00:11,020 --> 00:00:15,220
+And you can use it in any place
+that an expression might go.
+
+7
+00:00:15,220 --> 00:00:18,510
+You don't necessarily need to
+store a function expression
+
+8
+00:00:18,510 --> 00:00:21,230
+inside of a variable
+at all times.
+
+9
+00:00:21,230 --> 00:00:22,980
+Let's take a look at why.
+
+10
+00:00:22,980 --> 00:00:25,350
+So say we had an
+array of numbers.
+
+11
+00:00:25,350 --> 00:00:27,210
+And we stored it in
+a variable called,
+
+12
+00:00:27,210 --> 00:00:29,160
+as you might expect, numbers.
+
+13
+00:00:29,160 --> 00:00:33,360
+And then we established a
+new variable called results.
+
+14
+00:00:33,360 --> 00:00:36,870
+To that variable, we will
+assign something very special.
+
+15
+00:00:36,870 --> 00:00:40,830
+You can see that we call the
+numbers array with its map
+
+16
+00:00:40,830 --> 00:00:41,740
+method.
+
+17
+00:00:41,740 --> 00:00:45,350
+And then inside of the
+parameters for that map method,
+
+18
+00:00:45,350 --> 00:00:48,780
+we're going to pass
+some coolFunction.
+
+19
+00:00:48,780 --> 00:00:51,200
+Now, be aware that the
+map method of an array
+
+20
+00:00:51,200 --> 00:00:54,580
+will always take in a
+function as a parameter,
+
+21
+00:00:54,580 --> 00:00:57,540
+whether it's a function
+expression or a function
+
+22
+00:00:57,540 --> 00:00:59,750
+expression stored in a variable.
+
+23
+00:00:59,750 --> 00:01:03,580
+But it just has to be a function
+that the map method gets.
+
+24
+00:01:03,580 --> 00:01:05,319
+So check this out.
+
+25
+00:01:05,319 --> 00:01:07,830
+Here is the visual
+impression of our numbers
+
+26
+00:01:07,830 --> 00:01:10,600
+array with each of the numbers
+inside of its own cell.
+
+27
+00:01:10,600 --> 00:01:14,600
+And what the map method does
+is it takes our coolFunction
+
+28
+00:01:14,600 --> 00:01:18,080
+and applies it to
+every single cell.
+
+29
+00:01:18,080 --> 00:01:20,120
+Whatever coolFunction
+does, it does it
+
+30
+00:01:20,120 --> 00:01:23,474
+to each one of
+the cells in turn.
+
+31
+00:01:23,474 --> 00:01:25,640
+So you can see that our
+cool function here, whatever
+
+32
+00:01:25,640 --> 00:01:29,440
+it may do, it gives us words in
+our final array that says, "wow,
+
+33
+00:01:29,440 --> 00:01:32,090
+these are some pretty
+cool results, man".
+
+34
+00:01:32,090 --> 00:01:35,520
+Now you might be thinking,
+this seems like a loop format.
+
+35
+00:01:35,520 --> 00:01:36,270
+And guess what?
+
+36
+00:01:36,270 --> 00:01:37,970
+It sort of is.
+
+37
+00:01:37,970 --> 00:01:40,320
+So here's what this
+sort of functionality
+
+38
+00:01:40,320 --> 00:01:42,540
+would look like
+in a loop format.
+
+39
+00:01:42,540 --> 00:01:44,050
+Well, the first
+thing we would do
+
+40
+00:01:44,050 --> 00:01:46,690
+is establish a results
+variable and then use
+
+41
+00:01:46,690 --> 00:01:51,180
+a loop to go over each item
+inside the numbers array.
+
+42
+00:01:51,180 --> 00:01:53,000
+And then we would
+use our coolFunction
+
+43
+00:01:53,000 --> 00:01:56,470
+on each item inside
+of the numbers array,
+
+44
+00:01:56,470 --> 00:01:59,330
+storing the result
+in the results array.
+
+45
+00:01:59,330 --> 00:02:01,200
+So what's cool about
+the map method is
+
+46
+00:02:01,200 --> 00:02:03,950
+that it takes all that code
+you see there in the loop
+
+47
+00:02:03,950 --> 00:02:06,910
+and does it all conveniently
+in one line of code.
+
+48
+00:02:10,130 --> 00:02:12,170
+So now let's actually
+build a function
+
+49
+00:02:12,170 --> 00:02:14,200
+to pass to our map method.
+
+50
+00:02:14,200 --> 00:02:15,770
+This time, we won't
+use a variable.
+
+51
+00:02:15,770 --> 00:02:18,910
+We will use a built
+function expression
+
+52
+00:02:18,910 --> 00:02:20,890
+in the parameter parentheses.
+
+53
+00:02:20,890 --> 00:02:21,992
+So let's check that out.
+
+54
+00:02:21,992 --> 00:02:24,450
+What we're going to do is we're
+going to just simply double
+
+55
+00:02:24,450 --> 00:02:27,810
+each number inside
+of our numbers array.
+
+56
+00:02:27,810 --> 00:02:30,170
+So there's our function keyword.
+
+57
+00:02:30,170 --> 00:02:33,290
+And here we have, right
+after the function keyword,
+
+58
+00:02:33,290 --> 00:02:36,970
+our parameters with the
+arrayCell parameter.
+
+59
+00:02:36,970 --> 00:02:42,080
+That's because we have to
+pass each cell of numbers
+
+60
+00:02:42,080 --> 00:02:45,050
+into our function expression
+in order for the function
+
+61
+00:02:45,050 --> 00:02:49,250
+expression to know which
+one that it's looking at.
+
+62
+00:02:49,250 --> 00:02:51,230
+Inside our function
+body, we'll say, just
+
+63
+00:02:51,230 --> 00:02:54,830
+return the arrayCell,
+whatever that may be, times 2.
+
+64
+00:02:54,830 --> 00:02:56,920
+So we will get a doubled value.
+
+65
+00:02:56,920 --> 00:03:01,150
+And that will be passed into the
+identical cell of the results
+
+66
+00:03:01,150 --> 00:03:02,640
+array.
+
+67
+00:03:02,640 --> 00:03:04,860
+Now, something important
+here to remember
+
+68
+00:03:04,860 --> 00:03:07,632
+is that you always have to
+close your function body.
+
+69
+00:03:07,632 --> 00:03:09,090
+So make sure that
+you put a bracket
+
+70
+00:03:09,090 --> 00:03:11,030
+at the end of your
+function body,
+
+71
+00:03:11,030 --> 00:03:15,060
+as well as close the map
+method with a parentheses.
+
+72
+00:03:15,060 --> 00:03:18,030
+Then, tying the whole
+statement together
+
+73
+00:03:18,030 --> 00:03:19,860
+since we do have
+an assignment here,
+
+74
+00:03:19,860 --> 00:03:22,820
+is a semicolon to make sure
+that we execute the function
+
+75
+00:03:22,820 --> 00:03:26,200
+and pass all of the results
+to the results variable.
+
+76
+00:03:26,200 --> 00:03:28,340
+So let's check out how our
+doubling function works.
+
+77
+00:03:28,340 --> 00:03:30,060
+We pass it right
+into the map method.
+
+78
+00:03:30,060 --> 00:03:34,250
+And it is applied to every
+single cell of the numbers
+
+79
+00:03:34,250 --> 00:03:34,750
+array.
+
+80
+00:03:34,750 --> 00:03:37,140
+And you can see each one
+of these numbers being
+
+81
+00:03:37,140 --> 00:03:40,430
+doubled in turn.
+
+82
+00:03:40,430 --> 00:03:44,220
+Then, if we were to log
+out our new results array,
+
+83
+00:03:44,220 --> 00:03:47,060
+we would see an array with
+all of the values doubled
+
+84
+00:03:47,060 --> 00:03:49,670
+from our original numbers array.
+
+85
+00:03:49,670 --> 00:03:51,330
+Oh hey, one more thing.
+
+86
+00:03:51,330 --> 00:03:54,450
+Short functions are
+often built in one line
+
+87
+00:03:54,450 --> 00:03:55,605
+for clarity and simplicity.
+
+88
+00:03:55,605 --> 00:03:59,870
+You don't always have to build
+full blocked functions inside
+
+89
+00:03:59,870 --> 00:04:00,690
+of the parameters.
+
+90
+00:04:00,690 --> 00:04:02,450
+If it's nice and
+short, sometimes
+
+91
+00:04:02,450 --> 00:04:04,780
+for clarity, simplicity,
+legibility, we
+
+92
+00:04:04,780 --> 00:04:09,380
+will build those
+functions all in one line.
+
+93
+00:04:09,380 --> 00:04:12,420
+So now you've seen how to
+build a function expression
+
+94
+00:04:12,420 --> 00:04:14,160
+in the place of a parameter.
+
+95
+00:04:14,160 --> 00:04:16,620
+So we will give you now
+to the challenges where
+
+96
+00:04:16,620 --> 00:04:19,110
+you'll have some fun with that.

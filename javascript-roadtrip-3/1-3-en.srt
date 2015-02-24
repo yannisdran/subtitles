@@ -1,0 +1,1166 @@
+﻿1
+00:00:02,070 --> 00:00:03,810
+Hey, everybody,
+and welcome back.
+
+2
+00:00:03,810 --> 00:00:06,260
+Now just to review, before
+we move on a little bit,
+
+3
+00:00:06,260 --> 00:00:08,740
+we have built
+function expressions
+
+4
+00:00:08,740 --> 00:00:11,550
+and assigned them to
+variables and then called
+
+5
+00:00:11,550 --> 00:00:15,030
+the new variable, like we
+did here with some CUPCAKES.
+
+6
+00:00:15,030 --> 00:00:17,130
+And then the next
+thing that we did was,
+
+7
+00:00:17,130 --> 00:00:19,870
+we had an array full
+of values, and then
+
+8
+00:00:19,870 --> 00:00:23,890
+we built a function expression,
+itself as a parameter,
+
+9
+00:00:23,890 --> 00:00:25,420
+for the map method.
+
+10
+00:00:25,420 --> 00:00:28,070
+When we passed that
+function to the map method,
+
+11
+00:00:28,070 --> 00:00:30,030
+the map method
+applied our function
+
+12
+00:00:30,030 --> 00:00:34,700
+to every cell of our array
+and then built a new array,
+
+13
+00:00:34,700 --> 00:00:35,870
+as a result.
+
+14
+00:00:35,870 --> 00:00:38,120
+You can see that
+here with our juices.
+
+15
+00:00:41,440 --> 00:00:42,990
+So now what we're
+going to look at
+
+16
+00:00:42,990 --> 00:00:47,460
+is how to return a
+function from a function,
+
+17
+00:00:47,460 --> 00:00:49,660
+using function expressions.
+
+18
+00:00:49,660 --> 00:00:53,120
+So say we had a
+mystery function.
+
+19
+00:00:53,120 --> 00:00:54,620
+Ooh, spooky.
+
+20
+00:00:54,620 --> 00:00:56,710
+And then in there we
+had some mystery code
+
+21
+00:00:56,710 --> 00:00:59,680
+that we did a bunch of stuff,
+and then at the very end
+
+22
+00:00:59,680 --> 00:01:02,095
+we returned a
+function expression.
+
+23
+00:01:02,095 --> 00:01:04,220
+That's what we're going to
+be looking at right now.
+
+24
+00:01:07,240 --> 00:01:09,570
+Let's check out how we
+can return functions
+
+25
+00:01:09,570 --> 00:01:12,350
+from functions, using
+our special ticket
+
+26
+00:01:12,350 --> 00:01:15,350
+system for our Forest to
+Function Expressions Theme
+
+27
+00:01:15,350 --> 00:01:16,320
+Park.
+
+28
+00:01:16,320 --> 00:01:18,530
+Now within that,
+we'll use an array
+
+29
+00:01:18,530 --> 00:01:21,450
+as a queue for
+Fast Pass delivery.
+
+30
+00:01:21,450 --> 00:01:23,660
+Let's check out the arrays
+that we start with here.
+
+31
+00:01:23,660 --> 00:01:25,420
+We've got a parkRides array.
+
+32
+00:01:25,420 --> 00:01:30,750
+Now inside our parkRides array,
+we have subarrays, four of them
+
+33
+00:01:30,750 --> 00:01:32,030
+to be exact.
+
+34
+00:01:32,030 --> 00:01:35,030
+And in each subarray,
+we see the ride's
+
+35
+00:01:35,030 --> 00:01:40,160
+name, as well as the time
+that a customer currently
+
+36
+00:01:40,160 --> 00:01:43,090
+would be estimated to
+wait for that ride.
+
+37
+00:01:43,090 --> 00:01:46,240
+So you can see Birch Bumpers
+has a 40 minute wait,
+
+38
+00:01:46,240 --> 00:01:49,710
+Pines Plunge has a 55
+minute wait, et cetera.
+
+39
+00:01:49,710 --> 00:01:51,625
+Next, we have a fastPassQueue.
+
+40
+00:01:51,625 --> 00:01:54,670
+Now Fast Passes are
+organized according
+
+41
+00:01:54,670 --> 00:01:58,060
+to whichever Fast Pass
+is available next,
+
+42
+00:01:58,060 --> 00:01:59,660
+immediately next, in time.
+
+43
+00:01:59,660 --> 00:02:03,570
+So the very first index
+of our fastPassQueue
+
+44
+00:02:03,570 --> 00:02:06,440
+shows Cedar Coaster, and that's
+because the very first Fast
+
+45
+00:02:06,440 --> 00:02:09,490
+Pass that's available
+is for Cedar Coaster.
+
+46
+00:02:09,490 --> 00:02:11,900
+And then it would go Pines
+Plunge, then Birch Bumpers,
+
+47
+00:02:11,900 --> 00:02:14,850
+and then Pines Plunge again.
+
+48
+00:02:14,850 --> 00:02:17,290
+Before we move on, we
+have to kind of understand
+
+49
+00:02:17,290 --> 00:02:19,390
+how a queue operates.
+
+50
+00:02:19,390 --> 00:02:24,020
+So we're first going to build
+our queue as we see it here.
+
+51
+00:02:24,020 --> 00:02:25,775
+The first cell that
+would be in our queue
+
+52
+00:02:25,775 --> 00:02:27,290
+would be Cedar Coaster.
+
+53
+00:02:27,290 --> 00:02:28,900
+Let's say that
+that's what we wanted
+
+54
+00:02:28,900 --> 00:02:31,090
+to have as our first Fast Pass.
+
+55
+00:02:31,090 --> 00:02:35,610
+And then what if we wanted to
+add Pines Plunge to our queue?
+
+56
+00:02:35,610 --> 00:02:38,690
+New items in a queue
+are always added
+
+57
+00:02:38,690 --> 00:02:42,110
+at the very end of the array
+that represents the queue.
+
+58
+00:02:42,110 --> 00:02:45,150
+Just like in real life,
+when you get into a line,
+
+59
+00:02:45,150 --> 00:02:49,030
+you go to the back of the
+line to be added to the line.
+
+60
+00:02:49,030 --> 00:02:51,991
+Now we'll add Birch
+Bumpers onto the queue.
+
+61
+00:02:51,991 --> 00:02:54,170
+But wait, we know a
+method that adds cells
+
+62
+00:02:54,170 --> 00:02:55,160
+to the back of arrays.
+
+63
+00:02:55,160 --> 00:02:57,600
+So what would we be
+using here actually
+
+64
+00:02:57,600 --> 00:02:59,460
+in order to get that
+cell onto the back?
+
+65
+00:02:59,460 --> 00:03:01,340
+That's the push
+method for arrays.
+
+66
+00:03:01,340 --> 00:03:05,040
+So you can see that if we
+add Pines Plunge with a push,
+
+67
+00:03:05,040 --> 00:03:09,390
+it will go right to
+the back of our queue.
+
+68
+00:03:09,390 --> 00:03:13,130
+So now we've built the queue
+that we see in our array.
+
+69
+00:03:13,130 --> 00:03:16,440
+But we need a way to get
+the very first cell off
+
+70
+00:03:16,440 --> 00:03:17,110
+of the queue.
+
+71
+00:03:17,110 --> 00:03:17,610
+Right?
+
+72
+00:03:17,610 --> 00:03:19,840
+Because that's how lines
+empty, from the front.
+
+73
+00:03:19,840 --> 00:03:21,540
+But we don't have
+that method yet.
+
+74
+00:03:21,540 --> 00:03:22,070
+Guess what?
+
+75
+00:03:22,070 --> 00:03:26,970
+Arrays have a very specific
+method for that process.
+
+76
+00:03:26,970 --> 00:03:29,630
+That's called the shift method.
+
+77
+00:03:29,630 --> 00:03:32,990
+When we call the shift method
+on any array, what happens
+
+78
+00:03:32,990 --> 00:03:36,750
+is the very first cell of the
+array gets popped off the front
+
+79
+00:03:36,750 --> 00:03:38,680
+and returned.
+
+80
+00:03:38,680 --> 00:03:40,840
+So here, you can see that
+if we called the shift
+
+81
+00:03:40,840 --> 00:03:44,170
+method on our fastPassQueue,
+the very first cell would
+
+82
+00:03:44,170 --> 00:03:46,450
+be chopped right off,
+which holds Cedar Coaster,
+
+83
+00:03:46,450 --> 00:03:48,655
+and Cedar Coaster
+would be returned.
+
+84
+00:03:54,685 --> 00:03:56,560
+So that shortens our
+queue just a little bit.
+
+85
+00:03:56,560 --> 00:03:57,120
+Right?
+
+86
+00:03:57,120 --> 00:03:59,990
+What would happen if we called
+the length of our array?
+
+87
+00:03:59,990 --> 00:04:03,050
+We can see that
+that will yield a 3.
+
+88
+00:04:03,050 --> 00:04:05,980
+And that's because the shift
+method, just like pop and just
+
+89
+00:04:05,980 --> 00:04:08,857
+like push, will modify
+the length of the array
+
+90
+00:04:08,857 --> 00:04:09,440
+automatically.
+
+91
+00:04:12,130 --> 00:04:13,810
+Now shift is cool
+because you can
+
+92
+00:04:13,810 --> 00:04:17,760
+pop the front of the queue
+off but also store the result,
+
+93
+00:04:17,760 --> 00:04:19,410
+because it will pass
+back the result.
+
+94
+00:04:19,410 --> 00:04:21,839
+It doesn't just let it fly away.
+
+95
+00:04:21,839 --> 00:04:25,090
+So then if we were to shift
+again on our fastPassQueue,
+
+96
+00:04:25,090 --> 00:04:26,630
+the first cell would
+get popped off,
+
+97
+00:04:26,630 --> 00:04:28,930
+and we can store it
+inside of a new variable
+
+98
+00:04:28,930 --> 00:04:31,290
+that we'll call firstFastPass.
+
+99
+00:04:31,290 --> 00:04:33,580
+If we console.log
+that variable out,
+
+100
+00:04:33,580 --> 00:04:37,650
+we will see Pines Plunge
+returned as the result.
+
+101
+00:04:37,650 --> 00:04:40,240
+An important thing to
+note here about shift
+
+102
+00:04:40,240 --> 00:04:42,570
+is that it's always going
+to return this first cell
+
+103
+00:04:42,570 --> 00:04:44,924
+regardless of whether
+you toss it away,
+
+104
+00:04:44,924 --> 00:04:47,090
+like on the left hand side
+here where we just called
+
+105
+00:04:47,090 --> 00:04:50,330
+shift and got Cedar Coaster,
+or whether you store it
+
+106
+00:04:50,330 --> 00:04:53,360
+in a variable and then
+use it for something.
+
+107
+00:04:53,360 --> 00:04:55,510
+Now we're going to go
+ahead and use our queue
+
+108
+00:04:55,510 --> 00:04:57,960
+to build our simple
+ticket system.
+
+109
+00:04:57,960 --> 00:05:00,140
+Let's check it out.
+
+110
+00:05:00,140 --> 00:05:03,240
+So like we said before,
+functions can return functions.
+
+111
+00:05:03,240 --> 00:05:05,330
+This is a very important
+thing about JavaScript.
+
+112
+00:05:05,330 --> 00:05:07,430
+Since functions can be
+treated as expressions,
+
+113
+00:05:07,430 --> 00:05:11,460
+we can return them like values.
+
+114
+00:05:11,460 --> 00:05:13,550
+So in our new ticket
+system, we will
+
+115
+00:05:13,550 --> 00:05:16,320
+have a function
+called buildTicket.
+
+116
+00:05:16,320 --> 00:05:19,010
+And that will take in three
+parameters, the first of which
+
+117
+00:05:19,010 --> 00:05:20,790
+we will call allRides.
+
+118
+00:05:20,790 --> 00:05:23,200
+Now this will be the array
+of our rides and, of course,
+
+119
+00:05:23,200 --> 00:05:25,240
+their wait times too.
+
+120
+00:05:25,240 --> 00:05:27,780
+And then we will have a second
+parameter called passRides.
+
+121
+00:05:27,780 --> 00:05:30,740
+This will be the array of
+all of those Fast Pass rides,
+
+122
+00:05:30,740 --> 00:05:32,680
+in order.
+
+123
+00:05:32,680 --> 00:05:36,290
+Lastly, we will have the
+pick variable parameter,
+
+124
+00:05:36,290 --> 00:05:39,200
+which will be the actual ride
+for which our customer would
+
+125
+00:05:39,200 --> 00:05:41,450
+like a ticket.
+
+126
+00:05:41,450 --> 00:05:45,340
+First thing we'll do is check to
+see if the very first Fast Pass
+
+127
+00:05:45,340 --> 00:05:49,180
+that's available, found
+in passRides index 0 ,
+
+128
+00:05:49,180 --> 00:05:52,640
+is the same as the
+customer's pick.
+
+129
+00:05:52,640 --> 00:05:56,010
+And if that's true, we'll just
+shift the very first cell off
+
+130
+00:05:56,010 --> 00:06:01,200
+of our Fast Pass array and give
+it to a variable called pass.
+
+131
+00:06:01,200 --> 00:06:04,560
+Then we will return a function
+expression that alerts, "Quick,
+
+132
+00:06:04,560 --> 00:06:09,790
+you have a Fast Pass to" whatever
+ride they just got a pass for.
+
+133
+00:06:09,790 --> 00:06:12,930
+Notice here that we're treating
+the function as an expression
+
+134
+00:06:12,930 --> 00:06:14,880
+and returning it directly.
+
+135
+00:06:14,880 --> 00:06:17,070
+It's not stored in a
+variable, nothing like that.
+
+136
+00:06:17,070 --> 00:06:20,680
+It's just immediately returned
+as a function expression.
+
+137
+00:06:20,680 --> 00:06:23,920
+Then if the very
+first Fast Pass is not
+
+138
+00:06:23,920 --> 00:06:26,420
+the one they're looking for,
+then what we're going to do
+
+139
+00:06:26,420 --> 00:06:31,190
+is cycle through the entire
+rides array, all of the rides,
+
+140
+00:06:31,190 --> 00:06:33,120
+with their wait times.
+
+141
+00:06:33,120 --> 00:06:35,450
+And inside that
+loop, we'll check
+
+142
+00:06:35,450 --> 00:06:38,600
+whether the first
+index in each subarray
+
+143
+00:06:38,600 --> 00:06:41,720
+matches the name of the ride
+the customer would like to have.
+
+144
+00:06:41,720 --> 00:06:44,740
+And when it does, we will
+return a different function.
+
+145
+00:06:44,740 --> 00:06:49,370
+This one says, "A ticket
+is printing for," the ride
+
+146
+00:06:49,370 --> 00:06:52,270
+and, "Your wait time is about,"
+a certain amount of minutes.
+
+147
+00:06:52,270 --> 00:06:54,500
+Now notice that the
+minutes are contained
+
+148
+00:06:54,500 --> 00:06:57,080
+in the second index,
+which is the index
+
+149
+00:06:57,080 --> 00:07:02,690
+1, of each of the subarrays
+in our array of rides.
+
+150
+00:07:02,690 --> 00:07:05,030
+So now we know what our
+buildTicket function does,
+
+151
+00:07:05,030 --> 00:07:06,520
+let's see we can do with it.
+
+152
+00:07:06,520 --> 00:07:11,100
+If we establish a variable
+called wantsRide, that's
+
+153
+00:07:11,100 --> 00:07:13,310
+the customer's wanted
+or desired ride,
+
+154
+00:07:13,310 --> 00:07:16,140
+we have Birch Bumpers
+assigned to that right now.
+
+155
+00:07:16,140 --> 00:07:17,870
+Then we will create
+a new variable
+
+156
+00:07:17,870 --> 00:07:20,330
+called ticket, to
+which we will assign
+
+157
+00:07:20,330 --> 00:07:23,550
+the results of our
+buildTicket function.
+
+158
+00:07:23,550 --> 00:07:26,360
+Notice that we have called
+this buildTicket function
+
+159
+00:07:26,360 --> 00:07:30,330
+with the following parameters,
+parkRides, our array of rides;
+
+160
+00:07:30,330 --> 00:07:34,300
+the fastPassQueue, which has
+all of our Fast Passes in it;
+
+161
+00:07:34,300 --> 00:07:36,620
+as well as the
+wantsRide variable,
+
+162
+00:07:36,620 --> 00:07:39,900
+which has the customer's
+desired ride in it.
+
+163
+00:07:39,900 --> 00:07:42,870
+And then later, when we call
+the actual ticket function,
+
+164
+00:07:42,870 --> 00:07:44,920
+perhaps when the
+customer has closed out
+
+165
+00:07:44,920 --> 00:07:47,200
+of the ticket
+terminal, we would need
+
+166
+00:07:47,200 --> 00:07:50,340
+to put a set of parentheses on
+that variable, and a semicolon,
+
+167
+00:07:50,340 --> 00:07:52,320
+in order to let
+JavaScript know that we
+
+168
+00:07:52,320 --> 00:07:55,210
+want to call that variable
+as the actual function
+
+169
+00:07:55,210 --> 00:07:57,170
+that it contains.
+
+170
+00:07:57,170 --> 00:07:59,890
+And as a cool result, we
+get our pop up that says,
+
+171
+00:07:59,890 --> 00:08:02,200
+"This is your ticket
+to Birch Bumpers.
+
+172
+00:08:02,200 --> 00:08:04,270
+Your wait time is
+about 40 minutes."
+
+173
+00:08:04,270 --> 00:08:06,580
+Now why did we get
+this particular alert?
+
+174
+00:08:06,580 --> 00:08:08,790
+It's because Birch
+Bumpers was not
+
+175
+00:08:08,790 --> 00:08:11,990
+the very first ride in
+our Fast Pass array,
+
+176
+00:08:11,990 --> 00:08:15,230
+and so we went ahead and
+issued that customer a ticket
+
+177
+00:08:15,230 --> 00:08:17,020
+for the ride that
+they actually wanted.
+
+178
+00:08:19,850 --> 00:08:21,840
+Now what happens when
+we change that ride
+
+179
+00:08:21,840 --> 00:08:25,540
+to Cedar Coaster, which is the
+very first ride in our Fast
+
+180
+00:08:25,540 --> 00:08:26,730
+Pass array?
+
+181
+00:08:26,730 --> 00:08:29,090
+Well, when we call ticket
+this time, we'll see, "Quick!
+
+182
+00:08:29,090 --> 00:08:32,370
+You've got a Fast Pass
+to Cedar Coaster."
+
+183
+00:08:32,370 --> 00:08:35,169
+Additionally, once that
+Fast Pass to Cedar Coaster
+
+184
+00:08:35,169 --> 00:08:37,590
+has been printed,
+our Fast Pass queue
+
+185
+00:08:37,590 --> 00:08:39,480
+will be shortened by one cell.
+
+186
+00:08:42,720 --> 00:08:46,210
+Now up until now, we have been
+storing our returned functions
+
+187
+00:08:46,210 --> 00:08:47,900
+inside of a variable.
+
+188
+00:08:47,900 --> 00:08:51,480
+JavaScript has a cool situation
+where you can immediately
+
+189
+00:08:51,480 --> 00:08:53,990
+call the function
+when it is returned.
+
+190
+00:08:53,990 --> 00:08:56,150
+Let's take a look at that.
+
+191
+00:08:56,150 --> 00:08:58,610
+So this time we
+want Pines Plunge.
+
+192
+00:08:58,610 --> 00:09:01,510
+Again, you can see that
+that is the very first Fast
+
+193
+00:09:01,510 --> 00:09:03,630
+Pass in our queue now.
+
+194
+00:09:03,630 --> 00:09:06,560
+So now we're going to allow our
+ticket variable to disappear.
+
+195
+00:09:06,560 --> 00:09:08,060
+We're not going to
+use that anymore.
+
+196
+00:09:08,060 --> 00:09:11,140
+And we're going to scoot our
+buildTicket function over,
+
+197
+00:09:11,140 --> 00:09:13,600
+still using the same parameters.
+
+198
+00:09:13,600 --> 00:09:16,740
+But what happens when we just
+call the buildTicket function
+
+199
+00:09:16,740 --> 00:09:18,860
+without returning
+it to anything?
+
+200
+00:09:18,860 --> 00:09:22,400
+Well, what happens is
+it returns the function
+
+201
+00:09:22,400 --> 00:09:24,110
+that it builds, only.
+
+202
+00:09:24,110 --> 00:09:27,370
+There you can see the
+entire body of the function,
+
+203
+00:09:27,370 --> 00:09:31,190
+as an expression that has been
+returned from buildTicket.
+
+204
+00:09:31,190 --> 00:09:33,756
+And nothing happens.
+
+205
+00:09:33,756 --> 00:09:35,630
+Now even though we got
+this function returned
+
+206
+00:09:35,630 --> 00:09:37,590
+from buildTicket,
+nothing has actually
+
+207
+00:09:37,590 --> 00:09:41,170
+called the function
+that got returned.
+
+208
+00:09:41,170 --> 00:09:43,130
+Now if you look inside
+that function body,
+
+209
+00:09:43,130 --> 00:09:44,910
+you can see the pass variable.
+
+210
+00:09:44,910 --> 00:09:46,950
+The contents of
+that pass variable
+
+211
+00:09:46,950 --> 00:09:49,837
+are saved in a process
+that's called closure.
+
+212
+00:09:49,837 --> 00:09:51,920
+And we're going to look
+at that in the next level.
+
+213
+00:09:51,920 --> 00:09:55,300
+But for now, you just know that
+inside of this function body,
+
+214
+00:09:55,300 --> 00:10:01,950
+we have the first available Fast
+Pass, which is Pines Plunge.
+
+215
+00:10:01,950 --> 00:10:04,160
+So again, we've got this
+function expression,
+
+216
+00:10:04,160 --> 00:10:06,770
+but we need more in order
+to call that function
+
+217
+00:10:06,770 --> 00:10:08,450
+expression immediately.
+
+218
+00:10:08,450 --> 00:10:10,910
+So let's see what we need.
+
+219
+00:10:10,910 --> 00:10:13,460
+Well, if we scoot our
+semicolon out a little bit,
+
+220
+00:10:13,460 --> 00:10:17,770
+and then we swish in some
+parameter parentheses,
+
+221
+00:10:17,770 --> 00:10:20,820
+then the same thing would happen
+to our returned expression.
+
+222
+00:10:20,820 --> 00:10:23,254
+It would also get
+some parentheses.
+
+223
+00:10:23,254 --> 00:10:24,920
+So now we're kind of
+on the right track.
+
+224
+00:10:24,920 --> 00:10:26,500
+We're getting closer
+to calling it.
+
+225
+00:10:26,500 --> 00:10:29,120
+And once we scoot our
+semicolon back in,
+
+226
+00:10:29,120 --> 00:10:33,670
+then our function expression,
+with its parameter parentheses
+
+227
+00:10:33,670 --> 00:10:39,560
+and its semicolon, becomes an
+immediately invoked function.
+
+228
+00:10:39,560 --> 00:10:41,420
+When that happens,
+what do we get?
+
+229
+00:10:41,420 --> 00:10:41,920
+"Quick!
+
+230
+00:10:41,920 --> 00:10:44,440
+You've got a Fast
+Pass to Pines Plunge."
+
+231
+00:10:44,440 --> 00:10:45,400
+How awesome is that?
+
+232
+00:10:45,400 --> 00:10:49,450
+An immediately invoked
+function, no variable necessary.
+
+233
+00:10:49,450 --> 00:10:52,230
+And our Fast Pass queue
+shortens right up.
+
+234
+00:10:56,550 --> 00:10:58,580
+And now, just a
+few more challenges
+
+235
+00:10:58,580 --> 00:11:02,450
+until you have received
+the badge for level one.
+
+236
+00:11:02,450 --> 00:11:03,440
+How awesome.
+
+237
+00:11:03,440 --> 00:11:06,220
+We'll see you back
+for level two.
+
+238
+00:11:06,220 --> 00:11:07,240
+[BEEP]
+
+239
+00:11:07,240 --> 00:11:10,040
+He said it's a--
+[LAUGHING] New or false.
+
+240
+00:11:10,040 --> 00:11:10,540
+[BEEP]
+
+241
+00:11:10,540 --> 00:11:14,984
+Then we will check to look.
+
+242
+00:11:14,984 --> 00:11:15,980
+[BEEP]
+
+243
+00:11:15,980 --> 00:11:17,880
+Take 1 billion.
+
+244
+00:11:17,880 --> 00:11:19,430
+[BEEP]

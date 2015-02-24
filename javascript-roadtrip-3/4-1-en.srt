@@ -1,0 +1,1849 @@
+﻿1
+00:00:00,332 --> 00:00:02,040
+[SINGING] From the
+Labyrinth of the Loops
+
+2
+00:00:02,040 --> 00:00:04,220
+to the Variable
+Valley, we'll see
+
+3
+00:00:04,220 --> 00:00:06,250
+the Cliffs of Value
+first. JaavaScript's.
+
+4
+00:00:06,250 --> 00:00:07,180
+right up your alley.
+
+5
+00:00:07,180 --> 00:00:10,490
+Built-in Bluffs, Files
+Falls, Array Archipelago.
+
+6
+00:00:10,490 --> 00:00:12,300
+Declarations in a
+desert where you'll
+
+7
+00:00:12,300 --> 00:00:13,670
+find out how far you'll go.
+
+8
+00:00:13,670 --> 00:00:14,500
+Learn the program.
+
+9
+00:00:14,500 --> 00:00:15,260
+Take a ride.
+
+10
+00:00:15,260 --> 00:00:16,030
+Buy a ticket.
+
+11
+00:00:16,030 --> 00:00:16,759
+Step inside.
+
+12
+00:00:16,759 --> 00:00:17,700
+All aboard!
+
+13
+00:00:17,700 --> 00:00:20,060
+You're at the station to
+increase your education.
+
+14
+00:00:20,060 --> 00:00:21,250
+Bon voyage and skinny dip!
+
+15
+00:00:21,250 --> 00:00:23,160
+As long as functions,
+you don't skip
+
+16
+00:00:23,160 --> 00:00:27,250
+on this the JavaScript Roadtrip.
+
+17
+00:00:31,380 --> 00:00:33,270
+Hope you've enjoyed
+those last few levels.
+
+18
+00:00:33,270 --> 00:00:35,150
+And now we're going to take a
+little bit of a different fork
+
+19
+00:00:35,150 --> 00:00:37,955
+in the road and look more in
+depth at some JavaScript data
+
+20
+00:00:37,955 --> 00:00:41,120
+structures, specifically
+the JavaScript object.
+
+21
+00:00:41,120 --> 00:00:44,600
+As you might expect, objects
+are huge and powerful aspect
+
+22
+00:00:44,600 --> 00:00:46,940
+of the object-oriented
+programming languages.
+
+23
+00:00:46,940 --> 00:00:50,230
+And objects in JavaScript
+are no exception at all.
+
+24
+00:00:50,230 --> 00:00:53,090
+In this level, you'll be
+looking at how objects contain
+
+25
+00:00:53,090 --> 00:00:56,510
+multiple pieces of related
+data in one container,
+
+26
+00:00:56,510 --> 00:00:59,250
+as well as how to access
+and manipulate that data,
+
+27
+00:00:59,250 --> 00:01:01,670
+as well as how to
+build functionality
+
+28
+00:01:01,670 --> 00:01:05,239
+that an object can
+own all by itself.
+
+29
+00:01:05,239 --> 00:01:06,790
+Now, this level's
+kind of chunky.
+
+30
+00:01:06,790 --> 00:01:08,420
+But if you stick
+with it, it'll soon
+
+31
+00:01:08,420 --> 00:01:11,060
+be smooth sailing for
+all of your JavaScript
+
+32
+00:01:11,060 --> 00:01:13,260
+object-oriented
+programming skills.
+
+33
+00:01:13,260 --> 00:01:15,980
+So with that, it's
+time to dive in.
+
+34
+00:01:15,980 --> 00:01:17,560
+Here is the Ocean of Objects.
+
+35
+00:01:20,750 --> 00:01:21,300
+Welcome back.
+
+36
+00:01:21,300 --> 00:01:24,540
+This is Level 4, the
+Ocean of Objects.
+
+37
+00:01:24,540 --> 00:01:26,050
+Hope you had a
+great amount of fun
+
+38
+00:01:26,050 --> 00:01:28,640
+hoisting your hearts out
+in the last challenges.
+
+39
+00:01:28,640 --> 00:01:31,243
+Let's move on to
+exploring the object.
+
+40
+00:01:34,100 --> 00:01:35,620
+What is an object?
+
+41
+00:01:35,620 --> 00:01:39,630
+Well, an object is a container
+of related information.
+
+42
+00:01:39,630 --> 00:01:43,300
+There'll be multiple pieces
+of data called properties
+
+43
+00:01:43,300 --> 00:01:45,300
+that are grouped
+within an object.
+
+44
+00:01:45,300 --> 00:01:46,670
+Let's take a look.
+
+45
+00:01:46,670 --> 00:01:48,650
+When we have an
+object in JavaScript,
+
+46
+00:01:48,650 --> 00:01:55,310
+there are multiple properties
+that belong to that object.
+
+47
+00:01:55,310 --> 00:01:59,200
+And we can represent everyday
+stuff with JavaScript objects.
+
+48
+00:01:59,200 --> 00:02:04,020
+Since common things usually
+have these bits of related info,
+
+49
+00:02:04,020 --> 00:02:06,670
+they will often make
+a really great object
+
+50
+00:02:06,670 --> 00:02:09,030
+examples for JavaScript.
+
+51
+00:02:09,030 --> 00:02:10,630
+So let's take a
+look at an object.
+
+52
+00:02:10,630 --> 00:02:11,695
+This is called a book.
+
+53
+00:02:11,695 --> 00:02:12,986
+You know what a book is, right?
+
+54
+00:02:12,986 --> 00:02:15,028
+They're kind of dusty in
+the corner in your room.
+
+55
+00:02:15,028 --> 00:02:15,527
+Yeah.
+
+56
+00:02:15,527 --> 00:02:16,230
+Those are books.
+
+57
+00:02:16,230 --> 00:02:19,830
+Anyway, we have here some
+properties of a book.
+
+58
+00:02:19,830 --> 00:02:21,470
+One would be the
+title of the book.
+
+59
+00:02:21,470 --> 00:02:22,220
+That's a property.
+
+60
+00:02:22,220 --> 00:02:24,060
+How about the author?
+
+61
+00:02:24,060 --> 00:02:25,980
+As well as the publisher?
+
+62
+00:02:25,980 --> 00:02:27,830
+The number of chapters.
+
+63
+00:02:27,830 --> 00:02:29,617
+The number of pages.
+
+64
+00:02:29,617 --> 00:02:30,950
+And the Illustrator of the book.
+
+65
+00:02:30,950 --> 00:02:33,540
+These are all things
+associated, bits of data,
+
+66
+00:02:33,540 --> 00:02:36,560
+associated with the book.
+
+67
+00:02:36,560 --> 00:02:38,670
+We could also have a box.
+
+68
+00:02:38,670 --> 00:02:40,340
+Some properties
+associated with the box
+
+69
+00:02:40,340 --> 00:02:43,020
+might be the height,
+the width, the length,
+
+70
+00:02:43,020 --> 00:02:45,810
+as well as the volume,
+the material it's made of,
+
+71
+00:02:45,810 --> 00:02:49,230
+and whatever is inside
+it - the contents.
+
+72
+00:02:49,230 --> 00:02:52,460
+Now, because an object
+contains multiple bits
+
+73
+00:02:52,460 --> 00:02:57,860
+of value put together, it's
+often called a composite value
+
+74
+00:02:57,860 --> 00:03:00,360
+because there are
+multiple pieces.
+
+75
+00:03:00,360 --> 00:03:01,960
+Just like with
+every day objects,
+
+76
+00:03:01,960 --> 00:03:05,790
+properties can point to
+specific amounts or qualities
+
+77
+00:03:05,790 --> 00:03:08,240
+for that object.
+
+78
+00:03:08,240 --> 00:03:11,640
+So here we could have the
+height being six, the width is eight,
+
+79
+00:03:11,640 --> 00:03:12,660
+and the length is 10.
+
+80
+00:03:12,660 --> 00:03:15,400
+Therefore, the
+volume would be 480.
+
+81
+00:03:15,400 --> 00:03:18,080
+Material it's made of is
+cardboard in this case.
+
+82
+00:03:18,080 --> 00:03:19,440
+Notice that's a string.
+
+83
+00:03:19,440 --> 00:03:21,900
+And the contents could be
+this thing called booksArray
+
+84
+00:03:21,900 --> 00:03:24,300
+which is probably an
+array of all the books
+
+85
+00:03:24,300 --> 00:03:26,300
+that are inside the box.
+
+86
+00:03:26,300 --> 00:03:28,110
+Properties, as you
+may have noticed,
+
+87
+00:03:28,110 --> 00:03:32,420
+can refer to numbers,
+strings, arrays, functions,
+
+88
+00:03:32,420 --> 00:03:35,730
+or any number of things,
+including other objects.
+
+89
+00:03:39,040 --> 00:03:42,710
+Let's try now to create
+an object with JavaScript.
+
+90
+00:03:42,710 --> 00:03:46,180
+Now, there are multiple ways
+to build objects in JavaScript.
+
+91
+00:03:46,180 --> 00:03:48,270
+But we're going to look
+at an easy way, probably
+
+92
+00:03:48,270 --> 00:03:49,860
+the one most often used.
+
+93
+00:03:49,860 --> 00:03:51,527
+It's called the Object literal.
+
+94
+00:03:51,527 --> 00:03:53,235
+We'll start here by
+declaring a variable.
+
+95
+00:03:53,235 --> 00:03:55,100
+We'll call it my box.
+
+96
+00:03:55,100 --> 00:03:57,520
+And then, we'll assign
+to it an empty set
+
+97
+00:03:57,520 --> 00:04:00,710
+of brackets, followed
+by a semicolon.
+
+98
+00:04:00,710 --> 00:04:04,740
+Now, the curly brackets
+say to make a new object
+
+99
+00:04:04,740 --> 00:04:06,170
+in JavaScript.
+
+100
+00:04:06,170 --> 00:04:07,680
+In this case,
+however, it's empty
+
+101
+00:04:07,680 --> 00:04:09,470
+because we've got nothing in it.
+
+102
+00:04:09,470 --> 00:04:12,310
+To add a property inside
+of an Object literal,
+
+103
+00:04:12,310 --> 00:04:16,890
+we give the property a string
+name followed by a colon
+
+104
+00:04:16,890 --> 00:04:21,040
+and then assign a
+value to that property.
+
+105
+00:04:21,040 --> 00:04:22,740
+We could do that multiple times.
+
+106
+00:04:22,740 --> 00:04:24,925
+The properties are just
+separated by commas.
+
+107
+00:04:28,289 --> 00:04:30,580
+So we've got out width now,
+our length, and our volume.
+
+108
+00:04:30,580 --> 00:04:31,538
+Let's add the material.
+
+109
+00:04:31,538 --> 00:04:33,250
+And we'll also add the contents.
+
+110
+00:04:33,250 --> 00:04:35,670
+But now, we will go
+ahead and list out
+
+111
+00:04:35,670 --> 00:04:38,390
+an entire array
+for the contents.
+
+112
+00:04:38,390 --> 00:04:38,890
+Sweet.
+
+113
+00:04:38,890 --> 00:04:40,330
+Now, we've got a
+box object that's
+
+114
+00:04:40,330 --> 00:04:43,940
+complete with all
+of its properties.
+
+115
+00:04:43,940 --> 00:04:45,830
+A cool thing about
+objects, especially when
+
+116
+00:04:45,830 --> 00:04:49,500
+you initialize them, is that
+they will accept variables.
+
+117
+00:04:49,500 --> 00:04:52,890
+So if instead we didn't
+want to put the contents
+
+118
+00:04:52,890 --> 00:04:57,130
+as an array inside the my box,
+we could build the array
+
+119
+00:04:57,130 --> 00:04:59,390
+outside the object.
+
+120
+00:04:59,390 --> 00:05:03,440
+And then, just pass in the
+variable that holds that array.
+
+121
+00:05:03,440 --> 00:05:06,260
+Now, we've got a reference to
+the books Arrays inside my box.
+
+122
+00:05:11,000 --> 00:05:11,500
+Great.
+
+123
+00:05:11,500 --> 00:05:12,380
+So we got an object.
+
+124
+00:05:12,380 --> 00:05:13,606
+Well, what do we with it?
+
+125
+00:05:13,606 --> 00:05:15,230
+Typically, objects
+are used because you
+
+126
+00:05:15,230 --> 00:05:17,980
+want to refer to their
+properties together.
+
+127
+00:05:17,980 --> 00:05:19,520
+So let's take a
+look at how we can
+
+128
+00:05:19,520 --> 00:05:23,850
+peek at a particular
+property inside of an object.
+
+129
+00:05:23,850 --> 00:05:25,980
+Remember when we accessed
+the length on strings,
+
+130
+00:05:25,980 --> 00:05:27,630
+and we use the dot operator?
+
+131
+00:05:27,630 --> 00:05:30,240
+We're going to do that
+again here with objects.
+
+132
+00:05:30,240 --> 00:05:32,900
+So if we wanted to find
+the width inside my box,
+
+133
+00:05:32,900 --> 00:05:34,670
+we would do mybox.width.
+
+134
+00:05:34,670 --> 00:05:36,240
+And that accesses the property.
+
+135
+00:05:36,240 --> 00:05:37,650
+And we get eight.
+
+136
+00:05:37,650 --> 00:05:39,050
+Sweet.
+
+137
+00:05:39,050 --> 00:05:41,250
+If we wanted the materials
+to do the same thing,
+
+138
+00:05:41,250 --> 00:05:44,560
+look it pops back
+cardboard as a string.
+
+139
+00:05:44,560 --> 00:05:46,900
+And if we wanted to
+access the contents,
+
+140
+00:05:46,900 --> 00:05:49,180
+we would do mybox.contents.
+
+141
+00:05:49,180 --> 00:05:51,870
+And what happens there when
+we ask for mybox.contents?
+
+142
+00:05:51,870 --> 00:05:54,880
+Well, my box looks inside
+at the contents property,
+
+143
+00:05:54,880 --> 00:05:58,250
+sees the books Array
+variable, which
+
+144
+00:05:58,250 --> 00:06:02,200
+refers to the books
+array outside the object,
+
+145
+00:06:02,200 --> 00:06:05,362
+and that is what gets returned,
+the entire books Array.
+
+146
+00:06:05,362 --> 00:06:06,320
+Which you can see here.
+
+147
+00:06:10,410 --> 00:06:12,410
+Changing property
+values inside of objects
+
+148
+00:06:12,410 --> 00:06:14,910
+is one very useful
+aspect of objects.
+
+149
+00:06:14,910 --> 00:06:17,770
+And we can do that
+with the dot operator.
+
+150
+00:06:17,770 --> 00:06:20,800
+If we wanted to change the width
+inside of our mybox object,
+
+151
+00:06:20,800 --> 00:06:23,180
+we would just call
+mybox.width again
+
+152
+00:06:23,180 --> 00:06:25,810
+and set that equal to
+12 which will change
+
+153
+00:06:25,810 --> 00:06:28,600
+the width inside
+the object to 12.
+
+154
+00:06:28,600 --> 00:06:32,270
+We can show that by logging out
+the property mybox.width which
+
+155
+00:06:32,270 --> 00:06:34,760
+shows a very nice
+12, now, as a result.
+
+156
+00:06:34,760 --> 00:06:36,390
+Uh oh, though.
+
+157
+00:06:36,390 --> 00:06:38,200
+That makes our volume incorrect.
+
+158
+00:06:38,200 --> 00:06:41,850
+So we're going to have to
+do something about that.
+
+159
+00:06:41,850 --> 00:06:44,530
+We're going to set
+the mybox.volume
+
+160
+00:06:44,530 --> 00:06:47,880
+equal to the length times
+the width times the height.
+
+161
+00:06:47,880 --> 00:06:49,545
+Which is what volume is, right?
+
+162
+00:06:49,545 --> 00:06:50,920
+This is a good
+example of how you
+
+163
+00:06:50,920 --> 00:06:53,870
+can use properties of
+an object to impact
+
+164
+00:06:53,870 --> 00:06:57,050
+other properties
+within that object.
+
+165
+00:06:57,050 --> 00:06:59,860
+And now, we get a
+nice volume of 720.
+
+166
+00:06:59,860 --> 00:07:03,440
+So everything is
+right with the world.
+
+167
+00:07:03,440 --> 00:07:06,070
+What happens if we wanted to
+modify the contents of our box?
+
+168
+00:07:06,070 --> 00:07:09,710
+We want to put a new
+book inside our box.
+
+169
+00:07:09,710 --> 00:07:12,270
+Well, we would call
+mybox.contents,
+
+170
+00:07:12,270 --> 00:07:16,730
+and that returns an entire
+array, the entire books Array.
+
+171
+00:07:16,730 --> 00:07:19,600
+And with that, we can apply
+all of the array methods
+
+172
+00:07:19,600 --> 00:07:21,830
+that we already know
+from Roadtrips 1 and 2.
+
+173
+00:07:21,830 --> 00:07:26,830
+So let's push on that array
+On the Road by Jack Kerouac.
+
+174
+00:07:26,830 --> 00:07:28,770
+You can see that very
+quickly On the Road
+
+175
+00:07:28,770 --> 00:07:31,360
+is added to our
+books Array on the outside.
+
+176
+00:07:31,360 --> 00:07:32,510
+But whoa.
+
+177
+00:07:32,510 --> 00:07:33,490
+How did that happen?
+
+178
+00:07:33,490 --> 00:07:39,030
+How did we modify the external
+array outside of the my box?
+
+179
+00:07:39,030 --> 00:07:43,180
+The thing is that when we passed
+in books Array as a variable,
+
+180
+00:07:43,180 --> 00:07:44,830
+all that does is
+make a reference
+
+181
+00:07:44,830 --> 00:07:47,120
+to the external array.
+
+182
+00:07:47,120 --> 00:07:49,940
+It doesn't create a
+brand new copied array.
+
+183
+00:07:49,940 --> 00:07:51,530
+Very important to understand.
+
+184
+00:07:51,530 --> 00:07:55,150
+So that when you get that
+array back from mybox.contents,
+
+185
+00:07:55,150 --> 00:07:56,836
+it's going to be
+the external array.
+
+186
+00:07:56,836 --> 00:07:58,210
+And when you push
+to that, you're
+
+187
+00:07:58,210 --> 00:08:01,420
+going to add it to
+the external array.
+
+188
+00:08:01,420 --> 00:08:04,070
+Now, if we were to log
+out, our mybox.contents
+
+189
+00:08:04,070 --> 00:08:05,370
+will refer to booksArray.
+
+190
+00:08:05,370 --> 00:08:10,950
+And we get the entire
+newly adjusted array.
+
+191
+00:08:10,950 --> 00:08:13,840
+Also just to show that
+we mean what we say,
+
+192
+00:08:13,840 --> 00:08:17,890
+if we log out the booksArray, we
+will get the same exact array.
+
+193
+00:08:21,080 --> 00:08:22,880
+Another cool thing
+about objects is
+
+194
+00:08:22,880 --> 00:08:25,310
+that you can continue
+to add properties
+
+195
+00:08:25,310 --> 00:08:28,520
+even after you have built
+your object Literal.
+
+196
+00:08:28,520 --> 00:08:29,980
+Even after that
+object is created,
+
+197
+00:08:29,980 --> 00:08:32,487
+you can throw as many
+properties in there as you want.
+
+198
+00:08:32,487 --> 00:08:35,070
+For example, if we wanted to add
+a weight property to the box,
+
+199
+00:08:35,070 --> 00:08:38,720
+we could do mybox.weight
+and set it equal to 24.
+
+200
+00:08:38,720 --> 00:08:40,490
+When you do this,
+the my box object
+
+201
+00:08:40,490 --> 00:08:43,919
+is going to hunt around inside
+itself for the weight property.
+
+202
+00:08:43,919 --> 00:08:47,480
+And finding none, it
+will create one for you
+
+203
+00:08:47,480 --> 00:08:50,534
+and set it equal to 24.
+
+204
+00:08:50,534 --> 00:08:52,700
+We could also add a couple
+destinations for the box.
+
+205
+00:08:52,700 --> 00:08:57,060
+If we did mybox.destination1
+and set it equal to Orlando,
+
+206
+00:08:57,060 --> 00:08:58,820
+that would show up
+inside of our my box.
+
+207
+00:08:58,820 --> 00:09:00,520
+And then, if we
+did a destination 2
+
+208
+00:09:00,520 --> 00:09:03,292
+and said that was Miami,
+that would also show up.
+
+209
+00:09:06,600 --> 00:09:08,670
+We've got a second way
+of accessing or creating
+
+210
+00:09:08,670 --> 00:09:11,180
+properties that's just as
+important and sometimes more
+
+211
+00:09:11,180 --> 00:09:13,790
+important than the dot operator.
+
+212
+00:09:13,790 --> 00:09:15,970
+That's the bracket method.
+
+213
+00:09:15,970 --> 00:09:17,710
+You can think about
+this as similar
+
+214
+00:09:17,710 --> 00:09:20,430
+to accessing array indices.
+
+215
+00:09:20,430 --> 00:09:23,250
+The thing about these brackets
+as opposed to the brackets you
+
+216
+00:09:23,250 --> 00:09:26,020
+would use on arrays is that
+you must pass in a string
+
+217
+00:09:26,020 --> 00:09:29,160
+in order to reference
+the property.
+
+218
+00:09:29,160 --> 00:09:31,890
+So here if we wanted to find the
+volume property using brackets,
+
+219
+00:09:31,890 --> 00:09:33,650
+we would pass in
+the string volume,
+
+220
+00:09:33,650 --> 00:09:36,310
+and it would give us 720.
+
+221
+00:09:36,310 --> 00:09:39,100
+If we also wanted to
+find out the material,
+
+222
+00:09:39,100 --> 00:09:41,970
+we do the same thing
+and get back cardboard.
+
+223
+00:09:41,970 --> 00:09:45,020
+You can think of an object
+just like an array but
+
+224
+00:09:45,020 --> 00:09:48,490
+whose indices are accessed with
+strings instead of numbers.
+
+225
+00:09:51,840 --> 00:09:55,340
+Here's a pretty cool thing about
+the whole bracket and string
+
+226
+00:09:55,340 --> 00:09:56,120
+access.
+
+227
+00:09:56,120 --> 00:09:58,300
+If you want to make
+properties that
+
+228
+00:09:58,300 --> 00:10:01,460
+have spaces between the
+words, that's totally fine
+
+229
+00:10:01,460 --> 00:10:03,390
+because the object
+just looks for a string
+
+230
+00:10:03,390 --> 00:10:06,600
+and will find whatever
+string name you have provided
+
+231
+00:10:06,600 --> 00:10:09,700
+or create whatever string
+name you have provided.
+
+232
+00:10:09,700 --> 00:10:12,480
+So here, if we wanted to
+add the number of stops
+
+233
+00:10:12,480 --> 00:10:14,640
+that our my box is
+going to make, we
+
+234
+00:10:14,640 --> 00:10:16,490
+could do that with
+a nice string.
+
+235
+00:10:16,490 --> 00:10:17,680
+Notice the spaces.
+
+236
+00:10:17,680 --> 00:10:19,120
+Number of stops.
+
+237
+00:10:19,120 --> 00:10:20,640
+And set that equal to 2.
+
+238
+00:10:26,800 --> 00:10:29,830
+You got to be real careful with
+those property names that have
+
+239
+00:10:29,830 --> 00:10:33,290
+spaces though because if
+you try to log out, m box.
+
+240
+00:10:33,290 --> 00:10:37,470
+"# of stops",
+you'll get an error.
+
+241
+00:10:37,470 --> 00:10:40,644
+That's because there's no
+such thing as a dot string.
+
+242
+00:10:40,644 --> 00:10:42,560
+You can't access a
+property with a dot string.
+
+243
+00:10:42,560 --> 00:10:45,000
+It's always got to
+be bracket string
+
+244
+00:10:45,000 --> 00:10:48,990
+or dot a string
+name with no quotes.
+
+245
+00:10:48,990 --> 00:10:52,120
+In this case, when you
+want to access your my box
+
+246
+00:10:52,120 --> 00:10:53,990
+number of stops, you
+have to use a bracket.
+
+247
+00:11:00,310 --> 00:11:02,710
+Yet another cool thing
+is that those brackets
+
+248
+00:11:02,710 --> 00:11:03,890
+will accept expressions.
+
+249
+00:11:03,890 --> 00:11:08,570
+And that's going to enable us
+to get dynamic property access.
+
+250
+00:11:08,570 --> 00:11:10,720
+That's going to enable
+us to avoid hard
+
+251
+00:11:10,720 --> 00:11:14,180
+coding every last property
+access that we would want.
+
+252
+00:11:14,180 --> 00:11:15,740
+Let's take a look.
+
+253
+00:11:15,740 --> 00:11:17,060
+So here we've got a for loop.
+
+254
+00:11:17,060 --> 00:11:18,520
+We establish a loop counter.
+
+255
+00:11:18,520 --> 00:11:22,220
+And we're going to loop over
+the entire amount of stops
+
+256
+00:11:22,220 --> 00:11:24,710
+that our mybox goes through.
+
+257
+00:11:24,710 --> 00:11:26,870
+And then, we're going to
+log out each destination.
+
+258
+00:11:26,870 --> 00:11:28,036
+How are we going to do that?
+
+259
+00:11:28,036 --> 00:11:32,140
+We're going to access each
+of the destinations 1 and 2
+
+260
+00:11:32,140 --> 00:11:36,100
+by using a dynamic expression
+inside of the bracket.
+
+261
+00:11:36,100 --> 00:11:39,340
+Notice, that we've got a string
+destination plus the loop
+
+262
+00:11:39,340 --> 00:11:40,160
+counter.
+
+263
+00:11:40,160 --> 00:11:42,150
+Notice the loop
+counter starts at 1.
+
+264
+00:11:42,150 --> 00:11:45,500
+So as this loop progresses,
+we would get an expression
+
+265
+00:11:45,500 --> 00:11:49,670
+destination 1 and destination
+2 inside those logs.
+
+266
+00:11:49,670 --> 00:11:51,110
+And what will we get?
+
+267
+00:11:51,110 --> 00:11:54,160
+We'll get Orlando, and
+then, we'll get Miami.
+
+268
+00:11:54,160 --> 00:11:56,870
+In this way, you could
+continue to add destinations
+
+269
+00:11:56,870 --> 00:11:57,710
+to your my box,
+
+270
+00:11:57,710 --> 00:11:59,370
+and it will be able
+to log out each one
+
+271
+00:11:59,370 --> 00:12:03,240
+with this simple loop and
+the bracket expression.
+
+272
+00:12:03,240 --> 00:12:06,810
+Here's where it gets interesting
+because our contents could
+
+273
+00:12:06,810 --> 00:12:09,210
+actually be individual objects.
+
+274
+00:12:09,210 --> 00:12:12,000
+Each book that's in
+our contents property
+
+275
+00:12:12,000 --> 00:12:15,210
+could actually be
+its own book object.
+
+276
+00:12:15,210 --> 00:12:16,380
+Let's take a look.
+
+277
+00:12:16,380 --> 00:12:19,260
+First, we need to delete
+our contents property
+
+278
+00:12:19,260 --> 00:12:21,280
+with the delete keyword.
+
+279
+00:12:21,280 --> 00:12:22,559
+Let's see we can do here.
+
+280
+00:12:22,559 --> 00:12:24,100
+So there's the delete
+keyword, and we
+
+281
+00:12:24,100 --> 00:12:27,170
+say delete mybox.contents.
+
+282
+00:12:27,170 --> 00:12:28,940
+Notice, the syntax.
+
+283
+00:12:28,940 --> 00:12:31,850
+What's going to happen here
+is that the delete keyword
+
+284
+00:12:31,850 --> 00:12:36,020
+will completely delete the
+entire contents property.
+
+285
+00:12:36,020 --> 00:12:37,920
+It will not be there anymore.
+
+286
+00:12:37,920 --> 00:12:40,950
+It's not just deleting
+the booksArray variable
+
+287
+00:12:40,950 --> 00:12:42,761
+and leaving the
+contents name there.
+
+288
+00:12:42,761 --> 00:12:43,260
+Nope.
+
+289
+00:12:43,260 --> 00:12:45,420
+Property is gone.
+
+290
+00:12:45,420 --> 00:12:48,300
+From our delete command, we
+get a true back saying, yes, we
+
+291
+00:12:48,300 --> 00:12:51,710
+have deleted the property.
+
+292
+00:12:51,710 --> 00:12:54,060
+If we log out,
+console.log booksArray,
+
+293
+00:12:54,060 --> 00:12:55,640
+we still get the same array.
+
+294
+00:12:55,640 --> 00:12:59,150
+That's because we haven't
+actually deleted the array,
+
+295
+00:12:59,150 --> 00:13:00,700
+we've just deleted
+the property that
+
+296
+00:13:00,700 --> 00:13:03,140
+references the array
+inside of our object.
+
+297
+00:13:05,740 --> 00:13:08,570
+Now, you got to be careful
+about that delete command
+
+298
+00:13:08,570 --> 00:13:09,680
+because guess what?
+
+299
+00:13:09,680 --> 00:13:11,940
+It's always going
+to return true.
+
+300
+00:13:11,940 --> 00:13:16,280
+If I tried to delete
+mybox.nonexistentproperty,
+
+301
+00:13:16,280 --> 00:13:17,230
+we get a true back.
+
+302
+00:13:17,230 --> 00:13:17,800
+What?
+
+303
+00:13:17,800 --> 00:13:18,300
+Weird.
+
+304
+00:13:18,300 --> 00:13:19,600
+It was never even there.
+
+305
+00:13:19,600 --> 00:13:20,710
+Now, why is that?
+
+306
+00:13:20,710 --> 00:13:22,730
+You should think about
+the delete command
+
+307
+00:13:22,730 --> 00:13:27,560
+as asking, is this property
+gone after it has been deleted.
+
+308
+00:13:27,560 --> 00:13:30,420
+So of course, if it looks for
+something and it's not there,
+
+309
+00:13:30,420 --> 00:13:31,580
+it's going to say true.
+
+310
+00:13:31,580 --> 00:13:32,490
+The property is gone.
+
+311
+00:13:35,840 --> 00:13:36,340
+Cool.
+
+312
+00:13:36,340 --> 00:13:38,860
+Now, we'll build a function
+that creates book objects,
+
+313
+00:13:38,860 --> 00:13:41,300
+and we're going to
+add those to our box.
+
+314
+00:13:41,300 --> 00:13:41,840
+Wow.
+
+315
+00:13:41,840 --> 00:13:43,140
+This is going to be fun.
+
+316
+00:13:43,140 --> 00:13:45,380
+First, we'll need
+a property that
+
+317
+00:13:45,380 --> 00:13:47,980
+tracks the number of books
+that's inside of our box,
+
+318
+00:13:47,980 --> 00:13:50,860
+and we're going to go ahead
+and set that initially to 0.
+
+319
+00:13:50,860 --> 00:13:54,180
+Our function will need
+it to dynamically assign
+
+320
+00:13:54,180 --> 00:13:56,200
+property names in
+that bracket fashion
+
+321
+00:13:56,200 --> 00:13:59,242
+that we just saw earlier.
+
+322
+00:13:59,242 --> 00:14:00,200
+So here's our function.
+
+323
+00:14:00,200 --> 00:14:01,627
+We call addBook.
+
+324
+00:14:01,627 --> 00:14:03,210
+We're going to pass
+in the box that we
+
+325
+00:14:03,210 --> 00:14:05,630
+want to add the books
+to, the name of the book
+
+326
+00:14:05,630 --> 00:14:07,080
+as well as the writer.
+
+327
+00:14:07,080 --> 00:14:09,000
+As soon as the addBook
+the function is called,
+
+328
+00:14:09,000 --> 00:14:12,190
+we want to immediately
+increase the number
+
+329
+00:14:12,190 --> 00:14:14,280
+of books inside of our box.
+
+330
+00:14:14,280 --> 00:14:16,190
+We'll do that with our
+bracket expression.
+
+331
+00:14:16,190 --> 00:14:17,600
+Why our bracket expression?
+
+332
+00:14:17,600 --> 00:14:19,430
+Because the string
+has spaces in it.
+
+333
+00:14:19,430 --> 00:14:22,060
+So we want to be real careful
+there to use the bracket.
+
+334
+00:14:22,060 --> 00:14:23,360
+Now, here's where the money is.
+
+335
+00:14:23,360 --> 00:14:26,370
+Check this out and
+follow really closely.
+
+336
+00:14:26,370 --> 00:14:29,430
+We're going to call the
+box with an expression that
+
+337
+00:14:29,430 --> 00:14:30,850
+is dynamically made.
+
+338
+00:14:30,850 --> 00:14:32,650
+And what's it
+dynamically made from?
+
+339
+00:14:32,650 --> 00:14:36,870
+First, the string
+book concatenated
+
+340
+00:14:36,870 --> 00:14:40,110
+with another reference
+of the box inside which
+
+341
+00:14:40,110 --> 00:14:41,690
+is the number of books.
+
+342
+00:14:41,690 --> 00:14:46,240
+So you can tell you that when
+we call this very first add Book,
+
+343
+00:14:46,240 --> 00:14:47,870
+we're going to get
+Book 1 out of it
+
+344
+00:14:47,870 --> 00:14:50,510
+because the very first
+number of books is 1.
+
+345
+00:14:50,510 --> 00:14:53,790
+And then, what do we assign
+to that new book property?
+
+346
+00:14:53,790 --> 00:14:57,060
+We start up an object Literal
+where the title property
+
+347
+00:14:57,060 --> 00:14:59,610
+gets the name and
+the author property
+
+348
+00:14:59,610 --> 00:15:01,070
+gets the writer parameter.
+
+349
+00:15:03,820 --> 00:15:04,320
+Cool.
+
+350
+00:15:04,320 --> 00:15:05,419
+So there's our function.
+
+351
+00:15:05,419 --> 00:15:07,210
+Now, we're getting
+ready to add some books.
+
+352
+00:15:07,210 --> 00:15:09,450
+Let's do it.
+
+353
+00:15:09,450 --> 00:15:11,950
+We'll call add Book,
+and we'll pass in my box
+
+354
+00:15:11,950 --> 00:15:14,990
+because that's the box we
+want to add the book to.
+
+355
+00:15:14,990 --> 00:15:16,910
+We're going to add
+Great Expectations
+
+356
+00:15:16,910 --> 00:15:18,722
+by Charles Dickens.
+
+357
+00:15:18,722 --> 00:15:20,680
+First thing that happens
+is our number of books
+
+358
+00:15:20,680 --> 00:15:23,950
+gets increased to 1.
+
+359
+00:15:23,950 --> 00:15:28,100
+And we get a fresh book
+object inside of our my box.
+
+360
+00:15:28,100 --> 00:15:30,540
+Notice that the correct book
+number in the property name
+
+361
+00:15:30,540 --> 00:15:32,510
+has been dynamically assigned.
+
+362
+00:15:32,510 --> 00:15:33,280
+How cool is that?
+
+363
+00:15:36,000 --> 00:15:40,410
+Next, we'll add The Remains
+of the Day by Kazuo Ishiguro.
+
+364
+00:15:40,410 --> 00:15:43,990
+That will automatically increase
+our number of books to 2.
+
+365
+00:15:43,990 --> 00:15:47,126
+And add a brand
+new book number 2.
+
+366
+00:15:47,126 --> 00:15:50,370
+We see the title and the
+author assigned appropriately.
+
+367
+00:15:50,370 --> 00:15:54,960
+Third, we'll put in
+Peter Pan by J.M. Barrie.
+
+368
+00:15:54,960 --> 00:15:57,360
+Our number books increases to 3.
+
+369
+00:15:57,360 --> 00:16:01,740
+We get a new book object
+called book3 as the property.
+
+370
+00:16:01,740 --> 00:16:04,490
+And our title and
+author are just fine.
+
+371
+00:16:04,490 --> 00:16:07,780
+And then, when we pass in lastly
+On the Road by Jack Kerouac,
+
+372
+00:16:07,780 --> 00:16:12,160
+we'll get our fourth book
+and our fourth book object.
+
+373
+00:16:16,080 --> 00:16:19,200
+Now, you might ask, well, if
+I've got a bunch of objects
+
+374
+00:16:19,200 --> 00:16:22,150
+inside of objects, how do I
+get to those deep internal
+
+375
+00:16:22,150 --> 00:16:25,890
+properties that are inside
+the internal objects?
+
+376
+00:16:25,890 --> 00:16:28,540
+Well, we can just use a
+subsequent dot notation
+
+377
+00:16:28,540 --> 00:16:30,030
+to access those properties.
+
+378
+00:16:30,030 --> 00:16:33,310
+So if I wanted to get to
+the title of, say, book 1,
+
+379
+00:16:33,310 --> 00:16:36,540
+I would use
+console.log, mybox.book1
+
+380
+00:16:36,540 --> 00:16:38,810
+which pulls out book 1.
+
+381
+00:16:38,810 --> 00:16:42,220
+And then, it looks at the title
+with that next dot notation.
+
+382
+00:16:42,220 --> 00:16:43,400
+And what do we get?
+
+383
+00:16:43,400 --> 00:16:45,929
+We get Great Expectations.
+
+384
+00:16:45,929 --> 00:16:47,470
+Another way of doing
+that, of course,
+
+385
+00:16:47,470 --> 00:16:49,070
+is with the bracket expression.
+
+386
+00:16:49,070 --> 00:16:52,270
+So we could use
+mybox on book 4 which
+
+387
+00:16:52,270 --> 00:16:54,450
+pulls out the book4 object.
+
+388
+00:16:54,450 --> 00:16:58,110
+And then, looks at the author
+property inside of book 4
+
+389
+00:16:58,110 --> 00:17:00,530
+which gives us Mr. Jack Kerouac.
+
+390
+00:17:05,750 --> 00:17:06,260
+Wow.
+
+391
+00:17:06,260 --> 00:17:09,260
+So your brains are filled with
+object knowledge at this point.
+
+392
+00:17:09,260 --> 00:17:12,140
+So we're going to give you
+some challenges to mess around
+
+393
+00:17:12,140 --> 00:17:14,984
+and play with object,
+add stuff, delete stuff.
+
+394
+00:17:14,984 --> 00:17:16,109
+It's going to be great fun.
+
+395
+00:17:16,109 --> 00:17:18,930
+And we'll see you back
+in the next section.

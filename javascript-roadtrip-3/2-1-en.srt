@@ -1,0 +1,765 @@
+﻿1
+00:00:00,499 --> 00:00:03,575
+[SINGING] From the Labyrinth of
+Loops to the Variable Valley,
+
+2
+00:00:03,575 --> 00:00:05,630
+we'll see the Cliffs
+of Value first.
+
+3
+00:00:05,630 --> 00:00:07,070
+JavaScript's right
+up your alley.
+
+4
+00:00:07,070 --> 00:00:10,500
+Built-ins Bluff, Files
+Falls, Array Archipelago,
+
+5
+00:00:10,500 --> 00:00:12,310
+declarations in a
+desert, where you'll
+
+6
+00:00:12,310 --> 00:00:13,435
+find out how far you'll go.
+
+7
+00:00:13,435 --> 00:00:15,085
+Learn the program, take a ride.
+
+8
+00:00:15,085 --> 00:00:16,872
+Buy a ticket, step inside.
+
+9
+00:00:16,872 --> 00:00:18,661
+All aboard, you're
+at the station
+
+10
+00:00:18,661 --> 00:00:20,070
+to increase your education.
+
+11
+00:00:20,070 --> 00:00:22,510
+Bon Voyage and skinny
+dip, as long as functions
+
+12
+00:00:22,510 --> 00:00:25,200
+you don't skip on this,
+the JavaScript
+
+13
+00:00:26,800 --> 00:00:28,010
+Road Trip
+
+14
+00:00:32,680 --> 00:00:33,650
+Hey, everybody.
+
+15
+00:00:33,650 --> 00:00:36,010
+Welcome to level two
+of JavaScript Road Trip
+
+16
+00:00:36,010 --> 00:00:40,910
+Three, the Cold Closures Cove.
+
+17
+00:00:40,910 --> 00:00:41,410
+Guess what?
+
+18
+00:00:41,410 --> 00:00:44,780
+Congratulations, you've
+already made a basic closure.
+
+19
+00:00:44,780 --> 00:00:46,310
+A closure is a package deal.
+
+20
+00:00:46,310 --> 00:00:47,750
+Let's take a look
+at one that was
+
+21
+00:00:47,750 --> 00:00:51,910
+in a previous example we
+showed in the last level.
+
+22
+00:00:51,910 --> 00:00:55,380
+So in the Build Ticket function
+that we had in the last level,
+
+23
+00:00:55,380 --> 00:00:59,480
+you can see in our two
+returned anonymous functions,
+
+24
+00:00:59,480 --> 00:01:02,350
+several variables
+like 'pass' and 'pick'
+
+25
+00:01:02,350 --> 00:01:05,550
+and 'allRides' that
+were not created
+
+26
+00:01:05,550 --> 00:01:08,010
+within the function
+that's being returned.
+
+27
+00:01:08,010 --> 00:01:09,310
+That's very important.
+
+28
+00:01:09,310 --> 00:01:12,250
+The entire their
+contents of any of these
+
+29
+00:01:12,250 --> 00:01:17,210
+returned functions will still be
+available outside the function,
+
+30
+00:01:17,210 --> 00:01:20,680
+outside Build Ticket
+when they get returned.
+
+31
+00:01:20,680 --> 00:01:23,450
+When we return a
+function from a function,
+
+32
+00:01:23,450 --> 00:01:26,710
+and it is complete with
+variables that showed up
+
+33
+00:01:26,710 --> 00:01:29,550
+in the external function,
+we have a closure.
+
+34
+00:01:32,480 --> 00:01:34,910
+So to kind of illustrate
+this a little bit better,
+
+35
+00:01:34,910 --> 00:01:37,780
+let's look at very small
+example of a closure.
+
+36
+00:01:37,780 --> 00:01:41,580
+A closure will wrap up the
+entire local environment,
+
+37
+00:01:41,580 --> 00:01:44,580
+complete with all of the
+necessary variables that
+
+38
+00:01:44,580 --> 00:01:47,410
+came from an external scope.
+
+39
+00:01:47,410 --> 00:01:49,510
+Here we have a function
+called testClosure.
+
+40
+00:01:49,510 --> 00:01:51,480
+And in it, I've just
+established a variable
+
+41
+00:01:51,480 --> 00:01:54,480
+called x and assigned
+the value 4 to it.
+
+42
+00:01:54,480 --> 00:01:58,080
+And then I'll return x from
+this function, a very simple
+
+43
+00:01:58,080 --> 00:01:59,510
+function.
+
+44
+00:01:59,510 --> 00:02:01,410
+Now, that x variable
+is only local.
+
+45
+00:02:01,410 --> 00:02:04,680
+That means it can only
+be accessed inside
+
+46
+00:02:04,680 --> 00:02:06,410
+of the testClosure function.
+
+47
+00:02:06,410 --> 00:02:07,610
+So let's take a look at that.
+
+48
+00:02:07,610 --> 00:02:10,950
+If we were to call testClosure,
+we'd get a nice return of 4,
+
+49
+00:02:10,950 --> 00:02:12,980
+as you might expect,
+because we returned x.
+
+50
+00:02:12,980 --> 00:02:17,110
+But if I tried to
+access the x variable
+
+51
+00:02:17,110 --> 00:02:19,950
+from outside the function,
+I would get an undefined.
+
+52
+00:02:19,950 --> 00:02:23,880
+That's because x disappears
+just as soon as the test closure
+
+53
+00:02:23,880 --> 00:02:26,210
+function is wrapped up.
+
+54
+00:02:26,210 --> 00:02:28,610
+In other words, a
+function's local variables
+
+55
+00:02:28,610 --> 00:02:32,080
+are just not available once
+the function scope has finally
+
+56
+00:02:32,080 --> 00:02:32,580
+closed.
+
+57
+00:02:35,310 --> 00:02:37,780
+Now let's make it just
+slightly more complex.
+
+58
+00:02:37,780 --> 00:02:42,010
+So now we'll establish
+that same x variable as 4.
+
+59
+00:02:42,010 --> 00:02:43,810
+And then we'll
+build a new function
+
+60
+00:02:43,810 --> 00:02:45,850
+inside of our
+testClosure function.
+
+61
+00:02:45,850 --> 00:02:48,410
+And we'll call that
+function closeX.
+
+62
+00:02:48,410 --> 00:02:53,880
+Now, inside of there, we
+will return the x variable.
+
+63
+00:02:53,880 --> 00:02:56,750
+And then outside, inside of
+the testClosure function,
+
+64
+00:02:56,750 --> 00:03:00,880
+we'll return the
+closeX function.
+
+65
+00:03:00,880 --> 00:03:02,650
+Now here, the
+inner function will
+
+66
+00:03:02,650 --> 00:03:05,980
+be able to access the
+outer function's variables.
+
+67
+00:03:05,980 --> 00:03:06,480
+Why?
+
+68
+00:03:06,480 --> 00:03:10,280
+Because they feel like global
+variables to that innermost
+
+69
+00:03:10,280 --> 00:03:11,380
+function.
+
+70
+00:03:11,380 --> 00:03:16,110
+So when I say, return x
+inside of the closeX function,
+
+71
+00:03:16,110 --> 00:03:18,980
+closeX kind of looks around
+in its own local environment
+
+72
+00:03:18,980 --> 00:03:20,450
+for an x, and it
+doesn't see one.
+
+73
+00:03:20,450 --> 00:03:23,610
+So it looks outside there,
+to the global scope-- inside
+
+74
+00:03:23,610 --> 00:03:27,480
+of test closure finds
+that x and assigns
+
+75
+00:03:27,480 --> 00:03:30,780
+the 4 to the x inside of
+the innermost function.
+
+76
+00:03:30,780 --> 00:03:32,580
+It's really important
+to note that x is not
+
+77
+00:03:32,580 --> 00:03:37,150
+stored anywhere inside of the
+innermost function-- not even
+
+78
+00:03:37,150 --> 00:03:39,850
+as a parameter.
+
+79
+00:03:39,850 --> 00:03:42,280
+So now let's check out
+calling our external function,
+
+80
+00:03:42,280 --> 00:03:43,480
+testClosure.
+
+81
+00:03:43,480 --> 00:03:46,850
+And if we do that and
+we assign the results
+
+82
+00:03:46,850 --> 00:03:50,310
+to a new variable,
+checkLocalX, we
+
+83
+00:03:50,310 --> 00:03:54,750
+know that the entire function,
+closeX, the innermost function,
+
+84
+00:03:54,750 --> 00:03:58,580
+gets returned and
+assigned to checkLocalX.
+
+85
+00:03:58,580 --> 00:03:59,950
+Now, let's check
+out what happens
+
+86
+00:03:59,950 --> 00:04:01,950
+when we call checkLocalX.
+
+87
+00:04:01,950 --> 00:04:03,750
+We get 4.
+
+88
+00:04:03,750 --> 00:04:05,880
+Woah, that is crazy.
+
+89
+00:04:05,880 --> 00:04:09,010
+This is interesting, because
+even though test closure has
+
+90
+00:04:09,010 --> 00:04:12,310
+completely finished operating,
+its scope is closed.
+
+91
+00:04:12,310 --> 00:04:15,550
+We can still access
+the local variable
+
+92
+00:04:15,550 --> 00:04:17,910
+that was declared
+in that function.
+
+93
+00:04:17,910 --> 00:04:18,680
+Why is that?
+
+94
+00:04:18,680 --> 00:04:23,110
+Because it has been bound as
+a closure inside of closeX.
+
+95
+00:04:26,580 --> 00:04:29,110
+So how can we use
+closures practically?
+
+96
+00:04:29,110 --> 00:04:31,210
+Well, they're very
+helpful in what
+
+97
+00:04:31,210 --> 00:04:34,350
+we call function
+"construction zones".
+
+98
+00:04:34,350 --> 00:04:38,250
+They make the creation
+of very similar functions
+
+99
+00:04:38,250 --> 00:04:40,410
+very efficient.
+
+100
+00:04:40,410 --> 00:04:41,910
+So let's see how
+this works if we
+
+101
+00:04:41,910 --> 00:04:44,180
+were to try to make
+some transportation
+
+102
+00:04:44,180 --> 00:04:47,080
+modes for the Cold
+Closures Cove.
+
+103
+00:04:47,080 --> 00:04:49,410
+Let's say that we
+had a submarine
+
+104
+00:04:49,410 --> 00:04:53,610
+to get across the cove as
+well as a battleship and then
+
+105
+00:04:53,610 --> 00:04:55,880
+a giant seagull--
+not only that, it
+
+106
+00:04:55,880 --> 00:05:00,210
+is a pirate giant
+seagull with blue feet.
+
+107
+00:05:00,210 --> 00:05:02,380
+Since we have these
+three different modes
+
+108
+00:05:02,380 --> 00:05:04,080
+of transportation
+across our cove,
+
+109
+00:05:04,080 --> 00:05:07,380
+we can make a
+buildCoveTicketMaker
+
+110
+00:05:07,380 --> 00:05:10,380
+for our different
+modes of transport.
+
+111
+00:05:10,380 --> 00:05:11,710
+Here's our function.
+
+112
+00:05:11,710 --> 00:05:15,110
+And inside that function, we
+would return another function
+
+113
+00:05:15,110 --> 00:05:19,410
+that uses a name and alerts,
+"Here is your transportation
+
+114
+00:05:19,410 --> 00:05:23,610
+ticket via the 'transport,'"
+which will get closed up from
+
+115
+00:05:23,610 --> 00:05:25,150
+the external function.
+
+116
+00:05:25,150 --> 00:05:27,550
+"Welcome to the
+Cold Closures Cove
+
+117
+00:05:27,550 --> 00:05:32,350
+'name'" which will be involved
+on a local level as a parameter.
+
+118
+00:05:32,350 --> 00:05:35,080
+Now our builtCoveTicketMaker
+function
+
+119
+00:05:35,080 --> 00:05:39,180
+will make a ticket maker
+for every single mode
+
+120
+00:05:39,180 --> 00:05:40,280
+of transportation.
+
+121
+00:05:40,280 --> 00:05:44,210
+They'll be similar functions
+but just slightly different.
+
+122
+00:05:44,210 --> 00:05:47,110
+So if we wanted to make ticket
+makers for the submarine,
+
+123
+00:05:47,110 --> 00:05:49,680
+the battleship, and
+the giant seagull,
+
+124
+00:05:49,680 --> 00:05:51,710
+we would establish
+three variables
+
+125
+00:05:51,710 --> 00:05:55,280
+called getSubmarineTicket,
+getBattleshipTicket,
+
+126
+00:05:55,280 --> 00:05:57,410
+and getGiantSeagullTicket.
+
+127
+00:05:57,410 --> 00:06:00,310
+And we would call
+buildCoveTicketMaker
+
+128
+00:06:00,310 --> 00:06:02,510
+for all of those variables.
+
+129
+00:06:06,180 --> 00:06:09,680
+So now that all of our variables
+have ticket makers inside them,
+
+130
+00:06:09,680 --> 00:06:13,010
+we can call getSubmarineTicket,
+getBattleshipTicket,
+
+131
+00:06:13,010 --> 00:06:16,010
+and getGiantSeagull
+ticket to see
+
+132
+00:06:16,010 --> 00:06:17,910
+what's inside those variables.
+
+133
+00:06:17,910 --> 00:06:21,010
+Well, look there, they
+have exactly the same function
+
+134
+00:06:21,010 --> 00:06:23,050
+inside each variable.
+
+135
+00:06:23,050 --> 00:06:26,450
+But that's very deceptive,
+because bound variables
+
+136
+00:06:26,450 --> 00:06:28,710
+and their values
+will not be evident
+
+137
+00:06:28,710 --> 00:06:31,180
+inside of a stored function.
+
+138
+00:06:31,180 --> 00:06:34,150
+In other words, examining
+the function's contents
+
+139
+00:06:34,150 --> 00:06:37,080
+will not show you a
+closure that has occurred.
+
+140
+00:06:37,080 --> 00:06:38,850
+In our getSubmarineTicket
+variable,
+
+141
+00:06:38,850 --> 00:06:41,210
+transport actually
+holds "Submarine".
+
+142
+00:06:41,210 --> 00:06:42,850
+And of course, in
+getBattleshipTicket,
+
+143
+00:06:42,850 --> 00:06:44,410
+transport is "Battleship".
+
+144
+00:06:44,410 --> 00:06:50,280
+And in getGiantSeagullTicket,
+transport is "Giant Seagull".
+
+145
+00:06:50,280 --> 00:06:52,610
+Until we've actually called
+any of these variables that
+
+146
+00:06:52,610 --> 00:06:55,610
+have functions in
+them, the 'name' variable
+
+147
+00:06:55,610 --> 00:06:58,850
+that is inside those
+functions will stay undefined.
+
+148
+00:06:58,850 --> 00:07:00,250
+So let's change that.
+
+149
+00:07:00,250 --> 00:07:04,280
+Let's actually call
+our ticket makers.
+
+150
+00:07:04,280 --> 00:07:06,550
+Now let's show how that works.
+
+151
+00:07:06,550 --> 00:07:09,680
+So we'll scoot our semicolons
+out of the way here.
+
+152
+00:07:09,680 --> 00:07:14,380
+And we'll pass in some names,
+Mario, Luigi, and Bowser,
+
+153
+00:07:14,380 --> 00:07:17,180
+to our different ticket makers.
+
+154
+00:07:17,180 --> 00:07:18,410
+What happens now?
+
+155
+00:07:18,410 --> 00:07:20,850
+Well, Mario gets a
+ticket to the submarine,
+
+156
+00:07:20,850 --> 00:07:23,010
+and Luigi gets a ticket
+to the battleship,
+
+157
+00:07:23,010 --> 00:07:25,550
+and Browser is forced to
+take the giant seagull.
+
+158
+00:07:30,650 --> 00:07:32,650
+So now that you have a
+little bit of information
+
+159
+00:07:32,650 --> 00:07:34,480
+to be dangerous
+with some closures,
+
+160
+00:07:34,480 --> 00:07:36,480
+we'll give you some
+challenges and see you back
+
+161
+00:07:36,480 --> 00:07:38,480
+in the next section.
