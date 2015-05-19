@@ -1,0 +1,1132 @@
+1
+00:00:00,000 --> 00:00:01,080
+
+2
+00:00:01,080 --> 00:00:02,080
+Hey code-school friends.
+
+3
+00:00:02,080 --> 00:00:05,640
+Welcome to the third edition
+of the JavaScript Road Trip.
+
+4
+00:00:05,640 --> 00:00:08,400
+As you know by now, JavaScript
+is a very powerful web
+
+5
+00:00:08,400 --> 00:00:11,450
+scripting language used
+all over the world,
+
+6
+00:00:11,450 --> 00:00:13,781
+in innumerable
+web-based applications.
+
+7
+00:00:13,781 --> 00:00:16,239
+And a knowledge of it is going
+to be an extraordinary asset
+
+8
+00:00:16,239 --> 00:00:18,960
+to you on your journey
+as a developer.
+
+9
+00:00:18,960 --> 00:00:21,560
+Now, if JavaScript is
+still sort of new to you,
+
+10
+00:00:21,560 --> 00:00:24,290
+you probably want to go hang
+with road trips one and two,
+
+11
+00:00:24,290 --> 00:00:27,020
+because we'll definitely be
+taking several, if not all
+
+12
+00:00:27,020 --> 00:00:28,640
+of those concepts
+and layering them
+
+13
+00:00:28,640 --> 00:00:31,780
+into the topics of this course.
+
+14
+00:00:31,780 --> 00:00:33,760
+As far as new stuff,
+we'll be examining
+
+15
+00:00:33,760 --> 00:00:36,470
+the fine art of the
+function expression
+
+16
+00:00:36,470 --> 00:00:40,110
+as well as the cool and often
+mind-boggling use of closures
+
+17
+00:00:40,110 --> 00:00:43,950
+and then the impact of
+hoisting on load order.
+
+18
+00:00:43,950 --> 00:00:46,950
+Ultimately, we'll wrap up with
+an introductory exploration
+
+19
+00:00:46,950 --> 00:00:49,710
+of the awesomely important
+JavaScript object
+
+20
+00:00:49,710 --> 00:00:51,980
+and then examine
+their blueprints
+
+21
+00:00:51,980 --> 00:00:54,570
+in the form of constructors
+and prototypes.
+
+22
+00:00:54,570 --> 00:00:57,770
+So with that, let's start
+the JavaScript Road Trip,
+
+23
+00:00:57,770 --> 00:00:58,490
+Part Three.
+
+24
+00:00:58,490 --> 00:01:02,390
+[SINGING] From the Labyrinth of
+Loops to the Variable Valley,
+
+25
+00:01:02,390 --> 00:01:04,120
+we'll see the Cliffs
+of Value first.
+
+26
+00:01:04,120 --> 00:01:05,660
+JavaScript's right up your all.
+
+27
+00:01:05,660 --> 00:01:08,990
+Built-in's Bluff, Files
+Falls, Array Archipelago,
+
+28
+00:01:08,990 --> 00:01:10,800
+declarations in a
+desert, where you'll
+
+29
+00:01:10,800 --> 00:01:11,925
+find out how far you'll go.
+
+30
+00:01:11,925 --> 00:01:13,810
+Learn the program, take a ride.
+
+31
+00:01:13,810 --> 00:01:15,265
+Buy a ticket, step inside.
+
+32
+00:01:15,265 --> 00:01:17,214
+All aboard, you're
+at the station
+
+33
+00:01:17,214 --> 00:01:19,740
+to increase your education
+Bon Voyage and skinny dip,
+
+34
+00:01:19,740 --> 00:01:21,660
+as long as functions
+you don't skip
+
+35
+00:01:21,660 --> 00:01:26,190
+on this, the
+JavaScript Road Trip.
+
+36
+00:01:26,190 --> 00:01:30,030
+
+37
+00:01:30,030 --> 00:01:32,060
+To start off this
+leg of the road trip,
+
+38
+00:01:32,060 --> 00:01:34,430
+we'll be examining a
+special usage of a function
+
+39
+00:01:34,430 --> 00:01:37,252
+inside of JavaScript called
+the function expression.
+
+40
+00:01:37,252 --> 00:01:38,710
+Periodically, when
+we code, we need
+
+41
+00:01:38,710 --> 00:01:41,280
+to make an efficient
+choice about which
+
+42
+00:01:41,280 --> 00:01:44,980
+function to actually build
+when our program loads.
+
+43
+00:01:44,980 --> 00:01:46,840
+Typically, we do this
+when we've received
+
+44
+00:01:46,840 --> 00:01:49,400
+a special piece
+of data or when we
+
+45
+00:01:49,400 --> 00:01:52,170
+need to build a one-time,
+one-run function
+
+46
+00:01:52,170 --> 00:01:53,900
+for our websites.
+
+47
+00:01:53,900 --> 00:01:55,980
+Also, we want to make
+sure that we do this
+
+48
+00:01:55,980 --> 00:01:59,390
+without building every
+possible function that we could
+
+49
+00:01:59,390 --> 00:02:03,880
+when our program loads in order
+to conserve program memory.
+
+50
+00:02:03,880 --> 00:02:07,250
+Additionally, we often want to
+take functions and pass them
+
+51
+00:02:07,250 --> 00:02:08,780
+to other functions.
+
+52
+00:02:08,780 --> 00:02:12,780
+Or we may want to immediately
+call the function as soon
+
+53
+00:02:12,780 --> 00:02:14,150
+as it's built.
+
+54
+00:02:14,150 --> 00:02:16,310
+And with that, we hope
+you enjoy traversing
+
+55
+00:02:16,310 --> 00:02:18,600
+the forest of
+function expressions.
+
+56
+00:02:18,600 --> 00:02:21,920
+
+57
+00:02:21,920 --> 00:02:23,370
+So here we in level one.
+
+58
+00:02:23,370 --> 00:02:25,430
+Welcome back to JavaScript
+Road Trip Three.
+
+59
+00:02:25,430 --> 00:02:27,520
+So in this level,
+the first level,
+
+60
+00:02:27,520 --> 00:02:30,900
+we'll be looking at function
+expressions-- pretty cool
+
+61
+00:02:30,900 --> 00:02:34,270
+thing, which we like to
+call functions on the fly.
+
+62
+00:02:34,270 --> 00:02:36,887
+Now, in order to understand
+what a function expression is,
+
+63
+00:02:36,887 --> 00:02:39,220
+we'll first need to look at
+what you already understand,
+
+64
+00:02:39,220 --> 00:02:41,280
+which is a declared function.
+
+65
+00:02:41,280 --> 00:02:43,000
+Check this one out right here.
+
+66
+00:02:43,000 --> 00:02:45,900
+You can see here,
+on this first block,
+
+67
+00:02:45,900 --> 00:02:49,160
+a declared function
+called diffOfSquares.
+
+68
+00:02:49,160 --> 00:02:52,450
+Now, we've given it
+two inputs-- a and b.
+
+69
+00:02:52,450 --> 00:02:54,340
+And you can see
+that we've square a
+
+70
+00:02:54,340 --> 00:02:55,764
+and squared b and
+then subtracted
+
+71
+00:02:55,764 --> 00:02:57,430
+them-- see the minus
+sign in the middle.
+
+72
+00:02:57,430 --> 00:02:59,790
+And then that's the value
+that we are returning.
+
+73
+00:02:59,790 --> 00:03:02,160
+So there's our
+declared function.
+
+74
+00:03:02,160 --> 00:03:04,690
+This function,
+since it's declared,
+
+75
+00:03:04,690 --> 00:03:08,530
+is actually loaded right
+when the program is run.
+
+76
+00:03:08,530 --> 00:03:11,460
+And it is loaded into
+memory and held there
+
+77
+00:03:11,460 --> 00:03:13,490
+until you want to use it.
+
+78
+00:03:13,490 --> 00:03:15,520
+Function expressions
+apply things a little bit
+
+79
+00:03:15,520 --> 00:03:16,482
+differently.
+
+80
+00:03:16,482 --> 00:03:17,940
+So the first thing
+that we would do
+
+81
+00:03:17,940 --> 00:03:19,930
+is we would
+establish a variable.
+
+82
+00:03:19,930 --> 00:03:21,970
+Let's call it diff.
+
+83
+00:03:21,970 --> 00:03:25,060
+And then what we would
+do is we would rearrange
+
+84
+00:03:25,060 --> 00:03:28,980
+the declared function into
+an assignment statement.
+
+85
+00:03:28,980 --> 00:03:32,690
+And this particular thing is
+called a function expression.
+
+86
+00:03:32,690 --> 00:03:37,050
+And it loads only when this
+particular line of code
+
+87
+00:03:37,050 --> 00:03:39,570
+is reached inside your program.
+
+88
+00:03:39,570 --> 00:03:42,200
+So take a look, you can
+see the function key word.
+
+89
+00:03:42,200 --> 00:03:44,980
+Then you can see the
+diffOfSquares, function name,
+
+90
+00:03:44,980 --> 00:03:47,610
+and the inputs all in
+the same place, and then
+
+91
+00:03:47,610 --> 00:03:51,860
+the very same function body
+that does the same stuff that we
+
+92
+00:03:51,860 --> 00:03:53,690
+had in our declared function.
+
+93
+00:03:53,690 --> 00:03:56,790
+Again, this loads
+only when your program
+
+94
+00:03:56,790 --> 00:03:59,139
+reaches that line of code.
+
+95
+00:03:59,139 --> 00:04:00,680
+Another thing you
+should take note of
+
+96
+00:04:00,680 --> 00:04:03,330
+is that since this is now
+an assignment statement,
+
+97
+00:04:03,330 --> 00:04:05,670
+meaning we're taking
+this entire function
+
+98
+00:04:05,670 --> 00:04:07,900
+and assigning it
+the variable diff,
+
+99
+00:04:07,900 --> 00:04:10,100
+we need a semicolon
+here, on the end
+
+100
+00:04:10,100 --> 00:04:14,020
+of our final bracket
+of our function body.
+
+101
+00:04:14,020 --> 00:04:18,019
+Now, in order to call our
+cool new variable diff,
+
+102
+00:04:18,019 --> 00:04:20,231
+we're actually going to
+use the variable's name.
+
+103
+00:04:20,231 --> 00:04:21,730
+That's right, it's
+going to be diff.
+
+104
+00:04:21,730 --> 00:04:24,330
+We're not going to use the
+diffOfSquares name that's
+
+105
+00:04:24,330 --> 00:04:26,730
+inside the function.
+
+106
+00:04:26,730 --> 00:04:28,980
+Then we just pass
+two parameters to it.
+
+107
+00:04:28,980 --> 00:04:31,140
+We're just going
+to give it 9 and 5.
+
+108
+00:04:31,140 --> 00:04:33,060
+And you can see that
+that returns 56,
+
+109
+00:04:33,060 --> 00:04:38,790
+because you get 81
+minus 25 returns 56.
+
+110
+00:04:38,790 --> 00:04:40,810
+Something to check
+out here is that I
+
+111
+00:04:40,810 --> 00:04:45,080
+have given parameter parenthesis
+to the variable diff.
+
+112
+00:04:45,080 --> 00:04:46,750
+We haven't seen
+that before, right?
+
+113
+00:04:46,750 --> 00:04:49,890
+And then we pass parameters
+into those parentheses
+
+114
+00:04:49,890 --> 00:04:51,470
+that we've given to diff.
+
+115
+00:04:51,470 --> 00:04:54,660
+And we need those in order
+to actually call the function
+
+116
+00:04:54,660 --> 00:04:56,360
+and give it some parameters.
+
+117
+00:04:56,360 --> 00:04:58,250
+Now, you might be
+wondering, why in the heck
+
+118
+00:04:58,250 --> 00:05:00,340
+do we still have that
+diffOfSquares name if we're
+
+119
+00:05:00,340 --> 00:05:02,926
+just going to use the
+diff variable name?
+
+120
+00:05:02,926 --> 00:05:04,050
+It's an excellent question.
+
+121
+00:05:04,050 --> 00:05:04,860
+And guess what?
+
+122
+00:05:04,860 --> 00:05:07,490
+We don't.
+
+123
+00:05:07,490 --> 00:05:08,750
+So let's take a look at that.
+
+124
+00:05:08,750 --> 00:05:11,100
+There's this cool
+thing in JavaScript,
+
+125
+00:05:11,100 --> 00:05:14,390
+and in other languages,
+called the anonymous function.
+
+126
+00:05:14,390 --> 00:05:17,320
+It means that you can
+build a function expression
+
+127
+00:05:17,320 --> 00:05:19,550
+without a name, because
+it's being assigned
+
+128
+00:05:19,550 --> 00:05:23,450
+to a variable that will
+hold the entire contents
+
+129
+00:05:23,450 --> 00:05:25,110
+of that function.
+
+130
+00:05:25,110 --> 00:05:27,404
+So since we don't need
+that diffOfSquares name,
+
+131
+00:05:27,404 --> 00:05:28,820
+we can go ahead
+and get rid of it.
+
+132
+00:05:28,820 --> 00:05:29,653
+Let's get rid of it.
+
+133
+00:05:29,653 --> 00:05:30,460
+There it goes.
+
+134
+00:05:30,460 --> 00:05:34,760
+And now we will just scoot the
+parameters and the first body
+
+135
+00:05:34,760 --> 00:05:37,090
+bracket up against
+the function keyword,
+
+136
+00:05:37,090 --> 00:05:40,950
+and we have an anonymous
+function, particularly
+
+137
+00:05:40,950 --> 00:05:43,525
+an anonymous
+function expression.
+
+138
+00:05:43,525 --> 00:05:44,150
+Now guess what?
+
+139
+00:05:44,150 --> 00:05:46,270
+Just because it's anonymous
+doesn't mean anything.
+
+140
+00:05:46,270 --> 00:05:49,860
+We still call the function
+with our new variable name.
+
+141
+00:05:49,860 --> 00:05:52,260
+And we pass in some
+parameters, 4 and 2.
+
+142
+00:05:52,260 --> 00:05:54,200
+That would give us 16 and 4.
+
+143
+00:05:54,200 --> 00:05:56,185
+And when we subtract
+those, we get 12.
+
+144
+00:05:56,185 --> 00:06:00,544
+
+145
+00:06:00,544 --> 00:06:02,210
+Now, in our previous
+JavaScript courses,
+
+146
+00:06:02,210 --> 00:06:04,610
+we've been logging
+out tons of variables
+
+147
+00:06:04,610 --> 00:06:07,710
+to see what they hold, to
+see what their contents are.
+
+148
+00:06:07,710 --> 00:06:11,560
+What might happen if we did
+that with our new diff variable
+
+149
+00:06:11,560 --> 00:06:13,050
+that holds a function?
+
+150
+00:06:13,050 --> 00:06:16,480
+Well, as you might expect, you
+will get the actual function
+
+151
+00:06:16,480 --> 00:06:20,830
+body returned as a result,
+so that you can always
+
+152
+00:06:20,830 --> 00:06:24,250
+check the contents of
+a variable to see what
+
+153
+00:06:24,250 --> 00:06:26,880
+function it is
+actually referring to.
+
+154
+00:06:26,880 --> 00:06:30,370
+
+155
+00:06:30,370 --> 00:06:33,840
+Let's take a look and see how
+we can use function expressions,
+
+156
+00:06:33,840 --> 00:06:37,290
+stored functions in a
+national park terminal,
+
+157
+00:06:37,290 --> 00:06:41,390
+specifically at the forest
+of function expressions.
+
+158
+00:06:41,390 --> 00:06:44,180
+One of the cool things about
+variables that hold functions
+
+159
+00:06:44,180 --> 00:06:47,780
+is that they can be passed
+into other functions for use
+
+160
+00:06:47,780 --> 00:06:49,110
+inside that function.
+
+161
+00:06:49,110 --> 00:06:51,830
+Well, let's take a look at that.
+
+162
+00:06:51,830 --> 00:06:53,700
+So say we had a JavaScript file.
+
+163
+00:06:53,700 --> 00:06:57,680
+We'll call it terminal.js for
+the national park terminal.
+
+164
+00:06:57,680 --> 00:07:00,480
+And we wanted to build
+a greeting for people
+
+165
+00:07:00,480 --> 00:07:04,110
+that were attending, let's say,
+the Badlands National Park.
+
+166
+00:07:04,110 --> 00:07:06,150
+So here, you can see
+we have established
+
+167
+00:07:06,150 --> 00:07:07,950
+a variable called greeting.
+
+168
+00:07:07,950 --> 00:07:10,140
+And in that particular
+variable, we
+
+169
+00:07:10,140 --> 00:07:12,140
+are going to store a
+function expression that
+
+170
+00:07:12,140 --> 00:07:15,070
+will alert a
+message to the user.
+
+171
+00:07:15,070 --> 00:07:16,580
+"Thanks for visiting
+the Badlands.
+
+172
+00:07:16,580 --> 00:07:19,730
+We hope you stay is
+better than most."
+
+173
+00:07:19,730 --> 00:07:21,610
+Next, near the end
+of our file, we
+
+174
+00:07:21,610 --> 00:07:25,630
+will establish a declared
+function called closeTerminal.
+
+175
+00:07:25,630 --> 00:07:28,810
+And what that will get past
+is a function expression.
+
+176
+00:07:28,810 --> 00:07:31,110
+The parameter name for
+it will be message.
+
+177
+00:07:31,110 --> 00:07:35,510
+And then inside closeTerminal,
+that function will be called.
+
+178
+00:07:35,510 --> 00:07:37,150
+So maybe you can
+kind of see how we
+
+179
+00:07:37,150 --> 00:07:39,820
+will use the greeting
+variable coming up.
+
+180
+00:07:39,820 --> 00:07:42,300
+Later on in our file, after
+our customer has perhaps
+
+181
+00:07:42,300 --> 00:07:45,050
+interacted in some other
+ways with the terminal,
+
+182
+00:07:45,050 --> 00:07:47,135
+the closeTerminal
+function will be called.
+
+183
+00:07:47,135 --> 00:07:48,510
+And you can see
+that we've passed
+
+184
+00:07:48,510 --> 00:07:51,060
+greeting into closeTerminal.
+
+185
+00:07:51,060 --> 00:07:52,820
+So let's take a
+look at what happens
+
+186
+00:07:52,820 --> 00:07:55,730
+when we pass greeting
+to closeTerminal.
+
+187
+00:07:55,730 --> 00:08:00,520
+Well, the message parameter
+becomes the greeting variable.
+
+188
+00:08:00,520 --> 00:08:03,480
+And then inside
+closeTerminal, the function
+
+189
+00:08:03,480 --> 00:08:05,860
+that's in greeting gets called.
+
+190
+00:08:05,860 --> 00:08:08,120
+Then we would get
+the alert message.
+
+191
+00:08:08,120 --> 00:08:09,570
+"Thanks for visiting
+the Badlands.
+
+192
+00:08:09,570 --> 00:08:14,259
+We hope your stay is
+better than most."
+
+193
+00:08:14,259 --> 00:08:15,550
+So one greeting is pretty cool.
+
+194
+00:08:15,550 --> 00:08:18,237
+But what if we had
+multiple greetings?
+
+195
+00:08:18,237 --> 00:08:19,820
+We could have multiple
+different kinds
+
+196
+00:08:19,820 --> 00:08:22,460
+of greetings for different
+kinds of customers.
+
+197
+00:08:22,460 --> 00:08:25,136
+Function expressions are
+very cool and very useful
+
+198
+00:08:25,136 --> 00:08:26,510
+in this way,
+because they give us
+
+199
+00:08:26,510 --> 00:08:30,930
+a flexibility in determining
+exactly which functionality we
+
+200
+00:08:30,930 --> 00:08:34,289
+want to store and
+then pass in later.
+
+201
+00:08:34,289 --> 00:08:36,139
+So let's go ahead and
+scoot our stuff down.
+
+202
+00:08:36,139 --> 00:08:37,990
+[INAUDIBLE]
+
+203
+00:08:37,990 --> 00:08:41,419
+And now we are going to try
+to build multiple greetings.
+
+204
+00:08:41,419 --> 00:08:43,380
+So we'll establish
+our greeting variable,
+
+205
+00:08:43,380 --> 00:08:45,755
+but we're not going to assign
+a function expression to it
+
+206
+00:08:45,755 --> 00:08:48,270
+quite yet, because we need
+to decide whether we have
+
+207
+00:08:48,270 --> 00:08:51,270
+a new customer or
+an old customer.
+
+208
+00:08:51,270 --> 00:08:53,020
+So we've got some
+code that'll be
+
+209
+00:08:53,020 --> 00:08:55,510
+there in our
+terminal.js file that
+
+210
+00:08:55,510 --> 00:08:58,100
+will decide whether
+we have a new customer
+
+211
+00:08:58,100 --> 00:09:00,970
+or an old customer, and
+therefore new customer will be
+
+212
+00:09:00,970 --> 00:09:05,470
+true or false by the time
+we reach this conditional.
+
+213
+00:09:05,470 --> 00:09:07,840
+If we have a new
+customer, then we'll
+
+214
+00:09:07,840 --> 00:09:09,760
+go ahead and assign
+our previous message
+
+215
+00:09:09,760 --> 00:09:12,110
+that we built to the
+greeting variable.
+
+216
+00:09:12,110 --> 00:09:15,720
+But otherwise, meaning
+it's not a new customer,
+
+217
+00:09:15,720 --> 00:09:18,090
+then we'll make a
+different function.
+
+218
+00:09:18,090 --> 00:09:20,290
+And we'll say, "Welcome
+back to the Badlands.
+
+219
+00:09:20,290 --> 00:09:22,030
+Guess they aren't so bad, huh?"
+
+220
+00:09:22,030 --> 00:09:23,760
+So that's for our old
+customers-- people
+
+221
+00:09:23,760 --> 00:09:25,850
+that have been to
+the Badlands before.
+
+222
+00:09:25,850 --> 00:09:28,130
+So now you can
+notice that we have
+
+223
+00:09:28,130 --> 00:09:31,490
+two possible greetings
+with one variable.
+
+224
+00:09:31,490 --> 00:09:33,220
+Let's see what we
+can do with that.
+
+225
+00:09:33,220 --> 00:09:35,450
+So now, if new
+customer somehow was
+
+226
+00:09:35,450 --> 00:09:38,140
+set to false by our
+terminal, we know
+
+227
+00:09:38,140 --> 00:09:40,690
+that when we would pass
+the greeting variable
+
+228
+00:09:40,690 --> 00:09:45,410
+into closeTerminal, we would
+get the old customer message.
+
+229
+00:09:45,410 --> 00:09:46,660
+"Welcome back to the Badlands.
+
+230
+00:09:46,660 --> 00:09:48,250
+Guess they aren't so bad."
+
+231
+00:09:48,250 --> 00:09:52,350
+And then if we were to also
+change new customer to true,
+
+232
+00:09:52,350 --> 00:09:54,700
+we can see the
+message that comes up
+
+233
+00:09:54,700 --> 00:09:57,520
+is exactly the old one
+that we had built before.
+
+234
+00:09:57,520 --> 00:10:01,420
+
+235
+00:10:01,420 --> 00:10:04,350
+So that's a brief introduction
+to function expressions.
+
+236
+00:10:04,350 --> 00:10:06,270
+And we will release
+you to the challenges.
+
+237
+00:10:06,270 --> 00:10:09,390
+I hope your stay is
+better than most.
+
+238
+00:10:09,390 --> 00:10:10,800
