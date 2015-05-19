@@ -1,0 +1,551 @@
+﻿1
+00:00:01,476 --> 00:00:03,840
+We've got a great
+handle now on how
+
+2
+00:00:03,840 --> 00:00:06,680
+to make a network
+request for marker data,
+
+3
+00:00:06,680 --> 00:00:09,460
+and then create a bunch of
+markers and put them in a set
+
+4
+00:00:09,460 --> 00:00:12,260
+without having any duplicates.
+
+5
+00:00:12,260 --> 00:00:14,540
+But there's one case
+that's kind of an exception
+
+6
+00:00:14,540 --> 00:00:18,910
+to the rule for a marker that
+we don't want in our main marker
+
+7
+00:00:18,910 --> 00:00:22,660
+set, and that's a
+user-created marker.
+
+8
+00:00:22,660 --> 00:00:25,070
+In most mapping
+applications, a user-created
+
+9
+00:00:25,070 --> 00:00:28,570
+ marker is usually
+generated through some gesture.
+
+10
+00:00:28,570 --> 00:00:30,880
+And in this example, we're
+going to use the long press
+
+11
+00:00:30,880 --> 00:00:34,380
+gesture to create a
+marker wherever the user long
+
+12
+00:00:34,380 --> 00:00:36,770
+presses on the map view.
+
+13
+00:00:36,770 --> 00:00:39,180
+Let's look at some of the
+differences between our set
+
+14
+00:00:39,180 --> 00:00:41,320
+markers and our
+user-created marker
+
+15
+00:00:41,320 --> 00:00:44,460
+so we can better understand why
+we should keep those separate.
+
+16
+00:00:44,460 --> 00:00:47,550
+So first, markers in a set
+come from a network request
+
+17
+00:00:47,550 --> 00:00:50,660
+and probably contain lots
+and lots and lots of data,
+
+18
+00:00:50,660 --> 00:00:52,270
+versus the user-created
+ marker which
+
+19
+00:00:52,270 --> 00:00:55,480
+is created from a gesture
+like a tab for a long press.
+
+20
+00:00:55,480 --> 00:00:58,260
+Markers in the set are
+probably displayed permanently
+
+21
+00:00:58,260 --> 00:01:00,765
+once they're loaded
+into the map,
+
+22
+00:01:00,765 --> 00:01:02,390
+but our user-created
+markers are only going
+
+23
+00:01:02,390 --> 00:01:04,580
+to be displayed temporarily.
+
+24
+00:01:04,580 --> 00:01:06,530
+And finally when we
+have markers in the set
+
+25
+00:01:06,530 --> 00:01:10,030
+we probably want to
+display all or nothing.
+
+26
+00:01:10,030 --> 00:01:11,730
+But the user-created
+marker, we only
+
+27
+00:01:11,730 --> 00:01:14,090
+ever want to show one at a time.
+
+28
+00:01:14,090 --> 00:01:17,440
+We don't want five user-created
+ markers on our map.
+
+29
+00:01:17,440 --> 00:01:19,740
+We want to just delete
+the current one as soon
+
+30
+00:01:19,740 --> 00:01:21,390
+as a new one is created.
+
+31
+00:01:21,390 --> 00:01:24,510
+So for these reasons, we'll want
+to create a separate CSMarker
+
+32
+00:01:24,510 --> 00:01:27,280
+property called
+userCreatedMarker that's
+
+33
+00:01:27,280 --> 00:01:29,410
+going to allow us to
+track that marker that's
+
+34
+00:01:29,410 --> 00:01:31,750
+created from a gesture.
+
+35
+00:01:31,750 --> 00:01:34,060
+Our mapView delegate gives
+us another great method
+
+36
+00:01:34,060 --> 00:01:37,630
+called mapView
+didLongPressAtCoordinate, which
+
+37
+00:01:37,630 --> 00:01:41,500
+will be called every time a long
+press is detected on the map.
+
+38
+00:01:41,500 --> 00:01:44,820
+And inside of this method,
+we can create a CSMarker
+
+39
+00:01:44,820 --> 00:01:46,680
+and instead of
+receiving a marker,
+
+40
+00:01:46,680 --> 00:01:48,680
+this method actually
+receives the coordinate
+
+41
+00:01:48,680 --> 00:01:50,990
+where the long press happened.
+
+42
+00:01:50,990 --> 00:01:54,330
+This is great because now we
+can create a CSMarker object
+
+43
+00:01:54,330 --> 00:01:55,950
+and for the position
+of that marker,
+
+44
+00:01:55,950 --> 00:01:59,100
+we can use that coordinate
+where the long press happened.
+
+45
+00:01:59,100 --> 00:02:00,750
+We can set all the
+same properties
+
+46
+00:02:00,750 --> 00:02:02,270
+that we did for
+our other markers
+
+47
+00:02:02,270 --> 00:02:06,050
+like appearAnimation,
+title, snippet.
+
+48
+00:02:06,050 --> 00:02:08,560
+And just like before,
+we'll set our map property
+
+49
+00:02:08,560 --> 00:02:11,340
+to nil when our
+marker is created.
+
+50
+00:02:11,340 --> 00:02:14,030
+We'll start this
+marker out turned off.
+
+51
+00:02:14,030 --> 00:02:16,940
+And just like before, we'll
+call the drawMarkers method
+
+52
+00:02:16,940 --> 00:02:18,310
+to turn it on.
+
+53
+00:02:18,310 --> 00:02:20,085
+In our current
+drawMarkers method,
+
+54
+00:02:20,085 --> 00:02:22,210
+we're only looping through
+each of the markers that
+
+55
+00:02:22,210 --> 00:02:24,510
+are in our marker set.
+
+56
+00:02:24,510 --> 00:02:27,350
+So after that code,
+that we'll leave intact,
+
+57
+00:02:27,350 --> 00:02:29,300
+we'll add another
+conditional that
+
+58
+00:02:29,300 --> 00:02:33,160
+says if the
+userCreatedMarker is not nil,
+
+59
+00:02:33,160 --> 00:02:37,640
+and if the userCreatedMarker's
+map property is nil, that
+
+60
+00:02:37,640 --> 00:02:41,510
+means our marker exists, but
+it's currently turned off.
+
+61
+00:02:41,510 --> 00:02:46,860
+So if those two things are
+true, we'll turn the marker on,
+
+62
+00:02:46,860 --> 00:02:49,410
+and we'll even set the
+mapViews selectedMarker
+
+63
+00:02:49,410 --> 00:02:52,320
+property to our new
+user-created marker.
+
+64
+00:02:52,320 --> 00:02:55,020
+Setting the selectedMarker
+property on a map view
+
+65
+00:02:55,020 --> 00:02:58,210
+is a programmatic way
+to tap the marker, which
+
+66
+00:02:58,210 --> 00:03:01,180
+means that as soon as this
+marker's created and displayed,
+
+67
+00:03:01,180 --> 00:03:03,639
+the Info window is
+going to pop up.
+
+68
+00:03:03,639 --> 00:03:05,680
+So if we take a look at
+where we're at right now,
+
+69
+00:03:05,680 --> 00:03:08,000
+we're definitely creating
+markers and showing the Info
+
+70
+00:03:08,000 --> 00:03:11,045
+window whenever a long
+press gesture happens.
+
+71
+00:03:11,045 --> 00:03:12,990
+But we've got some
+problems still.
+
+72
+00:03:12,990 --> 00:03:15,070
+For one, our old
+user-created marker
+
+73
+00:03:15,070 --> 00:03:17,510
+should be removed as soon
+as we create a new one,
+
+74
+00:03:17,510 --> 00:03:19,660
+and they're not right now.
+
+75
+00:03:19,660 --> 00:03:21,770
+And second, the map
+doesn't actually
+
+76
+00:03:21,770 --> 00:03:25,180
+re-center on each one of
+those newly created markers.
+
+77
+00:03:25,180 --> 00:03:28,100
+When we have a normal
+marker and we tap on it,
+
+78
+00:03:28,100 --> 00:03:29,980
+the map gets re-centered on it.
+
+79
+00:03:29,980 --> 00:03:32,970
+So we need to recreate
+that centering animation
+
+80
+00:03:32,970 --> 00:03:35,800
+inside of our
+drawMarkers method.
+
+81
+00:03:35,800 --> 00:03:38,850
+Since we already created a
+GMSCameraPosition object
+
+82
+00:03:38,850 --> 00:03:40,620
+initially when we
+created the map,
+
+83
+00:03:40,620 --> 00:03:44,390
+we can use another class called
+GMSCameraUpdate to change
+
+84
+00:03:44,390 --> 00:03:46,710
+the properties of
+that existing camera.
+
+85
+00:03:46,710 --> 00:03:49,060
+There's quite a few options
+that this GMSCameraUpdate
+
+86
+00:03:49,060 --> 00:03:50,620
+will take.
+
+87
+00:03:50,620 --> 00:03:52,990
+But here since we want
+to recenter the map
+
+88
+00:03:52,990 --> 00:03:57,390
+on the userCreatedMarker, we
+can use the setTarget method
+
+89
+00:03:57,390 --> 00:04:00,230
+and pass it our
+userCreatedMarker's position.
+
+90
+00:04:00,230 --> 00:04:03,230
+Then we can send the
+animateWithCameraUpdate message
+
+91
+00:04:03,230 --> 00:04:07,930
+to our mapView and pass in
+our cameraUpdate object.
+
+92
+00:04:07,930 --> 00:04:09,930
+And now, when that
+new marker is drawn,
+
+93
+00:04:09,930 --> 00:04:14,350
+the map will re-center
+on it like this.
+
+94
+00:04:14,350 --> 00:04:15,940
+So that solves one
+of our problems,
+
+95
+00:04:15,940 --> 00:04:17,339
+but we still have
+the issue where
+
+96
+00:04:17,339 --> 00:04:19,510
+we're showing more than
+one user-created marker
+
+97
+00:04:19,510 --> 00:04:21,450
+on the screen at the same time.
+
+98
+00:04:21,450 --> 00:04:24,330
+We really only want to show one.
+
+99
+00:04:24,330 --> 00:04:27,550
+To fix this, we can go inside of
+our long press delegate method
+
+100
+00:04:27,550 --> 00:04:30,990
+where we create the marker,
+and before we try to create it,
+
+101
+00:04:30,990 --> 00:04:34,350
+we first check if it's not
+nil, meaning that it's there,
+
+102
+00:04:34,350 --> 00:04:35,850
+it exists.
+
+103
+00:04:35,850 --> 00:04:39,930
+And if it does exist, we'll set
+the map property of it to nil,
+
+104
+00:04:39,930 --> 00:04:42,370
+and then we'll just
+completely nil out the object
+
+105
+00:04:42,370 --> 00:04:44,100
+and remove it.
+
+106
+00:04:44,100 --> 00:04:47,030
+Now it is important but
+you do these in that order.
+
+107
+00:04:47,030 --> 00:04:49,990
+If you first nil out
+the object and then try
+
+108
+00:04:49,990 --> 00:04:54,720
+to nil out the map property,
+the object will cease to exist,
+
+109
+00:04:54,720 --> 00:04:56,720
+but the map view will
+not update and you'll
+
+110
+00:04:56,720 --> 00:04:58,880
+see this like ghost
+marker just floating
+
+111
+00:04:58,880 --> 00:05:00,490
+on top of your map view.
+
+112
+00:05:00,490 --> 00:05:02,190
+And that's not what you want.
+
+113
+00:05:02,190 --> 00:05:05,430
+So make sure to always nil
+out the map property and then
+
+114
+00:05:05,430 --> 00:05:07,130
+the object.
+

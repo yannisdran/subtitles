@@ -1,0 +1,697 @@
+﻿1
+00:00:00,000 --> 00:00:04,040
+[SINGING] The SDK for iOS
+has really got my back.
+
+2
+00:00:04,040 --> 00:00:06,000
+There's places, modes,
+and sweet controls
+
+3
+00:00:06,000 --> 00:00:07,550
+to make the perfect app.
+
+4
+00:00:07,550 --> 00:00:11,580
+From polylines and
+polygons and geocoded lats,
+
+5
+00:00:11,580 --> 00:00:15,510
+I delegate the methods to
+create the perfect map.
+
+6
+00:00:15,510 --> 00:00:19,010
+Directions and street views,
+these are the very best,
+
+7
+00:00:19,010 --> 00:00:20,190
+I must confess.
+
+8
+00:00:20,190 --> 00:00:23,990
+It's time to start exploring
+Google Maps for iOS.
+
+9
+00:00:26,794 --> 00:00:28,210
+In this level,
+we're going to look
+
+10
+00:00:28,210 --> 00:00:31,710
+at how we can draw lines
+and shapes on the map.
+
+11
+00:00:31,710 --> 00:00:33,850
+Let's start by drawing
+a really simple line,
+
+12
+00:00:33,850 --> 00:00:35,910
+so we can see how this works.
+
+13
+00:00:35,910 --> 00:00:38,660
+We'll create a 
+ GMSMutablePath object,
+
+14
+00:00:38,660 --> 00:00:42,150
+and then we'll use the addLatitude,
+ longitude method
+
+15
+00:00:42,150 --> 00:00:44,760
+to add one point at a time.
+
+16
+00:00:44,760 --> 00:00:47,630
+The simplest line we can
+draw is just two points,
+
+17
+00:00:47,630 --> 00:00:48,740
+so we'll start there.
+
+18
+00:00:48,740 --> 00:00:53,550
+Then, once we have that path,
+we can use the GMSPolyline
+
+19
+00:00:53,550 --> 00:00:56,490
+in order to create a line that
+will be displayed on the map.
+
+20
+00:00:56,490 --> 00:00:59,310
+And here we're using the
+polylineWithPath initializer,
+
+21
+00:00:59,310 --> 00:01:00,980
+since we already have a path.
+
+22
+00:01:00,980 --> 00:01:02,650
+And just like with
+markers, the way
+
+23
+00:01:02,650 --> 00:01:06,580
+that we turn the polyline on
+or off is by setting the map
+
+24
+00:01:06,580 --> 00:01:10,330
+property to either
+self.mapView to turn it on
+
+25
+00:01:10,330 --> 00:01:12,960
+or nil to turn it off.
+
+26
+00:01:12,960 --> 00:01:16,910
+And here you can see the
+simple line drawn on the map.
+
+27
+00:01:16,910 --> 00:01:18,410
+We can change the
+style of that line
+
+28
+00:01:18,410 --> 00:01:21,810
+by adjusting the strokeWidth
+ or the strokeColor,
+
+29
+00:01:21,810 --> 00:01:24,157
+which takes a UIColor object.
+
+30
+00:01:24,157 --> 00:01:26,740
+So here we've made the width a
+little bit thicker than normal,
+
+31
+00:01:26,740 --> 00:01:30,290
+and we've made the
+line a bright green.
+
+32
+00:01:30,290 --> 00:01:32,460
+Now drawing a shape
+is a lot like drawing
+
+33
+00:01:32,460 --> 00:01:35,550
+a line, except it consists
+of more than two points.
+
+34
+00:01:35,550 --> 00:01:37,420
+The shape gets
+closed automatically
+
+35
+00:01:37,420 --> 00:01:40,400
+by a line connecting the
+first and last points.
+
+36
+00:01:40,400 --> 00:01:42,480
+Then, instead of
+the GMSPolyline,
+
+37
+00:01:42,480 --> 00:01:46,580
+we can create a GMSPolygon
+using the polygonWithPath
+
+38
+00:01:46,580 --> 00:01:48,094
+initializer.
+
+39
+00:01:48,094 --> 00:01:50,760
+And just like before, we can set
+the strokeWidth and the strokeColor,
+
+40
+00:01:50,760 --> 00:01:53,950
+and in addition, we
+have a fillColor property
+
+41
+00:01:53,950 --> 00:01:56,170
+that lets us change
+the color of the area
+
+42
+00:01:56,170 --> 00:01:58,250
+in between all the lines.
+
+43
+00:01:58,250 --> 00:02:00,110
+And then again, we
+can set our polygon
+
+44
+00:02:00,110 --> 00:02:03,902
+to on or off by setting
+it to self.mapView or nil.
+
+45
+00:02:03,902 --> 00:02:04,860
+And here's our polygon.
+
+46
+00:02:07,510 --> 00:02:09,259
+So as you can see,
+it's really easy
+
+47
+00:02:09,259 --> 00:02:12,300
+to draw lines and shapes on the
+map, but the catch to all this
+
+48
+00:02:12,300 --> 00:02:16,090
+is you already have to have all
+of that point data somewhere.
+
+49
+00:02:16,090 --> 00:02:19,000
+There's some services that
+provide this point data via
+
+50
+00:02:19,000 --> 00:02:21,690
+APIs, but a lot of them don't.
+
+51
+00:02:21,690 --> 00:02:25,484
+And you'll need to generate
+that set of points yourself.
+
+52
+00:02:25,484 --> 00:02:26,900
+Once you have all
+that point data,
+
+53
+00:02:26,900 --> 00:02:29,630
+though, you can make
+very complex shapes,
+
+54
+00:02:29,630 --> 00:02:32,240
+like this one showing the city
+limits of the city of Orlando.
+
+55
+00:02:35,200 --> 00:02:38,130
+One practical use of using
+a polyline on the map
+
+56
+00:02:38,130 --> 00:02:40,440
+is showing each step
+of the directions
+
+57
+00:02:40,440 --> 00:02:45,350
+by drawing that step along the
+roads, like you can see here.
+
+58
+00:02:45,350 --> 00:02:47,160
+As we tap each
+marker, we're drawing
+
+59
+00:02:47,160 --> 00:02:52,022
+all of the steps from the user
+location to that destination.
+
+60
+00:02:52,022 --> 00:02:53,730
+So you're probably
+thinking, that's going
+
+61
+00:02:53,730 --> 00:02:56,270
+to be a lot of different
+lines to worry about,
+
+62
+00:02:56,270 --> 00:02:58,870
+and how am I going to find all
+those exact coordinates where
+
+63
+00:02:58,870 --> 00:03:00,455
+they're all going to go?
+
+64
+00:03:00,455 --> 00:03:02,080
+Well, turns out
+there's this neat thing
+
+65
+00:03:02,080 --> 00:03:05,220
+called the "Encoded
+Polyline Algorithm Format."
+
+66
+00:03:05,220 --> 00:03:06,862
+And you can read
+more about it here,
+
+67
+00:03:06,862 --> 00:03:08,320
+but we're going to
+look at what you
+
+68
+00:03:08,320 --> 00:03:11,130
+need to draw that
+line pretty easily.
+
+69
+00:03:11,130 --> 00:03:13,360
+What this encoded
+algorithm does is
+
+70
+00:03:13,360 --> 00:03:16,530
+it lets you take lots and lots
+of different lines on the map
+
+71
+00:03:16,530 --> 00:03:19,500
+and shrink them down into
+one crazy looking string,
+
+72
+00:03:19,500 --> 00:03:21,160
+like this string right here.
+
+73
+00:03:21,160 --> 00:03:22,660
+And with just a
+few method calls,
+
+74
+00:03:22,660 --> 00:03:25,300
+we'll be able to take
+that crazy looking string
+
+75
+00:03:25,300 --> 00:03:26,810
+and turn it into
+that line that you
+
+76
+00:03:26,810 --> 00:03:29,620
+see at the bottom
+of the map there.
+
+77
+00:03:29,620 --> 00:03:33,530
+Back in LakeMapVC in
+the viewDidLoad method,
+
+78
+00:03:33,530 --> 00:03:36,310
+we're creating a
+GMSPath object that's
+
+79
+00:03:36,310 --> 00:03:39,790
+literally just that
+crazy encoded string.
+
+80
+00:03:39,790 --> 00:03:42,790
+Then we can pass the
+polylineWithPath method
+
+81
+00:03:42,790 --> 00:03:47,400
+to the GMSPolyline class
+and provide it that string,
+
+82
+00:03:47,400 --> 00:03:48,840
+and that's it.
+
+83
+00:03:48,840 --> 00:03:52,260
+Our polyline magically
+gets constructed for us,
+
+84
+00:03:52,260 --> 00:03:54,380
+and then we can set the
+width and color of it
+
+85
+00:03:54,380 --> 00:03:57,360
+and add it to the map, just like
+we did with our simple polyline
+
+86
+00:03:57,360 --> 00:03:58,210
+before.
+
+87
+00:03:58,210 --> 00:04:01,690
+So the real challenge here
+is not creating the line,
+
+88
+00:04:01,690 --> 00:04:05,580
+but it's figuring out how we
+can get that encoded string.
+
+89
+00:04:05,580 --> 00:04:08,740
+Where does that come from?
+
+90
+00:04:08,740 --> 00:04:12,280
+Well, if we look back to the
+structure of our Directions API
+
+91
+00:04:12,280 --> 00:04:16,320
+JSON response and we scan all
+the different fields inside
+
+92
+00:04:16,320 --> 00:04:19,100
+of that dictionary, there's one
+that kind of jumps out at us
+
+93
+00:04:19,100 --> 00:04:21,779
+called overview_polyline.
+
+94
+00:04:21,779 --> 00:04:25,710
+That overview_polyine is
+actually the encoded string.
+
+95
+00:04:25,710 --> 00:04:27,270
+So if we can access
+that polyline,
+
+96
+00:04:27,270 --> 00:04:30,250
+we have the string that we need.
+
+97
+00:04:30,250 --> 00:04:33,850
+We're back now inside of
+our Directions API request,
+
+98
+00:04:33,850 --> 00:04:36,070
+inside of that main
+queue operation
+
+99
+00:04:36,070 --> 00:04:39,220
+where we set the directions
+button, alpha to 1,
+
+100
+00:04:39,220 --> 00:04:40,880
+showing the button.
+
+101
+00:04:40,880 --> 00:04:44,310
+And right after that,
+we'll create our GMSPath
+
+102
+00:04:44,310 --> 00:04:48,210
+using the overview polyline
+inside of our response.
+
+103
+00:04:48,210 --> 00:04:50,460
+And then we'll set some
+properties for that polyline's
+
+104
+00:04:50,460 --> 00:04:52,810
+display, and add it to the map.
+
+105
+00:04:52,810 --> 00:04:56,560
+Notice also that we're using
+a GMSPolyline property here
+
+106
+00:04:56,560 --> 00:04:59,100
+to show this overview.
+
+107
+00:04:59,100 --> 00:05:02,814
+You can tell that because
+we're using self.polyine.
+
+108
+00:05:02,814 --> 00:05:04,230
+As you might have
+guessed, this is
+
+109
+00:05:04,230 --> 00:05:06,950
+because we're going to want
+to turn the polyline on
+
+110
+00:05:06,950 --> 00:05:09,170
+and off at all at the
+same times that we're
+
+111
+00:05:09,170 --> 00:05:12,220
+turning the directions
+button on and off,
+
+112
+00:05:12,220 --> 00:05:14,830
+and having it as a property
+makes it easy to access
+
+113
+00:05:14,830 --> 00:05:17,270
+those display properties
+in any method.
+
+114
+00:05:17,270 --> 00:05:19,470
+So here's the result of
+running this app right now.
+
+115
+00:05:19,470 --> 00:05:23,340
+You can see, as we tap a
+marker, the polyline is drawn,
+
+116
+00:05:23,340 --> 00:05:24,730
+but we've got a problem.
+
+117
+00:05:24,730 --> 00:05:26,450
+With each new
+marker that we tap,
+
+118
+00:05:26,450 --> 00:05:29,140
+the old polyline is not removed.
+
+119
+00:05:29,140 --> 00:05:31,520
+So let's go in and
+remove it on each tap.
+
+120
+00:05:31,520 --> 00:05:34,140
+And that's as simple as going
+to the start of this mapView
+
+121
+00:05:34,140 --> 00:05:38,560
+didTapMarker method and setting
+the polyline's map property
+
+122
+00:05:38,560 --> 00:05:43,750
+to nil and then nilling out
+the polyline object itself.
+
+123
+00:05:43,750 --> 00:05:46,150
+Remember that we want to
+set the map to nil first
+
+124
+00:05:46,150 --> 00:05:47,864
+and then delete the object.
+
+125
+00:05:47,864 --> 00:05:50,030
+And now we don't have the
+problem of two lines being
+
+126
+00:05:50,030 --> 00:05:53,460
+drawn at once, but we still
+do have the problem where
+
+127
+00:05:53,460 --> 00:05:56,900
+after a marker is no longer
+selected and we move the map,
+
+128
+00:05:56,900 --> 00:05:58,770
+the polyline remains.
+
+129
+00:05:58,770 --> 00:06:00,140
+We want to remove it then too.
+
+130
+00:06:02,810 --> 00:06:04,730
+So in each of our
+delegate methods, we'll
+
+131
+00:06:04,730 --> 00:06:06,270
+turn off the
+polyline when there's
+
+132
+00:06:06,270 --> 00:06:09,390
+a new user created marker
+in the LongPress method.
+
+133
+00:06:09,390 --> 00:06:11,320
+We'll turn it off
+whenever the map is tapped
+
+134
+00:06:11,320 --> 00:06:13,680
+in a location that
+doesn't have a marker,
+
+135
+00:06:13,680 --> 00:06:16,080
+and we'll do that with the
+mapView didTapAtCoordinate
+
+136
+00:06:16,080 --> 00:06:19,740
+method, and we'll turn it off
+whenever the map is dragged
+
+137
+00:06:19,740 --> 00:06:23,480
+using the mapView
+willMove method.
+
+138
+00:06:23,480 --> 00:06:25,200
+Here you can see
+the final result.
+
+139
+00:06:38,690 --> 00:06:40,710
+It's time for you to draw
+some lines and shapes
+
+140
+00:06:40,710 --> 00:06:42,444
+on the map in the challenges.
+
+141
+00:06:42,444 --> 00:06:44,610
+If you're not watching this
+video on CodeSchool.com,
+
+142
+00:06:44,610 --> 00:06:47,490
+you can visit this
+URL to get access
+
+143
+00:06:47,490 --> 00:06:50,320
+to all of the free
+challenges for this course,
+
+144
+00:06:50,320 --> 00:06:53,760
+or you can learn more about
+the Google Maps SDK for iOS
+
+145
+00:06:53,760 --> 00:06:56,680
+by visiting Google's
+developer documentation.
+

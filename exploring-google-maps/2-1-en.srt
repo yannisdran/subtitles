@@ -1,0 +1,726 @@
+﻿1
+00:00:00,000 --> 00:00:04,040
+[SINGING] The SDK for iOS
+has really got my back.
+
+2
+00:00:04,040 --> 00:00:06,000
+There's places, modes,
+and sweet controls
+
+3
+00:00:06,000 --> 00:00:07,550
+to make the perfect app.
+
+4
+00:00:07,550 --> 00:00:11,580
+From polylines and polygons
+and geocoded lats.
+
+5
+00:00:11,580 --> 00:00:15,510
+I delegate the methods to
+create the perfect map.
+
+6
+00:00:15,510 --> 00:00:19,010
+Directions and street views,
+these are the very best.
+
+7
+00:00:19,010 --> 00:00:21,410
+I must confess,
+it's time to start
+
+8
+00:00:21,410 --> 00:00:23,700
+exploring Google Maps for iOS.
+
+9
+00:00:27,160 --> 00:00:27,974
+Welcome back.
+
+10
+00:00:27,974 --> 00:00:29,390
+In this level,
+we're going to look
+
+11
+00:00:29,390 --> 00:00:32,229
+at how we can add markers
+for points on the map,
+
+12
+00:00:32,229 --> 00:00:34,770
+because just a plain map
+with no information on it
+
+13
+00:00:34,770 --> 00:00:36,720
+isn't very exciting.
+
+14
+00:00:36,720 --> 00:00:39,450
+We're also going to add some
+data to each marker that's
+
+15
+00:00:39,450 --> 00:00:42,370
+going to display in the Info
+window that pops up whenever
+
+16
+00:00:42,370 --> 00:00:43,770
+one of those markers is tapped.
+
+17
+00:00:47,030 --> 00:00:50,830
+The class we use to create
+markers is called GMSMarker.
+
+18
+00:00:50,830 --> 00:00:54,780
+And the simplest GMSMarker you
+can create looks like this.
+
+19
+00:00:54,780 --> 00:00:57,640
+We just initialize
+the object, give it
+
+20
+00:00:57,640 --> 00:01:01,000
+a position, which is
+a latitude-longitude,
+
+21
+00:01:01,000 --> 00:01:05,140
+and then set the map property
+of that marker to our mapView.
+
+22
+00:01:05,140 --> 00:01:08,970
+Now, this map property really
+acts as an on-off switch.
+
+23
+00:01:08,970 --> 00:01:11,730
+It's only ever going to
+be one of two values.
+
+24
+00:01:11,730 --> 00:01:14,150
+If our map property
+is nil, it means
+
+25
+00:01:14,150 --> 00:01:17,890
+that our marker is off and
+not showing on the map.
+
+26
+00:01:17,890 --> 00:01:20,640
+But if it's our mapView,
+that means it's on,
+
+27
+00:01:20,640 --> 00:01:22,900
+and it is showing on the map.
+
+28
+00:01:22,900 --> 00:01:27,090
+It will only ever be
+one of those two values.
+
+29
+00:01:27,090 --> 00:01:28,970
+In addition to
+just the position,
+
+30
+00:01:28,970 --> 00:01:32,600
+we can set the "title" and "snippet"
+properties of the marker.
+
+31
+00:01:32,600 --> 00:01:35,225
+And those will show up as text
+whenever the marker is tapped.
+
+32
+00:01:39,990 --> 00:01:42,260
+There's an appearAnimation
+option
+
+33
+00:01:42,260 --> 00:01:45,920
+that can be set to either
+kGMSMarkerAnimationPop
+
+34
+00:01:45,920 --> 00:01:47,045
+or kGMSMarkerAnimationNone.
+
+35
+00:01:50,070 --> 00:01:52,955
+And you can see here the effect
+of adding that Pop animation
+
+36
+00:01:52,955 --> 00:01:54,080
+when the marker is created.
+
+37
+00:01:57,630 --> 00:02:00,700
+The default marker
+icon is a red pin.
+
+38
+00:02:00,700 --> 00:02:04,410
+But you can change that icon
+either with the GMSMarker class
+
+39
+00:02:04,410 --> 00:02:09,160
+to create a different
+color, or just
+
+40
+00:02:09,160 --> 00:02:12,957
+setting that icon property
+to a UIImage to any image
+
+41
+00:02:12,957 --> 00:02:14,040
+that you have in your app.
+
+42
+00:02:17,077 --> 00:02:19,410
+When you want to display more
+than one marker on the map
+
+43
+00:02:19,410 --> 00:02:23,150
+at a time, you could just create
+multiple GMSMarker objects
+
+44
+00:02:23,150 --> 00:02:26,740
+by hand and just have a
+lot of code duplication.
+
+45
+00:02:26,740 --> 00:02:28,170
+But that's not ideal.
+
+46
+00:02:28,170 --> 00:02:32,060
+So let's look at a strategy for
+dealing with multiple markers.
+
+47
+00:02:32,060 --> 00:02:34,190
+First, whenever we
+have multiple markers,
+
+48
+00:02:34,190 --> 00:02:36,320
+we want to actually
+set the Map property
+
+49
+00:02:36,320 --> 00:02:38,587
+to nil when we've created them.
+
+50
+00:02:38,587 --> 00:02:40,170
+This means that they
+won't immediately
+
+51
+00:02:40,170 --> 00:02:41,649
+be added to the map.
+
+52
+00:02:41,649 --> 00:02:43,190
+But that will give
+us the flexibility
+
+53
+00:02:43,190 --> 00:02:46,360
+to turn them on or off later on.
+
+54
+00:02:46,360 --> 00:02:48,502
+If you have more than
+just a few markers,
+
+55
+00:02:48,502 --> 00:02:50,960
+you're going to want to put
+them all inside of a collection
+
+56
+00:02:50,960 --> 00:02:52,600
+so you can easily manage them.
+
+57
+00:02:52,600 --> 00:02:56,007
+And the collection we'll
+use for this is an NSSet.
+
+58
+00:02:56,007 --> 00:02:57,590
+Now, you might be
+thinking, I'd rather
+
+59
+00:02:57,590 --> 00:03:00,720
+use an NSArray to store
+all these markers.
+
+60
+00:03:00,720 --> 00:03:03,240
+But we're using an
+NSSet here for a reason.
+
+61
+00:03:03,240 --> 00:03:05,480
+And that reason will
+become clear very soon.
+
+62
+00:03:05,480 --> 00:03:07,260
+We're calling our set "markers".
+
+63
+00:03:07,260 --> 00:03:09,560
+So to initialize
+our set, we can just
+
+64
+00:03:09,560 --> 00:03:13,919
+call the setWithObjects
+initializer on the NSSet class.
+
+65
+00:03:13,919 --> 00:03:15,710
+And if you're used to
+working with NSArrays
+
+66
+00:03:15,710 --> 00:03:19,840
+and NSDictionaries, you probably
+love using that literal syntax
+
+67
+00:03:19,840 --> 00:03:21,220
+for creating them.
+
+68
+00:03:21,220 --> 00:03:23,180
+And unfortunately,
+NSSet does not
+
+69
+00:03:23,180 --> 00:03:26,490
+have a literal syntax
+shortcut in Objective-C.
+
+70
+00:03:26,490 --> 00:03:28,920
+So we have to create it
+the old way by passing
+
+71
+00:03:28,920 --> 00:03:31,730
+the setWithObjects
+method to the class.
+
+72
+00:03:31,730 --> 00:03:34,900
+Also, notice that the last
+object in our set is nil.
+
+73
+00:03:34,900 --> 00:03:38,390
+And that's important, because
+that's how sets are created.
+
+74
+00:03:38,390 --> 00:03:41,420
+When we set up our markers, the
+map property for each of them
+
+75
+00:03:41,420 --> 00:03:42,690
+was nil.
+
+76
+00:03:42,690 --> 00:03:45,510
+So we've created another
+method called drawMarkers.
+
+77
+00:03:45,510 --> 00:03:47,630
+Inside of drawMarkers,
+all we're doing
+
+78
+00:03:47,630 --> 00:03:51,170
+is iterating through each
+of those markers in our set
+
+79
+00:03:51,170 --> 00:03:54,470
+and setting the map
+property to self.mapview.
+
+80
+00:03:54,470 --> 00:03:57,270
+So now, whenever we
+call drawMarkers,
+
+81
+00:03:57,270 --> 00:04:00,927
+our markers will be displayed
+on the map, as you see here.
+
+82
+00:04:00,927 --> 00:04:03,510
+You're probably going to add to
+the markers that are displayed
+
+83
+00:04:03,510 --> 00:04:07,190
+multiple times while a
+user's working with an app.
+
+84
+00:04:07,190 --> 00:04:10,140
+But right now, every
+time we call drawMarkers,
+
+85
+00:04:10,140 --> 00:04:15,310
+it's going to redraw every
+marker in our set every time.
+
+86
+00:04:15,310 --> 00:04:17,190
+So instead, we can add
+a little bit of logic
+
+87
+00:04:17,190 --> 00:04:21,970
+in here that says, only set the
+map property if it is currently
+
+88
+00:04:21,970 --> 00:04:26,860
+nil, meaning that if the marker
+is currently off, turn it on.
+
+89
+00:04:26,860 --> 00:04:29,110
+But if it's on,
+don't disturb it.
+
+90
+00:04:32,740 --> 00:04:36,280
+We talked about how if a
+marker's title property is set,
+
+91
+00:04:36,280 --> 00:04:39,960
+an Info window will be displayed
+when you tap on that marker.
+
+92
+00:04:39,960 --> 00:04:42,020
+But you can actually
+create a custom Info window
+
+93
+00:04:42,020 --> 00:04:44,000
+to show anything that you want.
+
+94
+00:04:44,000 --> 00:04:45,810
+The custom Info
+window is created
+
+95
+00:04:45,810 --> 00:04:47,730
+using a delegate method.
+
+96
+00:04:47,730 --> 00:04:51,030
+So that means we need to
+adopt the GMSMapViewDelegate
+
+97
+00:04:51,030 --> 00:04:53,730
+in our LakeMap class.
+
+98
+00:04:53,730 --> 00:04:56,400
+And then, of course, we need
+to set the mapView.delegate
+
+99
+00:04:56,400 --> 00:04:59,300
+to self so that we can access
+all of those delegate methods
+
+100
+00:04:59,300 --> 00:05:02,300
+inside of our class.
+
+101
+00:05:02,300 --> 00:05:03,790
+The method we'll
+use here is called
+
+102
+00:05:03,790 --> 00:05:06,570
+mapView markerInfoWindow.
+
+103
+00:05:06,570 --> 00:05:09,047
+And it returns a UIView.
+
+104
+00:05:09,047 --> 00:05:10,630
+That means that
+inside of this method,
+
+105
+00:05:10,630 --> 00:05:12,570
+you could create
+your own UIView,
+
+106
+00:05:12,570 --> 00:05:14,690
+and customize it to look
+any way that you want,
+
+107
+00:05:14,690 --> 00:05:17,240
+and have any content
+inside of it.
+
+108
+00:05:17,240 --> 00:05:19,830
+And that will display
+whenever the marker's tapped.
+
+109
+00:05:19,830 --> 00:05:22,150
+Starting small, we've
+created a simple UIView
+
+110
+00:05:22,150 --> 00:05:26,420
+with a gray background
+color, as you can see here.
+
+111
+00:05:26,420 --> 00:05:29,250
+Then, we're adding a UILabel.
+
+112
+00:05:29,250 --> 00:05:31,450
+And since we have access
+to the marker that
+
+113
+00:05:31,450 --> 00:05:34,070
+was tapped inside
+this method, we
+
+114
+00:05:34,070 --> 00:05:36,820
+can access that
+marker's title property
+
+115
+00:05:36,820 --> 00:05:38,740
+to show text inside
+of that label.
+
+116
+00:05:43,250 --> 00:05:46,600
+We also have access to
+this marker's snippet text.
+
+117
+00:05:46,600 --> 00:05:49,300
+So we can create another
+UILabel the displays
+
+118
+00:05:49,300 --> 00:05:53,052
+that in a custom way, too.
+
+119
+00:05:53,052 --> 00:05:54,510
+You might even be
+thinking that you
+
+120
+00:05:54,510 --> 00:05:58,060
+can add a UIButton to this Info
+window so that when you tap it,
+
+121
+00:05:58,060 --> 00:05:59,820
+it takes you to another
+part of your app,
+
+122
+00:05:59,820 --> 00:06:02,580
+or shows a new piece
+of information.
+
+123
+00:06:02,580 --> 00:06:07,030
+But that's actually not going to
+work inside of an info window.
+
+124
+00:06:07,030 --> 00:06:11,020
+It turns out that even though
+this method returns a UIView,
+
+125
+00:06:11,020 --> 00:06:14,110
+that UIView is actually
+just snapshotted and applied
+
+126
+00:06:14,110 --> 00:06:16,390
+as an image on the map.
+
+127
+00:06:16,390 --> 00:06:18,300
+That means you can't
+have anything that's
+
+128
+00:06:18,300 --> 00:06:20,620
+interactive inside
+of that Info window.
+
+129
+00:06:25,470 --> 00:06:27,790
+Fortunately, though, there
+is another delegate method
+
+130
+00:06:27,790 --> 00:06:31,730
+called mapView
+didTapInfoWindowOfMarker.
+
+131
+00:06:31,730 --> 00:06:34,350
+And as you might have
+guessed from the name,
+
+132
+00:06:34,350 --> 00:06:37,950
+it's going to run every time
+you tap the Info window.
+
+133
+00:06:37,950 --> 00:06:40,080
+So inside of this
+method, you can
+
+134
+00:06:40,080 --> 00:06:43,030
+have code that causes
+something to happen based
+
+135
+00:06:43,030 --> 00:06:45,300
+on the data inside
+of that marker.
+
+136
+00:06:45,300 --> 00:06:48,190
+Normally, that might be passing
+you onto a different view
+
+137
+00:06:48,190 --> 00:06:50,220
+controller with some
+more detailed information
+
+138
+00:06:50,220 --> 00:06:51,820
+about that place.
+
+139
+00:06:51,820 --> 00:06:53,840
+And here, we're just
+showing a UIAlertView,
+
+140
+00:06:53,840 --> 00:06:55,310
+just to show you
+that that works.
+
+141
+00:07:02,140 --> 00:07:05,220
+We can easily display a custom
+background image in the custom
+
+142
+00:07:05,220 --> 00:07:08,100
+Info window by
+creating a UIImageView
+
+143
+00:07:08,100 --> 00:07:11,670
+and adding it as the first
+subview of the info window,
+
+144
+00:07:11,670 --> 00:07:12,310
+like this.
+
+145
+00:07:17,826 --> 00:07:19,450
+Now it's your turn
+to draw some markers
+
+146
+00:07:19,450 --> 00:07:21,154
+on the map in the challenges.
+
+147
+00:07:21,154 --> 00:07:23,320
+If you're not watching this
+video on CodeSchool.com,
+
+148
+00:07:23,320 --> 00:07:26,370
+you can visit this
+URL to access all
+
+149
+00:07:26,370 --> 00:07:28,770
+of the free challenges
+for this course.
+
+150
+00:07:28,770 --> 00:07:31,920
+Or you can learn more about
+the Google Maps SDK for iOS
+
+151
+00:07:31,920 --> 00:07:34,810
+by visiting Google's
+Developer Documentation.
+

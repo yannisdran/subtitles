@@ -1,0 +1,1061 @@
+﻿1
+00:00:00,500 --> 00:00:04,040
+[SINGING] The SDK for iOS
+has really got my back.
+
+2
+00:00:04,040 --> 00:00:06,000
+There's places, modes,
+and sweet controls
+
+3
+00:00:06,000 --> 00:00:07,550
+to make the perfect app.
+
+4
+00:00:07,550 --> 00:00:11,580
+From polylines and
+polygons and geocoded lats,
+
+5
+00:00:11,580 --> 00:00:15,510
+I delegate the methods to
+create the perfect map.
+
+6
+00:00:15,510 --> 00:00:19,010
+Directions and street views,
+these are the very best.
+
+7
+00:00:19,010 --> 00:00:21,410
+I must confess
+it's time to start
+
+8
+00:00:21,410 --> 00:00:23,990
+exploring Google Maps for iOS.
+
+9
+00:00:27,220 --> 00:00:30,420
+Welcome to Exploring
+Google Maps with iOS.
+
+10
+00:00:30,420 --> 00:00:31,234
+I'm Jon Friskics.
+
+11
+00:00:31,234 --> 00:00:32,900
+And in this course,
+we're going to learn
+
+12
+00:00:32,900 --> 00:00:37,650
+how to embed a Google map inside
+of your own iPhone application.
+
+13
+00:00:37,650 --> 00:00:40,030
+To do this, we're going
+to use the Google Maps
+
+14
+00:00:40,030 --> 00:00:43,700
+SDK for iOS, which is a
+framework that you can add
+
+15
+00:00:43,700 --> 00:00:47,660
+to your app that contains code
+for working with Google Maps.
+
+16
+00:00:47,660 --> 00:00:50,930
+In addition to standard
+things like displaying a map,
+
+17
+00:00:50,930 --> 00:00:54,220
+adding markers and info
+windows, and even drawing
+
+18
+00:00:54,220 --> 00:00:56,580
+lines and shapes
+on the map, we'll
+
+19
+00:00:56,580 --> 00:00:58,780
+be able to do a few other
+things that other mapping
+
+20
+00:00:58,780 --> 00:01:02,360
+frameworks are not able to do.
+
+21
+00:01:02,360 --> 00:01:05,230
+Using Google Maps also gives
+you access to Street View
+
+22
+00:01:05,230 --> 00:01:08,230
+and Indoor views,
+really easy integration
+
+23
+00:01:08,230 --> 00:01:11,130
+with other Google services
+like geocoding and direction
+
+24
+00:01:11,130 --> 00:01:11,630
+finding.
+
+25
+00:01:11,630 --> 00:01:14,450
+And it gives you access to
+some really powerful gesture
+
+26
+00:01:14,450 --> 00:01:17,630
+based controls in your map that
+are unique to the Google Maps
+
+27
+00:01:17,630 --> 00:01:19,640
+platform.
+
+28
+00:01:19,640 --> 00:01:22,060
+In this course, after
+we display a map
+
+29
+00:01:22,060 --> 00:01:24,330
+and add some
+markers to it, we'll
+
+30
+00:01:24,330 --> 00:01:26,610
+learn how to make a
+network request for data
+
+31
+00:01:26,610 --> 00:01:30,110
+and add new markers based
+on the data we get back.
+
+32
+00:01:30,110 --> 00:01:33,350
+We'll geocode an address and get
+directions between two places
+
+33
+00:01:33,350 --> 00:01:35,520
+and show that on the map.
+
+34
+00:01:35,520 --> 00:01:38,420
+We'll draw some lines
+and shapes on the map.
+
+35
+00:01:38,420 --> 00:01:40,420
+And finally, view
+our marker locations
+
+36
+00:01:40,420 --> 00:01:41,540
+in Google Street View.
+
+37
+00:01:44,400 --> 00:01:46,442
+We're almost ready to
+start looking at some code.
+
+38
+00:01:46,442 --> 00:01:48,566
+But first, I want to remind
+you that this course is
+
+39
+00:01:48,566 --> 00:01:51,110
+for developers that already
+have a little bit of experience
+
+40
+00:01:51,110 --> 00:01:53,220
+with iOS.
+
+41
+00:01:53,220 --> 00:01:56,050
+If you need a refresher, you
+should check out Code School's
+
+42
+00:01:56,050 --> 00:01:59,860
+Try Objective-C and Try
+iOS courses to get up
+
+43
+00:01:59,860 --> 00:02:01,820
+to speed enough to
+be able to understand
+
+44
+00:02:01,820 --> 00:02:05,310
+what's happening in this course.
+
+45
+00:02:05,310 --> 00:02:08,680
+The first step to using
+the Google Maps SDK for iOS
+
+46
+00:02:08,680 --> 00:02:11,180
+is setting up an API key.
+
+47
+00:02:11,180 --> 00:02:15,525
+Every app that displays a Google
+map needs to have an API key.
+
+48
+00:02:15,525 --> 00:02:18,240
+An API key would look
+something like this.
+
+49
+00:02:18,240 --> 00:02:21,320
+Just a collection of
+letters and numbers.
+
+50
+00:02:21,320 --> 00:02:24,940
+That API key is associated
+with an app's Bundle Identifier
+
+51
+00:02:24,940 --> 00:02:28,210
+which might look
+something like this.
+
+52
+00:02:28,210 --> 00:02:30,520
+You can visit the Google
+Developers Console to set up
+
+53
+00:02:30,520 --> 00:02:33,700
+an API key for your
+app's Bundle Identifier.
+
+54
+00:02:33,700 --> 00:02:35,630
+And we've even
+provided a walk-through
+
+55
+00:02:35,630 --> 00:02:38,740
+to do this in the course.
+
+56
+00:02:38,740 --> 00:02:42,970
+Once you've set up your API
+key, you need to set up the SDK.
+
+57
+00:02:42,970 --> 00:02:45,640
+Now if you're completing
+challenges in this Code School
+
+58
+00:02:45,640 --> 00:02:47,730
+course, you're not
+going to actually need
+
+59
+00:02:47,730 --> 00:02:50,540
+to set up the SDK because
+we've set it up for you
+
+60
+00:02:50,540 --> 00:02:53,140
+in all the challenge projects
+you'll be downloading.
+
+61
+00:02:53,140 --> 00:02:54,950
+But if you're putting
+together your own app
+
+62
+00:02:54,950 --> 00:02:57,820
+using the techniques we're
+teaching you in this course,
+
+63
+00:02:57,820 --> 00:02:59,710
+you can watch the
+"Setting Up the SDK"
+
+64
+00:02:59,710 --> 00:03:02,500
+screencast that will walk
+you through all the libraries
+
+65
+00:03:02,500 --> 00:03:05,640
+and settings that you need in
+Xcode to make the Google Maps
+
+66
+00:03:05,640 --> 00:03:09,400
+SDK for iOS work.
+
+67
+00:03:09,400 --> 00:03:12,160
+So let's get started
+building our app.
+
+68
+00:03:12,160 --> 00:03:15,440
+First in the AppDelegate, we'll
+want to import the Google Maps
+
+69
+00:03:15,440 --> 00:03:17,075
+framework so that
+we can access all
+
+70
+00:03:17,075 --> 00:03:19,620
+of that code inside
+of our project.
+
+71
+00:03:19,620 --> 00:03:22,766
+Next, in the application
+didFinishLaunchingWithOptions
+
+72
+00:03:22,766 --> 00:03:25,910
+method, we'll want to send
+a provideAPIKey message
+
+73
+00:03:25,910 --> 00:03:29,820
+to a GMS services class
+and enter in our API key
+
+74
+00:03:29,820 --> 00:03:31,940
+that we got from
+the Google Console.
+
+75
+00:03:31,940 --> 00:03:33,990
+Adding in this code
+lets Google know
+
+76
+00:03:33,990 --> 00:03:37,014
+that we're ready to put
+a map inside of our app.
+
+77
+00:03:37,014 --> 00:03:39,180
+While we're still in the
+AppDelegate, let's go ahead
+
+78
+00:03:39,180 --> 00:03:41,450
+and import the main
+class that we're
+
+79
+00:03:41,450 --> 00:03:46,100
+going to use to display our map,
+which here is called LakeMapVC.
+
+80
+00:03:46,100 --> 00:03:49,590
+So we'll import LakeMapVC
+to the AppDelegate,
+
+81
+00:03:49,590 --> 00:03:52,560
+we'll create a
+LakeMapVC instance,
+
+82
+00:03:52,560 --> 00:03:54,780
+and then we'll assign it to
+the rootViewController.
+
+83
+00:03:54,780 --> 00:03:56,280
+So that it's the
+default window that
+
+84
+00:03:56,280 --> 00:03:59,790
+displays when our app opens.
+
+85
+00:03:59,790 --> 00:04:02,310
+In LakeMapVC, notice
+that we do have
+
+86
+00:04:02,310 --> 00:04:04,890
+to re-import the
+Google Maps framework.
+
+87
+00:04:04,890 --> 00:04:07,430
+When we imported it
+before in the AppDelegate,
+
+88
+00:04:07,430 --> 00:04:10,070
+that was so we could provide
+the API key to Google
+
+89
+00:04:10,070 --> 00:04:12,560
+to turn on our maps access.
+
+90
+00:04:12,560 --> 00:04:14,910
+But we're also going to
+need to access the SDK
+
+91
+00:04:14,910 --> 00:04:19,040
+inside of LakeMapVC, so that's
+why we need to re-import it.
+
+92
+00:04:19,040 --> 00:04:22,350
+We're also going to want
+to GMSMapView property.
+
+93
+00:04:22,350 --> 00:04:24,420
+GMSMapView is the
+main class that we'll
+
+94
+00:04:24,420 --> 00:04:28,320
+use to display a
+map in our view.
+
+95
+00:04:28,320 --> 00:04:31,280
+There are few ways to
+create the MapView object.
+
+96
+00:04:31,280 --> 00:04:34,210
+But the simplest one is to
+call the mapWithFrame camera
+
+97
+00:04:34,210 --> 00:04:35,650
+initializer.
+
+98
+00:04:35,650 --> 00:04:37,460
+And that will return
+a mapView that you
+
+99
+00:04:37,460 --> 00:04:41,410
+can add as a subview
+of self.view.
+
+100
+00:04:41,410 --> 00:04:42,990
+Here we're setting
+the frame to be
+
+101
+00:04:42,990 --> 00:04:45,630
+the entire bounds of the
+screen so the map takes up
+
+102
+00:04:45,630 --> 00:04:47,110
+the entire view.
+
+103
+00:04:47,110 --> 00:04:49,040
+We're also passing in
+this camera object,
+
+104
+00:04:49,040 --> 00:04:51,940
+so we'll need to look at
+what it takes to create that.
+
+105
+00:04:51,940 --> 00:04:54,140
+That's actually a
+GMSCameraPosition.
+
+106
+00:04:56,750 --> 00:05:00,680
+That camera object is created
+from the GMSCameraPosition
+
+107
+00:05:00,680 --> 00:05:01,760
+class.
+
+108
+00:05:01,760 --> 00:05:04,360
+And like the mapView, there's
+a few different initializers
+
+109
+00:05:04,360 --> 00:05:06,220
+that you can use to make it.
+
+110
+00:05:06,220 --> 00:05:08,170
+The one we're using
+here is called cameraWithLatitude,
+
+111
+00:05:08,170 --> 00:05:12,280
+longitude,
+zoom, bearing, viewing angle.
+
+112
+00:05:12,280 --> 00:05:14,280
+So let's look at what
+each of those things mean.
+
+113
+00:05:17,030 --> 00:05:18,990
+As you know, latitude
+and longitude
+
+114
+00:05:18,990 --> 00:05:22,400
+are the way that you
+find any point on a map.
+
+115
+00:05:22,400 --> 00:05:25,270
+Latitude are lines
+that run east and west.
+
+116
+00:05:25,270 --> 00:05:28,540
+And longitude are lines
+that run north and south.
+
+117
+00:05:28,540 --> 00:05:32,410
+And the combination of any one
+latitude and longitude number
+
+118
+00:05:32,410 --> 00:05:36,360
+will give you a unique
+point anywhere on the map.
+
+119
+00:05:36,360 --> 00:05:38,100
+For example, the
+Envy Labs office
+
+120
+00:05:38,100 --> 00:05:43,705
+is located at latitude
+28.53, longitude -81.36.
+
+121
+00:05:43,705 --> 00:05:45,330
+And that's the point
+we're going to use
+
+122
+00:05:45,330 --> 00:05:47,990
+at the center of our map.
+
+123
+00:05:47,990 --> 00:05:49,490
+Zoom is just a
+number that lets you
+
+124
+00:05:49,490 --> 00:05:52,250
+display more or less of the map.
+
+125
+00:05:52,250 --> 00:05:55,060
+Higher zoom means that you're
+going to be showing less map
+
+126
+00:05:55,060 --> 00:05:57,290
+area and a lower zoom
+means that you're
+
+127
+00:05:57,290 --> 00:06:00,080
+going to be zoomed way out
+and showing a lot of the map
+
+128
+00:06:00,080 --> 00:06:01,890
+all at once.
+
+129
+00:06:01,890 --> 00:06:05,240
+Bearing determines what
+direction the map is rotated.
+
+130
+00:06:05,240 --> 00:06:08,420
+The default rotation is zero and
+means that the top of the map
+
+131
+00:06:08,420 --> 00:06:10,200
+is pointing north.
+
+132
+00:06:10,200 --> 00:06:13,196
+But you can pick any
+number between zero and 360
+
+133
+00:06:13,196 --> 00:06:14,470
+to rotate the map.
+
+134
+00:06:17,270 --> 00:06:20,570
+And finally, by having a
+viewing angle greater than zero,
+
+135
+00:06:20,570 --> 00:06:22,170
+you can give the
+impression of looking
+
+136
+00:06:22,170 --> 00:06:25,760
+at the map in sort of
+a 3D downward view.
+
+137
+00:06:25,760 --> 00:06:26,510
+Like you see here.
+
+138
+00:06:30,550 --> 00:06:32,160
+It's completely up
+to you what numbers
+
+139
+00:06:32,160 --> 00:06:34,570
+you put in this camera
+position object.
+
+140
+00:06:34,570 --> 00:06:36,070
+But with these
+numbers, this is what
+
+141
+00:06:36,070 --> 00:06:37,580
+our map will look
+like when we apply
+
+142
+00:06:37,580 --> 00:06:39,320
+that camera object
+to our mapView.
+
+143
+00:06:42,120 --> 00:06:45,200
+And there's a few other options
+that you can set in your map.
+
+144
+00:06:45,200 --> 00:06:47,470
+One of them is the mapType.
+
+145
+00:06:47,470 --> 00:06:51,340
+Where you have the
+option kGMSTypeNormal,
+
+146
+00:06:51,340 --> 00:06:53,830
+Satellite, which will
+give you satellite view,
+
+147
+00:06:53,830 --> 00:06:56,360
+Hybrid which is sort of
+a combination of Normal
+
+148
+00:06:56,360 --> 00:06:58,980
+and Satellite view,
+and Terrain, which
+
+149
+00:06:58,980 --> 00:07:01,050
+will show you things
+like hills and mountains
+
+150
+00:07:01,050 --> 00:07:03,910
+if that data is available.
+
+151
+00:07:03,910 --> 00:07:07,020
+It's really easy to show your
+current location on the map
+
+152
+00:07:07,020 --> 00:07:10,690
+just by setting the myLocationEnabled
+ property to YES.
+
+153
+00:07:10,690 --> 00:07:12,840
+When you do that, you'll
+get a little blue dot
+
+154
+00:07:12,840 --> 00:07:14,800
+with an arrow pointing
+out the top that
+
+155
+00:07:14,800 --> 00:07:17,650
+indicates which direction
+the device is pointing.
+
+156
+00:07:17,650 --> 00:07:20,820
+Kind of like a mini compass.
+
+157
+00:07:20,820 --> 00:07:23,570
+If you think your users might
+be rotating the map at all,
+
+158
+00:07:23,570 --> 00:07:25,070
+then it might be a
+good idea to turn
+
+159
+00:07:25,070 --> 00:07:27,620
+on the compass button
+which will draw
+
+160
+00:07:27,620 --> 00:07:29,660
+a little compass at the
+top right of the screen
+
+161
+00:07:29,660 --> 00:07:32,290
+so they always know
+which direction is north.
+
+162
+00:07:32,290 --> 00:07:35,040
+And you can add a button that
+your users can tap to find
+
+163
+00:07:35,040 --> 00:07:37,620
+and center the map on
+their own location.
+
+164
+00:07:37,620 --> 00:07:40,140
+There's some other options you
+can set too, like whether you
+
+165
+00:07:40,140 --> 00:07:44,250
+want to enable or disable
+scrolling, tilting, zooming,
+
+166
+00:07:44,250 --> 00:07:46,340
+and even rotation.
+
+167
+00:07:46,340 --> 00:07:48,410
+And if there's
+indoor views present,
+
+168
+00:07:48,410 --> 00:07:50,220
+you can also add
+a button to select
+
+169
+00:07:50,220 --> 00:07:53,510
+which floor you want to view.
+
+170
+00:07:53,510 --> 00:07:55,730
+Speaking of zooming,
+might not always
+
+171
+00:07:55,730 --> 00:07:57,930
+be desirable to
+let your users zoom
+
+172
+00:07:57,930 --> 00:08:00,167
+all the way in or
+all the way out.
+
+173
+00:08:00,167 --> 00:08:01,750
+Zooming a map all
+the way out is going
+
+174
+00:08:01,750 --> 00:08:04,270
+to show most of
+the entire world.
+
+175
+00:08:04,270 --> 00:08:07,540
+So it's not always practical
+to give them that much control.
+
+176
+00:08:07,540 --> 00:08:09,040
+So you can constrain
+the amount they
+
+177
+00:08:09,040 --> 00:08:12,320
+can zoom using the
+setMinZoom, maxZoom
+
+178
+00:08:12,320 --> 00:08:15,944
+method by passing in the lower
+bound and the upper bound.
+
+179
+00:08:15,944 --> 00:08:17,610
+And you can see the
+result of that here.
+
+180
+00:08:24,222 --> 00:08:26,180
+You might have noticed
+in the previous examples
+
+181
+00:08:26,180 --> 00:08:29,310
+that the status bar was
+sitting on top of the map.
+
+182
+00:08:29,310 --> 00:08:32,299
+And especially when you have
+all those words for street names
+
+183
+00:08:32,299 --> 00:08:34,720
+and road names, can be
+kind of hard to read
+
+184
+00:08:34,720 --> 00:08:38,720
+the time in the status bar and
+have those names on screen.
+
+185
+00:08:38,720 --> 00:08:40,850
+So course iOS 7
+gives us the ability
+
+186
+00:08:40,850 --> 00:08:44,580
+to turn that status bar
+off by adding the line
+
+187
+00:08:44,580 --> 00:08:49,620
+prefersStatusBarHidden
+and returning YES.
+
+188
+00:08:49,620 --> 00:08:51,080
+Now you know how
+to display a map
+
+189
+00:08:51,080 --> 00:08:52,847
+and change some of
+the default settings.
+
+190
+00:08:52,847 --> 00:08:54,930
+But there's another situation
+that you're probably
+
+191
+00:08:54,930 --> 00:08:56,520
+going to find
+yourself in once you
+
+192
+00:08:56,520 --> 00:08:58,620
+try adding a map
+into your own app.
+
+193
+00:08:58,620 --> 00:09:00,180
+In the previous
+examples, our map
+
+194
+00:09:00,180 --> 00:09:02,500
+was taking up the entire view.
+
+195
+00:09:02,500 --> 00:09:05,020
+But in this example, we've
+added a tab bar controller
+
+196
+00:09:05,020 --> 00:09:07,590
+that contains a
+navigation controller.
+
+197
+00:09:07,590 --> 00:09:10,300
+And you can see that the myLocation
+ button and compass are
+
+198
+00:09:10,300 --> 00:09:13,770
+now hidden by the nav
+bar and the tab bar.
+
+199
+00:09:13,770 --> 00:09:16,910
+Since iOS 7 uses
+full screen views,
+
+200
+00:09:16,910 --> 00:09:19,440
+those controls are now
+hidden underneath those bars
+
+201
+00:09:19,440 --> 00:09:21,860
+and that's a problem.
+
+202
+00:09:21,860 --> 00:09:23,580
+The way we can fix
+this is by adjusting
+
+203
+00:09:23,580 --> 00:09:25,350
+the mapView's padding.
+
+204
+00:09:25,350 --> 00:09:27,900
+This padding property
+uses UI edge insets
+
+205
+00:09:27,900 --> 00:09:31,100
+to define the amount that it
+should push those controls away
+
+206
+00:09:31,100 --> 00:09:35,635
+from the top, right, bottom
+and left of the view.
+
+207
+00:09:35,635 --> 00:09:37,760
+When we're displaying the
+compass button and the myLocation
+
+208
+00:09:37,760 --> 00:09:41,260
+button, we'll
+want to have top padding
+
+209
+00:09:41,260 --> 00:09:43,965
+to push that compass
+down and we'll
+
+210
+00:09:43,965 --> 00:09:47,820
+want to have bottom padding to
+push that location button up.
+
+211
+00:09:47,820 --> 00:09:50,650
+And the best place to do this
+is in the viewWillLayoutSubviews
+
+212
+00:09:50,650 --> 00:09:52,550
+method, as you see here.
+
+213
+00:09:55,485 --> 00:09:56,860
+Now it's time for
+you to practice
+
+214
+00:09:56,860 --> 00:09:59,140
+setting up a map
+in the challenges.
+
+215
+00:09:59,140 --> 00:10:01,620
+If you're not watching
+this video on Code School,
+
+216
+00:10:01,620 --> 00:10:03,640
+you can visit this
+URL to get access
+
+217
+00:10:03,640 --> 00:10:06,310
+to all the free challenges
+for this course.
+
+218
+00:10:06,310 --> 00:10:09,660
+Or you can learn more about
+the Google Maps SDK for iOS
+
+219
+00:10:09,660 --> 00:10:12,620
+by visiting Google's
+Developer documentation.
+

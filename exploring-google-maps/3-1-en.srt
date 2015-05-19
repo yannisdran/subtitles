@@ -1,0 +1,1144 @@
+﻿1
+00:00:00,500 --> 00:00:04,040
+[SINGING] The SDK for iOS
+has really got my back.
+
+2
+00:00:04,040 --> 00:00:06,000
+There's places, modes,
+and sweet controls
+
+3
+00:00:06,000 --> 00:00:07,550
+to make the perfect app.
+
+4
+00:00:07,550 --> 00:00:11,580
+From polylines and
+polygons and geocoded lats,
+
+5
+00:00:11,580 --> 00:00:15,510
+I delegate the methods to
+create the perfect map.
+
+6
+00:00:15,510 --> 00:00:19,010
+Directions and street views,
+these are the very best.
+
+7
+00:00:19,010 --> 00:00:21,410
+I must confess
+it's time to start
+
+8
+00:00:21,410 --> 00:00:23,990
+exploring Google Maps for iOS.
+
+9
+00:00:27,280 --> 00:00:28,260
+Welcome back.
+
+10
+00:00:28,260 --> 00:00:30,920
+In this level, we're going to be
+learning how to create markers
+
+11
+00:00:30,920 --> 00:00:34,370
+from data that comes back
+from a network request, which
+
+12
+00:00:34,370 --> 00:00:37,470
+is a pretty common scenario
+when you're working with maps.
+
+13
+00:00:37,470 --> 00:00:39,550
+Not all of your data
+will be sitting inside
+
+14
+00:00:39,550 --> 00:00:41,660
+of your app at all times.
+
+15
+00:00:41,660 --> 00:00:44,600
+It will usually come in
+from of network requests.
+
+16
+00:00:44,600 --> 00:00:46,500
+So because we're
+making those requests,
+
+17
+00:00:46,500 --> 00:00:50,210
+we need an NSURLSession object
+that all those requests move
+
+18
+00:00:50,210 --> 00:00:51,090
+through.
+
+19
+00:00:51,090 --> 00:00:53,990
+We're not going to go into
+detail about how NSURLSession
+
+20
+00:00:53,990 --> 00:00:56,570
+works in this course,
+but this code right here
+
+21
+00:00:56,570 --> 00:00:59,020
+should be all you need to
+complete all the network
+
+22
+00:00:59,020 --> 00:01:01,380
+requests in this level.
+
+23
+00:01:01,380 --> 00:01:03,050
+If you're interested
+in learning more,
+
+24
+00:01:03,050 --> 00:01:06,420
+you can check out Code
+School's Core iOS 7 course,
+
+25
+00:01:06,420 --> 00:01:08,191
+where Level 8 is
+dedicated entirely
+
+26
+00:01:08,191 --> 00:01:09,440
+to understanding NSURLSession.
+
+27
+00:01:12,550 --> 00:01:14,830
+So we've added the UI
+button to our app that
+
+28
+00:01:14,830 --> 00:01:18,290
+calls the downloadMarkerData
+method when it's tapped.
+
+29
+00:01:18,290 --> 00:01:19,900
+Inside of that
+method, we'll first
+
+30
+00:01:19,900 --> 00:01:24,000
+want to create an NSURL that
+points to a JSON file that
+
+31
+00:01:24,000 --> 00:01:26,790
+contains some data that
+we'll use to make markers.
+
+32
+00:01:26,790 --> 00:01:30,020
+Then we'll create our
+NSURLSessionDataTask
+
+33
+00:01:30,020 --> 00:01:33,040
+and we'll use the
+URL to our JSON file.
+
+34
+00:01:33,040 --> 00:01:35,609
+Finally, we'll call
+Resume on that task, which
+
+35
+00:01:35,609 --> 00:01:36,400
+starts the request.
+
+36
+00:01:41,170 --> 00:01:43,570
+We'll take that JSON
+response and we'll
+
+37
+00:01:43,570 --> 00:01:45,235
+serialize it into an NSArray.
+
+38
+00:01:50,590 --> 00:01:53,080
+And that's a few steps that
+we just did pretty quickly.
+
+39
+00:01:53,080 --> 00:01:55,480
+So let's stop and log
+out that JSON array,
+
+40
+00:01:55,480 --> 00:01:57,000
+so we can see
+what's inside of it.
+
+41
+00:02:00,020 --> 00:02:02,400
+When you're using
+NSLog, anytime you
+
+42
+00:02:02,400 --> 00:02:04,630
+see stuff inside of
+parentheses, it usually
+
+43
+00:02:04,630 --> 00:02:06,950
+means that that's
+contained in an array.
+
+44
+00:02:06,950 --> 00:02:11,230
+So we've got multiple pieces of
+data inside of an array here.
+
+45
+00:02:11,230 --> 00:02:13,110
+If you see curly
+brackets, that usually
+
+46
+00:02:13,110 --> 00:02:15,540
+indicates that you're
+working with a dictionary.
+
+47
+00:02:15,540 --> 00:02:18,610
+So here we have an
+array of dictionaries.
+
+48
+00:02:18,610 --> 00:02:22,660
+And finally, when we see
+some kind of word or term
+
+49
+00:02:22,660 --> 00:02:25,350
+equal to some
+other type of data,
+
+50
+00:02:25,350 --> 00:02:27,960
+that usually means that
+those are the keys and values
+
+51
+00:02:27,960 --> 00:02:29,720
+inside of that dictionary.
+
+52
+00:02:29,720 --> 00:02:32,610
+So again, we have
+a JSON array that
+
+53
+00:02:32,610 --> 00:02:34,834
+has multiple dictionaries
+inside of it.
+
+54
+00:02:34,834 --> 00:02:36,250
+And each one of
+those dictionaries
+
+55
+00:02:36,250 --> 00:02:40,720
+has keys for things like
+Appear Animation, Lat, Long,
+
+56
+00:02:40,720 --> 00:02:44,279
+and Title, and the values
+for each of those keys.
+
+57
+00:02:44,279 --> 00:02:45,820
+And this is the data
+that we're going
+
+58
+00:02:45,820 --> 00:02:48,980
+to use to map to
+GMSMarkerObjects
+
+59
+00:02:48,980 --> 00:02:51,190
+that we can display
+as markers on our map.
+
+60
+00:02:51,190 --> 00:02:53,085
+In those dictionary
+values, obviously
+
+61
+00:02:53,085 --> 00:02:55,677
+if it has quotes around
+it, it's a string
+
+62
+00:02:55,677 --> 00:02:57,510
+and if it doesn't have
+any quotes around it,
+
+63
+00:02:57,510 --> 00:02:59,200
+it's a number.
+
+64
+00:02:59,200 --> 00:03:01,880
+Now that we know the structure
+of our JSON response,
+
+65
+00:03:01,880 --> 00:03:03,390
+let's create another
+method called
+
+66
+00:03:03,390 --> 00:03:07,280
+createMarkerObjectsWithJson
+and pass our JSON array inside.
+
+67
+00:03:10,832 --> 00:03:13,040
+There's a few things we're
+going to have to do inside
+
+68
+00:03:13,040 --> 00:03:15,550
+of this
+createMarkerObjectsWithJson
+
+69
+00:03:15,550 --> 00:03:16,630
+method.
+
+70
+00:03:16,630 --> 00:03:19,210
+So let's form a plan of attack.
+
+71
+00:03:19,210 --> 00:03:21,750
+First we're going to want
+to get a mutable copy of all
+
+72
+00:03:21,750 --> 00:03:24,550
+of the markers in
+our self.markers set.
+
+73
+00:03:24,550 --> 00:03:29,050
+This is so we can add more
+as we loop through the data.
+
+74
+00:03:29,050 --> 00:03:30,970
+Next we need to loop
+through each one
+
+75
+00:03:30,970 --> 00:03:33,610
+of those dictionaries
+one at a time,
+
+76
+00:03:33,610 --> 00:03:36,590
+and create a marker
+object for each one,
+
+77
+00:03:36,590 --> 00:03:40,620
+and then add that new
+marker object to our set.
+
+78
+00:03:40,620 --> 00:03:42,510
+Once we're done with
+that loop, we'll
+
+79
+00:03:42,510 --> 00:03:45,690
+want to save the
+current state of our set
+
+80
+00:03:45,690 --> 00:03:51,190
+back in self.markers
+as an immutable copy.
+
+81
+00:03:51,190 --> 00:03:53,220
+And finally, since we
+have new marker data,
+
+82
+00:03:53,220 --> 00:03:57,730
+we'll want to call drawMarkers
+so we can update the display.
+
+83
+00:03:57,730 --> 00:04:00,020
+Getting a mutable copy of
+the set is pretty easy.
+
+84
+00:04:00,020 --> 00:04:02,620
+We just create an
+NSMutableSet object
+
+85
+00:04:02,620 --> 00:04:05,160
+and use the
+initWithSet initializer
+
+86
+00:04:05,160 --> 00:04:07,632
+and pass in self.markers.
+
+87
+00:04:07,632 --> 00:04:10,090
+To loop through each of the
+dictionaries in the JSON array,
+
+88
+00:04:10,090 --> 00:04:13,070
+we can just use a simple
+for in enumerator.
+
+89
+00:04:13,070 --> 00:04:15,260
+Before we look at what
+goes on inside that loop,
+
+90
+00:04:15,260 --> 00:04:17,110
+we can finish out
+the method because we
+
+91
+00:04:17,110 --> 00:04:18,526
+know we're going
+to need to create
+
+92
+00:04:18,526 --> 00:04:21,084
+an immutable copy
+of our mutable set
+
+93
+00:04:21,084 --> 00:04:22,500
+and store it back
+in self.markers.
+
+94
+00:04:26,892 --> 00:04:29,350
+And we're going to need to draw
+the markers once that's all
+
+95
+00:04:29,350 --> 00:04:30,310
+done.
+
+96
+00:04:30,310 --> 00:04:32,140
+So back inside that
+for loop, we're
+
+97
+00:04:32,140 --> 00:04:34,260
+looking at each
+dictionary one a time
+
+98
+00:04:34,260 --> 00:04:37,130
+in an object called markerData.
+
+99
+00:04:37,130 --> 00:04:40,830
+So we'll create a GMSMarker
+called newMarker and really
+
+100
+00:04:40,830 --> 00:04:44,080
+just map each one of those
+newMarker's properties
+
+101
+00:04:44,080 --> 00:04:47,990
+to the corresponding data inside
+of the marker data dictionary.
+
+102
+00:04:47,990 --> 00:04:50,360
+You can see here that we're
+mapping the appearAnimation,
+
+103
+00:04:50,360 --> 00:04:54,080
+position, title, snippet,
+and of course, we're
+
+104
+00:04:54,080 --> 00:04:56,150
+setting the map property to nil.
+
+105
+00:04:56,150 --> 00:04:59,530
+Note that sometimes we also have
+to convert the data in the JSON
+
+106
+00:04:59,530 --> 00:05:03,420
+array into the appropriate
+format for GMSMarker.
+
+107
+00:05:03,420 --> 00:05:06,390
+The appearAnimation property
+is expecting an integer,
+
+108
+00:05:06,390 --> 00:05:08,630
+so we need to make sure
+that we're giving it that.
+
+109
+00:05:08,630 --> 00:05:10,310
+And the position
+property is looking
+
+110
+00:05:10,310 --> 00:05:13,194
+for two double values for
+latitude and longitude.
+
+111
+00:05:13,194 --> 00:05:14,610
+So we need to make
+sure that we're
+
+112
+00:05:14,610 --> 00:05:17,390
+returning the double
+value version of our lat
+
+113
+00:05:17,390 --> 00:05:19,400
+and long data in the array.
+
+114
+00:05:19,400 --> 00:05:21,920
+Since title and snippet
+are expecting strings,
+
+115
+00:05:21,920 --> 00:05:24,890
+we don't need to do
+anything special there.
+
+116
+00:05:24,890 --> 00:05:27,420
+And finally, now we've got a
+great new marker full of data,
+
+117
+00:05:27,420 --> 00:05:29,660
+so let's add it to our set.
+
+118
+00:05:29,660 --> 00:05:31,620
+So it seems like we've
+done everything right,
+
+119
+00:05:31,620 --> 00:05:34,770
+but if we try to run this code
+and tap our load button to load
+
+120
+00:05:34,770 --> 00:05:38,090
+new markers, you can see
+that our app crashes.
+
+121
+00:05:38,090 --> 00:05:39,910
+That's not good.
+
+122
+00:05:39,910 --> 00:05:41,580
+The specific error
+that we're getting
+
+123
+00:05:41,580 --> 00:05:43,690
+is Terminating app
+due to uncaught
+
+124
+00:05:43,690 --> 00:05:46,910
+caught exception
+GMSThreadException.
+
+125
+00:05:46,910 --> 00:05:48,660
+Fortunately for
+us, a nice reason
+
+126
+00:05:48,660 --> 00:05:51,100
+is also included
+with this exception.
+
+127
+00:05:51,100 --> 00:05:54,350
+Says that all calls to the
+Google Maps SDK for iOS
+
+128
+00:05:54,350 --> 00:05:57,740
+must be made from the UI thread,
+which is the main thread.
+
+129
+00:05:57,740 --> 00:06:00,290
+What's happening is that since
+we're creating GMSMarker
+
+130
+00:06:00,290 --> 00:06:03,700
+objects inside of
+a network callback,
+
+131
+00:06:03,700 --> 00:06:06,930
+it's not guaranteed that we're
+going to be on the main thread.
+
+132
+00:06:06,930 --> 00:06:08,750
+We can fix this
+problem pretty easily
+
+133
+00:06:08,750 --> 00:06:11,840
+by making sure we call the
+createMarkerObjectsWithJson
+
+134
+00:06:11,840 --> 00:06:15,060
+method from inside
+of the main thread.
+
+135
+00:06:15,060 --> 00:06:17,840
+And one way to do that is to
+create an NSOperationQueue
+
+136
+00:06:17,840 --> 00:06:20,000
+on the main queue, like this.
+
+137
+00:06:23,928 --> 00:06:27,189
+So now we tap that load
+button and our markers appear.
+
+138
+00:06:27,189 --> 00:06:28,980
+But we might actually
+want to tap that load
+
+139
+00:06:28,980 --> 00:06:30,700
+button multiple times.
+
+140
+00:06:30,700 --> 00:06:32,680
+Say we're in a new
+area of the map
+
+141
+00:06:32,680 --> 00:06:35,720
+or some positions of the
+markers that are on the map
+
+142
+00:06:35,720 --> 00:06:37,020
+have changed.
+
+143
+00:06:37,020 --> 00:06:39,430
+Well you can see when we
+do that, we're actually
+
+144
+00:06:39,430 --> 00:06:42,030
+generating tons of
+duplicate markers.
+
+145
+00:06:42,030 --> 00:06:43,830
+Every time we hit that
+button, we're just
+
+146
+00:06:43,830 --> 00:06:45,690
+getting a duplicate of
+all of those markers
+
+147
+00:06:45,690 --> 00:06:47,590
+over and over and over
+again and our set just
+
+148
+00:06:47,590 --> 00:06:49,464
+keeps growing and
+growing and growing,
+
+149
+00:06:49,464 --> 00:06:51,130
+even though there's
+no new markers being
+
+150
+00:06:51,130 --> 00:06:52,650
+displayed on the map.
+
+151
+00:06:52,650 --> 00:06:55,540
+So we need to fix this problem.
+
+152
+00:06:55,540 --> 00:06:57,070
+In the last level,
+we decided to use
+
+153
+00:06:57,070 --> 00:06:59,990
+an NSSet instead of an NSArray.
+
+154
+00:06:59,990 --> 00:07:02,600
+One of the main reasons
+you would choose to do that
+
+155
+00:07:02,600 --> 00:07:06,930
+is that an NSSet contains
+only distinct objects, which
+
+156
+00:07:06,930 --> 00:07:08,990
+means unique objects.
+
+157
+00:07:08,990 --> 00:07:12,940
+By their very nature, sets
+are resisting duplicate data,
+
+158
+00:07:12,940 --> 00:07:14,760
+but they need to be
+to told what makes
+
+159
+00:07:14,760 --> 00:07:17,760
+an object a
+duplicate of another.
+
+160
+00:07:17,760 --> 00:07:20,040
+They don't understand
+that on their own.
+
+161
+00:07:20,040 --> 00:07:23,080
+So every time we try to
+add an object to a set,
+
+162
+00:07:23,080 --> 00:07:25,330
+a calculation like
+this is happening.
+
+163
+00:07:25,330 --> 00:07:30,580
+It's saying is GMSMarker
+A equal to GMSMarker B?
+
+164
+00:07:30,580 --> 00:07:33,280
+But if we don't define
+what makes them equal,
+
+165
+00:07:33,280 --> 00:07:35,430
+it's going to just make
+a hash of those objects
+
+166
+00:07:35,430 --> 00:07:37,410
+and try to compare them.
+
+167
+00:07:37,410 --> 00:07:40,080
+So an example of what that
+might actually be comparing
+
+168
+00:07:40,080 --> 00:07:42,860
+would be two giant
+numbers like this.
+
+169
+00:07:42,860 --> 00:07:45,511
+Since these two numbers
+are definitely not equal,
+
+170
+00:07:45,511 --> 00:07:47,510
+you might look at them
+and say, "OK, both of these
+
+171
+00:07:47,510 --> 00:07:51,330
+can go in the set because these
+objects must not be equal."
+
+172
+00:07:51,330 --> 00:07:53,590
+We need some way to tell
+these markers whether or not
+
+173
+00:07:53,590 --> 00:07:55,620
+they truly are equal.
+
+174
+00:07:55,620 --> 00:07:58,660
+We need to find what's
+unique about them.
+
+175
+00:07:58,660 --> 00:08:00,460
+Well, in our JSON
+response, we do
+
+176
+00:08:00,460 --> 00:08:04,510
+have an ID that's unique for
+every marker that comes back.
+
+177
+00:08:04,510 --> 00:08:07,270
+So why don't we just add
+an objectID property
+
+178
+00:08:07,270 --> 00:08:12,480
+to each marker and then override
+the isEqual and hash methods
+
+179
+00:08:12,480 --> 00:08:14,280
+to use that object ID.
+
+180
+00:08:14,280 --> 00:08:17,700
+And that way we'll know if those
+two objects are truly equal.
+
+181
+00:08:17,700 --> 00:08:19,490
+So we have another problem.
+
+182
+00:08:19,490 --> 00:08:22,180
+We can't just edit
+GMSMarker, since that's
+
+183
+00:08:22,180 --> 00:08:24,520
+a class that's part
+of the framework.
+
+184
+00:08:24,520 --> 00:08:27,700
+But we can create a
+subclass of GMSMarker
+
+185
+00:08:27,700 --> 00:08:30,480
+and add an objectID
+ property to that.
+
+186
+00:08:30,480 --> 00:08:32,440
+So it looks something like this.
+
+187
+00:08:32,440 --> 00:08:36,159
+Here we've created a CSMarker
+for Code School marker.
+
+188
+00:08:36,159 --> 00:08:39,830
+It inherits from the GMSMarker.
+
+189
+00:08:39,830 --> 00:08:42,460
+That means that all of the
+properties in GMSMarker
+
+190
+00:08:42,460 --> 00:08:46,480
+are still available, like
+appearAnimation, map, position,
+
+191
+00:08:46,480 --> 00:08:48,940
+title, and subtitle.
+
+192
+00:08:48,940 --> 00:08:53,710
+But inside of our CSMarker, we
+can add an objectID property.
+
+193
+00:08:53,710 --> 00:08:56,310
+And we'll use that
+objectID to check
+
+194
+00:08:56,310 --> 00:08:59,540
+whether these objects are equal.
+
+195
+00:08:59,540 --> 00:09:01,400
+We can make that
+objectID and NSString.
+
+196
+00:09:06,020 --> 00:09:08,700
+And then we have to override
+these two methods inside
+
+197
+00:09:08,700 --> 00:09:12,360
+of the implementation of
+CSMarker: isEqual and hash.
+
+198
+00:09:15,510 --> 00:09:17,480
+So inside of
+isEqual, we just need
+
+199
+00:09:17,480 --> 00:09:20,490
+to check if the current
+MarkersObjectID that we're
+
+200
+00:09:20,490 --> 00:09:24,460
+trying to add into the
+set is equal to one
+
+201
+00:09:24,460 --> 00:09:26,900
+of the objectIDs that's
+already in the set.
+
+202
+00:09:26,900 --> 00:09:31,960
+If it is equal, we'll return
+YES and if not, we'll return NO.
+
+203
+00:09:31,960 --> 00:09:34,460
+Now we also have to
+override this hash method,
+
+204
+00:09:34,460 --> 00:09:36,640
+but it's really just an
+implementation detail.
+
+205
+00:09:36,640 --> 00:09:40,260
+And you can see that by reading
+the isEqual documentation.
+
+206
+00:09:40,260 --> 00:09:42,960
+Since we're using our objectID,
+all we need to do in here
+
+207
+00:09:42,960 --> 00:09:47,031
+is return self.objectID's
+hash and everything will just
+
+208
+00:09:47,031 --> 00:09:47,530
+work fine.
+
+209
+00:09:52,040 --> 00:09:55,240
+So back now in
+LakeMapVC, inside of
+
+210
+00:09:55,240 --> 00:09:59,190
+our createMarkerObjectsWithJson
+method,
+
+211
+00:09:59,190 --> 00:10:03,560
+we're going to change our GMSMarker object
+marker object into a CSMarker,
+
+212
+00:10:03,560 --> 00:10:08,470
+because we've now just imported
+that into our view controller.
+
+213
+00:10:08,470 --> 00:10:12,670
+And we'll also add that objectID
+that comes back from the JSON
+
+214
+00:10:12,670 --> 00:10:15,250
+response to our new marker.
+
+215
+00:10:15,250 --> 00:10:17,330
+Doing those few things
+is enough to make
+
+216
+00:10:17,330 --> 00:10:19,790
+our mutable set smart
+enough that it won't
+
+217
+00:10:19,790 --> 00:10:22,350
+try to add a new
+marker if it already
+
+218
+00:10:22,350 --> 00:10:25,460
+finds that that
+objectID is in the set,
+
+219
+00:10:25,460 --> 00:10:28,210
+and our duplicates will be gone.
+
+220
+00:10:28,210 --> 00:10:29,980
+Before we see it
+all working, we need
+
+221
+00:10:29,980 --> 00:10:31,940
+to make one other
+tiny little tweak.
+
+222
+00:10:31,940 --> 00:10:34,480
+This time to the
+drawMarkers method.
+
+223
+00:10:34,480 --> 00:10:37,400
+Because now we're
+storing CSMarkers instead
+
+224
+00:10:37,400 --> 00:10:40,660
+of GMSMarkers, we'll want
+to change our drawMarkers
+
+225
+00:10:40,660 --> 00:10:42,810
+class to use CSMarker as well.
+
+226
+00:10:47,974 --> 00:10:49,390
+And here you can
+see that now when
+
+227
+00:10:49,390 --> 00:10:51,630
+we tap the Load
+button repeatedly,
+
+228
+00:10:51,630 --> 00:10:55,090
+the size of our self.markers
+array doesn't get any bigger
+
+229
+00:10:55,090 --> 00:10:57,450
+and there's no duplicates
+added into the set.
+
+230
+00:10:57,450 --> 00:11:01,160
+Which is exactly what we wanted.
+
+231
+00:11:01,160 --> 00:11:03,270
+It's your turn to
+practice creating markers
+
+232
+00:11:03,270 --> 00:11:06,610
+with data from a network
+request in the challenges.
+
+233
+00:11:06,610 --> 00:11:09,620
+If you're not watching this
+video on CodeSchool.com,
+
+234
+00:11:09,620 --> 00:11:12,760
+can visit this URL to get access
+to all the free challenges
+
+235
+00:11:12,760 --> 00:11:14,110
+for this course.
+
+236
+00:11:14,110 --> 00:11:17,600
+Or you can learn more about
+the Google Maps SDK for iOS
+
+237
+00:11:17,600 --> 00:11:20,460
+by visiting Google's
+developer documentation.
+

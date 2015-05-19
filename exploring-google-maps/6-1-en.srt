@@ -1,0 +1,907 @@
+﻿1
+00:00:00,500 --> 00:00:04,040
+[SINGING] The SDK for iOS
+has really got my back.
+
+2
+00:00:04,040 --> 00:00:06,000
+There's places, modes,
+and sweet controls
+
+3
+00:00:06,000 --> 00:00:07,550
+to make the perfect app.
+
+4
+00:00:07,550 --> 00:00:11,580
+From polylines and
+polygons and geocoded lats,
+
+5
+00:00:11,580 --> 00:00:15,510
+I delegate the methods to
+create the perfect map.
+
+6
+00:00:15,510 --> 00:00:19,010
+Directions and street views, 
+these are the very best.
+
+7
+00:00:19,010 --> 00:00:21,410
+I must confess
+it's time to start
+
+8
+00:00:21,410 --> 00:00:23,990
+exploring Google Maps for iOS.
+
+9
+00:00:27,172 --> 00:00:28,630
+In this level,
+we're going to learn
+
+10
+00:00:28,630 --> 00:00:31,171
+to work with something that's
+completely unique to the Google
+
+11
+00:00:31,171 --> 00:00:34,810
+Maps SDK, and that's Street View.
+
+12
+00:00:34,810 --> 00:00:37,510
+Google has amassed a
+ton of Street View data
+
+13
+00:00:37,510 --> 00:00:40,540
+for places all over the world.
+
+14
+00:00:40,540 --> 00:00:42,470
+We're going to be able
+to access and interact
+
+15
+00:00:42,470 --> 00:00:45,760
+with that Street View
+data by pinching to zoom,
+
+16
+00:00:45,760 --> 00:00:48,340
+panning with our finger,
+and even double-tapping
+
+17
+00:00:48,340 --> 00:00:51,620
+to move in and out.
+
+18
+00:00:51,620 --> 00:00:54,540
+The app we have so far lets
+us tap on a load button
+
+19
+00:00:54,540 --> 00:00:57,180
+to download a set of markers.
+
+20
+00:00:57,180 --> 00:01:00,220
+Once we have those markers
+displayed, we can tap on one
+
+21
+00:01:00,220 --> 00:01:02,660
+and get the directions
+from our current location
+
+22
+00:01:02,660 --> 00:01:04,566
+to that marker.
+
+23
+00:01:04,566 --> 00:01:06,190
+We're going to want
+to set up something
+
+24
+00:01:06,190 --> 00:01:10,516
+similar to that
+for the Street View.
+
+25
+00:01:10,516 --> 00:01:11,890
+To display the
+street view, we'll
+
+26
+00:01:11,890 --> 00:01:13,895
+need a StreetView
+view controller.
+
+27
+00:01:13,895 --> 00:01:16,390
+And let's start by comparing
+that to a view controller
+
+28
+00:01:16,390 --> 00:01:18,850
+we already have - the
+Directions view controller.
+
+29
+00:01:18,850 --> 00:01:20,610
+So with the Directions
+view, we needed
+
+30
+00:01:20,610 --> 00:01:22,990
+to create and add a button
+to load the Directions view
+
+31
+00:01:22,990 --> 00:01:23,915
+controller.
+
+32
+00:01:23,915 --> 00:01:26,500
+And with StreetView, we
+need to also create and add
+
+33
+00:01:26,500 --> 00:01:28,200
+a button to load StreetView.
+
+34
+00:01:28,200 --> 00:01:30,280
+In both cases, we need
+to only show the button
+
+35
+00:01:30,280 --> 00:01:32,240
+when a marker is active.
+
+36
+00:01:32,240 --> 00:01:33,740
+And we need to hide
+that button when
+
+37
+00:01:33,740 --> 00:01:35,584
+the marker is no longer active.
+
+38
+00:01:35,584 --> 00:01:37,000
+In the case of
+directions, we need
+
+39
+00:01:37,000 --> 00:01:39,400
+to pass the steps
+for those directions
+
+40
+00:01:39,400 --> 00:01:40,840
+into the DirectionsVC.
+
+41
+00:01:40,840 --> 00:01:43,180
+And in the case of our
+StreetView view controller,
+
+42
+00:01:43,180 --> 00:01:46,330
+we need to pass the coordinate
+of where the Street View is.
+
+43
+00:01:46,330 --> 00:01:48,260
+So really, these are
+the exact same steps
+
+44
+00:01:48,260 --> 00:01:51,000
+we used to set up the
+Directions view controller,
+
+45
+00:01:51,000 --> 00:01:53,720
+except this time we're passing
+a different kind of data
+
+46
+00:01:53,720 --> 00:01:56,440
+into the view controller.
+
+47
+00:01:56,440 --> 00:01:59,340
+We'll start by setting up
+all the pieces we'll need.
+
+48
+00:01:59,340 --> 00:02:02,550
+We'll create a UIButton
+property called streetViewButton
+
+49
+00:02:02,550 --> 00:02:05,370
+that will manage-- just like we
+did the Directions view button.
+
+50
+00:02:05,370 --> 00:02:09,330
+We'll also create a
+CLLocationCoordinate2D property
+
+51
+00:02:09,330 --> 00:02:12,220
+called activeMarkerCoordinate.
+
+52
+00:02:12,220 --> 00:02:14,690
+And we'll use that
+property to store
+
+53
+00:02:14,690 --> 00:02:18,100
+the currently tapped marker's
+location so that we can pass it
+
+54
+00:02:18,100 --> 00:02:20,130
+into the StreetView
+view controller.
+
+55
+00:02:20,130 --> 00:02:21,640
+You can see here
+that a great place
+
+56
+00:02:21,640 --> 00:02:25,180
+to do that is right at the start
+of the mapView didTapMarker
+
+57
+00:02:25,180 --> 00:02:26,210
+method.
+
+58
+00:02:26,210 --> 00:02:28,030
+Because as soon as
+that marker's tapped,
+
+59
+00:02:28,030 --> 00:02:30,050
+we can set it as
+the active marker.
+
+60
+00:02:33,827 --> 00:02:35,910
+Then we'll have a method
+that gets called whenever
+
+61
+00:02:35,910 --> 00:02:38,020
+the StreetView button is tapped.
+
+62
+00:02:38,020 --> 00:02:41,040
+I'm calling this
+one showStreetView.
+
+63
+00:02:41,040 --> 00:02:43,810
+We'll create our
+StreetView view controller.
+
+64
+00:02:43,810 --> 00:02:45,560
+We'll set a StreetView
+view controller's
+
+65
+00:02:45,560 --> 00:02:49,500
+coordinate property equal to
+our active marker coordinate.
+
+66
+00:02:49,500 --> 00:02:51,740
+And then, we'll present
+the view controller.
+
+67
+00:02:51,740 --> 00:02:54,540
+Just like before when we showed
+directions in our completion
+
+68
+00:02:54,540 --> 00:02:57,330
+block, we'll set the StreetView
+button's alpha to zero,
+
+69
+00:02:57,330 --> 00:02:59,160
+so then it goes away
+whenever the view
+
+70
+00:02:59,160 --> 00:03:01,130
+controller's presented.
+
+71
+00:03:01,130 --> 00:03:05,690
+And then, we'll deselect the
+currently selected marker.
+
+72
+00:03:05,690 --> 00:03:08,600
+The app we have so far lets
+us tap on a load button
+
+73
+00:03:08,600 --> 00:03:11,250
+to download a set of markers.
+
+74
+00:03:11,250 --> 00:03:14,310
+Once we have those markers
+displayed, we can tap on one
+
+75
+00:03:14,310 --> 00:03:16,750
+and get the directions
+from our current location
+
+76
+00:03:16,750 --> 00:03:18,666
+to that marker.
+
+77
+00:03:18,666 --> 00:03:20,290
+We're going to want
+to set up something
+
+78
+00:03:20,290 --> 00:03:23,080
+similar to that
+for the StreetView.
+
+79
+00:03:23,080 --> 00:03:25,500
+In StreetViewVC's
+header, we'll need
+
+80
+00:03:25,500 --> 00:03:28,470
+to import the Google
+Maps SDK again.
+
+81
+00:03:28,470 --> 00:03:31,730
+Because StreetViewVC is going
+to access some of the StreetView
+
+82
+00:03:31,730 --> 00:03:34,240
+methods that are
+part of the SDK.
+
+83
+00:03:34,240 --> 00:03:37,730
+We'll also need a
+CLLocation2D property -
+
+84
+00:03:37,730 --> 00:03:40,040
+we called it "coordinate"
+in the last slide
+
+85
+00:03:40,040 --> 00:03:43,280
+so we can pass our active
+marker coordinate into this view
+
+86
+00:03:43,280 --> 00:03:44,350
+controller.
+
+87
+00:03:44,350 --> 00:03:47,530
+We usually use strong
+for the memory type,
+
+88
+00:03:47,530 --> 00:03:49,530
+but here we have to use assign.
+
+89
+00:03:49,530 --> 00:03:52,990
+Because CLLocationCoordinate2D
+is not an object,
+
+90
+00:03:52,990 --> 00:03:54,810
+it's actually a struct.
+
+91
+00:03:54,810 --> 00:03:57,480
+So if we give it
+the assign keyword,
+
+92
+00:03:57,480 --> 00:04:00,660
+then everything will
+work the way we want.
+
+93
+00:04:00,660 --> 00:04:04,140
+Our goal in this Street View
+is to get and display
+
+94
+00:04:04,140 --> 00:04:06,320
+a panorama object.
+
+95
+00:04:06,320 --> 00:04:11,250
+Panorama is the name of street
+views in the Google Maps SDK.
+
+96
+00:04:11,250 --> 00:04:13,320
+So in the viewDidAppear
+method, we'll
+
+97
+00:04:13,320 --> 00:04:17,600
+start by creating a
+GMSPanorama service.
+
+98
+00:04:17,600 --> 00:04:20,110
+And then we'll use
+that service to request
+
+99
+00:04:20,110 --> 00:04:22,990
+a panorama near a coordinate.
+
+100
+00:04:22,990 --> 00:04:25,290
+And we'll pass in
+our active marker's
+
+101
+00:04:25,290 --> 00:04:27,520
+coordinate into this method.
+
+102
+00:04:27,520 --> 00:04:30,380
+The callback will return
+a GMSPanorama object
+
+103
+00:04:30,380 --> 00:04:33,260
+that we can use to
+display the Street View.
+
+104
+00:04:33,260 --> 00:04:37,400
+But there's a few pieces
+that we need to understand.
+
+105
+00:04:37,400 --> 00:04:38,760
+Here's where we are right now.
+
+106
+00:04:38,760 --> 00:04:41,330
+We've got a GMSPanorama
+service that
+
+107
+00:04:41,330 --> 00:04:47,230
+is returning a GMSPanorama
+for a specific coordinate.
+
+108
+00:04:47,230 --> 00:04:51,770
+We also need to create a
+GMSPanorama camera object.
+
+109
+00:04:51,770 --> 00:04:53,340
+And that camera is
+going to determine
+
+110
+00:04:53,340 --> 00:04:57,760
+which direction the
+Street View is facing.
+
+111
+00:04:57,760 --> 00:05:00,750
+There's a few options you can
+pass when creating this object,
+
+112
+00:05:00,750 --> 00:05:03,170
+and here's a pretty
+standard start.
+
+113
+00:05:03,170 --> 00:05:06,770
+I'm passing 180 for the
+heading, zero for the pitch,
+
+114
+00:05:06,770 --> 00:05:10,132
+one for the zoom,
+and 90 for the FOV.
+
+115
+00:05:10,132 --> 00:05:11,590
+This is the StreetView
+we would get
+
+116
+00:05:11,590 --> 00:05:13,960
+for the coordinate of
+the Eiffel Tower in Paris
+
+117
+00:05:13,960 --> 00:05:15,350
+with these settings.
+
+118
+00:05:15,350 --> 00:05:19,250
+If we change the
+heading from 180 to 130,
+
+119
+00:05:19,250 --> 00:05:21,010
+you can see the
+Eiffel Tower is better
+
+120
+00:05:21,010 --> 00:05:22,820
+framed in the Street View.
+
+121
+00:05:22,820 --> 00:05:24,990
+The heading determines
+which direction the camera
+
+122
+00:05:24,990 --> 00:05:28,970
+is pointing, from
+zero to 360 degrees.
+
+123
+00:05:28,970 --> 00:05:32,030
+If we then changed the
+pitch from zero to 30,
+
+124
+00:05:32,030 --> 00:05:34,160
+instead of looking straight
+across the horizon,
+
+125
+00:05:34,160 --> 00:05:36,040
+the camera is tilted up.
+
+126
+00:05:36,040 --> 00:05:38,380
+And we can see more of
+the top of the tower.
+
+127
+00:05:38,380 --> 00:05:43,090
+A pitch from one to 90
+will tilt the camera up.
+
+128
+00:05:43,090 --> 00:05:45,330
+And a pitch of negative
+1 to negative 90
+
+129
+00:05:45,330 --> 00:05:48,190
+will tilt the camera down.
+
+130
+00:05:48,190 --> 00:05:52,110
+If we were to then take the
+FOV, or field of view, property
+
+131
+00:05:52,110 --> 00:05:57,330
+from 90 to 150, you can see that
+the depth of field has changed.
+
+132
+00:05:57,330 --> 00:06:01,580
+And FOV between one and 90
+produces a zoomed-in effect.
+
+133
+00:06:01,580 --> 00:06:05,110
+And a FOV between 90
+and 160 looks more
+
+134
+00:06:05,110 --> 00:06:08,600
+like you're viewing the Street
+View through the fish-eye lens.
+
+135
+00:06:08,600 --> 00:06:11,650
+Once we're happy with
+our GMSPanoramaCamera,
+
+136
+00:06:11,650 --> 00:06:15,579
+we'll need to create a
+GMSPanoramaView object.
+
+137
+00:06:15,579 --> 00:06:17,120
+This is the object
+that will actually
+
+138
+00:06:17,120 --> 00:06:20,120
+end up displaying
+the Street View.
+
+139
+00:06:20,120 --> 00:06:22,610
+We take the GMSPanorama
+object we already
+
+140
+00:06:22,610 --> 00:06:26,190
+have and the PanoramaCamera.
+
+141
+00:06:26,190 --> 00:06:29,310
+And we apply those
+to the panoramaView.
+
+142
+00:06:29,310 --> 00:06:31,200
+Then we'll take
+that panoramicView
+
+143
+00:06:31,200 --> 00:06:34,310
+and replace self.view so
+the Street View takes up
+
+144
+00:06:34,310 --> 00:06:35,320
+the entire screen.
+
+145
+00:06:38,299 --> 00:06:40,590
+We'll probably want a way to
+close the Street View when
+
+146
+00:06:40,590 --> 00:06:41,810
+we're done looking at it.
+
+147
+00:06:41,810 --> 00:06:44,450
+So we can add a close
+Street View button
+
+148
+00:06:44,450 --> 00:06:47,710
+to the view that
+calls a method that
+
+149
+00:06:47,710 --> 00:06:49,680
+closes off this view controller.
+
+150
+00:06:53,510 --> 00:06:56,300
+We'll also want to make sure
+that the Street View button
+
+151
+00:06:56,300 --> 00:06:58,510
+inside of our mapView
+ controller
+
+152
+00:06:58,510 --> 00:07:00,630
+goes away at the
+right times so we
+
+153
+00:07:00,630 --> 00:07:03,830
+can control the alpha in
+the LongPressAtCoordinate,
+
+154
+00:07:03,830 --> 00:07:10,080
+DidTapItCoordinate, and
+willMove delegate methods.
+
+155
+00:07:10,080 --> 00:07:13,650
+So here's an example of
+StreetView as it is right now.
+
+156
+00:07:13,650 --> 00:07:17,540
+We can find an address, turn
+Street View on, look around,
+
+157
+00:07:17,540 --> 00:07:18,915
+close the Street View.
+
+158
+00:07:18,915 --> 00:07:20,290
+But look at what
+happens if I try
+
+159
+00:07:20,290 --> 00:07:23,880
+to access the Street View
+in the middle of a lake.
+
+160
+00:07:23,880 --> 00:07:26,060
+I just get a white screen.
+
+161
+00:07:26,060 --> 00:07:29,830
+What's happening here is that
+there's no GMSPanorama object
+
+162
+00:07:29,830 --> 00:07:33,129
+that Google can find for
+the middle of this lake.
+
+163
+00:07:33,129 --> 00:07:33,920
+Makes sense, right?
+
+164
+00:07:33,920 --> 00:07:36,600
+It's called Street View,
+not lake view.
+
+165
+00:07:36,600 --> 00:07:38,180
+So we'll need to
+add some extra logic
+
+166
+00:07:38,180 --> 00:07:41,910
+into our application for
+situations like this.
+
+167
+00:07:41,910 --> 00:07:44,600
+Inside of our panorama
+request callback,
+
+168
+00:07:44,600 --> 00:07:48,490
+we can first check if the
+panorama object is non-nil.
+
+169
+00:07:48,490 --> 00:07:51,310
+If it's non-nil, that means
+we have some panorama data
+
+170
+00:07:51,310 --> 00:07:52,990
+and we should try to show it.
+
+171
+00:07:52,990 --> 00:07:55,740
+If it is nil, we
+can do something
+
+172
+00:07:55,740 --> 00:07:57,630
+like display an
+alert view that says
+
+173
+00:07:57,630 --> 00:08:00,730
+there's no data
+available for that point.
+
+174
+00:08:00,730 --> 00:08:02,980
+And then we can call the
+close Street View method again
+
+175
+00:08:02,980 --> 00:08:06,800
+to make sure that
+that window closes.
+
+176
+00:08:06,800 --> 00:08:09,750
+Now if we jump back
+into our app and access
+
+177
+00:08:09,750 --> 00:08:11,530
+a point that has
+Street View data,
+
+178
+00:08:11,530 --> 00:08:14,620
+we can see it just
+like we could before.
+
+179
+00:08:14,620 --> 00:08:16,140
+But if we close
+Street View and try
+
+180
+00:08:16,140 --> 00:08:19,850
+to access a point that might
+not have Street View data,
+
+181
+00:08:19,850 --> 00:08:21,460
+we get an alert
+view that tells us
+
+182
+00:08:21,460 --> 00:08:23,310
+that no data exists
+for that point.
+
+183
+00:08:25,962 --> 00:08:28,170
+It's time for you to practice
+displaying Street Views
+
+184
+00:08:28,170 --> 00:08:30,354
+in your own app
+in the challenges.
+
+185
+00:08:30,354 --> 00:08:32,520
+If you're not watching this
+video on CodeSchool.com,
+
+186
+00:08:32,520 --> 00:08:35,370
+you can visit this
+URL to get access
+
+187
+00:08:35,370 --> 00:08:38,000
+to all the free challenges
+for this course.
+
+188
+00:08:38,000 --> 00:08:41,390
+Or to learn more about the
+Google Maps SDK for iOS,
+
+189
+00:08:41,390 --> 00:08:44,670
+you can visit this link to
+the developer documentation.
+
