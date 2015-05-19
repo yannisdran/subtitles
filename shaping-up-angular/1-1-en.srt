@@ -1,0 +1,868 @@
+﻿1
+00:00:00,196 --> 00:00:01,820
+[SINGING] The
+Flatlanders need to store
+
+2
+00:00:01,820 --> 00:00:04,790
+to sell their gems and more -
+and they need it really quick.
+
+3
+00:00:04,790 --> 00:00:06,510
+Angular will do the trick.
+
+4
+00:00:06,510 --> 00:00:09,460
+Directives set the
+stage in your HTML page.
+
+5
+00:00:09,460 --> 00:00:12,310
+Controllers give your wrap
+the behavior that it lacks.
+
+6
+00:00:12,310 --> 00:00:14,525
+Write expressions so that
+you can add your data
+
+7
+00:00:14,525 --> 00:00:16,800
+to the view. And modules
+make connections
+
+8
+00:00:16,800 --> 00:00:18,320
+with dependency injections.
+
+9
+00:00:18,320 --> 00:00:19,780
+You're a scripting
+connoisseur when
+
+10
+00:00:19,780 --> 00:00:22,870
+shaping up with Angular JS.
+
+11
+00:00:28,290 --> 00:00:30,270
+Welcome to Shaping
+Up With Angular.
+
+12
+00:00:30,270 --> 00:00:31,862
+I'm Gregg Pollack,
+and in Level One
+
+13
+00:00:31,862 --> 00:00:33,320
+we'll be giving
+you an introduction
+
+14
+00:00:33,320 --> 00:00:36,860
+to what is Angular. We'll
+show you the application we'll
+
+15
+00:00:36,860 --> 00:00:38,620
+be building together
+in this course,
+
+16
+00:00:38,620 --> 00:00:41,770
+and then introducing you to the
+core elements of any Angular
+
+17
+00:00:41,770 --> 00:00:43,240
+application.
+
+18
+00:00:43,240 --> 00:00:45,090
+In order to learn
+Angular, it's important
+
+19
+00:00:45,090 --> 00:00:48,070
+that you're very familiar
+with HTML and CSS,
+
+20
+00:00:48,070 --> 00:00:49,896
+as well as JavaScript.
+
+21
+00:00:49,896 --> 00:00:51,520
+If you're not familiar
+with JavaScript,
+
+22
+00:00:51,520 --> 00:00:54,200
+Code School's got a great
+course JavaScript Road
+
+23
+00:00:54,200 --> 00:00:56,590
+Trip, which you
+should go check out.
+
+24
+00:00:56,590 --> 00:00:59,510
+It's also nice if you
+know some testing tools.
+
+25
+00:00:59,510 --> 00:01:02,500
+Behavior Driven Development,
+Test-Driven Development,
+
+26
+00:01:02,500 --> 00:01:05,250
+because Angular is
+really easy to test.
+
+27
+00:01:05,250 --> 00:01:08,770
+And you should be doing that
+in a professional application.
+
+28
+00:01:08,770 --> 00:01:11,460
+Not so important, you
+don't need to know jQuery,
+
+29
+00:01:11,460 --> 00:01:15,060
+Ruby on Rails, Python, PHP,
+or any of those back end
+
+30
+00:01:15,060 --> 00:01:16,230
+frameworks.
+
+31
+00:01:16,230 --> 00:01:18,040
+Angular is just a
+front end framework,
+
+32
+00:01:18,040 --> 00:01:21,220
+so all you need to
+know is JavaScript.
+
+33
+00:01:21,220 --> 00:01:23,570
+You may want to use Angular
+when you're using JavaScript
+
+34
+00:01:23,570 --> 00:01:26,600
+to build any sort
+of dynamic website.
+
+35
+00:01:26,600 --> 00:01:30,170
+Angular is going to help you
+organize your JavaScript code.
+
+36
+00:01:30,170 --> 00:01:32,900
+It's going to help you
+create responsive websites,
+
+37
+00:01:32,900 --> 00:01:36,450
+meaning they're fast, they
+respond quickly to user input.
+
+38
+00:01:36,450 --> 00:01:39,000
+Also, if you're
+familiar with jQuery,
+
+39
+00:01:39,000 --> 00:01:41,600
+Angular plays really
+well with jQuery.
+
+40
+00:01:41,600 --> 00:01:43,590
+And it's also, as
+I mentioned before,
+
+41
+00:01:43,590 --> 00:01:45,730
+really easy to test,
+which means you
+
+42
+00:01:45,730 --> 00:01:49,220
+can create
+maintainable software.
+
+43
+00:01:49,220 --> 00:01:51,110
+Let's dive a little
+deeper into this word
+
+44
+00:01:51,110 --> 00:01:53,720
+"responsive" and see what I mean.
+
+45
+00:01:53,720 --> 00:01:55,470
+So here's the Code
+School website.
+
+46
+00:01:55,470 --> 00:01:59,720
+And you'll see that when I click
+on a link like, screencasts,
+
+47
+00:01:59,720 --> 00:02:04,150
+the page goes blank for second,
+and then reloads that page.
+
+48
+00:02:04,150 --> 00:02:05,740
+And then I click
+on something else,
+
+49
+00:02:05,740 --> 00:02:08,280
+and it goes, and it processes,
+and brings up something,
+
+50
+00:02:08,280 --> 00:02:10,009
+and I get to see that page.
+
+51
+00:02:10,009 --> 00:02:14,600
+This is a traditional page
+refresh response cycle,
+
+52
+00:02:14,600 --> 00:02:19,060
+but what's going on
+behind the curtains?
+
+53
+00:02:19,060 --> 00:02:23,040
+So here we have our
+browser and our web server.
+
+54
+00:02:23,040 --> 00:02:25,740
+And our browser's going
+to initiate a request
+
+55
+00:02:25,740 --> 00:02:26,770
+to our server.
+
+56
+00:02:26,770 --> 00:02:29,670
+The server responds with the
+web pages and assets, the HTML
+
+57
+00:02:29,670 --> 00:02:33,310
+and JavaScript, and our browser
+loads of the entire web page.
+
+58
+00:02:33,310 --> 00:02:35,070
+But when the user
+clicks on a link,
+
+59
+00:02:35,070 --> 00:02:37,250
+initiates a new
+request, and the server
+
+60
+00:02:37,250 --> 00:02:40,180
+responds with a new
+web page and assets,
+
+61
+00:02:40,180 --> 00:02:43,960
+the browser to load up
+the entire web page again.
+
+62
+00:02:43,960 --> 00:02:49,050
+Obviously, laid out like this,
+it's not quite efficient.
+
+63
+00:02:49,050 --> 00:02:51,340
+So now here's an
+example of a web page
+
+64
+00:02:51,340 --> 00:02:53,260
+I would call responsive.
+
+65
+00:02:53,260 --> 00:02:56,210
+This is our recent
+Discover Drive course.
+
+66
+00:02:56,210 --> 00:03:00,180
+You'll see when I
+click around this page,
+
+67
+00:03:00,180 --> 00:03:05,580
+the page refresh is
+almost unnoticeable.
+
+68
+00:03:05,580 --> 00:03:08,950
+The pages so responsive
+and quick every time
+
+69
+00:03:08,950 --> 00:03:11,170
+we click on a link.
+
+70
+00:03:11,170 --> 00:03:12,360
+So what's going on here?
+
+71
+00:03:12,360 --> 00:03:16,510
+Well, behind the curtains when
+a request is first fired off,
+
+72
+00:03:16,510 --> 00:03:19,300
+the server responds back with
+all the web page and assets,
+
+73
+00:03:19,300 --> 00:03:20,800
+as you might expect,
+and the browser
+
+74
+00:03:20,800 --> 00:03:23,350
+loads up the entire webpage.
+
+75
+00:03:23,350 --> 00:03:25,200
+This time, when a
+user clicks a link,
+
+76
+00:03:25,200 --> 00:03:27,450
+something different
+is going to happen.
+
+77
+00:03:27,450 --> 00:03:29,370
+It's only going to
+request the information
+
+78
+00:03:29,370 --> 00:03:32,210
+it needs to update the page.
+
+79
+00:03:32,210 --> 00:03:35,300
+In this case, just
+some JSON data.
+
+80
+00:03:35,300 --> 00:03:37,170
+Once our browser
+has this data, it's
+
+81
+00:03:37,170 --> 00:03:39,500
+going to load it into
+the existing page,
+
+82
+00:03:39,500 --> 00:03:43,180
+and update what we
+see on our browser.
+
+83
+00:03:43,180 --> 00:03:44,840
+An increasing number
+of applications
+
+84
+00:03:44,840 --> 00:03:47,730
+these days are building
+their own APIs.
+
+85
+00:03:47,730 --> 00:03:50,480
+They might do this to interface
+with a mobile application,
+
+86
+00:03:50,480 --> 00:03:52,270
+say on iOS.
+
+87
+00:03:52,270 --> 00:03:55,300
+They might also build an API so
+that other developers can build
+
+88
+00:03:55,300 --> 00:03:58,970
+applications that communicate
+with their application.
+
+89
+00:03:58,970 --> 00:04:02,500
+They might also built APIs
+to communicate with front-end
+
+90
+00:04:02,500 --> 00:04:05,920
+applications, like
+the application we're
+
+91
+00:04:05,920 --> 00:04:08,760
+building in this
+course using Angular.
+
+92
+00:04:08,760 --> 00:04:11,190
+So in this course, we'll
+be building a front-end
+
+93
+00:04:11,190 --> 00:04:14,470
+application using Angular,
+which will communicate
+
+94
+00:04:14,470 --> 00:04:16,279
+with a back-end application.
+
+95
+00:04:16,279 --> 00:04:18,279
+But we're not going to
+be building that back-end
+
+96
+00:04:18,279 --> 00:04:21,890
+application, we're just going
+to focus on the front-end.
+
+97
+00:04:21,890 --> 00:04:25,310
+A simple definition of Angular
+is a client-side JavaScript
+
+98
+00:04:25,310 --> 00:04:29,490
+framework for adding
+interactivity to HTML.
+
+99
+00:04:29,490 --> 00:04:33,960
+We need to figure out
+how to tell our HTML when
+
+100
+00:04:33,960 --> 00:04:35,870
+to trigger our JavaScript.
+
+101
+00:04:35,870 --> 00:04:38,450
+So here we have some
+HTML, how might we
+
+102
+00:04:38,450 --> 00:04:41,780
+tell it to call this function,
+which triggers an alert?
+
+103
+00:04:41,780 --> 00:04:46,220
+In Angular we add behavior to
+our HTML through directives.
+
+104
+00:04:46,220 --> 00:04:49,090
+A directive as a marker
+on an HTML tag that tells
+
+105
+00:04:49,090 --> 00:04:53,010
+angular to run or reference
+some JavaScript code.
+
+106
+00:04:53,010 --> 00:04:56,860
+So the answer here is to add
+the attribute ng-controller
+
+107
+00:04:56,860 --> 00:05:00,680
+to our body tag, setting
+it equal to "StoreController"
+
+108
+00:05:00,680 --> 00:05:02,810
+which is the name
+of our function.
+
+109
+00:05:02,810 --> 00:05:07,000
+And if we loaded this up,
+we might get this alert.
+
+110
+00:05:07,000 --> 00:05:09,290
+Obviously, this is a
+really contrived example,
+
+111
+00:05:09,290 --> 00:05:12,450
+and you would never actually
+write this Angular code,
+
+112
+00:05:12,450 --> 00:05:13,990
+but you get the gist of it.
+
+113
+00:05:13,990 --> 00:05:17,200
+Directives, it's how
+we bind the behavior.
+
+114
+00:05:17,200 --> 00:05:18,870
+The application
+we'll be building
+
+115
+00:05:18,870 --> 00:05:22,680
+in the rest of this course
+is our Flatlander's store.
+
+116
+00:05:22,680 --> 00:05:24,590
+In it you can see we
+have several thumbnails
+
+117
+00:05:24,590 --> 00:05:26,820
+of different products.
+
+118
+00:05:26,820 --> 00:05:30,640
+We can tab through different
+information about each of them
+
+119
+00:05:30,640 --> 00:05:33,490
+and we have reviews.
+
+120
+00:05:33,490 --> 00:05:35,310
+You'll see a list of
+reviews and we'll even
+
+121
+00:05:35,310 --> 00:05:39,754
+be able to submit our own
+review using this form here.
+
+122
+00:05:39,754 --> 00:05:42,170
+The first step, if you want
+to start playing with Angular,
+
+123
+00:05:42,170 --> 00:05:46,240
+is to download the library
+from the official website.
+
+124
+00:05:46,240 --> 00:05:48,750
+In the application we'll
+be building in this course,
+
+125
+00:05:48,750 --> 00:05:51,380
+we're going to be using Twitter
+Bootstrap, which you also
+
+126
+00:05:51,380 --> 00:05:56,360
+might want to download, and
+feel free to follow along.
+
+127
+00:05:56,360 --> 00:05:58,470
+Let's start coding up our HTML.
+
+128
+00:05:58,470 --> 00:06:02,130
+You can see here we've included
+the CSS for Twitter Bootstrap
+
+129
+00:06:02,130 --> 00:06:04,220
+and we've included the
+angular library, which
+
+130
+00:06:04,220 --> 00:06:07,300
+we downloaded as well.
+
+131
+00:06:07,300 --> 00:06:09,340
+The next component of
+our Angular application
+
+132
+00:06:09,340 --> 00:06:12,610
+that we need to learn
+about is modules.
+
+133
+00:06:12,610 --> 00:06:14,810
+Modules are where
+we write pieces
+
+134
+00:06:14,810 --> 00:06:16,710
+of our Angular application.
+
+135
+00:06:16,710 --> 00:06:19,510
+It's how we keep our
+code encapsulated.
+
+136
+00:06:19,510 --> 00:06:22,540
+Because of this, it makes
+our code more maintainable,
+
+137
+00:06:22,540 --> 00:06:25,820
+more readable,
+and more testable.
+
+138
+00:06:25,820 --> 00:06:28,860
+Also, it's where we define
+all of the dependencies
+
+139
+00:06:28,860 --> 00:06:30,400
+for our application.
+
+140
+00:06:30,400 --> 00:06:33,620
+Because we might run one
+module and we can tell our code
+
+141
+00:06:33,620 --> 00:06:37,180
+this module depends
+on these two modules.
+
+142
+00:06:37,180 --> 00:06:39,830
+So it shouldn't surprise you
+that the very piece of code
+
+143
+00:06:39,830 --> 00:06:43,860
+that you write in
+Angular is a module line.
+
+144
+00:06:43,860 --> 00:06:47,520
+So we're going to right var
+app - that's our application -
+
+145
+00:06:47,520 --> 00:06:52,430
+equals angular - that's the
+AngularJS library - dot module -
+
+146
+00:06:52,430 --> 00:06:54,260
+because we're
+creating a new module.
+
+147
+00:06:54,260 --> 00:06:55,280
+We give it a name -
+
+148
+00:06:55,280 --> 00:06:57,150
+In this case, "store."
+
+149
+00:06:57,150 --> 00:07:02,360
+And then, in that little arrays
+syntax, we define dependencies.
+
+150
+00:07:02,360 --> 00:07:04,410
+We don't have any
+dependencies yet,
+
+151
+00:07:04,410 --> 00:07:07,930
+but we still have to
+send in an empty array.
+
+152
+00:07:07,930 --> 00:07:11,530
+Because that's how we roll.
+
+153
+00:07:11,530 --> 00:07:15,970
+This piece of code is going
+to live inside an app.js file.
+
+154
+00:07:15,970 --> 00:07:19,340
+So we're going to need to
+include that in our HTML,
+
+155
+00:07:19,340 --> 00:07:21,010
+as you can see right here.
+
+156
+00:07:21,010 --> 00:07:24,802
+Then we'll need to add an
+attribute to our HTML tag.
+
+157
+00:07:24,802 --> 00:07:26,010
+In this case, ng-app equals "store."
+
+158
+00:07:28,700 --> 00:07:32,480
+ng-app, remember, is
+another directive.
+
+159
+00:07:32,480 --> 00:07:35,410
+This directive creates
+an Angular application
+
+160
+00:07:35,410 --> 00:07:39,450
+by running this module
+when the document loads.
+
+161
+00:07:39,450 --> 00:07:43,570
+The modules isn't doing anything
+yet, but just by including it,
+
+162
+00:07:43,570 --> 00:07:47,520
+it's going to treat the
+HTML inside of this element
+
+163
+00:07:47,520 --> 00:07:49,520
+as part of the Angular app.
+
+164
+00:07:49,520 --> 00:07:53,960
+And this means we can
+start writing expressions.
+
+165
+00:07:53,960 --> 00:07:58,720
+Expressions are how we insert
+dynamic values into our HTML.
+
+166
+00:07:58,720 --> 00:08:02,260
+Here's some basic ones just
+using numerical operations.
+
+167
+00:08:02,260 --> 00:08:07,550
+So if we say "I am 4 + 6," that's
+going to render out on the page
+
+168
+00:08:07,550 --> 00:08:09,390
+as "I am 10."
+
+169
+00:08:09,390 --> 00:08:11,090
+We can also do
+string operations.
+
+170
+00:08:11,090 --> 00:08:13,180
+Saying "hello" +
+"you" and that's
+
+171
+00:08:13,180 --> 00:08:17,160
+going to evaluate to "hello
+you," as you might expect.
+
+172
+00:08:17,160 --> 00:08:18,990
+We'll be using lots
+of expressions inside
+
+173
+00:08:18,990 --> 00:08:21,600
+of our Angular application,
+but for more examples
+
+174
+00:08:21,600 --> 00:08:22,580
+check out this URL.
+
+175
+00:08:25,590 --> 00:08:30,550
+So if I move "hello you" into
+our Angular application,
+
+176
+00:08:30,550 --> 00:08:33,620
+and I load it up
+locally in my browser,
+
+177
+00:08:33,620 --> 00:08:37,820
+I'm going to get "hello you,"
+just as you might expect.
+
+178
+00:08:37,820 --> 00:08:43,250
+So we learned about directives,
+modules, and expressions.
+
+179
+00:08:43,250 --> 00:08:45,150
+Why don't you try
+putting them all together
+
+180
+00:08:45,150 --> 00:08:48,670
+in the challenges and I'll
+see you in the next section.
+

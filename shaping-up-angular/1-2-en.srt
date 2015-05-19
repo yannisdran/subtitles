@@ -1,0 +1,272 @@
+﻿1
+00:00:02,020 --> 00:00:03,080
+Welcome back.
+
+2
+00:00:03,080 --> 00:00:05,790
+In this section we're going to
+be learning about controllers.
+
+3
+00:00:05,790 --> 00:00:09,110
+Controllers help us get
+data on to the page.
+
+4
+00:00:09,110 --> 00:00:11,560
+Here you can see we have
+a JavaScript object.
+
+5
+00:00:11,560 --> 00:00:16,370
+It's a gem and we need to
+sell this in our store.
+
+6
+00:00:16,370 --> 00:00:22,510
+So how do we get it out of this
+variable and onto our page?
+
+7
+00:00:22,510 --> 00:00:25,460
+To do this, we need
+to use a controller.
+
+8
+00:00:25,460 --> 00:00:28,350
+Controllers are where we define
+our applications behavior
+
+9
+00:00:28,350 --> 00:00:31,540
+by defining
+functions and values.
+
+10
+00:00:31,540 --> 00:00:34,080
+Here we are back in our app.js.
+
+11
+00:00:34,080 --> 00:00:37,730
+We're going to wrap our entire
+application here in a closure,
+
+12
+00:00:37,730 --> 00:00:40,540
+it's just a good
+habit to get into.
+
+13
+00:00:40,540 --> 00:00:42,900
+Then we'll specify the
+name of our controller.
+
+14
+00:00:42,900 --> 00:00:45,990
+In this case, StoreController.
+
+15
+00:00:45,990 --> 00:00:48,620
+It's important that
+this is in capital case
+
+16
+00:00:48,620 --> 00:00:51,820
+and we always use
+the word controller.
+
+17
+00:00:51,820 --> 00:00:53,550
+The second parameter
+that we pass in
+
+18
+00:00:53,550 --> 00:00:54,820
+is an anonymous function.
+
+19
+00:00:54,820 --> 00:00:57,300
+The code in here is
+what will be executed
+
+20
+00:00:57,300 --> 00:00:59,930
+when our StoreController
+is called.
+
+21
+00:00:59,930 --> 00:01:05,920
+Now let's move our gem
+variable into our app.js.
+
+22
+00:01:05,920 --> 00:01:07,980
+Now from inside
+of our controller,
+
+23
+00:01:07,980 --> 00:01:13,230
+we need to set this gem equal to
+a property of this controller.
+
+24
+00:01:13,230 --> 00:01:16,410
+So we'll call
+this dot product, product
+
+25
+00:01:16,410 --> 00:01:21,460
+is a property of our controller,
+and set that equal to gem.
+
+26
+00:01:21,460 --> 00:01:23,970
+Now need to figure out how
+to get access to this data
+
+27
+00:01:23,970 --> 00:01:25,050
+from inside of our HTML.
+
+28
+00:01:27,760 --> 00:01:30,210
+Back inside of our
+HTML, you can see
+
+29
+00:01:30,210 --> 00:01:32,380
+I've written out a
+template for where
+
+30
+00:01:32,380 --> 00:01:35,300
+I want to display
+the gem information.
+
+31
+00:01:35,300 --> 00:01:38,000
+That's where we want to
+load it onto the page.
+
+32
+00:01:38,000 --> 00:01:41,560
+Let's bring back up our
+controller, just for reference.
+
+33
+00:01:41,560 --> 00:01:43,780
+The first thing we
+want to do is to use
+
+34
+00:01:43,780 --> 00:01:46,170
+the ng-controller directive.
+
+35
+00:01:46,170 --> 00:01:48,930
+This allows us to
+attach our controller
+
+36
+00:01:48,930 --> 00:01:51,930
+to this element
+inside of our HTML.
+
+37
+00:01:51,930 --> 00:01:55,010
+As the value of this attribute
+will write the controller name,
+
+38
+00:01:55,010 --> 00:01:59,580
+in this case StoreController,
+we'll use the keyword "as"
+
+39
+00:01:59,580 --> 00:02:03,790
+and then specify an alias for
+this StoreController, which
+
+40
+00:02:03,790 --> 00:02:06,530
+will use inside of
+our expressions.
+
+41
+00:02:06,530 --> 00:02:08,669
+Then inside of our
+expressions we'll
+
+42
+00:02:08,669 --> 00:02:13,040
+write store dot product dot name -
+to access
+
+43
+00:02:13,040 --> 00:02:15,340
+the value we want to
+print out to the page.
+
+44
+00:02:15,340 --> 00:02:21,130
+And then store.product.price
+and store.product.description.
+
+45
+00:02:21,130 --> 00:02:23,980
+If we called up our browser,
+we would see that it properly
+
+46
+00:02:23,980 --> 00:02:28,320
+prints out the values from
+this JavaScript object.
+
+47
+00:02:28,320 --> 00:02:32,600
+So we attached to the store
+controller to that div.
+
+48
+00:02:32,600 --> 00:02:34,880
+What would happen if
+we tried to access
+
+49
+00:02:34,880 --> 00:02:37,240
+a property from
+that StoreController
+
+50
+00:02:37,240 --> 00:02:39,140
+outside of the div?
+
+51
+00:02:39,140 --> 00:02:40,800
+Well, it wouldn't work.
+
+52
+00:02:40,800 --> 00:02:43,070
+That's because we
+all only have access
+
+53
+00:02:43,070 --> 00:02:46,495
+to the StoreController
+inside the div.
+
+54
+00:02:46,495 --> 00:02:52,190
+The scope of the controller is
+only inside that DOM element.
+
+55
+00:02:52,190 --> 00:02:53,930
+Why don't you try
+writing a controller
+
+56
+00:02:53,930 --> 00:02:57,410
+and playing around with the
+ng-controller directive?
+

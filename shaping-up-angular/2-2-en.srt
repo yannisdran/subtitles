@@ -1,0 +1,618 @@
+﻿1
+00:00:02,050 --> 00:00:03,000
+Welcome back.
+
+2
+00:00:03,000 --> 00:00:04,830
+Now, let's add some
+more interactivity
+
+3
+00:00:04,830 --> 00:00:07,780
+to our application
+by adding some tabs.
+
+4
+00:00:07,780 --> 00:00:09,860
+As you can see,
+each of our products
+
+5
+00:00:09,860 --> 00:00:13,950
+has a description,
+specification, and reviews tab.
+
+6
+00:00:16,980 --> 00:00:19,340
+Twitter Bootstrap
+comes with some classes,
+
+7
+00:00:19,340 --> 00:00:21,020
+which make it pretty
+easy to construct
+
+8
+00:00:21,020 --> 00:00:24,460
+some tabs, like you see here.
+
+9
+00:00:24,460 --> 00:00:27,570
+But how do we add
+behavior to these tabs
+
+10
+00:00:27,570 --> 00:00:30,790
+so that when we select
+one, it becomes active
+
+11
+00:00:30,790 --> 00:00:33,650
+and the content gets
+displayed in the page?
+
+12
+00:00:33,650 --> 00:00:38,540
+One way to do this in Angular is
+by using the ng-click directive
+
+13
+00:00:38,540 --> 00:00:41,680
+which takes an
+expression to evaluate.
+
+14
+00:00:41,680 --> 00:00:44,330
+So here we're
+saying tab equals 1
+
+15
+00:00:44,330 --> 00:00:46,050
+- when we click on
+the first one, tab
+
+16
+00:00:46,050 --> 00:00:48,290
+equals 2 when we
+click on the second,
+
+17
+00:00:48,290 --> 00:00:51,440
+and tab equals 3 when
+we click on the third.
+
+18
+00:00:51,440 --> 00:00:53,920
+If we want to print out
+this value to the page,
+
+19
+00:00:53,920 --> 00:00:57,670
+we can simply write
+tab as an expression.
+
+20
+00:00:57,670 --> 00:01:00,280
+Let's see what this
+is going to do.
+
+21
+00:01:00,280 --> 00:01:01,850
+So if we jump into
+the browser, we
+
+22
+00:01:01,850 --> 00:01:04,940
+can see that if we click
+on the different tabs,
+
+23
+00:01:04,940 --> 00:01:08,920
+the tab value gets
+printed out to the screen.
+
+24
+00:01:08,920 --> 00:01:10,000
+Pretty neat, huh?
+
+25
+00:01:10,000 --> 00:01:11,990
+We never defined tab.
+
+26
+00:01:11,990 --> 00:01:15,300
+But just by clicking on
+those different tabs,
+
+27
+00:01:15,300 --> 00:01:16,900
+it changes the value.
+
+28
+00:01:16,900 --> 00:01:19,920
+We're starting to get
+into the magic of Angular.
+
+29
+00:01:19,920 --> 00:01:22,410
+When we click on one
+of those tab items,
+
+30
+00:01:22,410 --> 00:01:26,100
+the tab expression
+automatically gets updated.
+
+31
+00:01:26,100 --> 00:01:29,940
+See, expressions like this
+define a 2-way Data Binding.
+
+32
+00:01:29,940 --> 00:01:31,940
+A 2-way way Data Binding.
+
+33
+00:01:31,940 --> 00:01:35,740
+This means that expressions
+are re-evaluated when
+
+34
+00:01:35,740 --> 00:01:37,970
+the property changes.
+
+35
+00:01:37,970 --> 00:01:40,680
+So that expression
+is keeping an eye
+
+36
+00:01:40,680 --> 00:01:44,030
+out for when that
+value of tab changes
+
+37
+00:01:44,030 --> 00:01:50,290
+and if it does get changed, it
+gets updated in the web page.
+
+38
+00:01:50,290 --> 00:01:52,380
+Now that we have the tab
+navigation figured out,
+
+39
+00:01:52,380 --> 00:01:54,110
+we need to create
+the tab panels.
+
+40
+00:01:54,110 --> 00:01:56,910
+You know, where the
+content for the tab goes.
+
+41
+00:01:56,910 --> 00:01:59,540
+So let's flesh that out
+as you can see here.
+
+42
+00:01:59,540 --> 00:02:01,220
+Content in each of them.
+
+43
+00:02:01,220 --> 00:02:03,500
+But how do we get the proper panel
+
+44
+00:02:03,500 --> 00:02:10,050
+to show up when we click on that corresponding tab navigation?
+
+45
+00:02:10,050 --> 00:02:13,960
+Well, we need to
+use ng-show again.
+
+46
+00:02:13,960 --> 00:02:18,280
+We can say ng-show and this
+time pass in an expression.
+
+47
+00:02:18,280 --> 00:02:23,030
+When tab is equal to
+1, display this one.
+
+48
+00:02:23,030 --> 00:02:26,790
+When tabs equal to 2, show this
+one, and when tab's equal to 3,
+
+49
+00:02:26,790 --> 00:02:28,700
+show that one.
+
+50
+00:02:28,700 --> 00:02:33,440
+Now when a tab is selected it's
+going to show the proper panel.
+
+51
+00:02:33,440 --> 00:02:34,810
+Here we are back in our browser.
+
+52
+00:02:34,810 --> 00:02:37,010
+And you'll see when
+we click on a tab it
+
+53
+00:02:37,010 --> 00:02:40,050
+shows the proper panel.
+
+54
+00:02:40,050 --> 00:02:43,180
+But when we refresh the
+page none of the panels
+
+55
+00:02:43,180 --> 00:02:44,590
+are showing up.
+
+56
+00:02:44,590 --> 00:02:48,310
+It would be good to set
+an initial value for tab.
+
+57
+00:02:48,310 --> 00:02:50,650
+How do we do that?
+
+58
+00:02:50,650 --> 00:02:53,920
+The ng-init directive
+allows us to evaluate
+
+59
+00:02:53,920 --> 00:02:57,190
+an expression in
+the current scope.
+
+60
+00:02:57,190 --> 00:03:02,360
+So here we're going to write
+ng-init equals tab equals
+
+61
+00:03:02,360 --> 00:03:07,360
+1, which is going to initialize
+the value of tab to 1.
+
+62
+00:03:07,360 --> 00:03:09,070
+So if we jump back
+into the browser,
+
+63
+00:03:09,070 --> 00:03:12,260
+we can see that tab
+is initialized to 1
+
+64
+00:03:12,260 --> 00:03:15,920
+and the description
+panel is shown.
+
+65
+00:03:15,920 --> 00:03:20,200
+But wouldn't it be nice to
+show which tab is active?
+
+66
+00:03:20,200 --> 00:03:22,750
+And in fact,
+bootstrap has classes
+
+67
+00:03:22,750 --> 00:03:25,890
+so that the right
+tab gets highlighted.
+
+68
+00:03:25,890 --> 00:03:30,310
+How might we detect
+which tab is active
+
+69
+00:03:30,310 --> 00:03:35,620
+and then add a class
+to the appropriate tab?
+
+70
+00:03:35,620 --> 00:03:38,810
+To do this, big surprise, we
+need to use a new directive.
+
+71
+00:03:38,810 --> 00:03:42,690
+The ng-class directive, which
+takes a bunch of arguments,
+
+72
+00:03:42,690 --> 00:03:45,640
+but we're going to
+send in an object.
+
+73
+00:03:45,640 --> 00:03:48,020
+In this object we're
+going to specify,
+
+74
+00:03:48,020 --> 00:03:52,290
+as a key, the name of
+the class we want to set.
+
+75
+00:03:52,290 --> 00:03:56,320
+And then as a value, an
+expression to evaluate.
+
+76
+00:03:56,320 --> 00:03:58,800
+If this expression
+is true, we'll
+
+77
+00:03:58,800 --> 00:04:01,370
+append this class
+to the element.
+
+78
+00:04:01,370 --> 00:04:04,840
+And if it's not, we're not.
+
+79
+00:04:04,840 --> 00:04:06,570
+In our case, we're
+going to check
+
+80
+00:04:06,570 --> 00:04:10,650
+to see if the tab is equal to 1.
+
+81
+00:04:10,650 --> 00:04:13,970
+And if it is we'll set
+the class to active.
+
+82
+00:04:13,970 --> 00:04:19,250
+And then, of course, 2
+and 3 for the other tabs.
+
+83
+00:04:19,250 --> 00:04:22,600
+Then back in our browser you
+can see that our tabs are now
+
+84
+00:04:22,600 --> 00:04:25,670
+using the active class properly.
+
+85
+00:04:25,670 --> 00:04:28,810
+Much nicer.
+
+86
+00:04:28,810 --> 00:04:31,290
+If it's starting to
+feel a little bit
+
+87
+00:04:31,290 --> 00:04:33,700
+dirty, a little bit of
+a wrong, that you're
+
+88
+00:04:33,700 --> 00:04:37,500
+putting all this logic
+inside your HTML page,
+
+89
+00:04:37,500 --> 00:04:40,350
+well, you're kind of right.
+
+90
+00:04:40,350 --> 00:04:45,510
+We need to figure out how to
+pull that logic into something
+
+91
+00:04:45,510 --> 00:04:47,200
+to organize it.
+
+92
+00:04:47,200 --> 00:04:50,840
+The best place here
+might be a controller.
+
+93
+00:04:50,840 --> 00:04:53,870
+Not our store controller,
+we need a new controller
+
+94
+00:04:53,870 --> 00:04:55,000
+for this logic.
+
+95
+00:04:55,000 --> 00:04:58,340
+Maybe we'll call it
+our panel controller.
+
+96
+00:04:58,340 --> 00:05:01,090
+First we'll use the
+ng-controller directive,
+
+97
+00:05:01,090 --> 00:05:06,380
+specifying our PanelController as panel.
+
+98
+00:05:06,380 --> 00:05:09,650
+Panel is our alias that we'll
+be using inside of this element
+
+99
+00:05:09,650 --> 00:05:11,910
+to refer to our
+PanelController.
+
+100
+00:05:11,910 --> 00:05:16,330
+Then our app.js will define
+our PanelController.
+
+101
+00:05:16,330 --> 00:05:20,970
+Our next step is to move
+the tab initialization
+
+102
+00:05:20,970 --> 00:05:24,080
+inside of our PanelController.
+
+103
+00:05:24,080 --> 00:05:27,020
+ng-init is great
+for prototyping,
+
+104
+00:05:27,020 --> 00:05:30,000
+but really initialization and configuration
+
+105
+00:05:30,000 --> 00:05:32,330
+should go inside of a controller.
+
+106
+00:05:32,330 --> 00:05:35,730
+In this case, we'll make tab a property of our controller.
+
+107
+00:05:35,730 --> 00:05:39,110
+So we'll be able to refer to it as panel dot tab.
+
+108
+00:05:39,110 --> 00:05:43,060
+Next, let's take the assignment
+logic out of our HTML
+
+109
+00:05:43,060 --> 00:05:45,480
+and create a function expression.
+
+110
+00:05:45,480 --> 00:05:49,030
+This is going to take a parameter - setTab -
+
+111
+00:05:49,030 --> 00:05:50,670
+and inside this function we'll set
+
+112
+00:05:50,670 --> 00:05:53,740
+the tab property equal to that variable.
+
+113
+00:05:53,740 --> 00:05:56,680
+And then inside of our ng-click expression,
+
+114
+00:05:56,680 --> 00:06:00,470
+we'll simply call panel.selectTab(1),
+
+115
+00:06:00,470 --> 00:06:02,400
+panel.selectTab(2), and panel.selectTab(3).
+
+116
+00:06:05,280 --> 00:06:08,460
+Lastly, let's create a function for our comparison.
+
+117
+00:06:08,460 --> 00:06:10,937
+We'll call it "isSelected."
+
+118
+00:06:10,937 --> 00:06:12,770
+Now we'll check to see if the current tab is
+
+119
+00:06:12,770 --> 00:06:16,520
+equal to this tab to check and return the value.
+
+120
+00:06:16,520 --> 00:06:18,450
+This will be either true or false.
+
+121
+00:06:18,450 --> 00:06:20,010
+And notice here that we're calling
+
+122
+00:06:20,010 --> 00:06:24,430
+isSelected both inside the ng-class directive
+
+123
+00:06:24,430 --> 00:06:27,650
+and in the panels to detect which one is selected.
+
+124
+00:06:30,420 --> 00:06:32,400
+Now if we jump back over into the browser
+
+125
+00:06:32,400 --> 00:06:34,090
+and select the different tabs, we
+
+126
+00:06:34,090 --> 00:06:36,530
+can see that the behavior hasn't changed.
+
+127
+00:06:36,530 --> 00:06:40,930
+Everything still works, but
+our code is a little cleaner.
+
+128
+00:06:40,930 --> 00:06:42,240
+It's challenge time.
+
+129
+00:06:42,240 --> 00:06:45,320
+So why don't you shape up
+with some Angular and I'll
+
+130
+00:06:45,320 --> 00:06:47,820
+see you in Level Three?
+
+131
+00:06:47,820 --> 00:06:50,250
+Welcome back.
+
+132
+00:06:50,250 --> 00:06:51,900
+[MUMBLING]
+
+133
+00:06:51,900 --> 00:06:52,886
+Prettied out.
+
+134
+00:06:52,886 --> 00:06:54,930
+Prettied out?
+

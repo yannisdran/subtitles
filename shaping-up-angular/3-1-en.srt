@@ -1,0 +1,354 @@
+﻿1
+00:00:00,206 --> 00:00:01,830
+[SINGING] The Flatlanders need a store
+
+2
+00:00:01,830 --> 00:00:03,470
+to sell their gems and more.
+
+3
+00:00:03,470 --> 00:00:06,510
+They need it really quick -
+Angular will do the trick.
+
+4
+00:00:06,510 --> 00:00:09,460
+Directives set the stage
+and your HTML page.
+
+5
+00:00:09,460 --> 00:00:12,310
+Controllers give your wrap
+the behavior that it lacks.
+
+6
+00:00:12,310 --> 00:00:15,340
+Write expressions so that you
+can add your data to the view.
+
+7
+00:00:15,340 --> 00:00:18,320
+And modules make connections
+with dependency injections.
+
+8
+00:00:18,320 --> 00:00:28,095
+You're a scripting connoisseur
+when Shaping Up with Angular.JS
+
+9
+00:00:28,095 --> 00:00:29,720
+You're watching
+Shaping Up with Angular
+
+10
+00:00:29,720 --> 00:00:31,460
+and this is Level
+Three, where we're
+
+11
+00:00:31,460 --> 00:00:34,550
+going to be talking about
+creating your own form to add
+
+12
+00:00:34,550 --> 00:00:36,850
+new reviews, in our case.
+
+13
+00:00:36,850 --> 00:00:38,970
+So here we are
+back in our store.
+
+14
+00:00:38,970 --> 00:00:41,450
+And you'll notice when
+I click on it Reviews,
+
+15
+00:00:41,450 --> 00:00:45,180
+it lists out all the
+different reviews for product.
+
+16
+00:00:45,180 --> 00:00:47,740
+And I can rate the product.
+
+17
+00:00:47,740 --> 00:00:49,820
+As I start typing
+out the review,
+
+18
+00:00:49,820 --> 00:00:52,220
+it gives me a nice
+live preview so I
+
+19
+00:00:52,220 --> 00:00:55,550
+can see what my review
+is going to look like.
+
+20
+00:00:55,550 --> 00:00:57,460
+When I submit it, the
+review get solidified
+
+21
+00:00:57,460 --> 00:01:00,940
+on to the page and
+my form gets reset.
+
+22
+00:01:00,940 --> 00:01:02,739
+Let's figure out how to do this.
+
+23
+00:01:02,739 --> 00:01:04,280
+We haven't dealt
+with reviews before.
+
+24
+00:01:04,280 --> 00:01:08,790
+Here you can see we just added
+it to our products array.
+
+25
+00:01:08,790 --> 00:01:11,140
+So you can see
+each product has at
+
+26
+00:01:11,140 --> 00:01:15,160
+an array of reviews, which
+each have properties.
+
+27
+00:01:15,160 --> 00:01:17,480
+Next, inside of
+our reviews panel
+
+28
+00:01:17,480 --> 00:01:21,540
+we'll simply do another
+ng-repeat for review
+
+29
+00:01:21,540 --> 00:01:24,110
+in product.reviews.
+
+30
+00:01:24,110 --> 00:01:28,890
+So this is another loop inside
+of our original product loop.
+
+31
+00:01:28,890 --> 00:01:31,830
+And inside there we'll
+print out the review stars,
+
+32
+00:01:31,830 --> 00:01:35,664
+review body, and review author.
+
+33
+00:01:35,664 --> 00:01:37,080
+If we call this
+up in our browser,
+
+34
+00:01:37,080 --> 00:01:39,050
+here's what our reviews
+would look like.
+
+35
+00:01:39,050 --> 00:01:41,450
+Nothing new here that
+you haven't seen before.
+
+36
+00:01:41,450 --> 00:01:46,870
+But how do we start to implement
+a form to post a new review?
+
+37
+00:01:46,870 --> 00:01:50,770
+Without any new Angular elements,
+here's the HTML for our form.
+
+38
+00:01:50,770 --> 00:01:54,090
+We simply have a select
+field, a text area,
+
+39
+00:01:54,090 --> 00:01:57,210
+and if you input elements
+so that our form on our page
+
+40
+00:01:57,210 --> 00:02:00,920
+is going to look
+something like this.
+
+41
+00:02:00,920 --> 00:02:03,850
+Next, let's add our
+live preview code.
+
+42
+00:02:03,850 --> 00:02:07,700
+So here, just like when we
+printed out each review,
+
+43
+00:02:07,700 --> 00:02:09,550
+we're going to block
+quote, print out
+
+44
+00:02:09,550 --> 00:02:13,040
+the stars, the body,
+and the author.
+
+45
+00:02:13,040 --> 00:02:17,710
+Now, we haven't defined
+this review variable yet.
+
+46
+00:02:17,710 --> 00:02:19,800
+Just like in the previous
+level, we didn't really
+
+47
+00:02:19,800 --> 00:02:24,250
+define the tab variable, we
+could just start using it.
+
+48
+00:02:24,250 --> 00:02:28,310
+But now we need a way
+to bind each of these
+
+49
+00:02:28,310 --> 00:02:32,890
+to the proper form element. Hm ...
+
+50
+00:02:32,890 --> 00:02:38,240
+We do this using the
+ng-model directive.
+
+51
+00:02:38,240 --> 00:02:41,130
+So we can see
+ng-model review.stars,
+
+52
+00:02:41,130 --> 00:02:43,660
+which will bind to
+this form element
+
+53
+00:02:43,660 --> 00:02:47,770
+to the review.stars
+stars value in our page.
+
+54
+00:02:47,770 --> 00:02:50,260
+Here we're going to see more
+of that Angular magic is
+
+55
+00:02:50,260 --> 00:02:52,470
+that 2-way Binding.
+
+56
+00:02:52,470 --> 00:02:54,730
+So if we jump back
+into the page,
+
+57
+00:02:54,730 --> 00:02:58,990
+we're going to see that
+as we update the form,
+
+58
+00:02:58,990 --> 00:03:01,220
+the live preview
+automatically gets
+
+59
+00:03:01,220 --> 00:03:03,355
+updated for each
+of these fields.
+
+60
+00:03:09,960 --> 00:03:12,280
+Obviously, our form
+isn't going to work yet,
+
+61
+00:03:12,280 --> 00:03:14,910
+we haven't told it what to
+do when it gets submitted.
+
+62
+00:03:14,910 --> 00:03:16,590
+But before we do
+that, I want to let
+
+63
+00:03:16,590 --> 00:03:19,180
+you know about two
+more binding examples.
+
+64
+00:03:19,180 --> 00:03:21,260
+First, if you have
+a checkbox, we
+
+65
+00:03:21,260 --> 00:03:24,430
+could use ng-model to bind
+to the checkbox, which
+
+66
+00:03:24,430 --> 00:03:26,860
+we'll set it to true or false.
+
+67
+00:03:26,860 --> 00:03:30,200
+Also with radio buttons
+we could set ng-model.
+
+68
+00:03:30,200 --> 00:03:32,250
+In this case, of
+course, the value
+
+69
+00:03:32,250 --> 00:03:37,990
+would be red, blue, or green
+ - based on which is selected.
+
+70
+00:03:37,990 --> 00:03:39,590
+Before we move any
+further, I want
+
+71
+00:03:39,590 --> 00:03:42,090
+to make sure you're
+comfortable with using ng-model
+
+72
+00:03:42,090 --> 00:03:43,560
+to create forms.
+
+73
+00:03:43,560 --> 00:03:46,970
+Give it a try and then
+we'll take the next step.
+

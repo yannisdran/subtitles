@@ -1,0 +1,405 @@
+﻿1
+00:00:00,206 --> 00:00:01,830
+[SINGING] The Flatlanders
+ need a store
+
+2
+00:00:01,830 --> 00:00:03,470
+to sell their gems and more.
+
+3
+00:00:03,470 --> 00:00:06,510
+They need it really quick,
+Angular will do the trick.
+
+4
+00:00:06,510 --> 00:00:09,460
+Directives set the
+stage in your HTML page,
+
+5
+00:00:09,460 --> 00:00:12,310
+controllers give your wrap
+the behavior that it lacks.
+
+6
+00:00:12,310 --> 00:00:14,525
+Write expressions so that
+you can add your data
+
+7
+00:00:14,525 --> 00:00:16,800
+to the view and modules
+make connections
+
+8
+00:00:16,800 --> 00:00:18,320
+with dependency injections.
+
+9
+00:00:18,320 --> 00:00:19,780
+You're a scripting
+connoisseur when
+
+10
+00:00:19,780 --> 00:00:22,540
+shaping up with Angular.JS.
+
+11
+00:00:27,980 --> 00:00:30,200
+You're watching Shaping
+Up With Angular.JS. This
+
+12
+00:00:30,200 --> 00:00:33,140
+is Level Two where we're going
+to be talking about filters,
+
+13
+00:00:33,140 --> 00:00:37,120
+more directives, and how to
+keep your code clean.
+
+14
+00:00:37,120 --> 00:00:39,370
+To review some of the
+directives we've gone over,
+
+15
+00:00:39,370 --> 00:00:42,100
+we've got ng-app - that's how
+we attach the application
+
+16
+00:00:42,100 --> 00:00:43,670
+module to the page.
+
+17
+00:00:43,670 --> 00:00:46,520
+We have ng-controller - that's
+how we attach a controller
+
+18
+00:00:46,520 --> 00:00:48,710
+function to the page.
+
+19
+00:00:48,710 --> 00:00:52,140
+We have ng-show and
+ng-hide to display or hide
+
+20
+00:00:52,140 --> 00:00:55,240
+a section based
+on an expression.
+
+21
+00:00:55,240 --> 00:00:57,710
+And we have ng-repeat
+to repeat a section
+
+22
+00:00:57,710 --> 00:01:00,596
+for each item in an array.
+
+23
+00:01:00,596 --> 00:01:03,590
+Now jumping back into
+our current example,
+
+24
+00:01:03,590 --> 00:01:05,390
+we've prettied up
+some of our code
+
+25
+00:01:05,390 --> 00:01:07,500
+to use some Twitter
+Bootstrap elements.
+
+26
+00:01:07,500 --> 00:01:09,460
+But we're still
+doing the same thing,
+
+27
+00:01:09,460 --> 00:01:11,300
+iterating through
+each of our products
+
+28
+00:01:11,300 --> 00:01:13,164
+and printing it
+out to the screen.
+
+29
+00:01:13,164 --> 00:01:14,705
+If we were to call
+us up in a browser
+
+30
+00:01:14,705 --> 00:01:17,880
+it might look
+something like this.
+
+31
+00:01:17,880 --> 00:01:20,080
+Now you'll notice here that
+something doesn't quite
+
+32
+00:01:20,080 --> 00:01:22,880
+look right with
+our dollar values.
+
+33
+00:01:22,880 --> 00:01:25,610
+We're simply putting a
+dollar sign before the price
+
+34
+00:01:25,610 --> 00:01:28,600
+and one of our prices
+is 2, so it's not
+
+35
+00:01:28,600 --> 00:01:31,690
+showing the right number
+of decimal points.
+
+36
+00:01:31,690 --> 00:01:35,000
+Luckily, Angular has a better
+way to deal with currency.
+
+37
+00:01:35,000 --> 00:01:39,280
+We can use the currency filter
+in our price expression.
+
+38
+00:01:39,280 --> 00:01:43,570
+Notice here, between these
+two calls we have a pipe.
+
+39
+00:01:43,570 --> 00:01:49,210
+The pipe says take the result
+of the first expression
+
+40
+00:01:49,210 --> 00:01:53,610
+and send the output into
+the second expression, which
+
+41
+00:01:53,610 --> 00:01:55,300
+in this case is a filter.
+
+42
+00:01:55,300 --> 00:01:59,040
+Currency will print out the
+proper dollar sign localized,
+
+43
+00:01:59,040 --> 00:02:02,260
+it will also give us the
+correct number of decimals.
+
+44
+00:02:02,260 --> 00:02:04,920
+So now when we call this
+page in our browser,
+
+45
+00:02:04,920 --> 00:02:09,570
+we can see their currency
+is properly formatted.
+
+46
+00:02:09,570 --> 00:02:14,010
+Angular has a bunch of filters
+and they follow this format
+
+47
+00:02:14,010 --> 00:02:18,230
+where you take some data and
+you pipe that into a filter,
+
+48
+00:02:18,230 --> 00:02:20,960
+sometimes even
+specifying options.
+
+49
+00:02:20,960 --> 00:02:22,800
+For example, if we
+had a timestamp,
+
+50
+00:02:22,800 --> 00:02:26,110
+we could pipe that into
+the date filter specifying
+
+51
+00:02:26,110 --> 00:02:28,845
+the format of the
+date we wanted.
+
+52
+00:02:28,845 --> 00:02:33,460
+We can also specify a filter
+of uppercase or lowercase
+
+53
+00:02:33,460 --> 00:02:35,480
+on a string.
+
+54
+00:02:35,480 --> 00:02:38,300
+Next, we have the
+limitTo filter which
+
+55
+00:02:38,300 --> 00:02:41,600
+will allow us to limit
+the number of characters
+
+56
+00:02:41,600 --> 00:02:43,370
+in a string, if we want.
+
+57
+00:02:43,370 --> 00:02:45,020
+It's also really
+useful if we want
+
+58
+00:02:45,020 --> 00:02:47,410
+to limit the number
+of items in an array.
+
+59
+00:02:47,410 --> 00:02:51,220
+Like if we only want to display
+the first three products.
+
+60
+00:02:51,220 --> 00:02:55,740
+The orderBy by filter will allow us to sort our products.
+
+61
+00:02:55,740 --> 00:02:57,870
+In this case, if we wanted to sort our products
+
+62
+00:02:57,870 --> 00:03:00,910
+from most expensive to least expensive,
+
+63
+00:03:00,910 --> 00:03:05,530
+we would write pipe orderBy minus price.
+
+64
+00:03:05,530 --> 00:03:07,300
+Without the minus, products would
+
+65
+00:03:07,300 --> 00:03:10,545
+list in ascending order from cheapest to most expensive.
+
+66
+00:03:13,360 --> 00:03:16,040
+Each of our products
+has a bunch of pictures
+
+67
+00:03:16,040 --> 00:03:17,670
+that are associated with it.
+
+68
+00:03:17,670 --> 00:03:20,540
+So we need add that
+to our data set.
+
+69
+00:03:20,540 --> 00:03:23,220
+So here you can see we now
+have an images property which
+
+70
+00:03:23,220 --> 00:03:25,500
+contains a new array.
+
+71
+00:03:25,500 --> 00:03:27,440
+Inside of that array
+there are a series
+
+72
+00:03:27,440 --> 00:03:30,080
+of image objects,
+each of which contains
+
+73
+00:03:30,080 --> 00:03:33,960
+a full image and
+a thumbnail image.
+
+74
+00:03:33,960 --> 00:03:36,250
+So, to display the first
+image of your product,
+
+75
+00:03:36,250 --> 00:03:43,110
+we might write product dot images,
+specify the index, dot full.
+
+76
+00:03:43,110 --> 00:03:46,540
+If we took that and put it as
+an expression inside the source
+
+77
+00:03:46,540 --> 00:03:50,700
+attribute of an image tag,
+well, it wouldn't work.
+
+78
+00:03:50,700 --> 00:03:52,320
+The browser tries
+to load the image
+
+79
+00:03:52,320 --> 00:03:55,090
+before the expression evaluates.
+
+80
+00:03:55,090 --> 00:03:56,600
+So to print out
+this image, we need
+
+81
+00:03:56,600 --> 00:04:01,090
+to use the ng-source
+directive like you see here.
+
+82
+00:04:05,437 --> 00:04:07,020
+Then if we jump back into our browser,
+
+83
+00:04:07,020 --> 00:04:11,860
+we can see that all the images are showing properly.
+
+84
+00:04:11,860 --> 00:04:15,580
+Why don't you try using
+some filters and ng-source?
+
+85
+00:04:15,580 --> 00:04:17,590
+And I'll see you in
+the next section.
+
