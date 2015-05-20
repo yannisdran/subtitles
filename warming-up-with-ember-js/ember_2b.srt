@@ -1,0 +1,582 @@
+1
+00:00:00,000 --> 00:00:02,050
+
+2
+00:00:02,050 --> 00:00:07,370
+So we know how to map path names
+to route names in our router.
+
+3
+00:00:07,370 --> 00:00:11,990
+And we know how to link to other
+pages using route names, not
+
+4
+00:00:11,990 --> 00:00:13,850
+the paths, like you see here.
+
+5
+00:00:13,850 --> 00:00:16,430
+
+6
+00:00:16,430 --> 00:00:20,630
+How would we print out dynamic
+data inside of our template?
+
+7
+00:00:20,630 --> 00:00:22,510
+For example, if we
+wanted to print out
+
+8
+00:00:22,510 --> 00:00:28,040
+the number of products,
+doing something like this,
+
+9
+00:00:28,040 --> 00:00:31,880
+how do we set the
+productsCount property
+
+10
+00:00:31,880 --> 00:00:33,415
+so it gets rendered
+out to the page?
+
+11
+00:00:33,415 --> 00:00:36,330
+
+12
+00:00:36,330 --> 00:00:39,150
+This is where Ember
+controllers come in.
+
+13
+00:00:39,150 --> 00:00:40,920
+A controller is
+where a template is
+
+14
+00:00:40,920 --> 00:00:44,660
+going to look to find
+the value of a property.
+
+15
+00:00:44,660 --> 00:00:47,820
+It's also how you're going
+to decorate your applications
+
+16
+00:00:47,820 --> 00:00:51,440
+for the template, and it
+also contains information
+
+17
+00:00:51,440 --> 00:00:55,000
+that is not stored
+on the server.
+
+18
+00:00:55,000 --> 00:00:57,170
+We're going to represent
+it as a branch,
+
+19
+00:00:57,170 --> 00:01:00,680
+because a branch has leaves.
+
+20
+00:01:00,680 --> 00:01:01,180
+Get it?
+
+21
+00:01:01,180 --> 00:01:04,879
+
+22
+00:01:04,879 --> 00:01:08,570
+Back in our chart, the
+controller goes about here.
+
+23
+00:01:08,570 --> 00:01:11,182
+And remember, it provides the
+properties for the templates.
+
+24
+00:01:11,182 --> 00:01:12,640
+Well, it does a
+lot more than that,
+
+25
+00:01:12,640 --> 00:01:15,056
+but that's how we're going to
+be using it in this section.
+
+26
+00:01:15,056 --> 00:01:18,130
+
+27
+00:01:18,130 --> 00:01:21,080
+So here we are back
+in our index template,
+
+28
+00:01:21,080 --> 00:01:25,310
+and inside of that we have
+a productsCount property.
+
+29
+00:01:25,310 --> 00:01:27,710
+When this template
+gets rendered,
+
+30
+00:01:27,710 --> 00:01:31,330
+the first thing that happens is
+that it looks for a controller,
+
+31
+00:01:31,330 --> 00:01:34,620
+called IndexController,
+and then checks
+
+32
+00:01:34,620 --> 00:01:38,850
+to see if that index controller
+has a property inside of it
+
+33
+00:01:38,850 --> 00:01:40,570
+called productsCount.
+
+34
+00:01:40,570 --> 00:01:42,810
+So the first step
+is to create this.
+
+35
+00:01:42,810 --> 00:01:44,540
+We need to create
+this controller.
+
+36
+00:01:44,540 --> 00:01:47,330
+So here you can see we
+create an index controller,
+
+37
+00:01:47,330 --> 00:01:51,010
+namespacing it with
+our Ember application,
+
+38
+00:01:51,010 --> 00:01:53,340
+and we define it like so.
+
+39
+00:01:53,340 --> 00:01:58,630
+Then inside of it, we declare
+a productsCount property
+
+40
+00:01:58,630 --> 00:02:00,880
+which has a value of 6.
+
+41
+00:02:00,880 --> 00:02:02,870
+This code properly
+renders out, "There
+
+42
+00:02:02,870 --> 00:02:05,270
+are 6 products," to the screen.
+
+43
+00:02:05,270 --> 00:02:08,210
+Now there's no
+coincidence here that we
+
+44
+00:02:08,210 --> 00:02:12,180
+have an index template
+and an index controller.
+
+45
+00:02:12,180 --> 00:02:17,760
+These both are referenced
+by the index route.
+
+46
+00:02:17,760 --> 00:02:19,460
+Because we are doing
+the index route,
+
+47
+00:02:19,460 --> 00:02:20,940
+it's rendering that template.
+
+48
+00:02:20,940 --> 00:02:22,790
+And because we are
+doing the index route,
+
+49
+00:02:22,790 --> 00:02:25,190
+it's going to go looking
+for the index controller.
+
+50
+00:02:25,190 --> 00:02:28,680
+
+51
+00:02:28,680 --> 00:02:30,900
+It turns out that in
+Ember, every route
+
+52
+00:02:30,900 --> 00:02:33,170
+has a default controller.
+
+53
+00:02:33,170 --> 00:02:34,730
+Remember our About route?
+
+54
+00:02:34,730 --> 00:02:37,420
+Well, we didn't have to
+define a controller there.
+
+55
+00:02:37,420 --> 00:02:39,180
+That's because
+Ember automatically
+
+56
+00:02:39,180 --> 00:02:42,260
+created one for us,
+behind the scenes.
+
+57
+00:02:42,260 --> 00:02:44,880
+It looks a little bit like this.
+
+58
+00:02:44,880 --> 00:02:46,890
+But we don't need
+to write that code.
+
+59
+00:02:46,890 --> 00:02:51,020
+We only need to write that out
+if we need to define properties
+
+60
+00:02:51,020 --> 00:02:53,154
+inside of the controller,
+which we don't, so we
+
+61
+00:02:53,154 --> 00:02:54,070
+don't need to have it.
+
+62
+00:02:54,070 --> 00:02:57,330
+
+63
+00:02:57,330 --> 00:03:00,150
+If we open this up in our
+browser and inspect the code,
+
+64
+00:03:00,150 --> 00:03:02,550
+we're going to see
+something like this.
+
+65
+00:03:02,550 --> 00:03:07,220
+Our value, you can see here,
+is wrapped in a script tag
+
+66
+00:03:07,220 --> 00:03:09,680
+with an id of metamorph.
+
+67
+00:03:09,680 --> 00:03:11,260
+What is that metamorph?
+
+68
+00:03:11,260 --> 00:03:13,970
+It sounds like
+something out of X-Men.
+
+69
+00:03:13,970 --> 00:03:15,470
+Is it going to morph
+into something?
+
+70
+00:03:15,470 --> 00:03:16,470
+I don't know.
+
+71
+00:03:16,470 --> 00:03:19,150
+Well, it turns out
+that Ember uses
+
+72
+00:03:19,150 --> 00:03:23,170
+this script tag,
+metamorph, to keep tabs
+
+73
+00:03:23,170 --> 00:03:25,620
+on properties in your
+templates, in case
+
+74
+00:03:25,620 --> 00:03:28,080
+it needs to update them later.
+
+75
+00:03:28,080 --> 00:03:29,330
+There's another term for this.
+
+76
+00:03:29,330 --> 00:03:31,570
+It's called binding.
+
+77
+00:03:31,570 --> 00:03:32,880
+It's binding the properties.
+
+78
+00:03:32,880 --> 00:03:35,900
+
+79
+00:03:35,900 --> 00:03:38,250
+Let's add another property
+to our controller,
+
+80
+00:03:38,250 --> 00:03:43,520
+this time specifying a
+logo to render to our page.
+
+81
+00:03:43,520 --> 00:03:46,330
+Now, you would think you might
+be able to just print it out
+
+82
+00:03:46,330 --> 00:03:49,520
+to the screen like we did our
+other property, just wrapping
+
+83
+00:03:49,520 --> 00:03:51,360
+it in curly braces.
+
+84
+00:03:51,360 --> 00:03:54,125
+Well, it turns out
+that's not going to work.
+
+85
+00:03:54,125 --> 00:03:55,500
+And if we look
+inside the source,
+
+86
+00:03:55,500 --> 00:03:57,730
+we can see there's the image.
+
+87
+00:03:57,730 --> 00:04:03,880
+And right after src=", it
+actually inserted that script
+
+88
+00:04:03,880 --> 00:04:08,139
+tag and screwed up
+our entire page.
+
+89
+00:04:08,139 --> 00:04:08,930
+Let's look at that.
+
+90
+00:04:08,930 --> 00:04:14,050
+This rendered to that,
+which obviously is not
+
+91
+00:04:14,050 --> 00:04:14,770
+the right thing.
+
+92
+00:04:14,770 --> 00:04:17,126
+If we have properties
+that are attributes,
+
+93
+00:04:17,126 --> 00:04:18,500
+we need to bind
+them differently.
+
+94
+00:04:18,500 --> 00:04:22,230
+
+95
+00:04:22,230 --> 00:04:25,080
+In this case, we're going to
+use the bind attributes helper,
+
+96
+00:04:25,080 --> 00:04:28,380
+specifying src="logo".
+
+97
+00:04:28,380 --> 00:04:31,230
+Logo, here, is the
+name of our property.
+
+98
+00:04:31,230 --> 00:04:33,590
+This then properly
+renders out our image tag
+
+99
+00:04:33,590 --> 00:04:36,600
+with an extra data attribute,
+so Ember can keep track of it.
+
+100
+00:04:36,600 --> 00:04:40,630
+
+101
+00:04:40,630 --> 00:04:42,620
+Now if we go back
+into our Inspector,
+
+102
+00:04:42,620 --> 00:04:45,995
+we can see that the image,
+indeed, renders out properly.
+
+103
+00:04:45,995 --> 00:04:49,520
+
+104
+00:04:49,520 --> 00:04:51,240
+Now what if we
+wanted to print out
+
+105
+00:04:51,240 --> 00:04:54,310
+the current time in a template?
+
+106
+00:04:54,310 --> 00:04:57,400
+Well, to get the current
+time on somebody's browser,
+
+107
+00:04:57,400 --> 00:05:00,720
+we would need to call
+this JavaScript function.
+
+108
+00:05:00,720 --> 00:05:04,090
+But this is more
+than just a value.
+
+109
+00:05:04,090 --> 00:05:06,910
+We actually need
+to call a function
+
+110
+00:05:06,910 --> 00:05:11,270
+and return that
+into this property.
+
+111
+00:05:11,270 --> 00:05:15,510
+To do this, we set time equal
+to an anonymous function,
+
+112
+00:05:15,510 --> 00:05:18,180
+put the function that needs
+to be called inside of there,
+
+113
+00:05:18,180 --> 00:05:20,219
+and return the value.
+
+114
+00:05:20,219 --> 00:05:22,260
+There's one more thing we
+need to do here though.
+
+115
+00:05:22,260 --> 00:05:24,290
+We need to tell
+Ember that this is
+
+116
+00:05:24,290 --> 00:05:29,440
+a property it needs to call
+to get the return value.
+
+117
+00:05:29,440 --> 00:05:30,620
+To do this, it's simple.
+
+118
+00:05:30,620 --> 00:05:34,440
+We simply add the property
+function to the end.
+
+119
+00:05:34,440 --> 00:05:37,015
+
+120
+00:05:37,015 --> 00:05:38,390
+Now if we go back
+in our code, we
+
+121
+00:05:38,390 --> 00:05:42,700
+can see that the time
+properly gets printed out.
+
+122
+00:05:42,700 --> 00:05:45,530
+Why don't you go try
+building some controllers?
+
+123
+00:05:45,530 --> 00:05:48,610
+And I'll see you in a minute.
+
+124
+00:05:48,610 --> 00:05:49,771
+[BEEP] [INAUDIBLE].
+
+125
+00:05:49,771 --> 00:05:51,820
+[BEEP] Trust me.
+
+126
+00:05:51,820 --> 00:05:52,625
+Just trust me.
+
+127
+00:05:52,625 --> 00:05:56,190
+[BEEP] [INAUDIBLE].
+
+128
+00:05:56,190 --> 00:05:57,740
+[BEEP]

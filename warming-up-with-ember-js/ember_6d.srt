@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:01,930
+
+2
+00:00:01,930 --> 00:00:04,580
+Here we are back in
+our Products template.
+
+3
+00:00:04,580 --> 00:00:06,960
+You notice we have Reviews.
+
+4
+00:00:06,960 --> 00:00:09,750
+But what if we also show
+things like comments,
+
+5
+00:00:09,750 --> 00:00:12,850
+related products, products
+other customers bought?
+
+6
+00:00:12,850 --> 00:00:16,940
+This template will
+start to get really big.
+
+7
+00:00:16,940 --> 00:00:19,530
+We might want to start
+splitting things out,
+
+8
+00:00:19,530 --> 00:00:21,850
+maybe into their own templates.
+
+9
+00:00:21,850 --> 00:00:23,720
+Well, let's do
+that with Reviews.
+
+10
+00:00:23,720 --> 00:00:26,810
+So here we're going to
+shrink it down a little bit.
+
+11
+00:00:26,810 --> 00:00:33,180
+And we'll move reviews
+into its own template.
+
+12
+00:00:33,180 --> 00:00:36,725
+But does it need to
+be its own component?
+
+13
+00:00:36,725 --> 00:00:38,570
+It might be overkill.
+
+14
+00:00:38,570 --> 00:00:42,720
+What we need to do is create
+what's called a partial.
+
+15
+00:00:42,720 --> 00:00:45,440
+Our partial is going
+to be called Reviews.
+
+16
+00:00:45,440 --> 00:00:47,640
+So back in our Product
+template, we'll
+
+17
+00:00:47,640 --> 00:00:51,540
+say Partial Reviews to
+render out that partial.
+
+18
+00:00:51,540 --> 00:00:53,586
+We don't need to pass
+anything into a partial,
+
+19
+00:00:53,586 --> 00:00:54,960
+because it's going
+to have access
+
+20
+00:00:54,960 --> 00:00:58,820
+to everything that this
+template already has access to.
+
+21
+00:00:58,820 --> 00:01:02,400
+We then name our
+partial "_reviews."
+
+22
+00:01:02,400 --> 00:01:05,620
+All partials begin
+with an underscore.
+
+23
+00:01:05,620 --> 00:01:08,300
+If you're familiar with Ruby
+on Rails, the idea of a partial
+
+24
+00:01:08,300 --> 00:01:10,930
+should be really familiar.
+
+25
+00:01:10,930 --> 00:01:12,580
+If we jump back into
+our Products page,
+
+26
+00:01:12,580 --> 00:01:15,660
+we can see that it's rendering
+out just like it was before,
+
+27
+00:01:15,660 --> 00:01:19,500
+but now the template is
+a little more organized.
+
+28
+00:01:19,500 --> 00:01:23,080
+As I mentioned, partials have
+access to all the same things
+
+29
+00:01:23,080 --> 00:01:26,400
+that the template which called
+the partial has access to do.
+
+30
+00:01:26,400 --> 00:01:28,967
+So in this case, it's
+Product Controller,
+
+31
+00:01:28,967 --> 00:01:30,550
+they have the same
+Product Controller.
+
+32
+00:01:30,550 --> 00:01:35,790
+They have access to the same
+models and the same properties.
+
+33
+00:01:35,790 --> 00:01:38,030
+Let's take a look at
+the different handlebars
+
+34
+00:01:38,030 --> 00:01:41,140
+helpers that we've
+learned so far compared
+
+35
+00:01:41,140 --> 00:01:44,480
+to the regular amber route.
+
+36
+00:01:44,480 --> 00:01:49,620
+So component helper has
+both a component object,
+
+37
+00:01:49,620 --> 00:01:51,700
+and then it renders
+out a template.
+
+38
+00:01:51,700 --> 00:01:56,354
+Or a partial just has
+a single template.
+
+39
+00:01:56,354 --> 00:01:58,020
+Why don't you try
+playing with partials?
+
+40
+00:01:58,020 --> 00:02:00,470
+And then I'll see you
+in the next section.
+
+41
+00:02:00,470 --> 00:02:01,137

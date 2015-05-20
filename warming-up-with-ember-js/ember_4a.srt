@@ -1,0 +1,625 @@
+1
+00:00:00,000 --> 00:00:03,040
+
+2
+00:00:03,040 --> 00:00:05,094
+(SINGING) An Ember
+[? wrap ?] contains it all.
+
+3
+00:00:05,094 --> 00:00:06,760
+Your template's big
+and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,350
+Their routers reach
+components, too.
+
+5
+00:00:08,350 --> 00:00:09,950
+Let Ember Models work for you.
+
+6
+00:00:09,950 --> 00:00:13,580
+Controllers to help decorate the
+views which you can integrate.
+
+7
+00:00:13,580 --> 00:00:17,360
+Mix them together in December,
+warming up with Ember.
+
+8
+00:00:17,360 --> 00:00:23,130
+
+9
+00:00:23,130 --> 00:00:26,180
+You are warming
+up with ember.js.
+
+10
+00:00:26,180 --> 00:00:28,050
+And this is Level
+4, where we're going
+
+11
+00:00:28,050 --> 00:00:33,780
+to be talking about Acorn
+Models and Pinecone Data.
+
+12
+00:00:33,780 --> 00:00:37,190
+In the previous level, we
+learned about Ember routes
+
+13
+00:00:37,190 --> 00:00:41,790
+and loaded in some data
+from a JavaScript array.
+
+14
+00:00:41,790 --> 00:00:47,270
+But what if we wanted to fetch
+these products from a server?
+
+15
+00:00:47,270 --> 00:00:49,240
+Well, that's where we're
+going to be getting to
+
+16
+00:00:49,240 --> 00:00:50,260
+at the end of this level.
+
+17
+00:00:50,260 --> 00:00:52,384
+But there's a couple things
+you need to learn about
+
+18
+00:00:52,384 --> 00:00:57,690
+before we get there, starting
+with the Ember Model.
+
+19
+00:00:57,690 --> 00:00:59,420
+So the Ember Model
+is a class that
+
+20
+00:00:59,420 --> 00:01:01,390
+defines the properties
+and behavior of the data
+
+21
+00:01:01,390 --> 00:01:05,330
+that you present to the user,
+and well, every route can
+
+22
+00:01:05,330 --> 00:01:06,410
+have a Model.
+
+23
+00:01:06,410 --> 00:01:13,200
+Previously, we set this
+Model to a JavaScript array.
+
+24
+00:01:13,200 --> 00:01:16,390
+On our chart, you can see
+that the Model appears
+
+25
+00:01:16,390 --> 00:01:19,070
+under the route, because
+it's the route that
+
+26
+00:01:19,070 --> 00:01:22,730
+tells the controller
+what Model to use,
+
+27
+00:01:22,730 --> 00:01:27,810
+and that also gets rendered
+out in the template.
+
+28
+00:01:27,810 --> 00:01:30,710
+In programming language terms,
+you might think of a Model
+
+29
+00:01:30,710 --> 00:01:32,940
+as a class.
+
+30
+00:01:32,940 --> 00:01:34,950
+In our case, we're
+working with products,
+
+31
+00:01:34,950 --> 00:01:37,410
+so we're going to
+have a product Model.
+
+32
+00:01:37,410 --> 00:01:40,600
+And that class is
+going to allow us
+
+33
+00:01:40,600 --> 00:01:44,460
+to create many
+instances of products
+
+34
+00:01:44,460 --> 00:01:46,590
+that might have
+different values.
+
+35
+00:01:46,590 --> 00:01:50,770
+Models are typically nouns,
+just like the typical class,
+
+36
+00:01:50,770 --> 00:01:54,040
+and we create one just
+like you see here.
+
+37
+00:01:54,040 --> 00:01:55,830
+We also need to
+tell our Model what
+
+38
+00:01:55,830 --> 00:01:59,990
+attributes it contains, just
+like you would set attributes
+
+39
+00:01:59,990 --> 00:02:00,540
+on a class.
+
+40
+00:02:00,540 --> 00:02:03,300
+
+41
+00:02:03,300 --> 00:02:05,600
+So remember our product data?
+
+42
+00:02:05,600 --> 00:02:07,800
+We need to take a look
+at that and figure out
+
+43
+00:02:07,800 --> 00:02:10,590
+what data types our
+Model should expect.
+
+44
+00:02:10,590 --> 00:02:14,364
+Are there strings,
+numbers, Booleans, dates?
+
+45
+00:02:14,364 --> 00:02:15,780
+What are each of
+those attributes?
+
+46
+00:02:15,780 --> 00:02:18,550
+
+47
+00:02:18,550 --> 00:02:20,670
+Let's go ahead and define
+the different properties
+
+48
+00:02:20,670 --> 00:02:22,470
+in our Model definition.
+
+49
+00:02:22,470 --> 00:02:25,680
+You can see that we have a
+title, which is a string;
+
+50
+00:02:25,680 --> 00:02:27,930
+price, which is a number;
+description, which
+
+51
+00:02:27,930 --> 00:02:31,230
+is a string: "is on
+sale," which is a Boolean;
+
+52
+00:02:31,230 --> 00:02:34,610
+and then, finally, an image,
+which is also a string.
+
+53
+00:02:34,610 --> 00:02:36,780
+It's a good practice to
+define the different data
+
+54
+00:02:36,780 --> 00:02:39,240
+types that your Model
+properties have.
+
+55
+00:02:39,240 --> 00:02:41,380
+However, it's not required.
+
+56
+00:02:41,380 --> 00:02:44,490
+If the property types
+aren't supplied like this,
+
+57
+00:02:44,490 --> 00:02:46,050
+they'll be implied by Ember.
+
+58
+00:02:46,050 --> 00:02:49,020
+
+59
+00:02:49,020 --> 00:02:51,750
+Typically, Ember Models
+will use another library
+
+60
+00:02:51,750 --> 00:02:53,800
+called Ember Data.
+
+61
+00:02:53,800 --> 00:02:55,480
+They don't have to,
+but most of them
+
+62
+00:02:55,480 --> 00:02:57,570
+will, because
+Ember Data makes it
+
+63
+00:02:57,570 --> 00:03:00,780
+easy to use Models to retrieve
+records from a server,
+
+64
+00:03:00,780 --> 00:03:04,120
+cache them for performance,
+save updates back to the server,
+
+65
+00:03:04,120 --> 00:03:07,680
+and create new
+records on a client.
+
+66
+00:03:07,680 --> 00:03:09,420
+The Ember Data
+component, of course,
+
+67
+00:03:09,420 --> 00:03:14,180
+sits under the
+Model in our chart.
+
+68
+00:03:14,180 --> 00:03:15,630
+Ember Data has
+different adapters
+
+69
+00:03:15,630 --> 00:03:17,900
+you can use to load in data.
+
+70
+00:03:17,900 --> 00:03:20,060
+The first allows you to
+communicate with an HTTP
+
+71
+00:03:20,060 --> 00:03:23,630
+server using JSON, and
+that is the RESTAdapter.
+
+72
+00:03:23,630 --> 00:03:26,880
+This is the default
+adapter for Ember Data.
+
+73
+00:03:26,880 --> 00:03:29,340
+The second allows you to
+load records from memory.
+
+74
+00:03:29,340 --> 00:03:32,420
+This is the FixtureAdapter.
+
+75
+00:03:32,420 --> 00:03:35,120
+And this is what we're going
+to use in our application,
+
+76
+00:03:35,120 --> 00:03:39,660
+so we can just load data right
+there from the page itself
+
+77
+00:03:39,660 --> 00:03:40,786
+into Models.
+
+78
+00:03:40,786 --> 00:03:43,160
+Fixtures are also great if
+you're creating an application
+
+79
+00:03:43,160 --> 00:03:45,080
+from scratch, and you
+don't have a back end
+
+80
+00:03:45,080 --> 00:03:48,330
+to connect it with yet.
+
+81
+00:03:48,330 --> 00:03:50,810
+We need to slightly modify
+our JavaScript array
+
+82
+00:03:50,810 --> 00:03:53,970
+with our data in it so
+it can become a Fixture.
+
+83
+00:03:53,970 --> 00:03:56,310
+To do this, it needs
+to use the Fixtures
+
+84
+00:03:56,310 --> 00:03:58,557
+constant within the Model.
+
+85
+00:03:58,557 --> 00:03:59,890
+So we call App.product.FIXTURES.
+
+86
+00:03:59,890 --> 00:04:03,210
+
+87
+00:04:03,210 --> 00:04:07,760
+We also need to give
+each product a unique ID.
+
+88
+00:04:07,760 --> 00:04:12,140
+All Models in Ember need
+to have a unique ID.
+
+89
+00:04:12,140 --> 00:04:15,346
+
+90
+00:04:15,346 --> 00:04:18,610
+Ember Data has this
+notion of a store.
+
+91
+00:04:18,610 --> 00:04:22,250
+It's a central repository for
+all records in your application
+
+92
+00:04:22,250 --> 00:04:24,870
+available in routes
+and controllers.
+
+93
+00:04:24,870 --> 00:04:28,130
+You can think of it as a cache
+store for all your records.
+
+94
+00:04:28,130 --> 00:04:31,260
+So inside of that store is
+the Fixtures we just created.
+
+95
+00:04:31,260 --> 00:04:35,485
+And we'll use the store to
+set and retrieve records.
+
+96
+00:04:35,485 --> 00:04:38,390
+
+97
+00:04:38,390 --> 00:04:40,050
+To use Ember Data
+in our application,
+
+98
+00:04:40,050 --> 00:04:42,990
+we need to make some
+small tweaks to our app.
+
+99
+00:04:42,990 --> 00:04:44,510
+First of all, inside
+of our router,
+
+100
+00:04:44,510 --> 00:04:48,470
+instead of using the
+dynamic segment title,
+
+101
+00:04:48,470 --> 00:04:50,700
+we need to switch
+to using the product
+
+102
+00:04:50,700 --> 00:04:53,270
+ID as the dynamic segment.
+
+103
+00:04:53,270 --> 00:04:55,010
+This is because
+Ember Data, again,
+
+104
+00:04:55,010 --> 00:04:57,099
+needs a unique identifier.
+
+105
+00:04:57,099 --> 00:04:59,140
+Now, potentially, we could
+have multiple products
+
+106
+00:04:59,140 --> 00:05:01,980
+with the same title.
+
+107
+00:05:01,980 --> 00:05:03,400
+Next, we need to
+update our routes
+
+108
+00:05:03,400 --> 00:05:06,760
+to get our Fixture
+data out of the store.
+
+109
+00:05:06,760 --> 00:05:09,360
+So here, instead of
+returning app PRODUCTS,
+
+110
+00:05:09,360 --> 00:05:13,910
+we're going to return
+this.store.findALL "products"
+
+111
+00:05:13,910 --> 00:05:15,905
+which will return all
+the product models.
+
+112
+00:05:15,905 --> 00:05:18,610
+
+113
+00:05:18,610 --> 00:05:22,090
+Next, since we're no longer
+using a JavaScript array,
+
+114
+00:05:22,090 --> 00:05:24,640
+to fetch a particular
+product, we're
+
+115
+00:05:24,640 --> 00:05:28,860
+going to call
+this.store.find "product"
+
+116
+00:05:28,860 --> 00:05:31,970
+and then pass in the
+parameter product_id, which
+
+117
+00:05:31,970 --> 00:05:35,240
+we'll get from
+the URL passed in.
+
+118
+00:05:35,240 --> 00:05:37,070
+Ember is full of
+intelligent defaults,
+
+119
+00:05:37,070 --> 00:05:38,920
+and here's another one of them.
+
+120
+00:05:38,920 --> 00:05:43,060
+If this is the behavior we
+want inside our product route
+
+121
+00:05:43,060 --> 00:05:46,260
+to find a specific
+product with the product
+
+122
+00:05:46,260 --> 00:05:49,070
+ID we pass in,
+then, well, we don't
+
+123
+00:05:49,070 --> 00:05:51,550
+need to specify it at all.
+
+124
+00:05:51,550 --> 00:05:53,360
+We don't need any of this code.
+
+125
+00:05:53,360 --> 00:05:56,200
+And it's going to find
+the proper product
+
+126
+00:05:56,200 --> 00:05:58,710
+based on the product ID.
+
+127
+00:05:58,710 --> 00:06:01,590
+So now, if we jump back
+over to our server,
+
+128
+00:06:01,590 --> 00:06:05,510
+we can click around, call up
+a Flint, call up the Kindling.
+
+129
+00:06:05,510 --> 00:06:08,800
+You'll notice it's
+now using the ID.
+
+130
+00:06:08,800 --> 00:06:12,950
+We can refresh,
+and it all works.
+
+131
+00:06:12,950 --> 00:06:15,590
+Let's try building some
+Models with Fixtures
+
+132
+00:06:15,590 --> 00:06:16,430
+in the challenges.
+
+133
+00:06:16,430 --> 00:06:19,020
+And I'll see you in
+the next section.
+
+134
+00:06:19,020 --> 00:06:19,692

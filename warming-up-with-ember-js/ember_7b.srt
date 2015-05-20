@@ -1,0 +1,379 @@
+1
+00:00:00,000 --> 00:00:02,230
+
+2
+00:00:02,230 --> 00:00:04,760
+In the previous section,
+we hooked up our form.
+
+3
+00:00:04,760 --> 00:00:08,870
+So here you can see
+our new review form.
+
+4
+00:00:08,870 --> 00:00:11,170
+And then in the
+product controller,
+
+5
+00:00:11,170 --> 00:00:14,480
+we created a new action
+called create review,
+
+6
+00:00:14,480 --> 00:00:19,360
+where we created a new
+record and then saved it.
+
+7
+00:00:19,360 --> 00:00:20,870
+But if we go into
+our browser now,
+
+8
+00:00:20,870 --> 00:00:26,630
+and we type in a new review,
+and then we switch products,
+
+9
+00:00:26,630 --> 00:00:30,740
+you'll notice that the same
+text appears in the text box.
+
+10
+00:00:30,740 --> 00:00:35,170
+It doesn't get changed
+between different products.
+
+11
+00:00:35,170 --> 00:00:36,620
+Why is this?
+
+12
+00:00:36,620 --> 00:00:39,070
+It turns out that
+controllers get reused.
+
+13
+00:00:39,070 --> 00:00:42,510
+When we switch from product
+page to product page,
+
+14
+00:00:42,510 --> 00:00:45,400
+the only thing that gets
+switched out is the model.
+
+15
+00:00:45,400 --> 00:00:48,200
+If we have properties
+that have values in them,
+
+16
+00:00:48,200 --> 00:00:50,030
+they stay the same.
+
+17
+00:00:50,030 --> 00:00:53,166
+So how might we fix this?
+
+18
+00:00:53,166 --> 00:00:54,540
+There are a few
+ways to fix this.
+
+19
+00:00:54,540 --> 00:00:57,210
+But how we're going to do it
+is by creating a new review
+
+20
+00:00:57,210 --> 00:01:00,300
+object that will bind
+into the template.
+
+21
+00:01:00,300 --> 00:01:02,370
+Then back inside
+of our controller,
+
+22
+00:01:02,370 --> 00:01:06,190
+obviously instead of
+creating a text property,
+
+23
+00:01:06,190 --> 00:01:09,380
+we're going to create a review,
+which you'll see in a minute.
+
+24
+00:01:09,380 --> 00:01:12,030
+And then secondly, we'll
+need to watch the product
+
+25
+00:01:12,030 --> 00:01:13,460
+to see if it changes.
+
+26
+00:01:13,460 --> 00:01:18,220
+And if it does, we will need
+to create a new review object.
+
+27
+00:01:18,220 --> 00:01:20,140
+So replacing our
+text property, we're
+
+28
+00:01:20,140 --> 00:01:22,620
+going to create a
+property called review.
+
+29
+00:01:22,620 --> 00:01:25,450
+This is going to
+create a new record.
+
+30
+00:01:25,450 --> 00:01:29,180
+Set the product on this
+review to the current model.
+
+31
+00:01:29,180 --> 00:01:32,970
+And lastly, we'll tell
+it to watch the model
+
+32
+00:01:32,970 --> 00:01:36,300
+on this controller,
+and if it changes,
+
+33
+00:01:36,300 --> 00:01:38,540
+then create a new review.
+
+34
+00:01:38,540 --> 00:01:40,800
+Keep in mind, when we
+call create record,
+
+35
+00:01:40,800 --> 00:01:42,850
+it's not saving a new review.
+
+36
+00:01:42,850 --> 00:01:46,430
+It's creating a new
+instance of a review model.
+
+37
+00:01:46,430 --> 00:01:49,929
+But it hasn't been
+saved anywhere.
+
+38
+00:01:49,929 --> 00:01:51,470
+Now let's jump back
+into our template
+
+39
+00:01:51,470 --> 00:01:53,990
+and use our new review model.
+
+40
+00:01:53,990 --> 00:01:58,150
+So all we have to do here is
+set review.doc, review.text,
+
+41
+00:01:58,150 --> 00:01:59,570
+and review.text.
+
+42
+00:01:59,570 --> 00:02:04,540
+So it's accessing that property
+on our new unsaved review.
+
+43
+00:02:04,540 --> 00:02:06,990
+Now let's jump back into
+are controller action,
+
+44
+00:02:06,990 --> 00:02:08,370
+create review.
+
+45
+00:02:08,370 --> 00:02:10,449
+This needs to be revised.
+
+46
+00:02:10,449 --> 00:02:12,426
+You can see here that
+we're creating a record.
+
+47
+00:02:12,426 --> 00:02:14,050
+We don't need to
+create another record.
+
+48
+00:02:14,050 --> 00:02:14,990
+We just did that.
+
+49
+00:02:14,990 --> 00:02:17,890
+So that code is
+going to go away.
+
+50
+00:02:17,890 --> 00:02:22,070
+All we really need to do here
+is set the controller to this,
+
+51
+00:02:22,070 --> 00:02:25,310
+get the review to set
+the reviewed at date,
+
+52
+00:02:25,310 --> 00:02:29,330
+and then get the review
+again to call save.
+
+53
+00:02:29,330 --> 00:02:32,350
+Everything else is
+pretty much the same.
+
+54
+00:02:32,350 --> 00:02:34,710
+Now if we jump back into
+the browser, let's go ahead
+
+55
+00:02:34,710 --> 00:02:35,710
+and submit a new review.
+
+56
+00:02:35,710 --> 00:02:39,780
+
+57
+00:02:39,780 --> 00:02:41,240
+It worked.
+
+58
+00:02:41,240 --> 00:02:43,650
+But our review
+form is still there
+
+59
+00:02:43,650 --> 00:02:46,610
+and the content is still there,
+which we probably don't want.
+
+60
+00:02:46,610 --> 00:02:48,080
+We're only going
+to want to submit
+
+61
+00:02:48,080 --> 00:02:50,010
+one review for a product.
+
+62
+00:02:50,010 --> 00:02:55,424
+So how do we basically hide that
+form when we submit a review?
+
+63
+00:02:55,424 --> 00:02:56,840
+We're going to do
+this by creating
+
+64
+00:02:56,840 --> 00:03:00,830
+a new property called
+is not reviewed.
+
+65
+00:03:00,830 --> 00:03:04,680
+We're going to be checking that,
+and if it has been reviewed,
+
+66
+00:03:04,680 --> 00:03:07,840
+then we don't want
+to show the form.
+
+67
+00:03:07,840 --> 00:03:09,420
+Now back in our
+product controller,
+
+68
+00:03:09,420 --> 00:03:13,190
+we're going to create our is
+not reviewed property, which
+
+69
+00:03:13,190 --> 00:03:15,825
+is going to be a computer
+alias of review.isnew.
+
+70
+00:03:15,825 --> 00:03:18,420
+
+71
+00:03:18,420 --> 00:03:21,565
+Is new is a property on
+the Ember data model.
+
+72
+00:03:21,565 --> 00:03:24,210
+As you can see, here's a
+couple of different states
+
+73
+00:03:24,210 --> 00:03:25,510
+that you can check on a model.
+
+74
+00:03:25,510 --> 00:03:27,010
+There's a lot more
+of these that you
+
+75
+00:03:27,010 --> 00:03:29,790
+can check out in the API Docs.
+
+76
+00:03:29,790 --> 00:03:31,370
+Now if we jump back
+into our browser,
+
+77
+00:03:31,370 --> 00:03:36,290
+and we type in a review,
+the review gets added,
+
+78
+00:03:36,290 --> 00:03:40,520
+and our form disappears
+as we wanted it to.
+
+79
+00:03:40,520 --> 00:03:44,000
+And now it's time for you to
+go disappear yourself and do
+
+80
+00:03:44,000 --> 00:03:45,720
+some challenges.
+
+81
+00:03:45,720 --> 00:03:46,626

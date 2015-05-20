@@ -1,0 +1,586 @@
+1
+00:00:00,000 --> 00:00:02,040
+
+2
+00:00:02,040 --> 00:00:05,330
+So we just created our first
+dynamic segments inside
+
+3
+00:00:05,330 --> 00:00:09,020
+of resource routes, as
+well as creating a singular
+
+4
+00:00:09,020 --> 00:00:12,370
+product for our product route.
+
+5
+00:00:12,370 --> 00:00:15,260
+Now we're going to revise
+some of our templates.
+
+6
+00:00:15,260 --> 00:00:17,430
+We're going to create
+a nested template.
+
+7
+00:00:17,430 --> 00:00:20,255
+See, right now, in
+our products list,
+
+8
+00:00:20,255 --> 00:00:24,030
+we're rendering that
+out in the outlet
+
+9
+00:00:24,030 --> 00:00:26,320
+in our application template.
+
+10
+00:00:26,320 --> 00:00:29,040
+And same thing with our product.
+
+11
+00:00:29,040 --> 00:00:31,580
+We're rendering
+our product inside
+
+12
+00:00:31,580 --> 00:00:35,060
+of the outlet in the
+application template.
+
+13
+00:00:35,060 --> 00:00:37,310
+To visualize it, we've got
+the application template.
+
+14
+00:00:37,310 --> 00:00:38,930
+And it's got that one outlet.
+
+15
+00:00:38,930 --> 00:00:41,260
+And both the products
+template and the product
+
+16
+00:00:41,260 --> 00:00:45,270
+template render inside
+that single outlet.
+
+17
+00:00:45,270 --> 00:00:48,576
+But what if we wanted to
+do something different?
+
+18
+00:00:48,576 --> 00:00:49,950
+What if we wanted
+to do something
+
+19
+00:00:49,950 --> 00:00:53,210
+like this, where we have a list
+of products on the left hand
+
+20
+00:00:53,210 --> 00:00:54,180
+side.
+
+21
+00:00:54,180 --> 00:00:58,240
+And when we click on that, it
+shows us that specific product
+
+22
+00:00:58,240 --> 00:01:01,530
+on the right hand side.
+
+23
+00:01:01,530 --> 00:01:03,700
+This instance, our
+products template
+
+24
+00:01:03,700 --> 00:01:06,850
+that lists the products is
+going to be in one template.
+
+25
+00:01:06,850 --> 00:01:10,040
+And then inside of
+that, there's going
+
+26
+00:01:10,040 --> 00:01:14,090
+to be another inner template
+showing the product.
+
+27
+00:01:14,090 --> 00:01:17,150
+So basically, we want to
+put our product template
+
+28
+00:01:17,150 --> 00:01:21,110
+displaying one product inside
+of our products template, which
+
+29
+00:01:21,110 --> 00:01:23,960
+is going to list out
+all the products.
+
+30
+00:01:23,960 --> 00:01:26,760
+But how is that possible?
+
+31
+00:01:26,760 --> 00:01:29,270
+Well, the first
+step to doing this
+
+32
+00:01:29,270 --> 00:01:32,970
+is, of course, to jump
+back into the router.
+
+33
+00:01:32,970 --> 00:01:36,390
+If we're going to
+have nested templates,
+
+34
+00:01:36,390 --> 00:01:40,260
+we're also going to
+have a nested route.
+
+35
+00:01:40,260 --> 00:01:42,130
+In this case, our
+product resource route
+
+36
+00:01:42,130 --> 00:01:47,000
+is going to be nested inside
+our products resource route.
+
+37
+00:01:47,000 --> 00:01:49,570
+We're still specifying the
+dynamic segment of title
+
+38
+00:01:49,570 --> 00:01:54,110
+but notice it doesn't contain
+slash products anymore.
+
+39
+00:01:54,110 --> 00:01:59,270
+This is because it's nested
+inside of the products resource
+
+40
+00:01:59,270 --> 00:02:00,280
+route.
+
+41
+00:02:00,280 --> 00:02:03,750
+It's simply assumed.
+
+42
+00:02:03,750 --> 00:02:08,520
+The Ember path that this
+creates is products slash title.
+
+43
+00:02:08,520 --> 00:02:10,120
+That's a dynamic segment.
+
+44
+00:02:10,120 --> 00:02:13,900
+The route that is going
+to call is product.
+
+45
+00:02:13,900 --> 00:02:16,370
+That product route
+keyword is what
+
+46
+00:02:16,370 --> 00:02:18,390
+it's going to use
+to look up if it
+
+47
+00:02:18,390 --> 00:02:24,570
+has a route, or a controller,
+or a template of that name.
+
+48
+00:02:24,570 --> 00:02:28,020
+And the URL that we're going
+to use to access this route
+
+49
+00:02:28,020 --> 00:02:32,150
+is simply products slash Flint.
+
+50
+00:02:32,150 --> 00:02:34,090
+This is the first step
+for nesting a template
+
+51
+00:02:34,090 --> 00:02:36,040
+within a template.
+
+52
+00:02:36,040 --> 00:02:41,230
+Next we need to add a new outlet
+inside of our products list
+
+53
+00:02:41,230 --> 00:02:43,900
+to show it where to render
+the specific information
+
+54
+00:02:43,900 --> 00:02:45,250
+about a product.
+
+55
+00:02:45,250 --> 00:02:47,620
+So here you can see we're
+going to specify a new outlet
+
+56
+00:02:47,620 --> 00:02:49,910
+inside of that
+products template.
+
+57
+00:02:49,910 --> 00:02:53,630
+And that's where the product
+template will be rendered.
+
+58
+00:02:53,630 --> 00:02:54,840
+Here we are in our code.
+
+59
+00:02:54,840 --> 00:02:57,950
+And as you might notice,
+we've changed up our products
+
+60
+00:02:57,950 --> 00:03:00,900
+template to be a
+list of products.
+
+61
+00:03:00,900 --> 00:03:03,690
+And there at the bottom,
+we're going to add an outlet.
+
+62
+00:03:03,690 --> 00:03:06,460
+
+63
+00:03:06,460 --> 00:03:08,180
+Now we go back to the web page.
+
+64
+00:03:08,180 --> 00:03:12,030
+On the left hand side, you can
+see we have our products list.
+
+65
+00:03:12,030 --> 00:03:13,760
+And when we click
+on one of those,
+
+66
+00:03:13,760 --> 00:03:17,560
+our product template
+gets rendered inside
+
+67
+00:03:17,560 --> 00:03:19,390
+of our products template.
+
+68
+00:03:19,390 --> 00:03:22,924
+Effectively nesting it.
+
+69
+00:03:22,924 --> 00:03:26,430
+As your application contains
+more templates and more routes,
+
+70
+00:03:26,430 --> 00:03:28,300
+you may need help debugging.
+
+71
+00:03:28,300 --> 00:03:32,372
+This is where the ember
+inspector for Chrome comes in.
+
+72
+00:03:32,372 --> 00:03:33,580
+It's just for Chrome for now.
+
+73
+00:03:33,580 --> 00:03:35,990
+And it's just a plug-in you
+can install to the browser.
+
+74
+00:03:35,990 --> 00:03:39,680
+And I'm going to show
+you what it does.
+
+75
+00:03:39,680 --> 00:03:42,030
+So here we are
+inside of our app.
+
+76
+00:03:42,030 --> 00:03:44,570
+I'm going to call up dev tools.
+
+77
+00:03:44,570 --> 00:03:47,200
+You'll see we have
+a new ember tab.
+
+78
+00:03:47,200 --> 00:03:50,250
+Inside that tab, we've
+got our View Tree.
+
+79
+00:03:50,250 --> 00:03:53,090
+So as we scroll through
+different templates,
+
+80
+00:03:53,090 --> 00:03:55,410
+it actually shows
+us on our web page
+
+81
+00:03:55,410 --> 00:03:57,870
+where each of our templates are.
+
+82
+00:03:57,870 --> 00:04:00,862
+Then if we click on
+routes in this tab,
+
+83
+00:04:00,862 --> 00:04:03,070
+we're going to see a list
+of all the routings we have
+
+84
+00:04:03,070 --> 00:04:05,545
+in our application-- the
+name of the routes, the name
+
+85
+00:04:05,545 --> 00:04:08,780
+of the controller, what
+template its rendering,
+
+86
+00:04:08,780 --> 00:04:12,110
+as well as the URL that
+would trigger this route.
+
+87
+00:04:12,110 --> 00:04:14,232
+In this case, we're
+at the product route.
+
+88
+00:04:14,232 --> 00:04:14,940
+But look at that.
+
+89
+00:04:14,940 --> 00:04:18,790
+There's another route that
+we haven't mapped before.
+
+90
+00:04:18,790 --> 00:04:23,420
+It's products dot index,
+which maps to a template
+
+91
+00:04:23,420 --> 00:04:27,360
+called products slash index.
+
+92
+00:04:27,360 --> 00:04:29,260
+Bet you wonder what that is.
+
+93
+00:04:29,260 --> 00:04:33,580
+It turns out this product slash
+index template gets rendered
+
+94
+00:04:33,580 --> 00:04:37,750
+when you go to the
+products route,
+
+95
+00:04:37,750 --> 00:04:39,960
+where we just list
+out the products.
+
+96
+00:04:39,960 --> 00:04:43,180
+And if you have this template,
+products slash index,
+
+97
+00:04:43,180 --> 00:04:47,140
+it's going to load that into
+that outlet on the products
+
+98
+00:04:47,140 --> 00:04:48,480
+template.
+
+99
+00:04:48,480 --> 00:04:49,610
+That's a little confusing.
+
+100
+00:04:49,610 --> 00:04:50,360
+Don't worry.
+
+101
+00:04:50,360 --> 00:04:51,520
+It'll be clear in a second.
+
+102
+00:04:51,520 --> 00:04:54,410
+We're going to create a
+template with the name products
+
+103
+00:04:54,410 --> 00:04:55,820
+slash index.
+
+104
+00:04:55,820 --> 00:04:57,990
+And it prompts people
+to choose a product
+
+105
+00:04:57,990 --> 00:05:00,890
+from the list on the left.
+
+106
+00:05:00,890 --> 00:05:03,254
+Now when we go back
+to our products list,
+
+107
+00:05:03,254 --> 00:05:05,170
+you can see that template
+show up right there.
+
+108
+00:05:05,170 --> 00:05:07,920
+Choose a product from
+those on the left.
+
+109
+00:05:07,920 --> 00:05:12,000
+When we click on a product, it
+will come to the product page.
+
+110
+00:05:12,000 --> 00:05:13,850
+Then when we click
+on the products
+
+111
+00:05:13,850 --> 00:05:16,030
+link in the upper
+right hand corner,
+
+112
+00:05:16,030 --> 00:05:21,120
+it goes back and shows us that
+product slash index template.
+
+113
+00:05:21,120 --> 00:05:23,860
+One interesting
+thing to note here
+
+114
+00:05:23,860 --> 00:05:27,850
+is that you see how both
+the products navigation
+
+115
+00:05:27,850 --> 00:05:32,470
+list item and the
+product link are active.
+
+116
+00:05:32,470 --> 00:05:36,310
+That's because it's
+effectively giving both links
+
+117
+00:05:36,310 --> 00:05:38,100
+the class of active.
+
+118
+00:05:38,100 --> 00:05:39,570
+Kind of neat.
+
+119
+00:05:39,570 --> 00:05:42,500
+Why don't you go try
+some nesting on your own,
+
+120
+00:05:42,500 --> 00:05:46,020
+and I'll see you in level four.
+
+121
+00:05:46,020 --> 00:05:47,590
+A route-- no router.
+
+122
+00:05:47,590 --> 00:05:49,655
+--must be our products.
+
+123
+00:05:49,655 --> 00:05:51,010
+I think I hit the microphone.
+
+124
+00:05:51,010 --> 00:05:52,205
+Are typically adjects.
+
+125
+00:05:52,205 --> 00:05:54,020
+Adjects?
+
+126
+00:05:54,020 --> 00:05:55,570
+Rejects.

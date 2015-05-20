@@ -1,0 +1,398 @@
+1
+00:00:00,000 --> 00:00:03,030
+
+2
+00:00:03,030 --> 00:00:05,094
+[SINGING] An Ember
+wrap contains it all.
+
+3
+00:00:05,094 --> 00:00:06,760
+Your template's big
+and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,301
+There are routers,
+routes, components
+
+5
+00:00:08,301 --> 00:00:09,950
+to let Ember models
+work for you.
+
+6
+00:00:09,950 --> 00:00:13,580
+Controllers to help decorate the
+views which you can integrate.
+
+7
+00:00:13,580 --> 00:00:17,787
+Mix them together in December,
+Warming Up With Ember.
+
+8
+00:00:17,787 --> 00:00:23,280
+
+9
+00:00:23,280 --> 00:00:25,240
+You're watching Warming
+Up With Ember.js
+
+10
+00:00:25,240 --> 00:00:26,740
+and this is level
+two, where we're
+
+11
+00:00:26,740 --> 00:00:29,560
+going to be talking a
+little more about handlebars
+
+12
+00:00:29,560 --> 00:00:33,880
+and some basics of
+Ember controllers.
+
+13
+00:00:33,880 --> 00:00:35,260
+Back in level one,
+we learned all
+
+14
+00:00:35,260 --> 00:00:37,000
+about the router,
+which is in charge
+
+15
+00:00:37,000 --> 00:00:41,410
+of mapping a path
+to an Ember route.
+
+16
+00:00:41,410 --> 00:00:45,180
+But how do we create
+links to these routes?
+
+17
+00:00:45,180 --> 00:00:48,820
+Can't we just hard code
+links like you see here?
+
+18
+00:00:48,820 --> 00:00:51,030
+Well, it turns out
+this is a bad practice.
+
+19
+00:00:51,030 --> 00:00:54,260
+You never want to
+hard code your links.
+
+20
+00:00:54,260 --> 00:01:00,780
+Instead we use the routes to
+dynamically retrieve the URLs
+
+21
+00:01:00,780 --> 00:01:04,000
+when we create links in
+our Ember application.
+
+22
+00:01:04,000 --> 00:01:07,320
+Let me show you what
+that looks like.
+
+23
+00:01:07,320 --> 00:01:11,330
+To do this, we use a
+handlebars link-to helper
+
+24
+00:01:11,330 --> 00:01:16,060
+and send in the route
+name we want to link to.
+
+25
+00:01:16,060 --> 00:01:20,890
+Do this we use the Ember link-to
+helper inside of our template.
+
+26
+00:01:20,890 --> 00:01:24,940
+It allows us to use the route
+name to look up the path.
+
+27
+00:01:24,940 --> 00:01:27,690
+So here you can see
+we call a link-to,
+
+28
+00:01:27,690 --> 00:01:29,390
+send in the route name.
+
+29
+00:01:29,390 --> 00:01:31,500
+Could be index, could be about.
+
+30
+00:01:31,500 --> 00:01:35,670
+We then have some text which
+is the actual link text.
+
+31
+00:01:35,670 --> 00:01:38,110
+Then we have to
+close our link-to.
+
+32
+00:01:38,110 --> 00:01:39,970
+Each of these will
+determine the path
+
+33
+00:01:39,970 --> 00:01:42,020
+based on the route
+name we send in.
+
+34
+00:01:42,020 --> 00:01:46,270
+And here's what the resulting
+HTML will look like.
+
+35
+00:01:46,270 --> 00:01:50,440
+But what if we want to add
+a custom class to our link?
+
+36
+00:01:50,440 --> 00:01:51,970
+Well, that's pretty simple.
+
+37
+00:01:51,970 --> 00:01:54,170
+All we have to do
+in our link helper
+
+38
+00:01:54,170 --> 00:01:59,030
+is specify class
+equals navbar brand
+
+39
+00:01:59,030 --> 00:02:01,860
+and the rendered HTML will
+simply add that class.
+
+40
+00:02:01,860 --> 00:02:05,840
+
+41
+00:02:05,840 --> 00:02:08,720
+Back in our browser, we
+can click the About link,
+
+42
+00:02:08,720 --> 00:02:13,690
+which will bring us to be about
+route and the Home link, which
+
+43
+00:02:13,690 --> 00:02:16,751
+will bring us to
+the index route.
+
+44
+00:02:16,751 --> 00:02:19,860
+If you take a look inside
+our devtools inspector,
+
+45
+00:02:19,860 --> 00:02:23,790
+you'll notice that our
+logo has an active class
+
+46
+00:02:23,790 --> 00:02:26,570
+and our Home link also
+has an active class.
+
+47
+00:02:26,570 --> 00:02:27,560
+About doesn't.
+
+48
+00:02:27,560 --> 00:02:30,900
+But look what happens
+when we click on About.
+
+49
+00:02:30,900 --> 00:02:35,210
+Now About has the
+active class, so it's
+
+50
+00:02:35,210 --> 00:02:40,610
+moved from the Home
+link to the About link.
+
+51
+00:02:40,610 --> 00:02:43,470
+Ember has this nice,
+intelligent default
+
+52
+00:02:43,470 --> 00:02:46,100
+where if you have a
+link-to helper, which
+
+53
+00:02:46,100 --> 00:02:50,130
+is the same route as the one
+you're currently visiting,
+
+54
+00:02:50,130 --> 00:02:54,380
+it will give you an
+active class on that link.
+
+55
+00:02:54,380 --> 00:02:57,200
+And as you might imagine, you
+can style that appropriately
+
+56
+00:02:57,200 --> 00:02:57,855
+in your CSS.
+
+57
+00:02:57,855 --> 00:03:01,320
+
+58
+00:03:01,320 --> 00:03:04,660
+Next it turns out, since
+we're using Twitter Bootstrap,
+
+59
+00:03:04,660 --> 00:03:10,980
+we need our links to have an li
+element and not an a element.
+
+60
+00:03:10,980 --> 00:03:14,100
+So how might we
+switch those tags?
+
+61
+00:03:14,100 --> 00:03:18,970
+Well, the link-to helper
+has a tag name option.
+
+62
+00:03:18,970 --> 00:03:24,600
+So if we specify tag name
+equals li for both of our links,
+
+63
+00:03:24,600 --> 00:03:28,300
+sure enough, it's going
+to render out two li's
+
+64
+00:03:28,300 --> 00:03:33,020
+Now you might notice the
+href has disappeared.
+
+65
+00:03:33,020 --> 00:03:35,390
+But it's still going
+to work in the browser.
+
+66
+00:03:35,390 --> 00:03:37,390
+That's because
+Ember's smart enough
+
+67
+00:03:37,390 --> 00:03:40,380
+to hook onto those li
+elements and make it
+
+68
+00:03:40,380 --> 00:03:43,650
+so that the proper
+pages are called up
+
+69
+00:03:43,650 --> 00:03:45,200
+when we click those list items.
+
+70
+00:03:45,200 --> 00:03:47,714
+
+71
+00:03:47,714 --> 00:03:49,380
+So now if we jump
+back into the browser,
+
+72
+00:03:49,380 --> 00:03:54,240
+you can see that both of our
+links are now list items.
+
+73
+00:03:54,240 --> 00:03:58,520
+And if we click on About, it
+properly goes to that page
+
+74
+00:03:58,520 --> 00:04:02,080
+and also sets the active class.
+
+75
+00:04:02,080 --> 00:04:04,500
+Now, if you're following
+along using Twitter Bootstrap,
+
+76
+00:04:04,500 --> 00:04:07,210
+you obviously don't have
+our styles or images.
+
+77
+00:04:07,210 --> 00:04:09,656
+If you want to,
+follow the link below,
+
+78
+00:04:09,656 --> 00:04:11,030
+somewhere around
+this video, that
+
+79
+00:04:11,030 --> 00:04:12,613
+will lead you to the
+GitHub repository
+
+80
+00:04:12,613 --> 00:04:15,445
+where you can download
+that style and images.
+
+81
+00:04:15,445 --> 00:04:18,124
+
+82
+00:04:18,124 --> 00:04:19,540
+Time for you to
+create some links.
+
+83
+00:04:19,540 --> 00:04:22,160
+And I'll see you in
+the next section.
+
+84
+00:04:22,160 --> 00:04:23,754

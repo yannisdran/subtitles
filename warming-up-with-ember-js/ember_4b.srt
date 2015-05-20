@@ -1,0 +1,520 @@
+1
+00:00:00,000 --> 00:00:01,620
+
+2
+00:00:01,620 --> 00:00:04,990
+In the previous section, we
+created our first Ember model
+
+3
+00:00:04,990 --> 00:00:07,120
+that used Ember data.
+
+4
+00:00:07,120 --> 00:00:10,350
+And we also revised
+our product's route
+
+5
+00:00:10,350 --> 00:00:15,300
+so that it pulled the proper
+records out of the Ember store.
+
+6
+00:00:15,300 --> 00:00:20,020
+But what if our model,
+products, was associated
+
+7
+00:00:20,020 --> 00:00:22,422
+with another model,
+like reviews?
+
+8
+00:00:22,422 --> 00:00:23,255
+That's not uncommon.
+
+9
+00:00:23,255 --> 00:00:26,830
+A store has products and
+the product has reviews.
+
+10
+00:00:26,830 --> 00:00:29,290
+How might we create
+those different models
+
+11
+00:00:29,290 --> 00:00:30,650
+and express that relationship?
+
+12
+00:00:30,650 --> 00:00:33,200
+
+13
+00:00:33,200 --> 00:00:36,110
+Let's create another model
+that represents a review.
+
+14
+00:00:36,110 --> 00:00:39,210
+Here you can see it has a
+text field, which is a string,
+
+15
+00:00:39,210 --> 00:00:42,640
+and review at, which is a date.
+
+16
+00:00:42,640 --> 00:00:45,890
+Our next step is to express the
+relationship between these two
+
+17
+00:00:45,890 --> 00:00:47,000
+models.
+
+18
+00:00:47,000 --> 00:00:54,090
+We simply have to write
+reviews, DS.hasMany, review,
+
+19
+00:00:54,090 --> 00:00:58,590
+and then we'll specify an
+option called async:true.
+
+20
+00:00:58,590 --> 00:01:01,360
+This will allow
+for lazy loading.
+
+21
+00:01:01,360 --> 00:01:04,370
+This means when we're iterating
+to the products later,
+
+22
+00:01:04,370 --> 00:01:06,820
+and we want to print out
+a review for a product,
+
+23
+00:01:06,820 --> 00:01:10,080
+it will be smart enough
+to then go and fetch
+
+24
+00:01:10,080 --> 00:01:13,300
+the records out of the
+store for those reviews
+
+25
+00:01:13,300 --> 00:01:15,600
+so we can print
+them to the page.
+
+26
+00:01:15,600 --> 00:01:18,550
+We also might want to
+express the opposite side
+
+27
+00:01:18,550 --> 00:01:19,690
+of the relationship.
+
+28
+00:01:19,690 --> 00:01:22,310
+This wouldn't be
+required in our example,
+
+29
+00:01:22,310 --> 00:01:23,900
+but it might be good to do.
+
+30
+00:01:23,900 --> 00:01:30,840
+So we'll say
+product:DS.belongsto product.
+
+31
+00:01:30,840 --> 00:01:33,870
+Next, we'll create
+our review fixtures.
+
+32
+00:01:33,870 --> 00:01:36,570
+They're going to require
+an ID, and we're just
+
+33
+00:01:36,570 --> 00:01:41,510
+going to specify text and
+give our review some text.
+
+34
+00:01:41,510 --> 00:01:45,957
+Finally, we'll map those
+reviews back to a product.
+
+35
+00:01:45,957 --> 00:01:48,540
+The first one will be mapped to
+product one and the second one
+
+36
+00:01:48,540 --> 00:01:51,910
+also product one.
+
+37
+00:01:51,910 --> 00:01:54,950
+Now we'll want to go back
+to our product fixtures
+
+38
+00:01:54,950 --> 00:01:57,070
+and add those associations.
+
+39
+00:01:57,070 --> 00:01:59,510
+So here we can say
+reviews, and we'll
+
+40
+00:01:59,510 --> 00:02:04,340
+specify the IDs of each of
+the reviews for this product.
+
+41
+00:02:04,340 --> 00:02:07,230
+If you're maybe a Ruby developer
+and familiar with ActiveRecord,
+
+42
+00:02:07,230 --> 00:02:08,940
+you're probably
+wondering about now
+
+43
+00:02:08,940 --> 00:02:10,780
+why we need to represent
+the relationship
+
+44
+00:02:10,780 --> 00:02:14,170
+in both directions, and tell the
+reviews what product it belongs
+
+45
+00:02:14,170 --> 00:02:16,720
+to, and the product
+what reviews it has.
+
+46
+00:02:16,720 --> 00:02:19,870
+Well this is just because
+we're using fixtures.
+
+47
+00:02:19,870 --> 00:02:23,030
+Obviously, if you were
+using a back end server,
+
+48
+00:02:23,030 --> 00:02:25,790
+you could map things
+however you want.
+
+49
+00:02:25,790 --> 00:02:28,830
+But because we're using
+fixtures, what's important here
+
+50
+00:02:28,830 --> 00:02:33,900
+is that we map products to
+reviews, because we're always
+
+51
+00:02:33,900 --> 00:02:36,270
+going to be looking up the
+product first, and listing
+
+52
+00:02:36,270 --> 00:02:37,650
+the reviews underneath it.
+
+53
+00:02:37,650 --> 00:02:40,690
+So it's most important
+that our product
+
+54
+00:02:40,690 --> 00:02:44,070
+knows what reviews it contains.
+
+55
+00:02:44,070 --> 00:02:45,390
+Not the other way around.
+
+56
+00:02:45,390 --> 00:02:47,050
+Our reviews,
+technically, don't need
+
+57
+00:02:47,050 --> 00:02:50,490
+to know what products
+they belong to.
+
+58
+00:02:50,490 --> 00:02:53,490
+Now, back inside of
+our product template,
+
+59
+00:02:53,490 --> 00:02:55,660
+we're going to show the reviews.
+
+60
+00:02:55,660 --> 00:02:59,750
+We'll loop over them saying
+each review in reviews.
+
+61
+00:02:59,750 --> 00:03:02,710
+And then we'll print
+out the review text.
+
+62
+00:03:02,710 --> 00:03:04,220
+Fairly simple.
+
+63
+00:03:04,220 --> 00:03:07,170
+Once again, we can
+simplify this each loop
+
+64
+00:03:07,170 --> 00:03:11,760
+and just specify each reviews
+and then the text element
+
+65
+00:03:11,760 --> 00:03:12,780
+we want to print out.
+
+66
+00:03:12,780 --> 00:03:15,422
+
+67
+00:03:15,422 --> 00:03:17,130
+We also might want to
+print something out
+
+68
+00:03:17,130 --> 00:03:20,160
+when a product has
+no reviews at all.
+
+69
+00:03:20,160 --> 00:03:25,050
+In this case, our each
+loop has an else condition
+
+70
+00:03:25,050 --> 00:03:27,000
+that will be run when
+there are no reviews.
+
+71
+00:03:27,000 --> 00:03:31,900
+So, here we can say, no reviews
+yet, be the first to write one.
+
+72
+00:03:31,900 --> 00:03:33,430
+Now when we go back
+to our page, we
+
+73
+00:03:33,430 --> 00:03:38,700
+can see that our Flint has two
+reviews there at the bottom.
+
+74
+00:03:38,700 --> 00:03:40,670
+And now if we click
+on Kindling, we
+
+75
+00:03:40,670 --> 00:03:47,160
+can see that it has no reviews
+yet, be the first to write one.
+
+76
+00:03:47,160 --> 00:03:49,170
+Before we set you loose
+on the challenges,
+
+77
+00:03:49,170 --> 00:03:51,280
+I did promise you I
+was going to show you
+
+78
+00:03:51,280 --> 00:03:56,460
+how to make restful server calls
+to fetch this product in review
+
+79
+00:03:56,460 --> 00:03:57,430
+data.
+
+80
+00:03:57,430 --> 00:03:59,550
+And it's really
+simple to get started.
+
+81
+00:03:59,550 --> 00:04:03,460
+All we have to do is set our
+Ember application adapter
+
+82
+00:04:03,460 --> 00:04:07,260
+to the Ember data rest adapter.
+
+83
+00:04:07,260 --> 00:04:09,950
+Once we do this, and we
+go back into our browser,
+
+84
+00:04:09,950 --> 00:04:13,410
+we can see that it attempted
+to do a server request
+
+85
+00:04:13,410 --> 00:04:16,620
+to localhost:3000/products.
+
+86
+00:04:16,620 --> 00:04:21,220
+And I didn't find any JSON data.
+
+87
+00:04:21,220 --> 00:04:24,610
+So from here, we could either
+create a file, called products
+
+88
+00:04:24,610 --> 00:04:26,920
+with some JSON data
+in it, or we can even
+
+89
+00:04:26,920 --> 00:04:31,420
+create a server that might
+have a database with a products
+
+90
+00:04:31,420 --> 00:04:34,220
+table and a reviews table.
+
+91
+00:04:34,220 --> 00:04:36,080
+And our Ember
+application would want
+
+92
+00:04:36,080 --> 00:04:39,900
+us to create JSON that
+looks something like this.
+
+93
+00:04:39,900 --> 00:04:43,460
+You can see this returns
+both an array of products,
+
+94
+00:04:43,460 --> 00:04:45,660
+and an array of reviews.
+
+95
+00:04:45,660 --> 00:04:50,970
+And each product specifies
+which reviews it has many of.
+
+96
+00:04:50,970 --> 00:04:52,920
+Now, if we go back
+to our server,
+
+97
+00:04:52,920 --> 00:04:54,570
+the first time we
+load up the server,
+
+98
+00:04:54,570 --> 00:04:59,680
+you can see it did one request,
+called up all the JSON,
+
+99
+00:04:59,680 --> 00:05:02,720
+and now we can navigate
+through our website listing
+
+100
+00:05:02,720 --> 00:05:05,380
+out the products, getting
+the product information.
+
+101
+00:05:05,380 --> 00:05:07,920
+It's not connecting back
+to the server at all.
+
+102
+00:05:07,920 --> 00:05:10,580
+It's keeping everything
+on the client side
+
+103
+00:05:10,580 --> 00:05:15,910
+and simply accessing the
+storage and pulling records
+
+104
+00:05:15,910 --> 00:05:18,640
+onto the page.
+
+105
+00:05:18,640 --> 00:05:20,550
+So now you know all
+of the components
+
+106
+00:05:20,550 --> 00:05:23,560
+you need to build a
+basic Ember application.
+
+107
+00:05:23,560 --> 00:05:27,620
+There's a lot more to it,
+so get to those challenges.
+
+108
+00:05:27,620 --> 00:05:30,080
+We wong.
+
+109
+00:05:30,080 --> 00:05:31,785
+So this evening,
+I won't be talking
+
+110
+00:05:31,785 --> 00:05:35,660
+about Acorn Models and
+Pinecone Data, to the ladies.

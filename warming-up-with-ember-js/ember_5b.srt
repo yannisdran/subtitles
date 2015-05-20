@@ -1,0 +1,360 @@
+1
+00:00:00,000 --> 00:00:02,040
+
+2
+00:00:02,040 --> 00:00:03,630
+So in the previous
+section, we learned
+
+3
+00:00:03,630 --> 00:00:07,560
+how to sort the array of
+products inside the controller,
+
+4
+00:00:07,560 --> 00:00:10,080
+like you see here,
+and we also learned
+
+5
+00:00:10,080 --> 00:00:13,940
+how to create a property tied
+to a method on the model,
+
+6
+00:00:13,940 --> 00:00:17,140
+in this case, length.
+
+7
+00:00:17,140 --> 00:00:19,840
+The next thing we want
+to add to our home page
+
+8
+00:00:19,840 --> 00:00:25,130
+is a list of three
+products which are on sale.
+
+9
+00:00:25,130 --> 00:00:27,300
+To do this, we're going
+to create a new property
+
+10
+00:00:27,300 --> 00:00:29,060
+inside of our controller.
+
+11
+00:00:29,060 --> 00:00:33,330
+Remember, it's our controller
+that decorates our model.
+
+12
+00:00:33,330 --> 00:00:36,060
+So we have an
+onSale property here
+
+13
+00:00:36,060 --> 00:00:38,620
+that needs to return for
+us three products that
+
+14
+00:00:38,620 --> 00:00:40,440
+are on sale.
+
+15
+00:00:40,440 --> 00:00:43,630
+We're going to use a
+filter here to filter
+
+16
+00:00:43,630 --> 00:00:49,350
+through our current products
+and find three that are on sale.
+
+17
+00:00:49,350 --> 00:00:51,320
+Inside this property
+function, we're
+
+18
+00:00:51,320 --> 00:00:53,540
+going to use the
+filter method, which
+
+19
+00:00:53,540 --> 00:00:57,050
+is a method inside
+array controller.
+
+20
+00:00:57,050 --> 00:00:59,570
+It will allow us to loop
+over all the products
+
+21
+00:00:59,570 --> 00:01:02,450
+and return only those
+that return true
+
+22
+00:01:02,450 --> 00:01:04,709
+from the inner function.
+
+23
+00:01:04,709 --> 00:01:06,600
+So inside there, we're
+going to write return
+
+24
+00:01:06,600 --> 00:01:07,599
+product.get("isOnSale").
+
+25
+00:01:07,599 --> 00:01:09,750
+
+26
+00:01:09,750 --> 00:01:14,350
+That isOnSale property
+is either true or false.
+
+27
+00:01:14,350 --> 00:01:16,890
+So if it returns
+true, then it's going
+
+28
+00:01:16,890 --> 00:01:19,950
+to keep that particular
+product in the array.
+
+29
+00:01:19,950 --> 00:01:24,260
+If it's false, it's
+going to filter it out.
+
+30
+00:01:24,260 --> 00:01:26,000
+There's a simpler
+way to write this
+
+31
+00:01:26,000 --> 00:01:28,580
+by using the filterBy method.
+
+32
+00:01:28,580 --> 00:01:31,590
+Here, we specify
+isOnSale because that's
+
+33
+00:01:31,590 --> 00:01:34,290
+how we want to
+filter things, and we
+
+34
+00:01:34,290 --> 00:01:38,840
+want to return only products
+which isOnSale is true.
+
+35
+00:01:38,840 --> 00:01:41,320
+So we set that in as
+the second parameter.
+
+36
+00:01:41,320 --> 00:01:44,200
+It turns out the second
+argument, by default,
+
+37
+00:01:44,200 --> 00:01:46,040
+is going to be true.
+
+38
+00:01:46,040 --> 00:01:49,920
+So we can simplify this and
+just say filterBy("isOnSale"),
+
+39
+00:01:49,920 --> 00:01:52,640
+which is going to return for us
+an array of products which are
+
+40
+00:01:52,640 --> 00:01:54,470
+on sale.
+
+41
+00:01:54,470 --> 00:01:56,770
+However, this is going to
+return all the products that
+
+42
+00:01:56,770 --> 00:01:58,810
+are on sale, and
+we only want three
+
+43
+00:01:58,810 --> 00:02:00,680
+to display on the home page.
+
+44
+00:02:00,680 --> 00:02:03,860
+So to return the first
+three on sale products,
+
+45
+00:02:03,860 --> 00:02:07,960
+we simply use a JavaScript
+function called slice.
+
+46
+00:02:07,960 --> 00:02:11,880
+This will give us the first
+three items in the array.
+
+47
+00:02:11,880 --> 00:02:15,490
+Now back in our index template,
+to loop through each of our
+
+48
+00:02:15,490 --> 00:02:20,090
+on sale products,
+we call each onSale,
+
+49
+00:02:20,090 --> 00:02:23,780
+and it's going to loop
+through each of the products.
+
+50
+00:02:23,780 --> 00:02:27,790
+Finally, we'll write some HTML,
+printing out the proper product
+
+51
+00:02:27,790 --> 00:02:29,420
+properties to the page.
+
+52
+00:02:29,420 --> 00:02:33,240
+
+53
+00:02:33,240 --> 00:02:34,730
+If we jump back
+into our browser,
+
+54
+00:02:34,730 --> 00:02:40,170
+we now see we have three on sale
+properties on our home page.
+
+55
+00:02:40,170 --> 00:02:42,820
+Now if we jump
+into Ember console,
+
+56
+00:02:42,820 --> 00:02:44,540
+we click over on
+the Data tab, we
+
+57
+00:02:44,540 --> 00:02:46,530
+can see our different products.
+
+58
+00:02:46,530 --> 00:02:50,610
+Let's try selecting one and
+changing isOnSale to false.
+
+59
+00:02:50,610 --> 00:02:53,510
+It should-- hm,
+nothing happened.
+
+60
+00:02:53,510 --> 00:02:56,560
+You might have expected it to
+get removed from the home page,
+
+61
+00:02:56,560 --> 00:03:00,180
+but it didn't when we
+set isOnSale to false.
+
+62
+00:03:00,180 --> 00:03:05,220
+Hm, what code would we have
+to write to make this happen?
+
+63
+00:03:05,220 --> 00:03:07,320
+To fix this, we need to
+jump back inside our index
+
+64
+00:03:07,320 --> 00:03:09,810
+controller, and we
+need to tell our code
+
+65
+00:03:09,810 --> 00:03:12,360
+that any time the
+isOnSale property
+
+66
+00:03:12,360 --> 00:03:19,090
+changes inside any product to go
+ahead and refresh the template.
+
+67
+00:03:19,090 --> 00:03:22,870
+To do this, we
+write each.isOnSale.
+
+68
+00:03:22,870 --> 00:03:26,380
+This is going to watch the
+isOnSale property on all
+
+69
+00:03:26,380 --> 00:03:29,380
+of our products, and
+if any of them change,
+
+70
+00:03:29,380 --> 00:03:33,240
+it's going to
+update our template.
+
+71
+00:03:33,240 --> 00:03:35,080
+So now if we jump
+back into our browser
+
+72
+00:03:35,080 --> 00:03:38,810
+and change isOnSale to false
+for one of our products,
+
+73
+00:03:38,810 --> 00:03:43,116
+we can see that the template
+is properly updated.
+
+74
+00:03:43,116 --> 00:03:45,740
+We've got a few more challenges
+working with array controllers.
+
+75
+00:03:45,740 --> 00:03:48,210
+And I'll see you in
+the next section.
+
+76
+00:03:48,210 --> 00:03:49,180

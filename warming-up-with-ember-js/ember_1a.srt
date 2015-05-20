@@ -1,0 +1,767 @@
+1
+00:00:00,000 --> 00:00:03,030
+
+2
+00:00:03,030 --> 00:00:05,635
+(SINGING) An Ember wrap contains
+it all-- your templates,
+
+3
+00:00:05,635 --> 00:00:06,760
+big and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,509
+There are routers,
+roots, components too--
+
+5
+00:00:08,509 --> 00:00:09,970
+let Ember models work for you.
+
+6
+00:00:09,970 --> 00:00:13,540
+Controllers to help decorate the
+views, which you can integrate.
+
+7
+00:00:13,540 --> 00:00:14,620
+Mix them together.
+
+8
+00:00:14,620 --> 00:00:17,220
+In December-- warming
+up with Ember.
+
+9
+00:00:17,220 --> 00:00:23,090
+
+10
+00:00:23,090 --> 00:00:25,074
+You're watching Warming
+Up With Ember.js.
+
+11
+00:00:25,074 --> 00:00:26,490
+And this is level
+one, where we're
+
+12
+00:00:26,490 --> 00:00:30,880
+going to be talking about
+how to get set up with Ember.
+
+13
+00:00:30,880 --> 00:00:33,270
+Ember.js is a
+JavaScript framework
+
+14
+00:00:33,270 --> 00:00:36,462
+used to create ambitious
+web applications.
+
+15
+00:00:36,462 --> 00:00:37,920
+And there's a lot
+of companies that
+
+16
+00:00:37,920 --> 00:00:42,280
+have used it, in some
+form, to create their own.
+
+17
+00:00:42,280 --> 00:00:44,390
+In order to learn
+Ember.js, you're
+
+18
+00:00:44,390 --> 00:00:49,090
+going to need to be familiar
+with HTML, CSS, JavaScript,
+
+19
+00:00:49,090 --> 00:00:50,140
+and jQuery.
+
+20
+00:00:50,140 --> 00:00:52,510
+If you're not, Code School
+has some great courses
+
+21
+00:00:52,510 --> 00:00:53,620
+on that topic.
+
+22
+00:00:53,620 --> 00:00:55,940
+Head over to the
+JavaScript path.
+
+23
+00:00:55,940 --> 00:00:59,810
+You do not need to know any
+of the back-end frameworks,
+
+24
+00:00:59,810 --> 00:01:04,730
+like Ruby on Rails or
+Django, to learn Ember,
+
+25
+00:01:04,730 --> 00:01:07,360
+because Ember.js is a
+JavaScript framework.
+
+26
+00:01:07,360 --> 00:01:11,020
+So it resides on the front-end.
+
+27
+00:01:11,020 --> 00:01:13,710
+Here's an example of an
+application that uses Ember.
+
+28
+00:01:13,710 --> 00:01:14,770
+This is Discourse.
+
+29
+00:01:14,770 --> 00:01:16,980
+It's, effectively,
+a discussion board.
+
+30
+00:01:16,980 --> 00:01:19,200
+And as I click
+around on Discourse,
+
+31
+00:01:19,200 --> 00:01:21,910
+you'll notice the pages
+load pretty quick.
+
+32
+00:01:21,910 --> 00:01:25,020
+It's very responsive,
+you might say.
+
+33
+00:01:25,020 --> 00:01:28,200
+This is one of
+Ember's strong points.
+
+34
+00:01:28,200 --> 00:01:32,710
+Discourse, itself, is also
+a very dynamic website.
+
+35
+00:01:32,710 --> 00:01:34,660
+A lot of the content
+in there is getting
+
+36
+00:01:34,660 --> 00:01:37,170
+loaded from some sort of
+database on the back-end.
+
+37
+00:01:37,170 --> 00:01:40,130
+
+38
+00:01:40,130 --> 00:01:42,480
+In a typical web
+application, we probably
+
+39
+00:01:42,480 --> 00:01:44,790
+fetch information from
+the database and use
+
+40
+00:01:44,790 --> 00:01:46,740
+that to render out
+HTML, which we then
+
+41
+00:01:46,740 --> 00:01:49,000
+send back to the browser.
+
+42
+00:01:49,000 --> 00:01:52,320
+Some web applications
+also have APIs,
+
+43
+00:01:52,320 --> 00:01:54,370
+which might be
+used to communicate
+
+44
+00:01:54,370 --> 00:01:57,140
+to native applications,
+like maybe on your iPhone,
+
+45
+00:01:57,140 --> 00:02:01,080
+through iOS, or on
+your Android phone.
+
+46
+00:02:01,080 --> 00:02:03,790
+But here's what's
+interesting about Ember.
+
+47
+00:02:03,790 --> 00:02:06,200
+See, Ember sits on
+the client side,
+
+48
+00:02:06,200 --> 00:02:08,370
+and it communicates
+with your application
+
+49
+00:02:08,370 --> 00:02:12,150
+through that same API,
+pulling data and then
+
+50
+00:02:12,150 --> 00:02:14,390
+rendering different
+templates to the screen.
+
+51
+00:02:14,390 --> 00:02:17,590
+
+52
+00:02:17,590 --> 00:02:19,870
+Not only does Ember make
+navigation from page
+
+53
+00:02:19,870 --> 00:02:22,450
+to page quick, but if you
+want to provide your user
+
+54
+00:02:22,450 --> 00:02:25,180
+with instant
+feedback, like, say,
+
+55
+00:02:25,180 --> 00:02:27,570
+a preview of the
+reviews they're typing,
+
+56
+00:02:27,570 --> 00:02:29,040
+Ember makes this super simple.
+
+57
+00:02:29,040 --> 00:02:33,020
+
+58
+00:02:33,020 --> 00:02:34,730
+You wouldn't want
+to use Ember.js
+
+59
+00:02:34,730 --> 00:02:37,710
+when your application doesn't
+have a lot of interactivity,
+
+60
+00:02:37,710 --> 00:02:43,030
+like, say, with a blog, or a
+newspaper, or a static website.
+
+61
+00:02:43,030 --> 00:02:46,131
+It might be overkill to go
+through and build a full stack
+
+62
+00:02:46,131 --> 00:02:46,880
+Ember application.
+
+63
+00:02:46,880 --> 00:02:49,820
+
+64
+00:02:49,820 --> 00:02:51,900
+To start building an
+Ember application,
+
+65
+00:02:51,900 --> 00:02:53,940
+you'll want to go to the
+official Ember website
+
+66
+00:02:53,940 --> 00:02:56,030
+and download the starter
+kit they have there.
+
+67
+00:02:56,030 --> 00:03:00,050
+It contains all the libraries
+you need to get going.
+
+68
+00:03:00,050 --> 00:03:03,020
+Also, if you want to communicate
+with a back-end server
+
+69
+00:03:03,020 --> 00:03:06,620
+and pull data through an API
+into your Ember application,
+
+70
+00:03:06,620 --> 00:03:10,080
+then you might also
+want to grab Ember Data.
+
+71
+00:03:10,080 --> 00:03:11,890
+Next up, in our
+application, we're
+
+72
+00:03:11,890 --> 00:03:14,180
+going to be using
+Twitter Bootstrap, just
+
+73
+00:03:14,180 --> 00:03:17,319
+to make our website
+organized and look pretty.
+
+74
+00:03:17,319 --> 00:03:19,110
+And so you might want
+to grab that as well,
+
+75
+00:03:19,110 --> 00:03:21,110
+if you're going to follow
+along with our course.
+
+76
+00:03:21,110 --> 00:03:23,639
+
+77
+00:03:23,639 --> 00:03:25,430
+You could play around
+with the starter kit,
+
+78
+00:03:25,430 --> 00:03:28,060
+but we're going to build an
+Ember application from scratch,
+
+79
+00:03:28,060 --> 00:03:31,450
+so you can see what it looks
+like from the ground up.
+
+80
+00:03:31,450 --> 00:03:35,290
+So let's start by building
+our index.html page.
+
+81
+00:03:35,290 --> 00:03:38,690
+We'll start by including the
+jQuery framework, as well
+
+82
+00:03:38,690 --> 00:03:42,830
+as the Handlebars framework,
+which we'll go into later.
+
+83
+00:03:42,830 --> 00:03:45,850
+Then we'll include the
+base Ember.js framework
+
+84
+00:03:45,850 --> 00:03:49,050
+file, as well as the
+Ember Data library.
+
+85
+00:03:49,050 --> 00:03:50,740
+Lastly, we'll include
+a file that we're
+
+86
+00:03:50,740 --> 00:03:53,210
+going to create-- app.js.
+
+87
+00:03:53,210 --> 00:03:56,580
+Now, we're going to be working
+in this app.js file for most
+
+88
+00:03:56,580 --> 00:03:57,610
+of this course.
+
+89
+00:03:57,610 --> 00:03:59,630
+This is where all of
+our custom JavaScript
+
+90
+00:03:59,630 --> 00:04:01,380
+is going to be placed.
+
+91
+00:04:01,380 --> 00:04:03,800
+And lastly, we have our
+Twitter Bootstrap style sheet.
+
+92
+00:04:03,800 --> 00:04:07,177
+
+93
+00:04:07,177 --> 00:04:09,510
+As you might have noticed
+with the theme of this course,
+
+94
+00:04:09,510 --> 00:04:12,047
+it all centers around
+these fire sprites.
+
+95
+00:04:12,047 --> 00:04:14,130
+So we're going to create
+an online store for them,
+
+96
+00:04:14,130 --> 00:04:17,500
+because even fire sprites
+need online shopping.
+
+97
+00:04:17,500 --> 00:04:21,260
+And they can buy things like
+Flint, Matches, and Tinder
+
+98
+00:04:21,260 --> 00:04:24,315
+in our online store,
+called The Flint & Flame.
+
+99
+00:04:24,315 --> 00:04:25,690
+In this first
+level, we're simply
+
+100
+00:04:25,690 --> 00:04:29,570
+going to be building out the
+main Index page and the About
+
+101
+00:04:29,570 --> 00:04:31,720
+page.
+
+102
+00:04:31,720 --> 00:04:34,180
+And the first step to
+build an Ember application
+
+103
+00:04:34,180 --> 00:04:37,410
+is to create our
+application object.
+
+104
+00:04:37,410 --> 00:04:42,070
+This application contains
+everything about our Ember app,
+
+105
+00:04:42,070 --> 00:04:46,030
+and we basically namespace
+it by calling it App.
+
+106
+00:04:46,030 --> 00:04:49,540
+But you could have called
+it anything you wanted to.
+
+107
+00:04:49,540 --> 00:04:51,330
+You see that little icon there?
+
+108
+00:04:51,330 --> 00:04:54,932
+Well, that means we're talking
+about the Ember application,
+
+109
+00:04:54,932 --> 00:04:56,640
+and we're going to
+use that icon whenever
+
+110
+00:04:56,640 --> 00:04:58,780
+we're talking about
+our application.
+
+111
+00:04:58,780 --> 00:05:00,790
+It's the roots of our app.
+
+112
+00:05:00,790 --> 00:05:03,050
+And we basically only need
+to create one of them,
+
+113
+00:05:03,050 --> 00:05:06,550
+and all the other
+components grow from there.
+
+114
+00:05:06,550 --> 00:05:09,752
+
+115
+00:05:09,752 --> 00:05:11,710
+The first thing we can
+do with this application
+
+116
+00:05:11,710 --> 00:05:15,850
+is send in a series of options
+as a JavaScript object.
+
+117
+00:05:15,850 --> 00:05:18,850
+For example, if we wanted to
+log out a message to the browser
+
+118
+00:05:18,850 --> 00:05:21,110
+every time a page
+is accessed, we
+
+119
+00:05:21,110 --> 00:05:23,085
+could set
+LOG_TRANSITIONS to true.
+
+120
+00:05:23,085 --> 00:05:28,750
+
+121
+00:05:28,750 --> 00:05:32,190
+Now let's build out a little
+more of our index.html.
+
+122
+00:05:32,190 --> 00:05:34,190
+We'll have a navbar.
+
+123
+00:05:34,190 --> 00:05:38,030
+We'll have a container,
+and we'll have our footer.
+
+124
+00:05:38,030 --> 00:05:40,640
+To open this application,
+we can actually just
+
+125
+00:05:40,640 --> 00:05:43,350
+double-click on the index.html.
+
+126
+00:05:43,350 --> 00:05:46,820
+You don't need any server
+to run an Ember application.
+
+127
+00:05:46,820 --> 00:05:50,540
+So if we did that, and we looked
+at the source of our HTML,
+
+128
+00:05:50,540 --> 00:05:52,620
+we would see
+something interesting.
+
+129
+00:05:52,620 --> 00:05:54,830
+We would see that
+Ember added a body
+
+130
+00:05:54,830 --> 00:05:59,050
+class and a data-ember-extension
+to our code.
+
+131
+00:05:59,050 --> 00:06:02,625
+This is so Ember knows what part
+of our web page it can control.
+
+132
+00:06:02,625 --> 00:06:06,130
+
+133
+00:06:06,130 --> 00:06:08,600
+In our store, we're going
+to be dynamically updating
+
+134
+00:06:08,600 --> 00:06:12,200
+parts of the page, based
+on what people click on.
+
+135
+00:06:12,200 --> 00:06:15,490
+And in order to do
+that, we need some way
+
+136
+00:06:15,490 --> 00:06:19,140
+of telling our browser
+what parts of our page
+
+137
+00:06:19,140 --> 00:06:21,090
+are dynamic and can be changed.
+
+138
+00:06:21,090 --> 00:06:25,427
+
+139
+00:06:25,427 --> 00:06:27,510
+To do this, we're going
+to wrap our three elements
+
+140
+00:06:27,510 --> 00:06:28,870
+in a template.
+
+141
+00:06:28,870 --> 00:06:32,940
+By default, Ember.js
+uses Handlebars template.
+
+142
+00:06:32,940 --> 00:06:34,860
+Remember the library
+we included earlier,
+
+143
+00:06:34,860 --> 00:06:37,110
+the Handlebars library?
+
+144
+00:06:37,110 --> 00:06:38,840
+So to wrap these in
+a template, we're
+
+145
+00:06:38,840 --> 00:06:42,820
+simply going to use the
+script tag, like you see here.
+
+146
+00:06:42,820 --> 00:06:44,175
+This is a Handlebars template.
+
+147
+00:06:44,175 --> 00:06:49,240
+
+148
+00:06:49,240 --> 00:06:52,580
+So now, if we open up our
+index.html in our browser
+
+149
+00:06:52,580 --> 00:06:54,950
+and inspect the
+page, we'll notice
+
+150
+00:06:54,950 --> 00:06:58,540
+that a new div has been added,
+representing that Handlebars
+
+151
+00:06:58,540 --> 00:06:59,920
+template.
+
+152
+00:06:59,920 --> 00:07:02,951
+And it even generated a
+unique id for that div.
+
+153
+00:07:02,951 --> 00:07:06,796
+
+154
+00:07:06,796 --> 00:07:08,670
+Whenever we're talking
+about Ember templates,
+
+155
+00:07:08,670 --> 00:07:10,510
+you're going to
+see this leaf icon.
+
+156
+00:07:10,510 --> 00:07:14,780
+Templates contain plain
+old HTML, and, of course,
+
+157
+00:07:14,780 --> 00:07:18,960
+Ember uses Handlebars.js, as
+I mentioned, for templates.
+
+158
+00:07:18,960 --> 00:07:21,720
+And really, it represents
+the part of the application
+
+159
+00:07:21,720 --> 00:07:22,930
+that people see.
+
+160
+00:07:22,930 --> 00:07:24,000
+That's why it's a leaf.
+
+161
+00:07:24,000 --> 00:07:27,160
+
+162
+00:07:27,160 --> 00:07:29,180
+Before we get much
+further, let's make sure
+
+163
+00:07:29,180 --> 00:07:30,770
+that you understand
+what we're doing
+
+164
+00:07:30,770 --> 00:07:34,620
+and get you starting to build
+your first Ember application.
+
+165
+00:07:34,620 --> 00:07:36,108

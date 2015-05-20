@@ -1,0 +1,491 @@
+1
+00:00:00,000 --> 00:00:03,440
+
+2
+00:00:03,440 --> 00:00:05,136
+[SINGING] An Ember
+wrap contains it all,
+
+3
+00:00:05,136 --> 00:00:06,760
+your templates big
+and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,343
+They're in routers,
+routes, components
+
+5
+00:00:08,343 --> 00:00:09,970
+to let ember models
+work for you.
+
+6
+00:00:09,970 --> 00:00:13,260
+Controllers to help decorate the
+views which you can integrate.
+
+7
+00:00:13,260 --> 00:00:18,080
+Mix some together in December,
+warming up with ember.
+
+8
+00:00:18,080 --> 00:00:23,350
+
+9
+00:00:23,350 --> 00:00:25,840
+Welcome back to Warming
+Up with Ember.js.
+
+10
+00:00:25,840 --> 00:00:27,870
+In this level,
+Level 6, we're going
+
+11
+00:00:27,870 --> 00:00:30,120
+through the template forest.
+
+12
+00:00:30,120 --> 00:00:31,320
+Going through the forest.
+
+13
+00:00:31,320 --> 00:00:34,444
+Looking out for the trees and
+the lions and tigers and bears.
+
+14
+00:00:34,444 --> 00:00:35,860
+In this first
+section, we're going
+
+15
+00:00:35,860 --> 00:00:37,380
+to be looking over components.
+
+16
+00:00:37,380 --> 00:00:38,790
+Let's get into it.
+
+17
+00:00:38,790 --> 00:00:42,990
+In the previous level, we worked
+with a bunch of product models.
+
+18
+00:00:42,990 --> 00:00:45,460
+We find all the products
+in the Products Route,
+
+19
+00:00:45,460 --> 00:00:48,630
+and then in the
+Products On Sale Route,
+
+20
+00:00:48,630 --> 00:00:51,030
+we were getting the model
+from the Parent Route
+
+21
+00:00:51,030 --> 00:00:54,750
+and filtering that down to just
+the ones that were on sale.
+
+22
+00:00:54,750 --> 00:00:59,900
+Then, on both the Index template
+and the Product/ On Sale
+
+23
+00:00:59,900 --> 00:01:03,320
+template, we were printing
+out a list of products.
+
+24
+00:01:03,320 --> 00:01:04,819
+But you might have
+noticed we were
+
+25
+00:01:04,819 --> 00:01:10,190
+using the same HTML
+in both places.
+
+26
+00:01:10,190 --> 00:01:12,000
+So in this level, we're
+going to figure out
+
+27
+00:01:12,000 --> 00:01:15,452
+how to remove some
+of that duplication.
+
+28
+00:01:15,452 --> 00:01:16,910
+To do this, we're
+going to be using
+
+29
+00:01:16,910 --> 00:01:20,180
+an Ember Component,
+this icon here.
+
+30
+00:01:20,180 --> 00:01:22,890
+Ember Components are
+similar to web components,
+
+31
+00:01:22,890 --> 00:01:24,220
+if you're familiar with those.
+
+32
+00:01:24,220 --> 00:01:26,020
+If you're not, that's OK too.
+
+33
+00:01:26,020 --> 00:01:28,200
+We can split out any
+part of our web page
+
+34
+00:01:28,200 --> 00:01:32,140
+into reusable components
+using an Ember Component,
+
+35
+00:01:32,140 --> 00:01:35,650
+and we can also wrap
+user interactivity.
+
+36
+00:01:35,650 --> 00:01:39,770
+You'll see what we
+mean in a minute.
+
+37
+00:01:39,770 --> 00:01:41,770
+Back in our Ember
+diagram, we can
+
+38
+00:01:41,770 --> 00:01:45,320
+see that components fit
+down there at the bottom.
+
+39
+00:01:45,320 --> 00:01:49,990
+They're something we use
+after the Controller that
+
+40
+00:01:49,990 --> 00:01:53,320
+helps us with our templates.
+
+41
+00:01:53,320 --> 00:01:55,550
+Back inside of our
+Index template,
+
+42
+00:01:55,550 --> 00:01:58,190
+you can see here
+the HTML code that
+
+43
+00:01:58,190 --> 00:02:01,170
+is going to be moved
+into a component.
+
+44
+00:02:01,170 --> 00:02:04,280
+First let's shrink
+it down, and then
+
+45
+00:02:04,280 --> 00:02:06,680
+we're going to take
+the contents there,
+
+46
+00:02:06,680 --> 00:02:12,450
+and we're going to move it
+into a new template, like so.
+
+47
+00:02:12,450 --> 00:02:14,480
+Later on, on the
+top template, we'll
+
+48
+00:02:14,480 --> 00:02:16,030
+write some code
+that will tell it
+
+49
+00:02:16,030 --> 00:02:18,650
+to render what we just
+put on the bottom.
+
+50
+00:02:18,650 --> 00:02:21,620
+But our first step is we
+need to name this template.
+
+51
+00:02:21,620 --> 00:02:24,055
+We're going to name it
+component/product-details.
+
+52
+00:02:24,055 --> 00:02:27,830
+
+53
+00:02:27,830 --> 00:02:31,580
+The template name for all
+components must start with
+
+54
+00:02:31,580 --> 00:02:38,630
+components/, and also, all
+components need to have a dash
+
+55
+00:02:38,630 --> 00:02:41,550
+in the component name.
+
+56
+00:02:41,550 --> 00:02:45,197
+Back inside our Index template,
+to render our new component,
+
+57
+00:02:45,197 --> 00:02:46,530
+we simply write product-details.
+
+58
+00:02:46,530 --> 00:02:49,300
+
+59
+00:02:49,300 --> 00:02:50,680
+But there's one more step here.
+
+60
+00:02:50,680 --> 00:02:54,320
+We need to send some sort
+of data to our component
+
+61
+00:02:54,320 --> 00:02:56,280
+so it will render that
+out to the screen,
+
+62
+00:02:56,280 --> 00:02:59,740
+so it knows what we're talking
+about when we say Title.
+
+63
+00:02:59,740 --> 00:03:03,950
+To pass our current
+product into our component,
+
+64
+00:03:03,950 --> 00:03:07,760
+we simply write product = this.
+
+65
+00:03:07,760 --> 00:03:10,304
+Then, inside of our
+Product Details component,
+
+66
+00:03:10,304 --> 00:03:11,720
+we can simply write
+product.title.
+
+67
+00:03:11,720 --> 00:03:14,380
+
+68
+00:03:14,380 --> 00:03:17,310
+You remember how, every
+time we create a template,
+
+69
+00:03:17,310 --> 00:03:19,740
+it wraps things in a div?
+
+70
+00:03:19,740 --> 00:03:22,460
+So really, by creating
+this component right now,
+
+71
+00:03:22,460 --> 00:03:26,670
+we added another div
+inside of our each loop.
+
+72
+00:03:26,670 --> 00:03:28,320
+So we want to get rid of that.
+
+73
+00:03:28,320 --> 00:03:30,610
+How would we get rid
+of one of the divs?
+
+74
+00:03:30,610 --> 00:03:34,200
+Well, you see that col 4?
+
+75
+00:03:34,200 --> 00:03:37,240
+We're going to add
+that class to the div
+
+76
+00:03:37,240 --> 00:03:40,930
+that our component template
+would be creating for us.
+
+77
+00:03:40,930 --> 00:03:45,540
+We're going to move it up
+into the Product Details col
+
+78
+00:03:45,540 --> 00:03:50,500
+and simply specify class names
+= and then send in our class.
+
+79
+00:03:50,500 --> 00:03:51,890
+And this will give
+our class name
+
+80
+00:03:51,890 --> 00:03:55,212
+to the div created by our
+Product Details template.
+
+81
+00:03:55,212 --> 00:03:56,670
+Now if we jump into
+our browser, we
+
+82
+00:03:56,670 --> 00:04:00,130
+can see that it's properly
+rendering our Ember component,
+
+83
+00:04:00,130 --> 00:04:03,424
+and it gave it the proper class.
+
+84
+00:04:03,424 --> 00:04:05,090
+Remember there were
+two different places
+
+85
+00:04:05,090 --> 00:04:07,580
+we were using that same code?
+
+86
+00:04:07,580 --> 00:04:10,570
+And the second one was
+on the On Sale page.
+
+87
+00:04:10,570 --> 00:04:12,620
+Here we have a Product Details.
+
+88
+00:04:12,620 --> 00:04:15,660
+We need to use that
+same component here too.
+
+89
+00:04:15,660 --> 00:04:19,810
+Just like we saw before, here
+we write Product Detail, product
+
+90
+00:04:19,810 --> 00:04:23,680
+= this, and it's going
+to include our new Ember
+
+91
+00:04:23,680 --> 00:04:25,240
+component.
+
+92
+00:04:25,240 --> 00:04:28,660
+You'll notice here, though,
+we have LI class = row.
+
+93
+00:04:28,660 --> 00:04:32,060
+Well, remember, our component's
+going to create a div.
+
+94
+00:04:32,060 --> 00:04:35,390
+But in this case, can we
+make it create a list item
+
+95
+00:04:35,390 --> 00:04:37,050
+with a class of row?
+
+96
+00:04:37,050 --> 00:04:41,870
+We can, by writing
+this: tag name = LI,
+
+97
+00:04:41,870 --> 00:04:45,260
+and class names = row.
+
+98
+00:04:45,260 --> 00:04:47,990
+We used Tag Name once before,
+when we worked with Link To,
+
+99
+00:04:47,990 --> 00:04:50,652
+if you remember.
+
+100
+00:04:50,652 --> 00:04:52,110
+Now if we jump into
+our browser, we
+
+101
+00:04:52,110 --> 00:04:54,600
+can see our component
+rendering to the page,
+
+102
+00:04:54,600 --> 00:05:00,680
+and we have a list item with
+a class of Ember View and row.
+
+103
+00:05:00,680 --> 00:05:02,670
+Be careful wandering
+through the forest.
+
+104
+00:05:02,670 --> 00:05:06,670
+You might run into some Ember
+components in the challenges.
+
+105
+00:05:06,670 --> 00:05:07,942

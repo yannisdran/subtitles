@@ -1,0 +1,633 @@
+1
+00:00:00,000 --> 00:00:01,842
+
+2
+00:00:01,842 --> 00:00:03,300
+So in the previous
+section, you saw
+
+3
+00:00:03,300 --> 00:00:04,835
+how we could take
+an index template
+
+4
+00:00:04,835 --> 00:00:07,380
+and get it loaded into
+our application template.
+
+5
+00:00:07,380 --> 00:00:09,870
+But that begs the
+question, how do
+
+6
+00:00:09,870 --> 00:00:14,150
+we load the about template
+into our application template?
+
+7
+00:00:14,150 --> 00:00:16,410
+And how would we also
+map that to a URL,
+
+8
+00:00:16,410 --> 00:00:19,690
+so when somebody goes to
+our application, /about,
+
+9
+00:00:19,690 --> 00:00:22,900
+it would load up the
+correct template?
+
+10
+00:00:22,900 --> 00:00:26,185
+To do this, we're going
+to need the Ember router.
+
+11
+00:00:26,185 --> 00:00:28,310
+And we're going to use the
+symbol of the tree trunk
+
+12
+00:00:28,310 --> 00:00:30,670
+whenever we see the
+router, because it
+
+13
+00:00:30,670 --> 00:00:34,650
+translates a path into a route.
+
+14
+00:00:34,650 --> 00:00:40,330
+And like a tree trunk,
+all requests start here.
+
+15
+00:00:40,330 --> 00:00:43,730
+The Ember framework is
+made up of many components.
+
+16
+00:00:43,730 --> 00:00:46,280
+We've already introduced
+the Handlebars template,
+
+17
+00:00:46,280 --> 00:00:47,880
+which sits down here.
+
+18
+00:00:47,880 --> 00:00:50,330
+And now we've talked about
+the Ember router, which
+
+19
+00:00:50,330 --> 00:00:52,060
+sits pretty close to
+the browser request,
+
+20
+00:00:52,060 --> 00:00:55,000
+because it figures out the route
+name for each request coming
+
+21
+00:00:55,000 --> 00:00:57,880
+in.
+
+22
+00:00:57,880 --> 00:01:00,270
+Here we are back
+in our app.js This
+
+23
+00:01:00,270 --> 00:01:02,370
+is where all of our
+custom JavaScript
+
+24
+00:01:02,370 --> 00:01:04,374
+goes to build our
+Ember application.
+
+25
+00:01:04,374 --> 00:01:06,040
+And as you can see,
+up there at the top,
+
+26
+00:01:06,040 --> 00:01:08,640
+we have our Ember application.
+
+27
+00:01:08,640 --> 00:01:11,340
+Now let's build a router.
+
+28
+00:01:11,340 --> 00:01:13,400
+To start defining routes
+in our application,
+
+29
+00:01:13,400 --> 00:01:18,080
+we simply write
+App.Router.map and pass
+
+30
+00:01:18,080 --> 00:01:20,690
+in an anonymous function.
+
+31
+00:01:20,690 --> 00:01:24,706
+Every page in our website
+will be defined by the router.
+
+32
+00:01:24,706 --> 00:01:26,330
+So what do we need
+to add to the router
+
+33
+00:01:26,330 --> 00:01:30,640
+when our browser goes
+to visit the About page,
+
+34
+00:01:30,640 --> 00:01:33,340
+and we want to render
+out the about template?
+
+35
+00:01:33,340 --> 00:01:37,120
+To do this, we write
+this.route and send
+
+36
+00:01:37,120 --> 00:01:40,260
+in the about string
+as an argument.
+
+37
+00:01:40,260 --> 00:01:43,750
+What this tells our application
+is that when our browser visits
+
+38
+00:01:43,750 --> 00:01:48,470
+the about path, we want our
+Ember application to render
+
+39
+00:01:48,470 --> 00:01:52,550
+the about route, and
+thus, when an outlet is
+
+40
+00:01:52,550 --> 00:01:55,840
+found inside of our
+application template,
+
+41
+00:01:55,840 --> 00:01:59,160
+to go ahead and load the
+about template inside of it.
+
+42
+00:01:59,160 --> 00:02:02,780
+
+43
+00:02:02,780 --> 00:02:08,180
+Now if we jump into our browser,
+and we visit the About page,
+
+44
+00:02:08,180 --> 00:02:11,260
+we'll notice that we get
+About The Fire Sprites.
+
+45
+00:02:11,260 --> 00:02:13,880
+The proper template
+has been loaded.
+
+46
+00:02:13,880 --> 00:02:16,690
+You may also notice that down
+below in Developer Tools,
+
+47
+00:02:16,690 --> 00:02:20,450
+it printed out Transitioned
+into 'about', because of our
+
+48
+00:02:20,450 --> 00:02:23,775
+LOG_TRANSITIONS true option that
+we sent into our application.
+
+49
+00:02:23,775 --> 00:02:27,200
+
+50
+00:02:27,200 --> 00:02:30,110
+You might be wondering, what's
+going on with that weird hash
+
+51
+00:02:30,110 --> 00:02:33,660
+sign that happens
+after the domain name?
+
+52
+00:02:33,660 --> 00:02:37,220
+Could we go to our
+domain name /about?
+
+53
+00:02:37,220 --> 00:02:38,570
+Would that work?
+
+54
+00:02:38,570 --> 00:02:39,310
+Well, no.
+
+55
+00:02:39,310 --> 00:02:42,350
+If we went there, it would
+say web page not found.
+
+56
+00:02:42,350 --> 00:02:48,710
+That's because there's no
+about/index.html or about.html
+
+57
+00:02:48,710 --> 00:02:51,380
+path that our
+application knows about.
+
+58
+00:02:51,380 --> 00:02:53,930
+
+59
+00:02:53,930 --> 00:02:57,740
+That's because in Ember.js,
+our entire application and all
+
+60
+00:02:57,740 --> 00:03:01,180
+the HTML it needs to render
+is getting loaded through one
+
+61
+00:03:01,180 --> 00:03:04,430
+file, the index.html file.
+
+62
+00:03:04,430 --> 00:03:08,580
+And that's what gets loaded
+when we go to example.com.
+
+63
+00:03:08,580 --> 00:03:11,100
+It doesn't matter what
+page we load-- whether it's
+
+64
+00:03:11,100 --> 00:03:14,160
+the Home page, About page, or
+Product List page-- we will
+
+65
+00:03:14,160 --> 00:03:19,340
+have first loaded the index.html
+page, because that contains
+
+66
+00:03:19,340 --> 00:03:20,215
+all of the templates.
+
+67
+00:03:20,215 --> 00:03:23,870
+
+68
+00:03:23,870 --> 00:03:26,920
+Just to reiterate, when our
+browser accesses our Ember
+
+69
+00:03:26,920 --> 00:03:29,250
+application, the
+first thing it does
+
+70
+00:03:29,250 --> 00:03:32,700
+is it sends over all the
+templates, into the client,
+
+71
+00:03:32,700 --> 00:03:34,110
+into the browser.
+
+72
+00:03:34,110 --> 00:03:38,750
+Then at that point, it goes and
+loads up individual templates
+
+73
+00:03:38,750 --> 00:03:40,510
+to display something
+on the screen.
+
+74
+00:03:40,510 --> 00:03:43,919
+In this case, it's loading the
+application template and then
+
+75
+00:03:43,919 --> 00:03:44,710
+the about template.
+
+76
+00:03:44,710 --> 00:03:48,780
+
+77
+00:03:48,780 --> 00:03:50,440
+In case you haven't
+caught on yet,
+
+78
+00:03:50,440 --> 00:03:56,580
+that hash tells our browser that
+everything after this is not
+
+79
+00:03:56,580 --> 00:03:58,670
+part of the file path.
+
+80
+00:03:58,670 --> 00:04:00,510
+That information will
+get passed into Ember,
+
+81
+00:04:00,510 --> 00:04:03,070
+so we can figure out
+what templates to render.
+
+82
+00:04:03,070 --> 00:04:05,440
+But as far as our
+browser is concerned,
+
+83
+00:04:05,440 --> 00:04:07,950
+it's going to load the
+root path and load up
+
+84
+00:04:07,950 --> 00:04:10,420
+that index.html file.
+
+85
+00:04:10,420 --> 00:04:12,460
+If we didn't have
+that hash-- well,
+
+86
+00:04:12,460 --> 00:04:14,930
+our application would
+error out, because there
+
+87
+00:04:14,930 --> 00:04:17,040
+is no file path in or out.
+
+88
+00:04:17,040 --> 00:04:20,149
+If we followed a more complex
+path, like you see here,
+
+89
+00:04:20,149 --> 00:04:23,650
+it's going to load up the
+store file path on our server--
+
+90
+00:04:23,650 --> 00:04:26,014
+maybe look for a store.html.
+
+91
+00:04:26,014 --> 00:04:27,680
+And then if that's
+an Ember application,
+
+92
+00:04:27,680 --> 00:04:30,520
+it might look at the
+remainder of the URL
+
+93
+00:04:30,520 --> 00:04:32,900
+to load the shopping cart route.
+
+94
+00:04:32,900 --> 00:04:35,940
+
+95
+00:04:35,940 --> 00:04:37,700
+Let's get back to
+our about route.
+
+96
+00:04:37,700 --> 00:04:40,040
+Remember, it looks
+something like this.
+
+97
+00:04:40,040 --> 00:04:43,390
+Now when our browser goes
+to this URL, the file path
+
+98
+00:04:43,390 --> 00:04:45,680
+it loads up is
+none, because it's
+
+99
+00:04:45,680 --> 00:04:47,910
+going to load up our
+index.html if this
+
+100
+00:04:47,910 --> 00:04:50,840
+is the first time we've
+visited this page.
+
+101
+00:04:50,840 --> 00:04:53,920
+The path it's going
+to load is /about.
+
+102
+00:04:53,920 --> 00:04:58,180
+And that's going to map
+to the route of about.
+
+103
+00:04:58,180 --> 00:05:01,640
+But what if we want to
+override this default behavior
+
+104
+00:05:01,640 --> 00:05:06,100
+and maybe go to the
+aboutus Ember path
+
+105
+00:05:06,100 --> 00:05:08,730
+and load the about route?
+
+106
+00:05:08,730 --> 00:05:11,640
+How might we do that?
+
+107
+00:05:11,640 --> 00:05:13,250
+Ember makes this really easy.
+
+108
+00:05:13,250 --> 00:05:17,250
+And we can do this by sending
+in a new object to the route,
+
+109
+00:05:17,250 --> 00:05:20,990
+which specifies path:'/aboutus'.
+
+110
+00:05:20,990 --> 00:05:23,610
+Now when we go to
+this URL and look up
+
+111
+00:05:23,610 --> 00:05:28,210
+the Ember path, aboutus, which
+will load the about route
+
+112
+00:05:28,210 --> 00:05:30,180
+and properly load
+up our About page.
+
+113
+00:05:30,180 --> 00:05:33,880
+
+114
+00:05:33,880 --> 00:05:38,110
+Now you might be wondering, do
+we need to add an index route,
+
+115
+00:05:38,110 --> 00:05:41,200
+so when someone goes
+to the base URL,
+
+116
+00:05:41,200 --> 00:05:44,470
+it loads up the blank
+Ember path and then maps
+
+117
+00:05:44,470 --> 00:05:47,110
+that to the index route?
+
+118
+00:05:47,110 --> 00:05:52,260
+The code might look something
+like this, you might think.
+
+119
+00:05:52,260 --> 00:05:55,370
+It turns out we don't
+need this code at all.
+
+120
+00:05:55,370 --> 00:05:58,880
+The default behavior in
+Ember is to load the index
+
+121
+00:05:58,880 --> 00:06:03,710
+template, which is why, earlier,
+when we had our Home page,
+
+122
+00:06:03,710 --> 00:06:06,180
+and we were loading
+up the index template,
+
+123
+00:06:06,180 --> 00:06:07,730
+we didn't need a router at all.
+
+124
+00:06:07,730 --> 00:06:11,160
+
+125
+00:06:11,160 --> 00:06:13,110
+So now if we jump
+back into the browser,
+
+126
+00:06:13,110 --> 00:06:16,160
+you'll notice when we
+click on the About link,
+
+127
+00:06:16,160 --> 00:06:20,080
+the URL changes to #/about.
+
+128
+00:06:20,080 --> 00:06:21,970
+And then we can
+click on Home, which,
+
+129
+00:06:21,970 --> 00:06:23,900
+again, loads up the index route.
+
+130
+00:06:23,900 --> 00:06:26,830
+
+131
+00:06:26,830 --> 00:06:28,600
+Now it's time for you
+to add a new route,
+
+132
+00:06:28,600 --> 00:06:31,930
+and I'll see you
+in the next level.
+
+133
+00:06:31,930 --> 00:06:33,760
+[BEEP] Web app-- blah,
+blah, blah, blah.
+
+134
+00:06:33,760 --> 00:06:36,610
+[BEEP] Which is on our web
+application-- web application--
+
+135
+00:06:36,610 --> 00:06:41,660
+[SPEAKING GIBBERISH] [BEEP]
+[SPEAKING GIBBERISH] [BEEP] I
+
+136
+00:06:41,660 --> 00:06:43,360
+don't know [BEEP].

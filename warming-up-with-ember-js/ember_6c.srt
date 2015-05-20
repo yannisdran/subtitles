@@ -1,0 +1,346 @@
+1
+00:00:00,000 --> 00:00:02,029
+
+2
+00:00:02,029 --> 00:00:04,730
+Here we are back on
+our product page.
+
+3
+00:00:04,730 --> 00:00:06,790
+You can see we have
+product details, including
+
+4
+00:00:06,790 --> 00:00:08,170
+some reviews.
+
+5
+00:00:08,170 --> 00:00:12,300
+But there's no indicator here
+that this product is on sale.
+
+6
+00:00:12,300 --> 00:00:15,302
+How might we add
+a class for that?
+
+7
+00:00:15,302 --> 00:00:16,510
+So here's a product template.
+
+8
+00:00:16,510 --> 00:00:19,910
+And what we want to do is
+add the class "is on sale"
+
+9
+00:00:19,910 --> 00:00:23,667
+to this top div, if
+the product is on sale.
+
+10
+00:00:23,667 --> 00:00:25,500
+To do this, we're going
+to be using an Ember
+
+11
+00:00:25,500 --> 00:00:28,965
+view, represented by this
+little pine cone you see here.
+
+12
+00:00:28,965 --> 00:00:32,479
+A view is responsible for
+encapsulating HTML content,
+
+13
+00:00:32,479 --> 00:00:34,175
+like what we're doing
+here, registering
+
+14
+00:00:34,175 --> 00:00:36,920
+and responding to
+user initiated events.
+
+15
+00:00:36,920 --> 00:00:41,900
+And finally, Ember component
+extends from Ember view.
+
+16
+00:00:41,900 --> 00:00:45,490
+You've kind of seen
+a view already.
+
+17
+00:00:45,490 --> 00:00:49,860
+Back in our Ember diagram,
+views sit it about there.
+
+18
+00:00:49,860 --> 00:00:52,770
+So it's after the
+controller, before we
+
+19
+00:00:52,770 --> 00:00:55,810
+get the handlebars template.
+
+20
+00:00:55,810 --> 00:00:59,730
+When we first declared a
+product route in our router,
+
+21
+00:00:59,730 --> 00:01:03,770
+it created for us a
+product route like this.
+
+22
+00:01:03,770 --> 00:01:06,180
+And of course, we don't
+have to write that code
+
+23
+00:01:06,180 --> 00:01:07,900
+unless we want to
+really customize it.
+
+24
+00:01:07,900 --> 00:01:11,690
+In the same way, it created
+a product controller for us.
+
+25
+00:01:11,690 --> 00:01:14,030
+It also created a
+product view you
+
+26
+00:01:14,030 --> 00:01:17,290
+for us, which we can of
+course declare and add
+
+27
+00:01:17,290 --> 00:01:19,850
+custom behavior, which
+we will in a second.
+
+28
+00:01:19,850 --> 00:01:21,490
+After the view, the
+request then look
+
+29
+00:01:21,490 --> 00:01:26,100
+for a product template,
+called product.
+
+30
+00:01:26,100 --> 00:01:28,460
+Here we are back in
+our product template.
+
+31
+00:01:28,460 --> 00:01:31,140
+Notice here we have
+div, class, row.
+
+32
+00:01:31,140 --> 00:01:34,560
+Well if we looked at the source
+of our browser creates for us,
+
+33
+00:01:34,560 --> 00:01:36,860
+remember it's going
+to be two divs--
+
+34
+00:01:36,860 --> 00:01:40,360
+the ember view div and
+then the class row div.
+
+35
+00:01:40,360 --> 00:01:41,780
+Well we only want one div.
+
+36
+00:01:41,780 --> 00:01:44,470
+And it turns out we
+can define a view
+
+37
+00:01:44,470 --> 00:01:48,490
+to set the proper classes
+on the templates div.
+
+38
+00:01:48,490 --> 00:01:50,460
+This is obviously the row class.
+
+39
+00:01:50,460 --> 00:01:52,250
+And if the product
+is on sale, we
+
+40
+00:01:52,250 --> 00:01:56,642
+want it to add the
+is on sale class.
+
+41
+00:01:56,642 --> 00:01:58,100
+So obviously the
+first step here is
+
+42
+00:01:58,100 --> 00:02:00,320
+to get rid of that second div.
+
+43
+00:02:00,320 --> 00:02:02,070
+So we're going to
+take that row class
+
+44
+00:02:02,070 --> 00:02:07,010
+and move it down into
+our product view.
+
+45
+00:02:07,010 --> 00:02:09,050
+Here we're declaring
+our product view.
+
+46
+00:02:09,050 --> 00:02:12,500
+And it has a class name of row.
+
+47
+00:02:12,500 --> 00:02:13,960
+We can alter a
+bunch of properties
+
+48
+00:02:13,960 --> 00:02:16,690
+here, including tag,
+class, even which
+
+49
+00:02:16,690 --> 00:02:20,390
+template it should render.
+
+50
+00:02:20,390 --> 00:02:22,670
+To figure out if a
+product is on sale,
+
+51
+00:02:22,670 --> 00:02:26,190
+we need to call the
+is on sale property.
+
+52
+00:02:26,190 --> 00:02:28,084
+We're going to do it like this.
+
+53
+00:02:28,084 --> 00:02:29,750
+This is going to look
+for the is on sale
+
+54
+00:02:29,750 --> 00:02:31,540
+property inside the controller.
+
+55
+00:02:31,540 --> 00:02:32,720
+It's not going to find it.
+
+56
+00:02:32,720 --> 00:02:35,140
+So it's going to look
+inside the model.
+
+57
+00:02:35,140 --> 00:02:37,550
+This way, views can
+get access to the model
+
+58
+00:02:37,550 --> 00:02:38,976
+from their controller.
+
+59
+00:02:38,976 --> 00:02:40,350
+Now we're going
+to use a property
+
+60
+00:02:40,350 --> 00:02:41,990
+that you haven't seen before.
+
+61
+00:02:41,990 --> 00:02:45,270
+It's called class name bindings.
+
+62
+00:02:45,270 --> 00:02:50,450
+What this does is it first
+checks the is on sale property.
+
+63
+00:02:50,450 --> 00:02:52,180
+The one we just declared.
+
+64
+00:02:52,180 --> 00:02:54,730
+And if it returns
+true, then it's
+
+65
+00:02:54,730 --> 00:02:59,776
+going to add a new class
+to our template div, called
+
+66
+00:02:59,776 --> 00:03:00,275
+is-on-sale.
+
+67
+00:03:00,275 --> 00:03:03,590
+
+68
+00:03:03,590 --> 00:03:07,930
+So as you can see here, it
+took our camel case class name
+
+69
+00:03:07,930 --> 00:03:12,330
+and converted it into dash case.
+
+70
+00:03:12,330 --> 00:03:16,270
+So now in our browser, we can
+see that this div properly
+
+71
+00:03:16,270 --> 00:03:20,596
+added the row class and
+the is on sale class.
+
+72
+00:03:20,596 --> 00:03:22,450
+Why don't you try
+creating a view.
+
+73
+00:03:22,450 --> 00:03:24,640
+And I'll see you in
+the next section.
+
+74
+00:03:24,640 --> 00:03:25,612

@@ -1,0 +1,637 @@
+1
+00:00:00,000 --> 00:00:02,604
+
+2
+00:00:02,604 --> 00:00:04,969
+[SINGING] An Ember
+wrap contains it,
+
+3
+00:00:04,969 --> 00:00:06,760
+all your templates big
+and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,551
+They're in routers,
+roots, components, too.
+
+5
+00:00:08,551 --> 00:00:09,970
+Let Ember models work for you.
+
+6
+00:00:09,970 --> 00:00:13,580
+Controllers to help decorate the
+views which you can integrate.
+
+7
+00:00:13,580 --> 00:00:17,220
+Mix them together in December,
+warming up with Ember.
+
+8
+00:00:17,220 --> 00:00:23,210
+
+9
+00:00:23,210 --> 00:00:25,430
+Welcome back to Warming
+Up With ember.js.
+
+10
+00:00:25,430 --> 00:00:27,040
+In this level, level
+five, we're going
+
+11
+00:00:27,040 --> 00:00:30,390
+to be first looking
+at array controllers.
+
+12
+00:00:30,390 --> 00:00:34,240
+Back in level four, inside
+of our products route,
+
+13
+00:00:34,240 --> 00:00:37,370
+we wrote some code to
+set the model, which
+
+14
+00:00:37,370 --> 00:00:40,150
+is all of the
+products in this case.
+
+15
+00:00:40,150 --> 00:00:42,160
+We say, find all products.
+
+16
+00:00:42,160 --> 00:00:47,220
+But how might we do sorting,
+or ordering, on these products?
+
+17
+00:00:47,220 --> 00:00:49,370
+For example, back
+on this page, you
+
+18
+00:00:49,370 --> 00:00:52,830
+see how none of those products
+are sorted alphabetically?
+
+19
+00:00:52,830 --> 00:00:54,912
+Well, first let's figure
+out how to do that.
+
+20
+00:00:54,912 --> 00:00:56,620
+We're going to look
+at two different ways
+
+21
+00:00:56,620 --> 00:00:58,120
+to sort your models.
+
+22
+00:00:58,120 --> 00:01:00,730
+The first is right
+here, where we're
+
+23
+00:01:00,730 --> 00:01:05,150
+going to call Find--
+not Find All-- Product.
+
+24
+00:01:05,150 --> 00:01:06,860
+And then the second
+parameter is going
+
+25
+00:01:06,860 --> 00:01:12,090
+to be an object with the key
+of Order and a value of Title.
+
+26
+00:01:12,090 --> 00:01:15,330
+Sorting in this way is actually
+leaving it up to our server
+
+27
+00:01:15,330 --> 00:01:18,850
+to do the sorting before it
+sends the data into our Ember
+
+28
+00:01:18,850 --> 00:01:20,280
+application.
+
+29
+00:01:20,280 --> 00:01:24,220
+So it's going to go to our
+store, our store's client side.
+
+30
+00:01:24,220 --> 00:01:28,790
+The store tells the adapter if
+we're using the REST adapter.
+
+31
+00:01:28,790 --> 00:01:31,990
+It's then going to call
+out to our web service.
+
+32
+00:01:31,990 --> 00:01:33,580
+And this might
+generate a URL, which
+
+33
+00:01:33,580 --> 00:01:36,220
+looks like this to send
+back to our server, which
+
+34
+00:01:36,220 --> 00:01:40,530
+tells our server that the order
+we're looking for equals Title.
+
+35
+00:01:40,530 --> 00:01:43,149
+And that's going to just
+be a parameter on the URL.
+
+36
+00:01:43,149 --> 00:01:44,690
+And we're leaving
+it up to our server
+
+37
+00:01:44,690 --> 00:01:49,230
+to sort things properly
+and give us back a JSON
+
+38
+00:01:49,230 --> 00:01:52,420
+array, which is in
+the proper order.
+
+39
+00:01:52,420 --> 00:01:55,570
+So this is how we're going to
+have our server do the sorting.
+
+40
+00:01:55,570 --> 00:01:57,890
+However, the other
+way we can do sorting
+
+41
+00:01:57,890 --> 00:02:02,660
+is to have our client, or
+our browser, do the sorting.
+
+42
+00:02:02,660 --> 00:02:04,850
+And in order to do
+that, we put that code
+
+43
+00:02:04,850 --> 00:02:06,690
+inside the controller.
+
+44
+00:02:06,690 --> 00:02:08,120
+Remember, your
+controller is where
+
+45
+00:02:08,120 --> 00:02:12,920
+you decorate your applications
+data for the template.
+
+46
+00:02:12,920 --> 00:02:15,730
+In order to sort arrays
+inside of our controller,
+
+47
+00:02:15,730 --> 00:02:19,690
+we actually need to use a
+special type of controller that
+
+48
+00:02:19,690 --> 00:02:22,100
+knows how to deal
+with array objects.
+
+49
+00:02:22,100 --> 00:02:24,570
+See, a controller has
+two different variants
+
+50
+00:02:24,570 --> 00:02:26,010
+which we'll often use.
+
+51
+00:02:26,010 --> 00:02:29,630
+The first is an
+Ember.ObjectController,
+
+52
+00:02:29,630 --> 00:02:32,000
+which helps you decorate
+a single object.
+
+53
+00:02:32,000 --> 00:02:35,190
+And the one we need to use
+is Ember.ArrayController,
+
+54
+00:02:35,190 --> 00:02:37,520
+which specifically
+decorates an array
+
+55
+00:02:37,520 --> 00:02:41,250
+and gives us lots
+of helper methods.
+
+56
+00:02:41,250 --> 00:02:43,660
+Basically, if our
+model is an array,
+
+57
+00:02:43,660 --> 00:02:46,780
+we should be using
+an array controller.
+
+58
+00:02:46,780 --> 00:02:48,790
+So here you can
+see, we've properly
+
+59
+00:02:48,790 --> 00:02:51,147
+declared it in our code.
+
+60
+00:02:51,147 --> 00:02:53,230
+This gives our controllers
+some special abilities,
+
+61
+00:02:53,230 --> 00:02:56,690
+including this option
+called sortProperties,
+
+62
+00:02:56,690 --> 00:03:00,980
+where we can specify how
+we want to sort the model.
+
+63
+00:03:00,980 --> 00:03:02,740
+By default, this
+will automatically
+
+64
+00:03:02,740 --> 00:03:06,490
+sort in ascending order,
+that's from A to Z.
+
+65
+00:03:06,490 --> 00:03:08,770
+If you wanted to
+do it descending,
+
+66
+00:03:08,770 --> 00:03:12,750
+then you just need to specify
+another option, sortAscending,
+
+67
+00:03:12,750 --> 00:03:15,289
+false.
+
+68
+00:03:15,289 --> 00:03:16,830
+Now if we jump back
+into our browser,
+
+69
+00:03:16,830 --> 00:03:21,500
+we can see that our products
+are properly sorted by name.
+
+70
+00:03:21,500 --> 00:03:26,730
+And in this case, we're using
+this sorting in the controller.
+
+71
+00:03:26,730 --> 00:03:30,610
+Now that's partially because
+we're using fixtures now.
+
+72
+00:03:30,610 --> 00:03:32,930
+Remember in the last
+level, we switched over
+
+73
+00:03:32,930 --> 00:03:36,090
+to the rest adapter to
+do calls to the server.
+
+74
+00:03:36,090 --> 00:03:38,000
+Well, for the remainder
+of this course,
+
+75
+00:03:38,000 --> 00:03:40,840
+we're just going to be using
+fixtures to keep things simple,
+
+76
+00:03:40,840 --> 00:03:42,300
+which in that
+case, we have to do
+
+77
+00:03:42,300 --> 00:03:46,490
+our sorting inside
+the controller.
+
+78
+00:03:46,490 --> 00:03:48,865
+Back in level two, we
+created a property inside
+
+79
+00:03:48,865 --> 00:03:51,480
+of our IndexController
+called productsCount,
+
+80
+00:03:51,480 --> 00:03:53,230
+with the number of products.
+
+81
+00:03:53,230 --> 00:03:55,520
+But now since we have
+a products model,
+
+82
+00:03:55,520 --> 00:03:58,550
+we should probably go back
+here and have it actually count
+
+83
+00:03:58,550 --> 00:04:01,310
+the length of the
+products array,
+
+84
+00:04:01,310 --> 00:04:05,780
+to have the right number of
+products there on our index.
+
+85
+00:04:05,780 --> 00:04:07,950
+First step here is to
+go into the Index wrap
+
+86
+00:04:07,950 --> 00:04:09,970
+and set the proper model.
+
+87
+00:04:09,970 --> 00:04:15,440
+So in our case, we just do
+this.sstore.findAll product.
+
+88
+00:04:15,440 --> 00:04:17,750
+The next step, since
+our model is an array,
+
+89
+00:04:17,750 --> 00:04:20,345
+is to change our controller
+to an array controller.
+
+90
+00:04:20,345 --> 00:04:23,850
+
+91
+00:04:23,850 --> 00:04:25,720
+We need to get the
+length of our model
+
+92
+00:04:25,720 --> 00:04:27,470
+in the productsCount property.
+
+93
+00:04:27,470 --> 00:04:29,990
+So to do that, we're first
+going to wrap it in a function.
+
+94
+00:04:29,990 --> 00:04:32,920
+
+95
+00:04:32,920 --> 00:04:38,630
+Next, we need to call the
+this.get length method.
+
+96
+00:04:38,630 --> 00:04:40,890
+This is first going
+to look inside
+
+97
+00:04:40,890 --> 00:04:44,610
+of our current controller
+for a property called Length.
+
+98
+00:04:44,610 --> 00:04:45,830
+It's not going to find it.
+
+99
+00:04:45,830 --> 00:04:48,040
+So it's going to
+delegate to the model
+
+100
+00:04:48,040 --> 00:04:50,600
+and look for a property
+called Length, where it's
+
+101
+00:04:50,600 --> 00:04:54,640
+going to find it and return the
+length of our product array.
+
+102
+00:04:54,640 --> 00:04:58,340
+This is equivalent to
+calling model.length.
+
+103
+00:04:58,340 --> 00:05:01,960
+Now what if in some other
+part of your application,
+
+104
+00:05:01,960 --> 00:05:06,830
+somebody creates a new
+product, or deletes a product.
+
+105
+00:05:06,830 --> 00:05:09,990
+We're going to need
+to update this value.
+
+106
+00:05:09,990 --> 00:05:12,220
+So we need some way
+of telling the code,
+
+107
+00:05:12,220 --> 00:05:16,080
+keep an eye out on the
+length of the product array.
+
+108
+00:05:16,080 --> 00:05:19,360
+And if it changes, well,
+get the length again
+
+109
+00:05:19,360 --> 00:05:22,260
+and update the page.
+
+110
+00:05:22,260 --> 00:05:25,960
+To do this, we're going to
+send in an argument of length.
+
+111
+00:05:25,960 --> 00:05:29,340
+This is going to keep a
+watch on the Length property
+
+112
+00:05:29,340 --> 00:05:30,660
+of the controller.
+
+113
+00:05:30,660 --> 00:05:34,930
+And if it changes, it's going
+to update the productCount here,
+
+114
+00:05:34,930 --> 00:05:36,860
+and on the page,
+and in any templates
+
+115
+00:05:36,860 --> 00:05:39,940
+that use that property.
+
+116
+00:05:39,940 --> 00:05:42,710
+You're going to be writing a
+lot of these type of properties
+
+117
+00:05:42,710 --> 00:05:43,480
+in Ember.
+
+118
+00:05:43,480 --> 00:05:45,670
+So there's a shorthand
+way of doing it
+
+119
+00:05:45,670 --> 00:05:50,620
+that looks something like this,
+with Ember.computed.alias.
+
+120
+00:05:50,620 --> 00:05:53,130
+It's functionally
+the same thing.
+
+121
+00:05:53,130 --> 00:05:54,840
+So now if we jump
+into our browser,
+
+122
+00:05:54,840 --> 00:05:58,160
+we're going to see that we
+have six items displayed.
+
+123
+00:05:58,160 --> 00:06:03,410
+But let's go ahead and on the
+console, delete one product.
+
+124
+00:06:03,410 --> 00:06:05,160
+Do you see how it got
+updated on the page?
+
+125
+00:06:05,160 --> 00:06:06,610
+Now there's five.
+
+126
+00:06:06,610 --> 00:06:10,270
+If we lead another
+product, now there's four.
+
+127
+00:06:10,270 --> 00:06:14,640
+So no matter which page deletes
+a product or creates a product,
+
+128
+00:06:14,640 --> 00:06:17,340
+this template will
+always get updated,
+
+129
+00:06:17,340 --> 00:06:19,170
+even if it's not
+on the home page,
+
+130
+00:06:19,170 --> 00:06:22,057
+and the proper number
+of products shown.
+
+131
+00:06:22,057 --> 00:06:24,640
+Why don't you try creating some
+of your own array controllers?
+
+132
+00:06:24,640 --> 00:06:27,010
+And I'll see you in
+the next section.
+
+133
+00:06:27,010 --> 00:06:28,678

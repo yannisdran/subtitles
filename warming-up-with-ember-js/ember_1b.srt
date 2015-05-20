@@ -1,0 +1,366 @@
+1
+00:00:00,000 --> 00:00:02,050
+
+2
+00:00:02,050 --> 00:00:04,700
+So now that we have a
+Handlebars template,
+
+3
+00:00:04,700 --> 00:00:09,680
+how about we put dynamic
+content inside of that template?
+
+4
+00:00:09,680 --> 00:00:12,370
+Well, as we learn
+more about Handlebars,
+
+5
+00:00:12,370 --> 00:00:17,230
+we'll learn about these things
+called Handlebars expressions.
+
+6
+00:00:17,230 --> 00:00:22,080
+Expressions allow us to insert
+a variable into our HTML page.
+
+7
+00:00:22,080 --> 00:00:25,090
+In this case, we've got Welcome
+to {?_[? siteName ?].
+
+8
+00:00:25,090 --> 00:00:28,230
+Notice that siteName has
+curly braces, two of them
+
+9
+00:00:28,230 --> 00:00:30,430
+on either side.
+
+10
+00:00:30,430 --> 00:00:33,630
+The siteName's value will need
+to be provided by our Ember app
+
+11
+00:00:33,630 --> 00:00:35,620
+to render it out
+on the web page.
+
+12
+00:00:35,620 --> 00:00:38,310
+But we're not going to cover
+how to do that quite yet.
+
+13
+00:00:38,310 --> 00:00:39,700
+That will be in further levels.
+
+14
+00:00:39,700 --> 00:00:42,170
+We don't have enough
+knowledge yet.
+
+15
+00:00:42,170 --> 00:00:44,735
+In the meantime, we need
+to add a few more templates
+
+16
+00:00:44,735 --> 00:00:45,555
+to our application.
+
+17
+00:00:45,555 --> 00:00:48,950
+
+18
+00:00:48,950 --> 00:00:52,410
+Remember, our template, right
+now, contains three elements.
+
+19
+00:00:52,410 --> 00:00:55,390
+We have our navigation
+bar, our container--
+
+20
+00:00:55,390 --> 00:00:57,860
+where most of the content
+for the page will go--
+
+21
+00:00:57,860 --> 00:00:59,540
+and our footer.
+
+22
+00:00:59,540 --> 00:01:03,020
+But our application is going to
+contain at least three pages.
+
+23
+00:01:03,020 --> 00:01:07,240
+Where does the content for
+the Home page, About page,
+
+24
+00:01:07,240 --> 00:01:10,690
+or Product List go?
+
+25
+00:01:10,690 --> 00:01:13,950
+Well, when we render the About
+page, the content for that page
+
+26
+00:01:13,950 --> 00:01:17,730
+is going to need to get
+rendered inside the div
+
+27
+00:01:17,730 --> 00:01:19,670
+with the class of container.
+
+28
+00:01:19,670 --> 00:01:21,790
+And also, when we
+render the Home page,
+
+29
+00:01:21,790 --> 00:01:23,430
+we're also going to
+have content which
+
+30
+00:01:23,430 --> 00:01:27,450
+should get rendered inside that
+container, which also happens
+
+31
+00:01:27,450 --> 00:01:30,630
+to be the default we want
+to occur when we load up
+
+32
+00:01:30,630 --> 00:01:34,320
+index.html for the first time.
+
+33
+00:01:34,320 --> 00:01:36,100
+There's a few steps
+we need to take
+
+34
+00:01:36,100 --> 00:01:40,035
+so that we can have one
+index.html and dynamically load
+
+35
+00:01:40,035 --> 00:01:42,390
+in the contents for the
+About or Index page,
+
+36
+00:01:42,390 --> 00:01:44,910
+depending on which one we want.
+
+37
+00:01:44,910 --> 00:01:48,770
+And the first step is
+to name our templates.
+
+38
+00:01:48,770 --> 00:01:51,060
+We're going to name our
+main template we already
+
+39
+00:01:51,060 --> 00:01:54,560
+created, the application
+template, and then
+
+40
+00:01:54,560 --> 00:01:59,785
+we're going to create templates
+for about and for index.
+
+41
+00:01:59,785 --> 00:02:03,380
+
+42
+00:02:03,380 --> 00:02:05,630
+So here we are back
+in the code, and we're
+
+43
+00:02:05,630 --> 00:02:07,900
+going to add a
+data-template-name
+
+44
+00:02:07,900 --> 00:02:10,940
+for our application, like so.
+
+45
+00:02:10,940 --> 00:02:14,140
+This contains the main
+layout of our application,
+
+46
+00:02:14,140 --> 00:02:18,700
+and is going to be
+rendered on every page.
+
+47
+00:02:18,700 --> 00:02:21,180
+Now we're going to create
+another template for our Home
+
+48
+00:02:21,180 --> 00:02:22,310
+page.
+
+49
+00:02:22,310 --> 00:02:25,970
+We're going to give it the
+data-template-name of index.
+
+50
+00:02:25,970 --> 00:02:27,490
+And inside of a
+script tag, we'll
+
+51
+00:02:27,490 --> 00:02:29,310
+put the HTML for the Home page.
+
+52
+00:02:29,310 --> 00:02:32,460
+
+53
+00:02:32,460 --> 00:02:37,200
+Next, we'll create the about
+template, call it about,
+
+54
+00:02:37,200 --> 00:02:40,300
+and put the proper HTML
+content inside the script tag.
+
+55
+00:02:40,300 --> 00:02:45,150
+
+56
+00:02:45,150 --> 00:02:48,430
+Now let's load back
+up our index.html.
+
+57
+00:02:48,430 --> 00:02:51,460
+But uh-oh, it's not working.
+
+58
+00:02:51,460 --> 00:02:53,836
+Our application template's
+not even showing.
+
+59
+00:02:53,836 --> 00:02:54,960
+There's no welcome message.
+
+60
+00:02:54,960 --> 00:02:56,130
+It should be there.
+
+61
+00:02:56,130 --> 00:02:57,870
+What's going on?
+
+62
+00:02:57,870 --> 00:03:01,100
+Well, we forgot one step.
+
+63
+00:03:01,100 --> 00:03:04,300
+So if we look back
+inside of our app,
+
+64
+00:03:04,300 --> 00:03:08,960
+we'll see that we need a way
+to tell our templates where
+
+65
+00:03:08,960 --> 00:03:10,250
+to render.
+
+66
+00:03:10,250 --> 00:03:12,010
+So there's our index
+template, but it
+
+67
+00:03:12,010 --> 00:03:16,370
+doesn't know where to render
+inside of our main application
+
+68
+00:03:16,370 --> 00:03:17,440
+template.
+
+69
+00:03:17,440 --> 00:03:21,540
+To do this, we need to add
+an outlet to our application
+
+70
+00:03:21,540 --> 00:03:23,200
+template.
+
+71
+00:03:23,200 --> 00:03:27,720
+This tells our code where
+to insert templates.
+
+72
+00:03:27,720 --> 00:03:31,720
+On top of this, when we hit the
+Home page, if our application
+
+73
+00:03:31,720 --> 00:03:35,060
+layout hits an
+outlet, it's going
+
+74
+00:03:35,060 --> 00:03:37,410
+to look for an index
+template by default.
+
+75
+00:03:37,410 --> 00:03:41,770
+
+76
+00:03:41,770 --> 00:03:45,250
+And now, sure enough, when
+we open up our index.html,
+
+77
+00:03:45,250 --> 00:03:49,230
+we see that our index
+template is rendered inside
+
+78
+00:03:49,230 --> 00:03:52,840
+of our application template,
+as we needed it to.
+
+79
+00:03:52,840 --> 00:03:56,640
+And now it's time for you to
+try this out in the challenges.
+
+80
+00:03:56,640 --> 00:03:57,423

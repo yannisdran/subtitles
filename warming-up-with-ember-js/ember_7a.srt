@@ -1,0 +1,561 @@
+1
+00:00:00,000 --> 00:00:02,604
+
+2
+00:00:02,604 --> 00:00:05,136
+[SINGING] An Ember
+Wrap contains it all,
+
+3
+00:00:05,136 --> 00:00:06,760
+your templates big
+and sometimes small.
+
+4
+00:00:06,760 --> 00:00:08,176
+Their routers,
+routes, components,
+
+5
+00:00:08,176 --> 00:00:10,280
+too-- let Ember
+models work for you.
+
+6
+00:00:10,280 --> 00:00:13,270
+Controllers to help decorate the
+views which you can integrate.
+
+7
+00:00:13,270 --> 00:00:16,570
+Mix them together in December,
+warming up with Ember.
+
+8
+00:00:16,570 --> 00:00:23,197
+
+9
+00:00:23,197 --> 00:00:24,780
+You're watching
+Warming Up with Ember,
+
+10
+00:00:24,780 --> 00:00:28,360
+and this is the final level,
+Level 7, where first, we're
+
+11
+00:00:28,360 --> 00:00:30,980
+going to be talking
+about controller actions.
+
+12
+00:00:30,980 --> 00:00:32,810
+So in the previous
+level, we wrapped up
+
+13
+00:00:32,810 --> 00:00:35,450
+with talking about
+render and about how
+
+14
+00:00:35,450 --> 00:00:39,610
+that calls a new controller
+and then a view and then
+
+15
+00:00:39,610 --> 00:00:41,890
+a template for our reviews.
+
+16
+00:00:41,890 --> 00:00:43,970
+But one thing we
+did not talked about
+
+17
+00:00:43,970 --> 00:00:46,740
+was how to create new reviews.
+
+18
+00:00:46,740 --> 00:00:49,850
+So let's go ahead and add
+a new form on this page
+
+19
+00:00:49,850 --> 00:00:52,990
+and have it update
+that list of reviews.
+
+20
+00:00:52,990 --> 00:00:56,580
+We're going to add this form
+inside the product template.
+
+21
+00:00:56,580 --> 00:00:59,540
+So here we have a
+div class new review,
+
+22
+00:00:59,540 --> 00:01:02,510
+and it's going to have
+a text area in there.
+
+23
+00:01:02,510 --> 00:01:05,870
+We're going to be using a value
+binding, like you see here.
+
+24
+00:01:05,870 --> 00:01:08,590
+This binds the value
+of the text area
+
+25
+00:01:08,590 --> 00:01:13,650
+to the text property
+inside the controller.
+
+26
+00:01:13,650 --> 00:01:15,990
+We want to show the user
+what the review looks
+
+27
+00:01:15,990 --> 00:01:19,360
+like before it
+actually gets posted.
+
+28
+00:01:19,360 --> 00:01:22,930
+We simply do this by printing
+out the property to the screen,
+
+29
+00:01:22,930 --> 00:01:26,180
+just like we would
+with any property.
+
+30
+00:01:26,180 --> 00:01:29,690
+If we jump back into the browser
+and we start typing a review,
+
+31
+00:01:29,690 --> 00:01:34,150
+you can see every time we hit
+a key inside that text box
+
+32
+00:01:34,150 --> 00:01:37,250
+the text property
+gets updated and then
+
+33
+00:01:37,250 --> 00:01:39,120
+the template gets updated.
+
+34
+00:01:39,120 --> 00:01:41,832
+So we see the preview
+on the screen.
+
+35
+00:01:41,832 --> 00:01:43,290
+There are three
+more things we need
+
+36
+00:01:43,290 --> 00:01:45,930
+to do to make this
+form fully functional.
+
+37
+00:01:45,930 --> 00:01:50,200
+The first is we only want to
+print out that review preview
+
+38
+00:01:50,200 --> 00:01:53,530
+paragraph if the
+text has a value.
+
+39
+00:01:53,530 --> 00:01:55,840
+Then, we need to do something
+with the Submit button
+
+40
+00:01:55,840 --> 00:01:57,960
+to make sure it
+submits to something,
+
+41
+00:01:57,960 --> 00:01:59,930
+and then we need to
+write the code that
+
+42
+00:01:59,930 --> 00:02:04,300
+receives the review when it
+gets submitted and updates
+
+43
+00:02:04,300 --> 00:02:06,670
+our model properly.
+
+44
+00:02:06,670 --> 00:02:08,680
+First up, back at
+our template, we're
+
+45
+00:02:08,680 --> 00:02:10,620
+simply going to add
+a conditional here.
+
+46
+00:02:10,620 --> 00:02:14,140
+If text-- if there is
+something in this property--
+
+47
+00:02:14,140 --> 00:02:17,500
+then show the review preview.
+
+48
+00:02:17,500 --> 00:02:19,010
+Then, in our Submit
+button, we're
+
+49
+00:02:19,010 --> 00:02:21,750
+going to use the Action
+Helper and specify
+
+50
+00:02:21,750 --> 00:02:24,700
+the action create review.
+
+51
+00:02:24,700 --> 00:02:26,960
+That's going to call
+the create review
+
+52
+00:02:26,960 --> 00:02:30,900
+function on our controller.
+
+53
+00:02:30,900 --> 00:02:33,170
+Let's go ahead and jump
+back into our controller.
+
+54
+00:02:33,170 --> 00:02:34,878
+The first thing we're
+going to want to do
+
+55
+00:02:34,878 --> 00:02:38,630
+is declare the text property
+here and set it to blank.
+
+56
+00:02:38,630 --> 00:02:41,670
+If we let this off, the property
+would be set in the model.
+
+57
+00:02:41,670 --> 00:02:43,580
+That wouldn't be good.
+
+58
+00:02:43,580 --> 00:02:46,510
+Next, we're going to declare
+a section in our product
+
+59
+00:02:46,510 --> 00:02:51,462
+controller for actions, like
+when we submit the button.
+
+60
+00:02:51,462 --> 00:02:53,170
+Inside actions, we
+need to create the one
+
+61
+00:02:53,170 --> 00:02:56,320
+that our button calls-- in
+this case, create review.
+
+62
+00:02:56,320 --> 00:02:59,660
+And for now, we're simply
+going to log out to the console
+
+63
+00:02:59,660 --> 00:03:02,700
+every time this
+action is called.
+
+64
+00:03:02,700 --> 00:03:05,627
+Back in our browser, we can
+try clicking the Review button.
+
+65
+00:03:05,627 --> 00:03:07,460
+And as you can see,
+every time it's clicked,
+
+66
+00:03:07,460 --> 00:03:11,550
+it logs out-- create
+review called.
+
+67
+00:03:11,550 --> 00:03:14,100
+So our action is working,
+but we're not yet
+
+68
+00:03:14,100 --> 00:03:17,830
+saving the review
+in a model that's
+
+69
+00:03:17,830 --> 00:03:20,440
+associated with the
+product, so there's
+
+70
+00:03:20,440 --> 00:03:22,610
+three more steps
+inside this code.
+
+71
+00:03:22,610 --> 00:03:26,420
+We need to build out a new
+review object, save the review,
+
+72
+00:03:26,420 --> 00:03:29,150
+and then clear out
+the text variable,
+
+73
+00:03:29,150 --> 00:03:31,880
+because the review
+was submitted.
+
+74
+00:03:31,880 --> 00:03:34,500
+Step one, we're going to
+call the create record
+
+75
+00:03:34,500 --> 00:03:36,910
+method on our Ember store.
+
+76
+00:03:36,910 --> 00:03:39,390
+We're creating a
+review, and then
+
+77
+00:03:39,390 --> 00:03:42,010
+the second argument is
+simply an object, which
+
+78
+00:03:42,010 --> 00:03:45,090
+contains the text of the
+review, and we're simply
+
+79
+00:03:45,090 --> 00:03:47,420
+going to get the text property.
+
+80
+00:03:47,420 --> 00:03:51,210
+And we'll set the association
+by getting the model, which
+
+81
+00:03:51,210 --> 00:03:54,010
+is our current
+product, and then we'll
+
+82
+00:03:54,010 --> 00:03:55,350
+go ahead and set an extra field.
+
+83
+00:03:55,350 --> 00:03:58,480
+We'll set reviewed At
+to our current date.
+
+84
+00:03:58,480 --> 00:04:01,420
+Create record doesn't
+actually save the record,
+
+85
+00:04:01,420 --> 00:04:05,770
+so that's what we need to
+do next, called review.save.
+
+86
+00:04:05,770 --> 00:04:07,870
+If we were using
+the rest adapter,
+
+87
+00:04:07,870 --> 00:04:10,000
+this would be the point at
+which it would call back
+
+88
+00:04:10,000 --> 00:04:12,575
+to our server and give it
+the data for the new record
+
+89
+00:04:12,575 --> 00:04:15,280
+that we just created.
+
+90
+00:04:15,280 --> 00:04:17,320
+Next, we need to
+specify what happens
+
+91
+00:04:17,320 --> 00:04:19,930
+if the record gets
+saved successfully.
+
+92
+00:04:19,930 --> 00:04:22,000
+In order to do
+this, we first need
+
+93
+00:04:22,000 --> 00:04:23,750
+to create an extra
+variable, called
+
+94
+00:04:23,750 --> 00:04:25,410
+controller, which
+is simply going
+
+95
+00:04:25,410 --> 00:04:30,660
+to store this, which in this
+case is the product controller.
+
+96
+00:04:30,660 --> 00:04:32,790
+When we call save, it
+returns a type of object
+
+97
+00:04:32,790 --> 00:04:34,170
+called a promise.
+
+98
+00:04:34,170 --> 00:04:36,130
+If you're not familiar
+with promises,
+
+99
+00:04:36,130 --> 00:04:39,080
+checkout jQuery Return Flight,
+the code school course.
+
+100
+00:04:39,080 --> 00:04:40,740
+We go over promises.
+
+101
+00:04:40,740 --> 00:04:43,250
+This promise has a
+method on it called then,
+
+102
+00:04:43,250 --> 00:04:45,830
+which allows us to
+specify a function
+
+103
+00:04:45,830 --> 00:04:50,200
+to call once the save
+call is finished.
+
+104
+00:04:50,200 --> 00:04:54,130
+Inside this function, we need
+to reference the controller
+
+105
+00:04:54,130 --> 00:04:56,500
+and set the text to blank.
+
+106
+00:04:56,500 --> 00:05:01,550
+That's blanking out the text
+property in our template.
+
+107
+00:05:01,550 --> 00:05:05,760
+And then secondly, we need
+to assess the reviews model
+
+108
+00:05:05,760 --> 00:05:09,990
+from that controller and
+add our new review to it.
+
+109
+00:05:09,990 --> 00:05:13,640
+Adding this new review will then
+trigger an update to our page,
+
+110
+00:05:13,640 --> 00:05:17,420
+adding our template
+to the existing list.
+
+111
+00:05:17,420 --> 00:05:18,670
+So here we are in the browser.
+
+112
+00:05:18,670 --> 00:05:20,230
+Let's give it a try.
+
+113
+00:05:20,230 --> 00:05:22,980
+We create a new
+review, submit it,
+
+114
+00:05:22,980 --> 00:05:28,020
+and boom-- our review
+gets added to the list.
+
+115
+00:05:28,020 --> 00:05:30,405
+Forms are a pretty key component
+of any web application.
+
+116
+00:05:30,405 --> 00:05:33,480
+It's time for you
+to give it a try.
+
+117
+00:05:33,480 --> 00:05:35,156

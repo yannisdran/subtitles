@@ -1,0 +1,775 @@
+1
+00:00:00,000 --> 00:00:02,040
+
+2
+00:00:02,040 --> 00:00:04,730
+So, we created our review form.
+
+3
+00:00:04,730 --> 00:00:07,120
+We also went into the
+product controller
+
+4
+00:00:07,120 --> 00:00:11,760
+and reformatted that
+to use a review object,
+
+5
+00:00:11,760 --> 00:00:14,340
+and our "create
+review" action uses
+
+6
+00:00:14,340 --> 00:00:17,680
+that object to create a review.
+
+7
+00:00:17,680 --> 00:00:21,470
+But what if our products page
+looks something like this,
+
+8
+00:00:21,470 --> 00:00:24,270
+and our reviews are
+getting a little bit long?
+
+9
+00:00:24,270 --> 00:00:27,080
+Wouldn't it be nice if
+there was a Read More link?
+
+10
+00:00:27,080 --> 00:00:29,840
+Maybe it showed you the
+first 100 or 200 characters
+
+11
+00:00:29,840 --> 00:00:32,509
+and then you could hit Read
+More and it would expand.
+
+12
+00:00:32,509 --> 00:00:36,705
+Maybe you could even say Read
+Less and it would get smaller.
+
+13
+00:00:36,705 --> 00:00:38,080
+And what about
+allowing our users
+
+14
+00:00:38,080 --> 00:00:40,330
+to use the markdown
+template language?
+
+15
+00:00:40,330 --> 00:00:44,660
+Well in this level, we'll figure
+out how to do these two things.
+
+16
+00:00:44,660 --> 00:00:47,450
+To add these additional
+user interface properties
+
+17
+00:00:47,450 --> 00:00:50,250
+to our list of
+reviews, we're going
+
+18
+00:00:50,250 --> 00:00:52,770
+to be creating a custom view.
+
+19
+00:00:52,770 --> 00:00:54,960
+The first thing we can
+do with a custom view,
+
+20
+00:00:54,960 --> 00:01:01,160
+is have it encapsulate some of
+our tags, for example our li.
+
+21
+00:01:01,160 --> 00:01:04,610
+We're going to declare
+[? "view tag, li." ?] And
+
+22
+00:01:04,610 --> 00:01:07,600
+that's simply going to
+wrap things in an li.
+
+23
+00:01:07,600 --> 00:01:11,420
+This is functionally the
+same as we had before.
+
+24
+00:01:11,420 --> 00:01:15,330
+Next, we need to specify a
+custom name for our review.
+
+25
+00:01:15,330 --> 00:01:20,680
+We're going to call
+ours "App.ReviewView."
+
+26
+00:01:20,680 --> 00:01:23,411
+And now we're going
+to create that class.
+
+27
+00:01:23,411 --> 00:01:24,410
+You can do it like this.
+
+28
+00:01:24,410 --> 00:01:27,500
+So we declare, "App.ReviewView."
+
+29
+00:01:27,500 --> 00:01:29,720
+But what goes
+inside of the View?
+
+30
+00:01:29,720 --> 00:01:32,230
+Well, there's two
+things we need to do.
+
+31
+00:01:32,230 --> 00:01:35,740
+First, we need to add a
+class, "isExpanded," that gets
+
+32
+00:01:35,740 --> 00:01:40,250
+added to our li when
+the text is expanded.
+
+33
+00:01:40,250 --> 00:01:44,160
+Secondly, we need a click
+event, and every time somebody
+
+34
+00:01:44,160 --> 00:01:49,960
+clicks on it, it's going to
+toggle the "isExpanded" class.
+
+35
+00:01:49,960 --> 00:01:52,250
+First, we're going to create
+the "isExpanded" property
+
+36
+00:01:52,250 --> 00:01:53,400
+and set it to false.
+
+37
+00:01:53,400 --> 00:01:57,080
+Because starting out, we're
+not going to be expanded.
+
+38
+00:01:57,080 --> 00:02:01,950
+Next, we're going to add a class
+name binding of "isExpanded."
+
+39
+00:02:01,950 --> 00:02:04,270
+What this does, is
+it's going to watch
+
+40
+00:02:04,270 --> 00:02:06,370
+the "isExpanded" property.
+
+41
+00:02:06,370 --> 00:02:08,889
+And if that ever
+get set to true,
+
+42
+00:02:08,889 --> 00:02:15,190
+it's going to add the
+is-expanded class to our li.
+
+43
+00:02:15,190 --> 00:02:17,040
+Next, let's add our click event.
+
+44
+00:02:17,040 --> 00:02:21,430
+So we're going to simply specify
+"click" and then a "function."
+
+45
+00:02:21,430 --> 00:02:22,820
+Inside the function,
+we're simply
+
+46
+00:02:22,820 --> 00:02:26,350
+going to toggle the property
+"isExpanded," which will set it
+
+47
+00:02:26,350 --> 00:02:32,300
+to true if it's false,
+and false if it's true.
+
+48
+00:02:32,300 --> 00:02:34,680
+Ember has a bunch of
+different other view
+
+49
+00:02:34,680 --> 00:02:37,530
+events that we can listen
+for, whether it's submit,
+
+50
+00:02:37,530 --> 00:02:40,220
+keyDown, mouseDown,
+change, or keyUp.
+
+51
+00:02:40,220 --> 00:02:43,944
+And you can read all about
+these events in the API Docs.
+
+52
+00:02:43,944 --> 00:02:45,440
+Let's jump back
+into the browser.
+
+53
+00:02:45,440 --> 00:02:47,690
+But before we do,
+I need to mention
+
+54
+00:02:47,690 --> 00:02:50,060
+that we set some code
+in our style sheet
+
+55
+00:02:50,060 --> 00:02:54,810
+so that reviews, by default,
+have a maximum height, so
+
+56
+00:02:54,810 --> 00:02:58,150
+that it's only going to show the
+first two lines of the review.
+
+57
+00:02:58,150 --> 00:03:01,350
+Then, once the "isExpanded"
+class is added,
+
+58
+00:03:01,350 --> 00:03:04,630
+well, it's going to expand to
+the full height of that list
+
+59
+00:03:04,630 --> 00:03:06,090
+item.
+
+60
+00:03:06,090 --> 00:03:09,360
+So here, you can see, when we
+click on a particular view,
+
+61
+00:03:09,360 --> 00:03:12,040
+it adds the "isExpanded" class.
+
+62
+00:03:12,040 --> 00:03:17,430
+And it looks like we can click
+on reviews, even though they're
+
+63
+00:03:17,430 --> 00:03:20,710
+not longer than two lines.
+
+64
+00:03:20,710 --> 00:03:23,770
+We might want to change our
+code to account for that.
+
+65
+00:03:23,770 --> 00:03:28,161
+Also, we need a "read
+more" button, right?
+
+66
+00:03:28,161 --> 00:03:30,535
+So our problem here is that
+we need to add a class, "read
+
+67
+00:03:30,535 --> 00:03:35,280
+more," if our list item is
+more than 140 characters.
+
+68
+00:03:35,280 --> 00:03:38,150
+We're going to solve
+this in four steps.
+
+69
+00:03:38,150 --> 00:03:40,630
+First, we're going to send
+our "text.length" value
+
+70
+00:03:40,630 --> 00:03:43,500
+into the View, so
+that we can access it.
+
+71
+00:03:43,500 --> 00:03:45,640
+Then we'll create a
+function called "readMore"
+
+72
+00:03:45,640 --> 00:03:47,500
+which will check to
+see if that string is
+
+73
+00:03:47,500 --> 00:03:49,980
+more than 140 characters.
+
+74
+00:03:49,980 --> 00:03:53,390
+Then, we'll add the
+"readMore" class name
+
+75
+00:03:53,390 --> 00:03:56,030
+to those particular list items.
+
+76
+00:03:56,030 --> 00:03:58,040
+And lastly, we'll
+modify our template so
+
+77
+00:03:58,040 --> 00:04:02,470
+that, if we can read more, we'll
+show that "Read More" link,
+
+78
+00:04:02,470 --> 00:04:05,610
+and if not, we'll
+show "Read Less."
+
+79
+00:04:05,610 --> 00:04:08,710
+Our first step is to pass in
+the length to our custom view.
+
+80
+00:04:08,710 --> 00:04:16,070
+We're going to do that by just
+doing "length=text.length."
+
+81
+00:04:16,070 --> 00:04:18,350
+Next, we'll create the
+"readMore" property,
+
+82
+00:04:18,350 --> 00:04:20,220
+which is going to
+be a function that
+
+83
+00:04:20,220 --> 00:04:22,730
+checks to see if the length
+that we just passed in
+
+84
+00:04:22,730 --> 00:04:26,170
+is greater than 140 characters.
+
+85
+00:04:26,170 --> 00:04:28,810
+And we'll want to keep an
+eye on the length property,
+
+86
+00:04:28,810 --> 00:04:31,750
+in case it changes.
+
+87
+00:04:31,750 --> 00:04:35,100
+Now, as a third step, we need
+to add a new ClassName binding
+
+88
+00:04:35,100 --> 00:04:39,270
+of "readMore" so than when
+it's true, it adds "read-more"
+
+89
+00:04:39,270 --> 00:04:41,320
+to our list item as a class.
+
+90
+00:04:41,320 --> 00:04:43,430
+And lastly, back
+in our template,
+
+91
+00:04:43,430 --> 00:04:46,130
+we're going to add
+a new span which
+
+92
+00:04:46,130 --> 00:04:49,240
+will say "Read Less" if
+we already are expanded,
+
+93
+00:04:49,240 --> 00:04:52,190
+or "Read More" if we
+haven't been expanded.
+
+94
+00:04:52,190 --> 00:04:54,220
+And this span is
+only going to show up
+
+95
+00:04:54,220 --> 00:04:57,922
+if our list item has
+the class "Read More."
+
+96
+00:04:57,922 --> 00:04:59,630
+You might notice that
+in our conditional,
+
+97
+00:04:59,630 --> 00:05:02,390
+we have "view.isExpanded."
+
+98
+00:05:02,390 --> 00:05:07,370
+We need that view dot so that
+it's accessing our custom view.
+
+99
+00:05:07,370 --> 00:05:09,960
+Otherwise, it would be
+looking for "isExpanded"
+
+100
+00:05:09,960 --> 00:05:12,904
+as a property in our controller.
+
+101
+00:05:12,904 --> 00:05:14,570
+Before we check this
+out in the browser,
+
+102
+00:05:14,570 --> 00:05:16,860
+there's one way we
+can simplify it.
+
+103
+00:05:16,860 --> 00:05:18,630
+Instead of calling
+the code you see here,
+
+104
+00:05:18,630 --> 00:05:23,500
+we can simply call--
+readMore, Ember.computed.gt,
+
+105
+00:05:23,500 --> 00:05:28,160
+as in greater than, with the
+arguments of length and 140.
+
+106
+00:05:28,160 --> 00:05:30,582
+And Ember has a bunch of
+these computer properties
+
+107
+00:05:30,582 --> 00:05:32,665
+that you can read more
+about in the documentation.
+
+108
+00:05:32,665 --> 00:05:36,130
+
+109
+00:05:36,130 --> 00:05:40,040
+Now, if we jump back into our
+browser and click "Read More,"
+
+110
+00:05:40,040 --> 00:05:40,700
+it works.
+
+111
+00:05:40,700 --> 00:05:42,940
+Hey look, and it
+changed to "Read Less."
+
+112
+00:05:42,940 --> 00:05:44,200
+And even "Read Less" works.
+
+113
+00:05:44,200 --> 00:05:48,510
+It properly toggles
+our "isExpanded" class.
+
+114
+00:05:48,510 --> 00:05:49,360
+We're almost done.
+
+115
+00:05:49,360 --> 00:05:52,335
+Just one last thing before we
+get to the final challenges,
+
+116
+00:05:52,335 --> 00:05:53,710
+and that is, we're
+going to learn
+
+117
+00:05:53,710 --> 00:05:57,500
+how to define our own
+handlebars helper.
+
+118
+00:05:57,500 --> 00:05:59,270
+It looks something like this.
+
+119
+00:05:59,270 --> 00:06:02,620
+We call
+ "Ember.Handlebars.registerBoundHelper."
+
+120
+00:06:02,620 --> 00:06:04,730
+The name of our
+helper is "markdown."
+
+121
+00:06:04,730 --> 00:06:08,730
+No need to specify the function
+that this helper invokes.
+
+122
+00:06:08,730 --> 00:06:12,220
+In this case, we're simply going
+to take the text that comes in
+
+123
+00:06:12,220 --> 00:06:14,570
+and pass it back out.
+
+124
+00:06:14,570 --> 00:06:17,080
+Then, in our
+template, we're going
+
+125
+00:06:17,080 --> 00:06:19,940
+to use this helper by just
+specifying the name of it--
+
+126
+00:06:19,940 --> 00:06:25,330
+markdown-- and then the text
+we want to pass into it.
+
+127
+00:06:25,330 --> 00:06:26,740
+So obviously,
+right now, the text
+
+128
+00:06:26,740 --> 00:06:29,000
+would just get
+passed right through,
+
+129
+00:06:29,000 --> 00:06:32,610
+but we want to make
+it convert markdown.
+
+130
+00:06:32,610 --> 00:06:34,650
+So to do that, we're
+going to include
+
+131
+00:06:34,650 --> 00:06:37,620
+our own external
+markdown library.
+
+132
+00:06:37,620 --> 00:06:43,900
+And that markdown library we can
+call by doing markdown.toHTML
+
+133
+00:06:43,900 --> 00:06:47,620
+and send in our text, which
+is in markdown format,
+
+134
+00:06:47,620 --> 00:06:50,680
+so it's converting it into HTML.
+
+135
+00:06:50,680 --> 00:06:53,590
+But there's one more thing we
+have to do before this works.
+
+136
+00:06:53,590 --> 00:06:56,430
+See, handlebars is going
+to automatically escape
+
+137
+00:06:56,430 --> 00:07:00,030
+all the HTML and the
+strings that we pass to it.
+
+138
+00:07:00,030 --> 00:07:01,680
+And in this case,
+our markdown is
+
+139
+00:07:01,680 --> 00:07:04,910
+converting to HTML that
+we don't want escaped.
+
+140
+00:07:04,910 --> 00:07:08,560
+So, to get around that,
+we need to tell handlebars
+
+141
+00:07:08,560 --> 00:07:12,500
+that this HTML is safe
+to print to the screen.
+
+142
+00:07:12,500 --> 00:07:15,137
+
+143
+00:07:15,137 --> 00:07:16,720
+Now, when we go back
+into our browser,
+
+144
+00:07:16,720 --> 00:07:20,680
+we can see that we did some
+markdown-- doing some bold,
+
+145
+00:07:20,680 --> 00:07:25,880
+doing some bullet
+points, worked out well.
+
+146
+00:07:25,880 --> 00:07:28,480
+It's worth mentioning, before
+you get into the challenges,
+
+147
+00:07:28,480 --> 00:07:32,070
+that Ember likes to
+stay unopinionated
+
+148
+00:07:32,070 --> 00:07:35,847
+when it comes to text
+in HTML formatting.
+
+149
+00:07:35,847 --> 00:07:37,430
+They believe you
+should go out and get
+
+150
+00:07:37,430 --> 00:07:39,320
+your own external
+libraries, because there
+
+151
+00:07:39,320 --> 00:07:41,920
+are a lot of really great
+libraries for JavaScript
+
+152
+00:07:41,920 --> 00:07:44,530
+that do this already.
+
+153
+00:07:44,530 --> 00:07:46,235
+So, something to know.
+
+154
+00:07:46,235 --> 00:07:48,550
+Now it's time for to
+do the last challenges,
+
+155
+00:07:48,550 --> 00:07:52,570
+and I'll see you
+in the outro video.
+
+156
+00:07:52,570 --> 00:07:54,955
+This (SPEAKING SLOWLY) level--
+
+157
+00:07:54,955 --> 00:07:55,825
+[OFFSCREEN LAUGHING]
+
+158
+00:07:55,825 --> 00:07:56,324
+[BEEPING]
+
+159
+00:07:56,324 --> 00:07:58,500
+You can see that the review
+(SPEAKING GIBBERISH)--
+
+160
+00:07:58,500 --> 00:07:59,380
+[OFFSCREEN LAUGHING]
+
+161
+00:07:59,380 --> 00:07:59,880
+[BEEPING]
+
+162
+00:07:59,880 --> 00:08:02,790
+Our review-- view--
+
+163
+00:08:02,790 --> 00:08:04,340
+[OFFSCREEN LAUGHING]

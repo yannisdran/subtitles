@@ -1,0 +1,290 @@
+1
+00:00:00,000 --> 00:00:02,205
+
+2
+00:00:02,205 --> 00:00:04,960
+In the previous section, we
+created our first component
+
+3
+00:00:04,960 --> 00:00:07,860
+to eliminate duplicate
+template code.
+
+4
+00:00:07,860 --> 00:00:10,420
+But what if inside our
+component template,
+
+5
+00:00:10,420 --> 00:00:12,690
+we wanted to add some
+additional functionality,
+
+6
+00:00:12,690 --> 00:00:17,420
+like for instance, checking to
+see if a product has reviews,
+
+7
+00:00:17,420 --> 00:00:21,110
+and if it does, print
+out the reviews count.
+
+8
+00:00:21,110 --> 00:00:22,580
+So let's figure
+out how we can add
+
+9
+00:00:22,580 --> 00:00:25,990
+these properties, hasReviews
+and our views count,
+
+10
+00:00:25,990 --> 00:00:28,300
+to our component.
+
+11
+00:00:28,300 --> 00:00:30,630
+When we call product
+details, our Ember component
+
+12
+00:00:30,630 --> 00:00:33,680
+from inside a template, the
+first thing that happens
+
+13
+00:00:33,680 --> 00:00:35,290
+is it looks for a
+component object.
+
+14
+00:00:35,290 --> 00:00:37,540
+In this case, it would be
+App.ProductDetailsComponent.
+
+15
+00:00:37,540 --> 00:00:40,550
+
+16
+00:00:40,550 --> 00:00:42,690
+This is where we
+can set properties.
+
+17
+00:00:42,690 --> 00:00:44,810
+You know, the ones we saw
+in the previous slide.
+
+18
+00:00:44,810 --> 00:00:46,850
+Once this component
+object is loaded,
+
+19
+00:00:46,850 --> 00:00:49,590
+it's then going to render
+our component template,
+
+20
+00:00:49,590 --> 00:00:51,730
+like we have been doing.
+
+21
+00:00:51,730 --> 00:00:53,810
+Let's go ahead and create
+that component object.
+
+22
+00:00:53,810 --> 00:00:56,060
+Here, you can see we have
+App.ProductDetailsComponent.
+
+23
+00:00:56,060 --> 00:00:59,290
+
+24
+00:00:59,290 --> 00:01:02,570
+our first property is
+going to be reviewsCount,
+
+25
+00:01:02,570 --> 00:01:05,530
+which simply uses our
+passed in product.
+
+26
+00:01:05,530 --> 00:01:08,200
+Then we have our
+hasReviews property.
+
+27
+00:01:08,200 --> 00:01:10,880
+This is going to get the reviews
+count, the property we just
+
+28
+00:01:10,880 --> 00:01:13,980
+declared, and check to see
+if it's greater than zero.
+
+29
+00:01:13,980 --> 00:01:16,980
+Obviously, if it is, it's
+going to return True.
+
+30
+00:01:16,980 --> 00:01:20,180
+Lastly, we want to keep an
+eye on that reviewsCount.
+
+31
+00:01:20,180 --> 00:01:24,120
+We want to watch it, because
+if the length of the reviews
+
+32
+00:01:24,120 --> 00:01:27,800
+changes, well, we want
+to run this function
+
+33
+00:01:27,800 --> 00:01:29,790
+and update the template.
+
+34
+00:01:29,790 --> 00:01:31,910
+Now that we've declared
+our component object,
+
+35
+00:01:31,910 --> 00:01:35,260
+we can see now here in our
+component template that's
+
+36
+00:01:35,260 --> 00:01:38,860
+going to properly check to
+see if a product has reviews.
+
+37
+00:01:38,860 --> 00:01:42,676
+And if so, print out
+the number of reviews.
+
+38
+00:01:42,676 --> 00:01:44,050
+Now if we go back
+to our browser,
+
+39
+00:01:44,050 --> 00:01:46,730
+we can see that
+under each product,
+
+40
+00:01:46,730 --> 00:01:52,132
+it says Read All Reviews, and
+has the number of reviews.
+
+41
+00:01:52,132 --> 00:01:53,590
+Before we jump into
+the challenges,
+
+42
+00:01:53,590 --> 00:01:55,900
+you can try creating one
+of these component objects.
+
+43
+00:01:55,900 --> 00:01:57,830
+I want to show you
+an alternate method
+
+44
+00:01:57,830 --> 00:02:00,280
+for setting the tag
+names and class names.
+
+45
+00:02:00,280 --> 00:02:02,450
+Remember, when we were
+setting them in a template,
+
+46
+00:02:02,450 --> 00:02:04,520
+called the Ember component.
+
+47
+00:02:04,520 --> 00:02:07,560
+However, we can also set these
+inside our component object.
+
+48
+00:02:07,560 --> 00:02:11,060
+So let's go ahead and remove
+them from our example.
+
+49
+00:02:11,060 --> 00:02:13,560
+And then inside of our
+ProductDetailComponent,
+
+50
+00:02:13,560 --> 00:02:18,720
+we can simply write tagName,
+Li, and ClassNames row,
+
+51
+00:02:18,720 --> 00:02:20,340
+and it's going to
+do the same thing.
+
+52
+00:02:20,340 --> 00:02:23,500
+We would only want to do this if
+we wanted to have the same tag
+
+53
+00:02:23,500 --> 00:02:27,470
+name and class names every time
+that Ember component was used.
+
+54
+00:02:27,470 --> 00:02:33,167
+However, in our case, we've got
+different tag names and class
+
+55
+00:02:33,167 --> 00:02:34,500
+names, depending on where it is.
+
+56
+00:02:34,500 --> 00:02:36,340
+Remember, sometimes
+we had a div,
+
+57
+00:02:36,340 --> 00:02:38,350
+and then another time,
+we had a list item.
+
+58
+00:02:38,350 --> 00:02:41,970
+So our example
+wouldn't use this.
+
+59
+00:02:41,970 --> 00:02:43,840
+Go ahead and do a
+component object,
+
+60
+00:02:43,840 --> 00:02:46,009
+and I'll see you in a minute.
+
+61
+00:02:46,009 --> 00:02:46,509

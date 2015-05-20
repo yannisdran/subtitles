@@ -1,0 +1,474 @@
+1
+00:00:00,000 --> 00:00:02,070
+
+2
+00:00:02,070 --> 00:00:06,010
+In the last section, we created
+our first resource route,
+
+3
+00:00:06,010 --> 00:00:08,310
+as well as our first
+Ember route which
+
+4
+00:00:08,310 --> 00:00:12,500
+mapped a model to a
+controller and a template.
+
+5
+00:00:12,500 --> 00:00:14,160
+So we have our products list.
+
+6
+00:00:14,160 --> 00:00:18,910
+But how might we make it so
+that we have a unique URL which
+
+7
+00:00:18,910 --> 00:00:22,270
+goes to a specific
+product page, and so
+
+8
+00:00:22,270 --> 00:00:26,030
+that we could click on a
+specific product in our listing
+
+9
+00:00:26,030 --> 00:00:27,640
+and view more details
+about a product?
+
+10
+00:00:27,640 --> 00:00:30,740
+
+11
+00:00:30,740 --> 00:00:33,100
+As with any new page
+in our application,
+
+12
+00:00:33,100 --> 00:00:34,980
+we start in the router.
+
+13
+00:00:34,980 --> 00:00:36,729
+So here, because
+product is a noun,
+
+14
+00:00:36,729 --> 00:00:38,645
+we're going to write
+this.resource('product').
+
+15
+00:00:38,645 --> 00:00:41,510
+
+16
+00:00:41,510 --> 00:00:43,820
+However, this isn't quite
+enough because there's
+
+17
+00:00:43,820 --> 00:00:47,350
+nothing unique
+here to that path.
+
+18
+00:00:47,350 --> 00:00:50,320
+We need a path with a
+parameter, maybe something that
+
+19
+00:00:50,320 --> 00:00:53,530
+goes to product slash and
+the product title name,
+
+20
+00:00:53,530 --> 00:00:56,205
+so we know what product we're
+trying to view on that page.
+
+21
+00:00:56,205 --> 00:00:59,060
+
+22
+00:00:59,060 --> 00:01:02,737
+To do that, we're going to add
+a path with a dynamic segment.
+
+23
+00:01:02,737 --> 00:01:04,445
+Here you can see we
+have products/:title.
+
+24
+00:01:04,445 --> 00:01:07,710
+
+25
+00:01:07,710 --> 00:01:11,120
+This will allow us to go to
+this URL, products/Flint,
+
+26
+00:01:11,120 --> 00:01:13,860
+and in this case, it will
+allow our application
+
+27
+00:01:13,860 --> 00:01:19,460
+to read the string
+Flint out of that path.
+
+28
+00:01:19,460 --> 00:01:22,860
+Similarly, if we were
+to go to products/4,
+
+29
+00:01:22,860 --> 00:01:26,400
+it would allow us to
+read 4 from that path.
+
+30
+00:01:26,400 --> 00:01:28,390
+How can we get
+access to this data?
+
+31
+00:01:28,390 --> 00:01:31,670
+Well, it's inside
+our route object.
+
+32
+00:01:31,670 --> 00:01:36,330
+So you can see, we defined
+a ProductRoute, not products
+
+33
+00:01:36,330 --> 00:01:38,720
+route, but singular
+product route,
+
+34
+00:01:38,720 --> 00:01:41,050
+because that's the
+name of our route.
+
+35
+00:01:41,050 --> 00:01:44,940
+And inside of it, we
+define our model property.
+
+36
+00:01:44,940 --> 00:01:48,120
+And look, we have a
+function with parameters.
+
+37
+00:01:48,120 --> 00:01:51,440
+Now we're simply going to
+log out those parameters.
+
+38
+00:01:51,440 --> 00:01:53,870
+If we went into our browser,
+we would see that when we go
+
+39
+00:01:53,870 --> 00:01:58,390
+to products/Flint that our
+parameter looks exactly like
+
+40
+00:01:58,390 --> 00:02:00,932
+this, title:'Flint'.
+
+41
+00:02:00,932 --> 00:02:02,765
+So now I can get access
+to those parameters.
+
+42
+00:02:02,765 --> 00:02:05,690
+
+43
+00:02:05,690 --> 00:02:08,270
+But logging out to the console
+isn't what we want to do.
+
+44
+00:02:08,270 --> 00:02:10,710
+We need to figure
+out a way to look up
+
+45
+00:02:10,710 --> 00:02:15,530
+a product out of our products
+array, which, remember,
+
+46
+00:02:15,530 --> 00:02:18,524
+looks something like this.
+
+47
+00:02:18,524 --> 00:02:20,190
+It turns out that
+Ember adds some helper
+
+48
+00:02:20,190 --> 00:02:23,740
+methods to base JavaScript
+objects, including array,
+
+49
+00:02:23,740 --> 00:02:26,310
+and we're about to use
+one of those methods.
+
+50
+00:02:26,310 --> 00:02:29,220
+Here, we're going to
+grab the PRODUCTS array
+
+51
+00:02:29,220 --> 00:02:33,200
+and then call the
+findBy method, sending
+
+52
+00:02:33,200 --> 00:02:35,850
+in two parameters, the
+title, because that's
+
+53
+00:02:35,850 --> 00:02:38,690
+what we want to
+find the product by,
+
+54
+00:02:38,690 --> 00:02:41,940
+and the title that was passed
+in through the parameters.
+
+55
+00:02:41,940 --> 00:02:44,950
+So now when we go
+to products/Flint,
+
+56
+00:02:44,950 --> 00:02:47,910
+the model that should
+get found and returned
+
+57
+00:02:47,910 --> 00:02:49,505
+should be the Flint product.
+
+58
+00:02:49,505 --> 00:02:52,020
+
+59
+00:02:52,020 --> 00:02:55,080
+Now we'll create a new
+template for the product route.
+
+60
+00:02:55,080 --> 00:02:58,880
+We'll simply print out the
+title, description, and price.
+
+61
+00:02:58,880 --> 00:03:01,900
+When this template sees
+those Handlebars expressions,
+
+62
+00:03:01,900 --> 00:03:04,560
+first, it's going to look in
+the controller for properties
+
+63
+00:03:04,560 --> 00:03:06,320
+that have these names.
+
+64
+00:03:06,320 --> 00:03:08,150
+If it doesn't find
+them, it's then
+
+65
+00:03:08,150 --> 00:03:10,840
+going to look in the model
+for properties, where
+
+66
+00:03:10,840 --> 00:03:13,180
+it will find them and
+print them to the page.
+
+67
+00:03:13,180 --> 00:03:14,710
+So if we jump back
+into our browser
+
+68
+00:03:14,710 --> 00:03:19,150
+and go to products/Flint, we'll
+see that our product template
+
+69
+00:03:19,150 --> 00:03:21,830
+is rendered, and our product
+is printed to the page.
+
+70
+00:03:21,830 --> 00:03:25,090
+
+71
+00:03:25,090 --> 00:03:27,200
+Two more things we want
+to add to the store.
+
+72
+00:03:27,200 --> 00:03:30,280
+First, let's add an image
+to our Product page,
+
+73
+00:03:30,280 --> 00:03:35,450
+using that bind attributes
+helper method, like so.
+
+74
+00:03:35,450 --> 00:03:37,270
+No surprises here.
+
+75
+00:03:37,270 --> 00:03:39,850
+The second thing we
+want to do is jump back
+
+76
+00:03:39,850 --> 00:03:43,310
+into the products
+template, where
+
+77
+00:03:43,310 --> 00:03:45,000
+we list out all the products.
+
+78
+00:03:45,000 --> 00:03:51,200
+Here, we want to link to
+each individual Product page.
+
+79
+00:03:51,200 --> 00:03:56,760
+So all we have to do here is
+specify link-to 'product'.
+
+80
+00:03:56,760 --> 00:03:59,680
+And then we need to send in
+the product we want to link to.
+
+81
+00:03:59,680 --> 00:04:04,290
+We're going to be using the
+keyword this, which specifies
+
+82
+00:04:04,290 --> 00:04:08,340
+the current product that
+we're on in the array.
+
+83
+00:04:08,340 --> 00:04:10,250
+Here's where things
+get interesting.
+
+84
+00:04:10,250 --> 00:04:12,480
+See, the link-to
+helper knows that when
+
+85
+00:04:12,480 --> 00:04:15,990
+it goes to create the URL
+that we should be creating
+
+86
+00:04:15,990 --> 00:04:20,440
+a URL with the
+title value in it.
+
+87
+00:04:20,440 --> 00:04:23,760
+It knows this because
+when we defined our route,
+
+88
+00:04:23,760 --> 00:04:28,670
+we had :title as
+our dynamic segment.
+
+89
+00:04:28,670 --> 00:04:33,800
+Thus, when we go to
+link-to 'product' this,
+
+90
+00:04:33,800 --> 00:04:35,685
+it's going to create
+the URL products/Flint.
+
+91
+00:04:35,685 --> 00:04:39,600
+
+92
+00:04:39,600 --> 00:04:41,600
+And now, if we jump
+back into our browser,
+
+93
+00:04:41,600 --> 00:04:44,040
+we can see that here on
+the Products List page,
+
+94
+00:04:44,040 --> 00:04:46,120
+we can click a link,
+and it brings us
+
+95
+00:04:46,120 --> 00:04:50,030
+to the product route, which
+renders the product template.
+
+96
+00:04:50,030 --> 00:04:52,530
+And if we click on Products,
+we can go back to the list
+
+97
+00:04:52,530 --> 00:04:55,660
+and see that the other
+product works as well.
+
+98
+00:04:55,660 --> 00:04:58,170
+
+99
+00:04:58,170 --> 00:05:00,780
+Let's have you try out
+some dynamic segments,
+
+100
+00:05:00,780 --> 00:05:03,140
+and I'll see you
+in the next video.
+
+101
+00:05:03,140 --> 00:05:03,762
