@@ -4,7 +4,7 @@
 2
 00:00:03,030 --> 00:00:05,094
 [SINGING] An Ember
-wrap contains it all.
+app contains it all.
 
 3
 00:00:05,094 --> 00:00:06,760

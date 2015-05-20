@@ -96,7 +96,7 @@ our tags, for example our li.
 21
 00:01:01,160 --> 00:01:04,610
 We're going to declare
-[? "view tag, li." ?] And
+#view tag="li" and
 
 22
 00:01:04,610 --> 00:01:07,600

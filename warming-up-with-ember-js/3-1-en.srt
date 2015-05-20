@@ -3,7 +3,7 @@
 
 2
 00:00:03,030 --> 00:00:05,780
-[SINGING] An Ember route
+[SINGING] An Ember app
 contains it all, your templates
 
 3

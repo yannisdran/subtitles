@@ -3,7 +3,7 @@
 
 2
 00:00:03,030 --> 00:00:05,635
-(SINGING) An Ember wrap contains
+(SINGING) An Ember app contains
 it all-- your templates,
 
 3
