@@ -1,0 +1,598 @@
+1
+00:00:02,024 --> 00:00:03,440
+In this section,
+we'll be covering
+
+2
+00:00:03,440 --> 00:00:07,690
+the logic in our routes and
+building out our app further.
+
+3
+00:00:07,690 --> 00:00:11,940
+Remember the $http service
+from the first Angular course?
+
+4
+00:00:11,940 --> 00:00:14,270
+This is a service
+that can be used
+
+5
+00:00:14,270 --> 00:00:17,300
+to get or put, grab
+data, manipulate
+
+6
+00:00:17,300 --> 00:00:18,870
+data, from an outside source.
+
+7
+00:00:21,830 --> 00:00:26,620
+$http has a get, post, put,
+and delete method, which we'll
+
+8
+00:00:26,620 --> 00:00:28,560
+be using in our application.
+
+9
+00:00:28,560 --> 00:00:31,980
+It also gives us the ability
+to pass in an object.
+
+10
+00:00:31,980 --> 00:00:33,820
+For instance, when
+you're creating data.
+
+11
+00:00:37,690 --> 00:00:39,220
+Back into our routes.
+
+12
+00:00:39,220 --> 00:00:42,540
+Not only can routes have
+templates associated with them,
+
+13
+00:00:42,540 --> 00:00:45,150
+but we can also
+have controllers.
+
+14
+00:00:45,150 --> 00:00:49,470
+So for instance, when the /notes
+request comes in, we can say,
+
+15
+00:00:49,470 --> 00:00:52,730
+"Listen to this controller
+and load in this template."
+
+16
+00:00:52,730 --> 00:00:53,895
+The same thing with users.
+
+17
+00:00:57,320 --> 00:01:01,240
+There are two ways to link
+a controller to a route.
+
+18
+00:01:01,240 --> 00:01:03,170
+The first is inline.
+
+19
+00:01:03,170 --> 00:01:07,260
+So back into our routes file
+inside of the notes route,
+
+20
+00:01:07,260 --> 00:01:09,280
+we're going to
+define a controller
+
+21
+00:01:09,280 --> 00:01:12,900
+and put the function right here.
+
+22
+00:01:12,900 --> 00:01:14,860
+That can get a bit
+lengthy, though.
+
+23
+00:01:14,860 --> 00:01:16,880
+If we look back at
+our application tree,
+
+24
+00:01:16,880 --> 00:01:18,750
+you can see we've
+already set aside
+
+25
+00:01:18,750 --> 00:01:21,240
+different files for
+each controller.
+
+26
+00:01:21,240 --> 00:01:23,060
+Inside the notes
+index controller
+
+27
+00:01:23,060 --> 00:01:26,270
+let's go ahead and re-declare
+our Angular module.
+
+28
+00:01:26,270 --> 00:01:28,735
+And then we can declare
+our notes index controller.
+
+29
+00:01:32,050 --> 00:01:36,720
+Now back inside routes.js
+in our notes route,
+
+30
+00:01:36,720 --> 00:01:40,620
+we'll specify this
+notes index controller
+
+31
+00:01:40,620 --> 00:01:43,120
+and we'll also give it an
+alias with controllerAs.
+
+32
+00:01:46,740 --> 00:01:49,140
+Back inside our notes
+index controller,
+
+33
+00:01:49,140 --> 00:01:51,740
+we're going to use
+the $http get method
+
+34
+00:01:51,740 --> 00:01:55,480
+in order to actually
+grab some note data.
+
+35
+00:01:55,480 --> 00:01:59,550
+So here we'll say $http,
+specify the get method,
+
+36
+00:01:59,550 --> 00:02:01,460
+and give it the URL
+where it's going
+
+37
+00:02:01,460 --> 00:02:03,240
+to go and grab the data from.
+
+38
+00:02:03,240 --> 00:02:07,680
+If this $http call is successful,
+we'll assign the returned data
+
+39
+00:02:07,680 --> 00:02:08,380
+to this.notes.
+
+40
+00:02:11,210 --> 00:02:14,110
+Now our template will have
+access to this list of notes
+
+41
+00:02:14,110 --> 00:02:17,330
+and we can use ng-repeat
+to loop through them.
+
+42
+00:02:17,330 --> 00:02:21,007
+We'll say ng-repeat equals
+note in our alias index
+
+43
+00:02:21,007 --> 00:02:21,923
+indexController.notes.
+
+44
+00:02:25,110 --> 00:02:28,730
+For each note, we're going to
+display its title and icon.
+
+45
+00:02:28,730 --> 00:02:32,190
+All of this markup
+should look familiar.
+
+46
+00:02:32,190 --> 00:02:35,050
+Back in the browser, we
+see that all of the notes
+
+47
+00:02:35,050 --> 00:02:40,700
+are loaded dynamically and their
+icons and titles are displayed.
+
+48
+00:02:40,700 --> 00:02:42,370
+What if we wanted
+to click on a note
+
+49
+00:02:42,370 --> 00:02:45,250
+and be able to view more
+information about that note
+
+50
+00:02:45,250 --> 00:02:46,760
+like you see here?
+
+51
+00:02:46,760 --> 00:02:50,480
+How could we accomplish this?
+
+52
+00:02:50,480 --> 00:02:53,410
+So let's walk through the logic
+of what we want to happen.
+
+53
+00:02:53,410 --> 00:02:55,310
+First, the note is clicked.
+
+54
+00:02:55,310 --> 00:03:01,160
+Next, the route changes
+to /notes/ the note id.
+
+55
+00:03:01,160 --> 00:03:05,300
+And then lastly, the route loads
+in the view with that note's
+
+56
+00:03:05,300 --> 00:03:07,480
+information.
+
+57
+00:03:07,480 --> 00:03:09,250
+In order to accomplish
+this, first we'll
+
+58
+00:03:09,250 --> 00:03:14,860
+give each note anchor an ng-href
+that will plug in the note id
+
+59
+00:03:14,860 --> 00:03:16,050
+to the path.
+
+60
+00:03:16,050 --> 00:03:20,150
+Then in our routes, let's
+define our notes id route.
+
+61
+00:03:20,150 --> 00:03:25,120
+We'll say .when
+/notes/:id.
+
+62
+00:03:25,120 --> 00:03:29,550
+The :id is specifying
+that a route parameter is here.
+
+63
+00:03:29,550 --> 00:03:31,670
+After that, we'll pass
+in the template URL
+
+64
+00:03:31,670 --> 00:03:34,900
+and controller for notes
+show and give that controller
+
+65
+00:03:34,900 --> 00:03:36,330
+an alias.
+
+66
+00:03:36,330 --> 00:03:38,220
+You might be
+wondering, though, how
+
+67
+00:03:38,220 --> 00:03:41,340
+do we get that id
+out of the route?
+
+68
+00:03:41,340 --> 00:03:42,520
+Dun dun dun.
+
+69
+00:03:42,520 --> 00:03:43,790
+Route parameters.
+
+70
+00:03:43,790 --> 00:03:45,980
+You can use route
+params in order
+
+71
+00:03:45,980 --> 00:03:49,210
+to grab that note
+id out of the URL.
+
+72
+00:03:49,210 --> 00:03:51,780
+So back inside our
+notes show controller,
+
+73
+00:03:51,780 --> 00:03:56,020
+we can pass in $routeParams
+into our function
+
+74
+00:03:56,020 --> 00:03:59,690
+and then we can create
+a get method and append
+
+75
+00:03:59,690 --> 00:04:02,400
+that $routeParams.id
+at the end of it
+
+76
+00:04:02,400 --> 00:04:05,830
+to fetch the data
+for that single note.
+
+77
+00:04:05,830 --> 00:04:09,290
+As you can see, we're attaching
+this to var controller
+
+78
+00:04:09,290 --> 00:04:11,700
+outside the success callback.
+
+79
+00:04:11,700 --> 00:04:15,740
+Then, inside the success,
+we're saying controller.note
+
+80
+00:04:15,740 --> 00:04:18,790
+and setting it equal to data.
+
+81
+00:04:18,790 --> 00:04:21,930
+This keyword inside the
+callback no longer references
+
+82
+00:04:21,930 --> 00:04:24,390
+the controller, so we
+have to do it this way.
+
+83
+00:04:27,010 --> 00:04:29,070
+Lastly, we'll create
+our notes show
+
+84
+00:04:29,070 --> 00:04:31,950
+template that will display
+the information for that one
+
+85
+00:04:31,950 --> 00:04:32,750
+single note.
+
+86
+00:04:36,020 --> 00:04:38,470
+As you can see in our application,
+
+87
+00:04:38,470 --> 00:04:42,280
+each individual note now displays a note show page
+
+88
+00:04:42,280 --> 00:04:45,250
+when you click them.
+
+89
+00:04:45,250 --> 00:04:47,680
+Let's go ahead and flesh
+out one last controller.
+
+90
+00:04:47,680 --> 00:04:50,440
+We'll do the notes
+create controller.
+
+91
+00:04:50,440 --> 00:04:52,240
+If you think about
+it, our notes create
+
+92
+00:04:52,240 --> 00:04:55,550
+controller is going to need
+a method that our form can
+
+93
+00:04:55,550 --> 00:04:57,990
+call to save a new note.
+
+94
+00:04:57,990 --> 00:05:00,310
+Inside our note
+create controller,
+
+95
+00:05:00,310 --> 00:05:03,170
+we're going to attach
+a saveNote function.
+
+96
+00:05:03,170 --> 00:05:06,760
+Inside that function's
+parameters, we'll pass it note.
+
+97
+00:05:06,760 --> 00:05:09,360
+That note is the
+note data that we're
+
+98
+00:05:09,360 --> 00:05:11,570
+getting sent from our form.
+
+99
+00:05:11,570 --> 00:05:15,900
+Then we'll make an $http
+call with a method of post,
+
+100
+00:05:15,900 --> 00:05:18,790
+give it the URL that
+we're sending our data to,
+
+101
+00:05:18,790 --> 00:05:22,520
+and lastly the note
+object, which contains all
+
+102
+00:05:22,520 --> 00:05:23,770
+of the new note's information.
+
+103
+00:05:27,150 --> 00:05:29,360
+What if our $http call fails?
+
+104
+00:05:29,360 --> 00:05:32,570
+We need to be able to give
+this feedback to our user.
+
+105
+00:05:32,570 --> 00:05:36,540
+So let's go ahead and create a
+this.errors variable and set
+
+106
+00:05:36,540 --> 00:05:37,750
+it equal to null.
+
+107
+00:05:37,750 --> 00:05:40,130
+Currently there are no errors.
+
+108
+00:05:40,130 --> 00:05:42,700
+Then we'll declare the catch
+callback, which will only
+
+109
+00:05:42,700 --> 00:05:44,520
+be called if there's an error.
+
+110
+00:05:44,520 --> 00:05:48,160
+And we'll assign that error to
+the variable we just created,
+
+111
+00:05:48,160 --> 00:05:49,510
+this.errors.
+
+112
+00:05:49,510 --> 00:05:51,970
+If you wanted to display
+this in our template,
+
+113
+00:05:51,970 --> 00:05:55,780
+we could use an ng-if there's an error, then go ahead
+
+114
+00:05:55,780 --> 00:05:57,180
+and display that error.
+
+115
+00:06:00,450 --> 00:06:03,380
+You might have noticed that
+we're making calls to a server
+
+116
+00:06:03,380 --> 00:06:05,116
+to get or post data.
+
+117
+00:06:05,116 --> 00:06:06,490
+We're not going
+to talk about how
+
+118
+00:06:06,490 --> 00:06:10,560
+to configure a back end in this
+course, but you're in luck.
+
+119
+00:06:10,560 --> 00:06:12,910
+Code School has a
+ton of courses that
+
+120
+00:06:12,910 --> 00:06:16,080
+cover that, all the
+way from Ruby on Rails
+
+121
+00:06:16,080 --> 00:06:19,470
+to an Express course
+that just came out.
+
+122
+00:06:19,470 --> 00:06:20,880
+This concludes Level 1.
+
+123
+00:06:20,880 --> 00:06:23,920
+Good luck on those challenges.
+
+124
+00:06:23,920 --> 00:06:25,830
+Wrangler app.
+
+125
+00:06:25,830 --> 00:06:26,640
+Wrangler.
+
+126
+00:06:26,640 --> 00:06:28,540
+Users in our note wrangular app.
+
+127
+00:06:28,540 --> 00:06:29,660
+Wrangler.
+
+128
+00:06:29,660 --> 00:06:32,300
+Our note wrangular app.

@@ -1,0 +1,348 @@
+﻿1
+00:00:00,610 --> 00:00:03,980
+[SINGING] 4:30 in the morning,
+coding front-end on your site.
+
+2
+00:00:03,980 --> 00:00:07,140
+Console errors warning —
+you don't know how to fight.
+
+3
+00:00:07,140 --> 00:00:10,880
+Reusable and flexible
+directives are what you need.
+
+4
+00:00:10,880 --> 00:00:14,400
+Link and scope are sensible
+in reliant apps with speed.
+
+5
+00:00:14,400 --> 00:00:17,980
+Services will be okay to
+craft your own Note Wrangler.
+
+6
+00:00:17,980 --> 00:00:21,132
+You are on your way to
+Staying Sharp with Angular.
+
+7
+00:00:26,820 --> 00:00:29,300
+You're watching Staying
+Sharp with Angular.js.
+
+8
+00:00:29,300 --> 00:00:30,840
+My name is
+Alyssa Nicoll, and this
+
+9
+00:00:30,840 --> 00:00:35,180
+is Level 3, where we're
+going over services.
+
+10
+00:00:35,180 --> 00:00:36,870
+Back inside our
+application, you can
+
+11
+00:00:36,870 --> 00:00:40,430
+see that we have a
+controllers directory.
+
+12
+00:00:40,430 --> 00:00:44,280
+In there, you'll find a
+notes edit controller.
+
+13
+00:00:44,280 --> 00:00:46,300
+Inside our notes
+edit controller,
+
+14
+00:00:46,300 --> 00:00:50,010
+you'll see that we have
+an $http put method call.
+
+15
+00:00:50,010 --> 00:00:53,060
+It's saving our note
+object up to the database.
+
+16
+00:00:53,060 --> 00:00:55,330
+This code is fine,
+but it's not reusable
+
+17
+00:00:55,330 --> 00:00:58,710
+across our application, and
+it's also harder to test.
+
+18
+00:00:58,710 --> 00:01:02,520
+This is where services come in.
+
+19
+00:01:02,520 --> 00:01:05,120
+Services hold functions that
+are responsible for getting
+
+20
+00:01:05,120 --> 00:01:08,930
+and connecting data, and sharing
+it across our application.
+
+21
+00:01:08,930 --> 00:01:10,710
+So if we create a
+service, we can then
+
+22
+00:01:10,710 --> 00:01:13,720
+use that service inside of a controller, a directive,
+
+23
+00:01:13,720 --> 00:01:15,520
+a filter, and even another service.
+
+24
+00:01:19,220 --> 00:01:21,060
+To get started with our
+service, first we'll
+
+25
+00:01:21,060 --> 00:01:25,390
+create a note.js file inside
+of our services directory.
+
+26
+00:01:25,390 --> 00:01:27,830
+Then inside the
+index.html, we'll
+
+27
+00:01:27,830 --> 00:01:29,050
+include it with a script tag.
+
+28
+00:01:31,660 --> 00:01:33,650
+To define a service,
+there are five recipes
+
+29
+00:01:33,650 --> 00:01:34,950
+you can choose from.
+
+30
+00:01:34,950 --> 00:01:36,432
+The two most
+popular, and the ones
+
+31
+00:01:36,432 --> 00:01:37,890
+that we'll be using
+in this course,
+
+32
+00:01:37,890 --> 00:01:40,920
+are factory and provider.
+
+33
+00:01:40,920 --> 00:01:43,190
+Factory, the most
+commonly used one,
+
+34
+00:01:43,190 --> 00:01:46,610
+is used to share functions and
+objects across an application.
+
+35
+00:01:46,610 --> 00:01:49,030
+Provider is used for
+the exact same thing,
+
+36
+00:01:49,030 --> 00:01:50,755
+but it also allows
+for configuration.
+
+37
+00:01:53,270 --> 00:01:55,190
+Inside our note.js
+file, we're going
+
+38
+00:01:55,190 --> 00:01:58,170
+to define a service
+using the factory recipe.
+
+39
+00:01:58,170 --> 00:02:00,940
+So we'll say angular.module
+at the very top.
+
+40
+00:02:00,940 --> 00:02:03,220
+We'll define our service
+with .factory.
+
+41
+00:02:03,220 --> 00:02:05,900
+We'll then name
+our service "Note,"
+
+42
+00:02:05,900 --> 00:02:08,740
+and then give the
+function, the service name,
+
+43
+00:02:08,740 --> 00:02:12,490
+plus the recipe name — in
+this case, NoteFactory.
+
+44
+00:02:12,490 --> 00:02:14,160
+That's a commonly
+used convention
+
+45
+00:02:14,160 --> 00:02:16,080
+that you'll see
+throughout this course.
+
+46
+00:02:16,080 --> 00:02:18,210
+So you can refer back to
+it during the challenges,
+
+47
+00:02:18,210 --> 00:02:20,100
+we've placed the
+factory recipe below.
+
+48
+00:02:25,200 --> 00:02:27,700
+Remember, the reason we're
+creating a factory service
+
+49
+00:02:27,700 --> 00:02:31,726
+is to encapsulate some
+of these $http methods.
+
+50
+00:02:31,726 --> 00:02:33,100
+So later on in
+our service, we're
+
+51
+00:02:33,100 --> 00:02:35,630
+going to make an all
+and a create method.
+
+52
+00:02:35,630 --> 00:02:39,290
+The all will encapsulate
+this $http get method
+
+53
+00:02:39,290 --> 00:02:40,560
+to grab all of the notes.
+
+54
+00:02:47,220 --> 00:02:51,200
+So back inside our service,
+we need to return an object.
+
+55
+00:02:51,200 --> 00:02:53,790
+Inside that object, we'll
+create an all property
+
+56
+00:02:53,790 --> 00:02:55,610
+that has a function value.
+
+57
+00:02:55,610 --> 00:02:59,600
+That function will return
+the $http get method.
+
+58
+00:02:59,600 --> 00:03:01,760
+We'll also define
+a create property,
+
+59
+00:03:01,760 --> 00:03:05,360
+which will have a function
+value that will take in a note.
+
+60
+00:03:05,360 --> 00:03:08,740
+This note will be used
+in our $http post call,
+
+61
+00:03:08,740 --> 00:03:10,365
+and the result of
+the call is returned.
+
+62
+00:03:13,990 --> 00:03:16,120
+Now back inside our
+notes index controller,
+
+63
+00:03:16,120 --> 00:03:19,180
+it's still using
+the old $http call.
+
+64
+00:03:19,180 --> 00:03:21,775
+It needs to be using the
+notes factory we just created.
+
+65
+00:03:25,060 --> 00:03:27,080
+To use the factory, we
+need to first inject it
+
+66
+00:03:27,080 --> 00:03:27,830
+into the function.
+
+67
+00:03:31,880 --> 00:03:34,767
+Then we can call
+it, saying note.all,
+
+68
+00:03:34,767 --> 00:03:35,975
+and attach it to our success.
+
+69
+00:03:39,200 --> 00:03:41,020
+We obviously still
+need to finish wiring
+
+70
+00:03:41,020 --> 00:03:43,277
+up the create method, but
+I'll leave that up to you.
+
+71
+00:03:43,277 --> 00:03:45,360
+Good luck in the challenges,
+and I'll see you back
+
+72
+00:03:45,360 --> 00:03:47,330
+in the next section.

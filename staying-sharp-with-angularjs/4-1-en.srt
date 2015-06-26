@@ -1,0 +1,750 @@
+﻿1
+00:00:00,000 --> 00:00:03,980
+[SINGING] 4:30 in the morning,
+coding front-end on your site.
+
+2
+00:00:03,980 --> 00:00:06,880
+Console errors warning —
+ you don't know how to fight.
+
+3
+00:00:06,880 --> 00:00:11,020
+Reusable and flexible
+directives are what you need.
+
+4
+00:00:11,020 --> 00:00:14,060
+Link and scope are sensible
+in reliant apps with speed.
+
+5
+00:00:14,060 --> 00:00:18,049
+Services will be okay
+to craft your own Note Wrangler.
+
+6
+00:00:18,049 --> 00:00:21,595
+You are on your way to
+Staying Sharp with Angular.
+
+7
+00:00:27,420 --> 00:00:29,960
+You're watching Staying
+Sharp with Angular.js.
+
+8
+00:00:29,960 --> 00:00:32,780
+My name is Alyssa Nicoll,
+and this is Level 4 —
+
+9
+00:00:32,780 --> 00:00:34,275
+we're covering reusable directives.
+
+10
+00:00:37,340 --> 00:00:39,460
+Our notes index
+page is currently
+
+11
+00:00:39,460 --> 00:00:42,710
+displaying a list of all
+our notes, which is great.
+
+12
+00:00:42,710 --> 00:00:45,540
+But wouldn't it be
+even better if we could
+
+13
+00:00:45,540 --> 00:00:47,760
+sort notes by categories?
+
+14
+00:00:47,760 --> 00:00:50,330
+What if we had this
+sidebar over here that
+
+15
+00:00:50,330 --> 00:00:52,870
+had a list of the
+categories available
+
+16
+00:00:52,870 --> 00:00:54,780
+and when you clicked
+on it, it would then
+
+17
+00:00:54,780 --> 00:00:56,660
+filter through the
+notes and display them
+
+18
+00:00:56,660 --> 00:00:59,190
+based on the category?
+
+19
+00:00:59,190 --> 00:01:01,220
+We're going to start
+off by creating
+
+20
+00:01:01,220 --> 00:01:05,230
+an nw-category-select directive.
+
+21
+00:01:05,230 --> 00:01:06,740
+Inside the returned
+object, we're
+
+22
+00:01:06,740 --> 00:01:10,500
+going to set replace to true,
+restrict to E for element,
+
+23
+00:01:10,500 --> 00:01:12,420
+and then pass in
+the template URL.
+
+24
+00:01:17,580 --> 00:01:21,000
+Our category-select needs
+access to a list of categories.
+
+25
+00:01:21,000 --> 00:01:24,660
+So let's use a category
+service to make this happen.
+
+26
+00:01:24,660 --> 00:01:26,130
+Should we do this
+in the controller
+
+27
+00:01:26,130 --> 00:01:28,300
+or the link of the directive?
+
+28
+00:01:28,300 --> 00:01:29,150
+What do you think?
+
+29
+00:01:32,880 --> 00:01:33,680
+You guessed it!
+
+30
+00:01:33,680 --> 00:01:36,980
+Our link function is where we
+should access the data from.
+
+31
+00:01:36,980 --> 00:01:38,500
+So inside the link
+function, we're
+
+32
+00:01:38,500 --> 00:01:40,500
+going to call the
+category service.
+
+33
+00:01:40,500 --> 00:01:44,190
+We'll say category.query and set
+it equal to scope.categories.
+
+34
+00:01:47,810 --> 00:01:49,700
+Time to mock up
+the templates now.
+
+35
+00:01:49,700 --> 00:01:51,780
+We have a list of
+categories, but we
+
+36
+00:01:51,780 --> 00:01:54,630
+need to display them
+somewhere with the markup.
+
+37
+00:01:54,630 --> 00:01:59,640
+So we could put all of it in
+nw-category-select template,
+
+38
+00:01:59,640 --> 00:02:03,019
+but the children, the
+nw-category items,
+
+39
+00:02:03,019 --> 00:02:04,810
+are going to have
+additional functionality.
+
+40
+00:02:04,810 --> 00:02:07,140
+And so that's what we want
+to split this out now.
+
+41
+00:02:07,140 --> 00:02:10,020
+So each of our categories
+will have their own directive
+
+42
+00:02:10,020 --> 00:02:12,940
+and template.
+
+43
+00:02:12,940 --> 00:02:16,240
+So if we start coding out
+the HTML for our select,
+
+44
+00:02:16,240 --> 00:02:18,130
+here's what it would look like.
+
+45
+00:02:18,130 --> 00:02:20,320
+Pretty standard stuff.
+
+46
+00:02:20,320 --> 00:02:22,170
+Inside the card div
+is where you would
+
+47
+00:02:22,170 --> 00:02:25,240
+expect all of the category
+items to be listed out.
+
+48
+00:02:27,820 --> 00:02:31,680
+So here we'll use the
+nw-category-item directive,
+
+49
+00:02:31,680 --> 00:02:33,860
+and we'll use an
+ng-repeat to loop
+
+50
+00:02:33,860 --> 00:02:37,420
+through each category
+in categories.
+
+51
+00:02:37,420 --> 00:02:40,400
+For each one, we need to
+pass in the category variable
+
+52
+00:02:40,400 --> 00:02:42,970
+because each directive
+will have an isolate scope.
+
+53
+00:02:46,600 --> 00:02:49,890
+So now building out the
+markup for the category item,
+
+54
+00:02:49,890 --> 00:02:52,710
+we're going to make sure
+and show the icon, the name,
+
+55
+00:02:52,710 --> 00:02:55,200
+and the count of each category.
+
+56
+00:02:55,200 --> 00:02:57,040
+The count, as you
+probably guessed,
+
+57
+00:02:57,040 --> 00:02:59,910
+is just the number of
+notes in each category.
+
+58
+00:03:02,880 --> 00:03:05,950
+Now it's time to create the
+category item directive.
+
+59
+00:03:05,950 --> 00:03:09,550
+So we'll name it
+nw-category-item, as expected,
+
+60
+00:03:09,550 --> 00:03:13,042
+return an object that's
+restricted to E for element,
+
+61
+00:03:13,042 --> 00:03:14,250
+and give it the template URL.
+
+62
+00:03:18,820 --> 00:03:20,470
+As we mentioned
+earlier, we're going
+
+63
+00:03:20,470 --> 00:03:24,150
+to isolate its scope and
+two-way bind category.
+
+64
+00:03:28,020 --> 00:03:29,749
+If you go back to
+the notes index,
+
+65
+00:03:29,749 --> 00:03:31,790
+you'll see that all the
+categories are displaying
+
+66
+00:03:31,790 --> 00:03:35,735
+and we even added a CSS select
+so that on hover, the style
+
+67
+00:03:35,735 --> 00:03:36,235
+changes.
+
+68
+00:03:39,020 --> 00:03:40,610
+This is great, but
+a couple of things
+
+69
+00:03:40,610 --> 00:03:43,400
+need to happen before
+it's fully finished.
+
+70
+00:03:43,400 --> 00:03:47,210
+We need to keep track of which
+category is set to active,
+
+71
+00:03:47,210 --> 00:03:49,690
+and then we need to filter
+based on that active category.
+
+72
+00:03:54,860 --> 00:03:55,940
+First things first.
+
+73
+00:03:55,940 --> 00:03:59,710
+We need to decide where to keep
+track of the active category.
+
+74
+00:03:59,710 --> 00:04:01,650
+So when a category
+is clicked, it
+
+75
+00:04:01,650 --> 00:04:03,890
+needs to be set
+as activeCategory
+
+76
+00:04:03,890 --> 00:04:07,100
+and there can only be one
+active category at a time.
+
+77
+00:04:07,100 --> 00:04:10,820
+If that category is active,
+it needs to change styles.
+
+78
+00:04:10,820 --> 00:04:14,630
+To solve this, we're going
+to have nwCategorySelect keep
+
+79
+00:04:14,630 --> 00:04:17,329
+track of the active category.
+
+80
+00:04:17,329 --> 00:04:19,399
+So a sample value of
+the active category
+
+81
+00:04:19,399 --> 00:04:24,890
+could be testing or
+question or code snippet.
+
+82
+00:04:24,890 --> 00:04:28,190
+Each category item needs
+to know which category
+
+83
+00:04:28,190 --> 00:04:30,210
+is active for two reasons.
+
+84
+00:04:30,210 --> 00:04:31,840
+One, it needs to
+know if it needs
+
+85
+00:04:31,840 --> 00:04:34,760
+to be styled as an active
+category — "Am I active?"
+
+86
+00:04:34,760 --> 00:04:38,230
+And two, it needs to be able to
+set the active category if it
+
+87
+00:04:38,230 --> 00:04:39,790
+is clicked.
+
+88
+00:04:39,790 --> 00:04:42,350
+We could pass activeCategory
+around and share a value
+
+89
+00:04:42,350 --> 00:04:46,460
+with everyone, however that's
+not good object-oriented code.
+
+90
+00:04:46,460 --> 00:04:49,210
+Instead, we're going to let
+the CategorySelect manage
+
+91
+00:04:49,210 --> 00:04:51,790
+the active category and
+allow the inner category
+
+92
+00:04:51,790 --> 00:04:54,880
+items to get or set the active
+value when they need to.
+
+93
+00:04:58,100 --> 00:05:01,230
+So first, CategorySelect
+needs a function
+
+94
+00:05:01,230 --> 00:05:03,930
+that will allow other
+directives to call and set
+
+95
+00:05:03,930 --> 00:05:05,500
+the activeCategory.
+
+96
+00:05:05,500 --> 00:05:09,290
+Let's semantically name
+it setActiveCategory.
+
+97
+00:05:09,290 --> 00:05:11,230
+We'll pass in the
+category and we'll
+
+98
+00:05:11,230 --> 00:05:14,240
+say scope.activeCategory
+is equal to this
+
+99
+00:05:14,240 --> 00:05:15,080
+passed in category.
+
+100
+00:05:18,310 --> 00:05:20,670
+So logically as you're
+thinking through this,
+
+101
+00:05:20,670 --> 00:05:23,030
+each category is
+clicked and they
+
+102
+00:05:23,030 --> 00:05:25,790
+should be able to
+have access and call
+
+103
+00:05:25,790 --> 00:05:29,220
+this parent setActiveCategory
+method we just made.
+
+104
+00:05:29,220 --> 00:05:31,962
+But how do we give these
+child directives access
+
+105
+00:05:31,962 --> 00:05:33,045
+to their parent's methods?
+
+106
+00:05:36,030 --> 00:05:39,590
+We have each child require
+their parent directive.
+
+107
+00:05:39,590 --> 00:05:43,840
+We just say require:
+^nwCategorySelect.
+
+108
+00:05:43,840 --> 00:05:46,100
+And this ^
+character is letting
+
+109
+00:05:46,100 --> 00:05:49,770
+it know that you're looking
+for a parent directive.
+
+110
+00:05:49,770 --> 00:05:53,830
+By doing this, our child will
+now have access to its parent's
+
+111
+00:05:53,830 --> 00:05:55,045
+controller.
+
+112
+00:05:55,045 --> 00:05:57,170
+So how do we use the parent
+directive's controller?
+
+113
+00:06:00,250 --> 00:06:02,510
+The first step, if
+you haven't already,
+
+114
+00:06:02,510 --> 00:06:04,910
+is to define your link function.
+
+115
+00:06:04,910 --> 00:06:07,130
+Now link has a
+fourth parameter that
+
+116
+00:06:07,130 --> 00:06:09,010
+can be named whatever
+you would like.
+
+117
+00:06:09,010 --> 00:06:11,130
+And this is the
+parent's controller.
+
+118
+00:06:14,350 --> 00:06:16,420
+Now inside of the
+link function, we're
+
+119
+00:06:16,420 --> 00:06:18,110
+going to declare
+a function and set
+
+120
+00:06:18,110 --> 00:06:20,930
+it equal to scope.makeActive.
+
+121
+00:06:20,930 --> 00:06:23,100
+Inside of the
+makeActive function,
+
+122
+00:06:23,100 --> 00:06:27,094
+we'll call the controller's
+setActiveCategory method.
+
+123
+00:06:27,094 --> 00:06:28,510
+We'll then pass
+in scope.category.
+
+124
+00:06:32,150 --> 00:06:35,220
+We want to call this
+makeActive function when
+
+125
+00:06:35,220 --> 00:06:37,190
+a category is clicked.
+
+126
+00:06:37,190 --> 00:06:42,350
+So inside of our category item
+HTML, we'll add an ng-click
+
+127
+00:06:42,350 --> 00:06:43,435
+and call makeActive.
+
+128
+00:06:46,790 --> 00:06:50,360
+So if you go back in the browser
+and you click on each category,
+
+129
+00:06:50,360 --> 00:06:53,260
+you'll notice that
+nothing's happening.
+
+130
+00:06:53,260 --> 00:06:56,980
+And that's because we are, in
+fact, setting activeCategory.
+
+131
+00:06:56,980 --> 00:07:00,850
+But we're not telling it to
+do anything based off of that.
+
+132
+00:07:00,850 --> 00:07:03,800
+So let's go fix that.
+
+133
+00:07:03,800 --> 00:07:07,340
+So back inside our parent
+category select directive
+
+134
+00:07:07,340 --> 00:07:09,900
+we're going to create a
+function and set it equal
+
+135
+00:07:09,900 --> 00:07:12,790
+to this.getActiveCategory.
+
+136
+00:07:12,790 --> 00:07:16,550
+We'll have that function
+return scope.activeCategory.
+
+137
+00:07:18,370 --> 00:07:20,770
+Back in the category
+item child directive,
+
+138
+00:07:20,770 --> 00:07:22,370
+we're going to need
+a function that
+
+139
+00:07:22,370 --> 00:07:25,020
+will check to see if
+the active category is
+
+140
+00:07:25,020 --> 00:07:27,110
+equal to our category.
+
+141
+00:07:27,110 --> 00:07:29,070
+So we'll create the
+function and set it
+
+142
+00:07:29,070 --> 00:07:32,410
+equal to scope.categoryActive.
+
+143
+00:07:32,410 --> 00:07:36,814
+Then we'll check to see
+if the active category is
+
+144
+00:07:36,814 --> 00:07:37,730
+equal to our category.
+
+145
+00:07:41,670 --> 00:07:44,810
+Here's the category item
+template how it currently is.
+
+146
+00:07:44,810 --> 00:07:48,000
+We need to assign a class
+based on the return
+
+147
+00:07:48,000 --> 00:07:49,770
+ of categoryActive.
+
+148
+00:07:49,770 --> 00:07:54,390
+So we'll say ng-class =
+active: categoryActive.
+
+149
+00:07:57,830 --> 00:07:59,650
+So if you look back
+in the browser,
+
+150
+00:07:59,650 --> 00:08:01,630
+you'll see that as you
+click on a category
+
+151
+00:08:01,630 --> 00:08:03,630
+it stays active,
+which is awesome.
+
+152
+00:08:03,630 --> 00:08:04,930
+That's what we wanted.
+
+153
+00:08:04,930 --> 00:08:09,130
+But the notes aren't filtering
+based on that active category.
+
+154
+00:08:09,130 --> 00:08:10,020
+That's okay.
+
+155
+00:08:10,020 --> 00:08:11,740
+We'll work on that
+in the next section.
+
+156
+00:08:11,740 --> 00:08:14,020
+For now, go have
+fun practicing this
+
+157
+00:08:14,020 --> 00:08:16,410
+and we'll see you back soon.

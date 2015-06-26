@@ -1,0 +1,353 @@
+﻿1
+00:00:02,040 --> 00:00:04,000
+Are you ready for
+the last section?
+
+2
+00:00:04,000 --> 00:00:06,230
+In this one, we're talking
+about external libraries.
+
+3
+00:00:09,070 --> 00:00:12,460
+A lot of times we use external
+libraries in our applications.
+
+4
+00:00:12,460 --> 00:00:16,309
+In an Angular app, it's best
+to wrap that external library
+
+5
+00:00:16,309 --> 00:00:18,800
+in a directive, and then
+reuse that directive
+
+6
+00:00:18,800 --> 00:00:20,780
+throughout your application.
+
+7
+00:00:20,780 --> 00:00:24,120
+So for example, look
+at this tooltip.
+
+8
+00:00:24,120 --> 00:00:26,170
+It's kind of ugly.
+
+9
+00:00:26,170 --> 00:00:29,600
+We could replace this tooltip
+with a prettier Bootstrap one
+
+10
+00:00:29,600 --> 00:00:30,779
+using directives.
+
+11
+00:00:30,779 --> 00:00:32,570
+Let's go ahead and find
+out how to do that.
+
+12
+00:00:35,105 --> 00:00:36,480
+First, we want to
+get the library
+
+13
+00:00:36,480 --> 00:00:39,550
+we want to use — Bootstrap,
+in this case — put it
+
+14
+00:00:39,550 --> 00:00:44,380
+in the vendor directory, and
+include it in our application.
+
+15
+00:00:44,380 --> 00:00:47,080
+Now we're ready to
+create our directive.
+
+16
+00:00:47,080 --> 00:00:48,750
+We're going to
+name this directive
+
+17
+00:00:48,750 --> 00:00:52,020
+"title," without any nw prefix.
+
+18
+00:00:52,020 --> 00:00:56,100
+This is because we want to
+override the default HTML title
+
+19
+00:00:56,100 --> 00:00:57,990
+attribute.
+
+20
+00:00:57,990 --> 00:01:00,890
+This directive is going to
+be an attribute directive.
+
+21
+00:01:00,890 --> 00:01:02,480
+And all of its
+functionality will
+
+22
+00:01:02,480 --> 00:01:04,550
+be inside the link function.
+
+23
+00:01:04,550 --> 00:01:07,220
+Directives by default
+are restricted to A,
+
+24
+00:01:07,220 --> 00:01:08,970
+so we don't need
+to specify that.
+
+25
+00:01:14,080 --> 00:01:17,200
+If your directive is only
+returning a link function,
+
+26
+00:01:17,200 --> 00:01:19,610
+there's an alternative
+syntax for this.
+
+27
+00:01:19,610 --> 00:01:23,300
+So instead of return object and
+then specify the link function,
+
+28
+00:01:23,300 --> 00:01:25,870
+you can just return
+an anonymous function.
+
+29
+00:01:31,840 --> 00:01:35,580
+Now inside of our anonymously
+returned link function,
+
+30
+00:01:35,580 --> 00:01:38,550
+we can call the tooltip
+method from Bootstrap.
+
+31
+00:01:38,550 --> 00:01:42,590
+So we'll say element.tooltip,
+and then pass it
+
+32
+00:01:42,590 --> 00:01:43,900
+a container body.
+
+33
+00:01:48,030 --> 00:01:50,680
+We're already specifying
+the title attribute
+
+34
+00:01:50,680 --> 00:01:52,380
+inside of our card.
+
+35
+00:01:52,380 --> 00:01:55,620
+So now all we have to do is
+go and load in the browser,
+
+36
+00:01:55,620 --> 00:01:58,810
+and you'll see that our
+tooltip is being replaced
+
+37
+00:01:58,810 --> 00:02:01,440
+with the Bootstrap tooltip.
+
+38
+00:02:01,440 --> 00:02:04,360
+However, the tooltip
+isn't working.
+
+39
+00:02:04,360 --> 00:02:06,090
+It's showing up,
+but it's no longer
+
+40
+00:02:06,090 --> 00:02:08,000
+interpolating the expression.
+
+41
+00:02:08,000 --> 00:02:10,840
+It's just saying
+bracket, bracket, header.
+
+42
+00:02:10,840 --> 00:02:14,070
+This is because the link
+function only runs one time.
+
+43
+00:02:14,070 --> 00:02:16,570
+And when our link
+function ran, Angular
+
+44
+00:02:16,570 --> 00:02:19,280
+didn't have access to
+the header variable,
+
+45
+00:02:19,280 --> 00:02:21,980
+so it just set it to
+bracket, bracket, header.
+
+46
+00:02:25,570 --> 00:02:27,940
+A simple but kind of
+janky fix for this
+
+47
+00:02:27,940 --> 00:02:30,500
+is surrounding it by a timeout.
+
+48
+00:02:30,500 --> 00:02:33,140
+This will cause Angular to run
+through an entire event loop
+
+49
+00:02:33,140 --> 00:02:34,990
+before replacing the tooltip.
+
+50
+00:02:34,990 --> 00:02:38,080
+By that time, the
+header value will exist,
+
+51
+00:02:38,080 --> 00:02:39,830
+and our title directive
+works as expected.
+
+52
+00:02:45,290 --> 00:02:47,700
+Our tooltip now works,
+but as a best practice
+
+53
+00:02:47,700 --> 00:02:49,980
+we need to clean up
+after our directive.
+
+54
+00:02:49,980 --> 00:02:53,300
+We can do this by listening
+for the destroy event.
+
+55
+00:02:53,300 --> 00:02:57,400
+So we can just say
+scope.on $destroy,
+
+56
+00:02:57,400 --> 00:03:01,179
+and then inside of that say
+element.tooltip destroy.
+
+57
+00:03:01,179 --> 00:03:03,095
+This will clean up after
+our directive nicely.
+
+58
+00:03:06,036 --> 00:03:08,410
+You might be wondering, after
+seeing all the things we've
+
+59
+00:03:08,410 --> 00:03:10,750
+done in the link
+function, "When should I
+
+60
+00:03:10,750 --> 00:03:13,390
+use the controller
+inside a directive?"
+
+61
+00:03:13,390 --> 00:03:16,050
+Just remember, if you
+need to share something
+
+62
+00:03:16,050 --> 00:03:19,870
+between directives, do that
+logic inside of a controller
+
+63
+00:03:19,870 --> 00:03:21,990
+and use the require property.
+
+64
+00:03:21,990 --> 00:03:24,925
+Otherwise, it's your best
+bet to use the link function.
+
+65
+00:03:28,800 --> 00:03:32,167
+Have fun making some external
+library directives of your own,
+
+66
+00:03:32,167 --> 00:03:33,625
+and I hope you
+enjoyed this course.
+
+67
+00:03:37,876 --> 00:03:38,380
+[BEEP]
+
+68
+00:03:38,380 --> 00:03:39,552
+Or, we'll—
+
+69
+00:03:40,500 --> 00:03:41,000
+[BEEP]
+
+70
+00:03:41,500 --> 00:03:43,043
+—Ahh!
+
+71
+00:03:43,043 --> 00:03:43,873
+[LAUGHTER]
+
+72
+00:03:44,316 --> 00:03:44,815
+[BEEP]
+
+73
+00:03:45,314 --> 00:03:47,400
+We're going to make it
+through this course.
+
+74
+00:03:47,400 --> 00:03:48,600
+We will survive.
+
+75
+00:03:48,600 --> 00:03:50,150
+[BEEP]

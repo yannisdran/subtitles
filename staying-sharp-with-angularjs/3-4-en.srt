@@ -1,0 +1,384 @@
+﻿1
+00:00:02,020 --> 00:00:02,862
+Welcome back.
+
+2
+00:00:02,862 --> 00:00:04,570
+In this section, we're
+covering $resource.
+
+3
+00:00:07,410 --> 00:00:11,180
+So far, we've only been using
+the built-in $http service
+
+4
+00:00:11,180 --> 00:00:14,550
+to grab or change data, as you
+see here in our note.js file.
+
+5
+00:00:21,011 --> 00:00:22,760
+It's pretty common in
+web apps that you'll
+
+6
+00:00:22,760 --> 00:00:24,790
+have code that
+calls web services,
+
+7
+00:00:24,790 --> 00:00:26,415
+and they reuse a lot
+of these methods.
+
+8
+00:00:29,970 --> 00:00:32,460
+If only there was a
+way to simplify this.
+
+9
+00:00:32,460 --> 00:00:36,130
+I mean, all this code that's
+being reused in so many apps?
+
+10
+00:00:36,130 --> 00:00:38,440
+Well, it turns out
+there's a thing called
+
+11
+00:00:38,440 --> 00:00:41,840
+$resource that includes
+all of these by default.
+
+12
+00:00:41,840 --> 00:00:44,446
+[MUSIC PLAYING]
+
+13
+00:00:47,660 --> 00:00:50,130
+The first step, as with
+most external things,
+
+14
+00:00:50,130 --> 00:00:54,030
+is to install ngResource and
+put it in our Vendors folder.
+
+15
+00:00:54,030 --> 00:00:56,730
+We're also going to include it
+with a script tag in our index
+
+16
+00:00:56,730 --> 00:00:57,230
+file.
+
+17
+00:01:01,210 --> 00:01:04,190
+We need to give our main
+application module access
+
+18
+00:01:04,190 --> 00:01:07,050
+to ngResource so we can
+use it across our app.
+
+19
+00:01:07,050 --> 00:01:10,190
+So as you guessed, back
+in the app.js file,
+
+20
+00:01:10,190 --> 00:01:11,940
+we're going to
+inject ngResource.
+
+21
+00:01:15,190 --> 00:01:18,210
+Back inside our note factory
+that we want to clean up,
+
+22
+00:01:18,210 --> 00:01:22,140
+we're going to inject
+$resource and then call it,
+
+23
+00:01:22,140 --> 00:01:24,580
+sending in the URL
+for the API that we're
+
+24
+00:01:24,580 --> 00:01:26,070
+going to call for the data.
+
+25
+00:01:28,820 --> 00:01:32,050
+This one resource line
+returns similar functionality
+
+26
+00:01:32,050 --> 00:01:33,950
+to all of these $http calls.
+
+27
+00:01:33,950 --> 00:01:35,970
+Isn't that nifty?
+
+28
+00:01:35,970 --> 00:01:38,360
+It also simplifies what
+we need to do in order
+
+29
+00:01:38,360 --> 00:01:39,405
+to call the $resource.
+
+30
+00:01:42,520 --> 00:01:45,470
+So what about calling these
+resources from the controller?
+
+31
+00:01:45,470 --> 00:01:47,650
+How does it differ from $http?
+
+32
+00:01:47,650 --> 00:01:50,470
+Well, let's go back into
+the notes show controller.
+
+33
+00:01:50,470 --> 00:01:53,400
+Instead of saying Note.find
+and passing it the $routeParam,
+
+34
+00:01:53,400 --> 00:01:58,610
+we'll now do Note.get and
+we'll pass id: $routeParams.id.
+
+35
+00:02:01,730 --> 00:02:03,000
+These do the same thing.
+
+36
+00:02:05,740 --> 00:02:09,699
+In the notes index controller,
+instead of calling Note.all,
+
+37
+00:02:09,699 --> 00:02:13,080
+we will call a
+Note.query method.
+
+38
+00:02:13,080 --> 00:02:13,910
+Same thing.
+
+39
+00:02:13,910 --> 00:02:14,570
+Just shorter.
+
+40
+00:02:20,700 --> 00:02:23,879
+In the note create controller,
+instead of calling Note.create,
+
+41
+00:02:23,879 --> 00:02:25,170
+we're going to call Note.$save.
+
+42
+00:02:30,560 --> 00:02:32,740
+Notice that our catch
+and finally from earlier
+
+43
+00:02:32,740 --> 00:02:33,510
+can still be used.
+
+44
+00:02:36,520 --> 00:02:39,720
+We haven't created a delete
+functionality thus far.
+
+45
+00:02:39,720 --> 00:02:43,180
+But if we wanted to, we could
+create a note edit controller,
+
+46
+00:02:43,180 --> 00:02:46,930
+and then inside of that, make
+a function for deleting notes.
+
+47
+00:02:46,930 --> 00:02:52,450
+We could then use resource yet
+again with a $delete method.
+
+48
+00:02:52,450 --> 00:02:56,260
+This would probably be used by
+creating a Delete button, maybe
+
+49
+00:02:56,260 --> 00:02:58,590
+on the notes themselves,
+and from there you
+
+50
+00:02:58,590 --> 00:03:01,010
+could call ng-click deleteNote.
+
+51
+00:03:01,010 --> 00:03:04,010
+There's also a substitute
+$remove method.
+
+52
+00:03:04,010 --> 00:03:07,430
+It does the same thing, but
+it's helpful for IE browsers
+
+53
+00:03:07,430 --> 00:03:09,370
+because delete is
+a reserved word.
+
+54
+00:03:12,640 --> 00:03:14,860
+So to sum up, look at
+all the awesome things
+
+55
+00:03:14,860 --> 00:03:16,300
+we just did with $resource.
+
+56
+00:03:16,300 --> 00:03:17,930
+It's allowed us to
+shorten our code
+
+57
+00:03:17,930 --> 00:03:21,310
+and do things like
+get a single resource,
+
+58
+00:03:21,310 --> 00:03:24,560
+get all the resources,
+delete a resource,
+
+59
+00:03:24,560 --> 00:03:27,070
+and create a new resource.
+
+60
+00:03:27,070 --> 00:03:28,150
+But what about update?
+
+61
+00:03:31,690 --> 00:03:33,980
+There isn't an update
+method, but resource
+
+62
+00:03:33,980 --> 00:03:35,750
+has the handy-dandy
+feature of being
+
+63
+00:03:35,750 --> 00:03:37,860
+able to add custom functions.
+
+64
+00:03:37,860 --> 00:03:40,730
+So we'll just add
+our own update method
+
+65
+00:03:40,730 --> 00:03:42,807
+and set it equal to method PUT.
+
+66
+00:03:46,790 --> 00:03:49,380
+Now in order to call the
+custom resource method we just
+
+67
+00:03:49,380 --> 00:03:54,300
+created, we could go into
+note edit controller, call
+
+68
+00:03:54,300 --> 00:03:59,650
+update on the instance
+of the note passed in.
+
+69
+00:03:59,650 --> 00:04:00,874
+That's it for $resource.
+
+70
+00:04:00,874 --> 00:04:03,040
+Go practice in the challenges,
+and I'll see you back
+
+71
+00:04:03,040 --> 00:04:04,236
+in Level 4.
+
+72
+00:04:04,236 --> 00:04:07,092
+[MUSIC PLAYING]
+
+73
+00:04:08,520 --> 00:04:11,510
+Avatar service factory thing.
+
+74
+00:04:11,510 --> 00:04:12,690
+[LAUGHTER]
+
+75
+00:04:13,190 --> 00:04:14,470
+And don't reach so far out.
+
+76
+00:04:14,470 --> 00:04:15,380
+Because I'm a bird?
+
+77
+00:04:15,380 --> 00:04:17,830
+No, 'cause then your
+hands'll be gone.
+
+78
+00:04:17,830 --> 00:04:18,850
+[LAUGHTER] Sorry.
+
+79
+00:04:18,850 --> 00:04:20,608
+I was imagining
+myself without hands.
+
+80
+00:04:20,608 --> 00:04:23,230
+[LAUGHTER]
+
+81
+00:04:23,230 --> 00:04:23,790
+No?
+
+82
+00:04:23,790 --> 00:04:25,956
+I was just going to fade
+to black while I'm dancing.
+
+83
+00:04:25,956 --> 00:04:27,310
+[LAUGHING]

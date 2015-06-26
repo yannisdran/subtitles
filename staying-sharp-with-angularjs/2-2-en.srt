@@ -1,0 +1,576 @@
+1
+00:00:02,070 --> 00:00:03,040
+Welcome back.
+
+2
+00:00:03,040 --> 00:00:05,150
+In this section, we're
+going to be covering scope,
+
+3
+00:00:05,150 --> 00:00:07,960
+the config object.
+
+4
+00:00:07,960 --> 00:00:10,910
+Here's our current directive
+code where we left off.
+
+5
+00:00:10,910 --> 00:00:13,040
+We're attaching a
+header to the scope
+
+6
+00:00:13,040 --> 00:00:17,340
+and setting it to a
+string of "Note Title."
+
+7
+00:00:17,340 --> 00:00:19,370
+What if we wanted to add
+numbers to our notes,
+
+8
+00:00:19,370 --> 00:00:22,410
+though, so they each printed
+out Note Title 1, Note
+
+9
+00:00:22,410 --> 00:00:26,140
+Title 2, so on and so forth?
+
+10
+00:00:26,140 --> 00:00:28,010
+One way we could try
+to accomplish this
+
+11
+00:00:28,010 --> 00:00:31,520
+is to create a num variable
+outside of the return.
+
+12
+00:00:31,520 --> 00:00:33,370
+We'll go ahead and
+set it equal to 1
+
+13
+00:00:33,370 --> 00:00:35,330
+and then append it
+to the $scope.header
+
+14
+00:00:35,330 --> 00:00:36,910
+inside the controller.
+
+15
+00:00:36,910 --> 00:00:39,040
+This will go ahead and
+increment the number
+
+16
+00:00:39,040 --> 00:00:41,740
+as each note is created.
+
+17
+00:00:41,740 --> 00:00:43,420
+In order to understand
+scope better,
+
+18
+00:00:43,420 --> 00:00:46,050
+we simplified our note
+card example, like so.
+
+19
+00:00:50,190 --> 00:00:53,320
+If we look back at the browser,
+though, we have a problem.
+
+20
+00:00:53,320 --> 00:00:55,800
+The notes aren't
+incrementing as expected.
+
+21
+00:00:55,800 --> 00:00:58,340
+Instead of Note Title
+1, Note Title 2,
+
+22
+00:00:58,340 --> 00:01:01,480
+they're just all Note Title 4.
+
+23
+00:01:01,480 --> 00:01:02,970
+What's happening here, though?
+
+24
+00:01:02,970 --> 00:01:04,910
+Well, it turns
+out the directives
+
+25
+00:01:04,910 --> 00:01:07,600
+by default inherit
+their parent scope.
+
+26
+00:01:07,600 --> 00:01:10,020
+Well, who's our
+parent in this case?
+
+27
+00:01:10,020 --> 00:01:11,940
+Turns out it's
+just the div that's
+
+28
+00:01:11,940 --> 00:01:14,380
+wrapping all of the note cards.
+
+29
+00:01:14,380 --> 00:01:18,100
+So each time scope.header is being set,
+
+30
+00:01:18,100 --> 00:01:19,960
+it's being reassigned on the parent.
+
+31
+00:01:22,900 --> 00:01:25,180
+That's why we have this
+weird number issue.
+
+32
+00:01:25,180 --> 00:01:28,480
+Each time the
+header is being set,
+
+33
+00:01:28,480 --> 00:01:30,875
+the numbers are being
+updated on each of the notes.
+
+34
+00:01:34,360 --> 00:01:36,100
+In order to fix
+this, we no longer
+
+35
+00:01:36,100 --> 00:01:38,390
+want to use our parent scope.
+
+36
+00:01:38,390 --> 00:01:42,460
+We want each directive to
+have their own isolate scope.
+
+37
+00:01:42,460 --> 00:01:45,650
+To do this, we simply say
+scope and then pass it
+
+38
+00:01:45,650 --> 00:01:47,130
+an empty object.
+
+39
+00:01:47,130 --> 00:01:47,730
+Woo!
+
+40
+00:01:47,730 --> 00:01:51,770
+Now we have an isolate scope.
+
+41
+00:01:51,770 --> 00:01:53,960
+With that one line,
+each directive
+
+42
+00:01:53,960 --> 00:01:57,380
+now has an isolate
+scope, so $scope.header
+
+43
+00:01:57,380 --> 00:02:00,290
+isn't overriding itself
+every time a directive is
+
+44
+00:02:00,290 --> 00:02:03,470
+added to the page.
+
+45
+00:02:03,470 --> 00:02:05,270
+Let's review scope.
+
+46
+00:02:05,270 --> 00:02:07,290
+By default, directives
+have their scope
+
+47
+00:02:07,290 --> 00:02:11,140
+set to false, which means they
+inherit from their parents.
+
+48
+00:02:11,140 --> 00:02:14,690
+So if we set a header variable,
+let's say, on the child,
+
+49
+00:02:14,690 --> 00:02:17,270
+it's actually being
+set on the parent.
+
+50
+00:02:17,270 --> 00:02:19,410
+If we choose to isolate
+the scope by passing
+
+51
+00:02:19,410 --> 00:02:23,550
+an empty object, and we set a
+header variable on the child,
+
+52
+00:02:23,550 --> 00:02:27,090
+it's isolate to that child
+and it no longer has access
+
+53
+00:02:27,090 --> 00:02:30,320
+to anything from the parent.
+
+54
+00:02:30,320 --> 00:02:33,680
+As we just saw, you can
+isolate a directive scope
+
+55
+00:02:33,680 --> 00:02:36,080
+by passing it an empty object.
+
+56
+00:02:36,080 --> 00:02:37,660
+This means that
+the child no longer
+
+57
+00:02:37,660 --> 00:02:41,620
+has access to anything on
+the parent scope, which
+
+58
+00:02:41,620 --> 00:02:43,610
+can be problematic.
+
+59
+00:02:43,610 --> 00:02:45,560
+Remember back in
+the notes HTML where
+
+60
+00:02:45,560 --> 00:02:48,680
+we repeat for each note
+in the notes array.
+
+61
+00:02:48,680 --> 00:02:51,600
+And then the card directive
+is going to need access
+
+62
+00:02:51,600 --> 00:02:53,970
+to that note information.
+
+63
+00:02:53,970 --> 00:02:56,500
+With our isolate scope that
+we just created, however,
+
+64
+00:02:56,500 --> 00:02:57,710
+it no longer has access.
+
+65
+00:03:03,400 --> 00:03:06,930
+Inside of our notes HTML,
+in the nw-card directive,
+
+66
+00:03:06,930 --> 00:03:10,240
+we're going to pass
+header = note.title.
+
+67
+00:03:10,240 --> 00:03:12,780
+That's what we want to
+pass into this directive.
+
+68
+00:03:12,780 --> 00:03:14,260
+Then inside the
+directive, you'll
+
+69
+00:03:14,260 --> 00:03:16,576
+simply display header
+with an expression.
+
+70
+00:03:16,576 --> 00:03:18,450
+There's one more thing we need to do in order
+
+71
+00:03:18,450 --> 00:03:20,400
+to make this work.
+
+72
+00:03:20,400 --> 00:03:22,170
+Let's jump back
+into our directive
+
+73
+00:03:22,170 --> 00:03:23,961
+and go ahead and get
+rid of the controller.
+
+74
+00:03:27,710 --> 00:03:29,710
+We need a way to let the
+directive know it might
+
+75
+00:03:29,710 --> 00:03:31,280
+be receiving a header variable.
+
+76
+00:03:31,280 --> 00:03:33,260
+And, if so, bind it to scope.
+
+77
+00:03:35,980 --> 00:03:38,180
+We need to add a
+little configuration.
+
+78
+00:03:38,180 --> 00:03:40,960
+Inside of our scope object,
+we'll say header and then
+
+79
+00:03:40,960 --> 00:03:42,762
+set it to the @ character.
+
+80
+00:03:42,762 --> 00:03:44,220
+This tells our
+directive that we're
+
+81
+00:03:44,220 --> 00:03:46,070
+going to be passing
+in a string and we
+
+82
+00:03:46,070 --> 00:03:48,689
+can use that for header
+inside of the template.
+
+83
+00:03:48,689 --> 00:03:50,230
+There are three options when it comes
+
+84
+00:03:50,230 --> 00:03:52,120
+to binding data on a scope.
+
+85
+00:03:52,120 --> 00:03:54,500
+You can use the @ character, which we just learned.
+
+86
+00:03:54,500 --> 00:03:56,490
+You can also use = or &.
+
+87
+00:04:00,640 --> 00:04:03,590
+If we set header to
+= instead of @,
+
+88
+00:04:03,590 --> 00:04:05,790
+it would use a
+two-way binding, so
+
+89
+00:04:05,790 --> 00:04:07,700
+if the variable
+changed in one place,
+
+90
+00:04:07,700 --> 00:04:09,470
+it's going to change in another.
+
+91
+00:04:09,470 --> 00:04:11,320
+If we use the
+=, we no longer
+
+92
+00:04:11,320 --> 00:04:14,640
+need the expression
+around note.header.
+
+93
+00:04:14,640 --> 00:04:15,859
+We can remove those brackets.
+
+94
+00:04:19,620 --> 00:04:22,800
+Our note cards display more
+than just the header, however.
+
+95
+00:04:22,800 --> 00:04:25,400
+We might want to pass
+in an icon, for instance.
+
+96
+00:04:25,400 --> 00:04:28,360
+So you can do this by
+simply saying icon =
+
+97
+00:04:28,360 --> 00:04:31,310
+and pass in as many bindings
+as you need into that object.
+
+98
+00:04:34,290 --> 00:04:36,500
+Now our directive will
+be expecting an icon,
+
+99
+00:04:36,500 --> 00:04:39,370
+so let's go ahead and say
+icon = and set it
+
+100
+00:04:39,370 --> 00:04:42,290
+to note.icon in the directive.
+
+101
+00:04:42,290 --> 00:04:46,820
+And then inside the template,
+we can use the icon.
+
+102
+00:04:46,820 --> 00:04:49,660
+The wonderful thing about
+isolating a scope is now
+
+103
+00:04:49,660 --> 00:04:51,490
+your directive is flexible.
+
+104
+00:04:51,490 --> 00:04:54,290
+You can reuse it in
+multiple situations.
+
+105
+00:04:54,290 --> 00:04:56,400
+So, for instance,
+in our first situation,
+
+106
+00:04:56,400 --> 00:04:58,230
+we were using it
+to display notes.
+
+107
+00:04:58,230 --> 00:05:00,780
+But what if we wanted to
+display our users using
+
+108
+00:05:00,780 --> 00:05:03,400
+the same nw-card directive?
+
+109
+00:05:03,400 --> 00:05:07,700
+Instead of the note title, we
+would just pass in a user.name.
+
+110
+00:05:07,700 --> 00:05:10,650
+Instead of an icon, we could
+pass in a user's image.
+
+111
+00:05:10,650 --> 00:05:14,756
+With flexible directives, the
+possibilities are endless.
+
+112
+00:05:14,756 --> 00:05:16,130
+If we take a look
+in our browser,
+
+113
+00:05:16,130 --> 00:05:19,101
+you see that our notes are
+displaying with actual titles
+
+114
+00:05:19,101 --> 00:05:19,600
+and icons.
+
+115
+00:05:22,380 --> 00:05:23,920
+Before we go into
+challenges, I want
+
+116
+00:05:23,920 --> 00:05:25,836
+to talk about the
+difference between the scope
+
+117
+00:05:25,836 --> 00:05:27,660
+object and $scope.
+
+118
+00:05:27,660 --> 00:05:29,320
+It can get a little confusing.
+
+119
+00:05:29,320 --> 00:05:32,920
+The scope object is used to
+isolate a directive scope,
+
+120
+00:05:32,920 --> 00:05:35,720
+whereas $scope
+in our controller
+
+121
+00:05:35,720 --> 00:05:38,850
+is used to set values or
+functions on the scope.
+
+122
+00:05:42,925 --> 00:05:44,550
+Why don't you jump
+into the challenges,
+
+123
+00:05:44,550 --> 00:05:47,890
+and I'll see you in the
+last section for Level 2.

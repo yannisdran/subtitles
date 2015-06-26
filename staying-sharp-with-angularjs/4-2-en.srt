@@ -1,0 +1,403 @@
+﻿1
+00:00:02,060 --> 00:00:03,110
+Howdy again.
+
+2
+00:00:03,110 --> 00:00:05,020
+In this section, we're
+talking about filters.
+
+3
+00:00:08,300 --> 00:00:12,140
+So back in our application,
+we have categories showing up
+
+4
+00:00:12,140 --> 00:00:14,480
+and activeCategory being set.
+
+5
+00:00:14,480 --> 00:00:17,830
+The only thing left is to filter
+based on that active category.
+
+6
+00:00:20,670 --> 00:00:23,770
+So you remember filters from
+Shaping up with Angular.js?
+
+7
+00:00:23,770 --> 00:00:26,930
+There was date,
+lowercase, uppercase,
+
+8
+00:00:26,930 --> 00:00:29,170
+limitTo, and orderBy.
+
+9
+00:00:29,170 --> 00:00:33,250
+Well, there's also another
+thing called the filter filter.
+
+10
+00:00:33,250 --> 00:00:34,740
+And we're going to use that now.
+
+11
+00:00:37,590 --> 00:00:40,130
+The filter filter will
+take a large array
+
+12
+00:00:40,130 --> 00:00:42,170
+and filter down that
+array and return
+
+13
+00:00:42,170 --> 00:00:44,700
+you back a smaller
+one of just the subset
+
+14
+00:00:44,700 --> 00:00:46,420
+items you were looking for.
+
+15
+00:00:46,420 --> 00:00:49,720
+So for example, here we
+have an array of strings.
+
+16
+00:00:49,720 --> 00:00:52,280
+Let's say, filter by "a."
+
+17
+00:00:52,280 --> 00:00:55,350
+So this will select all
+the words containing "a."
+
+18
+00:00:55,350 --> 00:00:58,890
+Filter filter will then return
+us an array with "Alyssa"
+
+19
+00:00:58,890 --> 00:01:02,420
+and "Angular" in it.
+
+20
+00:01:02,420 --> 00:01:04,390
+The filter filter
+can also help us
+
+21
+00:01:04,390 --> 00:01:06,700
+sort through arrays of objects.
+
+22
+00:01:06,700 --> 00:01:09,310
+So here we have our notes
+array, which this data should
+
+23
+00:01:09,310 --> 00:01:11,110
+look familiar to you by now.
+
+24
+00:01:11,110 --> 00:01:13,930
+And we want to sort
+through this notes array
+
+25
+00:01:13,930 --> 00:01:16,050
+based on the category.
+
+26
+00:01:16,050 --> 00:01:18,680
+Well, we would
+filter it like this.
+
+27
+00:01:18,680 --> 00:01:20,540
+You specify the filter,
+
+28
+00:01:20,540 --> 00:01:24,790
+and then you say
+category name question.
+
+29
+00:01:27,410 --> 00:01:31,270
+As with all other filters, we
+will separate it by a pipe.
+
+30
+00:01:31,270 --> 00:01:35,200
+So we'll say ng-repeat
+for node in notes, pipe,
+
+31
+00:01:35,200 --> 00:01:36,210
+and then put our filter.
+
+32
+00:01:40,280 --> 00:01:42,520
+So this filter would go
+through our notes array
+
+33
+00:01:42,520 --> 00:01:45,500
+and return back an
+array of only ones
+
+34
+00:01:45,500 --> 00:01:47,355
+with category of name question.
+
+35
+00:01:50,090 --> 00:01:52,680
+We obviously should filter
+through the notes dynamically,
+
+36
+00:01:52,680 --> 00:01:53,210
+though.
+
+37
+00:01:53,210 --> 00:01:56,300
+So back in our
+index.html, we're going
+
+38
+00:01:56,300 --> 00:01:58,850
+to use a new variable,
+activeCategory,
+
+39
+00:01:58,850 --> 00:02:01,225
+that we need to two-way bind to our scope.activeCategory.
+
+40
+00:02:05,340 --> 00:02:07,110
+So obviously,
+we're going to want
+
+41
+00:02:07,110 --> 00:02:09,470
+to filter this dynamically.
+
+42
+00:02:09,470 --> 00:02:12,310
+So instead of passing
+a string of question,
+
+43
+00:02:12,310 --> 00:02:16,230
+we can pass it a variable
+of activeCategory.
+
+44
+00:02:16,230 --> 00:02:19,610
+And we're going to want to
+bind this to our category
+
+45
+00:02:19,610 --> 00:02:22,900
+select's activeCategory variable.
+
+46
+00:02:22,900 --> 00:02:24,670
+Remember how to do that?
+
+47
+00:02:24,670 --> 00:02:27,700
+In the nw-category-select
+tag, we'll
+
+48
+00:02:27,700 --> 00:02:29,880
+give it an activeCategory attribute
+
+49
+00:02:29,880 --> 00:02:32,700
+and set it equal
+to activeCategory.
+
+50
+00:02:32,700 --> 00:02:35,520
+Then back in the
+directive, we'll
+
+51
+00:02:35,520 --> 00:02:37,475
+give it the equal sign
+for two-way binding.
+
+52
+00:02:40,080 --> 00:02:43,440
+If we go back into the browser
+on the notes index page,
+
+53
+00:02:43,440 --> 00:02:46,260
+and you click on a
+category, now everything
+
+54
+00:02:46,260 --> 00:02:47,670
+is working as expected.
+
+55
+00:02:47,670 --> 00:02:51,395
+It's filtering through the
+notes based on the category.
+
+56
+00:02:53,910 --> 00:02:56,580
+There's another thing that
+filter filter can help us with.
+
+57
+00:02:56,580 --> 00:02:58,180
+And that's searching.
+
+58
+00:02:58,180 --> 00:03:01,020
+So if we wanted to add a
+search box like this and filter
+
+59
+00:03:01,020 --> 00:03:03,960
+through the notes based on what
+we're typing into the search
+
+60
+00:03:03,960 --> 00:03:08,940
+input, well, filter filter
+can help us do that.
+
+61
+00:03:08,940 --> 00:03:12,760
+At the top of the index.html
+page, we'll create an input.
+
+62
+00:03:12,760 --> 00:03:17,320
+We'll set the ng-model of
+that input to search.title.
+
+63
+00:03:17,320 --> 00:03:20,080
+Then inside the repeat
+for note in notes,
+
+64
+00:03:20,080 --> 00:03:24,190
+we'll say pipe specify the
+filter, which is "filter",
+
+65
+00:03:24,190 --> 00:03:26,610
+and then we'll say "search."
+
+66
+00:03:26,610 --> 00:03:29,240
+So what this is going to do now, as you see,
+
+67
+00:03:29,240 --> 00:03:31,160
+I'll type into the input, and it's
+
+68
+00:03:31,160 --> 00:03:33,790
+searching through the titles of each of the notes
+
+69
+00:03:33,790 --> 00:03:38,250
+and only displaying the ones that match what I'm typing.
+
+70
+00:03:38,250 --> 00:03:41,020
+What if we want to search all
+the properties on the notes,
+
+71
+00:03:41,020 --> 00:03:42,680
+not just note title?
+
+72
+00:03:42,680 --> 00:03:44,790
+Well, you can use the
+$ character
+
+73
+00:03:44,790 --> 00:03:46,500
+to accomplish this.
+
+74
+00:03:46,500 --> 00:03:49,020
+So we'll simply say
+ng-model = search.$.
+
+75
+00:03:52,480 --> 00:03:54,520
+And now, as you can
+see, we're not just
+
+76
+00:03:54,520 --> 00:03:58,040
+filtering through note titles,
+but we're searching all of it,
+
+77
+00:03:58,040 --> 00:04:00,490
+whether that's the
+description or what have you.
+
+78
+00:04:03,670 --> 00:04:05,490
+What it we want
+to do both things:
+
+79
+00:04:05,490 --> 00:04:09,140
+filter based on the category
+and the search input?
+
+80
+00:04:09,140 --> 00:04:12,510
+Well, we can do this by
+just adding another pipe.
+
+81
+00:04:12,510 --> 00:04:16,250
+So here we can say
+filter:active category.
+
+82
+00:04:16,250 --> 00:04:23,550
+And then chain on another
+pipe and say filter:search.
+
+83
+00:04:23,550 --> 00:04:26,412
+Now, both the categories and the search input
+
+84
+00:04:26,412 --> 00:04:27,745
+are filtering through the notes.
+
+85
+00:04:30,440 --> 00:04:32,440
+Go have fun with filters
+in the challenges,
+
+86
+00:04:32,440 --> 00:04:35,490
+and I'll see you back for our
+very last section of Staying
+
+87
+00:04:35,490 --> 00:04:37,580
+Sharp with Angular.js.

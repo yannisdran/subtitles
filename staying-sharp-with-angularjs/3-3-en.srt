@@ -1,0 +1,300 @@
+﻿1
+00:00:02,029 --> 00:00:02,729
+Welcome back.
+
+2
+00:00:02,729 --> 00:00:04,645
+In this section, we're
+talking about Provider.
+
+3
+00:00:07,220 --> 00:00:09,390
+In the last section,
+we used a factory
+
+4
+00:00:09,390 --> 00:00:11,980
+to generate a Gravatar URL.
+
+5
+00:00:11,980 --> 00:00:15,660
+The problem with this is that
+our avatarSize variable was
+
+6
+00:00:15,660 --> 00:00:18,070
+hard set, and not configurable.
+
+7
+00:00:18,070 --> 00:00:21,380
+So if we wanted to be able to
+change that size, you can't.
+
+8
+00:00:21,380 --> 00:00:23,630
+You're basically stuck
+with 80 for your life.
+
+9
+00:00:23,630 --> 00:00:26,010
+So the solution is simple:
+
+10
+00:00:26,010 --> 00:00:27,910
+We can use a Provider recipe.
+
+11
+00:00:27,910 --> 00:00:30,130
+If you remember before
+when we mentioned it,
+
+12
+00:00:30,130 --> 00:00:32,990
+it's used exactly
+like a factory,
+
+13
+00:00:32,990 --> 00:00:35,240
+but it allows for configuration.
+
+14
+00:00:35,240 --> 00:00:37,540
+The main difference between
+a factory and a provider
+
+15
+00:00:37,540 --> 00:00:40,920
+is that we have to use
+this $get function.
+
+16
+00:00:40,920 --> 00:00:44,900
+All providers have this.
+
+17
+00:00:44,900 --> 00:00:47,860
+This $get function is where
+you can inject services
+
+18
+00:00:47,860 --> 00:00:49,550
+that your Provider might need.
+
+19
+00:00:49,550 --> 00:00:52,290
+However, providers run
+before everything else,
+
+20
+00:00:52,290 --> 00:00:54,790
+so the only thing
+you can inject right
+
+21
+00:00:54,790 --> 00:00:57,650
+at this top level of the
+provider is other providers.
+
+22
+00:01:05,170 --> 00:01:08,720
+So now for the nitty gritty
+task of refactoring our Gravatar
+
+23
+00:01:08,720 --> 00:01:11,676
+service from a factory
+into a provider.
+
+24
+00:01:11,676 --> 00:01:13,050
+The first step of
+this, of course,
+
+25
+00:01:13,050 --> 00:01:16,940
+would just change
+.factory to .provider.
+
+26
+00:01:16,940 --> 00:01:19,450
+The next step is
+to wrap the return
+
+27
+00:01:19,450 --> 00:01:22,650
+with an anonymous function,
+and set that equal to
+
+28
+00:01:22,650 --> 00:01:25,630
+this.$get, because
+remember, all providers
+
+29
+00:01:25,630 --> 00:01:27,360
+have a $get.
+
+30
+00:01:27,360 --> 00:01:29,130
+Our Gravatar
+provider is currently
+
+31
+00:01:29,130 --> 00:01:31,120
+only returning one function.
+
+32
+00:01:31,120 --> 00:01:34,380
+But remember, you can return an
+object with multiple functions,
+
+33
+00:01:34,380 --> 00:01:36,270
+and all of that
+would be surrounded
+
+34
+00:01:36,270 --> 00:01:37,190
+with the $get function.
+
+35
+00:01:40,170 --> 00:01:43,460
+To call the provider, it's
+just like calling our factory.
+
+36
+00:01:43,460 --> 00:01:45,470
+Back inside of users
+index controller,
+
+37
+00:01:45,470 --> 00:01:48,940
+you just inject Gravatar
+and call the service.
+
+38
+00:01:48,940 --> 00:01:51,710
+But how do we do the
+configuration bit,
+
+39
+00:01:51,710 --> 00:01:53,620
+the entire point of
+using a provider?
+
+40
+00:01:56,270 --> 00:01:59,250
+To do this, we need to
+define a method for each item
+
+41
+00:01:59,250 --> 00:02:00,910
+that we want to configure.
+
+42
+00:02:00,910 --> 00:02:03,480
+Well, we just said we want
+to do the avatar size.
+
+43
+00:02:03,480 --> 00:02:05,800
+So let's create an
+anonymous function,
+
+44
+00:02:05,800 --> 00:02:09,080
+and set it equal to
+this.setSize.
+
+45
+00:02:09,080 --> 00:02:12,840
+Inside of the function, we'll
+set avatarSize = size
+
+46
+00:02:12,840 --> 00:02:13,810
+that we passed in.
+
+47
+00:02:17,390 --> 00:02:19,330
+Now we get to use
+the configurable part
+
+48
+00:02:19,330 --> 00:02:20,400
+of a provider.
+
+49
+00:02:20,400 --> 00:02:22,540
+So back in our
+app.js file, we'll
+
+50
+00:02:22,540 --> 00:02:27,150
+define a config method
+on our main app module,
+
+51
+00:02:27,150 --> 00:02:29,450
+and we inject the
+Gravatar provider.
+
+52
+00:02:29,450 --> 00:02:33,520
+We'll then call the GravatarProvider.setSize method,
+
+53
+00:02:33,520 --> 00:02:36,220
+and pass it whatever size
+we want to configure —
+
+54
+00:02:36,220 --> 00:02:38,860
+in this case, 100.
+
+55
+00:02:38,860 --> 00:02:42,230
+Notice that the config gets
+passed GravatarProvider, not
+
+56
+00:02:42,230 --> 00:02:43,330
+just Gravatar.
+
+57
+00:02:43,330 --> 00:02:45,950
+This is important, because
+if you pass it Gravatar
+
+58
+00:02:45,950 --> 00:02:46,647
+it won't work.
+
+59
+00:02:46,647 --> 00:02:48,980
+You need to pass it the
+function name, GravatarProvider.
+
+60
+00:02:52,600 --> 00:02:55,170
+If you go back in the browser
+now, and look at the users
+
+61
+00:02:55,170 --> 00:02:58,770
+index page, all of the
+cards have glamorous photos
+
+62
+00:02:58,770 --> 00:03:00,750
+for each of our users.
+
+63
+00:03:00,750 --> 00:03:02,740
+So why don't you go
+practice using Provider
+
+64
+00:03:02,740 --> 00:03:06,760
+in the challenges, and I'll see
+you back in our last section.

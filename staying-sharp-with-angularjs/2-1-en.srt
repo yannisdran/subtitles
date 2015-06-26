@@ -1,0 +1,300 @@
+1
+00:00:00,500 --> 00:00:03,980
+[SINGING] 4:30 in the morning,
+coding front-end on your site.
+
+2
+00:00:03,980 --> 00:00:07,140
+Console errors warning —
+you don't know how to fight.
+
+3
+00:00:07,140 --> 00:00:11,030
+Reusable and flexible
+directives are what you need.
+
+4
+00:00:11,030 --> 00:00:14,453
+Link and scope are sensible
+in reliant apps with speed.
+
+5
+00:00:14,453 --> 00:00:17,974
+Services will be okay
+to craft your own Note Wrangler.
+
+6
+00:00:17,974 --> 00:00:21,255
+You are on your way to
+Staying Sharp with Angular.
+
+7
+00:00:27,440 --> 00:00:29,690
+You're watching Staying
+Sharp with Angular.js.
+
+8
+00:00:29,690 --> 00:00:31,410
+And my name is Alyssa Nicoll.
+
+9
+00:00:31,410 --> 00:00:32,320
+This is Level 2.
+
+10
+00:00:32,320 --> 00:00:34,540
+And we'll be jumping into
+more advanced directives
+
+11
+00:00:34,540 --> 00:00:38,320
+and talking about
+$scope in this section.
+
+12
+00:00:38,320 --> 00:00:42,290
+Here's our application
+where we last left it.
+
+13
+00:00:42,290 --> 00:00:44,710
+If we jump into
+our notes.html, you
+
+14
+00:00:44,710 --> 00:00:47,230
+can see that each time
+we create a note card,
+
+15
+00:00:47,230 --> 00:00:50,440
+we're reusing the same
+chunk over and over again.
+
+16
+00:00:50,440 --> 00:00:52,450
+Well, as you learned in
+the last Angular course,
+
+17
+00:00:52,450 --> 00:00:55,300
+we can just take this
+duplicated HTML out
+
+18
+00:00:55,300 --> 00:00:57,840
+and put it into a
+template-expanding directive.
+
+19
+00:00:57,840 --> 00:01:00,740
+We're calling this
+directive nw-card.
+
+20
+00:01:00,740 --> 00:01:03,426
+The nw, of course, stands
+for "note wrangler,"
+
+21
+00:01:03,426 --> 00:01:04,675
+the prefix of our application.
+
+22
+00:01:07,700 --> 00:01:09,900
+So here in our
+notes.html, you can
+
+23
+00:01:09,900 --> 00:01:11,790
+see we're using this
+new directive we just
+
+24
+00:01:11,790 --> 00:01:14,510
+created — nw-card.
+
+25
+00:01:14,510 --> 00:01:17,990
+And then we'll define our nw-card directive.
+
+26
+00:01:17,990 --> 00:01:20,880
+Inside of that function, we'll return an object
+
+27
+00:01:20,880 --> 00:01:24,090
+with a restrict property set to E for "element"
+
+28
+00:01:24,090 --> 00:01:26,720
+and a template URL pointing to our HTML.
+
+29
+00:01:30,530 --> 00:01:33,880
+Say we want to set a
+header on our note cards.
+
+30
+00:01:33,880 --> 00:01:35,600
+We'll go ahead and
+create a controller
+
+31
+00:01:35,600 --> 00:01:37,150
+where we can do
+that functionality
+
+32
+00:01:37,150 --> 00:01:42,530
+and give that controller an
+alias with controllerAs.
+
+33
+00:01:42,530 --> 00:01:44,210
+Inside the controller,
+we then can
+
+34
+00:01:44,210 --> 00:01:47,130
+say this.header
+equals a string.
+
+35
+00:01:47,130 --> 00:01:49,010
+And we'll just say "Note Title" for now.
+
+36
+00:01:49,010 --> 00:01:51,350
+Then inside the template,
+we can print this
+
+37
+00:01:51,350 --> 00:01:54,020
+to the screen using
+an expression,
+
+38
+00:01:54,020 --> 00:01:56,350
+we'll say bracket,
+bracket, card.header.
+
+39
+00:01:56,350 --> 00:01:58,840
+If you see now, we actually have "Note Title"
+
+40
+00:01:58,840 --> 00:02:00,295
+being printed on the page.
+
+41
+00:02:03,020 --> 00:02:04,520
+There's another way
+we can implement
+
+42
+00:02:04,520 --> 00:02:06,640
+this using the $scope variable.
+
+43
+00:02:06,640 --> 00:02:09,060
+You've probably seen
+this before in tutorials
+
+44
+00:02:09,060 --> 00:02:11,020
+or in other Angular
+applications.
+
+45
+00:02:11,020 --> 00:02:14,580
+So inside the controller
+function, we'll pass in $scope.
+
+46
+00:02:14,580 --> 00:02:18,770
+And then we'll attach header
+to $scope instead of this.
+
+47
+00:02:18,770 --> 00:02:20,420
+Now that we're
+attaching to $scope,
+
+48
+00:02:20,420 --> 00:02:22,030
+we no longer need the alias.
+
+49
+00:02:22,030 --> 00:02:24,290
+So you get rid of
+the controllerAs line
+
+50
+00:02:24,290 --> 00:02:25,360
+in our directive.
+
+51
+00:02:25,360 --> 00:02:28,445
+And then inside of the HTML, you can get rid of the card alias.
+
+52
+00:02:31,310 --> 00:02:33,285
+And the directive still
+works as expected.
+
+53
+00:02:36,370 --> 00:02:38,140
+Let's compare the two
+syntaxes side by side.
+
+54
+00:02:38,140 --> 00:02:42,720
+This is attaching
+to $scope behind the scenes.
+
+55
+00:02:42,720 --> 00:02:46,770
+Whereas with just $scope,
+we're attaching it directly
+
+56
+00:02:46,770 --> 00:02:47,520
+to the controller.
+
+57
+00:02:47,520 --> 00:02:48,885
+We don't need the card alias.
+
+58
+00:02:53,470 --> 00:02:56,720
+So both syntaxes lead
+to the same result.
+
+59
+00:02:56,720 --> 00:02:59,660
+We're going to use the $scope
+syntax from here on out,
+
+60
+00:02:59,660 --> 00:03:02,050
+but either are fine.
+
+61
+00:03:02,050 --> 00:03:05,070
+$Scope is a large part of
+Angular as a language.
+
+62
+00:03:05,070 --> 00:03:06,870
+So why don't you go
+get comfortable with it
+
+63
+00:03:06,870 --> 00:03:07,940
+in a few challenges,
+
+64
+00:03:07,940 --> 00:03:10,650
+and we'll see you back
+in the next section.

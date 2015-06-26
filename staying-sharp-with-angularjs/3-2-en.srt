@@ -1,0 +1,539 @@
+﻿1
+00:00:02,080 --> 00:00:02,826
+Hello.
+
+2
+00:00:02,826 --> 00:00:04,825
+In this section, we're
+covering another factory.
+
+3
+00:00:07,354 --> 00:00:09,770
+The next feature we want to
+implement in our Note Wrangler
+
+4
+00:00:09,770 --> 00:00:13,970
+app is having a glamorous
+photo for each of our users.
+
+5
+00:00:13,970 --> 00:00:16,120
+Maybe a puppy, too, but
+we'll get to that later.
+
+6
+00:00:19,950 --> 00:00:23,180
+A solution to this is to
+use the Gravatar service.
+
+7
+00:00:23,180 --> 00:00:26,710
+Gravatar is a very helpful web
+app that allows people like me
+
+8
+00:00:26,710 --> 00:00:29,440
+or you to upload
+images associated
+
+9
+00:00:29,440 --> 00:00:30,950
+with an email address.
+
+10
+00:00:30,950 --> 00:00:33,450
+Then we can use,
+in our application,
+
+11
+00:00:33,450 --> 00:00:35,695
+that email address
+to grab those photos.
+
+12
+00:00:40,830 --> 00:00:43,430
+In order to use someone's
+Gravatar in our application,
+
+13
+00:00:43,430 --> 00:00:45,130
+there are three steps.
+
+14
+00:00:45,130 --> 00:00:47,950
+First, you need to hash
+their email address.
+
+15
+00:00:47,950 --> 00:00:50,910
+Then, you append their
+hashed email address
+
+16
+00:00:50,910 --> 00:00:53,500
+to a Gravatar URL.
+
+17
+00:00:53,500 --> 00:00:55,880
+Lastly, use this
+URL in the template
+
+18
+00:00:55,880 --> 00:00:57,280
+with an ng-src attribute.
+
+19
+00:01:00,540 --> 00:01:01,770
+Hold on.
+
+20
+00:01:01,770 --> 00:01:03,390
+This sounds like
+shared functionality
+
+21
+00:01:03,390 --> 00:01:05,790
+across our application,
+which makes
+
+22
+00:01:05,790 --> 00:01:07,760
+me think it's service time.
+
+23
+00:01:07,760 --> 00:01:10,060
+Let's create a service
+for this that we can then
+
+24
+00:01:10,060 --> 00:01:13,260
+use in the controllers
+and then in the templates.
+
+25
+00:01:13,260 --> 00:01:15,220
+[SINGING] We need a Gravatar.
+
+26
+00:01:15,220 --> 00:01:16,720
+Make a service.
+
+27
+00:01:16,720 --> 00:01:18,380
+We need a Gravatar.
+
+28
+00:01:18,380 --> 00:01:21,230
+Fade out to black.
+
+29
+00:01:21,230 --> 00:01:23,880
+So as expected, in our
+services directory,
+
+30
+00:01:23,880 --> 00:01:26,840
+we'll create a gravatar.js file.
+
+31
+00:01:26,840 --> 00:01:30,670
+And then we'll use the factory
+recipe to define our service.
+
+32
+00:01:30,670 --> 00:01:33,541
+We'll name it Gravatar, and
+then the function, of course,
+
+33
+00:01:33,541 --> 00:01:34,790
+will be named GravatarFactory.
+
+34
+00:01:39,540 --> 00:01:41,340
+Before we create the
+meat of this factory,
+
+35
+00:01:41,340 --> 00:01:43,650
+we're going to need some
+reusable variables that we can
+
+36
+00:01:43,650 --> 00:01:45,970
+define outside of the return.
+
+37
+00:01:45,970 --> 00:01:49,200
+We'll say var
+avatarSize = 80,
+
+38
+00:01:49,200 --> 00:01:51,970
+which is setting a default
+size for our avatar images.
+
+39
+00:01:57,750 --> 00:02:00,720
+This avatar size variable
+will be used later
+
+40
+00:02:00,720 --> 00:02:04,370
+in the URL, which will return
+us different sizes of the image
+
+41
+00:02:04,370 --> 00:02:05,580
+we're requesting.
+
+42
+00:02:05,580 --> 00:02:07,900
+So as you see here,
+if we say size 100,
+
+43
+00:02:07,900 --> 00:02:10,039
+it'll give us an
+itty-bitty picture,
+
+44
+00:02:10,039 --> 00:02:11,520
+whereas if we say
+size 500, it'll
+
+45
+00:02:11,520 --> 00:02:12,920
+give us a massive picture.
+
+46
+00:02:16,170 --> 00:02:19,350
+Along with a default avatar
+size to append to the link,
+
+47
+00:02:19,350 --> 00:02:22,060
+we'll need a reusable link
+variable for the Gravatar size.
+
+48
+00:02:22,060 --> 00:02:25,930
+So we'll say var avatarURL
+and we'll give it the default,
+
+49
+00:02:25,930 --> 00:02:29,540
+http://gravatar.com/avatar/.
+
+50
+00:02:29,540 --> 00:02:31,069
+That will be used
+at the beginning
+
+51
+00:02:31,069 --> 00:02:31,985
+of each of these URLs.
+
+52
+00:02:34,950 --> 00:02:36,890
+Now we need to go back
+to these three steps
+
+53
+00:02:36,890 --> 00:02:38,700
+and make some magic happen.
+
+54
+00:02:38,700 --> 00:02:41,200
+So first off, hashing the email.
+
+55
+00:02:41,200 --> 00:02:43,070
+How do we hash-ify something?
+
+56
+00:02:43,070 --> 00:02:46,900
+Well, there's a fun
+thing called CryptoJS.
+
+57
+00:02:46,900 --> 00:02:48,600
+Stay with me.
+
+58
+00:02:48,600 --> 00:02:51,000
+CryptoJS is a simple
+JavaScript library
+
+59
+00:02:51,000 --> 00:02:52,970
+that has an .MD5 function.
+
+60
+00:02:52,970 --> 00:02:54,530
+You can pass this
+function a string,
+
+61
+00:02:54,530 --> 00:02:57,650
+and it will return
+that string hash-ified.
+
+62
+00:02:57,650 --> 00:03:00,480
+In our index, in order to
+have access to CryptoJS,
+
+63
+00:03:00,480 --> 00:03:02,150
+we'll need to include
+this script tag.
+
+64
+00:03:05,620 --> 00:03:08,395
+The next step — we'll need to
+add this hash onto our Gravatar
+
+65
+00:03:08,395 --> 00:03:08,895
+URL.
+
+66
+00:03:11,920 --> 00:03:14,170
+So back into our service.
+
+67
+00:03:14,170 --> 00:03:17,300
+We'll create a generate
+property with a function
+
+68
+00:03:17,300 --> 00:03:18,830
+that takes an email.
+
+69
+00:03:18,830 --> 00:03:23,250
+That will return an avatar
+URL plus the CryptoJS
+
+70
+00:03:23,250 --> 00:03:26,360
+hash-ified email, plus the size.
+
+71
+00:03:26,360 --> 00:03:28,250
+And if you'll notice,
+we have to call
+
+72
+00:03:28,250 --> 00:03:31,830
+toString on that avatar
+size, because it's currently
+
+73
+00:03:31,830 --> 00:03:32,400
+a number.
+
+74
+00:03:35,680 --> 00:03:39,060
+Here is our beautiful and
+complete Gravatar service.
+
+75
+00:03:39,060 --> 00:03:42,240
+In order to call it, we need to
+first inject it and then call
+
+76
+00:03:42,240 --> 00:03:45,495
+the generate method off
+of it, like you see here.
+
+77
+00:03:45,495 --> 00:03:46,860
+[LAUGHS]
+
+78
+00:03:50,050 --> 00:03:52,000
+We can actually
+simplify this code.
+
+79
+00:03:52,000 --> 00:03:55,060
+If your service only contains
+one function, instead
+
+80
+00:03:55,060 --> 00:03:58,230
+of returning an object
+with that one function,
+
+81
+00:03:58,230 --> 00:04:02,160
+you can just return
+the function, like so.
+
+82
+00:04:02,160 --> 00:04:04,760
+And then to call the service,
+you simply call Gravatar.
+
+83
+00:04:08,710 --> 00:04:12,500
+Inside our users index
+template, our nw-card directive
+
+84
+00:04:12,500 --> 00:04:14,640
+now needs an image attribute.
+
+85
+00:04:14,640 --> 00:04:18,190
+We'll set that image attribute
+to call the gravatarUrl method
+
+86
+00:04:18,190 --> 00:04:19,050
+we just made.
+
+87
+00:04:23,560 --> 00:04:25,300
+To make this work,
+we obviously need
+
+88
+00:04:25,300 --> 00:04:27,750
+to go back into the
+directive and configure
+
+89
+00:04:27,750 --> 00:04:29,490
+image in the scope.
+
+90
+00:04:29,490 --> 00:04:31,490
+We'll two-way bind it
+with the = character.
+
+91
+00:04:35,080 --> 00:04:37,760
+Now we can go back into
+the nw-card template
+
+92
+00:04:37,760 --> 00:04:41,220
+and use ng-src to display
+the Gravatar image.
+
+93
+00:04:41,220 --> 00:04:44,120
+And all of our users
+have glamorous photos.
+
+94
+00:04:47,630 --> 00:04:50,110
+Let's go through the five
+different service recipes,
+
+95
+00:04:50,110 --> 00:04:52,330
+just so you're aware of
+them as you're building out
+
+96
+00:04:52,330 --> 00:04:54,270
+Angular apps on your own.
+
+97
+00:04:54,270 --> 00:04:57,250
+First there's Value,
+which is used often.
+
+98
+00:04:57,250 --> 00:04:58,880
+It's the simplest
+service recipe,
+
+99
+00:04:58,880 --> 00:05:01,740
+and it's used for sharing just
+a value throughout your app
+
+100
+00:05:01,740 --> 00:05:03,079
+repeatedly.
+
+101
+00:05:03,079 --> 00:05:05,370
+Then there's Factory, which
+is used for sharing methods
+
+102
+00:05:05,370 --> 00:05:08,300
+and objects, like we
+learned previously.
+
+103
+00:05:08,300 --> 00:05:10,000
+Next there's Service.
+
+104
+00:05:10,000 --> 00:05:13,650
+Yes, it is a Service
+service recipe.
+
+105
+00:05:13,650 --> 00:05:16,650
+It's used for sharing instances
+of methods and objects,
+
+106
+00:05:16,650 --> 00:05:19,400
+instead of the actual
+method or object.
+
+107
+00:05:19,400 --> 00:05:21,240
+The fourth recipe is Provider.
+
+108
+00:05:21,240 --> 00:05:23,980
+It's used for sharing methods
+and objects like a factory
+
+109
+00:05:23,980 --> 00:05:26,220
+but allows for configuration.
+
+110
+00:05:26,220 --> 00:05:28,220
+The last recipe is Constant.
+
+111
+00:05:28,220 --> 00:05:30,720
+It's used for sharing a
+value within an application
+
+112
+00:05:30,720 --> 00:05:33,570
+configuration.
+
+113
+00:05:33,570 --> 00:05:34,290
+No worries.
+
+114
+00:05:34,290 --> 00:05:37,410
+There won't be a pop
+quiz on all five recipes.
+
+115
+00:05:37,410 --> 00:05:39,370
+Just go practice
+using Factory again,
+
+116
+00:05:39,370 --> 00:05:42,380
+and I'll see you back
+in the third section.
