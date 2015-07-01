@@ -1,0 +1,375 @@
+﻿1
+00:00:02,100 --> 00:00:05,870
+Now we want to be able to
+delete existing blocks.
+
+2
+00:00:05,870 --> 00:00:09,840
+To do that, we're going to need
+a link next to each block name.
+
+3
+00:00:09,840 --> 00:00:12,420
+Once we click the
+link and confirm,
+
+4
+00:00:12,420 --> 00:00:15,280
+we want that block to be
+removed from the list.
+
+5
+00:00:15,280 --> 00:00:17,120
+And this should
+persist on the server,
+
+6
+00:00:17,120 --> 00:00:19,110
+so if we refresh
+the page, we can
+
+7
+00:00:19,110 --> 00:00:23,680
+see the block is
+no longer in there.
+
+8
+00:00:23,680 --> 00:00:26,200
+From an API perspective,
+what we want
+
+9
+00:00:26,200 --> 00:00:29,900
+is to make a DELETE request
+to the blocks endpoint —
+
+10
+00:00:29,900 --> 00:00:32,670
+say, /blocks/Flying —
+
+11
+00:00:32,670 --> 00:00:36,330
+and we want to get a 200
+Success response back.
+
+12
+00:00:36,330 --> 00:00:39,610
+The response body
+should be set to "OK."
+
+13
+00:00:39,610 --> 00:00:43,490
+Now, let's see how we
+can implement this.
+
+14
+00:00:43,490 --> 00:00:46,110
+We'll start by adding
+a DELETE link next
+
+15
+00:00:46,110 --> 00:00:47,880
+to each of our blocks.
+
+16
+00:00:47,880 --> 00:00:50,510
+To add a DELETE link
+to each of our blocks,
+
+17
+00:00:50,510 --> 00:00:53,230
+we'll jump back to
+our client.js file.
+
+18
+00:00:53,230 --> 00:00:56,560
+We'll add an href element,
+setting the block name
+
+19
+00:00:56,560 --> 00:00:59,560
+to the data-block
+attribute, which we will use
+
+20
+00:00:59,560 --> 00:01:01,690
+to compose the AJAX request.
+
+21
+00:01:01,690 --> 00:01:04,810
+Then, we'll add an image
+tag for Delete Image.
+
+22
+00:01:04,810 --> 00:01:06,435
+And that's enough to
+display the links.
+
+23
+00:01:09,800 --> 00:01:13,660
+Now, we need to capture
+click events on those links.
+
+24
+00:01:13,660 --> 00:01:16,300
+Then, we'll listen for
+click events triggered
+
+25
+00:01:16,300 --> 00:01:19,670
+on that element
+from any links that
+
+26
+00:01:19,670 --> 00:01:21,380
+have a data-block attribute.
+
+27
+00:01:24,190 --> 00:01:26,880
+The first thing that we want
+to do in our event handler
+
+28
+00:01:26,880 --> 00:01:28,640
+is to add a confirmation.
+
+29
+00:01:28,640 --> 00:01:31,030
+It's always good
+to add confirmation
+
+30
+00:01:31,030 --> 00:01:34,110
+for destructive actions like
+destroying records, updating
+
+31
+00:01:34,110 --> 00:01:35,870
+records, et cetera.
+
+32
+00:01:35,870 --> 00:01:37,870
+If we click Cancel
+on the confirmation,
+
+33
+00:01:37,870 --> 00:01:39,710
+then it's going to
+return false here,
+
+34
+00:01:39,710 --> 00:01:42,590
+and it's going to stop
+executing the event handler.
+
+35
+00:01:42,590 --> 00:01:45,030
+Next, we get the link
+that triggered the click
+
+36
+00:01:45,030 --> 00:01:48,740
+event by reading the current
+target property on the event
+
+37
+00:01:48,740 --> 00:01:49,760
+object.
+
+38
+00:01:49,760 --> 00:01:52,070
+Then, we wrap it
+on a jQuery object
+
+39
+00:01:52,070 --> 00:01:54,630
+to make it easier to
+work with and assign it
+
+40
+00:01:54,630 --> 00:01:56,370
+to the target variable.
+
+41
+00:01:56,370 --> 00:01:59,520
+Finally, we make the
+AJAX DELETE request.
+
+42
+00:01:59,520 --> 00:02:01,570
+The URL path for
+the request will
+
+43
+00:02:01,570 --> 00:02:05,310
+be /blocks/ the
+block name, which
+
+44
+00:02:05,310 --> 00:02:08,759
+we fetch by reading the block
+name from the link's data-block
+
+45
+00:02:08,759 --> 00:02:09,930
+attribute.
+
+46
+00:02:09,930 --> 00:02:13,350
+Once that AJAX call is
+done, we find the parent LI
+
+47
+00:02:13,350 --> 00:02:17,270
+element for the click link,
+and remove it from the page.
+
+48
+00:02:17,270 --> 00:02:20,550
+That's it for a client code,
+which should be familiar.
+
+49
+00:02:20,550 --> 00:02:23,110
+If any of this stuff
+feels a little strange,
+
+50
+00:02:23,110 --> 00:02:26,260
+you might want to check out
+some of our jQuery courses.
+
+51
+00:02:26,260 --> 00:02:29,040
+Now, let's go back to the
+Express side of things.
+
+52
+00:02:31,910 --> 00:02:35,160
+In our app.js file, we
+create a DELETE route
+
+53
+00:02:35,160 --> 00:02:38,830
+by calling our DELETE function,
+passing in the URL path,
+
+54
+00:02:38,830 --> 00:02:41,580
+and, just like the previous
+dynamic routes we've written,
+
+55
+00:02:41,580 --> 00:02:44,200
+the DELETE route also
+takes the block name
+
+56
+00:02:44,200 --> 00:02:48,090
+as the argument, :name.
+
+57
+00:02:48,090 --> 00:02:50,710
+We fetch the specific block
+name from the blockName
+
+58
+00:02:50,710 --> 00:02:53,270
+property in the request
+object, which, in case
+
+59
+00:02:53,270 --> 00:02:56,970
+you don't remember, is
+being sent from app.param.
+
+60
+00:02:56,970 --> 00:03:00,350
+Then, we use the DELETE
+operator from JavaScript
+
+61
+00:03:00,350 --> 00:03:05,080
+to remove that block
+from our blocks object.
+
+62
+00:03:05,080 --> 00:03:07,510
+Finally, we call the
+send status function
+
+63
+00:03:07,510 --> 00:03:09,460
+with a 200 status code.
+
+64
+00:03:09,460 --> 00:03:13,510
+We use send status when we don't
+want to manually set a response
+
+65
+00:03:13,510 --> 00:03:14,310
+body.
+
+66
+00:03:14,310 --> 00:03:16,050
+This function does
+it automatically
+
+67
+00:03:16,050 --> 00:03:20,020
+for us based on the status code
+that we used as the argument.
+
+68
+00:03:20,020 --> 00:03:22,530
+The reason for this
+is that some clients
+
+69
+00:03:22,530 --> 00:03:24,910
+can't handle empty
+responses very well,
+
+70
+00:03:24,910 --> 00:03:26,910
+with jQuery being one of them.
+
+71
+00:03:26,910 --> 00:03:33,480
+So calling send status with 200
+sets the response body to "OK."
+
+72
+00:03:33,480 --> 00:03:37,040
+Now, when we go back
+and run our app again,
+
+73
+00:03:37,040 --> 00:03:38,830
+we can see that it
+works as expected.
+
+74
+00:03:38,830 --> 00:03:41,940
+We delete the block,
+
+75
+00:03:41,940 --> 00:03:43,960
+and when we refresh
+the page, we can
+
+76
+00:03:43,960 --> 00:03:46,500
+see it's no longer
+part of the list.
+
+77
+00:03:50,160 --> 00:03:51,460
+That's it for this section.
+
+78
+00:03:51,460 --> 00:03:54,440
+Why don't you give it a
+try in the challenges?
+

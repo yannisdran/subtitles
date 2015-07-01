@@ -1,0 +1,407 @@
+﻿1
+00:00:02,040 --> 00:00:05,850
+Our current app.js file is
+indeed free of repetition,
+
+2
+00:00:05,850 --> 00:00:09,620
+but you'll notice that
+it's growing way too long.
+
+3
+00:00:09,620 --> 00:00:11,677
+In a real-world
+application, it's
+
+4
+00:00:11,677 --> 00:00:14,010
+likely that we're going to
+be dealing with more than one
+
+5
+00:00:14,010 --> 00:00:18,060
+or two routes, which means
+that it would grow even longer.
+
+6
+00:00:18,060 --> 00:00:20,730
+A single file with
+too many lines of code
+
+7
+00:00:20,730 --> 00:00:24,830
+is an indication
+of a code smell.
+
+8
+00:00:24,830 --> 00:00:27,280
+We can get around this
+by extracting our routes
+
+9
+00:00:27,280 --> 00:00:28,890
+to modules.
+
+10
+00:00:28,890 --> 00:00:32,420
+And doing this helps clean up
+our code, and allows our routes
+
+11
+00:00:32,420 --> 00:00:35,350
+file to accommodate additional
+routes in the future.
+
+12
+00:00:35,350 --> 00:00:38,572
+Ideally, we would require
+the routes from a module,
+
+13
+00:00:38,572 --> 00:00:41,630
+and then mount them in
+the application instance
+
+14
+00:00:41,630 --> 00:00:44,100
+by using app.use.
+
+15
+00:00:44,100 --> 00:00:49,780
+Now, let's see how we can do this using Node's module system.
+
+16
+00:00:49,780 --> 00:00:52,280
+First thing we do is
+we create a dedicated
+
+17
+00:00:52,280 --> 00:00:54,340
+folder just for our routes.
+
+18
+00:00:54,340 --> 00:00:57,080
+All of our routes files
+will go into this folder.
+
+19
+00:00:57,080 --> 00:01:00,220
+Then, we create a
+routes file for blocks,
+
+20
+00:01:00,220 --> 00:01:02,350
+and call it blocks.js.
+
+21
+00:01:02,350 --> 00:01:05,650
+We require the Express
+module, and then call
+
+22
+00:01:05,650 --> 00:01:07,480
+the router function.
+
+23
+00:01:07,480 --> 00:01:10,120
+This function returns a
+router instance, which
+
+24
+00:01:10,120 --> 00:01:11,530
+can be mounted as a middleware.
+
+25
+00:01:14,180 --> 00:01:18,020
+To be able to access this
+router from our app.js file.
+
+26
+00:01:18,020 --> 00:01:21,100
+we assign it to module.exports.
+
+27
+00:01:21,100 --> 00:01:26,060
+This exports the router
+as a Node module.
+
+28
+00:01:26,060 --> 00:01:29,630
+Now, we're going to start moving
+stuff from our app.js file
+
+29
+00:01:29,630 --> 00:01:32,290
+into this new blocks.js file.
+
+30
+00:01:32,290 --> 00:01:34,280
+We start by moving
+the body-parser
+
+31
+00:01:34,280 --> 00:01:36,820
+in the blocks object,
+which holds reference
+
+32
+00:01:36,820 --> 00:01:38,770
+to all existing blocks.
+
+33
+00:01:38,770 --> 00:01:42,580
+Our objective here is to
+have all block-related logic
+
+34
+00:01:42,580 --> 00:01:46,590
+encapsulated inside
+of this file.
+
+35
+00:01:46,590 --> 00:01:49,580
+Next, we build
+our router object,
+
+36
+00:01:49,580 --> 00:01:51,960
+which now looks a little
+different than before.
+
+37
+00:01:51,960 --> 00:01:56,360
+Notice there's no blocks in
+the argument, just slash.
+
+38
+00:01:56,360 --> 00:01:58,470
+This is because
+the path argument
+
+39
+00:01:58,470 --> 00:02:02,990
+is relative to where this router
+is mounted in our app.js file.
+
+40
+00:02:02,990 --> 00:02:05,650
+If you remember,
+back in app.js, we're
+
+41
+00:02:05,650 --> 00:02:08,669
+mounting this router on
+the /blocks path,
+
+42
+00:02:08,669 --> 00:02:14,150
+so all paths here are assumed
+to be nested under /blocks.
+
+43
+00:02:14,150 --> 00:02:16,000
+Still using the
+same chaining function
+
+44
+00:02:16,000 --> 00:02:20,090
+calls, we'll move our routes
+for GET and POST into this file,
+
+45
+00:02:20,090 --> 00:02:24,250
+and they still look
+the same as before.
+
+46
+00:02:24,250 --> 00:02:27,580
+For the dynamic
+/blocks/:name route,
+
+47
+00:02:27,580 --> 00:02:30,020
+we'll stick with the
+same format as before.
+
+48
+00:02:30,020 --> 00:02:32,180
+And just like our
+previous route instance,
+
+49
+00:02:32,180 --> 00:02:35,330
+we don't need the
+/blocks part, either — just
+
+50
+00:02:35,330 --> 00:02:38,950
+the :name argument, which,
+again, is relative to the path
+
+51
+00:02:38,950 --> 00:02:40,780
+where our router is
+mounted in app.js.
+
+52
+00:02:44,430 --> 00:02:46,380
+Now, remember that
+parsing code that
+
+53
+00:02:46,380 --> 00:02:49,060
+turns first characters to
+uppercase and all remaining
+
+54
+00:02:49,060 --> 00:02:52,930
+characters to lowercase,
+and used to live in app.param?
+
+55
+00:02:52,930 --> 00:02:57,170
+Well, we'll move it over
+here to a new route, which we
+
+56
+00:02:57,170 --> 00:02:59,720
+haven't talked about yet: ALL.
+
+57
+00:02:59,720 --> 00:03:03,580
+The ALL route is called for
+all requests for a given path.
+
+58
+00:03:03,580 --> 00:03:05,620
+It's an alternative
+to app.param,
+
+59
+00:03:05,620 --> 00:03:07,550
+and you could use either one,
+
+60
+00:03:07,550 --> 00:03:10,900
+but for this specific scenario,
+we're going to use ALL.
+
+61
+00:03:10,900 --> 00:03:14,690
+Next, we'll chain function calls
+to the GET and DELETE routes,
+
+62
+00:03:14,690 --> 00:03:17,067
+which should look
+the same as before.
+
+63
+00:03:17,067 --> 00:03:18,650
+By now, it should
+look apparent to you
+
+64
+00:03:18,650 --> 00:03:21,730
+that when a request comes
+in for this route, first
+
+65
+00:03:21,730 --> 00:03:24,390
+it's going to hit the
+ALL route, and then
+
+66
+00:03:24,390 --> 00:03:29,590
+filter through the appropriate
+action — GET or DELETE.
+
+67
+00:03:29,590 --> 00:03:31,150
+We've moved a lot
+of stuff around.
+
+68
+00:03:31,150 --> 00:03:32,930
+So let's take a
+moment to look at what
+
+69
+00:03:32,930 --> 00:03:36,380
+our complete blocks routes
+file looks like now that we've
+
+70
+00:03:36,380 --> 00:03:38,600
+extracted it to a Node module.
+
+71
+00:03:38,600 --> 00:03:41,245
+Our routes file is now ready to
+be mounted in our application.
+
+72
+00:03:44,480 --> 00:03:47,680
+Now, that new code from
+app.js that we saw earlier
+
+73
+00:03:47,680 --> 00:03:49,900
+should make a little
+bit more sense.
+
+74
+00:03:49,900 --> 00:03:53,180
+First, we require our blocks
+routes file, and assign it
+
+75
+00:03:53,180 --> 00:03:55,920
+to the blocks variable.
+
+76
+00:03:55,920 --> 00:04:00,290
+Then, we mount our blocks
+routes in the blocks path.
+
+77
+00:04:00,290 --> 00:04:06,900
+All requests to the blocks path
+are dispatched to this router.
+
+78
+00:04:06,900 --> 00:04:10,760
+Our app.js file is now ready
+to support additional features
+
+79
+00:04:10,760 --> 00:04:14,710
+from various other routes,
+like buildings, users, et
+
+80
+00:04:14,710 --> 00:04:18,670
+cetera, without turning into an excessively long file.
+
+81
+00:04:18,670 --> 00:04:21,305
+As you can see, it looks clean and manageable.
+
+82
+00:04:24,246 --> 00:04:25,370
+That's it for this section.
+
+83
+00:04:25,370 --> 00:04:28,210
+Now, it's your turn to
+refactor some routes
+
+84
+00:04:28,210 --> 00:04:30,870
+and place the last
+building blocks of Express
+
+85
+00:04:30,870 --> 00:04:32,690
+in the challenges.
+

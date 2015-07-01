@@ -1,0 +1,874 @@
+1
+00:00:00,170 --> 00:00:02,460
+[SINGING] So you want to
+build a web app with Node,
+
+2
+00:00:02,460 --> 00:00:05,080
+but you're not sure where
+to put all the code?
+
+3
+00:00:05,080 --> 00:00:07,400
+Express is what you need,
+the framework to succeed,
+
+4
+00:00:07,400 --> 00:00:10,000
+to parse those
+requests at high speed.
+
+5
+00:00:10,000 --> 00:00:12,260
+Route your GET, POST
+PUT, and DELETE.
+
+6
+00:00:12,260 --> 00:00:14,850
+Add request and
+response to complete.
+
+7
+00:00:14,850 --> 00:00:17,145
+Middleware will help finesse
+modules clean up
+
+8
+00:00:17,145 --> 00:00:20,500
+the mess in the Building
+Blocks of Express.
+
+9
+00:00:27,500 --> 00:00:31,360
+Middleware are essentially the
+building blocks of Express.
+
+10
+00:00:31,360 --> 00:00:35,010
+And in this level, we'll learn
+what they are, how they work,
+
+11
+00:00:35,010 --> 00:00:38,630
+and how we can use them to build
+rich JavaScript applications.
+
+12
+00:00:41,470 --> 00:00:43,900
+Express is a great
+fit for building
+
+13
+00:00:43,900 --> 00:00:48,050
+Web APIs, which can easily be
+consumed by rich JavaScript
+
+14
+00:00:48,050 --> 00:00:51,090
+applications built
+with Ember, Angular,
+
+15
+00:00:51,090 --> 00:00:53,490
+or, if it's simple
+enough, jQuery,
+
+16
+00:00:53,490 --> 00:00:56,200
+which is what we're
+going to be using here.
+
+17
+00:00:56,200 --> 00:00:59,970
+These types of web apps allow
+for more interactive experience
+
+18
+00:00:59,970 --> 00:01:03,290
+on the web, and they have
+never been more popular.
+
+19
+00:01:03,290 --> 00:01:07,310
+Now, the concept behind them
+is not so hard to understand.
+
+20
+00:01:07,310 --> 00:01:11,380
+First, the browser issues the
+initial request to the server.
+
+21
+00:01:11,380 --> 00:01:14,170
+The server responds with HTML.
+
+22
+00:01:14,170 --> 00:01:18,470
+Further requests are issued
+through JavaScript and AJAX.
+
+23
+00:01:18,470 --> 00:01:22,130
+The server responds with
+data, typically in JSON,
+
+24
+00:01:22,130 --> 00:01:26,780
+and the client uses that JSON
+to update elements on the page.
+
+25
+00:01:26,780 --> 00:01:29,330
+This way, interacting
+with the application
+
+26
+00:01:29,330 --> 00:01:32,350
+does not trigger
+full page reloads.
+
+27
+00:01:32,350 --> 00:01:36,880
+So let's see how we can
+build this using Express.
+
+28
+00:01:36,880 --> 00:01:40,530
+We'll start with a
+simple index.html file.
+
+29
+00:01:40,530 --> 00:01:43,580
+The important parts of this
+file is the title element,
+
+30
+00:01:43,580 --> 00:01:47,800
+Building Blocks, and
+an H1 element, Blocks.
+
+31
+00:01:47,800 --> 00:01:50,330
+We'll place this file in
+a folder called "public."
+
+32
+00:01:53,870 --> 00:01:56,240
+To serve this file
+from Express, we'll
+
+33
+00:01:56,240 --> 00:01:58,980
+create a get route
+for the root path.
+
+34
+00:01:58,980 --> 00:02:01,390
+Then, from our
+callback, we'll use
+
+35
+00:02:01,390 --> 00:02:04,620
+the response.sendFile function.
+
+36
+00:02:04,620 --> 00:02:08,360
+This function takes the path
+of the file we want to serve.
+
+37
+00:02:08,360 --> 00:02:12,200
+We use the __dirname,
+which returns the current
+
+38
+00:02:12,200 --> 00:02:13,720
+path of the application.
+
+39
+00:02:13,720 --> 00:02:18,540
+Then, we append
+/public/index.html,
+
+40
+00:02:18,540 --> 00:02:22,470
+which causes the index.html
+file to be served back
+
+41
+00:02:22,470 --> 00:02:23,860
+to the client.
+
+42
+00:02:23,860 --> 00:02:27,150
+Finally, we'll
+listen on port 3000.
+
+43
+00:02:27,150 --> 00:02:30,250
+When we run our app and
+visit it from a browser,
+
+44
+00:02:30,250 --> 00:02:33,770
+we can see our index.html
+is being served and rendered
+
+45
+00:02:33,770 --> 00:02:34,270
+properly.
+
+46
+00:02:37,190 --> 00:02:39,530
+Another way that we can
+write this functionality
+
+47
+00:02:39,530 --> 00:02:42,570
+is using the Express
+static middleware,
+
+48
+00:02:42,570 --> 00:02:44,570
+which is the only
+middleware that's
+
+49
+00:02:44,570 --> 00:02:46,620
+currently shipped with Express.
+
+50
+00:02:46,620 --> 00:02:49,890
+To use this middleware, we
+call the static function
+
+51
+00:02:49,890 --> 00:02:51,890
+in our Express object.
+
+52
+00:02:51,890 --> 00:02:53,680
+We pass it the root
+folder where we want
+
+53
+00:02:53,680 --> 00:02:55,900
+to serve our static files from.
+
+54
+00:02:55,900 --> 00:02:58,050
+The return value of
+that function call
+
+55
+00:02:58,050 --> 00:03:00,680
+is passed to the
+app.use function,
+
+56
+00:03:00,680 --> 00:03:03,310
+and this is all we need to
+do to serve static files
+
+57
+00:03:03,310 --> 00:03:04,860
+from the public folder.
+
+58
+00:03:04,860 --> 00:03:07,920
+Now, if we run our app again
+and visit it from the browser,
+
+59
+00:03:07,920 --> 00:03:10,580
+we can see that the
+result is the same.
+
+60
+00:03:10,580 --> 00:03:16,850
+The static middleware defaults
+to serving the index.html file.
+
+61
+00:03:16,850 --> 00:03:18,610
+But before we go
+any further, let's
+
+62
+00:03:18,610 --> 00:03:21,980
+take a moment to understand
+what middleware is.
+
+63
+00:03:21,980 --> 00:03:24,300
+Middleware and
+Express are functions
+
+64
+00:03:24,300 --> 00:03:27,350
+added to the stack that
+have access to the request
+
+65
+00:03:27,350 --> 00:03:30,780
+and response objects and
+are executed sequentially.
+
+66
+00:03:30,780 --> 00:03:33,260
+Inside of each middleware,
+we can do things
+
+67
+00:03:33,260 --> 00:03:37,440
+like validation, authentication,
+data parsing, and whatnot.
+
+68
+00:03:37,440 --> 00:03:39,640
+So when a request
+comes in, it passes
+
+69
+00:03:39,640 --> 00:03:43,090
+through each of these middleware
+before reaching our routes,
+
+70
+00:03:43,090 --> 00:03:44,180
+as you can see here.
+
+71
+00:03:44,180 --> 00:03:46,170
+An Express application
+is essentially
+
+72
+00:03:46,170 --> 00:03:49,680
+a stack of middleware
+running one after the other.
+
+73
+00:03:49,680 --> 00:03:51,390
+It's kind of like
+a plumbing pipe.
+
+74
+00:03:51,390 --> 00:03:53,870
+Requests start at
+the first middleware
+
+75
+00:03:53,870 --> 00:03:56,920
+and work their way
+down the stack.
+
+76
+00:03:56,920 --> 00:03:59,060
+So let's look at
+the following stack.
+
+77
+00:03:59,060 --> 00:04:01,080
+So a request comes
+in, and it starts
+
+78
+00:04:01,080 --> 00:04:03,820
+being processed in
+middleware A, which
+
+79
+00:04:03,820 --> 00:04:06,880
+is added to the stack
+using the app.use function.
+
+80
+00:04:06,880 --> 00:04:09,580
+Middleware A, like
+any other middleware,
+
+81
+00:04:09,580 --> 00:04:12,370
+is a function that takes
+the request and response
+
+82
+00:04:12,370 --> 00:04:16,540
+objects as an argument, as
+well as the next function.
+
+83
+00:04:16,540 --> 00:04:19,519
+The next function must
+be called in order
+
+84
+00:04:19,519 --> 00:04:23,230
+to move processing to the next
+middleware in the sequence.
+
+85
+00:04:23,230 --> 00:04:26,750
+So calling next from
+middleware A moves processing
+
+86
+00:04:26,750 --> 00:04:31,270
+to middleware B. Calling next
+from B moves processing to C,
+
+87
+00:04:31,270 --> 00:04:32,420
+and so on.
+
+88
+00:04:32,420 --> 00:04:34,720
+So we keep doing that until
+we reach a point where
+
+89
+00:04:34,720 --> 00:04:37,180
+we want to respond
+back to the client,
+
+90
+00:04:37,180 --> 00:04:40,060
+and this can be either from
+a route or from a middleware,
+
+91
+00:04:40,060 --> 00:04:41,280
+as we can see here.
+
+92
+00:04:41,280 --> 00:04:43,710
+We call response.send
+from middleware N
+
+93
+00:04:43,710 --> 00:04:45,435
+and complete the request.
+
+94
+00:04:48,150 --> 00:04:51,480
+In this other graph,
+middleware A calls next,
+
+95
+00:04:51,480 --> 00:04:54,970
+and middleware B responds
+back to the client.
+
+96
+00:04:54,970 --> 00:04:58,130
+The flow stops once the
+response is sent back,
+
+97
+00:04:58,130 --> 00:05:00,490
+and any remaining
+middleware in the stack
+
+98
+00:05:00,490 --> 00:05:03,880
+or user-defined
+routes will not run.
+
+99
+00:05:03,880 --> 00:05:07,310
+So if you try calling next after
+the response has completed,
+
+100
+00:05:07,310 --> 00:05:09,190
+we'll get all sorts
+of weird errors.
+
+101
+00:05:11,850 --> 00:05:14,200
+The source code for
+static is a good example
+
+102
+00:05:14,200 --> 00:05:16,590
+of how middleware
+works in Express.
+
+103
+00:05:16,590 --> 00:05:18,740
+It's only around
+100 lines of code,
+
+104
+00:05:18,740 --> 00:05:20,760
+and it's easy to spot
+the important parts
+
+105
+00:05:20,760 --> 00:05:22,260
+that we've talked about here.
+
+106
+00:05:22,260 --> 00:05:25,800
+If we look in the source, we
+can see that static only cares
+
+107
+00:05:25,800 --> 00:05:28,260
+about GET or HEAD requests.
+
+108
+00:05:28,260 --> 00:05:31,400
+For any other type of
+request, static calls
+
+109
+00:05:31,400 --> 00:05:34,320
+next and immediately
+passes processing
+
+110
+00:05:34,320 --> 00:05:36,600
+to whoever is next on the stack.
+
+111
+00:05:36,600 --> 00:05:40,090
+Otherwise, it does its work,
+and at the bottom of the file,
+
+112
+00:05:40,090 --> 00:05:43,410
+you see something like
+this, a send stream which
+
+113
+00:05:43,410 --> 00:05:46,260
+pipes its content to
+the response object —
+
+114
+00:05:46,260 --> 00:05:48,730
+so, pretty straightforward
+Node code.
+
+115
+00:05:48,730 --> 00:05:50,880
+If you're used to
+semicolons, then you're
+
+116
+00:05:50,880 --> 00:05:52,970
+probably bothered by this.
+
+117
+00:05:52,970 --> 00:05:55,500
+Yes, a pattern found
+in the source code
+
+118
+00:05:55,500 --> 00:05:58,450
+for static is the
+lack of semicolons,
+
+119
+00:05:58,450 --> 00:06:02,210
+but the code still works.
+
+120
+00:06:02,210 --> 00:06:04,770
+Now that we understand
+how middleware works,
+
+121
+00:06:04,770 --> 00:06:06,250
+let's go back to our code.
+
+122
+00:06:06,250 --> 00:06:08,890
+We add an image tag
+to our HTML file
+
+123
+00:06:08,890 --> 00:06:13,650
+and place a new image file named
+"blocks.jpg" under the public
+
+124
+00:06:13,650 --> 00:06:14,540
+folder.
+
+125
+00:06:14,540 --> 00:06:17,410
+Once we restart our app
+and visit the root URL
+
+126
+00:06:17,410 --> 00:06:21,200
+from the browser, we can see
+the image displayed on the page.
+
+127
+00:06:21,200 --> 00:06:23,840
+The static middleware
+will serve everything
+
+128
+00:06:23,840 --> 00:06:28,930
+under the specified folder—
+in this case, public.
+
+129
+00:06:28,930 --> 00:06:30,780
+We've learned how to
+serve static files,
+
+130
+00:06:30,780 --> 00:06:35,080
+like our index.html, and other
+static assets, like images.
+
+131
+00:06:35,080 --> 00:06:38,820
+But that's only the first part
+into building rich JavaScript
+
+132
+00:06:38,820 --> 00:06:40,880
+applications in Express.
+
+133
+00:06:40,880 --> 00:06:43,100
+Now it's time we
+learn how to load data
+
+134
+00:06:43,100 --> 00:06:44,875
+from Express using AJAX calls.
+
+135
+00:06:47,540 --> 00:06:49,820
+Once we're done, this is
+what our application's
+
+136
+00:06:49,820 --> 00:06:50,880
+going to look like.
+
+137
+00:06:50,880 --> 00:06:53,810
+These block names for
+Fixed, Movable, and Rotating
+
+138
+00:06:53,810 --> 00:06:57,680
+are all going to be
+loaded using AJAX.
+
+139
+00:06:57,680 --> 00:06:59,910
+To do this, we go
+back to our HTML
+
+140
+00:06:59,910 --> 00:07:05,380
+file and add a UL element
+with a class of block-list.
+
+141
+00:07:05,380 --> 00:07:09,190
+Then, we'll add two
+JavaScript files: jQuery
+
+142
+00:07:09,190 --> 00:07:12,840
+to help us manipulate the
+DOM and simplify AJAX calls,
+
+143
+00:07:12,840 --> 00:07:15,510
+and client.js,
+which is where we'll
+
+144
+00:07:15,510 --> 00:07:17,840
+place our custom
+client-side code that
+
+145
+00:07:17,840 --> 00:07:20,330
+will talk to our Express API.
+
+146
+00:07:20,330 --> 00:07:23,700
+Finally, we'll add a style sheet
+to our page to make it pretty
+
+147
+00:07:23,700 --> 00:07:27,290
+and an image file,
+bg-stars, which will
+
+148
+00:07:27,290 --> 00:07:29,150
+be the background to our page.
+
+149
+00:07:29,150 --> 00:07:32,030
+All of these files are placed
+under the public folder
+
+150
+00:07:32,030 --> 00:07:36,360
+so they can be served by
+the static middleware.
+
+151
+00:07:36,360 --> 00:07:40,210
+From client.js, we'll
+make our AJAX calls.
+
+152
+00:07:40,210 --> 00:07:43,490
+Using jQuery's get function,
+we'll issue a request
+
+153
+00:07:43,490 --> 00:07:48,560
+to the /blocks endpoint, which
+should return a list of blocks.
+
+154
+00:07:48,560 --> 00:07:52,410
+The return value of the AJAX
+call is passed as an argument
+
+155
+00:07:52,410 --> 00:07:54,570
+to the appendToList function.
+
+156
+00:07:54,570 --> 00:07:58,600
+append.ToList creates an
+empty array named "list."
+
+157
+00:07:58,600 --> 00:08:01,040
+Then, it iterates through
+each of the blocks
+
+158
+00:08:01,040 --> 00:08:04,050
+and creates an LI
+element for each one,
+
+159
+00:08:04,050 --> 00:08:06,820
+with a text set
+to the block name.
+
+160
+00:08:06,820 --> 00:08:08,995
+Finally, we append
+our list to the page.
+
+161
+00:08:11,650 --> 00:08:15,530
+Now, back in our app.js file,
+we'll create a new route
+
+162
+00:08:15,530 --> 00:08:17,940
+for the /blocks endpoint.
+
+163
+00:08:17,940 --> 00:08:19,170
+You've seen this code before.
+
+164
+00:08:19,170 --> 00:08:21,890
+And what it's doing is
+creating an array of blocks
+
+165
+00:08:21,890 --> 00:08:24,230
+and serializing it
+back to the client
+
+166
+00:08:24,230 --> 00:08:27,600
+using the
+response.JSON function.
+
+167
+00:08:27,600 --> 00:08:29,590
+Now let's load up
+our application,
+
+168
+00:08:29,590 --> 00:08:32,330
+visit the browser,
+local host 3000.
+
+169
+00:08:32,330 --> 00:08:34,289
+We can see that it works.
+
+170
+00:08:34,289 --> 00:08:36,240
+Now, let's do it again
+and inspect the page
+
+171
+00:08:36,240 --> 00:08:38,809
+with DevTools.
+
+172
+00:08:38,809 --> 00:08:40,460
+Notice the request here.
+
+173
+00:08:40,460 --> 00:08:43,530
+There's one for the HTML,
+and then the page does a GET
+
+174
+00:08:43,530 --> 00:08:46,950
+request to the /blocks endpoint.
+
+175
+00:08:46,950 --> 00:08:48,560
+We can even look
+at the data that
+
+176
+00:08:48,560 --> 00:08:50,720
+was sent back from our server.
+
+177
+00:08:50,720 --> 00:08:52,300
+There's our JSON.
+
+178
+00:08:52,300 --> 00:08:54,610
+In case you're not
+familiar with DevTools,
+
+179
+00:08:54,610 --> 00:08:57,070
+you might want to check
+out the Discover DevTools
+
+180
+00:08:57,070 --> 00:09:00,290
+course on the Electives Path.
+
+181
+00:09:00,290 --> 00:09:01,610
+That's it for this section.
+
+182
+00:09:01,610 --> 00:09:03,970
+I'll see you after
+the challenges.
+

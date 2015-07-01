@@ -1,0 +1,487 @@
+1
+00:00:02,120 --> 00:00:04,760
+One problem with our
+current dynamic routes
+
+2
+00:00:04,760 --> 00:00:08,340
+is that they only match
+on exact block names.
+
+3
+00:00:08,340 --> 00:00:12,990
+When we make a request to
+/blocks/Fixed with a capital F,
+
+4
+00:00:12,990 --> 00:00:15,340
+it is able to find the
+description for that block
+
+5
+00:00:15,340 --> 00:00:17,030
+and respond successfully.
+
+6
+00:00:17,030 --> 00:00:20,100
+However, if we use a different
+case for the block name,
+
+7
+00:00:20,100 --> 00:00:24,495
+say fixed all in lowercase, it
+returns a Not Found response.
+
+8
+00:00:27,460 --> 00:00:29,880
+Let's see how we can
+normalize request parameters
+
+9
+00:00:29,880 --> 00:00:32,780
+and make it so our Express
+application can respond
+
+10
+00:00:32,780 --> 00:00:34,812
+to different casing variations.
+
+11
+00:00:34,812 --> 00:00:36,270
+Let's start with
+our existing code,
+
+12
+00:00:36,270 --> 00:00:38,980
+but before we add any
+new behavior, let's
+
+13
+00:00:38,980 --> 00:00:40,532
+refactor some of this.
+
+14
+00:00:40,532 --> 00:00:44,700
+This line, for example, is doing
+two things at the same time.
+
+15
+00:00:44,700 --> 00:00:46,710
+It's reading the
+request parameter
+
+16
+00:00:46,710 --> 00:00:49,720
+and looking up the
+object's properties.
+
+17
+00:00:49,720 --> 00:00:52,190
+Let's split that to
+improve code clarity.
+
+18
+00:00:52,190 --> 00:00:54,670
+First, we'll create a
+variable called name
+
+19
+00:00:54,670 --> 00:00:58,860
+and assign it the value
+from request.params.name.
+
+20
+00:00:58,860 --> 00:01:02,670
+Then, on the next line, we'll
+create a variable named block.
+
+21
+00:01:02,670 --> 00:01:05,430
+To this variable we'll
+assign the normalized name
+
+22
+00:01:05,430 --> 00:01:06,790
+of the block.
+
+23
+00:01:06,790 --> 00:01:10,780
+To normalize, we'll convert the
+first character to uppercase
+
+24
+00:01:10,780 --> 00:01:15,100
+and all remaining
+characters to lowercase.
+
+25
+00:01:15,100 --> 00:01:17,660
+Now the name stored
+in the block variable
+
+26
+00:01:17,660 --> 00:01:21,530
+matches the same format using
+the properties of the blocks
+
+27
+00:01:21,530 --> 00:01:24,020
+object.
+
+28
+00:01:24,020 --> 00:01:25,670
+That's all there is to it.
+
+29
+00:01:25,670 --> 00:01:28,410
+Now let's go back and
+see if our code works.
+
+30
+00:01:28,410 --> 00:01:33,560
+First, we make a request to
+/blocks/Fixed with a capital F.
+
+31
+00:01:33,560 --> 00:01:35,710
+We get back a
+successful response
+
+32
+00:01:35,710 --> 00:01:39,210
+and the block's description,
+"Fastened securely in position."
+
+33
+00:01:39,210 --> 00:01:44,160
+Then, another request to
+/blocks/fixed all in lowercase
+
+34
+00:01:44,160 --> 00:01:46,250
+and it also works.
+
+35
+00:01:46,250 --> 00:01:48,890
+Finally, we get a little
+crazy and alternate
+
+36
+00:01:48,890 --> 00:01:54,550
+between uppercase and
+lowercase, and it still works.
+
+37
+00:01:54,550 --> 00:01:57,460
+Clearly our code
+works, but what if we
+
+38
+00:01:57,460 --> 00:02:00,420
+need to create additional
+dynamic routes that need to use
+
+39
+00:02:00,420 --> 00:02:02,580
+the same parameter parsing?
+
+40
+00:02:02,580 --> 00:02:04,860
+For example, if
+we add an endpoint
+
+41
+00:02:04,860 --> 00:02:07,802
+that returns locations
+for a specific block.
+
+42
+00:02:07,802 --> 00:02:11,450
+Let's call this /locations/name.
+
+43
+00:02:11,840 --> 00:02:14,390
+If we wanted this endpoint
+to run the same parsing
+
+44
+00:02:14,390 --> 00:02:18,010
+code, making the first character
+capital and the remaining
+
+45
+00:02:18,010 --> 00:02:21,000
+characters lowercase, we'd
+need to copy and paste
+
+46
+00:02:21,000 --> 00:02:22,690
+our original parsing code.
+
+47
+00:02:22,690 --> 00:02:25,880
+And as you can probably
+imagine, this copy and pasting
+
+48
+00:02:25,880 --> 00:02:29,530
+leads to messy code and
+potential bugs in the future.
+
+49
+00:02:29,530 --> 00:02:31,691
+Now let's look at another
+feature of Express
+
+50
+00:02:31,691 --> 00:02:33,565
+that can help us get
+around this duplication.
+
+51
+00:02:36,110 --> 00:02:38,130
+Our application
+instance has a function
+
+52
+00:02:38,130 --> 00:02:41,960
+called param, which allows
+us to intercept parameters
+
+53
+00:02:41,960 --> 00:02:44,030
+sent by client requests.
+
+54
+00:02:44,030 --> 00:02:46,570
+We call this function
+passing the parameter name
+
+55
+00:02:46,570 --> 00:02:49,600
+we want to intercept, in
+this case, "name," followed
+
+56
+00:02:49,600 --> 00:02:52,220
+by a middleware function,
+which, as you might remember
+
+57
+00:02:52,220 --> 00:02:54,580
+from earlier, takes a
+request and response
+
+58
+00:02:54,580 --> 00:02:56,850
+object and a next function.
+
+59
+00:02:56,850 --> 00:03:00,640
+We'll move our previous parsing
+code here, untouched, and add
+
+60
+00:03:00,640 --> 00:03:02,170
+two more lines.
+
+61
+00:03:02,170 --> 00:03:05,640
+First, we'll assign the block
+variable to a new property
+
+62
+00:03:05,640 --> 00:03:08,800
+on the request object
+called blockName.
+
+63
+00:03:08,800 --> 00:03:11,270
+This makes it so
+that blockName can
+
+64
+00:03:11,270 --> 00:03:14,620
+be accessed by all routes
+in the application.
+
+65
+00:03:14,620 --> 00:03:17,550
+Finally, we call next
+so that the request
+
+66
+00:03:17,550 --> 00:03:19,900
+can move on to the next
+function in the stack.
+
+67
+00:03:22,630 --> 00:03:25,960
+Going back to our routes, we
+can remove all the parsing code
+
+68
+00:03:25,960 --> 00:03:29,910
+and simply access the
+blockName on the request object.
+
+69
+00:03:29,910 --> 00:03:34,140
+Using request.blockName, we can
+look up the block's description
+
+70
+00:03:34,140 --> 00:03:36,000
+and the block's location.
+
+71
+00:03:36,000 --> 00:03:40,530
+Our code is now a
+lot easier to read.
+
+72
+00:03:40,530 --> 00:03:42,740
+Now if we go back to curl
+again and make a request
+
+73
+00:03:42,740 --> 00:03:45,480
+to /blocks/fixed
+all in lowercase,
+
+74
+00:03:45,480 --> 00:03:47,080
+we can see that it works.
+
+75
+00:03:47,080 --> 00:03:52,300
+And then, our request to
+/location/fixED, with only "ED"
+
+76
+00:03:52,300 --> 00:03:55,630
+in uppercase, that works too.
+
+77
+00:03:55,630 --> 00:03:59,870
+Our code is clean, but if we
+go back and visit our web app,
+
+78
+00:03:59,870 --> 00:04:02,100
+we'll notice that things
+are a little different.
+
+79
+00:04:02,100 --> 00:04:05,180
+Initially, we had a
+list of block names,
+
+80
+00:04:05,180 --> 00:04:07,450
+but we must have done
+something and now
+
+81
+00:04:07,450 --> 00:04:10,530
+our web page is listing
+block descriptions.
+
+82
+00:04:10,530 --> 00:04:13,840
+I wonder what caused that?
+
+83
+00:04:13,840 --> 00:04:17,480
+If you remember, when we first
+wrote our blocks endpoint,
+
+84
+00:04:17,480 --> 00:04:21,740
+we were assigning a JavaScript
+array to the blocks variable.
+
+85
+00:04:21,740 --> 00:04:27,520
+Then, we added our dynamic route
+for /blocks/name and changed
+
+86
+00:04:27,520 --> 00:04:31,210
+the blocks data structure
+from an array to a JavaScript
+
+87
+00:04:31,210 --> 00:04:36,430
+object, which is exactly
+what introduced a bug.
+
+88
+00:04:36,430 --> 00:04:38,640
+If we look into
+our /blocks route,
+
+89
+00:04:38,640 --> 00:04:41,770
+we'll see that we're sending
+in the entire JavaScript object
+
+90
+00:04:41,770 --> 00:04:44,700
+to the JSON function
+when in reality,
+
+91
+00:04:44,700 --> 00:04:47,260
+all we want is the
+object's properties
+
+92
+00:04:47,260 --> 00:04:49,450
+or the object's keys.
+
+93
+00:04:49,450 --> 00:04:53,200
+To fix this, we use the
+Object.keys function,
+
+94
+00:04:53,200 --> 00:04:56,630
+which returns an array with
+the object's properties.
+
+95
+00:04:56,630 --> 00:05:01,010
+Once we fix our code, we can
+go back and test things out.
+
+96
+00:05:01,010 --> 00:05:03,460
+If we visit our
+web page again,
+
+97
+00:05:03,460 --> 00:05:05,900
+we can see that the
+block names are listed,
+
+98
+00:05:05,900 --> 00:05:09,840
+and if we issue a curl request
+to the /blocks endpoint,
+
+99
+00:05:09,840 --> 00:05:12,030
+we will see the list
+of block names in JSON.
+
+100
+00:05:14,539 --> 00:05:16,080
+We've reached the
+end of this section.
+
+101
+00:05:16,080 --> 00:05:21,120
+Now it's your turn to code some
+user params in the challenges.
+

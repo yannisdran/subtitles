@@ -1,0 +1,712 @@
+1
+00:00:00,170 --> 00:00:02,460
+[SINGING] So you want to
+build a web app with Node,
+
+2
+00:00:02,460 --> 00:00:05,070
+but you're not sure where
+to put all the code?
+
+3
+00:00:05,070 --> 00:00:07,830
+Express is what you need,
+the framework to succeed,
+
+4
+00:00:07,830 --> 00:00:10,010
+to parse those
+requests at high speed.
+
+5
+00:00:10,010 --> 00:00:12,265
+Route your GET, POST
+PUT, and DELETE.
+
+6
+00:00:12,265 --> 00:00:14,834
+Add request and
+response to complete.
+
+7
+00:00:14,834 --> 00:00:16,750
+Middleware will help
+finesse modules clean up
+
+8
+00:00:16,750 --> 00:00:20,700
+the mess in the Building
+Blocks of Express.
+
+9
+00:00:23,910 --> 00:00:26,840
+Now it's time we start
+reading user-submitted data
+
+10
+00:00:26,840 --> 00:00:29,260
+from within our Express routes.
+
+11
+00:00:29,260 --> 00:00:32,420
+Then, we'll see how we
+can intercept requests
+
+12
+00:00:32,420 --> 00:00:35,550
+before they reach our routes,
+which gives us a chance
+
+13
+00:00:35,550 --> 00:00:39,550
+to run some pre-condition checks
+and do some data massaging
+
+14
+00:00:39,550 --> 00:00:41,210
+before our routes kick in.
+
+15
+00:00:49,750 --> 00:00:52,010
+So this is the code
+that we have so far.
+
+16
+00:00:52,010 --> 00:00:56,300
+And as you can see, the /blocks
+endpoint is always returning
+
+17
+00:00:56,300 --> 00:00:58,020
+all of the blocks.
+
+18
+00:00:58,020 --> 00:00:59,930
+Sometimes, though,
+we might not want
+
+19
+00:00:59,930 --> 00:01:03,290
+to return all the blocks,
+perhaps just one and two,
+
+20
+00:01:03,290 --> 00:01:05,430
+so it would be nice
+if we had a way
+
+21
+00:01:05,430 --> 00:01:08,100
+to limit the number of
+blocks that are returned,
+
+22
+00:01:08,100 --> 00:01:10,836
+and we can do that using
+query string parameters.
+
+23
+00:01:10,836 --> 00:01:13,540
+Let's see what
+that looks like.
+
+24
+00:01:13,540 --> 00:01:18,110
+In our current application, we
+issue a GET request to /blocks,
+
+25
+00:01:18,110 --> 00:01:20,220
+which returns all the blocks.
+
+26
+00:01:20,220 --> 00:01:23,650
+What we want to do now is to
+be able to use a query string
+
+27
+00:01:23,650 --> 00:01:26,830
+parameter to limit the
+number of blocks returned.
+
+28
+00:01:26,830 --> 00:01:29,990
+Here, you can see we added the
+limit query string parameter,
+
+29
+00:01:29,990 --> 00:01:32,370
+and we're giving
+it a value of one.
+
+30
+00:01:32,370 --> 00:01:35,530
+Query strings always come
+after the question mark,
+
+31
+00:01:35,530 --> 00:01:39,280
+so it's not part of the path,
+but a parameter added to it.
+
+32
+00:01:39,280 --> 00:01:41,320
+With this path,
+obviously we only
+
+33
+00:01:41,320 --> 00:01:44,590
+want one block to be
+returned, which is Fixed.
+
+34
+00:01:44,590 --> 00:01:48,940
+If we set limit to two, then we
+want two blocks returned, Fixed
+
+35
+00:01:48,940 --> 00:01:50,620
+and Movable.
+
+36
+00:01:50,620 --> 00:01:52,370
+Now let's jump back
+to our code and see
+
+37
+00:01:52,370 --> 00:01:54,720
+how we can implement this.
+
+38
+00:01:54,720 --> 00:01:58,730
+Query string parameters are
+added to request.query, which
+
+39
+00:01:58,730 --> 00:02:00,910
+you can access from our routes.
+
+40
+00:02:00,910 --> 00:02:03,680
+So from our existing
+/blocks route,
+
+41
+00:02:03,680 --> 00:02:06,870
+we add a conditional that
+looks at the limit property
+
+42
+00:02:06,870 --> 00:02:10,520
+on request.query and then
+verifies if it's a valid number
+
+43
+00:02:10,520 --> 00:02:14,910
+for limit by checking if it's
+greater than or equal to zero.
+
+44
+00:02:14,910 --> 00:02:17,740
+Otherwise, the else
+block is evaluated
+
+45
+00:02:17,740 --> 00:02:21,820
+and responds with all
+blocks, just like before.
+
+46
+00:02:21,820 --> 00:02:24,080
+Inside of our if
+block, we'll return
+
+47
+00:02:24,080 --> 00:02:27,520
+a portion of the array
+using the slice function.
+
+48
+00:02:27,520 --> 00:02:30,380
+Slice is a native
+JavaScript function.
+
+49
+00:02:30,380 --> 00:02:32,080
+It takes two arguments.
+
+50
+00:02:32,080 --> 00:02:34,750
+The first one is where
+the extraction begins,
+
+51
+00:02:34,750 --> 00:02:37,340
+and the second one
+is where it ends.
+
+52
+00:02:37,340 --> 00:02:40,180
+Both are zero-based index.
+
+53
+00:02:40,180 --> 00:02:44,200
+So in this example, we start
+at the first element, zero,
+
+54
+00:02:44,200 --> 00:02:46,570
+and slice it all
+the way up, but not
+
+55
+00:02:46,570 --> 00:02:51,210
+including the number assigned to
+limit, whatever that number is.
+
+56
+00:02:51,210 --> 00:02:52,790
+Now let's run our code.
+
+57
+00:02:52,790 --> 00:02:55,090
+Curl works just fine
+with query strings,
+
+58
+00:02:55,090 --> 00:02:57,810
+so we'll use it to make
+our first request, limiting
+
+59
+00:02:57,810 --> 00:02:59,930
+the results to one element.
+
+60
+00:02:59,930 --> 00:03:02,360
+You can see it returns Fixed.
+
+61
+00:03:02,360 --> 00:03:05,140
+Then, we'll make another
+one, limiting the result
+
+62
+00:03:05,140 --> 00:03:06,860
+to two elements.
+
+63
+00:03:06,860 --> 00:03:09,180
+We can see it returns
+Fixed and Movable.
+
+64
+00:03:09,180 --> 00:03:12,530
+But how about if we omit
+the query string parameter?
+
+65
+00:03:12,530 --> 00:03:15,110
+Then, it would just list all the blocks,
+
+66
+00:03:15,110 --> 00:03:18,340
+like it was doing before.
+
+67
+00:03:18,340 --> 00:03:20,940
+Let's add another feature
+to our application.
+
+68
+00:03:20,940 --> 00:03:23,310
+We want to be able to fetch
+additional information
+
+69
+00:03:23,310 --> 00:03:26,540
+for each block, perhaps
+its description.
+
+70
+00:03:26,540 --> 00:03:28,570
+Let's see how we can
+do that by leveraging
+
+71
+00:03:28,570 --> 00:03:31,050
+the power of URL paths.
+
+72
+00:03:31,050 --> 00:03:33,630
+To fetch the description
+for the Fixed block,
+
+73
+00:03:33,630 --> 00:03:38,070
+we want to create an
+endpoint for /blocks/Fixed.
+
+74
+00:03:38,070 --> 00:03:41,570
+This endpoint should
+return the 200 HTTP
+
+75
+00:03:41,570 --> 00:03:44,340
+status code and the
+description for the Fixed block
+
+76
+00:03:44,340 --> 00:03:45,880
+in the response body.
+
+77
+00:03:45,880 --> 00:03:48,190
+For the Movable block,
+we want an endpoint
+
+78
+00:03:48,190 --> 00:03:54,070
+for /blocks/Movable, which again
+returns 200 and the description
+
+79
+00:03:54,070 --> 00:03:56,470
+for Movable in
+the response body.
+
+80
+00:03:56,470 --> 00:03:59,990
+And this should also work for
+all other existing blocks.
+
+81
+00:03:59,990 --> 00:04:02,740
+But how can we do
+this without creating
+
+82
+00:04:02,740 --> 00:04:06,020
+individual static routes
+like we've been doing so far?
+
+83
+00:04:06,020 --> 00:04:09,930
+The answer is using
+dynamic routes.
+
+84
+00:04:09,930 --> 00:04:12,880
+Dynamic routes are very
+similar to static routes,
+
+85
+00:04:12,880 --> 00:04:15,180
+except for the argument part.
+
+86
+00:04:15,180 --> 00:04:18,730
+These types of routes allow
+us to define named arguments
+
+87
+00:04:18,730 --> 00:04:21,310
+as part of the URL path.
+
+88
+00:04:21,310 --> 00:04:26,180
+In this case, :name is the
+argument part of the URL path.
+
+89
+00:04:26,180 --> 00:04:29,380
+Express will automatically
+add named arguments
+
+90
+00:04:29,380 --> 00:04:33,700
+on routes as properties on
+the request.params object.
+
+91
+00:04:33,700 --> 00:04:36,840
+This is how we'll access the
+block name in just a minute.
+
+92
+00:04:36,840 --> 00:04:38,430
+But before we do
+that, we'll need
+
+93
+00:04:38,430 --> 00:04:42,290
+to change how we
+organize our blocks.
+
+94
+00:04:42,290 --> 00:04:45,600
+In order to store additional
+information on each block,
+
+95
+00:04:45,600 --> 00:04:50,000
+we'll move from a JavaScript
+array to a JavaScript object.
+
+96
+00:04:50,000 --> 00:04:52,660
+The names of blocks will
+be the object properties,
+
+97
+00:04:52,660 --> 00:04:56,880
+and the description will be
+their corresponding value.
+
+98
+00:04:56,880 --> 00:04:58,750
+From inside our
+dynamic route, we'll
+
+99
+00:04:58,750 --> 00:05:00,660
+create a variable
+called description
+
+100
+00:05:00,660 --> 00:05:03,340
+and set it equal to the
+block's description, which
+
+101
+00:05:03,340 --> 00:05:05,567
+you can look up from
+the block's object
+
+102
+00:05:05,567 --> 00:05:07,775
+by reading the name argument
+from the request.params.
+
+103
+00:05:11,430 --> 00:05:16,130
+Then, we use the respond.json
+function to generate the response.
+
+104
+00:05:16,130 --> 00:05:19,820
+This function also sets the
+status code to 200 Success.
+
+105
+00:05:22,400 --> 00:05:24,160
+To test this out,
+we're going to use
+
+106
+00:05:24,160 --> 00:05:28,340
+curl with that -i option
+we've seen before,
+
+107
+00:05:28,340 --> 00:05:31,880
+which tells curl to include
+response headers in the output.
+
+108
+00:05:31,880 --> 00:05:35,810
+We can see that a request
+to /blocks/Fixed returns
+
+109
+00:05:35,810 --> 00:05:38,670
+the proper status code and
+the correct description,
+
+110
+00:05:38,670 --> 00:05:40,820
+"Fastened securely in position."
+
+111
+00:05:40,820 --> 00:05:45,600
+And a request to
+/blocks/Movable also returns 200
+
+112
+00:05:45,600 --> 00:05:50,630
+and the correct description,
+"Capable of being moved."
+
+113
+00:05:50,630 --> 00:05:52,840
+Our work here is not done yet.
+
+114
+00:05:52,840 --> 00:05:56,650
+How about if we make a request
+to a block that doesn't exist:
+
+115
+00:05:56,650 --> 00:06:01,720
+/blocks/Banana? Notice that,
+although this block does not
+
+116
+00:06:01,720 --> 00:06:05,380
+exist, we get a successful
+status code back,
+
+117
+00:06:05,380 --> 00:06:09,970
+and, weird enough, a
+blank response body.
+
+118
+00:06:09,970 --> 00:06:11,710
+The proper way to
+handle requests
+
+119
+00:06:11,710 --> 00:06:16,490
+for blocks that don't exist is
+to return a 404 status code,
+
+120
+00:06:16,490 --> 00:06:18,650
+which stands for "Not Found."
+
+121
+00:06:18,650 --> 00:06:21,120
+It's also recommended to
+include an explanation
+
+122
+00:06:21,120 --> 00:06:23,060
+of the error in
+the response body
+
+123
+00:06:23,060 --> 00:06:26,070
+in order to help whoever is
+making the request figure out
+
+124
+00:06:26,070 --> 00:06:27,090
+what's wrong.
+
+125
+00:06:27,090 --> 00:06:31,370
+So let's go back to our code and
+see how we can implement this.
+
+126
+00:06:31,370 --> 00:06:35,350
+We're back in app.js, and when
+we get a request for a block
+
+127
+00:06:35,350 --> 00:06:38,620
+name that doesn't exist and
+try to look up its name, what
+
+128
+00:06:38,620 --> 00:06:41,050
+we get back is undefined.
+
+129
+00:06:41,050 --> 00:06:42,730
+In other programming
+languages, we
+
+130
+00:06:42,730 --> 00:06:46,010
+might get an error in this
+case, but not in JavaScript.
+
+131
+00:06:46,010 --> 00:06:49,270
+So thanks to the dynamic nature
+of the JavaScript language,
+
+132
+00:06:49,270 --> 00:06:52,380
+we can add a conditional for the description variable.
+
+133
+00:06:52,380 --> 00:06:56,460
+If you remember, undefined is evaluated to false.
+
+134
+00:06:56,460 --> 00:06:58,630
+Notice we're using the exclamation point,
+
+135
+00:06:58,630 --> 00:07:02,190
+which flips the Boolean value and helps with legibility.
+
+136
+00:07:02,190 --> 00:07:05,940
+So when we do have a description set, we go into the else block
+
+137
+00:07:05,940 --> 00:07:08,240
+and run our previous code, which returns
+
+138
+00:07:08,240 --> 00:07:11,310
+the block's description.
+
+139
+00:07:11,310 --> 00:07:13,890
+Otherwise, when
+description is undefined
+
+140
+00:07:13,890 --> 00:07:16,570
+and the conditional
+evaluated to false,
+
+141
+00:07:16,570 --> 00:07:22,960
+we use the status function to
+set the status code to 404.
+
+142
+00:07:22,960 --> 00:07:26,760
+Next, we call the JSON function
+to compose an informative error
+
+143
+00:07:26,760 --> 00:07:31,670
+message using the name
+sent in the request.
+
+144
+00:07:31,670 --> 00:07:34,790
+If we make a request again for
+a block that doesn't exist,
+
+145
+00:07:34,790 --> 00:07:38,460
+we'll get a 404 status code
+back and the friendly error
+
+146
+00:07:38,460 --> 00:07:43,475
+description, "No description
+found for Banana."
+
+147
+00:07:43,475 --> 00:07:44,600
+That's it for this section.
+
+148
+00:07:44,600 --> 00:07:47,040
+Now it's your turn to
+try some dynamic routes
+
+149
+00:07:47,040 --> 00:07:48,820
+in the challenges.
+

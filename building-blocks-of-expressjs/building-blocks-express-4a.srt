@@ -1,0 +1,552 @@
+1
+00:00:00,170 --> 00:00:02,460
+[SINGING] So you want to
+build a web app with Node,
+
+2
+00:00:02,460 --> 00:00:05,009
+but you're not sure where
+to put all the code?
+
+3
+00:00:05,009 --> 00:00:07,465
+Express is what you need,
+the framework to succeed,
+
+4
+00:00:07,465 --> 00:00:09,640
+to parse those
+requests at high speed.
+
+5
+00:00:09,640 --> 00:00:12,250
+Route your GET, POST
+PUT, and DELETE.
+
+6
+00:00:12,250 --> 00:00:14,430
+Add request and
+response to complete.
+
+7
+00:00:14,430 --> 00:00:16,870
+Middleware will help
+finesse modules clean up
+
+8
+00:00:16,870 --> 00:00:20,430
+the mess in the Building
+Blocks of Express.
+
+9
+00:00:26,150 --> 00:00:28,312
+In this level, we'll
+learn how to create routes
+
+10
+00:00:28,312 --> 00:00:30,330
+for POST and DELETE requests.
+
+11
+00:00:30,330 --> 00:00:31,750
+Then, we'll see how
+we can use the
+
+12
+00:00:31,750 --> 00:00:35,370
+body-parser middleware to
+read form-submitted data,
+
+13
+00:00:35,370 --> 00:00:39,930
+and then generate responses
+with the proper HTTP status
+
+14
+00:00:39,930 --> 00:00:42,450
+code.
+
+15
+00:00:42,450 --> 00:00:44,600
+We want to be able
+to create new blocks,
+
+16
+00:00:44,600 --> 00:00:47,210
+and to do that, we
+need two things.
+
+17
+00:00:47,210 --> 00:00:49,950
+First, we need a form,
+
+18
+00:00:49,950 --> 00:00:54,070
+and we also need a POST route
+in our Express application.
+
+19
+00:00:54,070 --> 00:00:57,230
+Once we're done, this is what
+it's going to look like.
+
+20
+00:00:57,230 --> 00:00:59,080
+We'll fill out the
+name of the block,
+
+21
+00:00:59,080 --> 00:01:03,450
+its description, click
+the Submit button,
+
+22
+00:01:03,450 --> 00:01:06,300
+and we can see our new
+block added to the list.
+
+23
+00:01:06,300 --> 00:01:10,670
+If we click on the block name,
+we can see its description.
+
+24
+00:01:10,670 --> 00:01:13,030
+Now, to create new
+blocks we're going
+
+25
+00:01:13,030 --> 00:01:17,410
+to issue POST requests to
+the /blocks route.
+
+26
+00:01:17,410 --> 00:01:21,530
+We'll send the new block data
+as the payload of the request,
+
+27
+00:01:21,530 --> 00:01:24,650
+which includes a name
+and a description.
+
+28
+00:01:24,650 --> 00:01:27,090
+The response for a
+successful request
+
+29
+00:01:27,090 --> 00:01:30,630
+will be a 201
+Created status code
+
+30
+00:01:30,630 --> 00:01:33,320
+and the block name
+as the response body.
+
+31
+00:01:33,320 --> 00:01:37,040
+Now let's see how we
+can implement this.
+
+32
+00:01:37,040 --> 00:01:41,470
+In our index.html file,
+we'll add a new form.
+
+33
+00:01:41,470 --> 00:01:45,420
+In this form, we'll need
+two text field inputs:
+
+34
+00:01:45,420 --> 00:01:48,610
+one for name, and another
+one for description.
+
+35
+00:01:48,610 --> 00:01:50,610
+And finally, a Submit button.
+
+36
+00:01:50,610 --> 00:01:52,150
+Don't worry about
+form attributes,
+
+37
+00:01:52,150 --> 00:01:53,690
+like method and action.
+
+38
+00:01:53,690 --> 00:01:57,470
+We'll be adding them in
+JavaScript in the next step.
+
+39
+00:01:57,470 --> 00:02:01,020
+In our client.js file, we
+start by adding a listener
+
+40
+00:02:01,020 --> 00:02:04,000
+to the submit event
+on the form element.
+
+41
+00:02:04,000 --> 00:02:07,910
+Then, we prevent the form from
+being immediately submitted
+
+42
+00:02:07,910 --> 00:02:11,910
+by calling the prevent default
+function on the event object.
+
+43
+00:02:11,910 --> 00:02:15,650
+Next, we wrap the
+object "this" in a jQuery
+
+44
+00:02:15,650 --> 00:02:18,290
+object to make it
+easier to work with,
+
+45
+00:02:18,290 --> 00:02:20,950
+and then assign it
+to the form variable.
+
+46
+00:02:20,950 --> 00:02:24,150
+We call the serialized
+function in the form object
+
+47
+00:02:24,150 --> 00:02:26,880
+and assign it to the
+block data variable.
+
+48
+00:02:26,880 --> 00:02:30,340
+The serialized function
+transforms form data
+
+49
+00:02:30,340 --> 00:02:32,840
+to URL encoded notation.
+
+50
+00:02:32,840 --> 00:02:36,600
+So our Express app can
+parse it back to JavaScript.
+
+51
+00:02:36,600 --> 00:02:40,650
+We send this data in the
+data property of our AJAX call,
+
+52
+00:02:40,650 --> 00:02:43,910
+which is a POST request
+to the /blocks path.
+
+53
+00:02:43,910 --> 00:02:46,910
+When the request is done
+and we receive the response,
+
+54
+00:02:46,910 --> 00:02:49,050
+we get the recently
+created blockName
+
+55
+00:02:49,050 --> 00:02:53,470
+back as the argument for
+the anonymous function.
+
+56
+00:02:53,470 --> 00:02:55,840
+Now, to add new
+blocks for block list,
+
+57
+00:02:55,840 --> 00:02:59,420
+we'll reuse the appendToList
+function from earlier.
+
+58
+00:02:59,420 --> 00:03:03,200
+However, this function
+expects an array of blocks
+
+59
+00:03:03,200 --> 00:03:05,090
+and not a single block.
+
+60
+00:03:05,090 --> 00:03:09,030
+We'll get around this by
+wrapping our argument in an array.
+
+61
+00:03:09,030 --> 00:03:11,850
+This way we avoid
+changing original function
+
+62
+00:03:11,850 --> 00:03:14,930
+to expect different types of
+arguments, which is something
+
+63
+00:03:14,930 --> 00:03:17,290
+bad and you shouldn't do.
+
+64
+00:03:17,290 --> 00:03:20,370
+Finally, we trigger
+the reset event
+
+65
+00:03:20,370 --> 00:03:24,180
+on the form element, which clears the input text fields.
+
+66
+00:03:24,180 --> 00:03:27,480
+This is enough client code to add the new block to the list,
+
+67
+00:03:27,480 --> 00:03:31,790
+but let's make one final change.
+
+68
+00:03:31,790 --> 00:03:34,010
+In our appendToList function, we'll
+
+69
+00:03:34,010 --> 00:03:37,950
+replace our plain text blockName
+with the link element.
+
+70
+00:03:37,950 --> 00:03:40,870
+When we click this link, we'll
+be taken to the page that
+
+71
+00:03:40,870 --> 00:03:42,770
+displays the block description.
+
+72
+00:03:42,770 --> 00:03:44,300
+That's it for client side.
+
+73
+00:03:44,300 --> 00:03:48,150
+Now, let's jump into
+our app.js file.
+
+74
+00:03:48,150 --> 00:03:51,100
+Before we can read data
+that's sent from clients,
+
+75
+00:03:51,100 --> 00:03:54,020
+we need to install the
+body-parser middleware, which
+
+76
+00:03:54,020 --> 00:03:56,080
+is not shipped with Express.
+
+77
+00:03:56,080 --> 00:03:58,010
+We do this with npm.
+
+78
+00:03:58,010 --> 00:04:01,700
+Then, from our app.js file,
+we require the body-parser
+
+79
+00:04:01,790 --> 00:04:05,320
+module and assign it to
+the body-parser variable.
+
+80
+00:04:05,320 --> 00:04:08,670
+On this variable, we call
+the URL encoded function
+
+81
+00:04:08,670 --> 00:04:12,070
+with the options
+extended set to false.
+
+82
+00:04:12,070 --> 00:04:15,620
+This option forces the use
+of Node's native query parser
+
+83
+00:04:15,620 --> 00:04:18,149
+module, querystring.
+
+84
+00:04:18,149 --> 00:04:21,350
+The return value is a
+middleware function,
+
+85
+00:04:21,350 --> 00:04:24,900
+which we store in the
+parse URL encoded variable.
+
+86
+00:04:24,900 --> 00:04:26,880
+With this middleware
+function in hand,
+
+87
+00:04:26,880 --> 00:04:30,700
+we create our endpoint for
+posting to the blocks path.
+
+88
+00:04:30,700 --> 00:04:33,790
+And then use the parse
+URL encoded function
+
+89
+00:04:33,790 --> 00:04:35,620
+as its first handler.
+
+90
+00:04:35,620 --> 00:04:38,470
+Turns out, routes can
+take multiple handlers
+
+91
+00:04:38,470 --> 00:04:41,830
+as arguments, which will
+get executed sequentially.
+
+92
+00:04:41,830 --> 00:04:45,510
+The second and final handler to
+the POST route is the anonymous
+
+93
+00:04:45,510 --> 00:04:49,200
+function where we implement
+the creation of a new block.
+
+94
+00:04:49,200 --> 00:04:53,290
+So the parse URL encoded
+middleware will run first.
+
+95
+00:04:53,290 --> 00:04:57,270
+And then our anonymous
+function will run second.
+
+96
+00:04:57,270 --> 00:05:00,780
+Using multiple route handlers
+is useful for re-utilizing
+
+97
+00:05:00,780 --> 00:05:04,930
+middleware that does things like
+validation, loading resources,
+
+98
+00:05:04,930 --> 00:05:06,560
+authentication, et cetera.
+
+99
+00:05:09,090 --> 00:05:12,020
+Inside of our route,
+form data is available
+
+100
+00:05:12,020 --> 00:05:14,600
+on the request.body object.
+
+101
+00:05:14,600 --> 00:05:18,470
+Inside of a route, we'll create
+a new variable called newBlock,
+
+102
+00:05:18,470 --> 00:05:23,320
+and assign it the
+request.body object.
+
+103
+00:05:23,320 --> 00:05:26,610
+Each element in the form becomes
+a property in this object,
+
+104
+00:05:26,610 --> 00:05:29,460
+like we can see here with
+name and description.
+
+105
+00:05:29,460 --> 00:05:33,360
+We use those to add a new
+block to the blocks object.
+
+106
+00:05:33,360 --> 00:05:38,690
+Finally, we set the status code
+to 201 Created and the response
+
+107
+00:05:38,690 --> 00:05:42,270
+body to the new block name.
+
+108
+00:05:42,270 --> 00:05:44,330
+Now if we run our
+code from the browser,
+
+109
+00:05:44,330 --> 00:05:46,650
+we can see that
+everything works.
+
+110
+00:05:46,650 --> 00:05:50,120
+Fill in the block name,
+block's description,
+
+111
+00:05:50,120 --> 00:05:52,894
+we submit the form, and
+there's our new block.
+
+112
+00:05:52,894 --> 00:05:54,810
+If we click on it, we can
+see its description.
+
+113
+00:05:57,630 --> 00:05:58,820
+That's it for this section.
+
+114
+00:05:58,820 --> 00:06:01,480
+Now it's your turn to
+play around with some POST
+
+115
+00:06:01,480 --> 00:06:03,610
+routes in the challenges.
+

@@ -1,0 +1,864 @@
+1
+00:00:00,170 --> 00:00:02,336
+[SINGING] So you want to
+build a web app with Node,
+
+2
+00:00:02,336 --> 00:00:05,080
+but you're not sure where
+to put all the code?
+
+3
+00:00:05,080 --> 00:00:07,450
+Express is what you need,
+the framework to succeed,
+
+4
+00:00:07,450 --> 00:00:10,000
+to parse those
+requests at high speed.
+
+5
+00:00:10,000 --> 00:00:12,270
+Route your GET, POST
+PUT, and DELETE.
+
+6
+00:00:12,270 --> 00:00:14,850
+Add request and
+response to complete.
+
+7
+00:00:14,850 --> 00:00:17,120
+Middleware will help
+finesse modules clean up
+
+8
+00:00:17,120 --> 00:00:20,200
+the mess in the Building
+Blocks of Express.
+
+9
+00:00:26,600 --> 00:00:29,270
+You're watching Building
+Blocks of Express.
+
+10
+00:00:29,270 --> 00:00:31,580
+I'm Carlos Souza, and
+in this first level,
+
+11
+00:00:31,580 --> 00:00:33,840
+we'll introduce you
+to Express and see
+
+12
+00:00:33,840 --> 00:00:38,040
+why it's the framework of choice
+of many popular web services.
+
+13
+00:00:38,040 --> 00:00:41,540
+We'll quickly go over how
+to install Express using npm
+
+14
+00:00:41,540 --> 00:00:44,470
+and then jump right into
+building our Web API.
+
+15
+00:00:47,380 --> 00:00:49,280
+In case you're
+not aware, Express
+
+16
+00:00:49,280 --> 00:00:52,630
+is a web application
+framework for Node.js.
+
+17
+00:00:52,630 --> 00:00:54,910
+It's minimal and
+flexible, and it's
+
+18
+00:00:54,910 --> 00:00:57,210
+great for building
+Web APIs, which
+
+19
+00:00:57,210 --> 00:00:58,800
+we'll do in just a minute.
+
+20
+00:00:58,800 --> 00:01:03,110
+It's used by popular services
+like MySpace and the Ghost
+
+21
+00:01:03,110 --> 00:01:04,450
+blogging platform.
+
+22
+00:01:04,450 --> 00:01:07,420
+It's also the foundation for
+other tools and frameworks,
+
+23
+00:01:07,420 --> 00:01:11,580
+like Kraken and Sails.js.
+
+24
+00:01:11,580 --> 00:01:14,330
+We can install
+Express using npm,
+
+25
+00:01:14,330 --> 00:01:16,280
+or the node package manager.
+
+26
+00:01:16,280 --> 00:01:20,030
+The npm install Express command
+will download and install
+
+27
+00:01:20,030 --> 00:01:23,460
+the latest version of Express
+from the npm registry.
+
+28
+00:01:23,460 --> 00:01:26,360
+If we need to be more specific
+about the version that's
+
+29
+00:01:26,360 --> 00:01:29,050
+installed, we can specify
+the version number
+
+30
+00:01:29,050 --> 00:01:31,440
+after the @ sign, like this.
+
+31
+00:01:31,440 --> 00:01:38,230
+npm install express@4.9 installs
+the latest version from the 4.9
+
+32
+00:01:38,230 --> 00:01:39,110
+branch.
+
+33
+00:01:39,110 --> 00:01:41,930
+Or if we need to
+be really specific,
+
+34
+00:01:41,930 --> 00:01:44,820
+we can ask for the exact
+version that we want.
+
+35
+00:01:44,820 --> 00:01:50,340
+npm install express@3.15.2 will
+install this specific version.
+
+36
+00:01:50,340 --> 00:01:53,365
+This course covers the
+4.9 version of Express.
+
+37
+00:01:56,440 --> 00:01:59,400
+Let's start with a simple
+Hello World application.
+
+38
+00:01:59,400 --> 00:02:01,900
+The following code will
+create a simple Web API
+
+39
+00:02:01,900 --> 00:02:05,620
+server that accepts HTTP
+requests on the root path,
+
+40
+00:02:05,620 --> 00:02:09,759
+or slash, and responds with
+the string, "Hello world."
+
+41
+00:02:09,759 --> 00:02:12,870
+First thing we do is
+require the Express library.
+
+42
+00:02:12,870 --> 00:02:14,220
+We get a function back.
+
+43
+00:02:14,220 --> 00:02:18,000
+When we run that function, we
+get an application instance,
+
+44
+00:02:18,000 --> 00:02:21,290
+which we store in
+the app variable.
+
+45
+00:02:21,290 --> 00:02:25,750
+On the app object, we can call
+functions that create routes.
+
+46
+00:02:25,750 --> 00:02:31,340
+The get function creates a route
+that accepts HTTP GET requests.
+
+47
+00:02:31,340 --> 00:02:33,060
+Back in our get
+function, we'll give it
+
+48
+00:02:33,060 --> 00:02:36,930
+a path to route, which is going
+to be the root path, or slash,
+
+49
+00:02:36,930 --> 00:02:38,700
+and a callback
+function, which will
+
+50
+00:02:38,700 --> 00:02:42,040
+run each time our application
+receives a GET request
+
+51
+00:02:42,040 --> 00:02:43,300
+on the root path.
+
+52
+00:02:43,300 --> 00:02:46,870
+The callback takes a request
+and a response object
+
+53
+00:02:46,870 --> 00:02:50,840
+and will use the response object
+to send back the text, "Hello
+
+54
+00:02:50,840 --> 00:02:51,800
+world."
+
+55
+00:02:51,800 --> 00:02:56,490
+Lastly, we bind our
+application to TCP port 3000.
+
+56
+00:02:56,490 --> 00:02:59,440
+Express also has other
+built-in functions
+
+57
+00:02:59,440 --> 00:03:04,490
+named after other HTTP verbs,
+like post, put, delete,
+
+58
+00:03:04,490 --> 00:03:08,120
+which we'll be looking
+at in just a little bit.
+
+59
+00:03:08,120 --> 00:03:11,470
+The listen function also takes
+an optional callback function
+
+60
+00:03:11,470 --> 00:03:14,870
+as a second argument, which
+will run once your application's
+
+61
+00:03:14,870 --> 00:03:16,610
+ready to receive requests.
+
+62
+00:03:16,610 --> 00:03:18,380
+So once our server's
+up, it's going
+
+63
+00:03:18,380 --> 00:03:23,150
+to print, "Listening
+on port 3000."
+
+64
+00:03:23,150 --> 00:03:26,810
+To run our Express app, we
+use the Node command followed
+
+65
+00:03:26,810 --> 00:03:29,300
+by the file name, app.js.
+
+66
+00:03:29,300 --> 00:03:32,940
+And as you can see, it prints
+out, "Listening on port 3000."
+
+67
+00:03:32,940 --> 00:03:36,160
+Now, to issue request your
+app, we're going to use curl.
+
+68
+00:03:36,160 --> 00:03:40,560
+A request to local host port
+3000 returns the "Hello world"
+
+69
+00:03:40,560 --> 00:03:41,740
+response.
+
+70
+00:03:41,740 --> 00:03:45,090
+One thing about Express apps,
+and pretty much any other Node.js
+
+71
+00:03:45,090 --> 00:03:47,660
+application, is
+that whenever we
+
+72
+00:03:47,660 --> 00:03:52,260
+change code in our application,
+we must restart our process.
+
+73
+00:03:52,260 --> 00:03:54,690
+The simplest way to do
+that from the command line
+
+74
+00:03:54,690 --> 00:04:01,410
+is using Control-C.
+
+75
+00:04:01,410 --> 00:04:06,370
+It is important to understand
+that Express extends Node.js.
+
+76
+00:04:06,370 --> 00:04:08,970
+The request and response
+objects actually
+
+77
+00:04:08,970 --> 00:04:11,600
+inherit from Node HTTP.
+
+78
+00:04:11,600 --> 00:04:13,740
+To see what this looks
+like, let's take a peek
+
+79
+00:04:13,740 --> 00:04:15,600
+at the source code from Express.
+
+80
+00:04:15,600 --> 00:04:19,360
+So inside of Express, the
+request object's prototype
+
+81
+00:04:19,360 --> 00:04:24,480
+is set to the same prototype
+as http.IncomingMessage,
+
+82
+00:04:24,480 --> 00:04:26,500
+which is an object from Node.
+
+83
+00:04:26,500 --> 00:04:29,150
+And the response object's prototype
+
+84
+00:04:29,150 --> 00:04:34,220
+is set to the same prototype as http.ServerResponse,
+
+85
+00:04:34,220 --> 00:04:35,760
+also from Node.
+
+86
+00:04:35,760 --> 00:04:39,180
+This is what inheritance looks like in JavaScript.
+
+87
+00:04:39,180 --> 00:04:42,520
+In other words, the request object inherits
+
+88
+00:04:42,520 --> 00:04:46,450
+from IncomingMessage, and the response object inherits
+
+89
+00:04:46,450 --> 00:04:48,410
+from ServerResponse.
+
+90
+00:04:48,410 --> 00:04:52,220
+The source code for Express is very idiomatic JavaScript,
+
+91
+00:04:52,220 --> 00:04:54,590
+which means it's easy to understand,
+
+92
+00:04:54,590 --> 00:04:56,650
+and it's very well written.
+
+93
+00:04:56,650 --> 00:04:59,760
+It's publicly available, being an open source project,
+
+94
+00:04:59,760 --> 00:05:04,920
+so I highly recommend you take some time to go through it.
+
+95
+00:05:04,920 --> 00:05:07,700
+But what does this
+inheritance really give us?
+
+96
+00:05:07,700 --> 00:05:10,810
+Well, it gives us the ability
+to call Node functions
+
+97
+00:05:10,810 --> 00:05:12,960
+from Express apps.
+
+98
+00:05:12,960 --> 00:05:14,040
+Let's take a look.
+
+99
+00:05:14,040 --> 00:05:17,310
+We go back to our previous
+"Hello world"  example.
+
+100
+00:05:17,310 --> 00:05:18,920
+In our callback
+function, we call
+
+101
+00:05:18,920 --> 00:05:21,460
+the response.write
+function, passing
+
+102
+00:05:21,460 --> 00:05:23,220
+in the "Hello world" string.
+
+103
+00:05:23,220 --> 00:05:27,040
+Then we finish the response
+by calling response.end.
+
+104
+00:05:27,040 --> 00:05:29,800
+Both response.write
+and response.end
+
+105
+00:05:29,800 --> 00:05:32,360
+are Node functions.
+
+106
+00:05:32,360 --> 00:05:35,810
+So before, we're using the
+response.send function,
+
+107
+00:05:35,810 --> 00:05:38,220
+and now, we're
+using response.write
+
+108
+00:05:38,220 --> 00:05:42,090
+and response.end, which
+are both Node functions.
+
+109
+00:05:42,090 --> 00:05:46,030
+And having this ability to
+reach out to Node from Express
+
+110
+00:05:46,030 --> 00:05:49,590
+is extremely useful, as we'll
+see in just a little bit
+
+111
+00:05:49,590 --> 00:05:52,940
+once we start writing
+extensions for Express.
+
+112
+00:05:52,940 --> 00:05:54,930
+If we run this code,
+we can see that we
+
+113
+00:05:54,930 --> 00:05:57,380
+get the exact same
+output as before.
+
+114
+00:06:00,440 --> 00:06:02,580
+Now let's look at
+another example.
+
+115
+00:06:02,580 --> 00:06:05,240
+When writing Web
+APIs in Express,
+
+116
+00:06:05,240 --> 00:06:07,930
+we'll quite often be
+working with data structures
+
+117
+00:06:07,930 --> 00:06:11,460
+like objects and arrays,
+instead of just strings.
+
+118
+00:06:11,460 --> 00:06:14,280
+And we're going to want to
+serialize those to JSON,
+
+119
+00:06:14,280 --> 00:06:17,950
+so let's create a new route
+that responds with a collection
+
+120
+00:06:17,950 --> 00:06:20,110
+of blocks in JSON.
+
+121
+00:06:20,110 --> 00:06:22,540
+We'll name
+our route "blocks."
+
+122
+00:06:22,540 --> 00:06:24,250
+Inside of this
+route, we'll create
+
+123
+00:06:24,250 --> 00:06:29,530
+an array with three elements —
+Fixed, Movable, and Rotating —
+
+124
+00:06:29,530 --> 00:06:32,100
+and assign it to
+the blocks variable.
+
+125
+00:06:32,100 --> 00:06:36,040
+In order to serialize this
+array to JSON, all we have to do
+
+126
+00:06:36,040 --> 00:06:40,690
+is pass the array to our old
+friend, the send function.
+
+127
+00:06:40,690 --> 00:06:42,740
+The send function will
+convert this array
+
+128
+00:06:42,740 --> 00:06:47,050
+to JSON and set the proper
+response headers automatically.
+
+129
+00:06:47,050 --> 00:06:49,630
+Now let's make a request
+to this route using curl,
+
+130
+00:06:49,630 --> 00:06:54,760
+with the -i option, which tells
+curl to also print the response
+
+131
+00:06:54,760 --> 00:06:55,740
+headers.
+
+132
+00:06:55,740 --> 00:06:59,880
+As we can see, we get a 200 status code response back,
+
+133
+00:06:59,880 --> 00:07:01,900
+and the Content-Type response header
+
+134
+00:07:01,900 --> 00:07:05,330
+was set to application/json.
+
+135
+00:07:05,330 --> 00:07:09,060
+And lastly, we can see the response body, "Fixed", Movable",
+
+136
+00:07:09,060 --> 00:07:13,410
+and "Rotating", in JSON format.
+
+137
+00:07:13,410 --> 00:07:16,460
+If all we're doing is
+responding with a JSON format,
+
+138
+00:07:16,460 --> 00:07:18,040
+there's another
+function we can use
+
+139
+00:07:18,040 --> 00:07:19,470
+that reads a little bit better.
+
+140
+00:07:19,470 --> 00:07:22,550
+The JSON function
+behaves exactly the same
+
+141
+00:07:22,550 --> 00:07:25,820
+as the send function
+for objects and arrays.
+
+142
+00:07:25,820 --> 00:07:29,120
+If we run curl again, we can see
+that the Content-Type response
+
+143
+00:07:29,120 --> 00:07:31,640
+header is still set to application/json.
+
+144
+00:07:34,690 --> 00:07:39,260
+But what if instead of objects
+and arrays, we pass in a string
+
+145
+00:07:39,260 --> 00:07:41,080
+to the send function?
+
+146
+00:07:41,080 --> 00:07:45,450
+Well, then Express will
+send back that string as-is.
+
+147
+00:07:45,450 --> 00:07:47,610
+If we make a request to this endpoint,
+
+148
+00:07:47,610 --> 00:07:52,420
+we can see that the Content-Type header was set to text/html.
+
+149
+00:07:52,420 --> 00:07:55,550
+Responding with HTML straight from our routes, like we're
+
+150
+00:07:55,550 --> 00:07:57,930
+doing here, is not something that we typically
+
+151
+00:07:57,930 --> 00:08:00,120
+do in Express applications.
+
+152
+00:08:00,120 --> 00:08:02,440
+If you want to do
+server-side rendering,
+
+153
+00:08:02,440 --> 00:08:04,930
+you might want to look into templating libraries,
+
+154
+00:08:04,930 --> 00:08:08,580
+like EJS and Jade.
+
+155
+00:08:08,580 --> 00:08:11,420
+What if we need to move an
+existing route to a different
+
+156
+00:08:11,420 --> 00:08:16,090
+location — for example,
+/blocks to /parts?
+
+157
+00:08:16,090 --> 00:08:20,090
+We're going to want to redirect
+requests to the new /parts
+
+158
+00:08:20,090 --> 00:08:20,830
+route.
+
+159
+00:08:20,830 --> 00:08:24,800
+To do this, we use the
+response.redirect function,
+
+160
+00:08:24,800 --> 00:08:27,870
+passing in the destination
+path as the argument.
+
+161
+00:08:27,870 --> 00:08:31,110
+So next time my request
+comes in for /blocks,
+
+162
+00:08:31,110 --> 00:08:33,750
+our application's going
+to respond with a redirect
+
+163
+00:08:33,750 --> 00:08:35,400
+to /parts.
+
+164
+00:08:35,400 --> 00:08:37,419
+If we make a request
+with curl, we
+
+165
+00:08:37,419 --> 00:08:42,270
+can see that we get back a
+status code set to 302, which
+
+166
+00:08:42,270 --> 00:08:45,030
+stands for "moved temporarily."
+
+167
+00:08:45,030 --> 00:08:49,600
+According to the HTTP
+spec, the 302 status code
+
+168
+00:08:49,600 --> 00:08:52,690
+also requires a location
+header to be set.
+
+169
+00:08:52,690 --> 00:08:57,540
+As we can see here, the location
+header is set to /parts,
+
+170
+00:08:57,540 --> 00:09:00,800
+which is the argument that we
+use for the redirect function.
+
+171
+00:09:00,800 --> 00:09:03,030
+And finally, a
+friendly response body
+
+172
+00:09:03,030 --> 00:09:05,470
+is included: "Moved Temporarily.
+
+173
+00:09:05,470 --> 00:09:09,680
+Redirecting to /parts."
+
+174
+00:09:09,680 --> 00:09:13,830
+Since our /blocks path will
+now forever redirect to the
+
+175
+00:09:13,830 --> 00:09:18,550
+/parts, we need to make this
+a permanent redirect and use
+
+176
+00:09:18,550 --> 00:09:21,080
+the 301 status code.
+
+177
+00:09:21,080 --> 00:09:24,110
+To redirect using a
+different status code
+
+178
+00:09:24,110 --> 00:09:27,950
+other than the default 302,
+we pass the status code
+
+179
+00:09:27,950 --> 00:09:30,790
+as the first argument to
+the redirect function,
+
+180
+00:09:30,790 --> 00:09:32,000
+like we see here.
+
+181
+00:09:32,000 --> 00:09:36,250
+Now when we run curl, we can see that Express sets the status
+
+182
+00:09:36,250 --> 00:09:40,110
+code to 301 and updates the response body, which
+
+183
+00:09:40,110 --> 00:09:44,200
+now says, "Moved Permanently."
+
+184
+00:09:44,200 --> 00:09:45,470
+That's it for this level.
+
+185
+00:09:45,470 --> 00:09:47,590
+Have fun in the challenges.
+

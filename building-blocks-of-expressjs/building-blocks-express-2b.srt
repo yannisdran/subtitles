@@ -1,0 +1,451 @@
+﻿1
+00:00:02,050 --> 00:00:04,550
+Now it's time we learn
+how to build our own custom
+
+2
+00:00:04,550 --> 00:00:05,450
+middleware.
+
+3
+00:00:05,450 --> 00:00:09,280
+Together, we'll build a very
+simple logger middleware
+
+4
+00:00:09,280 --> 00:00:12,130
+that displays the duration
+of each request made
+
+5
+00:00:12,130 --> 00:00:13,450
+to our application.
+
+6
+00:00:13,450 --> 00:00:16,570
+When we're done, this is what
+the end result will look like.
+
+7
+00:00:16,570 --> 00:00:19,210
+We can see that it
+printed each request made
+
+8
+00:00:19,210 --> 00:00:23,340
+to the application along
+with how long each one took.
+
+9
+00:00:23,340 --> 00:00:25,960
+Now let's jump to the code.
+
+10
+00:00:25,960 --> 00:00:30,050
+We start by creating a new file
+for our logger named logger.js.
+
+11
+00:00:30,050 --> 00:00:32,412
+On this file, we
+create a function
+
+12
+00:00:32,412 --> 00:00:33,870
+with the middleware
+signature we've
+
+13
+00:00:33,870 --> 00:00:36,530
+seen before, taking a
+request and response
+
+14
+00:00:36,530 --> 00:00:38,830
+object and the next function.
+
+15
+00:00:38,830 --> 00:00:41,390
+To export this function
+to the outside world
+
+16
+00:00:41,390 --> 00:00:44,930
+and make it accessible to other
+files that require this module,
+
+17
+00:00:44,930 --> 00:00:47,640
+like we'll do from
+apps.js in just a minute,
+
+18
+00:00:47,640 --> 00:00:51,360
+we assign our function
+to module.exports.
+
+19
+00:00:51,360 --> 00:00:56,080
+This module.exports style that
+Node uses is called CommonJS,
+
+20
+00:00:56,080 --> 00:00:59,490
+and you're going to see this
+all throughout Express and Node
+
+21
+00:00:59,490 --> 00:01:02,090
+applications.
+
+22
+00:01:02,090 --> 00:01:05,420
+Our logger middleware will
+be called for each request
+
+23
+00:01:05,420 --> 00:01:07,890
+and before any of our routes.
+
+24
+00:01:07,890 --> 00:01:10,790
+In order to track the
+duration for each request,
+
+25
+00:01:10,790 --> 00:01:12,950
+the first thing
+that we do is use
+
+26
+00:01:12,950 --> 00:01:17,350
+the date object to get the exact
+time when this function started
+
+27
+00:01:17,350 --> 00:01:21,460
+to run, and we'll store that
+in a variable called start.
+
+28
+00:01:21,460 --> 00:01:24,060
+The plus sign converts
+the date object
+
+29
+00:01:24,060 --> 00:01:29,370
+to the number of milliseconds
+elapsed since January 1, 1970.
+
+30
+00:01:29,370 --> 00:01:32,620
+This is a standard widely
+adopted in the Unix community,
+
+31
+00:01:32,620 --> 00:01:36,210
+where Express and Node borrow
+a lot of conventions from.
+
+32
+00:01:36,210 --> 00:01:38,940
+Later, we're going to use
+this start time to determine
+
+33
+00:01:38,940 --> 00:01:40,610
+the duration of the request.
+
+34
+00:01:40,610 --> 00:01:44,100
+Before we forget, let's go
+ahead and add a call to next
+
+35
+00:01:44,100 --> 00:01:46,140
+to the bottom of
+this file, which
+
+36
+00:01:46,140 --> 00:01:49,250
+moves the request to the
+next middleware in the stack
+
+37
+00:01:49,250 --> 00:01:51,785
+once we're done.
+
+38
+00:01:51,785 --> 00:01:53,160
+We're going to be
+writing our log
+
+39
+00:01:53,160 --> 00:01:55,460
+messages to standard output.
+
+40
+00:01:55,460 --> 00:01:58,230
+Standard output is
+a writable stream,
+
+41
+00:01:58,230 --> 00:02:03,110
+which you can access through
+the process.stdout property.
+
+42
+00:02:03,110 --> 00:02:06,170
+We'll set this to a variable
+called stream so we can easily
+
+43
+00:02:06,170 --> 00:02:08,009
+use this later.
+
+44
+00:02:08,009 --> 00:02:10,000
+From the request
+object, which was
+
+45
+00:02:10,000 --> 00:02:12,100
+passed in as an argument
+to our function,
+
+46
+00:02:12,100 --> 00:02:15,450
+we'll get the request
+URL and the HTTP method
+
+47
+00:02:15,450 --> 00:02:19,320
+used in the request and store
+them on the URL and method
+
+48
+00:02:19,320 --> 00:02:20,360
+variables.
+
+49
+00:02:20,360 --> 00:02:24,490
+We'll need them to build
+our logger message.
+
+50
+00:02:24,490 --> 00:02:26,700
+We need to know when
+the request is finished,
+
+51
+00:02:26,700 --> 00:02:30,270
+but we've seen that
+middleware runs sequentially.
+
+52
+00:02:30,270 --> 00:02:33,540
+So how can our logger know
+when the request is finished
+
+53
+00:02:33,540 --> 00:02:35,550
+and calculate its duration?
+
+54
+00:02:35,550 --> 00:02:38,430
+The answer is by
+listening to events.
+
+55
+00:02:38,430 --> 00:02:41,270
+Turns out the response
+object is an event emitter.
+
+56
+00:02:41,270 --> 00:02:44,720
+It emits the finish event when
+the response has completed
+
+57
+00:02:44,720 --> 00:02:47,600
+and has been handed off
+to the operating system.
+
+58
+00:02:47,600 --> 00:02:50,702
+Here we've attached an
+event listener callback,
+
+59
+00:02:50,702 --> 00:02:51,785
+which runs asynchronously.
+
+60
+00:02:55,740 --> 00:02:58,800
+Inside of our callback, we
+can calculate the duration
+
+61
+00:02:58,800 --> 00:03:01,880
+by getting the current
+time again using a new date
+
+62
+00:03:01,880 --> 00:03:04,450
+object and the same
+plus sign trick
+
+63
+00:03:04,450 --> 00:03:08,030
+and subtracting the start time.
+
+64
+00:03:08,030 --> 00:03:12,010
+Next, we'll append the
+method, URL, and duration,
+
+65
+00:03:12,010 --> 00:03:14,690
+and assign it to the
+message variable.
+
+66
+00:03:14,690 --> 00:03:16,477
+We add two line
+breaks at the end
+
+67
+00:03:16,477 --> 00:03:18,185
+to make it easier to
+read in the console.
+
+68
+00:03:21,110 --> 00:03:23,740
+Finally, we print the
+log message to standard
+
+69
+00:03:23,740 --> 00:03:27,040
+out by calling the write
+function the stream object
+
+70
+00:03:27,040 --> 00:03:29,330
+and passing our
+message as an argument.
+
+71
+00:03:29,330 --> 00:03:34,050
+And this is what our complete
+logger code looks like.
+
+72
+00:03:34,050 --> 00:03:38,610
+Going back to app.js we can
+now require our logger module.
+
+73
+00:03:38,610 --> 00:03:41,560
+And notice how we're
+using dot slash,
+
+74
+00:03:41,560 --> 00:03:45,820
+which means it's a local
+module and not an npm module.
+
+75
+00:03:45,820 --> 00:03:48,350
+What we get back is a
+middleware function,
+
+76
+00:03:48,350 --> 00:03:50,590
+which we store in
+the logger variable.
+
+77
+00:03:50,590 --> 00:03:53,380
+Then, we add it to the
+stack by passing it
+
+78
+00:03:53,380 --> 00:03:56,480
+as an argument to app.use.
+
+79
+00:03:56,480 --> 00:03:58,180
+Now that's it for our logger.
+
+80
+00:03:58,180 --> 00:04:00,530
+Let's run our app
+and see this working.
+
+81
+00:04:00,530 --> 00:04:04,370
+We fire up our Node app,
+see that it's listening,
+
+82
+00:04:04,370 --> 00:04:07,930
+visit the browser, and we
+can see each request printed
+
+83
+00:04:07,930 --> 00:04:10,490
+to the console, along with
+the number of milliseconds
+
+84
+00:04:10,490 --> 00:04:14,150
+that it took to
+process each one.
+
+85
+00:04:14,150 --> 00:04:15,920
+For a more complete
+logging solution
+
+86
+00:04:15,920 --> 00:04:18,800
+I suggest you check out
+this project called Morgan.
+
+87
+00:04:18,800 --> 00:04:21,899
+Morgan accepts options
+for different outputs
+
+88
+00:04:21,899 --> 00:04:26,000
+and an optional destination file
+where we can write our logs to.
+
+89
+00:04:26,000 --> 00:04:28,580
+The code is very easy
+to read, and it's
+
+90
+00:04:28,580 --> 00:04:30,970
+where we got inspiration
+to write our own custom
+
+91
+00:04:30,970 --> 00:04:33,510
+logger from.
+
+92
+00:04:33,510 --> 00:04:35,170
+Now that's it for level two.
+
+93
+00:04:35,170 --> 00:04:37,370
+You have fun writing your
+own custom middleware
+
+94
+00:04:37,370 --> 00:04:39,160
+in the challenges.
+
