@@ -1,0 +1,841 @@
+﻿1
+00:00:00,499 --> 00:00:02,020
+[MUSIC PLAYING]
+
+2
+00:00:02,020 --> 00:00:04,330
+Welcome back to Blasting
+Off with Bootstrap.
+
+3
+00:00:04,330 --> 00:00:06,390
+This is level five, section two —
+
+4
+00:00:06,390 --> 00:00:08,466
+Dropping Down From Orbit.
+
+5
+00:00:08,466 --> 00:00:09,750
+[MUSIC PLAYING]
+
+6
+00:00:09,750 --> 00:00:13,590
+We have this amazing navigation
+that we created and even got
+
+7
+00:00:13,590 --> 00:00:15,300
+working on mobile sites.
+
+8
+00:00:15,300 --> 00:00:18,410
+But once we let other people
+on our team start using it,
+
+9
+00:00:18,410 --> 00:00:20,840
+something goes completely wrong.
+
+10
+00:00:20,840 --> 00:00:23,630
+There's too many links
+in our navigation bar.
+
+11
+00:00:23,630 --> 00:00:25,510
+No one wants to
+read all of that,
+
+12
+00:00:25,510 --> 00:00:28,610
+but it's nice to have some
+of these links somewhere
+
+13
+00:00:28,610 --> 00:00:30,620
+more pronounced than our footer.
+
+14
+00:00:30,620 --> 00:00:35,240
+What can we do to clean
+up our navigation bar?
+
+15
+00:00:35,240 --> 00:00:37,960
+One thing we could
+do is group together
+
+16
+00:00:37,960 --> 00:00:41,000
+a number of these links
+and have them show up
+
+17
+00:00:41,000 --> 00:00:43,479
+when our About link is clicked.
+
+18
+00:00:43,479 --> 00:00:45,520
+This might sound a little
+similar to our collapse
+
+19
+00:00:45,520 --> 00:00:47,460
+functionality we
+showed before.
+
+20
+00:00:47,460 --> 00:00:51,360
+The difference here is that
+our expanded navigation will
+
+21
+00:00:51,360 --> 00:00:54,790
+be shown on top of other
+content rather than pushing
+
+22
+00:00:54,790 --> 00:00:56,530
+the rest of the page down.
+
+23
+00:00:56,530 --> 00:00:58,270
+This creates this
+dropdown effect
+
+24
+00:00:58,270 --> 00:01:03,230
+that we want where it can
+be opened only when needed.
+
+25
+00:01:03,230 --> 00:01:06,050
+How would this work in our
+extra-small view, though?
+
+26
+00:01:06,050 --> 00:01:08,220
+We probably don't
+want our dropdown
+
+27
+00:01:08,220 --> 00:01:10,290
+showing up on top of
+our other elements
+
+28
+00:01:10,290 --> 00:01:13,110
+in our already very limited
+screen real estate.
+
+29
+00:01:13,110 --> 00:01:15,710
+Well, what if it looked
+something like this
+
+30
+00:01:15,710 --> 00:01:17,870
+where, if they expand
+our About link,
+
+31
+00:01:17,870 --> 00:01:21,060
+it still shows like the
+rest of our navigation?
+
+32
+00:01:21,060 --> 00:01:23,250
+I think this is something
+we can work with.
+
+33
+00:01:23,250 --> 00:01:25,170
+Let's start by adding
+that little dropdown
+
+34
+00:01:25,170 --> 00:01:29,120
+icon to our existing About link.
+
+35
+00:01:29,120 --> 00:01:33,310
+Here's our nav list so far with
+some of the links in there.
+
+36
+00:01:33,310 --> 00:01:35,070
+What happens right
+now if someone
+
+37
+00:01:35,070 --> 00:01:36,810
+clicks on this About link?
+
+38
+00:01:36,810 --> 00:01:38,760
+Well, right now,
+they'll be taken
+
+39
+00:01:38,760 --> 00:01:40,760
+to an entirely different page.
+
+40
+00:01:40,760 --> 00:01:43,890
+We'll need to change that so
+they stay on the same page
+
+41
+00:01:43,890 --> 00:01:47,100
+when About is clicked.
+
+42
+00:01:47,100 --> 00:01:50,720
+We can do that really fast
+by linking to this hash sign
+
+43
+00:01:50,720 --> 00:01:51,730
+instead.
+
+44
+00:01:51,730 --> 00:01:53,950
+This means that we're
+linking to an anchor
+
+45
+00:01:53,950 --> 00:01:55,310
+on the current page.
+
+46
+00:01:55,310 --> 00:01:57,840
+In this case, it's at
+the very top of the page.
+
+47
+00:01:57,840 --> 00:02:00,140
+This will work for
+now and stop the link
+
+48
+00:02:00,140 --> 00:02:01,950
+from going to a new page.
+
+49
+00:02:01,950 --> 00:02:04,350
+Next, we'll want to add
+that little dropdown
+
+50
+00:02:04,350 --> 00:02:07,210
+arrow after the About text.
+
+51
+00:02:07,210 --> 00:02:09,729
+Remember, from our collapse
+graphic and our header,
+
+52
+00:02:09,729 --> 00:02:12,720
+we didn't want to use
+a glyphicon up here
+
+53
+00:02:12,720 --> 00:02:13,940
+in the navigation bar?
+
+54
+00:02:13,940 --> 00:02:16,660
+Well, that also holds
+true for this one as well.
+
+55
+00:02:16,660 --> 00:02:20,460
+Instead, we'll use a span
+with a class of caret.
+
+56
+00:02:20,460 --> 00:02:22,930
+This will add that
+little down-arrow icon.
+
+57
+00:02:22,930 --> 00:02:24,519
+I'd say we're off
+to a good start.
+
+58
+00:02:24,519 --> 00:02:26,310
+Let's see how to make
+the rest of our links
+
+59
+00:02:26,310 --> 00:02:29,540
+show up only when this
+About link is clicked.
+
+60
+00:02:32,620 --> 00:02:35,720
+Our About link is looking
+good, but what about those
+
+61
+00:02:35,720 --> 00:02:39,440
+links that we want to add to
+it, like the ones for Contact Us
+
+62
+00:02:39,440 --> 00:02:40,810
+and Blog?
+
+63
+00:02:40,810 --> 00:02:43,380
+Well, we can group these
+within our list item
+
+64
+00:02:43,380 --> 00:02:47,420
+for About by creating an
+entirely new list inside of it
+
+65
+00:02:47,420 --> 00:02:49,580
+and moving all of
+our links there.
+
+66
+00:02:49,580 --> 00:02:52,090
+Now, our navigation
+is logically grouped
+
+67
+00:02:52,090 --> 00:02:56,180
+by the three links we want to
+show at the top of the page.
+
+68
+00:02:56,180 --> 00:02:58,210
+But if we open this
+up in a browser,
+
+69
+00:02:58,210 --> 00:03:00,110
+these links will always show up.
+
+70
+00:03:00,110 --> 00:03:04,090
+They'll also have these nested
+link bullet icons next to them.
+
+71
+00:03:04,090 --> 00:03:09,020
+Let's start by hiding
+this list on page load.
+
+72
+00:03:09,020 --> 00:03:12,500
+We can use a class provided
+by the Bootstrap dropdown
+
+73
+00:03:12,500 --> 00:03:16,980
+library, which will produce
+the style of a dropdown menu.
+
+74
+00:03:16,980 --> 00:03:19,160
+This single class
+does quite a lot.
+
+75
+00:03:19,160 --> 00:03:20,620
+The only thing
+we'd see right now,
+
+76
+00:03:20,620 --> 00:03:23,860
+though, is that our ul will
+actually be completely hidden
+
+77
+00:03:23,860 --> 00:03:28,830
+when the page loads with
+no way for us to expand it.
+
+78
+00:03:28,830 --> 00:03:30,500
+In order to expand
+it, we're going
+
+79
+00:03:30,500 --> 00:03:32,590
+to need to add some
+behavior — and not
+
+80
+00:03:32,590 --> 00:03:35,120
+just style — to our About link.
+
+81
+00:03:35,120 --> 00:03:38,580
+Let's review how to use
+Bootstrap JavaScript plugins.
+
+82
+00:03:38,580 --> 00:03:41,700
+Actually, we can use the
+dropdown plugin the same two
+
+83
+00:03:41,700 --> 00:03:44,190
+ways as our Bootstrap
+collapse plugin —
+
+84
+00:03:44,190 --> 00:03:48,370
+either by adding data attributes
+that we add to our HTML
+
+85
+00:03:48,370 --> 00:03:50,360
+or by writing JavaScript.
+
+86
+00:03:50,360 --> 00:03:52,370
+Again, we'll be
+adding data attributes
+
+87
+00:03:52,370 --> 00:03:55,570
+to our HTML, which
+is by far the easiest
+
+88
+00:03:55,570 --> 00:03:58,434
+way to use the Bootstrap
+dropdown plugin.
+
+89
+00:03:58,434 --> 00:04:00,350
+Let's see what data
+attributes we need to add.
+
+90
+00:04:03,440 --> 00:04:05,570
+Similar to the
+collapse plugin, we'll
+
+91
+00:04:05,570 --> 00:04:10,380
+need to toggle the existence
+of a CSS class on and off.
+
+92
+00:04:10,380 --> 00:04:12,890
+We'll actually use the
+same data attribute
+
+93
+00:04:12,890 --> 00:04:16,709
+we used for the collapse
+plugin — data-toggle —
+
+94
+00:04:16,709 --> 00:04:19,620
+but in this case,
+we'll specify dropdown.
+
+95
+00:04:19,620 --> 00:04:23,390
+When the page loads and the
+Bootstrap JavaScript runs,
+
+96
+00:04:23,390 --> 00:04:26,910
+it'll see this value and
+add the dropdown behavior
+
+97
+00:04:26,910 --> 00:04:28,580
+to our About link.
+
+98
+00:04:28,580 --> 00:04:32,000
+So what should happen
+when this link is clicked?
+
+99
+00:04:32,000 --> 00:04:34,020
+Well, we aren't
+removing a class that's
+
+100
+00:04:34,020 --> 00:04:36,620
+already added, like with
+the collapse plugin.
+
+101
+00:04:36,620 --> 00:04:40,890
+Instead, clicking on About
+will add a class of open
+
+102
+00:04:40,890 --> 00:04:43,610
+to the parent of
+the clicked link.
+
+103
+00:04:43,610 --> 00:04:47,170
+In this case, what that means
+is that the li element, which
+
+104
+00:04:47,170 --> 00:04:49,260
+is the parent element
+of our About link,
+
+105
+00:04:49,260 --> 00:04:51,780
+well, it'll get a class of open.
+
+106
+00:04:51,780 --> 00:04:54,200
+Bootstrap has some
+styles so that,
+
+107
+00:04:54,200 --> 00:04:56,640
+if a dropdown menu is
+inside of an element
+
+108
+00:04:56,640 --> 00:04:58,580
+with a class of
+open, we'll actually
+
+109
+00:04:58,580 --> 00:05:01,280
+see the dropdown menu,
+which, in this case,
+
+110
+00:05:01,280 --> 00:05:02,760
+is exactly what we want.
+
+111
+00:05:02,760 --> 00:05:06,700
+Not too bad for just
+adding one data attribute.
+
+112
+00:05:06,700 --> 00:05:08,600
+If we really wanted
+to, we could actually
+
+113
+00:05:08,600 --> 00:05:11,510
+start the dropdown
+menu as open by adding
+
+114
+00:05:11,510 --> 00:05:15,190
+a class of open to
+that parent li element.
+
+115
+00:05:15,190 --> 00:05:17,960
+Now, when we click on
+About for the first time,
+
+116
+00:05:17,960 --> 00:05:20,110
+the Bootstrap
+JavaScript plugin will
+
+117
+00:05:20,110 --> 00:05:24,580
+remove the open class,
+hiding our dropdown.
+
+118
+00:05:24,580 --> 00:05:26,530
+If we view the
+page as a whole, we
+
+119
+00:05:26,530 --> 00:05:29,780
+can see that it's much
+clearer now with only three
+
+120
+00:05:29,780 --> 00:05:32,470
+navigation items rather
+than those eight links that
+
+121
+00:05:32,470 --> 00:05:35,300
+were up there before, but
+there's one thing missing.
+
+122
+00:05:35,300 --> 00:05:38,740
+There were some dividers between
+our links within our dropdown.
+
+123
+00:05:38,740 --> 00:05:41,800
+One way to add those
+might be adding some CSS
+
+124
+00:05:41,800 --> 00:05:44,080
+and maybe adding
+a border-bottom to
+
+125
+00:05:44,080 --> 00:05:45,520
+some of our links. 
+
+126
+00:05:45,520 --> 00:05:47,380
+Well, there's a much
+easier way to do that
+
+127
+00:05:47,380 --> 00:05:49,650
+by editing our HTML markup.
+
+128
+00:05:49,650 --> 00:05:52,330
+Let's see what that looks like.
+
+129
+00:05:52,330 --> 00:05:55,660
+We can add some empty li
+elements at the places
+
+130
+00:05:55,660 --> 00:05:57,630
+where we want dividers to go.
+
+131
+00:05:57,630 --> 00:06:01,440
+In this case, we'll split up
+these links into three groups.
+
+132
+00:06:01,440 --> 00:06:04,110
+Let's think of them as
+internal links, social media
+
+133
+00:06:04,110 --> 00:06:07,110
+links, and then our blog,
+which can stand on its own.
+
+134
+00:06:07,110 --> 00:06:10,820
+These empty li elements will
+be spacers between our links
+
+135
+00:06:10,820 --> 00:06:13,590
+that we'll add a
+class of divider to.
+
+136
+00:06:13,590 --> 00:06:15,910
+If we check our
+dropdown menu out now,
+
+137
+00:06:15,910 --> 00:06:18,720
+we'll see a very clear
+separation between our link
+
+138
+00:06:18,720 --> 00:06:19,730
+groups.
+
+139
+00:06:19,730 --> 00:06:22,500
+This is a small change in our
+HTML but huge for usability.
+
+140
+00:06:25,290 --> 00:06:27,940
+How would our dropdown
+menu work for users
+
+141
+00:06:27,940 --> 00:06:30,600
+that don't have
+JavaScript enabled?
+
+142
+00:06:30,600 --> 00:06:33,674
+Well, right now, if
+they click on About,
+
+143
+00:06:33,674 --> 00:06:35,090
+they're not going
+to see anything.
+
+144
+00:06:35,090 --> 00:06:36,870
+Nothing's going to
+happen, and no dropdown
+
+145
+00:06:36,870 --> 00:06:37,970
+is going to be shown.
+
+146
+00:06:37,970 --> 00:06:41,750
+The page will scroll to the
+very top due to that hash sign,
+
+147
+00:06:41,750 --> 00:06:43,560
+but our dropdown menu
+will never be seen.
+
+148
+00:06:46,190 --> 00:06:49,090
+What we want is for our
+page to gracefully degrade
+
+149
+00:06:49,090 --> 00:06:51,770
+for older browsers — still
+giving those visitors
+
+150
+00:06:51,770 --> 00:06:55,170
+with older software a good
+experience of our content.
+
+151
+00:06:55,170 --> 00:06:58,990
+To do that, we'll actually
+need to change our href back
+
+152
+00:06:58,990 --> 00:07:03,190
+to pointing to about.html
+instead of the hash sign.
+
+153
+00:07:03,190 --> 00:07:06,430
+If the user doesn't have
+JavaScript enabled, now
+
+154
+00:07:06,430 --> 00:07:08,460
+they'll be taken
+to the About page.
+
+155
+00:07:08,460 --> 00:07:10,880
+And on there, we
+could drive people
+
+156
+00:07:10,880 --> 00:07:14,130
+to the other links that
+were previously nested.
+
+157
+00:07:14,130 --> 00:07:15,950
+If they do have
+JavaScript enabled,
+
+158
+00:07:15,950 --> 00:07:18,950
+they will see the dropdown, but
+then they'll immediately still
+
+159
+00:07:18,950 --> 00:07:20,870
+be taken to the About page.
+
+160
+00:07:20,870 --> 00:07:23,500
+Not exactly something
+we want to happen.
+
+161
+00:07:23,500 --> 00:07:26,460
+In order to prevent that,
+we can add one last data
+
+162
+00:07:26,460 --> 00:07:29,020
+attribute: data-target.
+
+163
+00:07:29,020 --> 00:07:30,940
+This is the href
+that will be used
+
+164
+00:07:30,940 --> 00:07:32,672
+when JavaScript is enabled.
+
+165
+00:07:32,672 --> 00:07:34,880
+In this case, we're going
+to set it to that hash sign
+
+166
+00:07:34,880 --> 00:07:36,850
+just like we were doing before.
+
+167
+00:07:36,850 --> 00:07:40,010
+Now, for users whose browsers
+work with JavaScript,
+
+168
+00:07:40,010 --> 00:07:41,600
+things will appear
+just as expected.
+
+169
+00:07:44,890 --> 00:07:46,770
+[MUSIC PLAYING]
+
+170
+00:07:46,770 --> 00:07:49,682
+That's the end of this section
+and the end of this course.
+
+171
+00:07:49,682 --> 00:07:51,515
+It's time for you to
+drop down into the code
+
+172
+00:07:51,515 --> 00:07:53,590
+and complete a few challenges.
+
+173
+00:07:53,590 --> 00:07:55,860
+Thanks for taking Blasting
+Off with Bootstrap
+
+174
+00:07:55,860 --> 00:07:56,990
+and for using Code School.
+
+175
+00:07:56,990 --> 00:08:00,140
+I am Adam Fortuna, and
+we'll see you real soon.
+
+176
+00:08:00,140 --> 00:08:01,690
+[MUSIC PLAYING]
+

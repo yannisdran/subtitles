@@ -1,0 +1,1291 @@
+﻿1
+00:00:00,570 --> 00:00:03,050
+[SINGING] Building websites
+is a breeze with a framework
+
+2
+00:00:03,050 --> 00:00:03,810
+as you please.
+
+3
+00:00:03,810 --> 00:00:07,030
+Easy as slicing cheese, with
+the tools such as these.
+
+4
+00:00:07,030 --> 00:00:10,150
+Structure pages quick.
+No CSS to make you sick.
+
+5
+00:00:10,150 --> 00:00:13,400
+Use the layout that you pick.
+Navigation helps you click.
+
+6
+00:00:13,400 --> 00:00:16,400
+Icons and buttons you can tap.
+Your containers close the gap.
+
+7
+00:00:16,400 --> 00:00:18,200
+Responsive gridding is a snap.
+
+8
+00:00:18,200 --> 00:00:24,272
+You'll be launching off the map,
+blasting off with Bootstrap.
+
+9
+00:00:24,272 --> 00:00:25,970
+Blasting Off with Bootstrap.
+
+10
+00:00:28,940 --> 00:00:31,360
+Welcome back to Blasting
+Off with Bootstrap.
+
+11
+00:00:31,360 --> 00:00:34,040
+This is level three — Typography.
+
+12
+00:00:34,040 --> 00:00:36,730
+So what exactly is typography?
+
+13
+00:00:36,730 --> 00:00:40,050
+Well, Wikipedia defines it
+as, "The art and technique
+
+14
+00:00:40,050 --> 00:00:43,740
+of arranging text on the page
+to make it most appealing."
+
+15
+00:00:43,740 --> 00:00:46,730
+In the web world, when
+we talk about typography,
+
+16
+00:00:46,730 --> 00:00:49,700
+we're generally concerned
+with fonts, including
+
+17
+00:00:49,700 --> 00:00:52,780
+what font, the size,
+the position, color,
+
+18
+00:00:52,780 --> 00:00:54,960
+and how to make
+them work together.
+
+19
+00:00:54,960 --> 00:00:57,020
+If we take a look
+at our page so far,
+
+20
+00:00:57,020 --> 00:01:00,550
+we'll see that it's not using
+the default browser font.
+
+21
+00:01:00,550 --> 00:01:02,940
+That's because this
+bootstrap.css file
+
+22
+00:01:02,940 --> 00:01:05,920
+that we included, well,
+it overrides all the fonts
+
+23
+00:01:05,920 --> 00:01:07,430
+used on our page.
+
+24
+00:01:07,430 --> 00:01:10,380
+If you're familiar with
+CSS, this style definition
+
+25
+00:01:10,380 --> 00:01:13,930
+will shed a little light on
+what Bootstrap is doing for us.
+
+26
+00:01:13,930 --> 00:01:16,840
+There's a lot going on here,
+including changing the font
+
+27
+00:01:16,840 --> 00:01:19,350
+to use this Helvetica
+Neue typeface.
+
+28
+00:01:19,350 --> 00:01:22,010
+And it's also changing
+the default size, and even
+
+29
+00:01:22,010 --> 00:01:25,000
+the color to this kind
+of neutral gray, which
+
+30
+00:01:25,000 --> 00:01:26,500
+is a lot easier on the eyes.
+
+31
+00:01:26,500 --> 00:01:28,530
+Now all of those
+styles, they're being
+
+32
+00:01:28,530 --> 00:01:31,480
+applied to our entire
+page, but any of them
+
+33
+00:01:31,480 --> 00:01:32,950
+can also be overridden.
+
+34
+00:01:32,950 --> 00:01:37,280
+For instance, our H1 tag,
+well, it isn't 14 pixels.
+
+35
+00:01:37,280 --> 00:01:41,150
+We overrode that font
+size by using a tag, H1,
+
+36
+00:01:41,150 --> 00:01:44,510
+that is setting the
+font size larger.
+
+37
+00:01:44,510 --> 00:01:47,750
+Using tags is one way to
+override Bootstrap styles.
+
+38
+00:01:47,750 --> 00:01:51,940
+But there's another way using
+some typography CSS classes
+
+39
+00:01:51,940 --> 00:01:53,570
+that Bootstrap provides.
+
+40
+00:01:53,570 --> 00:01:55,800
+Let's see how it can
+make our lead text
+
+41
+00:01:55,800 --> 00:02:00,850
+stand out a little bit more
+by using one of these classes.
+
+42
+00:02:00,850 --> 00:02:03,000
+Here's the relevant
+part of our page,
+
+43
+00:02:03,000 --> 00:02:05,380
+the paragraph just
+below our H2 tag
+
+44
+00:02:05,380 --> 00:02:07,710
+where we describe our company.
+
+45
+00:02:07,710 --> 00:02:10,160
+This sentence isn't
+a header, but we
+
+46
+00:02:10,160 --> 00:02:12,950
+do want to make it stand out
+more than the other sentences
+
+47
+00:02:12,950 --> 00:02:14,050
+on the page.
+
+48
+00:02:14,050 --> 00:02:18,700
+To do that, we'll add the class
+of lead to this paragraph tag.
+
+49
+00:02:18,700 --> 00:02:21,720
+This will actually increase
+the font size and the weight,
+
+50
+00:02:21,720 --> 00:02:24,010
+but it will also add
+a little more space
+
+51
+00:02:24,010 --> 00:02:25,600
+around the element,
+kind of giving it
+
+52
+00:02:25,600 --> 00:02:26,600
+a little breathing room.
+
+53
+00:02:30,360 --> 00:02:33,760
+If we compare our paragraph
+tag without using lead,
+
+54
+00:02:33,760 --> 00:02:36,820
+and with it, they do
+seem kind of similar.
+
+55
+00:02:36,820 --> 00:02:39,300
+The font size for
+our lead paragraph
+
+56
+00:02:39,300 --> 00:02:42,400
+is 50% larger, though,
+making it stand out
+
+57
+00:02:42,400 --> 00:02:46,760
+compared to all of the other
+paragraphs on our page.
+
+58
+00:02:46,760 --> 00:02:49,400
+Another characteristic
+of good typography
+
+59
+00:02:49,400 --> 00:02:51,360
+involves font alignment.
+
+60
+00:02:51,360 --> 00:02:53,400
+Now Bootstrap has
+a couple of classes
+
+61
+00:02:53,400 --> 00:02:55,570
+that can help us
+with that as well.
+
+62
+00:02:55,570 --> 00:02:57,220
+Let's take a look at
+our featured items
+
+63
+00:02:57,220 --> 00:02:59,240
+to see how it could
+help us there.
+
+64
+00:02:59,240 --> 00:03:00,220
+Hm.
+
+65
+00:03:00,220 --> 00:03:01,340
+They're okay.
+
+66
+00:03:01,340 --> 00:03:04,110
+And it's nice that our "Book
+Today!" element is centered.
+
+67
+00:03:04,110 --> 00:03:07,790
+But what if the text within
+them was also centered?
+
+68
+00:03:07,790 --> 00:03:12,400
+Let's give it a try and see
+what that would look like.
+
+69
+00:03:12,400 --> 00:03:15,950
+Here's our div row for
+our three featured items.
+
+70
+00:03:15,950 --> 00:03:19,560
+We'll try centering all
+text within this row.
+
+71
+00:03:19,560 --> 00:03:22,940
+In order to do that, we'll
+use a text alignment class
+
+72
+00:03:22,940 --> 00:03:27,770
+for a row, which will affect
+all of the text within that row.
+
+73
+00:03:27,770 --> 00:03:29,990
+In this case, we want
+to center the text.
+
+74
+00:03:29,990 --> 00:03:33,500
+So we'll add a class of
+text center to the div.
+
+75
+00:03:33,500 --> 00:03:36,890
+Well, what if we had only
+wanted to center the H3 tag?
+
+76
+00:03:36,890 --> 00:03:40,190
+Well, we could have added a text
+center class to that element
+
+77
+00:03:40,190 --> 00:03:41,410
+instead.
+
+78
+00:03:41,410 --> 00:03:43,925
+In this case, though, by
+adding the class here,
+
+79
+00:03:43,925 --> 00:03:46,980
+it will center all
+the headers and all
+
+80
+00:03:46,980 --> 00:03:49,290
+of the paragraphs
+within this row.
+
+81
+00:03:49,290 --> 00:03:53,020
+Additionally, Bootstrap has
+a few other alignment classes
+
+82
+00:03:53,020 --> 00:03:56,730
+that can help us out for
+aligning left or right,
+
+83
+00:03:56,730 --> 00:04:00,360
+or even justifying text,
+which spaces your text out
+
+84
+00:04:00,360 --> 00:04:02,950
+so it's flush against both
+the right and the left sides
+
+85
+00:04:02,950 --> 00:04:05,130
+of the screen.
+
+86
+00:04:05,130 --> 00:04:08,520
+Let's open our new design up in
+a browser and see how it looks.
+
+87
+00:04:08,520 --> 00:04:09,360
+Nice.
+
+88
+00:04:09,360 --> 00:04:11,120
+All the elements in
+the row are being
+
+89
+00:04:11,120 --> 00:04:13,670
+centered by adding
+just that one class.
+
+90
+00:04:13,670 --> 00:04:16,279
+Each is being centered
+within its element,
+
+91
+00:04:16,279 --> 00:04:19,010
+using the full number of
+columns available to it.
+
+92
+00:04:19,010 --> 00:04:21,900
+But since we got rid of
+that image in small and
+
+93
+00:04:21,900 --> 00:04:25,440
+extra-small mode, this
+page is looking a bit bare.
+
+94
+00:04:25,440 --> 00:04:28,862
+What if we added some icons that
+show up next to our features
+
+95
+00:04:28,862 --> 00:04:29,820
+to really draw the eye?
+
+96
+00:04:29,820 --> 00:04:33,570
+Usually that would mean going
+out to search for some images,
+
+97
+00:04:33,570 --> 00:04:36,560
+right, making sure that
+they're legal to use,
+
+98
+00:04:36,560 --> 00:04:40,150
+adding in image tags, and
+generally a lot more work.
+
+99
+00:04:40,150 --> 00:04:42,530
+Let's see what that process
+is if we're using Bootstrap.
+
+100
+00:04:45,290 --> 00:04:47,930
+Remember this font folder
+that came with Bootstrap?
+
+101
+00:04:47,930 --> 00:04:51,320
+Well, this is actually an
+entire library of icons.
+
+102
+00:04:51,320 --> 00:04:54,190
+If you think about it,
+a font is a mapping
+
+103
+00:04:54,190 --> 00:04:57,460
+from a character code
+to some font image.
+
+104
+00:04:57,460 --> 00:05:01,760
+Code 41 might be a capital A in
+fonts like Helvetica and Times
+
+105
+00:05:01,760 --> 00:05:04,720
+New Roman, but in this
+cool glyphicon font,
+
+106
+00:05:04,720 --> 00:05:08,740
+code 41 might map to a tag
+image or a profile image.
+
+107
+00:05:08,740 --> 00:05:11,560
+We don't need to
+know which codes map
+
+108
+00:05:11,560 --> 00:05:14,160
+to which icons to
+use them, luckily.
+
+109
+00:05:14,160 --> 00:05:18,390
+Bootstrap provides CSS classes
+that we can add to our HTML
+
+110
+00:05:18,390 --> 00:05:20,990
+when we need to use these icons.
+
+111
+00:05:20,990 --> 00:05:23,380
+This glyphicon library —
+which you would usually
+
+112
+00:05:23,380 --> 00:05:26,870
+have to pay for separately —
+is actually free with Bootstrap,
+
+113
+00:05:26,870 --> 00:05:29,800
+and contains 200
+icons you can use.
+
+114
+00:05:29,800 --> 00:05:32,000
+Oh, and if you're
+wondering why there's so
+
+115
+00:05:32,000 --> 00:05:35,330
+many fonts in this folder,
+well, blame web browsers.
+
+116
+00:05:35,330 --> 00:05:39,270
+The .woff file — or
+web open font format —
+
+117
+00:05:39,270 --> 00:05:42,230
+is now used by all
+modern web browsers.
+
+118
+00:05:42,230 --> 00:05:44,050
+But there's a few
+fallbacks in there
+
+119
+00:05:44,050 --> 00:05:46,260
+for older versions
+of Internet Explorer
+
+120
+00:05:46,260 --> 00:05:49,520
+and a few other special cases.
+
+121
+00:05:49,520 --> 00:05:53,180
+So how do we go about
+using these icons?
+
+122
+00:05:53,180 --> 00:05:55,960
+In our case, we want this
+icon to show up right
+
+123
+00:05:55,960 --> 00:05:58,810
+above our "Book Today!" header.
+
+124
+00:05:58,810 --> 00:06:01,560
+To add an icon,
+we'll need an element
+
+125
+00:06:01,560 --> 00:06:03,690
+to which to attach a class.
+
+126
+00:06:03,690 --> 00:06:06,306
+We'll use an i element for this.
+
+127
+00:06:06,306 --> 00:06:10,230
+This element was originally
+used for italic text,
+
+128
+00:06:10,230 --> 00:06:11,840
+but it's become a
+standard practice
+
+129
+00:06:11,840 --> 00:06:14,000
+to use it for icons as well.
+
+130
+00:06:14,000 --> 00:06:17,890
+We need this element to use the
+glyphicons font, rather than
+
+131
+00:06:17,890 --> 00:06:20,910
+that Helvetica Neue font,
+like the rest of our page.
+
+132
+00:06:20,910 --> 00:06:24,140
+To do that, we'll add in
+a class of glyphicon
+
+133
+00:06:24,140 --> 00:06:25,630
+to this element.
+
+134
+00:06:25,630 --> 00:06:27,750
+If we open this up
+and view it now,
+
+135
+00:06:27,750 --> 00:06:29,865
+we're not really
+seeing anything.
+
+136
+00:06:29,865 --> 00:06:32,010
+In order for an icon
+to show up, we'll
+
+137
+00:06:32,010 --> 00:06:37,730
+still need to specify
+which icon we want to use.
+
+138
+00:06:37,730 --> 00:06:40,340
+Our paragraph here
+is all about travel.
+
+139
+00:06:40,340 --> 00:06:43,220
+So we'll go ahead and add
+a briefcase icon here,
+
+140
+00:06:43,220 --> 00:06:45,740
+since it kind of
+resembles luggage.
+
+141
+00:06:45,740 --> 00:06:49,180
+To do that, we'll add the
+glyphicon briefcase class
+
+142
+00:06:49,180 --> 00:06:50,780
+to our i element.
+
+143
+00:06:50,780 --> 00:06:54,550
+This is a pattern you'll
+see very often in Bootstrap —
+
+144
+00:06:54,550 --> 00:06:58,620
+applying two classes to
+accomplish a single task.
+
+145
+00:06:58,620 --> 00:07:01,980
+This helps keep the Bootstrap
+CSS file much smaller.
+
+146
+00:07:01,980 --> 00:07:04,330
+In this case, the
+glyphicon class
+
+147
+00:07:04,330 --> 00:07:06,960
+is what's setting the
+font family we'll use,
+
+148
+00:07:06,960 --> 00:07:10,080
+while the glyphicon briefcase
+class, that is actually
+
+149
+00:07:10,080 --> 00:07:13,290
+specifying which
+icon we can use.
+
+150
+00:07:13,290 --> 00:07:17,290
+Let's go ahead and add icons
+to our other featured items.
+
+151
+00:07:17,290 --> 00:07:19,920
+We'll follow the same
+pattern as before,
+
+152
+00:07:19,920 --> 00:07:22,690
+creating an i element
+for "Go Anywhere",
+
+153
+00:07:22,690 --> 00:07:25,030
+and give it a
+class of glyphicon.
+
+154
+00:07:25,030 --> 00:07:27,660
+If we head over to the
+Bootstrap web page,
+
+155
+00:07:27,660 --> 00:07:30,460
+we can pick out
+another icon and find
+
+156
+00:07:30,460 --> 00:07:32,260
+the associated class for it.
+
+157
+00:07:32,260 --> 00:07:36,350
+In this case, I'm going to add
+the glyphicon random class,
+
+158
+00:07:36,350 --> 00:07:39,520
+which creates this
+crossed paths icon.
+
+159
+00:07:39,520 --> 00:07:42,760
+For our "RocketBus", we'll
+follow the same pattern again
+
+160
+00:07:42,760 --> 00:07:44,290
+and pick out an icon.
+
+161
+00:07:44,290 --> 00:07:47,130
+There is no rocket
+icon, unfortunately.
+
+162
+00:07:47,130 --> 00:07:50,540
+But this paper plane icon
+conveys a similar meaning.
+
+163
+00:07:50,540 --> 00:07:53,260
+Now, if we really
+needed a rocket icon,
+
+164
+00:07:53,260 --> 00:07:55,480
+we could go find
+another library that
+
+165
+00:07:55,480 --> 00:07:59,210
+provides additional
+icons, like Font Awesome.
+
+166
+00:07:59,210 --> 00:08:01,160
+I'm okay with our plane
+icon for now, though,
+
+167
+00:08:01,160 --> 00:08:02,564
+so let's stick with it.
+
+168
+00:08:02,564 --> 00:08:03,980
+Let's see what our
+page looks like
+
+169
+00:08:03,980 --> 00:08:06,100
+with these shiny new icons.
+
+170
+00:08:06,100 --> 00:08:09,290
+So we're all excited to see
+our new icons in action.
+
+171
+00:08:09,290 --> 00:08:11,250
+So we open up a new
+page in a browser
+
+172
+00:08:11,250 --> 00:08:13,530
+and, oh no, they turned
+out much smaller
+
+173
+00:08:13,530 --> 00:08:15,240
+than we might have expected.
+
+174
+00:08:15,240 --> 00:08:18,830
+How do we increase the
+font size of these icons?
+
+175
+00:08:18,830 --> 00:08:21,000
+Well, if these were
+images, we could just
+
+176
+00:08:21,000 --> 00:08:23,600
+set the height and width
+on them, and we'd be fine.
+
+177
+00:08:23,600 --> 00:08:25,360
+But that won't
+work in this case.
+
+178
+00:08:25,360 --> 00:08:29,320
+Remember earlier on we mentioned
+how Bootstrap sets the default
+
+179
+00:08:29,320 --> 00:08:33,010
+font size of our
+page to 14 pixels.
+
+180
+00:08:33,010 --> 00:08:36,980
+Well, it turns out that's also
+setting the size of our icons,
+
+181
+00:08:36,980 --> 00:08:38,760
+since they're also a font.
+
+182
+00:08:38,760 --> 00:08:40,870
+But the good news
+is we can override
+
+183
+00:08:40,870 --> 00:08:43,140
+the font size of
+our icons by adding
+
+184
+00:08:43,140 --> 00:08:47,600
+a very small amount of CSS
+and increasing the font size.
+
+185
+00:08:47,600 --> 00:08:49,770
+Let's give it a shot.
+
+186
+00:08:49,770 --> 00:08:54,560
+First, we don't want to be
+editing the bootstrap.css file.
+
+187
+00:08:54,560 --> 00:08:56,840
+If we ever wanted
+to update Bootstrap,
+
+188
+00:08:56,840 --> 00:09:00,270
+we don't want any of our
+custom changes to be in there.
+
+189
+00:09:00,270 --> 00:09:05,270
+Instead, we'll add another link
+to a new main.css file, which
+
+190
+00:09:05,270 --> 00:09:07,220
+we'll create all of
+our customizations.
+
+191
+00:09:12,270 --> 00:09:16,190
+Next, we'll add one additional
+class to our row of features.
+
+192
+00:09:16,190 --> 00:09:18,520
+And we'll call it
+Features, of course.
+
+193
+00:09:18,520 --> 00:09:20,140
+This could be whatever you want.
+
+194
+00:09:20,140 --> 00:09:22,940
+It's not a class provided
+by Bootstrap, right?
+
+195
+00:09:22,940 --> 00:09:25,440
+We just need some
+way of identifying
+
+196
+00:09:25,440 --> 00:09:27,300
+this section of the page.
+
+197
+00:09:27,300 --> 00:09:32,960
+Then we can create
+this css/main.css file,
+
+198
+00:09:32,960 --> 00:09:37,060
+and define a single CSS
+selector of .features.glyphicon.
+
+199
+00:09:39,580 --> 00:09:43,470
+This just means that we'll
+only be styling glyphicons that
+
+200
+00:09:43,470 --> 00:09:48,120
+are inside of an element
+with a class of features.
+
+201
+00:09:48,120 --> 00:09:52,900
+In this case, we'll increase
+the font size to 32 pixels,
+
+202
+00:09:52,900 --> 00:09:54,620
+making them stand
+out quite a bit
+
+203
+00:09:54,620 --> 00:09:56,420
+from their surrounding text.
+
+204
+00:09:56,420 --> 00:09:59,950
+It's important to note here that
+if we left out the .features
+
+205
+00:09:59,950 --> 00:10:03,980
+part, we would be styling
+all glyphicons on the page.
+
+206
+00:10:03,980 --> 00:10:06,370
+At the moment, that
+would be okay, but it's
+
+207
+00:10:06,370 --> 00:10:11,450
+a best practice to only
+style what you need.
+
+208
+00:10:11,450 --> 00:10:12,380
+Alright.
+
+209
+00:10:12,380 --> 00:10:14,520
+So now we can open
+this up in a browser
+
+210
+00:10:14,520 --> 00:10:16,760
+and see that our icons
+are looking great.
+
+211
+00:10:16,760 --> 00:10:19,660
+They're big enough to add
+some distinction to our page,
+
+212
+00:10:19,660 --> 00:10:22,940
+but also space it out, adding
+a little more breathing room.
+
+213
+00:10:22,940 --> 00:10:25,500
+Now because these
+icons are a font,
+
+214
+00:10:25,500 --> 00:10:27,130
+there's some nifty
+customizations
+
+215
+00:10:27,130 --> 00:10:28,590
+we can do with them.
+
+216
+00:10:28,590 --> 00:10:29,910
+Let's check a few of those out.
+
+217
+00:10:29,910 --> 00:10:32,040
+If our page had a
+different color scheme
+
+218
+00:10:32,040 --> 00:10:35,610
+or had a dark background,
+then having these dark icons
+
+219
+00:10:35,610 --> 00:10:38,450
+wouldn't really work, right?
+
+220
+00:10:38,450 --> 00:10:41,700
+We can set the color of
+these icons in the same way
+
+221
+00:10:41,700 --> 00:10:45,520
+that we'd set any font color,
+and affect all of the icons
+
+222
+00:10:45,520 --> 00:10:47,190
+on the page at once.
+
+223
+00:10:47,190 --> 00:10:49,760
+For our icons though,
+we're OK with them matching
+
+224
+00:10:49,760 --> 00:10:51,980
+the default font
+color of the page.
+
+225
+00:10:51,980 --> 00:10:55,740
+So we won't be changing
+them to red right now.
+
+226
+00:10:55,740 --> 00:10:58,650
+One part of the page that we
+haven't looked into just yet
+
+227
+00:10:58,650 --> 00:10:59,890
+is the footer.
+
+228
+00:10:59,890 --> 00:11:02,960
+This is where we'll have a few
+links to the rest of our site,
+
+229
+00:11:02,960 --> 00:11:04,860
+a brief description
+of our company,
+
+230
+00:11:04,860 --> 00:11:06,720
+and some ways of
+getting in touch.
+
+231
+00:11:06,720 --> 00:11:09,560
+But what about those
+bullets next to Links?
+
+232
+00:11:09,560 --> 00:11:11,510
+They really stand out.
+
+233
+00:11:11,510 --> 00:11:13,530
+That's the default
+browser behavior
+
+234
+00:11:13,530 --> 00:11:15,360
+when you use an unordered list.
+
+235
+00:11:15,360 --> 00:11:17,037
+But it's not really
+what we want.
+
+236
+00:11:17,037 --> 00:11:19,245
+Let's check out how to get
+rid of those bullet icons.
+
+237
+00:11:22,240 --> 00:11:24,450
+Here's what the code for
+this section of our footer
+
+238
+00:11:24,450 --> 00:11:25,650
+looks like.
+
+239
+00:11:25,650 --> 00:11:29,220
+We have an H4 for
+our links, and a ul,
+
+240
+00:11:29,220 --> 00:11:31,410
+which contains a
+few of these links.
+
+241
+00:11:31,410 --> 00:11:36,290
+By default, ul elements will
+add a list style CSS property,
+
+242
+00:11:36,290 --> 00:11:38,080
+which adds in
+these little bullet
+
+243
+00:11:38,080 --> 00:11:40,370
+icons and a little
+bit of spacing.
+
+244
+00:11:40,370 --> 00:11:42,280
+We can remove both
+of these additions
+
+245
+00:11:42,280 --> 00:11:46,650
+by changing the style
+of our ul element.
+
+246
+00:11:46,650 --> 00:11:48,740
+To do that, we'll
+go ahead and add
+
+247
+00:11:48,740 --> 00:11:53,520
+a class of list-unstyled
+to our ul element.
+
+248
+00:11:53,520 --> 00:11:56,030
+This is a Bootstrap
+class that will not only
+
+249
+00:11:56,030 --> 00:11:58,540
+remove those bullet
+icons that we don't need,
+
+250
+00:11:58,540 --> 00:12:00,370
+it will also get
+rid of those margins
+
+251
+00:12:00,370 --> 00:12:01,930
+that were messing up our look.
+
+252
+00:12:01,930 --> 00:12:04,710
+Bootstrap has another
+list class that's helpful
+
+253
+00:12:04,710 --> 00:12:08,150
+called list-inline, which
+will do the same thing as
+
+254
+00:12:08,150 --> 00:12:12,590
+list-unstyled, but also causes
+the li elements to show up
+
+255
+00:12:12,590 --> 00:12:14,505
+horizontally rather
+than vertically.
+
+256
+00:12:17,230 --> 00:12:19,050
+To check out our
+finished footer,
+
+257
+00:12:19,050 --> 00:12:20,580
+we'll open this
+page up in a browser
+
+258
+00:12:20,580 --> 00:12:24,280
+and see that our page is
+starting to really take shape.
+
+259
+00:12:24,280 --> 00:12:26,780
+Our bullet icons are all
+gone from the footer,
+
+260
+00:12:26,780 --> 00:12:28,360
+making it much easier to read.
+
+261
+00:12:28,360 --> 00:12:30,700
+Besides that, the
+icons that we added,
+
+262
+00:12:30,700 --> 00:12:33,290
+and that lead text,
+all help to make
+
+263
+00:12:33,290 --> 00:12:37,230
+different parts of
+our page stand out.
+
+264
+00:12:37,230 --> 00:12:39,796
+And that is the end of level three.
+
+265
+00:12:39,796 --> 00:12:41,170
+It's time for you
+to see what you
+
+266
+00:12:41,170 --> 00:12:43,540
+know about typography
+in the challenges.
+
+267
+00:12:43,540 --> 00:12:46,830
+And I'll see you
+back for level four.
+
+268
+00:12:46,830 --> 00:12:51,320
+This element was originally —
+a little drunk there.
+

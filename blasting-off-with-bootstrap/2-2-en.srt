@@ -1,0 +1,943 @@
+﻿1
+00:00:02,050 --> 00:00:04,430
+Welcome back to Blasting
+Off with Bootstrap.
+
+2
+00:00:04,430 --> 00:00:07,360
+This is level two, section
+two — Responsive Gridding.
+
+3
+00:00:09,900 --> 00:00:11,740
+If we take a look at
+our website so far,
+
+4
+00:00:11,740 --> 00:00:13,680
+it looks great on desktops.
+
+5
+00:00:13,680 --> 00:00:16,630
+But what happens if
+we view it on a phone?
+
+6
+00:00:16,630 --> 00:00:18,680
+Well, our columns are all gone.
+
+7
+00:00:18,680 --> 00:00:21,320
+It turns out that's
+because none of the columns
+
+8
+00:00:21,320 --> 00:00:26,010
+that we've been using
+work below 992 pixels.
+
+9
+00:00:26,010 --> 00:00:29,710
+Let's take a look at what
+we can do to fix this.
+
+10
+00:00:29,710 --> 00:00:32,350
+Here's what we want our page
+to look like on a phone.
+
+11
+00:00:32,350 --> 00:00:35,960
+We really don't need that big
+image on smaller resolutions.
+
+12
+00:00:35,960 --> 00:00:38,460
+And also, we still
+want our featured items
+
+13
+00:00:38,460 --> 00:00:40,820
+to take up some
+horizontal space.
+
+14
+00:00:40,820 --> 00:00:44,270
+But we really want "Book
+Today!" to be on its own row,
+
+15
+00:00:44,270 --> 00:00:46,200
+since that's the
+most important thing.
+
+16
+00:00:46,200 --> 00:00:48,250
+You'll notice this
+little icon up here?
+
+17
+00:00:48,250 --> 00:00:51,680
+That means that we're seeing the
+same thing that a phone would
+
+18
+00:00:51,680 --> 00:00:55,210
+see for this screenshot.
+
+19
+00:00:55,210 --> 00:00:58,080
+So far, we have concentrated
+on getting our site
+
+20
+00:00:58,080 --> 00:01:02,610
+looking great on medium-sized
+screens — things like laptops.
+
+21
+00:01:02,610 --> 00:01:07,430
+To do that, we use that col-md-*
+class and the col-md-offset-*
+
+22
+00:01:07,430 --> 00:01:08,280
+one.
+
+23
+00:01:08,280 --> 00:01:14,360
+But these only work for screen
+sizes of 992 pixels and larger.
+
+24
+00:01:14,360 --> 00:01:18,500
+For smaller resolutions, like
+tablets and even compact laptop
+
+25
+00:01:18,500 --> 00:01:22,410
+screens, there's another great
+size we could be designing for.
+
+26
+00:01:22,410 --> 00:01:24,860
+And that's called
+the small size.
+
+27
+00:01:24,860 --> 00:01:27,270
+The small size uses
+similar classes
+
+28
+00:01:27,270 --> 00:01:29,420
+to the ones we've
+worked with so far,
+
+29
+00:01:29,420 --> 00:01:33,380
+except we replace the md
+part with the sm part.
+
+30
+00:01:33,380 --> 00:01:38,420
+The small grid size will work
+for screen sizes of 768 pixels
+
+31
+00:01:38,420 --> 00:01:39,210
+and above.
+
+32
+00:01:39,210 --> 00:01:43,660
+Let's see how we can use
+our grids for small devices.
+
+33
+00:01:43,660 --> 00:01:46,100
+If we take a look at
+our features so far,
+
+34
+00:01:46,100 --> 00:01:49,730
+we'll see we're using
+the col-md-4 class.
+
+35
+00:01:49,730 --> 00:01:54,710
+Now this class is only working
+for resolutions of 992 pixels
+
+36
+00:01:54,710 --> 00:01:55,540
+and up.
+
+37
+00:01:55,540 --> 00:01:59,240
+So nothing is happening
+for our small screen sizes.
+
+38
+00:01:59,240 --> 00:02:03,630
+What can we do differently
+to make this work on tablets?
+
+39
+00:02:03,630 --> 00:02:06,840
+By changing this
+class to col-sm-4,
+
+40
+00:02:06,840 --> 00:02:09,490
+now these featured
+items are all going
+
+41
+00:02:09,490 --> 00:02:14,200
+to take up four columns in
+small- and medium-sized devices.
+
+42
+00:02:14,200 --> 00:02:18,060
+So if we take a look at how
+this looks in a medium device,
+
+43
+00:02:18,060 --> 00:02:21,800
+you'll see that it looks
+exactly the same as before.
+
+44
+00:02:21,800 --> 00:02:25,210
+Our features are still
+spanning four columns.
+
+45
+00:02:25,210 --> 00:02:27,620
+You'll see from the
+little laptop icon,
+
+46
+00:02:27,620 --> 00:02:31,680
+this is us viewing the
+page in medium mode.
+
+47
+00:02:31,680 --> 00:02:35,180
+But what if we check it out
+in small mode, represented
+
+48
+00:02:35,180 --> 00:02:36,440
+by this tablet?
+
+49
+00:02:36,440 --> 00:02:39,540
+Notice how even though
+our page is a lot smaller,
+
+50
+00:02:39,540 --> 00:02:43,190
+our featured items are still
+taking up four columns.
+
+51
+00:02:43,190 --> 00:02:45,250
+Each of these columns
+is a little bit smaller
+
+52
+00:02:45,250 --> 00:02:46,845
+because our page
+itself is smaller.
+
+53
+00:02:49,480 --> 00:02:52,270
+But if we shrink the
+page a little more,
+
+54
+00:02:52,270 --> 00:02:55,030
+well, our columns are
+going to disappear again.
+
+55
+00:02:55,030 --> 00:02:57,190
+That's because our
+grids were only
+
+56
+00:02:57,190 --> 00:03:02,820
+being applied for screen
+sizes of 768 pixels and above.
+
+57
+00:03:02,820 --> 00:03:05,720
+What about below 768 pixels?
+
+58
+00:03:05,720 --> 00:03:08,050
+Let's take a look
+at extra-small mode,
+
+59
+00:03:08,050 --> 00:03:12,160
+which is what you'd see if you
+viewed your site on a phone.
+
+60
+00:03:12,160 --> 00:03:15,350
+When designing for extra-small
+devices like phones,
+
+61
+00:03:15,350 --> 00:03:18,210
+you can use this
+col-xs prefix for all
+
+62
+00:03:18,210 --> 00:03:20,050
+of your grids and offsets.
+
+63
+00:03:20,050 --> 00:03:23,370
+This will be applied for
+screens zero pixels and above.
+
+64
+00:03:23,370 --> 00:03:25,810
+This is great for
+applying a minimum width
+
+65
+00:03:25,810 --> 00:03:29,050
+for your elements, things that
+will be applied across all grid
+
+66
+00:03:29,050 --> 00:03:29,590
+sizes.
+
+67
+00:03:29,590 --> 00:03:33,040
+The extra-small classes
+are great for specifying
+
+68
+00:03:33,040 --> 00:03:35,240
+a minimum width on
+elements, assuming
+
+69
+00:03:35,240 --> 00:03:38,010
+you don't override them
+with another grid class
+
+70
+00:03:38,010 --> 00:03:39,990
+from a larger size.
+
+71
+00:03:39,990 --> 00:03:42,180
+If we wanted our
+featured items to take up
+
+72
+00:03:42,180 --> 00:03:46,120
+a little more horizontal
+space on extra-small screens,
+
+73
+00:03:46,120 --> 00:03:47,740
+one way we could
+do that might be
+
+74
+00:03:47,740 --> 00:03:52,030
+to add a col-xs-4 class
+to our featured items.
+
+75
+00:03:52,030 --> 00:03:55,260
+But if we view that on
+an extra-small device,
+
+76
+00:03:55,260 --> 00:03:56,590
+it looks a little cramped.
+
+77
+00:03:56,590 --> 00:04:01,060
+This is going to be very hard to
+read on an extra-small device.
+
+78
+00:04:01,060 --> 00:04:03,140
+I think we could
+do a lot better.
+
+79
+00:04:03,140 --> 00:04:04,820
+Let's rewind things
+a bit and see
+
+80
+00:04:04,820 --> 00:04:07,360
+what we want our featured
+items to look like.
+
+81
+00:04:07,360 --> 00:04:11,430
+We really want our "Book Today!"
+feature to take up 10 columns
+
+82
+00:04:11,430 --> 00:04:14,190
+and have one column
+of offset before it.
+
+83
+00:04:14,190 --> 00:04:16,750
+Next, we want the
+other two features
+
+84
+00:04:16,750 --> 00:04:19,829
+to each take up six columns.
+
+85
+00:04:19,829 --> 00:04:23,050
+Let's start off by making
+the "Book Today!" part take up
+
+86
+00:04:23,050 --> 00:04:27,040
+an entire 12 columns
+in extra-small mode.
+
+87
+00:04:27,040 --> 00:04:30,270
+Next, we want "Go
+Anywhere" and "RocketBus"
+
+88
+00:04:30,270 --> 00:04:33,490
+to be below "Book
+Today!", but each of them
+
+89
+00:04:33,490 --> 00:04:35,930
+will take up six columns.
+
+90
+00:04:35,930 --> 00:04:39,140
+To do that, we can add a
+col-xs-6 to each of them.
+
+91
+00:04:43,030 --> 00:04:46,180
+If we take a look at this
+on an extra-small device,
+
+92
+00:04:46,180 --> 00:04:50,840
+we'll see that our "Book Today!"
+element is spanning 12 columns,
+
+93
+00:04:50,840 --> 00:04:53,450
+and also that our "Go Anywhere"
+and "RocketBus" are both
+
+94
+00:04:53,450 --> 00:04:55,320
+spanning six.
+
+95
+00:04:55,320 --> 00:04:58,040
+So why is it that
+we were able to use
+
+96
+00:04:58,040 --> 00:05:01,190
+24 columns in this
+row, rather than 12?
+
+97
+00:05:01,190 --> 00:05:04,800
+You'll notice that "Book Today!"
+is using all 12 columns,
+
+98
+00:05:04,800 --> 00:05:06,510
+like we told it to.
+
+99
+00:05:06,510 --> 00:05:10,150
+But it's also pushed down
+"Go Anywhere" and "RocketBus"
+
+100
+00:05:10,150 --> 00:05:13,610
+to the next available
+vertical space below it.
+
+101
+00:05:13,610 --> 00:05:16,430
+We could still improve
+this a little bit more.
+
+102
+00:05:16,430 --> 00:05:18,060
+What we really want
+to do is for people
+
+103
+00:05:18,060 --> 00:05:19,790
+to read the "Book Today!" part.
+
+104
+00:05:19,790 --> 00:05:22,370
+So let's make that stand
+out a little bit more
+
+105
+00:05:22,370 --> 00:05:24,820
+on extra-small devices.
+
+106
+00:05:24,820 --> 00:05:26,160
+How can we do that?
+
+107
+00:05:26,160 --> 00:05:28,730
+Well, we don't want
+"Book Today!" to take up
+
+108
+00:05:28,730 --> 00:05:32,340
+all 12 columns in
+extra-small mode.
+
+109
+00:05:32,340 --> 00:05:34,490
+Instead, we really
+want it to take up
+
+110
+00:05:34,490 --> 00:05:36,830
+just the middle 10 columns.
+
+111
+00:05:36,830 --> 00:05:39,380
+In order for it to take
+up the middle 10 columns,
+
+112
+00:05:39,380 --> 00:05:42,640
+we need to give it a column
+of padding on the left.
+
+113
+00:05:42,640 --> 00:05:45,840
+To do that, we can
+use an offset of one
+
+114
+00:05:45,840 --> 00:05:49,230
+that only is applied
+for extra-small devices.
+
+115
+00:05:49,230 --> 00:05:52,750
+Remember, the order that we
+add these classes to our HTML
+
+116
+00:05:52,750 --> 00:05:54,940
+doesn't matter.
+
+117
+00:05:54,940 --> 00:05:57,730
+Let's check this out on
+an extra-small device.
+
+118
+00:05:57,730 --> 00:05:59,760
+We'll see that
+"Book Today!" shows up
+
+119
+00:05:59,760 --> 00:06:02,790
+centered with an empty
+column on the left
+
+120
+00:06:02,790 --> 00:06:04,930
+and another empty
+column on the right.
+
+121
+00:06:04,930 --> 00:06:09,050
+"Go Anywhere" and "RocketBus" each
+take up six columns, adding up
+
+122
+00:06:09,050 --> 00:06:11,770
+to 12 to take up the entire row.
+
+123
+00:06:11,770 --> 00:06:13,580
+What's important to
+note here is that we've
+
+124
+00:06:13,580 --> 00:06:16,430
+used only 11 total
+columns to accomplish
+
+125
+00:06:16,430 --> 00:06:17,850
+this centering effect.
+
+126
+00:06:17,850 --> 00:06:19,760
+The remaining one
+column to the right
+
+127
+00:06:19,760 --> 00:06:23,040
+of "Book Today!" wasn't used
+because nothing was there
+
+128
+00:06:23,040 --> 00:06:24,760
+except empty space.
+
+129
+00:06:24,760 --> 00:06:27,610
+If we had made "Book
+Today!" take 11 columns,
+
+130
+00:06:27,610 --> 00:06:29,530
+we wouldn't have the
+centering effect.
+
+131
+00:06:29,530 --> 00:06:31,750
+When "Go Anywhere"
+and "RocketBus" try
+
+132
+00:06:31,750 --> 00:06:33,650
+to find a place
+on the page, they
+
+133
+00:06:33,650 --> 00:06:35,890
+can't roll up right
+next to "Book Today!"
+
+134
+00:06:35,890 --> 00:06:38,730
+because there's only one
+column of space left.
+
+135
+00:06:38,730 --> 00:06:42,070
+So Bootstrap puts them
+where space is available.
+
+136
+00:06:42,070 --> 00:06:46,440
+In this case, the next
+horizontal space down.
+
+137
+00:06:46,440 --> 00:06:49,010
+If we preview our site
+again in small mode,
+
+138
+00:06:49,010 --> 00:06:51,320
+we'll see that
+our featured items
+
+139
+00:06:51,320 --> 00:06:53,590
+don't look like
+we'd expect them to.
+
+140
+00:06:53,590 --> 00:06:56,770
+Our offset that we added
+for extra-small mode, well,
+
+141
+00:06:56,770 --> 00:06:59,780
+it's actually being applied for
+small and medium resolutions
+
+142
+00:06:59,780 --> 00:07:02,330
+as well, because we
+haven't overridden it
+
+143
+00:07:02,330 --> 00:07:03,850
+for those larger sizes.
+
+144
+00:07:03,850 --> 00:07:07,380
+Since we're using nine columns
+in the first horizontal space,
+
+145
+00:07:07,380 --> 00:07:09,580
+"RocketBus" is moved
+to the next row.
+
+146
+00:07:09,580 --> 00:07:13,100
+Let's check out how to override
+this offset for small screens
+
+147
+00:07:13,100 --> 00:07:14,600
+and above.
+
+148
+00:07:14,600 --> 00:07:16,840
+To do that, we can add
+another class, which
+
+149
+00:07:16,840 --> 00:07:20,680
+will remove the offset for
+small devices and above.
+
+150
+00:07:20,680 --> 00:07:24,470
+In this case, we can add
+a col-sm-offset-0 class.
+
+151
+00:07:24,470 --> 00:07:28,160
+This is essentially removing
+that offset for small devices
+
+152
+00:07:28,160 --> 00:07:29,720
+and above.
+
+153
+00:07:29,720 --> 00:07:32,950
+So now if we open this up
+on a medium-sized device
+
+154
+00:07:32,950 --> 00:07:36,680
+or a small device, we'll
+see that our featured items
+
+155
+00:07:36,680 --> 00:07:40,900
+no longer have that
+offset added to them.
+
+156
+00:07:40,900 --> 00:07:43,090
+The grid sizes we've
+worked with so far
+
+157
+00:07:43,090 --> 00:07:47,100
+will work for almost every
+situation you'll encounter.
+
+158
+00:07:47,100 --> 00:07:50,590
+But if you want to design
+for a very, very large screen,
+
+159
+00:07:50,590 --> 00:07:53,190
+like a great big
+monitor, you might
+
+160
+00:07:53,190 --> 00:07:55,150
+want to use the large
+grid size, which
+
+161
+00:07:55,150 --> 00:08:00,520
+will work for screen sizes
+of 1,200 pixels and above.
+
+162
+00:08:00,520 --> 00:08:02,110
+There's only a few
+other changes we
+
+163
+00:08:02,110 --> 00:08:03,785
+want to make in this section.
+
+164
+00:08:03,785 --> 00:08:05,880
+The first of which
+is that we only
+
+165
+00:08:05,880 --> 00:08:10,560
+want this image to show for
+medium and large resolutions.
+
+166
+00:08:10,560 --> 00:08:14,590
+So what can we do to
+make that happen?
+
+167
+00:08:14,590 --> 00:08:18,200
+If we want to hide an element
+in one or more screen sizes,
+
+168
+00:08:18,200 --> 00:08:21,320
+Bootstrap has a couple of
+classes that can help us out.
+
+169
+00:08:21,320 --> 00:08:22,660
+Let's take a look at those.
+
+170
+00:08:22,660 --> 00:08:25,980
+In this case, we want
+to hide this image only
+
+171
+00:08:25,980 --> 00:08:29,180
+in small and extra-small mode.
+
+172
+00:08:29,180 --> 00:08:32,460
+To do that, we're going to
+add a class of hidden-sm
+
+173
+00:08:32,460 --> 00:08:35,580
+and hidden-xs to this element.
+
+174
+00:08:35,580 --> 00:08:38,419
+This will hide it in small
+and extra-small modes.
+
+175
+00:08:38,419 --> 00:08:41,870
+If we wanted to hide this
+element in other screen sizes,
+
+176
+00:08:41,870 --> 00:08:44,660
+Bootstrap has some other classes
+to help out with that as well.
+
+177
+00:08:48,240 --> 00:08:50,670
+If we check out our
+page in a small device,
+
+178
+00:08:50,670 --> 00:08:52,870
+we will see the image is hidden.
+
+179
+00:08:52,870 --> 00:08:54,840
+The same goes for an
+extra-small device.
+
+180
+00:08:58,000 --> 00:09:01,250
+On the other hand, what if
+instead of hiding something,
+
+181
+00:09:01,250 --> 00:09:04,890
+we wanted to only show something
+for certain screen sizes?
+
+182
+00:09:04,890 --> 00:09:10,190
+Well, to do that we could use
+these visible-md and visible-lg
+
+183
+00:09:10,190 --> 00:09:11,450
+classes.
+
+184
+00:09:11,450 --> 00:09:15,430
+This will only show our image
+for medium and large screen
+
+185
+00:09:15,430 --> 00:09:17,360
+sizes.
+
+186
+00:09:17,360 --> 00:09:20,120
+You'll notice each
+of these classes ends
+
+187
+00:09:20,120 --> 00:09:27,310
+with a screen size indicator,
+like sm, xs, md, and lg.
+
+188
+00:09:27,310 --> 00:09:29,150
+If we open this up
+in a browser, we'll
+
+189
+00:09:29,150 --> 00:09:34,310
+see that our image shows up
+in medium and large devices.
+
+190
+00:09:34,310 --> 00:09:35,950
+But in small and
+extra-small, it's
+
+191
+00:09:35,950 --> 00:09:39,830
+hidden just like
+we'd expect it to be.
+
+192
+00:09:39,830 --> 00:09:41,690
+That's the end of
+Responsive Gridding.
+
+193
+00:09:41,690 --> 00:09:44,300
+It's time for you to try
+using it in the challenges,
+
+194
+00:09:44,300 --> 00:09:47,660
+and I'll see you in level three.
+
+195
+00:09:47,660 --> 00:09:51,480
+Then, we'll need to give—
+
+196
+00:09:51,480 --> 00:09:53,790
+We got too many columns!
+

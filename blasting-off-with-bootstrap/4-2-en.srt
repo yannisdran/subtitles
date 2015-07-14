@@ -1,0 +1,995 @@
+﻿1
+00:00:02,060 --> 00:00:04,840
+Welcome back to Blasting
+Off with Bootstrap.
+
+2
+00:00:04,840 --> 00:00:09,970
+This is level four, section
+two — Navigating Navigation.
+
+3
+00:00:09,970 --> 00:00:13,830
+So far, the only way to
+navigate between pages
+
+4
+00:00:13,830 --> 00:00:17,060
+is that list of links way
+down there in the footer
+
+5
+00:00:17,060 --> 00:00:19,510
+that very few people
+will ever see.
+
+6
+00:00:19,510 --> 00:00:21,290
+In this section,
+we'll be working
+
+7
+00:00:21,290 --> 00:00:24,430
+on adding a navigation
+bar at the top of our page
+
+8
+00:00:24,430 --> 00:00:27,430
+that we can use instead.
+
+9
+00:00:27,430 --> 00:00:30,480
+So here's what we'll be
+building in this section.
+
+10
+00:00:30,480 --> 00:00:33,800
+We want the title of our
+page to really stand out,
+
+11
+00:00:33,800 --> 00:00:35,810
+and we want our
+most important links
+
+12
+00:00:35,810 --> 00:00:40,150
+to be easily accessible
+at the top of our page.
+
+13
+00:00:40,150 --> 00:00:43,260
+Just as a refresher, here's
+our current page header
+
+14
+00:00:43,260 --> 00:00:45,050
+that we'll be working with.
+
+15
+00:00:45,050 --> 00:00:48,350
+We'll be replacing this
+entire row with a navigation
+
+16
+00:00:48,350 --> 00:00:50,200
+bar using Bootstrap.
+
+17
+00:00:50,200 --> 00:00:53,120
+One major difference
+for our navigation
+
+18
+00:00:53,120 --> 00:00:57,050
+is that we will no longer
+be using a grid system.
+
+19
+00:00:57,050 --> 00:00:59,770
+Because of that, we
+can remove our row
+
+20
+00:00:59,770 --> 00:01:03,690
+and our col-md-12
+elements altogether.
+
+21
+00:01:03,690 --> 00:01:06,320
+So why aren't we
+using a grid here?
+
+22
+00:01:06,320 --> 00:01:08,490
+Well, we'll want the
+width of the elements
+
+23
+00:01:08,490 --> 00:01:12,080
+in our navigation to be
+determined by their content
+
+24
+00:01:12,080 --> 00:01:14,640
+rather than by a grid system.
+
+25
+00:01:14,640 --> 00:01:16,450
+We'll see how that
+will allow us to build
+
+26
+00:01:16,450 --> 00:01:21,180
+a more flexible navigation
+throughout this section.
+
+27
+00:01:21,180 --> 00:01:24,070
+To get our links ready
+for our navigation bar,
+
+28
+00:01:24,070 --> 00:01:27,750
+we can copy them from our footer
+and put them up here as well.
+
+29
+00:01:27,750 --> 00:01:30,870
+These are all links to
+other pages in our site.
+
+30
+00:01:30,870 --> 00:01:33,200
+If you remember how our
+footer looked when we first
+
+31
+00:01:33,200 --> 00:01:35,580
+looked at it, you might
+have a guess as to what
+
+32
+00:01:35,580 --> 00:01:38,200
+our page looks like so far.
+
+33
+00:01:38,200 --> 00:01:40,620
+You can see that if
+we preview our updated
+
+34
+00:01:40,620 --> 00:01:43,610
+page, our navigation
+has those default bullet
+
+35
+00:01:43,610 --> 00:01:48,190
+icons next to them, kind of like
+all unstyled, unordered lists do.
+
+36
+00:01:48,190 --> 00:01:50,370
+We will definitely work
+on cleaning those up,
+
+37
+00:01:50,370 --> 00:01:53,960
+but first, let's get
+that H1 converted to be
+
+38
+00:01:53,960 --> 00:01:55,690
+a link back to our home page.
+
+39
+00:01:59,520 --> 00:02:03,550
+Since we want this to be a link,
+we can get rid of that H1 tag
+
+40
+00:02:03,550 --> 00:02:05,940
+that we added in
+earlier and convert it
+
+41
+00:02:05,940 --> 00:02:10,410
+to a standard link
+using an a tag.
+
+42
+00:02:10,410 --> 00:02:13,230
+Now that we've converted
+this into a link that points
+
+43
+00:02:13,230 --> 00:02:18,080
+to our home page, we'll need
+to add a class of navbar-brand
+
+44
+00:02:18,080 --> 00:02:19,160
+to it.
+
+45
+00:02:19,160 --> 00:02:22,530
+This class specifies
+that the text or image
+
+46
+00:02:22,530 --> 00:02:26,870
+represents your brand and
+will be positioned way over
+
+47
+00:02:26,870 --> 00:02:29,270
+to the left side of the page.
+
+48
+00:02:29,270 --> 00:02:31,130
+If we open this up
+in a browser, we'll
+
+49
+00:02:31,130 --> 00:02:33,710
+see that we're making a
+little bit of progress.
+
+50
+00:02:33,710 --> 00:02:36,260
+Our link element and our
+navigation list element
+
+51
+00:02:36,260 --> 00:02:37,840
+are at least on the same line.
+
+52
+00:02:37,840 --> 00:02:41,750
+The navbar-brand class is
+a great place for you to put
+
+53
+00:02:41,750 --> 00:02:44,000
+your site logo as well.
+
+54
+00:02:44,000 --> 00:02:47,210
+It's a common pattern that
+the very top left corner
+
+55
+00:02:47,210 --> 00:02:50,260
+of your website links
+back to your home page,
+
+56
+00:02:50,260 --> 00:02:53,820
+and it's where people will first
+look when they visit your site.
+
+57
+00:02:53,820 --> 00:02:55,320
+Let's see what we
+can do to clean up
+
+58
+00:02:55,320 --> 00:02:58,850
+our list of links next.
+
+59
+00:02:58,850 --> 00:03:03,190
+One very easy change we can
+do is use Bootstrap's nav
+
+60
+00:03:03,190 --> 00:03:08,150
+component by adding a class
+of nav to our ul element.
+
+61
+00:03:08,150 --> 00:03:11,540
+This nav class specifies
+that the list items
+
+62
+00:03:11,540 --> 00:03:14,240
+within this entire
+element are links,
+
+63
+00:03:14,240 --> 00:03:16,300
+and then styles
+them accordingly.
+
+64
+00:03:16,300 --> 00:03:19,210
+In our case, they will still
+appear next to our brand.
+
+65
+00:03:19,210 --> 00:03:21,270
+You might ask why the
+beginning of our list
+
+66
+00:03:21,270 --> 00:03:24,090
+is still appearing on the
+same line as our title.
+
+67
+00:03:24,090 --> 00:03:28,680
+Well, our list is still starting
+at the same spot it was before.
+
+68
+00:03:28,680 --> 00:03:31,730
+But because of this nav
+class, now all of our links
+
+69
+00:03:31,730 --> 00:03:34,240
+are being carried down
+to following lines.
+
+70
+00:03:34,240 --> 00:03:38,530
+The nav class is similar
+to btn or glyphicon.
+
+71
+00:03:38,530 --> 00:03:39,980
+It's a starting
+point that we can
+
+72
+00:03:39,980 --> 00:03:43,050
+use to say, "We're going
+to use a nav here."
+
+73
+00:03:43,050 --> 00:03:44,970
+We'll still need to
+add another class
+
+74
+00:03:44,970 --> 00:03:50,310
+to let Bootstrap know what type
+of navigation we want to use.
+
+75
+00:03:50,310 --> 00:03:54,220
+There are a few possible nav
+modifiers available that we can
+
+76
+00:03:54,220 --> 00:03:57,220
+use throughout our page,
+not just in our header.
+
+77
+00:03:57,220 --> 00:04:00,900
+The nav-pills is
+a very common one
+
+78
+00:04:00,900 --> 00:04:03,670
+and will cause the links
+to appear horizontally
+
+79
+00:04:03,670 --> 00:04:07,756
+with a nice padding around each
+link with this cool border.
+
+80
+00:04:07,756 --> 00:04:12,040
+The nav-tabs class handles
+creating a tab navigation
+
+81
+00:04:12,040 --> 00:04:14,420
+bar where the content
+below it could
+
+82
+00:04:14,420 --> 00:04:17,430
+be relevant to the active tab.
+
+83
+00:04:17,430 --> 00:04:23,100
+In this case, though, we want to
+use the navbar-nav class, which
+
+84
+00:04:23,100 --> 00:04:25,540
+will cause our
+unordered list of links
+
+85
+00:04:25,540 --> 00:04:30,070
+to appear inline horizontally,
+kind of like nav-pills
+
+86
+00:04:30,070 --> 00:04:32,300
+but without the same
+rounded borders.
+
+87
+00:04:32,300 --> 00:04:35,360
+Lastly, we want our
+nav to be all the way
+
+88
+00:04:35,360 --> 00:04:37,760
+on the right side of
+our page, separate
+
+89
+00:04:37,760 --> 00:04:39,670
+from our brand position.
+
+90
+00:04:39,670 --> 00:04:41,790
+To do that, we
+can add in a class
+
+91
+00:04:41,790 --> 00:04:46,370
+of navbar-right, which will
+position our nav way over here.
+
+92
+00:04:50,680 --> 00:04:53,760
+We can open this up in a
+browser and see that we now
+
+93
+00:04:53,760 --> 00:04:55,950
+have a working navigation.
+
+94
+00:04:55,950 --> 00:04:59,790
+It's positioned correctly due
+to that navbar-right class,
+
+95
+00:04:59,790 --> 00:05:03,540
+and the navbar-nav class even
+adds some different background
+
+96
+00:05:03,540 --> 00:05:06,850
+colors when we hover
+over each of those links.
+
+97
+00:05:06,850 --> 00:05:08,870
+Things are getting
+there, but our navigation
+
+98
+00:05:08,870 --> 00:05:11,970
+is looking a little too close
+to the rest of our page.
+
+99
+00:05:11,970 --> 00:05:16,450
+Our goal navigation looked quite a bit different.
+
+100
+00:05:16,450 --> 00:05:19,145
+Here's one more look at
+where we're headed on this.
+
+101
+00:05:19,145 --> 00:05:21,520
+This navigation has
+a nice background
+
+102
+00:05:21,520 --> 00:05:24,110
+that stretches all the
+way across the page,
+
+103
+00:05:24,110 --> 00:05:27,110
+as well as some more muted
+colors for these links.
+
+104
+00:05:27,110 --> 00:05:29,880
+Let's see what we need to
+do to get our page looking
+
+105
+00:05:29,880 --> 00:05:33,730
+a little bit more like this.
+
+106
+00:05:33,730 --> 00:05:36,930
+One simple but massive
+change to our page
+
+107
+00:05:36,930 --> 00:05:39,010
+is changing this div
+that we've been working
+
+108
+00:05:39,010 --> 00:05:43,410
+with into a navigation bar
+using Bootstrap's navigation
+
+109
+00:05:43,410 --> 00:05:44,190
+component.
+
+110
+00:05:44,190 --> 00:05:47,230
+To do that, we can
+add a class of navbar
+
+111
+00:05:47,230 --> 00:05:51,540
+to our div that contains our
+brand and our list of links.
+
+112
+00:05:51,540 --> 00:05:54,210
+By itself, this
+won't do too much.
+
+113
+00:05:54,210 --> 00:05:57,440
+It's similar to the btn
+class that we used earlier.
+
+114
+00:05:57,440 --> 00:06:00,740
+In order to specify a color
+scheme for our navigation bar,
+
+115
+00:06:00,740 --> 00:06:05,640
+we can add a class of
+navbar-default to this element.
+
+116
+00:06:05,640 --> 00:06:08,210
+If we checked out our
+navigation bar now,
+
+117
+00:06:08,210 --> 00:06:12,070
+we'd see that it has this nice
+gray background with some muted
+
+118
+00:06:12,070 --> 00:06:14,260
+colors for our text as well.
+
+119
+00:06:14,260 --> 00:06:17,040
+Bootstrap has one other
+navigation bar theme
+
+120
+00:06:17,040 --> 00:06:21,820
+called navbar-inverse, which is
+great for darker color schemes.
+
+121
+00:06:26,070 --> 00:06:27,830
+Opening this up in
+a browser, we can
+
+122
+00:06:27,830 --> 00:06:31,230
+see that our navigation
+bar is styled correctly,
+
+123
+00:06:31,230 --> 00:06:34,570
+but it doesn't stretch all
+the way across the page.
+
+124
+00:06:34,570 --> 00:06:36,860
+It's being centered,
+like our content,
+
+125
+00:06:36,860 --> 00:06:40,230
+and looks very similar to
+our well we added earlier.
+
+126
+00:06:40,230 --> 00:06:41,900
+What can we do to
+make this stretch
+
+127
+00:06:41,900 --> 00:06:44,500
+all the way across the page?
+
+128
+00:06:44,500 --> 00:06:46,270
+The reason our
+navigation bar shows up
+
+129
+00:06:46,270 --> 00:06:49,570
+like this is because its
+width and its margins
+
+130
+00:06:49,570 --> 00:06:53,330
+are being set by the container
+class, which keeps it centered
+
+131
+00:06:53,330 --> 00:06:55,000
+in the middle of the page.
+
+132
+00:06:55,000 --> 00:06:57,870
+What we really need
+is for our navigation
+
+133
+00:06:57,870 --> 00:07:00,230
+to be separated
+from our container.
+
+134
+00:07:00,230 --> 00:07:02,290
+Here's what the HTML
+for our navigation
+
+135
+00:07:02,290 --> 00:07:04,420
+looks like right now.
+
+136
+00:07:04,420 --> 00:07:07,110
+We have one div that is
+being centered, thanks
+
+137
+00:07:07,110 --> 00:07:10,090
+to our container class,
+and has all the styles
+
+138
+00:07:10,090 --> 00:07:15,180
+for our navigation bar, thanks to our
+other two navigation classes.
+
+139
+00:07:15,180 --> 00:07:17,990
+What we want, though,
+is for our container
+
+140
+00:07:17,990 --> 00:07:20,670
+to be inside of
+our navigation bar.
+
+141
+00:07:20,670 --> 00:07:24,710
+To do that, we'll need to go
+ahead and create a new div that
+
+142
+00:07:24,710 --> 00:07:29,200
+will surround our container and
+move our other two navigation
+
+143
+00:07:29,200 --> 00:07:33,010
+bar classes on to that new div.
+
+144
+00:07:33,010 --> 00:07:36,350
+Now, our gray styling
+for our navigation bar
+
+145
+00:07:36,350 --> 00:07:38,710
+will stretch all the
+way across the page,
+
+146
+00:07:38,710 --> 00:07:41,530
+but then the content
+within that navigation bar,
+
+147
+00:07:41,530 --> 00:07:43,200
+it'll still be centered.
+
+148
+00:07:43,200 --> 00:07:45,085
+This will now look like
+our goal navigation.
+
+149
+00:07:47,640 --> 00:07:50,500
+Bootstrap's navigation
+component isn't required
+
+150
+00:07:50,500 --> 00:07:52,380
+to be at the top of the page.
+
+151
+00:07:52,380 --> 00:07:54,420
+Navigation bars
+could be positioned
+
+152
+00:07:54,420 --> 00:07:57,630
+in the middle of a page
+or even at the bottom.
+
+153
+00:07:57,630 --> 00:08:00,800
+The default navigation bar
+will have four rounded corners
+
+154
+00:08:00,800 --> 00:08:03,340
+on it, kind of like our
+well element earlier,
+
+155
+00:08:03,340 --> 00:08:05,930
+but we don't really
+want that in our case.
+
+156
+00:08:05,930 --> 00:08:09,740
+To let Bootstrap know, we'll add
+one more class to our navbar,
+
+157
+00:08:09,740 --> 00:08:13,840
+and that class is called
+navbar-static-top.
+
+158
+00:08:13,840 --> 00:08:17,190
+This will let Bootstrap know
+that this navigation bar should
+
+159
+00:08:17,190 --> 00:08:19,800
+be at the very top of our page.
+
+160
+00:08:19,800 --> 00:08:21,950
+As you might guess,
+there's also a class
+
+161
+00:08:21,950 --> 00:08:25,270
+for positioning a navigation bar
+at the very bottom of a page.
+
+162
+00:08:27,780 --> 00:08:30,550
+There's a few other classes
+available for setting a fixed
+
+163
+00:08:30,550 --> 00:08:32,309
+position as well.
+
+164
+00:08:32,309 --> 00:08:36,390
+Fixed positions will always
+be visible on the page,
+
+165
+00:08:36,390 --> 00:08:39,100
+so as you scroll,
+the navigation bar
+
+166
+00:08:39,100 --> 00:08:43,270
+will always show up on top
+of whatever other content is
+
+167
+00:08:43,270 --> 00:08:44,890
+on your page.
+
+168
+00:08:44,890 --> 00:08:47,800
+It's a bit tough to describe
+these without an example,
+
+169
+00:08:47,800 --> 00:08:50,510
+so let's take a
+look at what I mean.
+
+170
+00:08:50,510 --> 00:08:54,740
+Here's a navigation bar
+using navbar-static-top.
+
+171
+00:08:54,740 --> 00:08:59,080
+As we scroll down the page,
+the navigation bar goes away.
+
+172
+00:08:59,080 --> 00:09:02,020
+Static just means
+that it's stationary,
+
+173
+00:09:02,020 --> 00:09:07,230
+and will scroll just like
+the rest of our page content.
+
+174
+00:09:07,230 --> 00:09:11,840
+Now, if we change this up to be
+using a navbar-fixed-top class
+
+175
+00:09:11,840 --> 00:09:16,280
+and then scroll down, we'd see
+that the navigation bar still
+
+176
+00:09:16,280 --> 00:09:19,210
+shows up on top of the
+rest of our content.
+
+177
+00:09:19,210 --> 00:09:22,400
+This would be useful if we
+had a very long page that
+
+178
+00:09:22,400 --> 00:09:24,930
+had lots and lots of
+content and always wanted
+
+179
+00:09:24,930 --> 00:09:26,910
+our navigation bar visible.
+
+180
+00:09:26,910 --> 00:09:29,510
+When using
+navbar-fixed-top, you'll
+
+181
+00:09:29,510 --> 00:09:33,160
+also notice that our
+navigation bar shows up on top
+
+182
+00:09:33,160 --> 00:09:35,090
+of the content that follows it.
+
+183
+00:09:35,090 --> 00:09:38,000
+To fix that, you'd want to
+add a little bit of padding
+
+184
+00:09:38,000 --> 00:09:40,760
+to your body to help
+counteract the overlap.
+
+185
+00:09:43,800 --> 00:09:47,930
+So we've talked quite a
+lot about navbar and nav,
+
+186
+00:09:47,930 --> 00:09:51,210
+but what exactly is the
+difference between them?
+
+187
+00:09:51,210 --> 00:09:54,870
+Well, think of the nav class
+as being a very basic building
+
+188
+00:09:54,870 --> 00:09:56,560
+block of your entire site.
+
+189
+00:09:56,560 --> 00:10:00,450
+You might have multiple navs on
+a page, or you might have a sub
+
+190
+00:10:00,450 --> 00:10:02,700
+nav that shows up
+in your sidebar.
+
+191
+00:10:02,700 --> 00:10:05,400
+Each could use one of the
+different nav styles that
+
+192
+00:10:05,400 --> 00:10:07,450
+Bootstrap provides.
+
+193
+00:10:07,450 --> 00:10:10,550
+For navbar, though, you
+probably won't want to have
+
+194
+00:10:10,550 --> 00:10:13,590
+more than one of these
+on your entire website.
+
+195
+00:10:13,590 --> 00:10:16,670
+You could if you wanted, but
+that would most likely confuse
+
+196
+00:10:16,670 --> 00:10:19,030
+people.
+
+197
+00:10:19,030 --> 00:10:21,830
+That's about it for this
+section and level four.
+
+198
+00:10:21,830 --> 00:10:24,130
+It's time for you to
+navigate some navigation
+
+199
+00:10:24,130 --> 00:10:28,500
+in the challenges, and we'll
+see you back in level five.
+
+200
+00:10:28,500 --> 00:10:32,812
+You to try navigating
+navigation in the challenges.
+
+201
+00:10:32,812 --> 00:10:34,020
+That's the name of the level.
+
+202
+00:10:34,020 --> 00:10:36,540
+Time for you to try
+navigating navigations —
+
+203
+00:10:36,540 --> 00:10:39,810
+Time for you to try navigating some
+navigation in the challenges,
+
+204
+00:10:39,810 --> 00:10:40,870
+and we'll see you back —
+
+205
+00:10:40,870 --> 00:10:41,765
+I can't do it.
+
+206
+00:10:41,765 --> 00:10:44,590
+For you to navigate
+some navigation —
+

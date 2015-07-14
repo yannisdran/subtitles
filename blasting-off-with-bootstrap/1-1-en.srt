@@ -1,0 +1,1263 @@
+1
+00:00:00,000 --> 00:00:03,050
+[SINGING] Building websites
+is a breeze with a framework
+
+2
+00:00:03,050 --> 00:00:03,790
+as you please. 
+
+3
+00:00:03,790 --> 00:00:07,180
+Easy as slicing cheese,
+with the tools such as these.
+
+4
+00:00:07,180 --> 00:00:09,960
+Structure pages quick.
+No CSS to make you sick.
+
+5
+00:00:09,960 --> 00:00:13,130
+Use the layout that you pick.
+Navigation helps you click.
+
+6
+00:00:13,130 --> 00:00:16,250
+Icons and buttons you can tap.
+Your containers close the gap.
+
+7
+00:00:16,250 --> 00:00:18,190
+Responsive gridding is a snap.
+
+8
+00:00:18,190 --> 00:00:23,586
+You'll be launching off the map,
+blasting off with Bootstrap.
+
+9
+00:00:23,586 --> 00:00:25,476
+Blasting Off with Bootstrap.
+
+10
+00:00:29,590 --> 00:00:30,860
+Hey, hey, everybody.
+
+11
+00:00:30,860 --> 00:00:33,030
+Welcome to Blasting
+Off with Bootstrap.
+
+12
+00:00:33,030 --> 00:00:35,196
+I'm Adam Fortuna, and
+in this first level,
+
+13
+00:00:35,196 --> 00:00:36,570
+we're going to be
+looking at some
+
+14
+00:00:36,570 --> 00:00:38,340
+of the capabilities
+of Bootstrap,
+
+15
+00:00:38,340 --> 00:00:42,010
+how to add Bootstrap to our
+site, and a few basic classes.
+
+16
+00:00:42,010 --> 00:00:44,170
+Let's get started.
+
+17
+00:00:44,170 --> 00:00:46,410
+So let's say you want
+to build a website.
+
+18
+00:00:46,410 --> 00:00:50,200
+Knowing how to combine
+structure, style, and behavior
+
+19
+00:00:50,200 --> 00:00:53,850
+is necessary to get an
+attractive and useful site up
+
+20
+00:00:53,850 --> 00:00:54,570
+and running.
+
+21
+00:00:54,570 --> 00:00:56,830
+If you have a basic
+understanding of websites,
+
+22
+00:00:56,830 --> 00:01:00,590
+you know that HTML is what
+provides our page structure.
+
+23
+00:01:00,590 --> 00:01:03,655
+Next, CSS will provide
+our page with some styling
+
+24
+00:01:03,655 --> 00:01:05,110
+for our elements.
+
+25
+00:01:05,110 --> 00:01:07,390
+Then JavaScript comes
+in, and provides our page
+
+26
+00:01:07,390 --> 00:01:10,840
+with some much-needed behavior.
+
+27
+00:01:10,840 --> 00:01:14,920
+Standard website development
+follows some typical patterns.
+
+28
+00:01:14,920 --> 00:01:17,890
+We'll start by
+adding our HTML file,
+
+29
+00:01:17,890 --> 00:01:21,300
+and that's where we'll be adding
+the structure of our page.
+
+30
+00:01:21,300 --> 00:01:23,330
+That page styling
+we talked about?
+
+31
+00:01:23,330 --> 00:01:25,480
+That'll go in this CSS file.
+
+32
+00:01:25,480 --> 00:01:27,570
+And lastly, our
+page behavior, that
+
+33
+00:01:27,570 --> 00:01:30,250
+will be added to
+a JavaScript file.
+
+34
+00:01:30,250 --> 00:01:32,720
+So once we have this structure
+set in our HTML file,
+
+35
+00:01:32,720 --> 00:01:36,610
+we can jump over and
+style it in our CSS file.
+
+36
+00:01:36,610 --> 00:01:39,390
+As we add more structure
+to our HTML file,
+
+37
+00:01:39,390 --> 00:01:41,690
+we might realize we need
+to add some behavior
+
+38
+00:01:41,690 --> 00:01:44,270
+and jump over to
+our JavaScript file.
+
+39
+00:01:44,270 --> 00:01:46,480
+You might then jump
+back to our HTML file,
+
+40
+00:01:46,480 --> 00:01:48,260
+and continue building our page.
+
+41
+00:01:50,800 --> 00:01:52,760
+All of this movement
+between files
+
+42
+00:01:52,760 --> 00:01:56,990
+shows just how much work a
+good website can require.
+
+43
+00:01:56,990 --> 00:01:59,410
+One of the things that can
+help us with this process
+
+44
+00:01:59,410 --> 00:02:01,810
+is a framework.
+
+45
+00:02:01,810 --> 00:02:03,680
+What exactly is a framework?
+
+46
+00:02:03,680 --> 00:02:06,710
+Well, it's a set of tools
+that can help assist us
+
+47
+00:02:06,710 --> 00:02:08,580
+in building our website.
+
+48
+00:02:08,580 --> 00:02:11,050
+So what is the most
+popular framework
+
+49
+00:02:11,050 --> 00:02:13,480
+for styling and
+organizing our website?
+
+50
+00:02:13,480 --> 00:02:14,455
+Well, Bootstrap.
+
+51
+00:02:18,210 --> 00:02:21,020
+So what can Bootstrap do for us?
+
+52
+00:02:21,020 --> 00:02:25,130
+Well, it can help us by
+letting us skip writing our CSS
+
+53
+00:02:25,130 --> 00:02:28,490
+and JavaScript, and
+let us focus primarily
+
+54
+00:02:28,490 --> 00:02:31,830
+on our HTML and the
+structure of our site.
+
+55
+00:02:31,830 --> 00:02:35,400
+Instead of having our own
+CSS and JavaScript files,
+
+56
+00:02:35,400 --> 00:02:38,530
+we're going to use
+Bootstrap's files instead.
+
+57
+00:02:38,530 --> 00:02:41,330
+These will provide some
+page styling and behavior
+
+58
+00:02:41,330 --> 00:02:44,120
+for our app without us
+having to do anything.
+
+59
+00:02:44,120 --> 00:02:47,050
+That's pretty cool, right?
+
+60
+00:02:47,050 --> 00:02:49,710
+You might be wondering
+who's using Bootstrap.
+
+61
+00:02:49,710 --> 00:02:54,090
+Well, like we said, Bootstrap
+is the most popular HTML and CSS
+
+62
+00:02:54,090 --> 00:02:57,122
+framework, so there's a
+lot of sites using it.
+
+63
+00:02:57,122 --> 00:02:58,580
+One that you might
+have heard of is
+
+64
+00:02:58,580 --> 00:03:02,370
+Lyft, a company disrupting
+the taxi industry.
+
+65
+00:03:02,370 --> 00:03:04,260
+Although they modify
+it heavily, they
+
+66
+00:03:04,260 --> 00:03:06,310
+use Bootstrap on
+their page to provide
+
+67
+00:03:06,310 --> 00:03:08,190
+the structure you see here.
+
+68
+00:03:08,190 --> 00:03:12,410
+Another site using Bootstrap is
+Meteor, a JavaScript framework.
+
+69
+00:03:12,410 --> 00:03:15,070
+Much of the site is using
+Bootstrap, including
+
+70
+00:03:15,070 --> 00:03:18,390
+this navigation bar at the
+top and the grid system used
+
+71
+00:03:18,390 --> 00:03:20,920
+to control how the
+page is structured.
+
+72
+00:03:20,920 --> 00:03:23,160
+Bootstrap isn't just
+for start-ups, though.
+
+73
+00:03:23,160 --> 00:03:27,020
+Apple's Maps Connect page,
+which is used by businesses
+
+74
+00:03:27,020 --> 00:03:29,190
+to manage their
+Google Maps presence,
+
+75
+00:03:29,190 --> 00:03:31,560
+is also using the
+framework, showing just
+
+76
+00:03:31,560 --> 00:03:33,880
+how useful it can be.
+
+77
+00:03:33,880 --> 00:03:37,200
+Let's take a look at what we'll
+be building in this course.
+
+78
+00:03:37,200 --> 00:03:39,370
+The Intergalactic
+Transit Authority
+
+79
+00:03:39,370 --> 00:03:42,430
+is responsible for taking
+its passengers into space,
+
+80
+00:03:42,430 --> 00:03:45,230
+and has a few options
+available for travelers.
+
+81
+00:03:45,230 --> 00:03:48,500
+We're going to be creating a
+web page using Bootstrap just
+
+82
+00:03:48,500 --> 00:03:49,430
+for them.
+
+83
+00:03:49,430 --> 00:03:51,140
+At the end of the
+course, you'll know
+
+84
+00:03:51,140 --> 00:03:55,610
+how every element on this page
+works, and a couple more too.
+
+85
+00:03:55,610 --> 00:03:58,130
+This includes things
+like this navigation bar
+
+86
+00:03:58,130 --> 00:04:01,270
+here at the top, with a
+dropdown for additional links,
+
+87
+00:04:01,270 --> 00:04:03,950
+which will be handy
+on any site you build.
+
+88
+00:04:03,950 --> 00:04:08,170
+Bootstrap is also great for
+designing responsive websites.
+
+89
+00:04:08,170 --> 00:04:11,890
+Those are ones that will respond
+great in many different page
+
+90
+00:04:11,890 --> 00:04:13,210
+resolutions.
+
+91
+00:04:13,210 --> 00:04:15,570
+This lets us write
+one code base that
+
+92
+00:04:15,570 --> 00:04:18,519
+works well on a desktop,
+a tablet, or a phone
+
+93
+00:04:18,519 --> 00:04:20,350
+with minimal added
+work required.
+
+94
+00:04:23,180 --> 00:04:26,330
+So how do we start building
+this beautiful page?
+
+95
+00:04:26,330 --> 00:04:28,260
+Well, to start
+off, we need to get
+
+96
+00:04:28,260 --> 00:04:30,900
+a hold of the
+Bootstrap framework.
+
+97
+00:04:30,900 --> 00:04:33,870
+To do that, we can head over
+to the Bootstrap website
+
+98
+00:04:33,870 --> 00:04:35,827
+and download the
+Bootstrap library.
+
+99
+00:04:35,827 --> 00:04:37,660
+In this case, we're
+going to be checking out
+
+100
+00:04:37,660 --> 00:04:40,770
+this version of Bootstrap,
+which contains the JavaScript
+
+101
+00:04:40,770 --> 00:04:42,800
+and CSS files we'll need.
+
+102
+00:04:42,800 --> 00:04:44,830
+If you already
+know Less or Sass,
+
+103
+00:04:44,830 --> 00:04:49,170
+you can give one of these
+other versions a shot, too.
+
+104
+00:04:49,170 --> 00:04:51,250
+So once you download
+the Bootstrap framework
+
+105
+00:04:51,250 --> 00:04:54,680
+and unzip it, you'll
+see this dist folder.
+
+106
+00:04:54,680 --> 00:04:57,130
+So let's take a look at
+what's inside that.
+
+107
+00:04:57,130 --> 00:05:00,750
+This folder contains the
+entire Bootstrap framework.
+
+108
+00:05:00,750 --> 00:05:04,310
+To start off, let's check out
+what's inside the CSS folder.
+
+109
+00:05:04,310 --> 00:05:06,790
+There's a bunch of files
+in the CSS folder,
+
+110
+00:05:06,790 --> 00:05:10,590
+but the two that we'll be using
+are the bootstrap.css file
+
+111
+00:05:10,590 --> 00:05:14,080
+and the bootstrap.min.css file.
+
+112
+00:05:14,080 --> 00:05:15,820
+These two are
+functionally the same,
+
+113
+00:05:15,820 --> 00:05:18,240
+and they will both save us
+from needing to write a bunch
+
+114
+00:05:18,240 --> 00:05:22,900
+of CSS, but the .min version is
+recommended for production use,
+
+115
+00:05:22,900 --> 00:05:25,910
+because it is a little smaller.
+
+116
+00:05:25,910 --> 00:05:26,610
+Alright.
+
+117
+00:05:26,610 --> 00:05:29,310
+So what's in the fonts folder?
+
+118
+00:05:29,310 --> 00:05:32,660
+Well, there's a couple of these
+glyphicon-halfling-regular
+
+119
+00:05:32,660 --> 00:05:36,380
+files, and Bootstrap
+provides a font
+
+120
+00:05:36,380 --> 00:05:39,630
+that can be used as icons that
+we'll go over a little bit more
+
+121
+00:05:39,630 --> 00:05:41,070
+in level three.
+
+122
+00:05:41,070 --> 00:05:43,420
+The last folder in
+here is the js folder,
+
+123
+00:05:43,420 --> 00:05:46,550
+and that contains some of the
+Bootstrap JavaScript files
+
+124
+00:05:46,550 --> 00:05:48,640
+that will add
+behavior to our site.
+
+125
+00:05:51,270 --> 00:05:54,670
+To start out, we're going
+to create an index.html file
+
+126
+00:05:54,670 --> 00:05:56,560
+inside of that dist folder.
+
+127
+00:05:56,560 --> 00:05:58,560
+In this file, we'll
+start off by adding
+
+128
+00:05:58,560 --> 00:06:01,740
+some of the usual things
+you'll see in any HTML file.
+
+129
+00:06:01,740 --> 00:06:05,700
+We'll add our doctype, and
+an HTML tag with our head
+
+130
+00:06:05,700 --> 00:06:08,490
+and title tag, same as any page.
+
+131
+00:06:08,490 --> 00:06:10,240
+To follow that up,
+we're going to start
+
+132
+00:06:10,240 --> 00:06:12,860
+by adding some sample
+content on our page.
+
+133
+00:06:12,860 --> 00:06:15,580
+We'll begin by adding
+a lot of our headers.
+
+134
+00:06:15,580 --> 00:06:20,590
+So we'll start by adding some
+sample H1 tags, H2, and H3 tags.
+
+135
+00:06:20,590 --> 00:06:23,050
+Next, we'll add in
+some paragraph tags
+
+136
+00:06:23,050 --> 00:06:24,530
+to describe each
+of our headings.
+
+137
+00:06:28,960 --> 00:06:31,610
+To finish things off, our
+page needs some kind of call
+
+138
+00:06:31,610 --> 00:06:34,020
+to action, so we're going
+to add a couple of buttons
+
+139
+00:06:34,020 --> 00:06:37,555
+for our users to engage with
+under our H2 in its paragraph.
+
+140
+00:06:42,280 --> 00:06:44,980
+If we open up our page
+right now in a browser,
+
+141
+00:06:44,980 --> 00:06:47,270
+it's going to look
+a little like this.
+
+142
+00:06:47,270 --> 00:06:49,200
+Not exactly the best.
+
+143
+00:06:49,200 --> 00:06:51,480
+All of these styles are
+being applied by the browser
+
+144
+00:06:51,480 --> 00:06:53,730
+itself, because we
+haven't provided
+
+145
+00:06:53,730 --> 00:06:57,180
+any kind of styling
+definition for this page.
+
+146
+00:06:57,180 --> 00:06:59,430
+Let's see how we can
+add Bootstrap to it
+
+147
+00:06:59,430 --> 00:07:02,020
+to improve the look
+and feel of it.
+
+148
+00:07:02,020 --> 00:07:03,830
+So let's bring our
+page back in here.
+
+149
+00:07:03,830 --> 00:07:05,680
+In order to add
+Bootstrap to it, we're
+
+150
+00:07:05,680 --> 00:07:08,780
+going to need to add a couple
+of additional tags to it.
+
+151
+00:07:08,780 --> 00:07:11,950
+The first tag that we need
+to add is the link tag.
+
+152
+00:07:11,950 --> 00:07:14,750
+That'll be up here in the
+head, and it'll reference this
+
+153
+00:07:14,750 --> 00:07:18,380
+css/bootstrap.css file.
+
+154
+00:07:18,380 --> 00:07:22,000
+Remember how this index.html
+file is in our dist folder?
+
+155
+00:07:22,000 --> 00:07:26,810
+Well, that css/boostrap.css
+file is a relative path
+
+156
+00:07:26,810 --> 00:07:29,320
+to our index.html file.
+
+157
+00:07:29,320 --> 00:07:31,010
+By just adding this
+link tag, we're
+
+158
+00:07:31,010 --> 00:07:34,130
+set on the styling of
+our web page for now.
+
+159
+00:07:34,130 --> 00:07:36,540
+But to add some
+behavior, we'll need
+
+160
+00:07:36,540 --> 00:07:38,690
+to add some JavaScript
+to our page.
+
+161
+00:07:38,690 --> 00:07:40,540
+Turns out the
+Bootstrap framework
+
+162
+00:07:40,540 --> 00:07:42,950
+depends on the jQuery
+framework, and is
+
+163
+00:07:42,950 --> 00:07:45,400
+needed to do a bunch
+of cool things.
+
+164
+00:07:45,400 --> 00:07:48,140
+We'll add a script tag to the
+jQuery library at the bottom
+
+165
+00:07:48,140 --> 00:07:49,342
+here.
+
+166
+00:07:49,342 --> 00:07:51,310
+Now that we have
+jQuery in there,
+
+167
+00:07:51,310 --> 00:07:53,750
+we can add another script
+tag to load in the Bootstrap
+
+168
+00:07:53,750 --> 00:07:55,150
+JavaScript library.
+
+169
+00:07:55,150 --> 00:07:59,300
+We'll explore this one
+a little more later.
+
+170
+00:07:59,300 --> 00:08:02,370
+Here's our initial website,
+without using Bootstrap.
+
+171
+00:08:02,370 --> 00:08:03,870
+Let's see what it
+can look like once
+
+172
+00:08:03,870 --> 00:08:06,720
+we add Bootstrap to the page.
+
+173
+00:08:06,720 --> 00:08:09,490
+So far, not too
+hugely different.
+
+174
+00:08:09,490 --> 00:08:12,540
+The fonts changed a little bit
+and the buttons are styled,
+
+175
+00:08:12,540 --> 00:08:15,150
+but there's still a lot more
+we can do to improve the look
+
+176
+00:08:15,150 --> 00:08:17,020
+and feel of it.
+
+177
+00:08:17,020 --> 00:08:19,800
+One of the ways we can
+visually improve our site
+
+178
+00:08:19,800 --> 00:08:22,680
+is by centering our
+content elements
+
+179
+00:08:22,680 --> 00:08:25,270
+and creating a pair
+of side margins.
+
+180
+00:08:25,270 --> 00:08:27,160
+This will prevent our
+content from wrapping
+
+181
+00:08:27,160 --> 00:08:29,260
+to the very edges of our page.
+
+182
+00:08:29,260 --> 00:08:32,980
+To do that, we're going to use
+Bootstrap's container class.
+
+183
+00:08:32,980 --> 00:08:34,919
+The container class
+will responsively
+
+184
+00:08:34,919 --> 00:08:38,470
+add some margins and kind
+of center our content,
+
+185
+00:08:38,470 --> 00:08:42,049
+but what do we add the
+container class to?
+
+186
+00:08:42,049 --> 00:08:43,549
+In this case,
+we're going to wrap
+
+187
+00:08:43,549 --> 00:08:46,390
+all of that content
+in a div, and we
+
+188
+00:08:46,390 --> 00:08:51,050
+want that div to responsively add
+margins and center our content.
+
+189
+00:08:51,050 --> 00:08:53,740
+In order to do that, we can
+add a class of container,
+
+190
+00:08:53,740 --> 00:08:55,910
+which will create that
+fixed-width element that we
+
+191
+00:08:55,910 --> 00:08:58,950
+really need that will
+respond to the current size
+
+192
+00:08:58,950 --> 00:08:59,610
+of the browser.
+
+193
+00:09:02,730 --> 00:09:05,060
+So now that we've added
+this container class,
+
+194
+00:09:05,060 --> 00:09:07,600
+let's check out what it
+looks like in the browser.
+
+195
+00:09:07,600 --> 00:09:10,080
+You'll notice that, just by
+wrapping our page in a div
+
+196
+00:09:10,080 --> 00:09:13,180
+and adding a container
+class, our page now
+
+197
+00:09:13,180 --> 00:09:16,180
+doesn't take up the entire
+width of the browser window.
+
+198
+00:09:16,180 --> 00:09:20,030
+Instead, it's confined within
+these two invisible margins.
+
+199
+00:09:20,030 --> 00:09:24,425
+Also, you can see that the text
+within our div wasn't centered.
+
+200
+00:09:24,425 --> 00:09:26,300
+The only thing that was
+centered in this case
+
+201
+00:09:26,300 --> 00:09:29,490
+was our entire container
+element, this div,
+
+202
+00:09:29,490 --> 00:09:33,210
+which has these invisible
+margins on both sides of it.
+
+203
+00:09:33,210 --> 00:09:35,040
+Checking out what
+we've got so far, we
+
+204
+00:09:35,040 --> 00:09:38,410
+can see that if we drag the
+edge of our browser window,
+
+205
+00:09:38,410 --> 00:09:40,270
+we see that the margins
+will periodically
+
+206
+00:09:40,270 --> 00:09:42,320
+reset when the
+width of the window
+
+207
+00:09:42,320 --> 00:09:45,765
+crosses some small, medium,
+or large boundary lines.
+
+208
+00:09:45,765 --> 00:09:47,920
+But we'll discuss
+that a bit more later.
+
+209
+00:09:47,920 --> 00:09:51,190
+Eventually, we see that the
+margins become very small
+
+210
+00:09:51,190 --> 00:09:53,700
+at the smallest window
+size, and then content
+
+211
+00:09:53,700 --> 00:09:56,180
+begins to fully wrap.
+
+212
+00:09:56,180 --> 00:09:58,800
+Then, we drag it back again.
+
+213
+00:09:58,800 --> 00:10:00,710
+The margins snap
+back into place when
+
+214
+00:10:00,710 --> 00:10:03,340
+we cross the size boundaries.
+
+215
+00:10:03,340 --> 00:10:07,160
+The margins will continue to
+grow within each window size
+
+216
+00:10:07,160 --> 00:10:12,160
+to keep the content centered
+within the padding for us.
+
+217
+00:10:12,160 --> 00:10:14,290
+So what if you have some
+content on your page
+
+218
+00:10:14,290 --> 00:10:16,950
+that you want to stretch
+completely across it?
+
+219
+00:10:16,950 --> 00:10:19,219
+You don't want it to be
+confined to a container.
+
+220
+00:10:19,219 --> 00:10:21,635
+You might think you can just
+leave it out of the container
+
+221
+00:10:21,635 --> 00:10:24,460
+and it'll work,
+but it might run up
+
+222
+00:10:24,460 --> 00:10:27,320
+against the very, very
+edges of your page.
+
+223
+00:10:27,320 --> 00:10:30,120
+To get around that, we
+can wrap our content
+
+224
+00:10:30,120 --> 00:10:32,530
+in a container-fluid class.
+
+225
+00:10:32,530 --> 00:10:35,660
+That will add a little bit of
+padding within that element,
+
+226
+00:10:35,660 --> 00:10:38,080
+but still allow
+the div to stretch
+
+227
+00:10:38,080 --> 00:10:39,890
+the entire width of the page.
+
+228
+00:10:39,890 --> 00:10:42,260
+So let's take a look
+at our page again.
+
+229
+00:10:42,260 --> 00:10:44,970
+What if we wanted all
+of these H3 elements
+
+230
+00:10:44,970 --> 00:10:47,630
+to stretch across
+the entire page?
+
+231
+00:10:47,630 --> 00:10:50,040
+We would no longer be
+able to include them
+
+232
+00:10:50,040 --> 00:10:52,230
+within our container element.
+
+233
+00:10:52,230 --> 00:10:54,910
+Instead, we need
+to create a new div
+
+234
+00:10:54,910 --> 00:10:58,380
+and give it a class
+of container-fluid,
+
+235
+00:10:58,380 --> 00:11:01,170
+and move all of our H3s into it.
+
+236
+00:11:01,170 --> 00:11:04,650
+Now, this div will take
+up the entire page,
+
+237
+00:11:04,650 --> 00:11:09,230
+while our container will
+be centered in the middle.
+
+238
+00:11:09,230 --> 00:11:11,600
+If we take a look at our
+responsive site here,
+
+239
+00:11:11,600 --> 00:11:13,300
+we'll drag the
+edge of the window
+
+240
+00:11:13,300 --> 00:11:16,540
+and watch the top H1
+and H2 portions start
+
+241
+00:11:16,540 --> 00:11:19,560
+to get some margins and
+move towards the center,
+
+242
+00:11:19,560 --> 00:11:22,070
+because they are in
+a standard container,
+
+243
+00:11:22,070 --> 00:11:24,510
+while the H3 portions
+that we'd wrapped
+
+244
+00:11:24,510 --> 00:11:27,290
+a container-fluid — well,
+those guys will grow
+
+245
+00:11:27,290 --> 00:11:30,650
+with the page, which causes
+the text in those elements
+
+246
+00:11:30,650 --> 00:11:32,500
+to experience a
+constant wrapping
+
+247
+00:11:32,500 --> 00:11:37,190
+and unwrapping as the width
+of the window changes.
+
+248
+00:11:37,190 --> 00:11:38,385
+That's it for level one.
+
+249
+00:11:38,385 --> 00:11:40,010
+Time for you to see
+what you've learned
+
+250
+00:11:40,010 --> 00:11:42,060
+about Bootstrap
+in the challenges.
+
+251
+00:11:42,060 --> 00:11:45,120
+We'll see you back in level two.
+
+252
+00:11:45,120 --> 00:11:45,980
+I like that.
+
+253
+00:11:45,980 --> 00:11:47,500
+Don't say couple,
+though, say a few.
+
+254
+00:11:47,500 --> 00:11:48,000
+A few?
+
+255
+00:11:48,000 --> 00:11:49,200
+A couple's two, right?
+
+256
+00:11:49,200 --> 00:11:50,408
+I don't want to mess them up.
+
+257
+00:11:50,408 --> 00:11:52,480
+I define a couple
+as more than two.
+
+258
+00:11:55,320 --> 00:11:55,820
+I mean—
+
+259
+00:11:55,820 --> 00:11:56,319
+A couple?
+
+260
+00:11:56,319 --> 00:11:57,440
+A pair is two.
+
+261
+00:11:57,440 --> 00:11:58,250
+So is a couple.
+
+262
+00:11:58,250 --> 00:12:01,330
+A couple is — a few.
+
+263
+00:12:01,330 --> 00:12:01,930
+No.
+
+264
+00:12:01,930 --> 00:12:04,380
+[LAUGHTER]
+

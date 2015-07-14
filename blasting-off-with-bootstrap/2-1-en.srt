@@ -1,0 +1,952 @@
+﻿1
+00:00:00,499 --> 00:00:03,050
+[SINGING] Building websites
+is a breeze with a framework
+
+2
+00:00:03,050 --> 00:00:03,750
+as you please.
+
+3
+00:00:03,750 --> 00:00:07,180
+Easy as slicing cheese,
+with the tools such as these.
+
+4
+00:00:07,180 --> 00:00:09,970
+Structure pages quick.
+No CSS to make you sick.
+
+5
+00:00:09,970 --> 00:00:11,580
+Use the layout that you pick.
+
+6
+00:00:11,580 --> 00:00:12,980
+Navigation helps you click.
+
+7
+00:00:12,980 --> 00:00:16,379
+Icons and buttons you can tap.
+Your containers close the gap.
+
+8
+00:00:16,379 --> 00:00:18,180
+Responsive gridding is a snap.
+
+9
+00:00:18,180 --> 00:00:23,910
+You'll be launching off the map,
+blasting off with Bootstrap.
+
+10
+00:00:23,910 --> 00:00:25,738
+Blasting Off with Bootstrap.
+
+11
+00:00:29,680 --> 00:00:32,810
+Welcome back to level two of
+Blasting Off with Bootstrap.
+
+12
+00:00:32,810 --> 00:00:36,450
+This is section one —
+Thinking in Grids.
+
+13
+00:00:36,450 --> 00:00:38,650
+So here's our site so far.
+
+14
+00:00:38,650 --> 00:00:41,175
+We've learned how, by
+adding a class of container
+
+15
+00:00:41,175 --> 00:00:43,360
+to our wrapper
+element, we've added
+
+16
+00:00:43,360 --> 00:00:45,610
+some structure to our content.
+
+17
+00:00:45,610 --> 00:00:48,420
+But our site is still
+looking very vertical.
+
+18
+00:00:48,420 --> 00:00:51,990
+Every element shows up
+as a new row on our page.
+
+19
+00:00:51,990 --> 00:00:54,890
+How can we work with
+Bootstrap to position things,
+
+20
+00:00:54,890 --> 00:00:59,570
+so that they show up, and we use
+more of our horizontal space?
+
+21
+00:00:59,570 --> 00:01:02,300
+If we take a little bit
+closer look at our page,
+
+22
+00:01:02,300 --> 00:01:04,599
+we can visualize
+our content elements
+
+23
+00:01:04,599 --> 00:01:07,430
+as being grouped
+into horizontal rows.
+
+24
+00:01:07,430 --> 00:01:10,480
+First, we could take
+a look at the H1 tag,
+
+25
+00:01:10,480 --> 00:01:12,620
+the part with Blasting
+Off With Bootstrap,
+
+26
+00:01:12,620 --> 00:01:14,550
+as its own row of data.
+
+27
+00:01:14,550 --> 00:01:18,500
+Next, the H2 tag combined with
+its paragraph and buttons,
+
+28
+00:01:18,500 --> 00:01:20,900
+those can make up
+another row of data.
+
+29
+00:01:20,900 --> 00:01:25,460
+Lastly, our H3 tags, each
+with the H3 and a paragraph,
+
+30
+00:01:25,460 --> 00:01:27,260
+they could each
+be a row of data.
+
+31
+00:01:27,260 --> 00:01:28,970
+So you could think of
+this page as having
+
+32
+00:01:28,970 --> 00:01:32,830
+five distinct rows
+of data on it.
+
+33
+00:01:32,830 --> 00:01:35,620
+If rows are a horizontal
+grouping of data,
+
+34
+00:01:35,620 --> 00:01:38,060
+columns are a vertical grouping.
+
+35
+00:01:38,060 --> 00:01:40,160
+If we take a look at
+our site right now,
+
+36
+00:01:40,160 --> 00:01:42,990
+we can see there's
+really only one column.
+
+37
+00:01:42,990 --> 00:01:44,590
+Everything flows
+down the page, right
+
+38
+00:01:44,590 --> 00:01:46,380
+after the previous element.
+
+39
+00:01:46,380 --> 00:01:48,720
+If our page is
+only one column, we
+
+40
+00:01:48,720 --> 00:01:52,470
+won't be able to use much
+of the horizontal space.
+
+41
+00:01:52,470 --> 00:01:55,170
+The way that Bootstrap
+helps us solve this problem
+
+42
+00:01:55,170 --> 00:01:57,870
+is by dividing our
+page into 12 columns
+
+43
+00:01:57,870 --> 00:01:59,930
+that we can use as needed.
+
+44
+00:01:59,930 --> 00:02:02,620
+Currently, each of
+our rows of data
+
+45
+00:02:02,620 --> 00:02:05,470
+is using all of these
+columns, since we're not
+
+46
+00:02:05,470 --> 00:02:06,970
+specifying otherwise.
+
+47
+00:02:06,970 --> 00:02:10,020
+What would it look like if some
+of our elements on the page
+
+48
+00:02:10,020 --> 00:02:12,880
+only used some of these columns?
+
+49
+00:02:12,880 --> 00:02:15,760
+Let's take a look at the
+visual goal for our page
+
+50
+00:02:15,760 --> 00:02:17,130
+at the end of this section.
+
+51
+00:02:17,130 --> 00:02:20,490
+Next, let's split our page
+up into the 12 columns
+
+52
+00:02:20,490 --> 00:02:22,410
+that Bootstrap provides for us.
+
+53
+00:02:22,410 --> 00:02:24,580
+Let's take a look at all
+the elements on the page
+
+54
+00:02:24,580 --> 00:02:27,330
+and see how many columns
+each of them take up.
+
+55
+00:02:27,330 --> 00:02:29,590
+To start with, let's
+look at the H1.
+
+56
+00:02:29,590 --> 00:02:34,320
+Here, our title
+spans 12 columns.
+
+57
+00:02:34,320 --> 00:02:38,300
+Below that, we have our H2 and
+our paragraph and button area.
+
+58
+00:02:38,300 --> 00:02:40,570
+And then we have this
+image that we added.
+
+59
+00:02:40,570 --> 00:02:45,310
+Each of these two elements
+spans six columns.
+
+60
+00:02:45,310 --> 00:02:47,050
+Towards the bottom
+of our page, you
+
+61
+00:02:47,050 --> 00:02:50,400
+can see our H3 tags and their
+corresponding paragraphs.
+
+62
+00:02:50,400 --> 00:02:53,270
+Well, each of them
+take up four columns.
+
+63
+00:02:53,270 --> 00:02:56,080
+So what do all of
+these have in common?
+
+64
+00:02:56,080 --> 00:02:59,730
+Well, if you add up the number
+of columns in every row,
+
+65
+00:02:59,730 --> 00:03:03,310
+it always equals 12.
+
+66
+00:03:03,310 --> 00:03:05,560
+If we were to wire
+frame our grid design,
+
+67
+00:03:05,560 --> 00:03:07,770
+it might look a
+little like this.
+
+68
+00:03:07,770 --> 00:03:10,180
+We have our 12-column
+header, our two
+
+69
+00:03:10,180 --> 00:03:12,650
+six-column main
+sections, and then
+
+70
+00:03:12,650 --> 00:03:15,050
+our three four-column features.
+
+71
+00:03:15,050 --> 00:03:18,150
+Remember, each row
+of data adds up
+
+72
+00:03:18,150 --> 00:03:21,610
+to use all 12 columns
+in each of these cases.
+
+73
+00:03:21,610 --> 00:03:25,370
+In order to do this, we'll need
+to limit the number of columns
+
+74
+00:03:25,370 --> 00:03:28,020
+that each of our
+elements can use.
+
+75
+00:03:28,020 --> 00:03:32,100
+We can use Bootstrap's
+.col-md-* classes,
+
+76
+00:03:32,100 --> 00:03:35,300
+and we can denote the number
+of columns each of our elements
+
+77
+00:03:35,300 --> 00:03:36,290
+takes up.
+
+78
+00:03:36,290 --> 00:03:39,060
+The md in this class
+name? That represents
+
+79
+00:03:39,060 --> 00:03:42,660
+a medium-sized screen,
+like on a laptop.
+
+80
+00:03:42,660 --> 00:03:45,430
+We'll explore some other
+screen sizes later on.
+
+81
+00:03:45,430 --> 00:03:48,560
+But md is a good starting
+point for creating your grid.
+
+82
+00:03:48,560 --> 00:03:53,750
+To start, we know our H1 tag is
+going to span all 12 columns,
+
+83
+00:03:53,750 --> 00:03:56,940
+so what we'll need
+to do is wrap our H1
+
+84
+00:03:56,940 --> 00:04:01,300
+in an element that has
+a class of col-md-12.
+
+85
+00:04:01,300 --> 00:04:04,700
+If we wanted to wrap an element
+that took up half of the page,
+
+86
+00:04:04,700 --> 00:04:09,360
+we could use a similar class of
+col-md-6, to span six columns.
+
+87
+00:04:09,360 --> 00:04:12,300
+Similarly, if we only
+wanted to use four columns,
+
+88
+00:04:12,300 --> 00:04:13,450
+we could just use col-md-4.
+
+89
+00:04:17,149 --> 00:04:19,390
+Let's take a look
+at our code so far.
+
+90
+00:04:19,390 --> 00:04:21,370
+Here we have our H1 tag.
+
+91
+00:04:21,370 --> 00:04:26,330
+That's the one that we want
+to span all 12 columns.
+
+92
+00:04:26,330 --> 00:04:30,140
+We'll need to wrap our H1
+tag in another div that
+
+93
+00:04:30,140 --> 00:04:33,487
+has a class of col-md-12.
+
+94
+00:04:33,487 --> 00:04:35,070
+If we look at this
+in the browser now,
+
+95
+00:04:35,070 --> 00:04:38,910
+we can see our H1 tag is now
+taking up all 12 columns.
+
+96
+00:04:44,690 --> 00:04:47,860
+What about our H2 and
+this blasting off image
+
+97
+00:04:47,860 --> 00:04:49,080
+that we added?
+
+98
+00:04:49,080 --> 00:04:52,440
+Well, we want the H2, the
+paragraph, and the buttons,
+
+99
+00:04:52,440 --> 00:04:54,820
+to be in six columns.
+
+100
+00:04:54,820 --> 00:04:57,645
+And then we want the image
+to be in another six columns.
+
+101
+00:05:00,340 --> 00:05:03,890
+As you might expect, we'll need
+to wrap our H2, our paragraph,
+
+102
+00:05:03,890 --> 00:05:05,900
+and our buttons in a div.
+
+103
+00:05:05,900 --> 00:05:09,040
+And we'll need to wrap
+our image in a div.
+
+104
+00:05:09,040 --> 00:05:12,090
+Since we want both of these
+to take up six columns,
+
+105
+00:05:12,090 --> 00:05:15,450
+we're going to add a class
+of col-md-6 to each of them.
+
+106
+00:05:18,940 --> 00:05:21,580
+So you can probably see a
+pattern developing here.
+
+107
+00:05:21,580 --> 00:05:23,890
+When we want to create
+a column of data,
+
+108
+00:05:23,890 --> 00:05:27,840
+we usually wrap it in an element
+and add some class to it.
+
+109
+00:05:27,840 --> 00:05:30,350
+Let's try that on these
+last couple of elements.
+
+110
+00:05:30,350 --> 00:05:33,000
+So for our featured items,
+we want each of them
+
+111
+00:05:33,000 --> 00:05:34,415
+to span four columns.
+
+112
+00:05:39,550 --> 00:05:43,150
+Similar to before, we'll need
+to wrap each of our features
+
+113
+00:05:43,150 --> 00:05:45,210
+in another div.
+
+114
+00:05:45,210 --> 00:05:48,060
+Then we can add a
+class of col-md-4
+
+115
+00:05:48,060 --> 00:05:50,770
+to it, to make each of
+them use four columns.
+
+116
+00:05:54,590 --> 00:05:57,375
+Alright, so let's take a look
+at this in the browser now.
+
+117
+00:05:57,375 --> 00:05:59,980
+If we open it up,
+we can see we're
+
+118
+00:05:59,980 --> 00:06:02,890
+using a lot more of
+a horizontal space.
+
+119
+00:06:02,890 --> 00:06:04,850
+Our H1 takes up the entire page.
+
+120
+00:06:04,850 --> 00:06:07,530
+Our features are each
+taking up four columns.
+
+121
+00:06:07,530 --> 00:06:12,560
+And our image and our lead both
+show up using half of the page,
+
+122
+00:06:12,560 --> 00:06:16,030
+with only adding a couple of classes.
+
+123
+00:06:16,030 --> 00:06:18,490
+If we take a look
+back at our HTML,
+
+124
+00:06:18,490 --> 00:06:21,030
+we can see it's a
+little bit hard to read.
+
+125
+00:06:21,030 --> 00:06:23,020
+If we're just looking at
+this, it's really hard
+
+126
+00:06:23,020 --> 00:06:26,450
+to tell which elements are
+appearing on which rows,
+
+127
+00:06:26,450 --> 00:06:28,370
+without doing a
+little bit of math.
+
+128
+00:06:28,370 --> 00:06:32,120
+What can we do to clean
+this up and make it obvious?
+
+129
+00:06:32,120 --> 00:06:34,100
+Turns out, Bootstrap
+has a class that
+
+130
+00:06:34,100 --> 00:06:37,860
+will help us fix up our code in
+just this way, called the row
+
+131
+00:06:37,860 --> 00:06:38,750
+class.
+
+132
+00:06:38,750 --> 00:06:41,990
+Within each row, you'll see
+that the number of columns
+
+133
+00:06:41,990 --> 00:06:44,560
+added here, it always equals 12.
+
+134
+00:06:44,560 --> 00:06:48,530
+By adding this row class, we've
+added a bit of smart styling
+
+135
+00:06:48,530 --> 00:06:49,540
+to our row.
+
+136
+00:06:49,540 --> 00:06:51,460
+And we've also
+let Bootstrap know
+
+137
+00:06:51,460 --> 00:06:54,910
+to expect a grid
+within that element.
+
+138
+00:06:54,910 --> 00:06:57,270
+You'll want to make sure
+that the number of columns
+
+139
+00:06:57,270 --> 00:06:59,605
+within a row never exceeds 12.
+
+140
+00:07:02,250 --> 00:07:04,200
+If we take a look at
+our page in the browser,
+
+141
+00:07:04,200 --> 00:07:06,995
+you'd see it looks almost
+the same as it did before.
+
+142
+00:07:06,995 --> 00:07:09,370
+But we're actually using a
+little bit more of the screen,
+
+143
+00:07:09,370 --> 00:07:10,850
+thanks to these rows.
+
+144
+00:07:10,850 --> 00:07:14,490
+Our HTML is also a
+lot easier to read.
+
+145
+00:07:14,490 --> 00:07:18,890
+So far, the number of columns
+in each row has added up to 12.
+
+146
+00:07:18,890 --> 00:07:20,624
+But what about if it didn't?
+
+147
+00:07:20,624 --> 00:07:22,040
+Let's see what
+would happen if we
+
+148
+00:07:22,040 --> 00:07:25,805
+changed one of these elements
+to instead take up five columns.
+
+149
+00:07:25,805 --> 00:07:27,520
+If you add these
+up together, you'll
+
+150
+00:07:27,520 --> 00:07:30,420
+see it now equals 13 columns.
+
+151
+00:07:30,420 --> 00:07:33,571
+How would this look
+in the browser?
+
+152
+00:07:33,571 --> 00:07:35,070
+If we check this
+out in the browser,
+
+153
+00:07:35,070 --> 00:07:37,590
+it probably doesn't
+look like you'd expect.
+
+154
+00:07:37,590 --> 00:07:39,510
+Our RocketBus
+element didn't have
+
+155
+00:07:39,510 --> 00:07:41,770
+enough space on the first row.
+
+156
+00:07:41,770 --> 00:07:44,980
+So instead, it jumped
+down to the second one.
+
+157
+00:07:44,980 --> 00:07:47,500
+This is very similar to
+how our page was structured
+
+158
+00:07:47,500 --> 00:07:51,010
+before we started using rows.
+
+159
+00:07:51,010 --> 00:07:52,760
+When designing with
+grids, we're not
+
+160
+00:07:52,760 --> 00:07:56,040
+limited to elements that span
+equal number of columns,
+
+161
+00:07:56,040 --> 00:07:58,850
+like six, six, and
+four, four, four.
+
+162
+00:07:58,850 --> 00:08:01,520
+One very popular
+proportion for sites
+
+163
+00:08:01,520 --> 00:08:04,140
+is nine columns
+and three columns.
+
+164
+00:08:04,140 --> 00:08:06,300
+So here's what that
+would look like.
+
+165
+00:08:06,300 --> 00:08:08,340
+You'll see this
+ratio quite often
+
+166
+00:08:08,340 --> 00:08:11,370
+for blogs that have a sidebar.
+
+167
+00:08:11,370 --> 00:08:15,480
+So far, the elements in each row
+were very close to each other.
+
+168
+00:08:15,480 --> 00:08:17,665
+There wasn't much
+padding between them.
+
+169
+00:08:17,665 --> 00:08:19,040
+What if we wanted
+to do something
+
+170
+00:08:19,040 --> 00:08:22,520
+like this, where we had an
+entire column of padding
+
+171
+00:08:22,520 --> 00:08:27,540
+between our blog, let's
+say, and our sidebar?
+
+172
+00:08:27,540 --> 00:08:30,270
+Using what we know so
+far, one way to do this
+
+173
+00:08:30,270 --> 00:08:32,730
+might be to create
+an empty column.
+
+174
+00:08:32,730 --> 00:08:35,309
+We could do that by
+creating another div
+
+175
+00:08:35,309 --> 00:08:38,539
+and giving it a
+class of col-md-1.
+
+176
+00:08:38,539 --> 00:08:42,620
+Now, between our main
+content and that col-md-8,
+
+177
+00:08:42,620 --> 00:08:44,830
+and our sidebar
+and the col-md-3,
+
+178
+00:08:44,830 --> 00:08:47,190
+there's going to be an empty column.
+
+179
+00:08:47,190 --> 00:08:50,420
+Although this would work,
+there is a better way.
+
+180
+00:08:50,420 --> 00:08:52,250
+Bootstrap provides
+a class that we
+
+181
+00:08:52,250 --> 00:08:56,790
+can use to offset our elements
+by a given number of columns.
+
+182
+00:08:56,790 --> 00:09:00,650
+So in this case, we can get
+rid of that col-md-1 element
+
+183
+00:09:00,650 --> 00:09:06,880
+and instead add a class of
+col-md-offset-1 to our sidebar.
+
+184
+00:09:06,880 --> 00:09:10,290
+What this would do is
+add a column of padding
+
+185
+00:09:10,290 --> 00:09:13,360
+to the left of our
+three-column sidebar.
+
+186
+00:09:13,360 --> 00:09:16,610
+This star here? That could
+be anything from zero to 12.
+
+187
+00:09:16,610 --> 00:09:19,010
+And it will add that
+many columns of padding
+
+188
+00:09:19,010 --> 00:09:22,870
+to the left side of the element.
+
+189
+00:09:22,870 --> 00:09:24,940
+Let's take a look at
+an example website
+
+190
+00:09:24,940 --> 00:09:27,750
+from the Bootstrap web
+page using this technique.
+
+191
+00:09:27,750 --> 00:09:30,240
+This Bootstrap Blog
+illustrates the concept
+
+192
+00:09:30,240 --> 00:09:32,110
+we were just talking about.
+
+193
+00:09:32,110 --> 00:09:34,110
+So if you take a
+look at it, there
+
+194
+00:09:34,110 --> 00:09:37,660
+are eight columns of content,
+one column of offset,
+
+195
+00:09:37,660 --> 00:09:42,130
+and then another three
+columns for the sidebar.
+
+196
+00:09:42,130 --> 00:09:43,710
+That's it for section one.
+
+197
+00:09:43,710 --> 00:09:45,170
+It's time for you
+to try thinking
+
+198
+00:09:45,170 --> 00:09:46,900
+in grids in the challenges.
+
+199
+00:09:46,900 --> 00:09:49,680
+And I'll see you
+back in section two.
+

@@ -1,0 +1,1147 @@
+﻿1
+00:00:00,540 --> 00:00:03,050
+[SINGING] Building websites
+is a breeze with a framework
+
+2
+00:00:03,050 --> 00:00:03,810
+as you please.
+
+3
+00:00:03,810 --> 00:00:06,710
+Easy as slicing cheese,
+with the tools such as these.
+
+4
+00:00:06,710 --> 00:00:09,960
+Structure pages quick.
+No CSS to make you sick.
+
+5
+00:00:09,960 --> 00:00:12,980
+Use the layout that you pick.
+Navigation helps you click.
+
+6
+00:00:12,980 --> 00:00:16,379
+Icons and buttons you can tap.
+Your containers close the gap.
+
+7
+00:00:16,379 --> 00:00:18,190
+Responsive gridding is a snap.
+
+8
+00:00:18,190 --> 00:00:24,064
+You'll be launching off the map,
+blasting off with Bootstrap.
+
+9
+00:00:24,064 --> 00:00:25,476
+Blasting Off with Bootstrap.
+
+10
+00:00:29,730 --> 00:00:32,189
+Welcome back to Blasting
+Off with Bootstrap.
+
+11
+00:00:32,189 --> 00:00:34,320
+This is level five, section one —
+
+12
+00:00:34,320 --> 00:00:37,220
+JavaScript Components.
+
+13
+00:00:37,220 --> 00:00:40,600
+We did a lot of work to make our
+navigation look really awesome.
+
+14
+00:00:40,600 --> 00:00:42,490
+But if we shrink our
+screen down a little bit
+
+15
+00:00:42,490 --> 00:00:45,210
+into extra-small
+mode, well, things
+
+16
+00:00:45,210 --> 00:00:47,210
+don't look exactly
+like we expect.
+
+17
+00:00:47,210 --> 00:00:50,820
+In this small size, we won't
+be able to have our brand link
+
+18
+00:00:50,820 --> 00:00:54,500
+and our nav list on the
+same horizontal row.
+
+19
+00:00:54,500 --> 00:00:56,700
+Instead, we'll
+need to find a way
+
+20
+00:00:56,700 --> 00:00:59,585
+to make better use of
+our vertical space.
+
+21
+00:00:59,585 --> 00:01:02,170
+But we really don't want
+the first thing people
+
+22
+00:01:02,170 --> 00:01:06,230
+see when they visit our site
+is a really big list of links
+
+23
+00:01:06,230 --> 00:01:09,720
+where they have to scroll
+down just to book tickets.
+
+24
+00:01:09,720 --> 00:01:12,126
+Maybe we could do something
+to make our navigation
+
+25
+00:01:12,126 --> 00:01:12,625
+collapsible.
+
+26
+00:01:15,150 --> 00:01:17,650
+Here's what we'll be
+going for in this section.
+
+27
+00:01:17,650 --> 00:01:20,810
+When a visitor visits our
+page, they'll see our title,
+
+28
+00:01:20,810 --> 00:01:24,710
+and they'll see this little
+icon to expand our navigation.
+
+29
+00:01:24,710 --> 00:01:27,380
+When they click on that,
+it will expand our nav,
+
+30
+00:01:27,380 --> 00:01:29,650
+and then they can click on
+one of these other links
+
+31
+00:01:29,650 --> 00:01:31,560
+to head over to that
+part of our site.
+
+32
+00:01:31,560 --> 00:01:36,620
+To do this, we'll need to add
+some behavior to our website.
+
+33
+00:01:36,620 --> 00:01:41,580
+Now, we mentioned before that
+CSS is for styling our web page.
+
+34
+00:01:41,580 --> 00:01:43,090
+This includes
+things like changing
+
+35
+00:01:43,090 --> 00:01:46,010
+the background of the page,
+increasing the font size,
+
+36
+00:01:46,010 --> 00:01:48,740
+or even adding padding
+around an element.
+
+37
+00:01:48,740 --> 00:01:50,540
+In order to add
+behavior to our page,
+
+38
+00:01:50,540 --> 00:01:53,750
+though, we're going to need to
+add a little bit of JavaScript.
+
+39
+00:01:53,750 --> 00:01:56,910
+So what do I mean
+when I say behavior?
+
+40
+00:01:56,910 --> 00:02:00,160
+Well, that could be things
+like responding in some way
+
+41
+00:02:00,160 --> 00:02:04,280
+when an element is clicked, or
+when a specific key is pressed.
+
+42
+00:02:04,280 --> 00:02:08,509
+These are things that cannot be
+controlled through CSS or HTML
+
+43
+00:02:08,509 --> 00:02:10,080
+alone.
+
+44
+00:02:10,080 --> 00:02:15,020
+Here's a recap of our
+navigation so far.
+
+45
+00:02:15,020 --> 00:02:17,640
+This ul element
+contains our links.
+
+46
+00:02:17,640 --> 00:02:20,530
+We want to be able to
+switch between seeing
+
+47
+00:02:20,530 --> 00:02:24,540
+a list of those links, or
+seeing an icon of some kind.
+
+48
+00:02:27,120 --> 00:02:30,640
+To start things off, we
+can add a class of collapse
+
+49
+00:02:30,640 --> 00:02:32,690
+to our ul element.
+
+50
+00:02:32,690 --> 00:02:35,390
+This will completely
+hide our navigation
+
+51
+00:02:35,390 --> 00:02:37,450
+for all screen sizes.
+
+52
+00:02:37,450 --> 00:02:40,340
+In order to make it show
+up for specific sizes,
+
+53
+00:02:40,340 --> 00:02:42,620
+you might think of using
+the visible classes
+
+54
+00:02:42,620 --> 00:02:44,080
+we talked about before.
+
+55
+00:02:44,080 --> 00:02:45,955
+Well, that isn't ideal
+for this situation
+
+56
+00:02:45,955 --> 00:02:50,110
+though, because we're not using
+grids for our navigation bar.
+
+57
+00:02:50,110 --> 00:02:53,080
+Instead, though, we can search
+through the Bootstrap docs
+
+58
+00:02:53,080 --> 00:02:56,600
+on navigation and see
+what they suggest.
+
+59
+00:02:56,600 --> 00:02:59,010
+Turns out there's
+a specific class
+
+60
+00:02:59,010 --> 00:03:03,060
+just for this case
+called navbar-collapse.
+
+61
+00:03:03,060 --> 00:03:05,250
+This class will
+cause the element
+
+62
+00:03:05,250 --> 00:03:08,200
+to show up in small
+screens and above,
+
+63
+00:03:08,200 --> 00:03:12,200
+but to be hidden only
+for extra-small screens.
+
+64
+00:03:12,200 --> 00:03:14,790
+Next, let's add a button
+that we can click on
+
+65
+00:03:14,790 --> 00:03:20,080
+to show that nav that's only
+visible in extra-small mode.
+
+66
+00:03:20,080 --> 00:03:23,090
+We'll need to create this
+button here in the nav bar,
+
+67
+00:03:23,090 --> 00:03:26,570
+making sure to put it
+before our nav list.
+
+68
+00:03:26,570 --> 00:03:28,960
+We'll give it some
+informative text.
+
+69
+00:03:28,960 --> 00:03:31,130
+Let's say, toggle navigation.
+
+70
+00:03:31,130 --> 00:03:34,150
+Now if we view just
+this piece on a phone,
+
+71
+00:03:34,150 --> 00:03:36,030
+well, it's getting there.
+
+72
+00:03:36,030 --> 00:03:38,100
+We do have our work cut
+out for us on this one.
+
+73
+00:03:38,100 --> 00:03:40,050
+Let's see how to
+style and position
+
+74
+00:03:40,050 --> 00:03:41,850
+it a little more attractively.
+
+75
+00:03:41,850 --> 00:03:44,190
+Even though we've
+labeled our button,
+
+76
+00:03:44,190 --> 00:03:47,190
+we don't actually want
+that toggle navigation text
+
+77
+00:03:47,190 --> 00:03:49,870
+to show up, because
+it's a little bit long.
+
+78
+00:03:49,870 --> 00:03:54,300
+So how can we hide that
+without hiding the button?
+
+79
+00:03:54,300 --> 00:03:57,660
+To do that, we can wrap
+that text in a span
+
+80
+00:03:57,660 --> 00:04:00,870
+with the class of sr-only.
+
+81
+00:04:00,870 --> 00:04:04,670
+sr-only stands for
+"screen readers only."
+
+82
+00:04:04,670 --> 00:04:07,480
+And that means that the
+contents of that element
+
+83
+00:04:07,480 --> 00:04:09,820
+will only be
+available to software
+
+84
+00:04:09,820 --> 00:04:12,690
+that reads screen content
+to the visually impaired.
+
+85
+00:04:12,690 --> 00:04:14,830
+This is a good
+practice to get into.
+
+86
+00:04:14,830 --> 00:04:17,950
+It's kind of like adding
+alt tags for images.
+
+87
+00:04:17,950 --> 00:04:20,120
+If we didn't do
+this, then visitors
+
+88
+00:04:20,120 --> 00:04:22,990
+to our site using
+screen readers wouldn't
+
+89
+00:04:22,990 --> 00:04:25,050
+know what this button does.
+
+90
+00:04:25,050 --> 00:04:28,350
+If we view this button now, it
+doesn't have anything in it,
+
+91
+00:04:28,350 --> 00:04:31,540
+though, and it shows up
+right next to our brand.
+
+92
+00:04:31,540 --> 00:04:33,630
+Let's move it over to
+the right a little bit,
+
+93
+00:04:33,630 --> 00:04:37,250
+kind of like what we saw
+in our finished product.
+
+94
+00:04:37,250 --> 00:04:40,240
+To position our button all
+the way over to the right,
+
+95
+00:04:40,240 --> 00:04:43,730
+we can use the
+navbar-toggle class,
+
+96
+00:04:43,730 --> 00:04:45,700
+which will float our
+button all the way
+
+97
+00:04:45,700 --> 00:04:49,240
+to the right of wherever
+it currently is.
+
+98
+00:04:49,240 --> 00:04:52,640
+Bootstrap has some other helper
+classes for floating elements
+
+99
+00:04:52,640 --> 00:04:55,200
+left and right that you
+can use elsewhere
+
+100
+00:04:55,200 --> 00:04:59,710
+on your page, including
+pull-left and pull-right.
+
+101
+00:04:59,710 --> 00:05:02,440
+It looks like our button
+is in the right place,
+
+102
+00:05:02,440 --> 00:05:04,490
+but it still needs an icon.
+
+103
+00:05:04,490 --> 00:05:06,590
+And how do we make it
+actually do something
+
+104
+00:05:06,590 --> 00:05:07,790
+when we click on it?
+
+105
+00:05:07,790 --> 00:05:11,430
+Let's start by adding an icon.
+
+106
+00:05:11,430 --> 00:05:13,350
+One way to add an
+icon here would
+
+107
+00:05:13,350 --> 00:05:16,520
+be to use a glyphicon,
+like we did earlier.
+
+108
+00:05:16,520 --> 00:05:20,040
+The problem with that is that
+it won't scale correctly,
+
+109
+00:05:20,040 --> 00:05:21,600
+which would cause
+it to stand out
+
+110
+00:05:21,600 --> 00:05:23,060
+from the rest of our header.
+
+111
+00:05:23,060 --> 00:05:25,240
+The solution for this —
+and you can probably
+
+112
+00:05:25,240 --> 00:05:26,790
+guess what I'm
+gonna say by now —
+
+113
+00:05:26,790 --> 00:05:30,920
+is to create a new element with
+a class provided by Bootstrap.
+
+114
+00:05:30,920 --> 00:05:32,630
+In this case, we're
+going to create
+
+115
+00:05:32,630 --> 00:05:36,490
+a span with the
+class of icon-bar.
+
+116
+00:05:36,490 --> 00:05:40,070
+This class will add a single
+small, horizontal bar.
+
+117
+00:05:40,070 --> 00:05:42,950
+In total, though, we're
+adding three horizontal bars
+
+118
+00:05:42,950 --> 00:05:45,370
+to provide that
+hamburger icon look
+
+119
+00:05:45,370 --> 00:05:49,220
+that our users
+are familiar with.
+
+120
+00:05:49,220 --> 00:05:49,800
+Alright.
+
+121
+00:05:49,800 --> 00:05:52,550
+So let's see what our button
+looks like in a browser.
+
+122
+00:05:52,550 --> 00:05:56,240
+If we open this up and resize
+our browser to a small size,
+
+123
+00:05:56,240 --> 00:05:59,200
+we can see that our full
+navigation list of links
+
+124
+00:05:59,200 --> 00:06:00,180
+is visible.
+
+125
+00:06:00,180 --> 00:06:02,650
+If we shrink our browser
+a little bit more, though,
+
+126
+00:06:02,650 --> 00:06:05,290
+our navigation disappears
+and is completely
+
+127
+00:06:05,290 --> 00:06:07,100
+replaced by our little button.
+
+128
+00:06:07,100 --> 00:06:08,360
+Okay. Sweet.
+
+129
+00:06:08,360 --> 00:06:12,260
+Now on extra-small devices,
+the first thing people will see
+
+130
+00:06:12,260 --> 00:06:15,620
+is that Book Tickets Now
+button, just like we want.
+
+131
+00:06:15,620 --> 00:06:16,130
+Cool.
+
+132
+00:06:16,130 --> 00:06:17,230
+We've got our button.
+
+133
+00:06:17,230 --> 00:06:19,160
+But what does it do?
+
+134
+00:06:19,160 --> 00:06:21,200
+In this case, nothing yet.
+
+135
+00:06:21,200 --> 00:06:23,657
+Let's work on making
+that button functional.
+
+136
+00:06:23,657 --> 00:06:25,240
+To do that, we're
+going to need to add
+
+137
+00:06:25,240 --> 00:06:28,720
+some behavior using JavaScript.
+
+138
+00:06:28,720 --> 00:06:30,860
+Before adding that
+code, let's plan out
+
+139
+00:06:30,860 --> 00:06:32,990
+exactly what we want to happen.
+
+140
+00:06:32,990 --> 00:06:34,950
+Here's the button
+that we just created
+
+141
+00:06:34,950 --> 00:06:36,890
+as part of our list
+of links that's
+
+142
+00:06:36,890 --> 00:06:39,660
+being hidden in
+extra-small mode.
+
+143
+00:06:39,660 --> 00:06:42,560
+What we really want is
+for the collapse class
+
+144
+00:06:42,560 --> 00:06:44,790
+to be removed from
+our list of links
+
+145
+00:06:44,790 --> 00:06:46,630
+whenever this button is clicked.
+
+146
+00:06:46,630 --> 00:06:49,260
+Then, if our user clicks
+the button again,
+
+147
+00:06:49,260 --> 00:06:52,110
+we should add the collapse class
+back to that unordered list
+
+148
+00:06:52,110 --> 00:06:54,700
+to hide the links once again.
+
+149
+00:06:54,700 --> 00:06:58,270
+To do that, we're going to need
+to use the Bootstrap JavaScript
+
+150
+00:06:58,270 --> 00:06:59,960
+collapse plugin.
+
+151
+00:06:59,960 --> 00:07:04,310
+But how do we get started using
+JavaScript with Bootstrap?
+
+152
+00:07:04,310 --> 00:07:07,580
+Back in level one, we already
+added our Bootstrap JavaScript
+
+153
+00:07:07,580 --> 00:07:10,940
+library to the page, but
+we haven't used it yet.
+
+154
+00:07:10,940 --> 00:07:12,860
+Each Bootstrap
+JavaScript library
+
+155
+00:07:12,860 --> 00:07:14,450
+is a little bit different.
+
+156
+00:07:14,450 --> 00:07:16,570
+But kind of like
+our CSS classes,
+
+157
+00:07:16,570 --> 00:07:18,810
+they follow some of
+the same patterns.
+
+158
+00:07:18,810 --> 00:07:23,420
+The two main ways to use most
+Bootstrap JavaScript plugins is
+
+159
+00:07:23,420 --> 00:07:26,140
+by adding additional
+data attributes
+
+160
+00:07:26,140 --> 00:07:29,440
+to specific elements
+on your page.
+
+161
+00:07:29,440 --> 00:07:31,910
+This is similar to how we've
+been adding all those classes
+
+162
+00:07:31,910 --> 00:07:35,850
+to our page, but now instead
+of adding a class attribute,
+
+163
+00:07:35,850 --> 00:07:38,190
+we'll be adding data attributes.
+
+164
+00:07:38,190 --> 00:07:40,960
+This is the method we'll
+be using in this course.
+
+165
+00:07:40,960 --> 00:07:43,980
+Now there's also another way
+of using all of the Bootstrap
+
+166
+00:07:43,980 --> 00:07:46,920
+plugins by writing raw
+JavaScript as well.
+
+167
+00:07:46,920 --> 00:07:49,590
+This requires a little more
+knowledge of the plugins.
+
+168
+00:07:49,590 --> 00:07:52,580
+And knowing the basics of
+jQuery will definitely help out.
+
+169
+00:07:52,580 --> 00:07:55,470
+We won't be looking into
+that method in this course,
+
+170
+00:07:55,470 --> 00:07:57,360
+but we encourage
+you to check it out.
+
+171
+00:07:57,360 --> 00:07:59,210
+It's probably a lot
+easier than you'd think,
+
+172
+00:07:59,210 --> 00:08:01,870
+and can help out in a pinch.
+
+173
+00:08:01,870 --> 00:08:03,960
+So here's our button once again.
+
+174
+00:08:03,960 --> 00:08:05,565
+Remember what we
+wanted to do here?
+
+175
+00:08:05,565 --> 00:08:09,410
+We want to toggle the
+existence of the collapse class
+
+176
+00:08:09,410 --> 00:08:11,340
+on the ul element.
+
+177
+00:08:11,340 --> 00:08:13,920
+To do that, we need
+to specify which
+
+178
+00:08:13,920 --> 00:08:18,440
+class to toggle using the
+data-toggle attribute,
+
+179
+00:08:18,440 --> 00:08:20,470
+and specifying collapse.
+
+180
+00:08:20,470 --> 00:08:23,280
+The idea is that this
+will add and remove
+
+181
+00:08:23,280 --> 00:08:27,220
+the collapse class from
+some element on the page.
+
+182
+00:08:27,220 --> 00:08:28,870
+But what element?
+
+183
+00:08:28,870 --> 00:08:33,110
+We need to add a second
+attribute of data-target, which
+
+184
+00:08:33,110 --> 00:08:36,880
+is a CSS selector for
+any element on the page.
+
+185
+00:08:36,880 --> 00:08:41,220
+In this case, we'll use
+.navbar-collapse,
+
+186
+00:08:41,220 --> 00:08:44,020
+because there's only
+one element on our page
+
+187
+00:08:44,020 --> 00:08:47,690
+that matches that CSS
+selector: our list of links.
+
+188
+00:08:47,690 --> 00:08:49,660
+The first time we
+click on this button,
+
+189
+00:08:49,660 --> 00:08:51,210
+it's going to
+remove the collapse
+
+190
+00:08:51,210 --> 00:08:54,100
+class from our unordered list.
+
+191
+00:08:54,100 --> 00:08:56,060
+If we click on the
+button again, it's
+
+192
+00:08:56,060 --> 00:08:59,700
+going to add the collapse class
+back in to our unordered list,
+
+193
+00:08:59,700 --> 00:09:02,130
+causing it to be hidden.
+
+194
+00:09:02,130 --> 00:09:04,130
+Let's check it out.
+
+195
+00:09:04,130 --> 00:09:04,740
+Sweet.
+
+196
+00:09:04,740 --> 00:09:05,990
+We have liftoff.
+
+197
+00:09:05,990 --> 00:09:08,750
+Our toggle works and
+expands when clicked,
+
+198
+00:09:08,750 --> 00:09:12,540
+but, aw — the position of our
+links is a little bit off.
+
+199
+00:09:12,540 --> 00:09:14,880
+What we really need
+is for the Blasting
+
+200
+00:09:14,880 --> 00:09:18,690
+Off with Bootstrap part to be
+on its own row with the button.
+
+201
+00:09:18,690 --> 00:09:20,920
+Then when the button
+is clicked, we'd
+
+202
+00:09:20,920 --> 00:09:23,040
+want each link
+within our list to be
+
+203
+00:09:23,040 --> 00:09:25,900
+on its own row
+underneath the brand.
+
+204
+00:09:25,900 --> 00:09:29,600
+Let's see what we need to
+change to make that happen.
+
+205
+00:09:29,600 --> 00:09:32,230
+Here's our navigation
+bar so far.
+
+206
+00:09:32,230 --> 00:09:35,190
+When we think about how to
+organize our elements, what
+
+207
+00:09:35,190 --> 00:09:38,480
+we really need is for our
+brand and our toggle button
+
+208
+00:09:38,480 --> 00:09:41,480
+to be on one row,
+while our list of links
+
+209
+00:09:41,480 --> 00:09:45,120
+rests below the brand
+with one link on each row.
+
+210
+00:09:45,120 --> 00:09:46,880
+Like our grid system,
+this means we'll
+
+211
+00:09:46,880 --> 00:09:48,871
+need to group these
+elements by wrapping them
+
+212
+00:09:48,871 --> 00:09:49,745
+in some new elements.
+
+213
+00:09:52,430 --> 00:09:54,710
+Our brand and button
+can be wrapped
+
+214
+00:09:54,710 --> 00:09:58,570
+in a div with a class
+of navbar-header.
+
+215
+00:09:58,570 --> 00:10:02,120
+This navbar-header class
+will cause the header
+
+216
+00:10:02,120 --> 00:10:04,780
+to take up the entire
+width of the navbar
+
+217
+00:10:04,780 --> 00:10:06,670
+on extra-small screens.
+
+218
+00:10:06,670 --> 00:10:10,850
+Think of it as being similar
+to col-xs-12, what
+
+219
+00:10:10,850 --> 00:10:12,350
+we used to make
+an element take up
+
+220
+00:10:12,350 --> 00:10:15,500
+the entire width of the
+page on extra-small screens.
+
+221
+00:10:15,500 --> 00:10:17,280
+Luckily, we don't
+need to do anything
+
+222
+00:10:17,280 --> 00:10:18,910
+with our list of links.
+
+223
+00:10:18,910 --> 00:10:20,610
+We're already grouping
+all these links
+
+224
+00:10:20,610 --> 00:10:24,440
+within a list, which will
+now show up below our header.
+
+225
+00:10:24,440 --> 00:10:26,960
+Let's see what this
+looks like in a browser.
+
+226
+00:10:26,960 --> 00:10:29,750
+If we open this up in a browser
+and shrink our page down
+
+227
+00:10:29,750 --> 00:10:33,200
+to extra-small mode, we'll see
+that the button works correctly
+
+228
+00:10:33,200 --> 00:10:34,680
+and expands our links.
+
+229
+00:10:34,680 --> 00:10:36,750
+When we click that
+button again, it
+
+230
+00:10:36,750 --> 00:10:40,000
+will collapse our links, just
+like when we loaded the page.
+
+231
+00:10:40,000 --> 00:10:42,730
+Each link is on its
+own row as well,
+
+232
+00:10:42,730 --> 00:10:47,420
+helping them be much easier
+to click when using a phone.
+
+233
+00:10:47,420 --> 00:10:49,830
+In larger resolutions,
+like on our laptop,
+
+234
+00:10:49,830 --> 00:10:53,080
+the navigation looks exactly
+the same as when we started.
+
+235
+00:10:53,080 --> 00:10:56,390
+Hey, at least we
+didn't break anything.
+
+236
+00:10:56,390 --> 00:10:58,884
+And that's the end of
+level five, section one.
+
+237
+00:10:58,884 --> 00:11:00,300
+It's time for you
+to try your hand
+
+238
+00:11:00,300 --> 00:11:02,390
+at JavaScript components
+in the challenges.
+
+239
+00:11:02,390 --> 00:11:05,370
+And I'll see you
+back for section two.
+

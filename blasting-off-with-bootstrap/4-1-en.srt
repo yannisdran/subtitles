@@ -1,0 +1,623 @@
+﻿1
+00:00:00,499 --> 00:00:03,050
+[SINGING] Building websites
+is a breeze with the framework
+
+2
+00:00:03,050 --> 00:00:03,810
+as you please.
+
+3
+00:00:03,810 --> 00:00:06,710
+Easy as slicing cheese,
+with the tools such as these.
+
+4
+00:00:06,710 --> 00:00:09,970
+Structure pages quick.
+No CSS to make you sick.
+
+5
+00:00:09,970 --> 00:00:13,390
+Use the layout that you pick.
+Navigation helps you click.
+
+6
+00:00:13,390 --> 00:00:16,379
+Icon and buttons you can tap.
+Your containers close the gap.
+
+7
+00:00:16,379 --> 00:00:18,190
+Responsive gridding is a snap.
+
+8
+00:00:18,190 --> 00:00:24,072
+You'll be launching off the map,
+blasting off with Bootstrap.
+
+9
+00:00:24,072 --> 00:00:25,476
+Blasting Off with Bootstrap.
+
+10
+00:00:29,280 --> 00:00:31,920
+Welcome back to Blasting
+Off with Bootstrap.
+
+11
+00:00:31,920 --> 00:00:35,450
+This is level four, section one —
+Enough CSS to be Dangerous.
+
+12
+00:00:38,310 --> 00:00:39,720
+Our page is coming together.
+
+13
+00:00:39,720 --> 00:00:42,640
+But let's see what we can
+do to make it even better.
+
+14
+00:00:42,640 --> 00:00:45,350
+In this section, we'll
+add a dash of style
+
+15
+00:00:45,350 --> 00:00:47,520
+using more Bootstrap
+awesomeness.
+
+16
+00:00:47,520 --> 00:00:49,270
+To start out, we'll
+focus on what's
+
+17
+00:00:49,270 --> 00:00:52,960
+above the fold: our
+lead and these buttons,
+
+18
+00:00:52,960 --> 00:00:56,330
+which are kind of our main call
+to action on the entire page.
+
+19
+00:00:56,330 --> 00:00:58,041
+Let's see what we
+can do to encourage
+
+20
+00:00:58,041 --> 00:00:59,040
+people to click on them.
+
+21
+00:01:02,550 --> 00:01:05,580
+Here's the section of our page
+that we'll be looking at.
+
+22
+00:01:05,580 --> 00:01:09,970
+This row contains a header,
+our lead text, the buttons,
+
+23
+00:01:09,970 --> 00:01:13,700
+and that image that only shows
+up for those larger screens.
+
+24
+00:01:13,700 --> 00:01:18,270
+This entire row could stand
+out quite a bit more, though.
+
+25
+00:01:18,270 --> 00:01:20,190
+One way to make
+this stand out more
+
+26
+00:01:20,190 --> 00:01:23,170
+is to use Bootstrap's
+well class, which
+
+27
+00:01:23,170 --> 00:01:27,630
+will give it a nice inset effect
+to the entire element row.
+
+28
+00:01:27,630 --> 00:01:29,380
+If we check this out in the browser,
+
+29
+00:01:29,380 --> 00:01:32,200
+we'll see that there's a background on this element now,
+
+30
+00:01:32,200 --> 00:01:36,294
+but also a border with rounded corners around it.
+
+31
+00:01:36,294 --> 00:01:37,210
+It's not a bad change
+
+32
+00:01:37,210 --> 00:01:40,800
+for just adding one little class.
+
+33
+00:01:40,800 --> 00:01:43,020
+To make it stand
+out even more, we
+
+34
+00:01:43,020 --> 00:01:46,360
+could specify a bit more
+padding within the element
+
+35
+00:01:46,360 --> 00:01:49,350
+by adding a well-lg class to it.
+
+36
+00:01:49,350 --> 00:01:52,580
+The only thing this will do
+is add a touch more padding
+
+37
+00:01:52,580 --> 00:01:55,790
+within our element to
+make it slightly larger.
+
+38
+00:01:55,790 --> 00:01:58,170
+Since this is our main
+focus of the page,
+
+39
+00:01:58,170 --> 00:02:01,740
+using this well-lg class
+makes a lot of sense here.
+
+40
+00:02:01,740 --> 00:02:04,370
+Similarly, if part of our
+page needed a little bit
+
+41
+00:02:04,370 --> 00:02:08,550
+less padding, we could
+use the well-sm class
+
+42
+00:02:08,550 --> 00:02:13,460
+to decrease the amount of padding around the well.
+
+43
+00:02:13,460 --> 00:02:15,630
+We can open this up
+in a browser and see
+
+44
+00:02:15,630 --> 00:02:17,840
+that our section
+definitely stands out
+
+45
+00:02:17,840 --> 00:02:19,950
+much more than it did before.
+
+46
+00:02:19,950 --> 00:02:22,660
+The background color
+and rounded border
+
+47
+00:02:22,660 --> 00:02:25,140
+are a clean addition
+to our page.
+
+48
+00:02:25,140 --> 00:02:27,210
+Those buttons are
+starting to seem
+
+49
+00:02:27,210 --> 00:02:29,750
+like they don't
+belong on our page.
+
+50
+00:02:29,750 --> 00:02:31,320
+Kind of ugly, right?
+
+51
+00:02:31,320 --> 00:02:33,280
+Let's work on improving
+those guys next.
+
+52
+00:02:36,720 --> 00:02:40,090
+Here's the HTML for
+our buttons so far.
+
+53
+00:02:40,090 --> 00:02:43,090
+These are functional, but they
+will look slightly different
+
+54
+00:02:43,090 --> 00:02:44,530
+in all browsers.
+
+55
+00:02:44,530 --> 00:02:47,310
+In order to let Bootstrap
+style these buttons so
+
+56
+00:02:47,310 --> 00:02:49,590
+that they look the
+same for all browsers,
+
+57
+00:02:49,590 --> 00:02:53,860
+we'll need to add a class
+of btn to our buttons.
+
+58
+00:02:53,860 --> 00:02:56,870
+If you looked at them now,
+they look completely different.
+
+59
+00:02:56,870 --> 00:02:58,620
+They have some
+padding around them,
+
+60
+00:02:58,620 --> 00:03:00,930
+and there's this
+nice gray background.
+
+61
+00:03:00,930 --> 00:03:04,510
+However, nothing happens
+when you mouse over them,
+
+62
+00:03:04,510 --> 00:03:07,810
+making it really tough to tell
+if these buttons are working.
+
+63
+00:03:07,810 --> 00:03:09,630
+They're also a little
+bit small for being
+
+64
+00:03:09,630 --> 00:03:11,940
+such an important
+part of our page.
+
+65
+00:03:11,940 --> 00:03:15,160
+What can we do to fix that?
+
+66
+00:03:15,160 --> 00:03:18,710
+To increase their size, we can
+add another Bootstrap class
+
+67
+00:03:18,710 --> 00:03:23,580
+of btn-lg to both of
+these button elements.
+
+68
+00:03:23,580 --> 00:03:27,210
+This will cause these buttons
+to show up with a larger font
+
+69
+00:03:27,210 --> 00:03:30,030
+and add a little bit
+more padding to them.
+
+70
+00:03:30,030 --> 00:03:33,470
+There are a few other button
+sizes that we can use as well,
+
+71
+00:03:33,470 --> 00:03:36,230
+including btn-xs,
+btn-sm, and btn-lg.
+
+72
+00:03:36,230 --> 00:03:39,090
+These sizes should be
+a little bit familiar
+
+73
+00:03:39,090 --> 00:03:41,040
+because they're the
+same sizes that we
+
+74
+00:03:41,040 --> 00:03:42,560
+used for all of our grids.
+
+75
+00:03:42,560 --> 00:03:44,540
+The same way we
+started by designing
+
+76
+00:03:44,540 --> 00:03:48,140
+for medium-sized screens,
+that's the default for buttons
+
+77
+00:03:48,140 --> 00:03:49,030
+as well.
+
+78
+00:03:49,030 --> 00:03:51,460
+If you don't specify
+a button size,
+
+79
+00:03:51,460 --> 00:03:53,800
+you can assume it will
+just use the medium size.
+
+80
+00:03:53,800 --> 00:03:56,540
+One important thing
+here is that we're again
+
+81
+00:03:56,540 --> 00:03:59,340
+adding multiple
+classes to our button.
+
+82
+00:03:59,340 --> 00:04:02,030
+This is similar to how we
+added multiple classes when
+
+83
+00:04:02,030 --> 00:04:04,520
+we were working with
+glyphicons earlier.
+
+84
+00:04:04,520 --> 00:04:08,140
+Each additional class adds
+unique style to our buttons,
+
+85
+00:04:08,140 --> 00:04:11,220
+combining them to create
+our intended appearance.
+
+86
+00:04:11,220 --> 00:04:14,040
+Gray buttons that
+don't change colors
+
+87
+00:04:14,040 --> 00:04:16,149
+don't do much for
+the imagination.
+
+88
+00:04:16,149 --> 00:04:18,850
+Let's go ahead and add some
+additional button classes
+
+89
+00:04:18,850 --> 00:04:21,190
+to specify a color for
+both of our buttons.
+
+90
+00:04:23,720 --> 00:04:26,140
+For our Take the
+Tour button, we're
+
+91
+00:04:26,140 --> 00:04:31,040
+going to use the btn-default
+class, indicating
+
+92
+00:04:31,040 --> 00:04:33,240
+that this is a normal
+button on our page
+
+93
+00:04:33,240 --> 00:04:35,380
+without any additional
+meaning to it.
+
+94
+00:04:35,380 --> 00:04:38,240
+Our Book Tickets Now
+button, though, well, that's
+
+95
+00:04:38,240 --> 00:04:40,700
+actually the primary
+action on our page
+
+96
+00:04:40,700 --> 00:04:44,120
+that we want everyone to click
+when they come to our site.
+
+97
+00:04:44,120 --> 00:04:48,560
+For that one, we'll add a
+class of btn-primary to it.
+
+98
+00:04:48,560 --> 00:04:51,180
+Now if we check these
+out in the browser,
+
+99
+00:04:51,180 --> 00:04:54,630
+we'll see the Tour button
+has this white background,
+
+100
+00:04:54,630 --> 00:04:57,250
+while the Book Tickets
+Now button adds
+
+101
+00:04:57,250 --> 00:05:00,280
+the first real touch of
+color to our page, which
+
+102
+00:05:00,280 --> 00:05:02,270
+will immediately
+draw attention to it.
+
+103
+00:05:02,270 --> 00:05:05,380
+We're not limited to white
+and blue button backgrounds,
+
+104
+00:05:05,380 --> 00:05:06,310
+though.
+
+105
+00:05:06,310 --> 00:05:08,610
+Bootstrap provides a
+handful of other colors
+
+106
+00:05:08,610 --> 00:05:09,970
+that we can work with.
+
+107
+00:05:09,970 --> 00:05:13,350
+These button styles aren't
+characterized by their colors,
+
+108
+00:05:13,350 --> 00:05:15,800
+but rather based
+on their intention.
+
+109
+00:05:15,800 --> 00:05:17,930
+For instance, if you had
+a button on your page
+
+110
+00:05:17,930 --> 00:05:20,920
+to launch RocketBus,
+we probably want
+
+111
+00:05:20,920 --> 00:05:24,510
+it to use the btn-danger
+class because that
+
+112
+00:05:24,510 --> 00:05:26,780
+is a potentially
+dangerous action.
+
+113
+00:05:26,780 --> 00:05:29,680
+Likewise, if you wanted
+people to feel comfortable
+
+114
+00:05:29,680 --> 00:05:34,190
+placing an order, we might
+add a btn-success class
+
+115
+00:05:34,190 --> 00:05:36,120
+to our Form Submit.
+
+116
+00:05:36,120 --> 00:05:38,132
+Alright, we've done
+a few cool things.
+
+117
+00:05:38,132 --> 00:05:39,590
+Let's check out
+what our page looks
+
+118
+00:05:39,590 --> 00:05:42,150
+like in a few
+different resolutions.
+
+119
+00:05:42,150 --> 00:05:44,500
+Well, you can see
+that in small mode,
+
+120
+00:05:44,500 --> 00:05:46,750
+our well is attractive
+and stands out
+
+121
+00:05:46,750 --> 00:05:49,260
+and our buttons look plenty
+big to draw attention.
+
+122
+00:05:49,260 --> 00:05:51,900
+Additionally, if we
+shrink the browser down
+
+123
+00:05:51,900 --> 00:05:55,560
+to extra-small mode, the
+well stretches all the way
+
+124
+00:05:55,560 --> 00:05:59,340
+across the page without
+that same white background
+
+125
+00:05:59,340 --> 00:06:02,850
+showing on each side of it.
+
+126
+00:06:02,850 --> 00:06:06,580
+And so you've reached
+the end of this section.
+
+127
+00:06:06,580 --> 00:06:08,080
+It's time for you
+to see if you know
+
+128
+00:06:08,080 --> 00:06:11,000
+enough CSS to be dangerous
+in the challenges.
+
+129
+00:06:11,000 --> 00:06:13,890
+And I'll see you
+back in section two.
+
