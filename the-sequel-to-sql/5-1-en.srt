@@ -1,0 +1,438 @@
+﻿1
+00:00:00,500 --> 00:00:03,210
+[SINGING] So you learned
+your database ABCs —
+
+2
+00:00:03,210 --> 00:00:05,440
+more than foreign
+and primary keys.
+
+3
+00:00:05,440 --> 00:00:07,380
+Aggregate functions
+you'll wax within —
+
+4
+00:00:07,380 --> 00:00:09,180
+they're count, sum,
+average, max, and min.
+
+5
+00:00:09,180 --> 00:00:11,400
+Make it sleek,
+add a few constraints
+
+6
+00:00:11,400 --> 00:00:13,410
+to stop unique
+and null complaints.
+
+7
+00:00:13,410 --> 00:00:15,450
+Use check, joins, and
+a few subqueries.
+
+8
+00:00:15,450 --> 00:00:17,860
+The Sequel to SQL
+is the bee's knees.
+
+9
+00:00:24,210 --> 00:00:25,922
+You're watching
+The Sequel to SQL.
+
+10
+00:00:25,922 --> 00:00:27,630
+And this is level
+five, where we're gonna
+
+11
+00:00:27,630 --> 00:00:29,026
+be talking about subqueries.
+
+12
+00:00:31,492 --> 00:00:33,200
+Here you can see we're
+back in our Movies
+
+13
+00:00:33,200 --> 00:00:35,690
+table with a sales column.
+
+14
+00:00:35,690 --> 00:00:37,870
+And our Promotions
+table, notice it
+
+15
+00:00:37,870 --> 00:00:40,250
+has a foreign key of
+movie_id, so each
+
+16
+00:00:40,250 --> 00:00:43,430
+promotion belongs
+to one movie.
+
+17
+00:00:43,430 --> 00:00:46,840
+We want to try to find
+the sum of all sales
+
+18
+00:00:46,840 --> 00:00:52,030
+for movies that are showing
+as a non-cash promotion.
+
+19
+00:00:52,030 --> 00:00:56,110
+So how might we
+write this query?
+
+20
+00:00:56,110 --> 00:00:58,430
+Let's break this
+down step by step.
+
+21
+00:00:58,430 --> 00:01:01,685
+First, we need to query
+for the promotions that
+
+22
+00:01:01,685 --> 00:01:07,020
+have category equal to non-cash
+and return the movie_id,
+
+23
+00:01:07,020 --> 00:01:08,910
+like you see here.
+
+24
+00:01:08,910 --> 00:01:11,515
+We're going to call
+this our inner query.
+
+25
+00:01:15,990 --> 00:01:18,420
+We can take the results
+of our inner query
+
+26
+00:01:18,420 --> 00:01:21,220
+and feed them into
+an outer query
+
+27
+00:01:21,220 --> 00:01:23,790
+to find the sum of all sales.
+
+28
+00:01:23,790 --> 00:01:27,320
+So notice here, we write,
+select sum sales from Movies,
+
+29
+00:01:27,320 --> 00:01:31,900
+where id in, and then
+put in our inner query.
+
+30
+00:01:31,900 --> 00:01:35,670
+Notice it's surrounded
+by parentheses.
+
+31
+00:01:35,670 --> 00:01:40,447
+This is called a subquery
+because it's inside
+
+32
+00:01:40,447 --> 00:01:41,155
+of another query.
+
+33
+00:01:44,430 --> 00:01:47,400
+When we execute this query,
+it does what you probably
+
+34
+00:01:47,400 --> 00:01:48,470
+think it does.
+
+35
+00:01:48,470 --> 00:01:51,520
+It runs the inner query
+first, gets a result —
+
+36
+00:01:51,520 --> 00:01:54,500
+in this case, 1 and
+4 — and then it runs
+
+37
+00:01:54,500 --> 00:02:03,340
+the outer query, returning
+a result of 95,000.
+
+38
+00:02:03,340 --> 00:02:05,770
+You might be wondering,
+this is cool and all
+
+39
+00:02:05,770 --> 00:02:07,990
+that you can do
+this subquery thing,
+
+40
+00:02:07,990 --> 00:02:10,410
+but couldn't we do
+this with a join?
+
+41
+00:02:10,410 --> 00:02:11,760
+We just learned joins.
+
+42
+00:02:11,760 --> 00:02:13,960
+And you would be correct.
+
+43
+00:02:13,960 --> 00:02:17,880
+In this particular instance,
+we could rewrite this subquery
+
+44
+00:02:17,880 --> 00:02:20,180
+as a join, like
+so, where we have
+
+45
+00:02:20,180 --> 00:02:24,910
+select sum sales from
+Movies, inner join Promotions,
+
+46
+00:02:24,910 --> 00:02:28,220
+on the ids, where category
+is equal to non-cash.
+
+47
+00:02:28,220 --> 00:02:31,460
+And we would get
+the same result.
+
+48
+00:02:31,460 --> 00:02:34,960
+The difference here
+is simply preference.
+
+49
+00:02:34,960 --> 00:02:38,847
+The subquery is easier to
+read, whereas the join query,
+
+50
+00:02:38,847 --> 00:02:40,930
+in the long run, it's going
+to be more performant.
+
+51
+00:02:44,290 --> 00:02:47,480
+There's lots of different
+syntax for doing subqueries.
+
+52
+00:02:47,480 --> 00:02:50,050
+And we're just going
+to focus on two.
+
+53
+00:02:50,050 --> 00:02:55,170
+The first is where we use in —
+just like we saw a minute ago —
+
+54
+00:02:55,170 --> 00:02:56,720
+to filter rows that
+have a matching
+
+55
+00:02:56,720 --> 00:02:58,700
+id from the inner query.
+
+56
+00:02:58,700 --> 00:03:01,740
+Or we could do not in,
+which will filter rows
+
+57
+00:03:01,740 --> 00:03:06,010
+that don't have a matching id.
+
+58
+00:03:06,010 --> 00:03:07,650
+Let's take a look at
+a subquery that we
+
+59
+00:03:07,650 --> 00:03:09,790
+couldn't reproduce as a join.
+
+60
+00:03:09,790 --> 00:03:11,850
+Here we have our
+Movies table and we've
+
+61
+00:03:11,850 --> 00:03:13,770
+got the duration column.
+
+62
+00:03:13,770 --> 00:03:16,100
+What if we wanted to
+find only films that
+
+63
+00:03:16,100 --> 00:03:20,900
+have a duration greater than the
+average duration of all films?
+
+64
+00:03:20,900 --> 00:03:24,080
+You might think you could write
+a query like this — select star
+
+65
+00:03:24,080 --> 00:03:26,530
+from Movies, where
+duration is greater
+
+66
+00:03:26,530 --> 00:03:28,940
+than the average duration.
+
+67
+00:03:28,940 --> 00:03:31,940
+Running this query, the
+database with return an error:
+
+68
+00:03:31,940 --> 00:03:35,410
+"Aggregate functions are
+not allowed in where."
+
+69
+00:03:35,410 --> 00:03:37,650
+So, the right
+solution here will be
+
+70
+00:03:37,650 --> 00:03:39,565
+to use a correlated subquery.
+
+71
+00:03:42,730 --> 00:03:45,960
+First, we'll write our inner
+query — select average 
+
+72
+00:03:45,960 --> 00:03:48,790
+duration from Movies.
+
+73
+00:03:48,790 --> 00:03:51,460
+Then, we need to feed that
+into our outer query —
+
+74
+00:03:51,460 --> 00:03:55,000
+in this case, select star from
+Movies, where duration greater
+
+75
+00:03:55,000 --> 00:03:58,910
+than the return value
+from our inner query.
+
+76
+00:03:58,910 --> 00:04:01,390
+Both queries depend
+on each other's values
+
+77
+00:04:01,390 --> 00:04:06,750
+to return a correct result. That
+makes it a correlated subquery.
+
+78
+00:04:06,750 --> 00:04:09,524
+And it returns Robin
+Hood, the only movie
+
+79
+00:04:09,524 --> 00:04:11,190
+that has a higher
+than average duration.
+
+80
+00:04:13,760 --> 00:04:15,307
+Subqueries can be
+a little tricky.
+
+81
+00:04:15,307 --> 00:04:17,390
+So you're going to go
+straight into the challenges
+
+82
+00:04:17,390 --> 00:04:19,500
+and play around with them.
+
+83
+00:04:19,500 --> 00:04:21,410
+And I'll see you
+in the outro video.
+
+84
+00:04:21,410 --> 00:04:23,040
+Meanwhile, I'm going
+to go watch Once
+
+85
+00:04:23,040 --> 00:04:27,390
+Upon a Timestamp, with
+Cary Privilege Grant.
+
+86
+00:04:27,390 --> 00:04:29,460
+Right now — here I go.
+
+87
+00:04:29,460 --> 00:04:32,595
+Go to the challenges —
+really. I'm going already.
+
+88
+00:04:35,670 --> 00:04:36,649
+I think so.
+
+89
+00:04:36,649 --> 00:04:37,440
+I think it's right.
+
+90
+00:04:37,440 --> 00:04:37,939
+I said it.
+
+91
+00:04:37,939 --> 00:04:40,070
+Therefore, I am right.
+
+92
+00:04:40,070 --> 00:04:41,910
+Not really.
+

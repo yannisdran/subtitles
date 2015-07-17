@@ -1,0 +1,237 @@
+﻿1
+00:00:02,050 --> 00:00:04,770
+Before we get all
+crazy with more joins,
+
+2
+00:00:04,770 --> 00:00:07,100
+we're going to talk a
+little bit about aliases.
+
+3
+00:00:07,100 --> 00:00:11,210
+Because it'll make writing
+joins a little easier.
+
+4
+00:00:11,210 --> 00:00:13,210
+Here's our current
+movie review inner
+
+5
+00:00:13,210 --> 00:00:15,180
+join that we were
+just working with.
+
+6
+00:00:15,180 --> 00:00:17,880
+And here's the output
+that we received.
+
+7
+00:00:17,880 --> 00:00:20,970
+Now, notice these
+column headers, here.
+
+8
+00:00:20,970 --> 00:00:23,030
+We have title and review.
+
+9
+00:00:23,030 --> 00:00:26,390
+What if we wanted to
+change those titles?
+
+10
+00:00:26,390 --> 00:00:29,020
+How would we do that?
+
+11
+00:00:29,020 --> 00:00:32,570
+By using a column alias, we can
+define these column headers.
+
+12
+00:00:32,570 --> 00:00:35,750
+We can say,
+Movies.title AS films —
+
+13
+00:00:35,750 --> 00:00:39,790
+and Reviews.review AS
+reviews — and it'll
+
+14
+00:00:39,790 --> 00:00:42,360
+print out more
+understandable headers,
+
+15
+00:00:42,360 --> 00:00:45,670
+as you can see here,
+with films and reviews.
+
+16
+00:00:48,980 --> 00:00:52,910
+We can simplify this further
+by simply dropping the "as"
+
+17
+00:00:52,910 --> 00:00:57,430
+and just specifying films and
+reviews — works just the same.
+
+18
+00:01:00,050 --> 00:01:03,520
+Sometimes, we might want to
+use multiple words as an alias,
+
+19
+00:01:03,520 --> 00:01:06,600
+in this case, weekly
+movies or weekly reviews.
+
+20
+00:01:06,600 --> 00:01:08,700
+In which case, we just
+need to enclose them
+
+21
+00:01:08,700 --> 00:01:10,431
+in some quotation marks.
+
+22
+00:01:10,431 --> 00:01:12,180
+And here's what our
+result will look like.
+
+23
+00:01:18,590 --> 00:01:20,740
+After a while, it
+gets kind of verbose
+
+24
+00:01:20,740 --> 00:01:23,850
+having to type an entire
+table name every time
+
+25
+00:01:23,850 --> 00:01:27,770
+you want to specify a column
+on that table or order
+
+26
+00:01:27,770 --> 00:01:29,700
+by on that table.
+
+27
+00:01:29,700 --> 00:01:31,930
+That's where table
+aliases come in.
+
+28
+00:01:34,850 --> 00:01:37,780
+Table aliases allow
+you to do just that.
+
+29
+00:01:37,780 --> 00:01:41,650
+We can set an alias of
+"m" for the Movies table
+
+30
+00:01:41,650 --> 00:01:44,660
+by just saying,
+from Movies m. Then
+
+31
+00:01:44,660 --> 00:01:46,850
+every other place in the
+query where we would need
+
+32
+00:01:46,850 --> 00:01:48,660
+to reference the
+Movies table name,
+
+33
+00:01:48,660 --> 00:01:52,840
+we can just write m.
+M.title, m.id,
+
+34
+00:01:52,840 --> 00:01:55,090
+and then m.title
+down at the bottom.
+
+35
+00:01:58,000 --> 00:02:01,280
+Table aliases can be used on
+tables even outside of the
+
+36
+00:02:01,280 --> 00:02:02,660
+from clause.
+
+37
+00:02:02,660 --> 00:02:07,250
+So back with our inner join,
+we can specify the alias of "r"
+
+38
+00:02:07,250 --> 00:02:12,530
+for our Reviews table and then
+use that r alias elsewhere
+
+39
+00:02:12,530 --> 00:02:13,610
+in our query.
+
+40
+00:02:13,610 --> 00:02:16,480
+As you can see, the query has
+become a lot less verbose.
+
+41
+00:02:20,960 --> 00:02:24,490
+Remember this crazy inner
+join from the last section?
+
+42
+00:02:24,490 --> 00:02:28,020
+Let's apply table
+aliases to this query
+
+43
+00:02:28,020 --> 00:02:29,270
+and see how it changes it.
+
+44
+00:02:32,130 --> 00:02:34,250
+You can see it's
+a lot shorter now.
+
+45
+00:02:34,250 --> 00:02:38,120
+We have three different
+aliases: m for the Movies table,
+
+46
+00:02:38,120 --> 00:02:42,420
+mg for the Movies_Genres table,
+and g for the Genres table.
+
+47
+00:02:45,760 --> 00:02:47,990
+It's time for you to play
+around with some aliases
+
+48
+00:02:47,990 --> 00:02:49,380
+in the challenges.
+
+49
+00:02:49,380 --> 00:02:54,050
+Meanwhile, I'm going to go catch
+Humphrey Bigint in Datablanca.
+

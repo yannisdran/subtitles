@@ -1,0 +1,572 @@
+﻿1
+00:00:00,500 --> 00:00:03,250
+[SINGING] So you learned
+your database ABCs —
+
+2
+00:00:03,250 --> 00:00:05,440
+more than foreign
+and primary keys.
+
+3
+00:00:05,440 --> 00:00:07,250
+Aggregate functions
+you'll wax within —
+
+4
+00:00:07,250 --> 00:00:09,700
+they're count, sum,
+average, max, and min.
+
+5
+00:00:09,700 --> 00:00:11,400
+Make it sleek,
+add a few constraints
+
+6
+00:00:11,400 --> 00:00:13,410
+to stop unique
+and null complaints.
+
+7
+00:00:13,410 --> 00:00:15,450
+Use check, joins,
+and a few subqueries.
+
+8
+00:00:15,450 --> 00:00:19,500
+The Sequel to SQL
+is the bee's knees.
+
+9
+00:00:24,260 --> 00:00:25,754
+You're watching
+The Sequel to SQL.
+
+10
+00:00:25,754 --> 00:00:27,170
+And this is level
+two, where we're
+
+11
+00:00:27,170 --> 00:00:29,670
+going to be taking a
+look at constraints.
+
+12
+00:00:29,670 --> 00:00:33,170
+You know when you have the tools
+to insert millions of rows
+
+13
+00:00:33,170 --> 00:00:34,890
+of data into your table.
+
+14
+00:00:34,890 --> 00:00:38,450
+But how do you prevent
+bad or unwanted data
+
+15
+00:00:38,450 --> 00:00:39,890
+from getting in there?
+
+16
+00:00:39,890 --> 00:00:42,760
+This is where
+constraints come in.
+
+17
+00:00:42,760 --> 00:00:46,640
+Here's the SQL we would use
+to create the Promotions table.
+
+18
+00:00:46,640 --> 00:00:48,640
+And with the creation of
+this table, if we then
+
+19
+00:00:48,640 --> 00:00:51,690
+go to insert a row,
+you might notice
+
+20
+00:00:51,690 --> 00:00:56,510
+that we can insert a row which
+has a null name value, which
+
+21
+00:00:56,510 --> 00:00:57,470
+is bad.
+
+22
+00:00:57,470 --> 00:01:02,159
+We need to make sure that our
+promotions always have a name.
+
+23
+00:01:02,159 --> 00:01:03,200
+And how might we do that?
+
+24
+00:01:06,050 --> 00:01:09,690
+We can do this using
+the not null constraint.
+
+25
+00:01:09,690 --> 00:01:12,750
+So we modify our
+create table syntax
+
+26
+00:01:12,750 --> 00:01:16,130
+and specify not null
+on the name column.
+
+27
+00:01:16,130 --> 00:01:19,640
+Then when we go to insert
+into the Promotions table,
+
+28
+00:01:19,640 --> 00:01:21,700
+without the name,
+our database is
+
+29
+00:01:21,700 --> 00:01:23,880
+going to throw back an
+error letting us know
+
+30
+00:01:23,880 --> 00:01:25,980
+we're not allowed to do that.
+
+31
+00:01:25,980 --> 00:01:27,670
+Thumbs up, this is a good error.
+
+32
+00:01:27,670 --> 00:01:30,420
+We wanted this to happen
+to prevent bad data
+
+33
+00:01:30,420 --> 00:01:31,560
+from getting in our table.
+
+34
+00:01:34,320 --> 00:01:36,855
+As you can see, the default
+behavior of our database
+
+35
+00:01:36,855 --> 00:01:39,280
+is very permissive.
+
+36
+00:01:39,280 --> 00:01:42,460
+This is why sometimes
+we use constraints.
+
+37
+00:01:42,460 --> 00:01:46,470
+Constraints can help us prevent
+null values, like we just saw.
+
+38
+00:01:46,470 --> 00:01:49,520
+It can ensure column
+values are unique.
+
+39
+00:01:49,520 --> 00:01:53,010
+And lastly, they can provide
+additional validations,
+
+40
+00:01:53,010 --> 00:01:55,930
+which we'll get into.
+
+41
+00:01:55,930 --> 00:01:58,430
+So here we are back in
+our Promotions table.
+
+42
+00:01:58,430 --> 00:02:03,250
+And you can see we already have
+a promotion called matinee.
+
+43
+00:02:03,250 --> 00:02:06,110
+Now, if we insert
+another promotion,
+
+44
+00:02:06,110 --> 00:02:08,030
+we can actually create
+another promotion
+
+45
+00:02:08,030 --> 00:02:12,120
+that also has that same name
+of matinee, which isn't good.
+
+46
+00:02:12,120 --> 00:02:14,960
+We want to prevent
+those duplicate values.
+
+47
+00:02:14,960 --> 00:02:18,610
+And the database behavior, by
+default, doesn't prevent that.
+
+48
+00:02:21,190 --> 00:02:24,180
+By using the unique
+column constraint,
+
+49
+00:02:24,180 --> 00:02:26,530
+we can prevent duplicate values.
+
+50
+00:02:26,530 --> 00:02:29,160
+So now, when we insert
+into Promotions,
+
+51
+00:02:29,160 --> 00:02:32,130
+it will properly
+send back an error.
+
+52
+00:02:32,130 --> 00:02:36,230
+Now, all the values in the
+name column must be unique.
+
+53
+00:02:36,230 --> 00:02:39,820
+As you might have noticed, we
+can use multiple constraints
+
+54
+00:02:39,820 --> 00:02:41,340
+per column.
+
+55
+00:02:41,340 --> 00:02:44,455
+In this case, name has
+both not null and unique.
+
+56
+00:02:47,680 --> 00:02:50,310
+If we take a closer look
+at this error message,
+
+57
+00:02:50,310 --> 00:02:52,570
+it says, "duplicate
+key value violates
+
+58
+00:02:52,570 --> 00:02:56,920
+unique constraint
+'promotions_name_key.'"
+
+59
+00:02:57,160 --> 00:03:00,170
+This is the constraint
+name automatically assigned
+
+60
+00:03:00,170 --> 00:03:03,870
+by the database.
+
+61
+00:03:03,870 --> 00:03:05,950
+But sometimes, we
+might want to define
+
+62
+00:03:05,950 --> 00:03:07,790
+the name of our constraint.
+
+63
+00:03:07,790 --> 00:03:10,570
+It'll make it easier
+to alter it later.
+
+64
+00:03:10,570 --> 00:03:14,590
+We can do this by assigning
+a unique table constraint.
+
+65
+00:03:14,590 --> 00:03:17,050
+The syntax to create
+one looks like this.
+
+66
+00:03:17,050 --> 00:03:20,550
+We specify constraint; our
+custom name, which in this case
+
+67
+00:03:20,550 --> 00:03:24,290
+is unique name; the constraint
+we want to apply, in this case,
+
+68
+00:03:24,290 --> 00:03:30,020
+unique; and then the target
+column, in this case, name.
+
+69
+00:03:30,020 --> 00:03:33,380
+Now if we try to insert a
+duplicate promotion name,
+
+70
+00:03:33,380 --> 00:03:35,590
+we get back the
+same error message.
+
+71
+00:03:35,590 --> 00:03:39,180
+But this time it uses the name
+we specified — unique name.
+
+72
+00:03:42,649 --> 00:03:44,440
+Let's take a look at
+the two different ways
+
+73
+00:03:44,440 --> 00:03:48,500
+we can create a unique
+constraint on our name column.
+
+74
+00:03:48,500 --> 00:03:51,190
+On the bottom, you can
+see our table constraint.
+
+75
+00:03:51,190 --> 00:03:54,820
+And on the top, like before,
+is our column constraint.
+
+76
+00:03:54,820 --> 00:03:57,080
+These create the same behavior.
+
+77
+00:03:57,080 --> 00:03:59,810
+Except for not null,
+every column constraint
+
+78
+00:03:59,810 --> 00:04:02,880
+can also be written
+as a table constraint.
+
+79
+00:04:02,880 --> 00:04:05,920
+So we couldn't use the
+table constraint syntax
+
+80
+00:04:05,920 --> 00:04:08,490
+and say not null before unique.
+
+81
+00:04:08,490 --> 00:04:09,450
+It just wouldn't work.
+
+82
+00:04:12,400 --> 00:04:15,990
+What if it was okay to have a
+promotion with the same name?
+
+83
+00:04:15,990 --> 00:04:18,089
+But we would never
+want a promotion
+
+84
+00:04:18,089 --> 00:04:22,730
+with both the same name
+and the same category.
+
+85
+00:04:22,730 --> 00:04:25,820
+Could we make that unique?
+
+86
+00:04:25,820 --> 00:04:30,000
+Well, you can specify any
+number of columns inside your
+
+87
+00:04:30,000 --> 00:04:31,030
+unique constraint.
+
+88
+00:04:31,030 --> 00:04:35,370
+In this case, we can
+specify name comma category.
+
+89
+00:04:35,370 --> 00:04:37,960
+And now, if we try to
+insert into the Promotions
+
+90
+00:04:37,960 --> 00:04:40,910
+table a row with
+both the same name
+
+91
+00:04:40,910 --> 00:04:44,100
+and category — in this case,
+half off and discount —
+
+92
+00:04:44,100 --> 00:04:45,870
+it's not going to
+let us because it
+
+93
+00:04:45,870 --> 00:04:48,880
+matches both the name and
+category with an existing
+
+94
+00:04:48,880 --> 00:04:49,380
+record.
+
+95
+00:04:52,880 --> 00:04:54,940
+In a relational database,
+it's recommended
+
+96
+00:04:54,940 --> 00:04:58,990
+that every table have
+something called a primary key.
+
+97
+00:04:58,990 --> 00:05:02,250
+Usually, this is the id column.
+
+98
+00:05:02,250 --> 00:05:07,790
+And primary keys are important
+to be both unique and not null.
+
+99
+00:05:07,790 --> 00:05:10,120
+So this, here, this
+wouldn't be good.
+
+100
+00:05:13,450 --> 00:05:16,860
+By adding the primary key
+constraint to our id column,
+
+101
+00:05:16,860 --> 00:05:22,100
+it means that IDs cannot be
+null and they must be unique.
+
+102
+00:05:24,840 --> 00:05:26,640
+So now, if we try to
+insert a promotion
+
+103
+00:05:26,640 --> 00:05:29,090
+with the same id of one
+that already exists,
+
+104
+00:05:29,090 --> 00:05:31,400
+it's going to give us an
+error message that tells us
+
+105
+00:05:31,400 --> 00:05:33,830
+we violated the
+unique constraint
+
+106
+00:05:33,830 --> 00:05:35,310
+on our primary key column.
+
+107
+00:05:37,950 --> 00:05:42,640
+Similarly, if we try to insert
+a promotion without an ID,
+
+108
+00:05:42,640 --> 00:05:45,730
+it's going to tell us that
+the null value in column ID
+
+109
+00:05:45,730 --> 00:05:47,480
+violates our not
+null constraint.
+
+110
+00:05:50,890 --> 00:05:53,590
+You might be wondering, what
+is the difference between using
+
+111
+00:05:53,590 --> 00:05:58,430
+a primary key constraint and a
+not null and unique constraint,
+
+112
+00:05:58,430 --> 00:06:01,100
+because they kind of
+have the same behavior.
+
+113
+00:06:01,100 --> 00:06:03,390
+And that is, that a
+primary key can only
+
+114
+00:06:03,390 --> 00:06:05,840
+be defined once per table,
+
+115
+00:06:05,840 --> 00:06:09,070
+while multiple
+columns on a table
+
+116
+00:06:09,070 --> 00:06:13,710
+can have a not null and unique
+constraint, like you see here.
+
+117
+00:06:16,500 --> 00:06:20,250
+Time for you to have fun with
+constraints in the challenges.
+
+118
+00:06:20,250 --> 00:06:22,870
+And don't forget to see the new
+movie coming from Code School,
+
+119
+00:06:22,870 --> 00:06:25,530
+You Only Truncate Once.
+

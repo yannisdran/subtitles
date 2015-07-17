@@ -1,0 +1,455 @@
+﻿1
+00:00:00,000 --> 00:00:03,130
+[SINGING] So you learned
+your database ABCs —
+
+2
+00:00:03,130 --> 00:00:05,440
+more than foreign
+and primary keys.
+
+3
+00:00:05,440 --> 00:00:07,330
+Aggregate functions
+you'll wax within —
+
+4
+00:00:07,330 --> 00:00:09,180
+they're count, sum,
+average, max, and min.
+
+5
+00:00:09,180 --> 00:00:11,070
+Make it sleek,
+add a few constraints
+
+6
+00:00:11,070 --> 00:00:13,410
+to stop unique
+and null complaints.
+
+7
+00:00:13,410 --> 00:00:15,450
+Use check, joins, and
+a few subqueries.
+
+8
+00:00:15,450 --> 00:00:17,480
+The Sequel to SQL
+is the bee's knees.
+
+9
+00:00:24,160 --> 00:00:26,810
+You're watching Sequel to
+SQL. I'm Gregg Pollack,
+
+10
+00:00:26,810 --> 00:00:28,420
+and this is level
+four, where we're going
+
+11
+00:00:28,420 --> 00:00:32,009
+to be talking all about
+joining tables together,
+
+12
+00:00:32,009 --> 00:00:35,391
+starting with inner joins.
+
+13
+00:00:35,391 --> 00:00:37,720
+Here you can see we
+have our Movies table
+
+14
+00:00:37,720 --> 00:00:39,790
+and our Reviews table.
+
+15
+00:00:39,790 --> 00:00:42,670
+Now, how would we
+get a list of reviews
+
+16
+00:00:42,670 --> 00:00:46,470
+and then get all of the
+associated movie titles?
+
+17
+00:00:46,470 --> 00:00:48,550
+We'd have to write two queries.
+
+18
+00:00:48,550 --> 00:00:53,780
+First, we would select the
+review text and the movie_id
+
+19
+00:00:53,780 --> 00:00:56,290
+from the Reviews table.
+
+20
+00:00:56,290 --> 00:00:59,680
+We would take the
+movie_ids that were returned,
+
+21
+00:00:59,680 --> 00:01:01,940
+and use that to get the
+titles from the Movies
+
+22
+00:01:01,940 --> 00:01:09,370
+table with select title from
+Movies where id in 1, 3, 4.
+
+23
+00:01:09,370 --> 00:01:10,860
+This will get us what we want.
+
+24
+00:01:10,860 --> 00:01:15,175
+But there's a way to get
+this data using one query.
+
+25
+00:01:18,730 --> 00:01:22,020
+But how would we visualize
+the data that we want here?
+
+26
+00:01:22,020 --> 00:01:24,060
+We're looking for
+all the records
+
+27
+00:01:24,060 --> 00:01:27,800
+that have a match
+in both tables.
+
+28
+00:01:27,800 --> 00:01:29,890
+So if you look at
+this diagram here,
+
+29
+00:01:29,890 --> 00:01:31,820
+we have some movies
+that aren't associated
+
+30
+00:01:31,820 --> 00:01:35,520
+with reviews and some reviews
+that don't have movies.
+
+31
+00:01:35,520 --> 00:01:37,810
+And we want the
+ones in the middle,
+
+32
+00:01:37,810 --> 00:01:39,835
+in the inner part of
+those two circles.
+
+33
+00:01:42,580 --> 00:01:44,430
+To get this information,
+we have to write
+
+34
+00:01:44,430 --> 00:01:48,390
+some SQL code that joins
+these two tables together.
+
+35
+00:01:48,390 --> 00:01:50,620
+The movie_id column
+in our Reviews table
+
+36
+00:01:50,620 --> 00:01:51,820
+is the foreign key.
+
+37
+00:01:51,820 --> 00:01:54,340
+And of course that relates
+back to the id column
+
+38
+00:01:54,340 --> 00:01:55,350
+in the Movies table.
+
+39
+00:01:57,970 --> 00:02:00,680
+Using the inner join clause,
+
+40
+00:02:00,680 --> 00:02:04,440
+we'll write select
+star from Movies,
+
+41
+00:02:04,440 --> 00:02:12,360
+inner join Reviews on Movies_id
+equals Reviews.movie_id.
+
+42
+00:02:12,360 --> 00:02:15,480
+So inner join tells it
+what table to join with.
+
+43
+00:02:15,480 --> 00:02:18,380
+And then the second line
+right after that tells it
+
+44
+00:02:18,380 --> 00:02:24,370
+how to join those two tables
+using that foreign key.
+
+45
+00:02:24,370 --> 00:02:26,026
+Here's what the result
+might look like.
+
+46
+00:02:26,026 --> 00:02:27,650
+You can see in the
+middle it matched up
+
+47
+00:02:27,650 --> 00:02:29,680
+the primary key of
+the Movies table
+
+48
+00:02:29,680 --> 00:02:33,330
+with the foreign key in the
+Reviews table, the movie_id,
+
+49
+00:02:33,330 --> 00:02:35,350
+those are all matched
+as we expected.
+
+50
+00:02:35,350 --> 00:02:37,020
+Also notice that
+the Don Juan movie
+
+51
+00:02:37,020 --> 00:02:42,010
+is listed three times because
+it has three different reviews.
+
+52
+00:02:42,010 --> 00:02:45,380
+And notice that movie
+number 2, Peter Pan,
+
+53
+00:02:45,380 --> 00:02:48,750
+is not here, since it does
+not have a matching review.
+
+54
+00:02:51,500 --> 00:02:53,610
+It's worth noting
+that with inner joins,
+
+55
+00:02:53,610 --> 00:02:56,660
+we can write this query
+in two different ways.
+
+56
+00:02:56,660 --> 00:03:00,350
+We can do from Movies,
+inner join Reviews.
+
+57
+00:03:00,350 --> 00:03:05,370
+And we can also do from
+Reviews, inner join Movies.
+
+58
+00:03:05,370 --> 00:03:07,040
+And it's going to
+return the same thing.
+
+59
+00:03:07,040 --> 00:03:11,160
+Because both ways, we're
+talking about the reviews
+
+60
+00:03:11,160 --> 00:03:14,350
+that have movies or the
+movies that have reviews.
+
+61
+00:03:14,350 --> 00:03:16,535
+So the overlapping
+part of the circles.
+
+62
+00:03:19,470 --> 00:03:21,110
+In reality, we
+probably don't want
+
+63
+00:03:21,110 --> 00:03:24,160
+to get all the data
+from both tables.
+
+64
+00:03:24,160 --> 00:03:27,250
+In this case, we want
+the movie's title
+
+65
+00:03:27,250 --> 00:03:31,010
+and we want the review column
+from the Reviews table.
+
+66
+00:03:31,010 --> 00:03:33,240
+And since we're working
+with two tables now,
+
+67
+00:03:33,240 --> 00:03:38,440
+we have to specify which table
+each column is coming from.
+
+68
+00:03:38,440 --> 00:03:42,170
+So, in this case, we
+do select Movies.title,
+
+69
+00:03:42,170 --> 00:03:45,190
+Reviews.review.
+
+70
+00:03:45,190 --> 00:03:48,940
+And that will return just those
+columns, like you see here.
+
+71
+00:03:51,510 --> 00:03:53,360
+Remember the slide
+from the previous level,
+
+72
+00:03:53,360 --> 00:03:56,150
+where we were trying to figure out
+all the genres of the Peter Pan
+
+73
+00:03:56,150 --> 00:04:00,030
+movie, and we had to do
+three different queries?
+
+74
+00:04:00,030 --> 00:04:05,120
+Well, there's a way to do an
+inner join across all three
+
+75
+00:04:05,120 --> 00:04:11,420
+tables to get back the
+data we want in one query.
+
+76
+00:04:11,420 --> 00:04:12,780
+This can get a little complex.
+
+77
+00:04:12,780 --> 00:04:16,180
+So don't freak out, you might
+need to look at it twice.
+
+78
+00:04:16,180 --> 00:04:18,220
+But here we go with one query.
+
+79
+00:04:18,220 --> 00:04:25,300
+We want the movie title and
+the genre name from Movies.
+
+80
+00:04:25,300 --> 00:04:29,610
+Here's our first inner
+join — Movies_Genres.
+
+81
+00:04:29,610 --> 00:04:31,990
+Then we need to say how
+to join these tables.
+
+82
+00:04:31,990 --> 00:04:37,560
+In this case, Movies.id,
+ Movies_Genres.movie_id.
+
+83
+00:04:37,560 --> 00:04:40,720
+Now we need to inner
+join on another table.
+
+84
+00:04:40,720 --> 00:04:46,670
+Inner join Genres on
+Movies_Genres.genre_id,
+
+85
+00:04:46,670 --> 00:04:49,770
+that's the foreign
+key, equal genre_id, that's
+
+86
+00:04:49,770 --> 00:04:53,200
+the primary key on 
+the Genres table, where
+
+87
+00:04:53,200 --> 00:04:56,860
+Movies.title equals Peter Pan.
+
+88
+00:04:56,860 --> 00:04:59,340
+And that's going to get
+us back a table which
+
+89
+00:04:59,340 --> 00:05:03,310
+looks like this, showing us the
+title of a movie and the genres
+
+90
+00:05:03,310 --> 00:05:04,500
+it's associated with.
+
+91
+00:05:09,200 --> 00:05:10,930
+Mind blown.
+
+92
+00:05:10,930 --> 00:05:15,000
+I know, it's a
+little much to grock.
+
+93
+00:05:15,000 --> 00:05:16,710
+But you can do it.
+
+94
+00:05:16,710 --> 00:05:21,190
+And you can play with it in the
+challenges coming up right now.
+

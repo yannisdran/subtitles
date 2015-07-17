@@ -1,0 +1,521 @@
+﻿1
+00:00:02,040 --> 00:00:02,930
+Welcome back.
+
+2
+00:00:02,930 --> 00:00:05,500
+In this section, we're going
+to be looking at relationships.
+
+3
+00:00:05,500 --> 00:00:08,290
+And we've got three different
+types of relationships
+
+4
+00:00:08,290 --> 00:00:09,340
+to tackle.
+
+5
+00:00:09,340 --> 00:00:13,120
+First, one-to-one,
+then one-to-many,
+
+6
+00:00:13,120 --> 00:00:15,430
+and then finally many-to-many.
+
+7
+00:00:15,430 --> 00:00:19,490
+We'll look at each of them
+and a bunch of examples.
+
+8
+00:00:19,490 --> 00:00:22,370
+Back in level two, we had our
+Promotions table, each of which
+
+9
+00:00:22,370 --> 00:00:25,370
+was associated with
+a specific movie
+
+10
+00:00:25,370 --> 00:00:28,980
+through the foreign
+key column, movie_id.
+
+11
+00:00:28,980 --> 00:00:31,240
+What is the name for
+this relationship, where
+
+12
+00:00:31,240 --> 00:00:33,580
+a promotion can have one
+movie and a movie can
+
+13
+00:00:33,580 --> 00:00:36,590
+have many promotions?
+
+14
+00:00:36,590 --> 00:00:39,560
+We call this a
+one-to-many relationship.
+
+15
+00:00:39,560 --> 00:00:42,260
+And if you wanted to
+create a database diagram,
+
+16
+00:00:42,260 --> 00:00:44,280
+here's how you
+would represent it.
+
+17
+00:00:44,280 --> 00:00:48,480
+You would say one movie
+can have many promotions
+
+18
+00:00:48,480 --> 00:00:51,200
+with that little
+1 on that one side
+
+19
+00:00:51,200 --> 00:00:54,910
+and the star on that promotion
+side, meaning one-to-many.
+
+20
+00:00:57,530 --> 00:00:59,160
+The recipe for this
+looks something
+
+21
+00:00:59,160 --> 00:01:02,980
+like you see here with
+Table A and Table B,
+
+22
+00:01:02,980 --> 00:01:05,209
+where one row on
+the left can refer
+
+23
+00:01:05,209 --> 00:01:07,640
+to multiple rows on the right.
+
+24
+00:01:10,930 --> 00:01:13,750
+Remember these tables, where
+a movie can have many genres
+
+25
+00:01:13,750 --> 00:01:16,530
+and a genre can
+have many movies?
+
+26
+00:01:16,530 --> 00:01:21,681
+Well, this is called a
+many-to-many relationship.
+
+27
+00:01:21,681 --> 00:01:23,430
+And in the diagram it
+would look something
+
+28
+00:01:23,430 --> 00:01:26,080
+like this, where you have
+the star on the movie
+
+29
+00:01:26,080 --> 00:01:31,800
+side and a star on the genre
+side, which means many-to-many.
+
+30
+00:01:31,800 --> 00:01:35,130
+Notice in this diagram,
+we don't have a square
+
+31
+00:01:35,130 --> 00:01:38,280
+for that join table,
+for the Movie_Genres
+
+32
+00:01:38,280 --> 00:01:40,450
+join table, we
+don't write it out
+
+33
+00:01:40,450 --> 00:01:42,680
+in our database diagram.
+
+34
+00:01:42,680 --> 00:01:44,690
+The recipe for this
+relationship looks
+
+35
+00:01:44,690 --> 00:01:46,860
+like this, where
+multiple rows on the left
+
+36
+00:01:46,860 --> 00:01:49,480
+can refer to multiple
+rows on the right.
+
+37
+00:01:52,340 --> 00:01:54,030
+Sometimes you'll
+have a table that
+
+38
+00:01:54,030 --> 00:01:56,090
+has a bunch of
+different columns,
+
+39
+00:01:56,090 --> 00:01:58,690
+some may be very text-heavy.
+
+40
+00:01:58,690 --> 00:02:00,590
+And you might want to
+split a single table
+
+41
+00:02:00,590 --> 00:02:04,000
+item into two separate tables.
+
+42
+00:02:04,000 --> 00:02:08,240
+An example for this might
+be address information.
+
+43
+00:02:08,240 --> 00:02:11,030
+We could take customer
+information, split that out
+
+44
+00:02:11,030 --> 00:02:12,810
+into the Customers table.
+
+45
+00:02:12,810 --> 00:02:15,470
+And then we could have
+address information
+
+46
+00:02:15,470 --> 00:02:16,950
+on a separate table.
+
+47
+00:02:16,950 --> 00:02:20,160
+And create that
+address_id foreign key
+
+48
+00:02:20,160 --> 00:02:24,455
+on that Customers table to
+refer to the address item
+
+49
+00:02:24,455 --> 00:02:26,030
+that it belongs to.
+
+50
+00:02:26,030 --> 00:02:28,580
+In this case, a customer
+has one address.
+
+51
+00:02:28,580 --> 00:02:31,480
+And an address has one customer.
+
+52
+00:02:31,480 --> 00:02:36,290
+So this relationship is called
+a one-to-one relationship,
+
+53
+00:02:36,290 --> 00:02:38,960
+where a customer can
+have only one address.
+
+54
+00:02:38,960 --> 00:02:42,770
+And we put the number 1 next to
+customer and the number 1 next
+
+55
+00:02:42,770 --> 00:02:47,300
+to address to represent this
+one-to-one relationship.
+
+56
+00:02:47,300 --> 00:02:49,220
+And the recipe for
+this relationship
+
+57
+00:02:49,220 --> 00:02:51,800
+looks like this, where
+one row on the left
+
+58
+00:02:51,800 --> 00:02:54,290
+can refer to one
+row on the right.
+
+59
+00:02:57,010 --> 00:02:59,990
+So those are the three
+different table relationships:
+
+60
+00:02:59,990 --> 00:03:02,880
+one-to-one, one-to-many,
+and many-to-many.
+
+61
+00:03:02,880 --> 00:03:04,640
+Now, let's look at
+two different examples
+
+62
+00:03:04,640 --> 00:03:07,430
+and see if we can figure out
+what kind of relationship
+
+63
+00:03:07,430 --> 00:03:09,380
+they need.
+
+64
+00:03:09,380 --> 00:03:11,660
+Here you can see we
+have our Movies table
+
+65
+00:03:11,660 --> 00:03:14,020
+and we also have
+our Reviews table.
+
+66
+00:03:14,020 --> 00:03:15,740
+What kind of
+relationship do you think
+
+67
+00:03:15,740 --> 00:03:18,190
+these two tables will have?
+
+68
+00:03:18,190 --> 00:03:20,370
+If you said one-to-many
+relationship,
+
+69
+00:03:20,370 --> 00:03:22,690
+you're the bee's knees.
+
+70
+00:03:22,690 --> 00:03:26,620
+So one movie can have
+many reviews — one-to-many.
+
+71
+00:03:30,060 --> 00:03:32,070
+So what would that look like?
+
+72
+00:03:32,070 --> 00:03:34,750
+Well, each of our reviews
+needs to be associated
+
+73
+00:03:34,750 --> 00:03:37,590
+with a specific movie.
+
+74
+00:03:37,590 --> 00:03:41,820
+To map this properly, we'll
+create a movie_id column,
+
+75
+00:03:41,820 --> 00:03:43,820
+which will be our
+foreign key, which
+
+76
+00:03:43,820 --> 00:03:47,210
+maps to the primary key
+on the Movies table, which
+
+77
+00:03:47,210 --> 00:03:50,970
+in this case is id.
+
+78
+00:03:50,970 --> 00:03:55,460
+Here you can see that Don Juan
+has three different reviews
+
+79
+00:03:55,460 --> 00:03:56,490
+associated with it.
+
+80
+00:03:59,360 --> 00:04:02,140
+Here are two more tables — a
+Movies table and a Promotions
+
+81
+00:04:02,140 --> 00:04:03,430
+table.
+
+82
+00:04:03,430 --> 00:04:07,890
+What kind of relationship do
+you think they should have, even
+
+83
+00:04:07,890 --> 00:04:09,910
+from a business perspective?
+
+84
+00:04:09,910 --> 00:04:13,180
+Before, they had a
+one-to-many relationship
+
+85
+00:04:13,180 --> 00:04:16,130
+when we were mapping
+things back and forth.
+
+86
+00:04:16,130 --> 00:04:19,860
+But really, should a promotion
+belong to a single movie?
+
+87
+00:04:19,860 --> 00:04:21,089
+I don't think so.
+
+88
+00:04:21,089 --> 00:04:24,580
+I think movies can have
+many different promotions.
+
+89
+00:04:24,580 --> 00:04:26,930
+And promotions can have
+many different movies.
+
+90
+00:04:26,930 --> 00:04:30,780
+So this is a many-to-many
+relationship,
+
+91
+00:04:30,780 --> 00:04:31,590
+like you see here.
+
+92
+00:04:35,100 --> 00:04:38,370
+This means we need another
+one of those join tables.
+
+93
+00:04:38,370 --> 00:04:40,950
+We'll call it the
+Movies_Promotions
+
+94
+00:04:40,950 --> 00:04:43,160
+table, like you see here.
+
+95
+00:04:43,160 --> 00:04:45,930
+And then we can map which
+movies are associated
+
+96
+00:04:45,930 --> 00:04:47,870
+with which promotions.
+
+97
+00:04:47,870 --> 00:04:50,510
+Because we might have a
+half-off promotion, and that
+
+98
+00:04:50,510 --> 00:04:53,910
+might apply to several
+different movies.
+
+99
+00:04:53,910 --> 00:04:54,520
+Makes sense.
+
+100
+00:04:58,670 --> 00:05:01,110
+It's time for you to
+practice your relationships
+
+101
+00:05:01,110 --> 00:05:02,490
+in the challenges.
+
+102
+00:05:02,490 --> 00:05:04,820
+And when you're done, take
+your favorite relationship
+
+103
+00:05:04,820 --> 00:05:09,430
+to the Code School
+picture, Tables on a Train.
+
+104
+00:05:09,430 --> 00:05:12,615
+I'm sure they'll love it.
+
+105
+00:05:12,615 --> 00:05:13,500
+[BEEP]
+
+106
+00:05:13,500 --> 00:05:15,086
+Relationships, they never work.
+
+107
+00:05:15,086 --> 00:05:15,586
+[LAUGH]
+
+108
+00:05:16,310 --> 00:05:16,810
+[BEEP]
+
+109
+00:05:16,810 --> 00:05:19,360
+Foreign.
+
+110
+00:05:19,360 --> 00:05:21,070
+All fancy and [BLEEP]
+database diagram.
+
+111
+00:05:21,070 --> 00:05:22,620
+[BEEP]
+
