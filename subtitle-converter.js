@@ -15,9 +15,6 @@ glob(argv['i'] || "**/*.srt", {}, function (err, files) {
     console.log(header + chalk.white.bold('\t' + message));
   }, usePath;
 
-  function processFile(filePath) {
-  }
-
   if (err) {
     msg(err.message);
   } else if (!files.length) {
