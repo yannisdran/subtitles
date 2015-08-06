@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nick Wronski <nick@codeschool.com> (https://github.com/nwronski)",
+  "author": "Nick Wronski <nick@javascript.com> (https://github.com/nwronski)",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.0",
     "glob": "^5.0.14",
     "minimist": "^1.1.2",
+    "mkdirp": "^0.5.1",
     "srt-to-vtt": "^1.0.2"
   }
 }
