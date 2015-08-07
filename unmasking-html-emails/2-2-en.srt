@@ -1,0 +1,327 @@
+﻿1
+00:00:02,040 --> 00:00:03,520
+Welcome back to level two.
+
+2
+00:00:03,520 --> 00:00:06,520
+Now that we've recreated our
+header using tables for layout,
+
+3
+00:00:06,520 --> 00:00:09,350
+we're going to continue building
+out the content of our email
+
+4
+00:00:09,350 --> 00:00:14,620
+using multiple tables and
+nested tables to create columns.
+
+5
+00:00:14,620 --> 00:00:17,800
+It's important to know that each
+section should use a new table.
+
+6
+00:00:17,800 --> 00:00:19,890
+We used one table
+for our header.
+
+7
+00:00:19,890 --> 00:00:21,850
+Now we're going to
+add another table
+
+8
+00:00:21,850 --> 00:00:24,240
+to hold the image
+of our luchadores,
+
+9
+00:00:24,240 --> 00:00:27,950
+and then create a third table,
+with two nested tables inside
+
+10
+00:00:27,950 --> 00:00:30,810
+of it, one each for
+each content area.
+
+11
+00:00:35,070 --> 00:00:38,100
+Here, you can see that we
+have our wrapper table,
+
+12
+00:00:38,100 --> 00:00:40,890
+our header content
+table, and we're
+
+13
+00:00:40,890 --> 00:00:44,060
+adding a table right below
+that to contain our image.
+
+14
+00:00:51,194 --> 00:00:53,110
+If we wanted to create
+space between our image
+
+15
+00:00:53,110 --> 00:00:55,570
+and our header, we would
+normally use margin.
+
+16
+00:00:55,570 --> 00:00:58,480
+However, we get varied results
+in clients when using margin,
+
+17
+00:00:58,480 --> 00:01:03,550
+and outlook.com specifically
+doesn't support it.
+
+18
+00:01:03,550 --> 00:01:05,730
+Instead of relying on
+margin to create space
+
+19
+00:01:05,730 --> 00:01:08,780
+in between the two tables,
+we're going to use padding.
+
+20
+00:01:08,780 --> 00:01:11,350
+Here, we're going to add
+padding to the cell that
+
+21
+00:01:11,350 --> 00:01:12,410
+is containing our image.
+
+22
+00:01:17,060 --> 00:01:19,020
+Next, we want to
+create a table that's
+
+23
+00:01:19,020 --> 00:01:21,410
+going to have two columns.
+
+24
+00:01:21,410 --> 00:01:23,600
+Up until this point,
+we've used a single cell
+
+25
+00:01:23,600 --> 00:01:24,990
+to contain our content.
+
+26
+00:01:24,990 --> 00:01:27,200
+However, we can
+use multiple cells
+
+27
+00:01:27,200 --> 00:01:30,970
+and rely on the default behavior
+for them to align side by side.
+
+28
+00:01:33,510 --> 00:01:35,850
+Knowing that we want
+each area of content
+
+29
+00:01:35,850 --> 00:01:37,900
+to have its own
+table, we're now going
+
+30
+00:01:37,900 --> 00:01:42,010
+to put a table inside the
+first cell of our new table.
+
+31
+00:01:42,010 --> 00:01:44,435
+This new table is where
+we'll apply our styles.
+
+32
+00:01:48,294 --> 00:01:49,710
+For our second
+column, we're going
+
+33
+00:01:49,710 --> 00:01:52,790
+to repeat this same process,
+adding another table
+
+34
+00:01:52,790 --> 00:01:55,990
+within the second cell, and
+using that table to style
+
+35
+00:01:55,990 --> 00:01:57,550
+the content in
+the second column.
+
+36
+00:02:01,590 --> 00:02:03,960
+To ensure that we have
+an exact amount of space
+
+37
+00:02:03,960 --> 00:02:05,660
+in between our
+two columns, we're
+
+38
+00:02:05,660 --> 00:02:09,360
+going to use padding on
+the two-column cells.
+
+39
+00:02:09,360 --> 00:02:12,604
+On the first one, we're going to
+add padding right of 10 pixels,
+
+40
+00:02:12,604 --> 00:02:14,020
+and on the second
+one, we're going
+
+41
+00:02:14,020 --> 00:02:16,650
+to add padding
+left of 10 pixels.
+
+42
+00:02:16,650 --> 00:02:18,830
+This creates a total
+of 20 pixels space
+
+43
+00:02:18,830 --> 00:02:19,955
+in between the two columns.
+
+44
+00:02:23,680 --> 00:02:26,840
+Styling the content for column
+one is a review of the things
+
+45
+00:02:26,840 --> 00:02:28,470
+that we have already done.
+
+46
+00:02:28,470 --> 00:02:31,030
+The first and last rows
+each contain a cell
+
+47
+00:02:31,030 --> 00:02:32,310
+with an image for our border.
+
+48
+00:02:35,020 --> 00:02:40,430
+The second row
+contains our date,
+
+49
+00:02:40,430 --> 00:02:42,310
+and the third row
+contains our month.
+
+50
+00:02:50,470 --> 00:02:53,440
+For the first half of
+content in column two,
+
+51
+00:02:53,440 --> 00:02:55,670
+we're using the same
+approach that we just saw.
+
+52
+00:03:02,230 --> 00:03:03,670
+Moving further
+into the table, we
+
+53
+00:03:03,670 --> 00:03:07,660
+have a row with a cell that
+has multiple font styles.
+
+54
+00:03:07,660 --> 00:03:09,920
+In order to do this,
+we need to wrap a span
+
+55
+00:03:09,920 --> 00:03:13,724
+around each area of text that we
+want to be styled differently.
+
+56
+00:03:13,724 --> 00:03:15,140
+Here, you can see
+that we're using
+
+57
+00:03:15,140 --> 00:03:18,370
+two spans to apply
+different font families
+
+58
+00:03:18,370 --> 00:03:19,465
+and different font sizes.
+
+59
+00:03:23,190 --> 00:03:25,250
+All of our hard
+work has paid off.
+
+60
+00:03:25,250 --> 00:03:28,700
+Here, you can see that our
+layout looks great in Outlook
+
+61
+00:03:28,700 --> 00:03:31,340
+using IE and Outlook using Word.
+
+62
+00:03:34,190 --> 00:03:36,900
+Now it's your turn to go
+back into the challenges
+
+63
+00:03:36,900 --> 00:03:41,160
+and create multiple
+columns using tables.
+
+64
+00:03:41,160 --> 00:03:42,292
+And le-- Ugh.
+
+65
+00:03:42,292 --> 00:03:43,530
+Heh.
+
+66
+00:03:43,530 --> 00:03:46,330
+Oh, I was so close.
+
+67
+00:03:46,330 --> 00:03:48,600
+With that "Uh-tribute."
+now our table is centered.
+
+68
+00:03:48,600 --> 00:03:50,450
+Ah, da--
+

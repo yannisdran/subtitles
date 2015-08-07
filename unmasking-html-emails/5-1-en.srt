@@ -1,0 +1,548 @@
+1
+00:00:00,500 --> 00:00:02,620
+[SINGING] Designing emails
+can be really tough.
+
+2
+00:00:02,620 --> 00:00:05,080
+Client preprocessors
+can be pretty rough.
+
+3
+00:00:05,080 --> 00:00:06,980
+To code email for
+all their devices,
+
+4
+00:00:06,980 --> 00:00:09,540
+cut the design into many slices.
+
+5
+00:00:09,540 --> 00:00:11,910
+Mark it up in tables
+with inline style,
+
+6
+00:00:11,910 --> 00:00:14,230
+with media queries
+into one big file.
+
+7
+00:00:14,230 --> 00:00:16,665
+To win, you'll train
+and learn the details —
+
+8
+00:00:16,665 --> 00:00:18,317
+Unmasking HTML Emails!
+
+9
+00:00:24,660 --> 00:00:25,440
+Welcome back.
+
+10
+00:00:25,440 --> 00:00:27,070
+This is level five.
+
+11
+00:00:27,070 --> 00:00:29,250
+In modern front-end
+development, it's very popular
+
+12
+00:00:29,250 --> 00:00:31,359
+to use a mobile-first approach.
+
+13
+00:00:31,359 --> 00:00:33,150
+In this approach, you
+would create a layout
+
+14
+00:00:33,150 --> 00:00:36,420
+for small screens using
+a minimal amount of CSS.
+
+15
+00:00:36,420 --> 00:00:39,070
+You would then add
+CSS via media queries
+
+16
+00:00:39,070 --> 00:00:40,840
+as the screen size grew.
+
+17
+00:00:40,840 --> 00:00:44,040
+Without consistent media query
+support in email clients,
+
+18
+00:00:44,040 --> 00:00:46,230
+we have to take a
+different approach.
+
+19
+00:00:46,230 --> 00:00:48,550
+In this level, we're going
+to create a two-column
+
+20
+00:00:48,550 --> 00:00:50,850
+layout that functions
+as a single column
+
+21
+00:00:50,850 --> 00:00:54,485
+layout without media queries.
+
+22
+00:00:54,485 --> 00:00:56,110
+Let's first take a
+look at why we would
+
+23
+00:00:56,110 --> 00:00:58,200
+want to use this approach.
+
+24
+00:00:58,200 --> 00:01:00,560
+So far, we've been able to
+use media queries to create
+
+25
+00:01:00,560 --> 00:01:03,130
+a good experience
+on small screens.
+
+26
+00:01:03,130 --> 00:01:05,269
+However, without
+media query support,
+
+27
+00:01:05,269 --> 00:01:07,920
+the small-screen
+experience varies.
+
+28
+00:01:07,920 --> 00:01:09,980
+In the Gmail
+application, we can see
+
+29
+00:01:09,980 --> 00:01:12,970
+that our email is zoomed out.
+
+30
+00:01:12,970 --> 00:01:15,180
+In the small-screen
+version of outlook.com,
+
+31
+00:01:15,180 --> 00:01:17,290
+we see that they
+don't zoom our email,
+
+32
+00:01:17,290 --> 00:01:20,190
+but they also don't
+force our widths at 100%,
+
+33
+00:01:20,190 --> 00:01:25,440
+so you would actually have to
+pan in order to read the email.
+
+34
+00:01:25,440 --> 00:01:27,760
+Zoom is the first problem
+that we want to fix.
+
+35
+00:01:27,760 --> 00:01:30,720
+In order to do this, we need
+to convert our table widths
+
+36
+00:01:30,720 --> 00:01:32,520
+to fluid widths.
+
+37
+00:01:32,520 --> 00:01:35,800
+For our header table, we
+would set the width to 100%
+
+38
+00:01:35,800 --> 00:01:40,400
+and apply a max
+width of 600 pixels.
+
+39
+00:01:40,400 --> 00:01:42,200
+Looking at that in
+the Gmail client,
+
+40
+00:01:42,200 --> 00:01:44,780
+we can now see that
+there's no more zoom.
+
+41
+00:01:48,340 --> 00:01:50,680
+One unfortunate thing about
+lacking media query support
+
+42
+00:01:50,680 --> 00:01:52,750
+is we have no way of
+conditionally changing
+
+43
+00:01:52,750 --> 00:01:54,110
+our font sizes.
+
+44
+00:01:54,110 --> 00:01:57,629
+Here, we can see that our title
+text was set to 74 pixels,
+
+45
+00:01:57,629 --> 00:01:59,170
+and without media
+queries, it's going
+
+46
+00:01:59,170 --> 00:02:01,430
+to remain that way
+in every client.
+
+47
+00:02:01,430 --> 00:02:03,960
+This is the first problem
+that we weren't able to fix.
+
+48
+00:02:03,960 --> 00:02:07,560
+However, having the text large
+makes it more readable than
+
+49
+00:02:07,560 --> 00:02:10,449
+when it's zoomed out and small,
+and this is a good trade-off.
+
+50
+00:02:14,470 --> 00:02:16,440
+Continuing down the
+content of our email,
+
+51
+00:02:16,440 --> 00:02:19,209
+we would apply those
+same styles to our table
+
+52
+00:02:19,209 --> 00:02:20,375
+that's containing our image.
+
+53
+00:02:20,375 --> 00:02:23,180
+So here again, we're
+applying width of 100%
+
+54
+00:02:23,180 --> 00:02:25,660
+and max width of 600 pixels.
+
+55
+00:02:25,660 --> 00:02:27,980
+And this maintains
+no zoom in Gmail.
+
+56
+00:02:30,990 --> 00:02:34,260
+Without media queries, a
+table row with two cells
+
+57
+00:02:34,260 --> 00:02:36,690
+will always align horizontally.
+
+58
+00:02:36,690 --> 00:02:40,370
+The content in each of these
+cells is set to 300 pixels,
+
+59
+00:02:40,370 --> 00:02:43,230
+causing a total
+width of 600 pixels.
+
+60
+00:02:43,230 --> 00:02:47,960
+Our available area is only
+320 pixels, triggering zoom.
+
+61
+00:02:47,960 --> 00:02:50,440
+We need a way for these
+two content tables
+
+62
+00:02:50,440 --> 00:02:55,730
+to stack on top of each
+other without media queries.
+
+63
+00:02:55,730 --> 00:02:59,270
+Without media queries, table
+cells won't stack vertically.
+
+64
+00:02:59,270 --> 00:03:02,670
+However, there is a way to
+make tables stack vertically
+
+65
+00:03:02,670 --> 00:03:05,370
+if there is not enough
+horizontal space,
+
+66
+00:03:05,370 --> 00:03:08,160
+or stack horizontally
+if there is.
+
+67
+00:03:08,160 --> 00:03:11,260
+The way that we do this is
+assigning a value of left
+
+68
+00:03:11,260 --> 00:03:13,345
+to the align
+attribute of a table.
+
+69
+00:03:17,690 --> 00:03:19,680
+We have our table of content.
+
+70
+00:03:19,680 --> 00:03:21,580
+We're going to take
+that table and nest it
+
+71
+00:03:21,580 --> 00:03:26,890
+in a table with a width of 300
+pixels and set to align left.
+
+72
+00:03:26,890 --> 00:03:28,470
+We're then going
+to take that column
+
+73
+00:03:28,470 --> 00:03:32,500
+and nest it in a container
+table with a width of 100%
+
+74
+00:03:32,500 --> 00:03:34,535
+and a max width of 600 pixels.
+
+75
+00:03:40,730 --> 00:03:42,480
+Next, we're going to
+repeat the same thing
+
+76
+00:03:42,480 --> 00:03:43,490
+for the second column.
+
+77
+00:03:43,490 --> 00:03:45,650
+We have our table for content.
+
+78
+00:03:45,650 --> 00:03:48,520
+We're going to nest
+that in a column table,
+
+79
+00:03:48,520 --> 00:03:50,860
+and then we're going to
+nest both of those tables
+
+80
+00:03:50,860 --> 00:03:54,220
+in the same container table.
+
+81
+00:03:54,220 --> 00:03:57,654
+Now we have both of our content
+tables stacked vertically
+
+82
+00:03:57,654 --> 00:03:58,570
+without media queries.
+
+83
+00:04:01,990 --> 00:04:04,690
+While we're focused on creating
+this layout without media
+
+84
+00:04:04,690 --> 00:04:07,080
+queries, we want to keep
+in mind how this is going
+
+85
+00:04:07,080 --> 00:04:09,330
+to affect our other clients.
+
+86
+00:04:09,330 --> 00:04:11,640
+Earlier, we had
+classes with styles
+
+87
+00:04:11,640 --> 00:04:14,090
+that forced our
+columns to full width
+
+88
+00:04:14,090 --> 00:04:16,436
+and provided some
+vertical spacing.
+
+89
+00:04:16,436 --> 00:04:17,810
+To make sure that
+those are still
+
+90
+00:04:17,810 --> 00:04:19,370
+available for our
+other clients, we
+
+91
+00:04:19,370 --> 00:04:21,779
+need to add them back
+to our tables and cells.
+
+92
+00:04:27,110 --> 00:04:28,620
+We've fixed our
+stacking problem,
+
+93
+00:04:28,620 --> 00:04:30,260
+but we've created a new problem.
+
+94
+00:04:30,260 --> 00:04:33,990
+When the horizontal space isn't
+enough to hold both columns,
+
+95
+00:04:33,990 --> 00:04:36,670
+but it's bigger than
+each individual column,
+
+96
+00:04:36,670 --> 00:04:38,560
+the two tables
+are going to align
+
+97
+00:04:38,560 --> 00:04:39,870
+to the left of the client.
+
+98
+00:04:43,980 --> 00:04:46,810
+If we really want those
+two columns centered,
+
+99
+00:04:46,810 --> 00:04:49,180
+the solution is somewhat hacky.
+
+100
+00:04:49,180 --> 00:04:52,270
+What we would do is
+take each table column
+
+101
+00:04:52,270 --> 00:04:54,520
+and wrap it in a div.
+
+102
+00:04:54,520 --> 00:04:58,575
+We would then apply display:
+inline-block to those divs.
+
+103
+00:05:05,890 --> 00:05:08,190
+We can then set
+text-align: center
+
+104
+00:05:08,190 --> 00:05:12,242
+on the containing cell, which
+will shift both of those divs
+
+105
+00:05:12,242 --> 00:05:12,825
+to the center.
+
+106
+00:05:17,220 --> 00:05:19,370
+We've now run into
+another edge case problem.
+
+107
+00:05:19,370 --> 00:05:23,340
+Outlook.com's preprocessor
+removes margin properties
+
+108
+00:05:23,340 --> 00:05:25,420
+from our inline styles.
+
+109
+00:05:25,420 --> 00:05:27,810
+However, it won't
+remove the property
+
+110
+00:05:27,810 --> 00:05:31,150
+if you use a capital
+"M" for margin.
+
+111
+00:05:31,150 --> 00:05:32,940
+To fix the layout
+for this table,
+
+112
+00:05:32,940 --> 00:05:38,235
+we're going to change the "m" to
+a capital "M" for Margin: 0 auto.
+
+113
+00:05:38,235 --> 00:05:41,950
+Our multi-column layout is
+now working as a single column
+
+114
+00:05:41,950 --> 00:05:45,220
+layout without media
+queries on small screens.
+
+115
+00:05:45,220 --> 00:05:48,840
+Now it's your turn to make
+that happen in the challenges.
+

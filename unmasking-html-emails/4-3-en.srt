@@ -1,0 +1,293 @@
+﻿1
+00:00:02,080 --> 00:00:02,734
+Welcome back.
+
+2
+00:00:02,734 --> 00:00:04,400
+In this section, we're
+going to complete
+
+3
+00:00:04,400 --> 00:00:07,360
+the content of our email and
+correct some problems that
+
+4
+00:00:07,360 --> 00:00:09,922
+sneak in along the way.
+
+5
+00:00:09,922 --> 00:00:11,630
+While you were completing
+the challenges,
+
+6
+00:00:11,630 --> 00:00:13,130
+we added some new content.
+
+7
+00:00:13,130 --> 00:00:15,810
+We've added a phone number,
+an unsubscribe link,
+
+8
+00:00:15,810 --> 00:00:17,930
+and some contact information.
+
+9
+00:00:17,930 --> 00:00:20,680
+To do this, we created a
+new table with three rows,
+
+10
+00:00:20,680 --> 00:00:25,240
+with one cell each for
+each bit of content.
+
+11
+00:00:25,240 --> 00:00:27,910
+In looking at the code that
+we wrote for the phone number,
+
+12
+00:00:27,910 --> 00:00:30,340
+we added this as plain text.
+
+13
+00:00:30,340 --> 00:00:32,710
+However, if we test
+it in Apple Mail,
+
+14
+00:00:32,710 --> 00:00:35,190
+we're surprised to see
+that it's now a link.
+
+15
+00:00:35,190 --> 00:00:37,490
+What's happening here
+is Apple's preprocessor
+
+16
+00:00:37,490 --> 00:00:41,320
+adds HTML to convert
+that text into a link.
+
+17
+00:00:41,320 --> 00:00:43,399
+Now we have a link
+in our email, but it
+
+18
+00:00:43,399 --> 00:00:44,440
+doesn't match our design.
+
+19
+00:00:47,440 --> 00:00:50,630
+We don't have access to the
+HTML that created the link,
+
+20
+00:00:50,630 --> 00:00:54,140
+but Apple Mail does support
+CSS in the style tag,
+
+21
+00:00:54,140 --> 00:00:58,960
+so we can target all anchor
+tags and apply a color to them.
+
+22
+00:00:58,960 --> 00:01:01,380
+Now that we see this,
+we're thinking maybe
+
+23
+00:01:01,380 --> 00:01:03,280
+it would be better if
+this text was white.
+
+24
+00:01:06,540 --> 00:01:08,680
+We still don't have
+access to the HTML
+
+25
+00:01:08,680 --> 00:01:12,060
+that created this link, but we
+know where it's going to be,
+
+26
+00:01:12,060 --> 00:01:15,670
+so to counter this behavior, we
+can wrap the phone number text
+
+27
+00:01:15,670 --> 00:01:18,030
+in a span and then
+use that class
+
+28
+00:01:18,030 --> 00:01:20,760
+to give that text
+a specific style.
+
+29
+00:01:20,760 --> 00:01:22,440
+Now we can see that
+our phone number
+
+30
+00:01:22,440 --> 00:01:26,360
+link has changed to white, while
+the unsubscribe link remained
+
+31
+00:01:26,360 --> 00:01:27,070
+purple.
+
+32
+00:01:27,070 --> 00:01:28,480
+This is exactly what we wanted.
+
+33
+00:01:31,300 --> 00:01:35,450
+Sometimes you want to set font
+size smaller than 14 pixels.
+
+34
+00:01:35,450 --> 00:01:38,440
+Unfortunately, some
+clients won't allow this.
+
+35
+00:01:38,440 --> 00:01:40,970
+To show an example of this,
+we have set our font size
+
+36
+00:01:40,970 --> 00:01:42,480
+to four pixels.
+
+37
+00:01:42,480 --> 00:01:45,690
+If we were to view this email
+in Gmail using Chrome,
+
+38
+00:01:45,690 --> 00:01:48,860
+we would see that it's rendering
+the text at four pixels.
+
+39
+00:01:48,860 --> 00:01:51,060
+However, if we look
+at it in Apple Mail,
+
+40
+00:01:51,060 --> 00:01:54,625
+we can see that it's not, and
+it's adjusted it to 14 pixels.
+
+41
+00:02:00,620 --> 00:02:02,340
+There are vendor-specific
+properties
+
+42
+00:02:02,340 --> 00:02:05,560
+that exist to override
+these defaults.
+
+43
+00:02:05,560 --> 00:02:09,360
+WebKit and Microsoft allow
+a text size adjustment
+
+44
+00:02:09,360 --> 00:02:11,820
+to none, that would
+make it so our text will
+
+45
+00:02:11,820 --> 00:02:15,332
+render at the specific
+pixel value that we set.
+
+46
+00:02:15,332 --> 00:02:16,790
+With this property
+in place, we can
+
+47
+00:02:16,790 --> 00:02:19,650
+see that Apple Mail will
+now render our footer
+
+48
+00:02:19,650 --> 00:02:20,910
+text at four pixels.
+
+49
+00:02:25,730 --> 00:02:28,401
+If we look at our email
+in Gmail using Chrome,
+
+50
+00:02:28,401 --> 00:02:30,900
+we can see that there was no
+link added to the phone number,
+
+51
+00:02:30,900 --> 00:02:34,020
+and our font sizes are
+the way that we want them.
+
+52
+00:02:34,020 --> 00:02:35,570
+If we then look at
+it in Apple Mail,
+
+53
+00:02:35,570 --> 00:02:38,500
+we see that we do have our
+link, with our white color
+
+54
+00:02:38,500 --> 00:02:40,160
+and our smaller text size.
+
+55
+00:02:44,277 --> 00:02:45,860
+Now it's your turn
+to tackle some edge
+
+56
+00:02:45,860 --> 00:02:48,080
+cases in the challenges.
+
+57
+00:02:49,300 --> 00:02:51,980
+Take that, slide.
+
+58
+00:02:51,980 --> 00:02:52,735
+Go to your home.
+
+59
+00:02:52,735 --> 00:02:53,964
+What is he talking about?
+
+60
+00:02:53,964 --> 00:02:54,870
+Where —
+
+61
+00:02:54,870 --> 00:02:56,790
+In this section,
+we're going to — ooh.
+
+62
+00:02:56,790 --> 00:02:58,340
+Hey.
+

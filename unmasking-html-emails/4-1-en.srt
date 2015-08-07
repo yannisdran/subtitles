@@ -1,0 +1,429 @@
+﻿1
+00:00:00,500 --> 00:00:02,620
+[SINGING] Designing emails
+can be really tough.
+
+2
+00:00:02,620 --> 00:00:05,080
+Client preprocessors
+can be pretty rough.
+
+3
+00:00:05,080 --> 00:00:07,380
+To code email for
+all their devices,
+
+4
+00:00:07,380 --> 00:00:09,540
+cut the design into many slices.
+
+5
+00:00:09,540 --> 00:00:11,910
+Mark it up in tables
+with inline style,
+
+6
+00:00:11,910 --> 00:00:14,230
+with media queries
+into one big file.
+
+7
+00:00:14,230 --> 00:00:16,665
+To win, you'll train
+and learn the details —
+
+8
+00:00:16,665 --> 00:00:18,307
+Unmasking HTML Emails!
+
+9
+00:00:24,510 --> 00:00:25,400
+Welcome back.
+
+10
+00:00:25,400 --> 00:00:27,160
+This is level four,
+and in this level,
+
+11
+00:00:27,160 --> 00:00:28,618
+we're going to have
+a few rematches
+
+12
+00:00:28,618 --> 00:00:29,687
+with prior opponents.
+
+13
+00:00:29,687 --> 00:00:31,270
+They've learned your
+tricks, so you're
+
+14
+00:00:31,270 --> 00:00:33,210
+going to have to come
+up with some new skills.
+
+15
+00:00:33,210 --> 00:00:36,370
+We're going to use conditional
+styles, conditional content,
+
+16
+00:00:36,370 --> 00:00:40,690
+and learn how to counter
+some client features.
+
+17
+00:00:40,690 --> 00:00:43,640
+We know that Word-based
+rendering engines have issues.
+
+18
+00:00:43,640 --> 00:00:46,790
+Now we're going to focus in
+on correcting a few of them.
+
+19
+00:00:46,790 --> 00:00:50,650
+We can see that our text
+is too big in Outlook 2007
+
+20
+00:00:50,650 --> 00:00:54,830
+and in Outlook 2010, as well
+as having multiple line height
+
+21
+00:00:54,830 --> 00:00:56,335
+issues in both clients.
+
+22
+00:00:59,420 --> 00:01:02,800
+Taking a look at one of their
+teammates, Outlook 2013,
+
+23
+00:01:02,800 --> 00:01:05,580
+we can see that it has
+some of those issues,
+
+24
+00:01:05,580 --> 00:01:08,900
+but not all of them, and then
+adds additional issues where
+
+25
+00:01:08,900 --> 00:01:11,040
+line height is being
+applied differently
+
+26
+00:01:11,040 --> 00:01:14,290
+to a border and images.
+
+27
+00:01:14,290 --> 00:01:17,480
+We need a way to target
+individual Outlook clients,
+
+28
+00:01:17,480 --> 00:01:20,819
+and lucky for us, there
+are conditional comments.
+
+29
+00:01:20,819 --> 00:01:22,860
+The simplest conditional
+comment that we will use
+
+30
+00:01:22,860 --> 00:01:25,810
+targets all versions
+of Microsoft Outlook.
+
+31
+00:01:25,810 --> 00:01:27,970
+If we want to target
+specific versions,
+
+32
+00:01:27,970 --> 00:01:31,820
+we can use operators, like
+this GTE operator that
+
+33
+00:01:31,820 --> 00:01:34,830
+checks for all versions of
+Outlook that are greater
+
+34
+00:01:34,830 --> 00:01:37,025
+than or equal to version 12.
+
+35
+00:01:40,790 --> 00:01:42,290
+We can use the
+conditional comments
+
+36
+00:01:42,290 --> 00:01:44,210
+to fix the font problems.
+
+37
+00:01:44,210 --> 00:01:48,350
+We are having problems
+with Outlook 2007 and 2010.
+
+38
+00:01:48,350 --> 00:01:50,960
+We're going to use an
+operator to target Microsoft
+
+39
+00:01:50,960 --> 00:01:54,360
+Outlook greater than
+or equal to version 12,
+
+40
+00:01:54,360 --> 00:01:57,190
+and less than version 15.
+
+41
+00:01:57,190 --> 00:02:01,210
+This gives us our
+versions 2007 and 2010.
+
+42
+00:02:01,210 --> 00:02:02,870
+Inside our new
+conditional comment,
+
+43
+00:02:02,870 --> 00:02:05,870
+we're going to redefine
+our email slogan class,
+
+44
+00:02:05,870 --> 00:02:09,550
+and apply properties necessary
+to get that text on one line.
+
+45
+00:02:15,044 --> 00:02:16,460
+Versions of Microsoft
+Outlook that
+
+46
+00:02:16,460 --> 00:02:19,390
+use Word as a rendering
+engine render line height
+
+47
+00:02:19,390 --> 00:02:20,880
+differently than browsers.
+
+48
+00:02:20,880 --> 00:02:23,060
+It's almost like they
+knew this, because they
+
+49
+00:02:23,060 --> 00:02:25,290
+added a vendor-specific
+property that we
+
+50
+00:02:25,290 --> 00:02:29,740
+can use to tell Word to
+set our line height exactly
+
+51
+00:02:29,740 --> 00:02:31,424
+to pixel values.
+
+52
+00:02:31,424 --> 00:02:33,090
+We're going to use a
+conditional comment
+
+53
+00:02:33,090 --> 00:02:35,030
+to target all
+versions of Outlook
+
+54
+00:02:35,030 --> 00:02:37,630
+using Microsoft Word as
+the rendering engine,
+
+55
+00:02:37,630 --> 00:02:40,510
+and apply this property
+to table cells.
+
+56
+00:02:40,510 --> 00:02:41,930
+Here, you can see
+that our line height has
+
+57
+00:02:41,930 --> 00:02:43,410
+improved on our email titles.
+
+58
+00:02:47,720 --> 00:02:49,450
+Now that we have our
+line height looking good,
+
+59
+00:02:49,450 --> 00:02:52,600
+we can use that same conditional
+comment to add properties
+
+60
+00:02:52,600 --> 00:02:57,000
+and reduce padding on
+specific text areas.
+
+61
+00:02:57,000 --> 00:02:59,650
+We're going to set the padding
+bottom of our email title
+
+62
+00:02:59,650 --> 00:03:01,375
+to zero to trim up that space.
+
+63
+00:03:06,270 --> 00:03:08,100
+Because we use this
+vendor property
+
+64
+00:03:08,100 --> 00:03:11,380
+and set our cell's line
+height to 14 pixels,
+
+65
+00:03:11,380 --> 00:03:15,010
+that affects all of the
+text within the cell.
+
+66
+00:03:15,010 --> 00:03:18,310
+This property is not
+supported on inline elements,
+
+67
+00:03:18,310 --> 00:03:20,670
+so we can't apply
+it to our spans.
+
+68
+00:03:20,670 --> 00:03:24,640
+Instead, we need to change our
+line height to accommodate all
+
+69
+00:03:24,640 --> 00:03:26,590
+of the text within the cell.
+
+70
+00:03:26,590 --> 00:03:29,680
+We would do this by grabbing
+the highest value, which,
+
+71
+00:03:29,680 --> 00:03:31,415
+in this case, is 32 pixels.
+
+72
+00:03:34,860 --> 00:03:37,900
+Now that we know the size to
+use, we can create a class
+
+73
+00:03:37,900 --> 00:03:39,820
+and apply that to
+the table cells.
+
+74
+00:03:44,440 --> 00:03:46,320
+We fixed all of our
+line heights or text,
+
+75
+00:03:46,320 --> 00:03:51,270
+but there's an unusual case in
+Outlook 2013 with empty cells.
+
+76
+00:03:51,270 --> 00:03:55,120
+If a cell is empty,
+Outlook ignores the height.
+
+77
+00:03:55,120 --> 00:03:57,720
+This doesn't require
+conditional comments or fixing.
+
+78
+00:03:57,720 --> 00:04:00,790
+We just need to add a non-
+breaking space in there
+
+79
+00:04:00,790 --> 00:04:02,460
+for Outlook to
+recognize the height.
+
+80
+00:04:09,420 --> 00:04:12,330
+Outlook 2013 also
+has some weird things
+
+81
+00:04:12,330 --> 00:04:15,810
+in the way it treats
+line height for images.
+
+82
+00:04:15,810 --> 00:04:17,959
+To correct this, we
+need to treat images
+
+83
+00:04:17,959 --> 00:04:21,339
+like they were text, and
+apply a font size and line
+
+84
+00:04:21,339 --> 00:04:23,620
+height that's equal to
+the height of the image.
+
+85
+00:04:29,070 --> 00:04:30,550
+If we look at our
+email in Outlook
+
+86
+00:04:30,550 --> 00:04:33,859
+using Internet Explorer
+and Outlook using Word,
+
+87
+00:04:33,859 --> 00:04:35,400
+we have a very
+consistent experience.
+
+88
+00:04:38,680 --> 00:04:41,070
+Now it's your turn to
+use conditional styles
+
+89
+00:04:41,070 --> 00:04:42,860
+in the challenges.
+

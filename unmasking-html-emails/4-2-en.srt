@@ -1,0 +1,273 @@
+﻿1
+00:00:02,050 --> 00:00:03,114
+Welcome back.
+
+2
+00:00:03,114 --> 00:00:04,780
+In this section, we're
+going to continue
+
+3
+00:00:04,780 --> 00:00:06,670
+adding content to our email.
+
+4
+00:00:06,670 --> 00:00:09,650
+We're going to use conditional
+content to add a button that
+
+5
+00:00:09,650 --> 00:00:12,680
+will work in multiple clients.
+
+6
+00:00:12,680 --> 00:00:14,650
+Typically, the way that
+we would add a button
+
+7
+00:00:14,650 --> 00:00:17,970
+is we would add an anchor
+tag and apply styles to it.
+
+8
+00:00:17,970 --> 00:00:19,650
+This would work in
+any clients that
+
+9
+00:00:19,650 --> 00:00:23,220
+use browser-based rendering
+engines, but as we've learned,
+
+10
+00:00:23,220 --> 00:00:27,140
+these styles would not apply
+to the Word rendering engine.
+
+11
+00:00:27,140 --> 00:00:31,040
+What we need is a way to write
+code that Microsoft Word would
+
+12
+00:00:31,040 --> 00:00:33,640
+apply these styles.
+
+13
+00:00:33,640 --> 00:00:35,880
+If you're interested in
+learning that language,
+
+14
+00:00:35,880 --> 00:00:39,780
+you can look forward to
+our future course, Try VML.
+
+15
+00:00:39,780 --> 00:00:40,830
+Of course, I'm kidding.
+
+16
+00:00:40,830 --> 00:00:42,390
+We would never
+create that course,
+
+17
+00:00:42,390 --> 00:00:44,490
+and no one really wants
+to write this code,
+
+18
+00:00:44,490 --> 00:00:47,900
+so we're going to do
+that in a different way.
+
+19
+00:00:47,900 --> 00:00:49,750
+Luckily, there's an
+excellent resource
+
+20
+00:00:49,750 --> 00:00:53,170
+on the web created by Stig
+at Campaign Monitor called
+
+21
+00:00:53,170 --> 00:00:55,210
+buttons.cm.
+
+22
+00:00:55,210 --> 00:00:58,040
+This allows us to create a
+button using a GUI to enter
+
+23
+00:00:58,040 --> 00:01:01,710
+values, and outputs two
+versions of a button —
+
+24
+00:01:01,710 --> 00:01:05,660
+one that would use VML and HTML
+that will render in the Word
+
+25
+00:01:05,660 --> 00:01:08,920
+rendering engine, and
+one using just HTML
+
+26
+00:01:08,920 --> 00:01:11,360
+that would render in all
+other rendering engines.
+
+27
+00:01:14,420 --> 00:01:17,640
+Our first step would be to take
+the code from the generator
+
+28
+00:01:17,640 --> 00:01:21,320
+and put it into a table
+cell in our email.
+
+29
+00:01:21,320 --> 00:01:23,670
+Once that code is in,
+we can test and see
+
+30
+00:01:23,670 --> 00:01:25,510
+that we have a
+consistent experience
+
+31
+00:01:25,510 --> 00:01:26,790
+across multiple clients.
+
+32
+00:01:30,620 --> 00:01:32,460
+While we do have a
+consistent experience,
+
+33
+00:01:32,460 --> 00:01:35,900
+it doesn't match our design
+exactly how we want it to,
+
+34
+00:01:35,900 --> 00:01:38,220
+so we're going to need
+to update the code.
+
+35
+00:01:38,220 --> 00:01:39,960
+The first area that
+we're going to update
+
+36
+00:01:39,960 --> 00:01:45,360
+is the center tag
+within the VML tag.
+
+37
+00:01:45,360 --> 00:01:49,150
+We're going to add our font that
+we want on the button of Arial.
+
+38
+00:01:49,150 --> 00:01:51,280
+We're going to up the
+font size to 20 pixels,
+
+39
+00:01:51,280 --> 00:01:54,270
+and then add in our text
+transform uppercase.
+
+40
+00:01:54,270 --> 00:01:55,810
+The interesting
+thing about this is
+
+41
+00:01:55,810 --> 00:01:58,210
+that, if you now test
+in multiple clients,
+
+42
+00:01:58,210 --> 00:02:01,430
+you would only see these
+changes in clients using
+
+43
+00:02:01,430 --> 00:02:03,300
+Word as a rendering engine.
+
+44
+00:02:03,300 --> 00:02:05,390
+This is because
+the VML is wrapped
+
+45
+00:02:05,390 --> 00:02:08,419
+in a conditional tag that
+is targeting specifically
+
+46
+00:02:08,419 --> 00:02:09,314
+Microsoft Outlook.
+
+47
+00:02:11,816 --> 00:02:14,190
+Updating the style of our
+button in the remaining clients
+
+48
+00:02:14,190 --> 00:02:16,940
+is as easy as editing our HTML.
+
+49
+00:02:16,940 --> 00:02:20,020
+The one interesting thing to
+note is the reason that these
+
+50
+00:02:20,020 --> 00:02:23,180
+styles get hidden from Microsoft
+Word is the special vendor
+
+51
+00:02:23,180 --> 00:02:31,390
+property mso-hide:all;.
+
+52
+00:02:31,390 --> 00:02:33,880
+Taking a look at our
+email in multiple clients,
+
+53
+00:02:33,880 --> 00:02:36,190
+we now see that we have
+a button that works well
+
+54
+00:02:36,190 --> 00:02:39,210
+in Outlook using Internet
+Explorer and Outlook using
+
+55
+00:02:39,210 --> 00:02:42,440
+Microsoft Word.
+
+56
+00:02:42,440 --> 00:02:45,740
+Now it's your turn to use
+VML and HTML to create
+
+57
+00:02:45,740 --> 00:02:48,720
+a bulletproof button
+in the challenges.
+
