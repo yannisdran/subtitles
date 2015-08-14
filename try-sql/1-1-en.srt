@@ -1,0 +1,536 @@
+1
+00:00:00,275 --> 00:00:01,750
+[SINGING] Deep in
+your app. there's
+
+2
+00:00:01,750 --> 00:00:04,230
+a space filled up
+by a great database.
+
+3
+00:00:04,230 --> 00:00:06,780
+Its tables are where
+information goes, made up of
+
+4
+00:00:06,780 --> 00:00:08,390
+cells inside columns and rows.
+
+5
+00:00:08,390 --> 00:00:11,020
+To speak to it, we can
+connect using INSERT,
+
+6
+00:00:11,020 --> 00:00:12,220
+UPDATE, and SELECT.
+
+7
+00:00:12,220 --> 00:00:14,270
+With a language
+that has no equal,
+
+8
+00:00:14,270 --> 00:00:16,460
+we need more people to Try SQL.
+
+9
+00:00:19,341 --> 00:00:19,840
+SQL.
+
+10
+00:00:24,200 --> 00:00:25,730
+Welcome to Try SQL.
+
+11
+00:00:25,730 --> 00:00:27,480
+My name is Chari Clark,
+and I look forward
+
+12
+00:00:27,480 --> 00:00:28,980
+to giving you some
+key points on how
+
+13
+00:00:28,980 --> 00:00:33,680
+to use the database programming
+language known as SQL.
+
+14
+00:00:33,680 --> 00:00:35,370
+This course is
+designed to teach you
+
+15
+00:00:35,370 --> 00:00:37,460
+the basics on how
+to read, write,
+
+16
+00:00:37,460 --> 00:00:41,120
+and program in the database
+language known as SQL.
+
+17
+00:00:41,120 --> 00:00:43,550
+Let's begin with level
+one, section one —
+
+18
+00:00:43,550 --> 00:00:46,030
+Understanding Databases.
+
+19
+00:00:46,030 --> 00:00:48,370
+So the story begins
+with a question.
+
+20
+00:00:48,370 --> 00:00:50,830
+We want to see a movie
+at the Gatsby Theaters,
+
+21
+00:00:50,830 --> 00:00:53,470
+but we're only interested
+in seeing comedies.
+
+22
+00:00:53,470 --> 00:00:56,020
+How can we get the titles of
+all the movies that are comedies
+
+23
+00:00:56,020 --> 00:00:58,880
+and what can we
+use to get those?
+
+24
+00:00:58,880 --> 00:01:01,444
+Of course, we could use
+the local newspapers.
+
+25
+00:01:01,444 --> 00:01:02,860
+But there are so
+many reasons that
+
+26
+00:01:02,860 --> 00:01:04,475
+make this not the
+most convenient tool
+
+27
+00:01:04,475 --> 00:01:06,650
+to use in today's society.
+
+28
+00:01:06,650 --> 00:01:08,360
+Instead, we could
+look at a website
+
+29
+00:01:08,360 --> 00:01:11,410
+for reviewing current movie
+listings and run times.
+
+30
+00:01:11,410 --> 00:01:13,690
+With today's technology,
+the biggest difference
+
+31
+00:01:13,690 --> 00:01:16,170
+in these two forms of media
+is that only one of these
+
+32
+00:01:16,170 --> 00:01:19,130
+can be continuously updated,
+while the newspaper will
+
+33
+00:01:19,130 --> 00:01:20,079
+remain static.
+
+34
+00:01:20,079 --> 00:01:22,370
+This makes the use of the
+web much better in keeping up
+
+35
+00:01:22,370 --> 00:01:25,260
+to date information about almost
+anything we wish to find out.
+
+36
+00:01:25,260 --> 00:01:28,690
+But what is it exactly that
+makes a website stay updated?
+
+37
+00:01:28,690 --> 00:01:32,510
+Well, this is because it's
+being updated by a database.
+
+38
+00:01:32,510 --> 00:01:34,990
+A database collects and
+organizes information
+
+39
+00:01:34,990 --> 00:01:37,120
+so that it can be
+easily retrieved.
+
+40
+00:01:37,120 --> 00:01:39,540
+For example, the
+movie listings website
+
+41
+00:01:39,540 --> 00:01:42,380
+goes to a database to request
+the most current showtimes
+
+42
+00:01:42,380 --> 00:01:45,250
+for its theater.
+
+43
+00:01:45,250 --> 00:01:48,790
+Believe it or not, databases are
+used in most of the technology
+
+44
+00:01:48,790 --> 00:01:50,460
+that we use every day.
+
+45
+00:01:50,460 --> 00:01:54,600
+And many different services —
+such as email, GPS, Facebook,
+
+46
+00:01:54,600 --> 00:01:57,000
+our cell phones,
+Twitter, and websites —
+
+47
+00:01:57,000 --> 00:02:00,642
+also use databases in
+some form or another.
+
+48
+00:02:00,642 --> 00:02:03,100
+We will be using a database to
+solve some of these problems
+
+49
+00:02:03,100 --> 00:02:05,130
+that we will encounter
+in this course.
+
+50
+00:02:05,130 --> 00:02:07,600
+The database that we'll use
+is called the Gatsby Theaters
+
+51
+00:02:07,600 --> 00:02:10,860
+database, which has all
+types of information.
+
+52
+00:02:10,860 --> 00:02:13,250
+But how is all this
+information, such as movie info
+
+53
+00:02:13,250 --> 00:02:17,100
+and showtimes info, organized?
+
+54
+00:02:17,100 --> 00:02:19,530
+Our information or
+data is organized
+
+55
+00:02:19,530 --> 00:02:21,510
+into what we call tables.
+
+56
+00:02:21,510 --> 00:02:23,980
+A table holds the data that
+can be used in a database
+
+57
+00:02:23,980 --> 00:02:26,350
+and allows for it to
+be easily retrieved.
+
+58
+00:02:26,350 --> 00:02:28,420
+The database holds four tables:
+
+59
+00:02:28,420 --> 00:02:31,935
+Movies, Concessions,
+Showtimes, and Promotions.
+
+60
+00:02:34,470 --> 00:02:36,200
+So here's a question.
+
+61
+00:02:36,200 --> 00:02:38,710
+In order to look up
+information on movies,
+
+62
+00:02:38,710 --> 00:02:40,820
+we would need to go
+inside which database
+
+63
+00:02:40,820 --> 00:02:42,940
+and look inside which table?
+
+64
+00:02:42,940 --> 00:02:44,840
+As you can probably
+see, we would
+
+65
+00:02:44,840 --> 00:02:47,350
+need to go inside the
+Gatsby Theaters database
+
+66
+00:02:47,350 --> 00:02:49,440
+and look inside
+the Movies table.
+
+67
+00:02:49,440 --> 00:02:52,000
+This is where we can
+find our information.
+
+68
+00:02:52,000 --> 00:02:54,800
+Now, let's go a little
+deeper and find out
+
+69
+00:02:54,800 --> 00:02:56,670
+what's inside the table.
+
+70
+00:02:56,670 --> 00:03:00,930
+We see the data from the website
+but not quite in the same form.
+
+71
+00:03:00,930 --> 00:03:04,700
+What we actually see is the
+same data stored and organized
+
+72
+00:03:04,700 --> 00:03:07,370
+into what's known
+as cells or fields,
+
+73
+00:03:07,370 --> 00:03:09,570
+where each cell holds
+a separate value that
+
+74
+00:03:09,570 --> 00:03:10,860
+can be accessed by a website.
+
+75
+00:03:14,240 --> 00:03:18,030
+These cells for each table
+are organized into rows.
+
+76
+00:03:18,030 --> 00:03:21,230
+Basically, a row represents
+an entire data record
+
+77
+00:03:21,230 --> 00:03:22,780
+within each table.
+
+78
+00:03:22,780 --> 00:03:25,430
+For example, we can look
+at the first row of data
+
+79
+00:03:25,430 --> 00:03:28,890
+as having an ID of 1 with
+a title of Metropolis,
+
+80
+00:03:28,890 --> 00:03:33,640
+and a genre of sci-fi, along
+with having a duration of 153.
+
+81
+00:03:33,640 --> 00:03:37,780
+Each row is separate
+from the next.
+
+82
+00:03:37,780 --> 00:03:39,870
+A table is also
+made up of columns,
+
+83
+00:03:39,870 --> 00:03:42,790
+which hold similar data
+for each separate value.
+
+84
+00:03:42,790 --> 00:03:44,890
+Each column is given
+a descriptive name,
+
+85
+00:03:44,890 --> 00:03:48,150
+which describes the type of
+data that can be found in it.
+
+86
+00:03:48,150 --> 00:03:54,870
+The four columns we have are
+ID, title, genre, and duration.
+
+87
+00:03:54,870 --> 00:03:58,530
+Often, a table will have
+some unique identifier, which
+
+88
+00:03:58,530 --> 00:04:00,250
+is used to order the rows.
+
+89
+00:04:00,250 --> 00:04:03,240
+Another name for this is the
+primary key of the table.
+
+90
+00:04:05,940 --> 00:04:08,880
+Let's look at how to find
+some data in our database.
+
+91
+00:04:08,880 --> 00:04:13,460
+Say, for example, we want
+to find the value "Nosferatu."
+
+92
+00:04:13,460 --> 00:04:16,130
+How would we find this
+value in our table?
+
+93
+00:04:16,130 --> 00:04:18,260
+To move through a
+table in a database,
+
+94
+00:04:18,260 --> 00:04:20,290
+we should first
+look at the columns.
+
+95
+00:04:20,290 --> 00:04:22,200
+We'll start with the ID column.
+
+96
+00:04:22,200 --> 00:04:24,650
+Since there are no
+matching records here,
+
+97
+00:04:24,650 --> 00:04:27,600
+we move to the right
+one column to find
+
+98
+00:04:27,600 --> 00:04:31,880
+that the matching record
+is in the title column.
+
+99
+00:04:31,880 --> 00:04:34,420
+Next is to search by row.
+
+100
+00:04:34,420 --> 00:04:36,910
+Let's move through each
+row in the column of title
+
+101
+00:04:36,910 --> 00:04:38,660
+and find Nosferatu.
+
+102
+00:04:38,660 --> 00:04:41,370
+We find that Nosferatu
+is in the title column
+
+103
+00:04:41,370 --> 00:04:43,920
+and on the second row.
+
+104
+00:04:43,920 --> 00:04:47,390
+Generally, tables will contain
+fewer columns than rows.
+
+105
+00:04:47,390 --> 00:04:50,556
+So, while the table may
+have over a million rows,
+
+106
+00:04:50,556 --> 00:04:52,430
+it may have only a couple
+of hundred columns.
+
+107
+00:04:55,240 --> 00:04:57,980
+The search path first moves
+through the columns from left
+
+108
+00:04:57,980 --> 00:04:58,870
+to right.
+
+109
+00:04:58,870 --> 00:05:03,000
+And then we search the
+rows from top to bottom.
+
+110
+00:05:03,000 --> 00:05:05,096
+That's all we have
+for section one.
+
+111
+00:05:05,096 --> 00:05:06,470
+Now let's look at
+some challenges
+
+112
+00:05:06,470 --> 00:05:09,110
+to help reinforce
+these concepts.
+

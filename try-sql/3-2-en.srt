@@ -1,0 +1,255 @@
+﻿1
+00:00:02,230 --> 00:00:05,680
+Welcome back to Try SQL
+level three, section two.
+
+2
+00:00:05,680 --> 00:00:08,800
+In this section, we'll show
+you how to manipulate tables
+
+3
+00:00:08,800 --> 00:00:10,770
+within a database.
+
+4
+00:00:10,770 --> 00:00:16,230
+So, how would we add, change,
+or even remove an entire column
+
+5
+00:00:16,230 --> 00:00:18,350
+from an existing table?
+
+6
+00:00:18,350 --> 00:00:20,550
+Let's first start by
+adding the ratings column
+
+7
+00:00:20,550 --> 00:00:22,380
+to our Movies table.
+
+8
+00:00:22,380 --> 00:00:26,310
+We do want to see how well
+a movie is doing, right?
+
+9
+00:00:26,310 --> 00:00:30,400
+We have a new SQL recipe, which
+we'll call the ALTER TABLE ADD
+
+10
+00:00:30,400 --> 00:00:31,790
+recipe.
+
+11
+00:00:31,790 --> 00:00:34,580
+We first give the ALTER
+TABLE command, followed
+
+12
+00:00:34,580 --> 00:00:36,720
+by the table we want to change.
+
+13
+00:00:36,720 --> 00:00:40,070
+Next, we issue an
+ADD COLUMN clause
+
+14
+00:00:40,070 --> 00:00:43,710
+stating that we want to add a
+column to the indicated table.
+
+15
+00:00:43,710 --> 00:00:46,990
+This is followed by the name
+of the new column and the data
+
+16
+00:00:46,990 --> 00:00:48,220
+type we want it to have.
+
+17
+00:00:52,480 --> 00:00:55,920
+So now if we take our
+ALTER TABLE ADD recipe
+
+18
+00:00:55,920 --> 00:00:58,500
+and supply the
+table name of movies
+
+19
+00:00:58,500 --> 00:01:02,520
+along with the new column named
+ratings and a data type of INT,
+
+20
+00:01:02,520 --> 00:01:05,019
+here's what the SQL
+code will look like.
+
+21
+00:01:05,019 --> 00:01:07,560
+We give the data type as
+INT because we wish to rate
+
+22
+00:01:07,560 --> 00:01:11,300
+these films from 1 to 10.
+
+23
+00:01:11,300 --> 00:01:13,960
+We run this SQL statement
+and see that the new column
+
+24
+00:01:13,960 --> 00:01:15,650
+ratings is now created.
+
+25
+00:01:15,650 --> 00:01:18,370
+But all the fields are empty.
+
+26
+00:01:18,370 --> 00:01:22,840
+Let's update these fields
+with some actual data.
+
+27
+00:01:22,840 --> 00:01:25,800
+Since we currently have data
+in the columns of the Chaplin
+
+28
+00:01:25,800 --> 00:01:28,600
+Theaters database, issuing
+these separate UPDATE
+
+29
+00:01:28,600 --> 00:01:31,930
+commands will change only the
+field in the ratings column.
+
+30
+00:01:31,930 --> 00:01:34,000
+We use the WHERE
+clause to pinpoint
+
+31
+00:01:34,000 --> 00:01:36,880
+which title needs to get the
+rating indicated by the set
+
+32
+00:01:36,880 --> 00:01:38,110
+keyword.
+
+33
+00:01:38,110 --> 00:01:40,270
+Then we'll execute
+all of the statements
+
+34
+00:01:40,270 --> 00:01:44,510
+and find that our new
+ratings column has
+
+35
+00:01:44,510 --> 00:01:46,001
+some data of its own.
+
+36
+00:01:46,001 --> 00:01:46,500
+Cool.
+
+37
+00:01:49,940 --> 00:01:52,390
+But what if we no
+longer needed a column?
+
+38
+00:01:52,390 --> 00:01:56,300
+We can remove it by issuing
+the ALTER TABLE DROP statement.
+
+39
+00:01:56,300 --> 00:02:00,140
+Let's drop or remove the
+ratings column altogether.
+
+40
+00:02:00,140 --> 00:02:05,020
+The DROP COLUMN clause deletes
+a column in an existing table.
+
+41
+00:02:05,020 --> 00:02:08,509
+As we see, no more ratings
+column to be found.
+
+42
+00:02:08,509 --> 00:02:09,255
+Death to critics.
+
+43
+00:02:12,060 --> 00:02:14,390
+There are tons of other
+great and useful things
+
+44
+00:02:14,390 --> 00:02:18,510
+we can use SQL for, but we'll
+get to those in later courses.
+
+45
+00:02:18,510 --> 00:02:21,850
+For now, thanks for
+joining us for Try SQL.
+
+46
+00:02:21,850 --> 00:02:25,100
+Let's finish strong and
+complete these final challenges.
+
+47
+00:02:25,100 --> 00:02:26,420
+Thanks for using Code School.
+
+48
+00:02:26,420 --> 00:02:28,850
+We'll see you soon.
+
+49
+00:02:28,850 --> 00:02:30,440
+Column from — 
+
+50
+00:02:30,440 --> 00:02:32,680
+We'll see you in the next course.
+
+51
+00:02:32,680 --> 00:02:36,190
+Thank you for
+joining Code School.
+
+52
+00:02:36,190 --> 00:02:37,944
+Welcome back to Try SQL.
+
+53
+00:02:37,944 --> 00:02:39,360
+Let's get back to
+trying some SQL.
+
+54
+00:02:42,330 --> 00:02:44,805
+This guy.
+
+55
+00:02:44,805 --> 00:02:47,990
+I just — I just.
+

@@ -1,0 +1,906 @@
+﻿1
+00:00:00,270 --> 00:00:01,750
+[SINGING] Deep in
+your app, there's
+
+2
+00:00:01,750 --> 00:00:04,230
+a space filled up
+by a great database.
+
+3
+00:00:04,230 --> 00:00:06,775
+Its tables are where
+information goes, made up of
+
+4
+00:00:06,775 --> 00:00:08,380
+cells inside columns and rows.
+
+5
+00:00:08,380 --> 00:00:11,020
+To speak to it, we can
+connect using INSERT,
+
+6
+00:00:11,020 --> 00:00:12,220
+UPDATE, and SELECT.
+
+7
+00:00:12,220 --> 00:00:14,270
+With a language
+that has no equal,
+
+8
+00:00:14,270 --> 00:00:16,200
+we need more people to Try SQL.
+
+9
+00:00:19,330 --> 00:00:19,830
+SQL.
+
+10
+00:00:23,230 --> 00:00:26,099
+Welcome to the third level
+of the Try SQL course.
+
+11
+00:00:26,099 --> 00:00:28,640
+Let's continue with some more
+exciting topics in the database
+
+12
+00:00:28,640 --> 00:00:30,260
+language called SQL.
+
+13
+00:00:30,260 --> 00:00:32,900
+Here's in section one, we'll
+be creating and removing
+
+14
+00:00:32,900 --> 00:00:34,710
+databases and tables.
+
+15
+00:00:34,710 --> 00:00:36,500
+So far, we have
+learned quite a bit
+
+16
+00:00:36,500 --> 00:00:40,030
+about how to retrieve and
+manipulate data using SQL.
+
+17
+00:00:40,030 --> 00:00:43,260
+Now, let's take a look at how
+to create databases and tables
+
+18
+00:00:43,260 --> 00:00:45,000
+as well as alter
+the actual table
+
+19
+00:00:45,000 --> 00:00:47,150
+structure within a database.
+
+20
+00:00:47,150 --> 00:00:50,570
+So how can we use SQL to create
+a completely new database?
+
+21
+00:00:50,570 --> 00:00:54,590
+We will add a new theater
+to the list of databases.
+
+22
+00:00:54,590 --> 00:00:56,340
+Our next task will be
+adding a new theater
+
+23
+00:00:56,340 --> 00:00:57,990
+to the list of databases.
+
+24
+00:00:57,990 --> 00:00:59,850
+But how can we do
+that using SQL?
+
+25
+00:00:59,850 --> 00:01:01,050
+Let's take a look.
+
+26
+00:01:01,050 --> 00:01:02,800
+First, let's review
+the structure
+
+27
+00:01:02,800 --> 00:01:05,330
+of the first database:
+Gatsby Theaters.
+
+28
+00:01:05,330 --> 00:01:08,320
+The original Gatsby Theaters
+contained four tables.
+
+29
+00:01:08,320 --> 00:01:12,730
+We wish to create a
+database similar to this.
+
+30
+00:01:12,730 --> 00:01:15,460
+We will call the new database
+the Chaplin Theaters.
+
+31
+00:01:15,460 --> 00:01:18,550
+It will be empty at
+first, containing no data.
+
+32
+00:01:18,550 --> 00:01:20,870
+Taking a cue from
+the Gatsby Theaters,
+
+33
+00:01:20,870 --> 00:01:22,940
+we know that we'll
+need four tables.
+
+34
+00:01:22,940 --> 00:01:26,340
+Let's see how to
+get to that point.
+
+35
+00:01:26,340 --> 00:01:29,040
+To establish a totally new
+database on our server,
+
+36
+00:01:29,040 --> 00:01:32,080
+we will use a brand new SQL
+recipe call the CREATE DATABASE
+
+37
+00:01:32,080 --> 00:01:33,170
+recipe.
+
+38
+00:01:33,170 --> 00:01:36,910
+Basically, it starts with the
+CREATE DATABASE key phrase,
+
+39
+00:01:36,910 --> 00:01:39,870
+which is the SQL statement
+to create a database,
+
+40
+00:01:39,870 --> 00:01:44,300
+followed by the name
+the database will have.
+
+41
+00:01:44,300 --> 00:01:47,610
+We execute the CREATE
+DATABASE statement and — voila —
+
+42
+00:01:47,610 --> 00:01:50,680
+we have a brand new database
+called the Chaplin Theaters.
+
+43
+00:01:50,680 --> 00:01:54,430
+Since it is a new database,
+it is also an empty database.
+
+44
+00:01:54,430 --> 00:01:58,200
+But we'll see how to
+change that very soon.
+
+45
+00:01:58,200 --> 00:02:01,040
+Before we look at adding
+tables, structure, and data,
+
+46
+00:02:01,040 --> 00:02:03,540
+and all those things
+to this new database,
+
+47
+00:02:03,540 --> 00:02:05,950
+let's also see what it would
+take to completely remove
+
+48
+00:02:05,950 --> 00:02:07,040
+a database.
+
+49
+00:02:07,040 --> 00:02:08,350
+Scary, right?
+
+50
+00:02:08,350 --> 00:02:10,680
+For example, say
+we realized that we
+
+51
+00:02:10,680 --> 00:02:13,350
+don't need a new Chaplin
+Theaters database at all.
+
+52
+00:02:13,350 --> 00:02:16,910
+How would we get rid of that?
+
+53
+00:02:16,910 --> 00:02:19,640
+When we remove a database,
+be it old or new,
+
+54
+00:02:19,640 --> 00:02:22,110
+it is known as
+dropping a database.
+
+55
+00:02:22,110 --> 00:02:24,640
+So for that, we'll use what
+is called the DROP DATABASE
+
+56
+00:02:24,640 --> 00:02:25,480
+recipe.
+
+57
+00:02:25,480 --> 00:02:27,830
+It starts with the
+DROP DATABASE statement
+
+58
+00:02:27,830 --> 00:02:29,340
+to remove the database.
+
+59
+00:02:29,340 --> 00:02:32,110
+And it's followed by the
+database we wish to remove.
+
+60
+00:02:32,110 --> 00:02:33,670
+But be careful.
+
+61
+00:02:33,670 --> 00:02:36,220
+When removing or
+dropping a database,
+
+62
+00:02:36,220 --> 00:02:38,960
+it's important to remember
+that once the DROP DATABASE
+
+63
+00:02:38,960 --> 00:02:42,120
+statement is executed,
+the database and all
+
+64
+00:02:42,120 --> 00:02:46,240
+of its contents will
+no longer be available.
+
+65
+00:02:46,240 --> 00:02:49,870
+So, if we actually ran
+this SQL statement,
+
+66
+00:02:49,870 --> 00:02:51,630
+the new Chaplin
+Theaters database
+
+67
+00:02:51,630 --> 00:02:53,512
+would have been
+completely removed.
+
+68
+00:02:53,512 --> 00:02:55,470
+But we're glad we didn't
+do that since we still
+
+69
+00:02:55,470 --> 00:02:57,600
+have plans for it.
+
+70
+00:02:57,600 --> 00:02:58,450
+Okay.
+
+71
+00:02:58,450 --> 00:03:00,800
+Let's assume we did
+not drop our database
+
+72
+00:03:00,800 --> 00:03:02,550
+and that we still have
+our database set up
+
+73
+00:03:02,550 --> 00:03:04,520
+for Chaplin Theaters.
+
+74
+00:03:04,520 --> 00:03:07,790
+Let's see how to create a
+table inside of that database.
+
+75
+00:03:07,790 --> 00:03:10,920
+We want to create a Movies table
+inside of the Chaplin Theaters
+
+76
+00:03:10,920 --> 00:03:13,230
+database that will hold
+data for other films
+
+77
+00:03:13,230 --> 00:03:15,380
+that we wish to list.
+
+78
+00:03:15,380 --> 00:03:18,440
+We will use the CREATE
+TABLE recipe to do this.
+
+79
+00:03:18,440 --> 00:03:21,440
+The CREATE TABLE portion
+signals that a new table will
+
+80
+00:03:21,440 --> 00:03:23,900
+be created on the database.
+
+81
+00:03:23,900 --> 00:03:26,930
+Followed by the name we
+want our table to have.
+
+82
+00:03:26,930 --> 00:03:30,070
+A set of parentheses
+surrounds the table structure,
+
+83
+00:03:30,070 --> 00:03:32,180
+while inside the
+parentheses we state
+
+84
+00:03:32,180 --> 00:03:36,060
+the name we wish the columns to
+have, followed by a data type.
+
+85
+00:03:36,060 --> 00:03:38,790
+Now, don't be scared
+of these data types.
+
+86
+00:03:38,790 --> 00:03:41,090
+They just tell us what
+kind of value the column
+
+87
+00:03:41,090 --> 00:03:42,760
+must contain.
+
+88
+00:03:42,760 --> 00:03:46,530
+When creating a table, every
+column must have a data type.
+
+89
+00:03:46,530 --> 00:03:51,230
+And we use a comma to separate
+each column in our list.
+
+90
+00:03:51,230 --> 00:03:54,250
+Looking at how we wish to
+create the new database,
+
+91
+00:03:54,250 --> 00:03:56,930
+based on Gatsby
+Theaters, we know
+
+92
+00:03:56,930 --> 00:04:00,190
+that we have the data for
+movie info, concessions
+
+93
+00:04:00,190 --> 00:04:03,720
+info, showtime info,
+and promotions info.
+
+94
+00:04:03,720 --> 00:04:07,760
+You may notice none of this
+data has any table structure.
+
+95
+00:04:07,760 --> 00:04:10,170
+The first table we will
+add to the new database
+
+96
+00:04:10,170 --> 00:04:14,520
+will be the Movies table, which
+will hold the movie info data.
+
+97
+00:04:14,520 --> 00:04:16,959
+Before we actually
+create the table,
+
+98
+00:04:16,959 --> 00:04:20,490
+let's take a look at how we
+want the columns inside to look.
+
+99
+00:04:20,490 --> 00:04:22,910
+So if we're looking
+at the raw data,
+
+100
+00:04:22,910 --> 00:04:25,870
+this is how it will look in
+all of its shining glory.
+
+101
+00:04:25,870 --> 00:04:27,640
+Not so impressive, right?
+
+102
+00:04:27,640 --> 00:04:30,200
+In many instances,
+table data is taken
+
+103
+00:04:30,200 --> 00:04:32,500
+from spreadsheets
+or other sources
+
+104
+00:04:32,500 --> 00:04:34,590
+in some format or another.
+
+105
+00:04:34,590 --> 00:04:36,680
+It is from these sources
+where we'll decide
+
+106
+00:04:36,680 --> 00:04:40,230
+how to build the table columns.
+
+107
+00:04:40,230 --> 00:04:42,070
+From the spreadsheet,
+we see that we
+
+108
+00:04:42,070 --> 00:04:44,330
+have four columns of data.
+
+109
+00:04:44,330 --> 00:04:46,990
+Each one of these columns
+has a different kind of value,
+
+110
+00:04:46,990 --> 00:04:49,260
+which will help us
+determine how we will create
+
+111
+00:04:49,260 --> 00:04:52,570
+new columns in the table.
+
+112
+00:04:52,570 --> 00:04:56,130
+Over here, the first
+column has the title of ID.
+
+113
+00:04:56,130 --> 00:04:59,300
+It appears to be made up of
+only numbers which continuously
+
+114
+00:04:59,300 --> 00:05:02,040
+grow incrementally.
+
+115
+00:05:02,040 --> 00:05:05,130
+So when we look at
+the new Movies table,
+
+116
+00:05:05,130 --> 00:05:07,820
+we will name the
+first column ID.
+
+117
+00:05:07,820 --> 00:05:10,320
+And since this column
+will hold only numbers,
+
+118
+00:05:10,320 --> 00:05:14,230
+we will give it a data type of
+INT, which is used primarily
+
+119
+00:05:14,230 --> 00:05:16,440
+for numbers or integers.
+
+120
+00:05:16,440 --> 00:05:18,290
+Since we also wish
+for the numbers
+
+121
+00:05:18,290 --> 00:05:21,700
+to grow incrementally in this
+column as we add more data,
+
+122
+00:05:21,700 --> 00:05:24,600
+we will use this column
+as the primary key.
+
+123
+00:05:24,600 --> 00:05:28,250
+Now, a primary key can be set
+in a number of different ways,
+
+124
+00:05:28,250 --> 00:05:31,110
+and we'll look at those
+ways in the next course.
+
+125
+00:05:31,110 --> 00:05:35,000
+But for now, just know that
+ID is serving as a primary key
+
+126
+00:05:35,000 --> 00:05:39,570
+and will automatically be
+incremented as data is added.
+
+127
+00:05:39,570 --> 00:05:43,530
+Next, we have the title
+column from the grid of data.
+
+128
+00:05:43,530 --> 00:05:46,830
+It looks like this column is
+where the film names are given,
+
+129
+00:05:46,830 --> 00:05:49,050
+but could be letters
+and/or numbers
+
+130
+00:05:49,050 --> 00:05:51,260
+depending on the actual
+name of the movie title.
+
+131
+00:05:54,300 --> 00:05:58,500
+Knowing this, we will give the
+second column a name of title
+
+132
+00:05:58,500 --> 00:06:00,710
+with a data type of VARCHAR.
+
+133
+00:06:00,710 --> 00:06:02,830
+This data type
+allows the data here
+
+134
+00:06:02,830 --> 00:06:05,460
+to have a variable length
+of letters and numbers
+
+135
+00:06:05,460 --> 00:06:06,750
+within this field.
+
+136
+00:06:06,750 --> 00:06:10,580
+Let's give this data type a
+length of 50 digits, which means
+
+137
+00:06:10,580 --> 00:06:12,410
+that no matter what
+the data is here,
+
+138
+00:06:12,410 --> 00:06:16,970
+it cannot be longer than
+50 character spaces.
+
+139
+00:06:16,970 --> 00:06:18,480
+The third column
+on the spreadsheet
+
+140
+00:06:18,480 --> 00:06:20,900
+has a name of
+genre, which appears
+
+141
+00:06:20,900 --> 00:06:24,070
+to hold a description of the
+type of film for each movie.
+
+142
+00:06:24,070 --> 00:06:27,250
+This value, like the
+previous title column,
+
+143
+00:06:27,250 --> 00:06:29,250
+is made up of a string
+of letters as well.
+
+144
+00:06:32,090 --> 00:06:35,170
+Like the title column, we
+will make the genre column
+
+145
+00:06:35,170 --> 00:06:37,040
+a data type of VARCHAR.
+
+146
+00:06:37,040 --> 00:06:40,530
+Usually a film's title
+can be longer or shorter
+
+147
+00:06:40,530 --> 00:06:41,890
+than its description.
+
+148
+00:06:41,890 --> 00:06:45,570
+Therefore, we'll give the
+genre a lower maximum
+
+149
+00:06:45,570 --> 00:06:47,870
+variable character length of 15.
+
+150
+00:06:50,710 --> 00:06:52,250
+The last column
+from our data grid,
+
+151
+00:06:52,250 --> 00:06:54,510
+duration, looks like
+it only holds numbers.
+
+152
+00:06:57,460 --> 00:07:00,190
+So based on that
+fact, we can finally
+
+153
+00:07:00,190 --> 00:07:03,890
+name the last column duration,
+and give it a data type of INT.
+
+154
+00:07:03,890 --> 00:07:08,050
+The data type may appear to
+be the same as that of ID,
+
+155
+00:07:08,050 --> 00:07:11,330
+but we know that movie
+times can be the same.
+
+156
+00:07:11,330 --> 00:07:13,880
+Therefore, this column will
+not be the primary key
+
+157
+00:07:13,880 --> 00:07:14,985
+or hold unique values.
+
+158
+00:07:17,640 --> 00:07:21,340
+Once we run the SQL
+CREATE TABLE statement,
+
+159
+00:07:21,340 --> 00:07:23,090
+we can see that we
+have successfully
+
+160
+00:07:23,090 --> 00:07:27,162
+created the Movies table inside
+the Chaplin Theaters database.
+
+161
+00:07:27,162 --> 00:07:28,620
+There are many
+different data types,
+
+162
+00:07:28,620 --> 00:07:31,017
+which can have a lot of
+different properties.
+
+163
+00:07:31,017 --> 00:07:32,600
+More information on
+these can be found
+
+164
+00:07:32,600 --> 00:07:34,700
+on the web in a
+number of places,
+
+165
+00:07:34,700 --> 00:07:39,230
+but we'll leave this up to
+you to research as you wish.
+
+166
+00:07:39,230 --> 00:07:41,440
+Looking at the new
+table, do we actually
+
+167
+00:07:41,440 --> 00:07:43,360
+have any data inside of it?
+
+168
+00:07:43,360 --> 00:07:44,460
+Not yet.
+
+169
+00:07:44,460 --> 00:07:47,520
+So it looks like it's
+time to add or INSERT
+
+170
+00:07:47,520 --> 00:07:52,630
+some data into the table, which
+we already know how to do.
+
+171
+00:07:52,630 --> 00:07:55,420
+But let's say for some
+reason that the new table
+
+172
+00:07:55,420 --> 00:07:57,480
+wasn't created correctly.
+
+173
+00:07:57,480 --> 00:08:00,670
+How would we remove it from
+the Chaplin Theaters database?
+
+174
+00:08:00,670 --> 00:08:03,560
+Like removing a database,
+we would drop a table
+
+175
+00:08:03,560 --> 00:08:05,190
+from a database to remove it.
+
+176
+00:08:05,190 --> 00:08:07,830
+Let's take a look.
+
+177
+00:08:07,830 --> 00:08:10,400
+Here, we have the
+DROP TABLE recipe
+
+178
+00:08:10,400 --> 00:08:13,650
+where we signify that a table
+is to be removed with the DROP
+
+179
+00:08:13,650 --> 00:08:16,530
+TABLE statement, followed
+by the name of the table
+
+180
+00:08:16,530 --> 00:08:19,960
+we want to remove.
+
+181
+00:08:19,960 --> 00:08:22,740
+Looking at the Chaplin
+Theaters database,
+
+182
+00:08:22,740 --> 00:08:25,460
+here's what would take place if
+we chose to remove the Movies
+
+183
+00:08:25,460 --> 00:08:27,230
+table from the database.
+
+184
+00:08:27,230 --> 00:08:30,520
+We would run our DROP TABLE
+statement, removing the table
+
+185
+00:08:30,520 --> 00:08:33,950
+from the database entirely.
+
+186
+00:08:33,950 --> 00:08:36,900
+It would no longer be available
+to use by the Chaplin Theaters
+
+187
+00:08:36,900 --> 00:08:39,539
+database.
+
+188
+00:08:39,539 --> 00:08:42,760
+And that's all there is for this
+first section of level three.
+
+189
+00:08:42,760 --> 00:08:44,610
+Now it's time for
+some more challenges,
+
+190
+00:08:44,610 --> 00:08:47,180
+and we'll see you back
+in the next section.
+

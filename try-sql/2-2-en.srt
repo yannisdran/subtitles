@@ -1,0 +1,299 @@
+﻿1
+00:00:02,000 --> 00:00:04,330
+Welcome back to Try SQL.
+
+2
+00:00:04,330 --> 00:00:07,380
+Let's continue with
+section two of level two.
+
+3
+00:00:07,380 --> 00:00:11,990
+Here, we'll look at changing
+current data in our tables.
+
+4
+00:00:11,990 --> 00:00:12,490
+Alright.
+
+5
+00:00:12,490 --> 00:00:14,640
+We've learned how to do
+some pretty good things,
+
+6
+00:00:14,640 --> 00:00:17,110
+like selecting existing
+data and adding
+
+7
+00:00:17,110 --> 00:00:19,130
+new data to our database.
+
+8
+00:00:19,130 --> 00:00:22,890
+But how will we update existing
+data currently in our database?
+
+9
+00:00:22,890 --> 00:00:25,450
+We want to use SQL to change
+the genre for the film
+
+10
+00:00:25,450 --> 00:00:27,400
+The Circus from
+comedy to romance.
+
+11
+00:00:30,040 --> 00:00:31,860
+To change movie
+information that currently
+
+12
+00:00:31,860 --> 00:00:33,750
+exists in the database,
+we'll use what's
+
+13
+00:00:33,750 --> 00:00:35,660
+called an UPDATE statement.
+
+14
+00:00:35,660 --> 00:00:38,900
+In an UPDATE recipe, we
+have the UPDATE keyword,
+
+15
+00:00:38,900 --> 00:00:41,230
+which lets the database
+know that we want to change
+
+16
+00:00:41,230 --> 00:00:43,230
+some data in the database.
+
+17
+00:00:43,230 --> 00:00:45,050
+The following blank
+will contain the table
+
+18
+00:00:45,050 --> 00:00:47,510
+where we want the
+update to take place.
+
+19
+00:00:47,510 --> 00:00:51,280
+Next, we see the SET keyword,
+which tells the database both
+
+20
+00:00:51,280 --> 00:00:53,340
+the column that
+we wish to update
+
+21
+00:00:53,340 --> 00:00:56,490
+and the new data value we want
+to place within that column
+
+22
+00:00:56,490 --> 00:00:57,940
+after the equal sign.
+
+23
+00:00:57,940 --> 00:01:01,100
+The parentheses in this recipe
+indicate that a WHERE clause
+
+24
+00:01:01,100 --> 00:01:02,540
+is optional here.
+
+25
+00:01:02,540 --> 00:01:05,060
+If we were to use
+a WHERE clause,
+
+26
+00:01:05,060 --> 00:01:07,950
+we can pinpoint parts
+of a column to update.
+
+27
+00:01:07,950 --> 00:01:11,590
+If we use no WHERE
+clause, the entire column
+
+28
+00:01:11,590 --> 00:01:15,170
+will update for all rows.
+
+29
+00:01:15,170 --> 00:01:17,460
+Back in the Movies
+table, we realize
+
+30
+00:01:17,460 --> 00:01:21,260
+that the new film isn't actually
+a comedy, but it's a romance.
+
+31
+00:01:21,260 --> 00:01:24,440
+So now we have to change the
+genre of the film The Circus.
+
+32
+00:01:24,440 --> 00:01:26,670
+But how do we do that?
+
+33
+00:01:26,670 --> 00:01:29,820
+Let's use the UPDATE recipe
+to change the existing row.
+
+34
+00:01:29,820 --> 00:01:33,130
+First, we use the
+UPDATE keyword followed
+
+35
+00:01:33,130 --> 00:01:35,690
+by the table we wish to update,
+which is, of course, movies.
+
+36
+00:01:39,310 --> 00:01:41,090
+Next, we set the
+genre to romance.
+
+37
+00:01:44,970 --> 00:01:48,160
+Lastly and importantly,
+we use a WHERE clause
+
+38
+00:01:48,160 --> 00:01:50,820
+to signal that we only
+want a column update
+
+39
+00:01:50,820 --> 00:01:54,690
+where the ID of the
+film is equal to 5.
+
+40
+00:01:54,690 --> 00:01:57,007
+Once we run the
+UPDATE statement,
+
+41
+00:01:57,007 --> 00:01:58,840
+we see that the genre
+of the film The Circus
+
+42
+00:01:58,840 --> 00:02:01,355
+has been successfully changed
+from comedy to romance.
+
+43
+00:02:03,890 --> 00:02:06,020
+Another great thing
+about SQL is that we
+
+44
+00:02:06,020 --> 00:02:09,250
+are able to change multiple
+columns within a row.
+
+45
+00:02:09,250 --> 00:02:11,840
+This is done by simply
+adding each column name along
+
+46
+00:02:11,840 --> 00:02:14,470
+with an updated value
+and separating each
+
+47
+00:02:14,470 --> 00:02:16,470
+of those changes with a comma.
+
+48
+00:02:16,470 --> 00:02:19,460
+We can change the genre of
+The Circus back to comedy
+
+49
+00:02:19,460 --> 00:02:23,420
+and change the duration time to
+70 — all in the same statement.
+
+50
+00:02:23,420 --> 00:02:25,550
+Cool, right?
+
+51
+00:02:25,550 --> 00:02:27,340
+This update thing
+gets even better.
+
+52
+00:02:27,340 --> 00:02:28,440
+Check it out.
+
+53
+00:02:28,440 --> 00:02:32,170
+SQL will let us make changes to
+different rows at the same time
+
+54
+00:02:32,170 --> 00:02:34,850
+by adding an OR to
+the WHERE clause.
+
+55
+00:02:34,850 --> 00:02:38,250
+This will allow us to pinpoint
+even more rows to update than
+
+56
+00:02:38,250 --> 00:02:40,750
+by using just one criteria.
+
+57
+00:02:40,750 --> 00:02:42,720
+If you have multiple
+criteria, you
+
+58
+00:02:42,720 --> 00:02:44,530
+can string together
+several OR statements
+
+59
+00:02:44,530 --> 00:02:46,410
+to get everything you need.
+
+60
+00:02:46,410 --> 00:02:50,200
+UPDATE statements can be very
+powerful and useful in SQL.
+
+61
+00:02:50,200 --> 00:02:51,980
+And that's it for section two.
+
+62
+00:02:51,980 --> 00:02:53,190
+Now for some more challenges.
+
+63
+00:02:53,190 --> 00:02:55,810
+And we'll see you back
+in the next section.
+

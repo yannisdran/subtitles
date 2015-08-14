@@ -1,0 +1,545 @@
+﻿1
+00:00:00,275 --> 00:00:01,750
+[SINGING] Deep in
+your app, there's
+
+2
+00:00:01,750 --> 00:00:04,230
+a space filled up
+by a great database.
+
+3
+00:00:04,230 --> 00:00:06,780
+Its tables are where
+information goes, made up of
+
+4
+00:00:06,780 --> 00:00:08,390
+cells inside columns and rows.
+
+5
+00:00:08,390 --> 00:00:10,880
+To speak to it, we can
+connect using INSERT,
+
+6
+00:00:10,880 --> 00:00:12,250
+UPDATE, and SELECT.
+
+7
+00:00:12,250 --> 00:00:14,130
+With a language
+that has no equal,
+
+8
+00:00:14,130 --> 00:00:18,750
+we need more people to Try SQL.
+
+9
+00:00:19,341 --> 00:00:21,040
+SQL.
+
+10
+00:00:24,530 --> 00:00:26,965
+Welcome back to
+level two of Try SQL.
+
+11
+00:00:26,965 --> 00:00:28,340
+In the previous
+levels, we looked
+
+12
+00:00:28,340 --> 00:00:30,900
+at ways of getting
+data out of the tables.
+
+13
+00:00:30,900 --> 00:00:32,640
+In this next level,
+we'll look at ways
+
+14
+00:00:32,640 --> 00:00:35,880
+of adding data to the tables.
+
+15
+00:00:35,880 --> 00:00:36,800
+Okay, great.
+
+16
+00:00:36,800 --> 00:00:39,500
+We now know how to access
+data in our Movies table,
+
+17
+00:00:39,500 --> 00:00:41,940
+but what would we want to
+do if we wanted to add more
+
+18
+00:00:41,940 --> 00:00:43,690
+data to what we currently have?
+
+19
+00:00:43,690 --> 00:00:46,390
+Let's say we have a new film
+called The Circus that we wish
+
+20
+00:00:46,390 --> 00:00:48,690
+to add to the table of Movies.
+
+21
+00:00:48,690 --> 00:00:51,580
+It's a comedy with a
+duration of 71 minutes.
+
+22
+00:00:51,580 --> 00:00:53,570
+Let's add it to the table.
+
+23
+00:00:53,570 --> 00:00:56,840
+To start, in order to add
+a new record to an existing
+
+24
+00:00:56,840 --> 00:01:00,800
+table in SQL, we'll use what's
+known as an INSERT statement.
+
+25
+00:01:00,800 --> 00:01:02,720
+Here we have the
+INSERT recipe, which
+
+26
+00:01:02,720 --> 00:01:05,470
+has some new concepts
+for us to look at.
+
+27
+00:01:05,470 --> 00:01:08,290
+The SQL statement begins
+with the INSERT INTO,
+
+28
+00:01:08,290 --> 00:01:11,490
+which indicates to SQL that
+we wish to add new data.
+
+29
+00:01:11,490 --> 00:01:14,730
+Next, is the table to which
+we wish to add the data.
+
+30
+00:01:14,730 --> 00:01:17,060
+And we follow it up with
+a set of parentheses
+
+31
+00:01:17,060 --> 00:01:19,310
+that indicate the column
+or columns to which we
+
+32
+00:01:19,310 --> 00:01:20,840
+want to add the data.
+
+33
+00:01:20,840 --> 00:01:23,210
+The VALUES keyword comes next.
+
+34
+00:01:23,210 --> 00:01:26,780
+And after that, we place
+the actual data values
+
+35
+00:01:26,780 --> 00:01:30,650
+that are going to be
+added to the table.
+
+36
+00:01:30,650 --> 00:01:33,990
+Looking at the Movies table,
+we know we have four records.
+
+37
+00:01:33,990 --> 00:01:37,770
+But now, we wish to
+add a new fifth record
+
+38
+00:01:37,770 --> 00:01:39,560
+by inserting a film
+with the title
+
+39
+00:01:39,560 --> 00:01:42,880
+The Circus along with
+its genre of comedy
+
+40
+00:01:42,880 --> 00:01:44,780
+and its duration of 71 minutes.
+
+41
+00:01:48,000 --> 00:01:51,950
+So first, we add the
+INSERT INTO clause,
+
+42
+00:01:51,950 --> 00:01:54,820
+the table we'll be inserting
+data into — in this case,
+
+43
+00:01:54,820 --> 00:01:57,520
+movies —
+
+44
+00:01:57,520 --> 00:01:59,940
+and the columns where
+the data will go.
+
+45
+00:01:59,940 --> 00:02:01,550
+We specify the
+column names to let
+
+46
+00:02:01,550 --> 00:02:03,670
+the database know into
+which column each value
+
+47
+00:02:03,670 --> 00:02:05,140
+will be added.
+
+48
+00:02:05,140 --> 00:02:07,190
+The order of these
+columns doesn't matter,
+
+49
+00:02:07,190 --> 00:02:09,732
+but it must match the
+order of your inserted data,
+
+50
+00:02:09,732 --> 00:02:11,690
+if you want the data to
+get to the right place.
+
+51
+00:02:14,780 --> 00:02:17,614
+Finally, the actual
+values are entered.
+
+52
+00:02:17,614 --> 00:02:19,030
+Check out those
+quotes surrounding
+
+53
+00:02:19,030 --> 00:02:20,230
+the strings of characters.
+
+54
+00:02:20,230 --> 00:02:21,450
+Remember those?
+
+55
+00:02:21,450 --> 00:02:24,490
+Very important.
+
+56
+00:02:24,490 --> 00:02:27,420
+So we execute the
+INSERT INTO statement
+
+57
+00:02:27,420 --> 00:02:30,370
+and see that the Movies table
+goes from having four rows
+
+58
+00:02:30,370 --> 00:02:32,680
+or records to having five rows.
+
+59
+00:02:36,100 --> 00:02:37,990
+As with many things
+in SQL, there
+
+60
+00:02:37,990 --> 00:02:40,020
+are different ways to
+add data to a table,
+
+61
+00:02:40,020 --> 00:02:41,510
+some better than others.
+
+62
+00:02:41,510 --> 00:02:44,450
+Here, we see that we could
+have done the same thing
+
+63
+00:02:44,450 --> 00:02:47,290
+but omitting the columns
+from the SQL statement.
+
+64
+00:02:47,290 --> 00:02:49,790
+This works since we
+are inserting data
+
+65
+00:02:49,790 --> 00:02:52,070
+into all of the columns.
+
+66
+00:02:52,070 --> 00:02:54,150
+Both statements
+do the same thing,
+
+67
+00:02:54,150 --> 00:02:56,230
+but the bottom statement
+shows a quicker way
+
+68
+00:02:56,230 --> 00:02:59,220
+to write the code, which
+saves the developer time.
+
+69
+00:02:59,220 --> 00:03:01,389
+Here, the order of the
+values definitely needs
+
+70
+00:03:01,389 --> 00:03:02,805
+to match the order
+of the columns.
+
+71
+00:03:05,880 --> 00:03:08,425
+Now, do we actually have to
+add data to every column
+
+72
+00:03:08,425 --> 00:03:10,130
+to add data to the table?
+
+73
+00:03:10,130 --> 00:03:11,460
+Not at all.
+
+74
+00:03:11,460 --> 00:03:13,100
+In fact, here are
+a couple examples
+
+75
+00:03:13,100 --> 00:03:15,530
+to show you how to
+accomplish this with SQL.
+
+76
+00:03:15,530 --> 00:03:19,220
+We could add a row which
+only has an ID and a title.
+
+77
+00:03:19,220 --> 00:03:21,700
+You can see this fills
+in only an ID and a title
+
+78
+00:03:21,700 --> 00:03:22,930
+for that new record.
+
+79
+00:03:22,930 --> 00:03:24,800
+Or, we could simply
+add a row that
+
+80
+00:03:24,800 --> 00:03:27,410
+includes the title and
+the duration alone.
+
+81
+00:03:27,410 --> 00:03:29,490
+Something important
+to check out here:
+
+82
+00:03:29,490 --> 00:03:33,060
+Did you catch how the ID was set
+even though we didn't set it?
+
+83
+00:03:33,060 --> 00:03:34,410
+Why did this happen?
+
+84
+00:03:34,410 --> 00:03:35,160
+Let's take a look.
+
+85
+00:03:38,270 --> 00:03:40,930
+So this ID column over
+here is serving as what's
+
+86
+00:03:40,930 --> 00:03:43,280
+known as our primary key.
+
+87
+00:03:43,280 --> 00:03:46,180
+Basically a primary
+key is a unique column,
+
+88
+00:03:46,180 --> 00:03:48,680
+meaning that every
+record in that column
+
+89
+00:03:48,680 --> 00:03:52,030
+has a distinct value from
+all other present values.
+
+90
+00:03:52,030 --> 00:03:54,305
+This field will never
+be blank or empty.
+
+91
+00:03:54,305 --> 00:03:58,670
+Our Movies table happens to
+use a numerical primary key.
+
+92
+00:03:58,670 --> 00:04:01,310
+But how did the ID column
+get that value of 6
+
+93
+00:04:01,310 --> 00:04:04,520
+for the new row?
+
+94
+00:04:04,520 --> 00:04:07,920
+SQL can automatically increment
+the primary key for a table
+
+95
+00:04:07,920 --> 00:04:09,770
+by allowing a
+higher number to be
+
+96
+00:04:09,770 --> 00:04:13,130
+generated when a new record
+is inserted into a table.
+
+97
+00:04:13,130 --> 00:04:15,840
+Since our primary
+key is the ID, it
+
+98
+00:04:15,840 --> 00:04:17,300
+will be automatically
+incremented
+
+99
+00:04:17,300 --> 00:04:21,300
+by the database each time a
+row is added to the table.
+
+100
+00:04:21,300 --> 00:04:24,190
+This is now the new
+row with an ID of 6.
+
+101
+00:04:27,110 --> 00:04:30,270
+Also, you may be wondering what
+value the genre column holds
+
+102
+00:04:30,270 --> 00:04:31,990
+within our new row.
+
+103
+00:04:31,990 --> 00:04:35,290
+Well, believe it or not,
+SQL uses a unique value
+
+104
+00:04:35,290 --> 00:04:37,410
+to hold place for the
+data in this spot.
+
+105
+00:04:37,410 --> 00:04:41,160
+The data in this field is seen
+as null data or a NULL value.
+
+106
+00:04:41,160 --> 00:04:42,910
+A NULL value is
+used to represent
+
+107
+00:04:42,910 --> 00:04:44,620
+a field with missing data.
+
+108
+00:04:44,620 --> 00:04:47,380
+The field with the NULL
+value may appear to be blank,
+
+109
+00:04:47,380 --> 00:04:49,930
+but this is only because
+having data for this column
+
+110
+00:04:49,930 --> 00:04:51,410
+is optional.
+
+111
+00:04:51,410 --> 00:04:53,730
+Therefore, a NULL
+value can be seen also
+
+112
+00:04:53,730 --> 00:04:59,010
+as a placeholder for
+unknown or unavailable data.
+
+113
+00:04:59,010 --> 00:05:02,010
+This is all for level
+two, section one.
+
+114
+00:05:02,010 --> 00:05:04,080
+Now it's time for
+some more challenges.
+
+115
+00:05:04,080 --> 00:05:06,550
+We'll see you back
+in the next section.
+

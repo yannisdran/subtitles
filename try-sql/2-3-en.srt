@@ -1,0 +1,260 @@
+﻿1
+00:00:02,020 --> 00:00:03,790
+Welcome back to Try SQL.
+
+2
+00:00:03,790 --> 00:00:08,300
+In section three, we'll find
+out how to remove some data.
+
+3
+00:00:08,300 --> 00:00:11,110
+We now know how to select,
+add, and update data
+
+4
+00:00:11,110 --> 00:00:13,620
+with an existing
+table on a database.
+
+5
+00:00:13,620 --> 00:00:17,580
+But what if we want to actually
+remove data from a table?
+
+6
+00:00:17,580 --> 00:00:20,150
+Let's look at removing the
+film The Circus from our Movies
+
+7
+00:00:20,150 --> 00:00:21,840
+table.
+
+8
+00:00:21,840 --> 00:00:24,320
+In order to remove data
+from an existing table,
+
+9
+00:00:24,320 --> 00:00:26,730
+we will need to use
+the DELETE statement.
+
+10
+00:00:26,730 --> 00:00:29,430
+The DELETE keyword is used
+to tell the database that we
+
+11
+00:00:29,430 --> 00:00:31,520
+wish to remove some data.
+
+12
+00:00:31,520 --> 00:00:33,640
+It's followed by
+the FROM keyword
+
+13
+00:00:33,640 --> 00:00:37,000
+and the table which contains
+the data we wish to remove.
+
+14
+00:00:37,000 --> 00:00:39,520
+As we know, we can
+use a WHERE condition
+
+15
+00:00:39,520 --> 00:00:44,300
+to help pinpoint where the
+change will take place.
+
+16
+00:00:44,300 --> 00:00:46,980
+Let's say we wish to take the
+film The Circus off the marquee
+
+17
+00:00:46,980 --> 00:00:48,610
+at the Gatsby Theater.
+
+18
+00:00:48,610 --> 00:00:50,240
+How do we remove it?
+
+19
+00:00:50,240 --> 00:00:51,510
+Of course, we'll delete it.
+
+20
+00:00:54,530 --> 00:00:56,730
+The DELETE statement
+can be used to remove
+
+21
+00:00:56,730 --> 00:00:58,300
+only the rows from
+the table that
+
+22
+00:00:58,300 --> 00:01:01,535
+match specific conditions
+indicated by the WHERE clause.
+
+23
+00:01:05,099 --> 00:01:07,920
+The FROM keyword is followed
+by the table, which is Movies.
+
+24
+00:01:11,330 --> 00:01:14,170
+And the row is specified
+with the WHERE clause.
+
+25
+00:01:14,170 --> 00:01:16,170
+Let's take a look at
+why the WHERE clause
+
+26
+00:01:16,170 --> 00:01:19,170
+is so important in this case.
+
+27
+00:01:19,170 --> 00:01:21,650
+If we execute the
+DELETE statement,
+
+28
+00:01:21,650 --> 00:01:23,840
+we see that the row has
+been successfully removed
+
+29
+00:01:23,840 --> 00:01:25,070
+from the Movies table.
+
+30
+00:01:25,070 --> 00:01:27,680
+But now, what would have
+happened if we had not
+
+31
+00:01:27,680 --> 00:01:31,100
+used that WHERE clause?
+
+32
+00:01:31,100 --> 00:01:34,270
+Turns out, disaster
+would have happened.
+
+33
+00:01:34,270 --> 00:01:37,430
+We would have completely removed
+all the data from the table.
+
+34
+00:01:37,430 --> 00:01:41,240
+It is typically not advisable
+to perform this type of delete
+
+35
+00:01:41,240 --> 00:01:42,980
+because once the data
+has been deleted,
+
+36
+00:01:42,980 --> 00:01:45,560
+it is almost impossible
+to recover that data once
+
+37
+00:01:45,560 --> 00:01:46,780
+performed.
+
+38
+00:01:46,780 --> 00:01:50,000
+Lucky for us, we
+didn't do that, right?
+
+39
+00:01:50,000 --> 00:01:53,890
+We can, however, remove
+multiple rows from a table
+
+40
+00:01:53,890 --> 00:01:55,624
+because sometimes
+we need to do that.
+
+41
+00:01:55,624 --> 00:01:57,290
+One of the ways we
+could accomplish this
+
+42
+00:01:57,290 --> 00:01:59,890
+is to possibly include one
+of our friendly comparison
+
+43
+00:01:59,890 --> 00:02:01,600
+operators in a WHERE statement.
+
+44
+00:02:01,600 --> 00:02:04,370
+In this example,
+the SQL code shows
+
+45
+00:02:04,370 --> 00:02:07,320
+how we would remove all
+rows with a duration
+
+46
+00:02:07,320 --> 00:02:09,400
+of less than 100 minutes.
+
+47
+00:02:09,400 --> 00:02:12,930
+As you can see, the DELETE
+statement is very powerful.
+
+48
+00:02:12,930 --> 00:02:14,720
+And it's one to
+be used with much
+
+49
+00:02:14,720 --> 00:02:18,570
+caution to avoid laying
+waste to your data.
+
+50
+00:02:18,570 --> 00:02:19,917
+That's all for level two.
+
+51
+00:02:19,917 --> 00:02:21,750
+We're going to give you
+some more challenges
+
+52
+00:02:21,750 --> 00:02:23,458
+and we'll see you back
+in the next level.
+
+53
+00:02:28,500 --> 00:02:30,400
+Romance.
+
+54
+00:02:30,400 --> 00:02:31,290
+SQL offers —
+
+55
+00:02:34,190 --> 00:02:37,027
+SQL offers us
+another piece of —
+

@@ -1,0 +1,758 @@
+﻿1
+00:00:02,040 --> 00:00:03,410
+Welcome back to Try SQL.
+
+2
+00:00:03,410 --> 00:00:05,332
+I hope you enjoyed
+those challenges.
+
+3
+00:00:05,332 --> 00:00:07,790
+In this section, we'll get our
+first taste of using the SQL
+
+4
+00:00:07,790 --> 00:00:10,240
+programming language.
+
+5
+00:00:10,240 --> 00:00:12,330
+We now know about
+databases, tables,
+
+6
+00:00:12,330 --> 00:00:14,360
+and how they're used every day.
+
+7
+00:00:14,360 --> 00:00:17,370
+But how do we actually talk
+to this database thingy?
+
+8
+00:00:17,370 --> 00:00:19,220
+Well, the answer is simple.
+
+9
+00:00:19,220 --> 00:00:20,390
+Three letters.
+
+10
+00:00:20,390 --> 00:00:22,800
+SQL, or better known as SQL.
+
+11
+00:00:22,800 --> 00:00:25,110
+SQL is a programming
+language that allows
+
+12
+00:00:25,110 --> 00:00:27,480
+us to interact with a database.
+
+13
+00:00:27,480 --> 00:00:30,670
+More or less, we provide the
+database with the SQL code,
+
+14
+00:00:30,670 --> 00:00:32,200
+and it produces a result.
+
+15
+00:00:32,200 --> 00:00:34,000
+But is it really
+that cut and dry?
+
+16
+00:00:34,000 --> 00:00:36,220
+Let's take a closer look.
+
+17
+00:00:36,220 --> 00:00:39,610
+When working with a database,
+SQL language or code
+
+18
+00:00:39,610 --> 00:00:42,360
+is written in statements that
+ask the database to perform
+
+19
+00:00:42,360 --> 00:00:44,220
+many different commands.
+
+20
+00:00:44,220 --> 00:00:47,000
+First, some code is written.
+
+21
+00:00:47,000 --> 00:00:49,890
+The database receives the
+code and processes it.
+
+22
+00:00:49,890 --> 00:00:52,990
+And finally, the data
+reaches its destination
+
+23
+00:00:52,990 --> 00:00:54,470
+and the results are given.
+
+24
+00:00:54,470 --> 00:00:55,260
+Simple, right?
+
+25
+00:00:58,560 --> 00:01:01,050
+Let's take a look at our
+example from section one.
+
+26
+00:01:01,050 --> 00:01:05,069
+The browser sends out a request,
+which would be the SQL code,
+
+27
+00:01:05,069 --> 00:01:07,320
+and this goes to the database.
+
+28
+00:01:07,320 --> 00:01:10,500
+The database returns the result
+and the updated movie showtimes
+
+29
+00:01:10,500 --> 00:01:12,870
+are available back
+on the website.
+
+30
+00:01:12,870 --> 00:01:14,290
+Here we see that
+the browser uses
+
+31
+00:01:14,290 --> 00:01:16,560
+the exact same process
+we discussed earlier
+
+32
+00:01:16,560 --> 00:01:19,080
+to obtain these results.
+
+33
+00:01:19,080 --> 00:01:21,760
+So now we're ready to do
+a few things with SQL.
+
+34
+00:01:21,760 --> 00:01:23,780
+We have the original
+issue of finding
+
+35
+00:01:23,780 --> 00:01:27,690
+all of the movie titles being
+shown at the Gatsby Theaters.
+
+36
+00:01:27,690 --> 00:01:30,760
+But let's add a few more
+tasks to really show
+
+37
+00:01:30,760 --> 00:01:33,300
+how useful SQL can be.
+
+38
+00:01:33,300 --> 00:01:36,790
+First, we want to get a list
+of all the movies and all
+
+39
+00:01:36,790 --> 00:01:38,980
+the information about them.
+
+40
+00:01:38,980 --> 00:01:41,360
+Next, we want to find
+just the title of a movie
+
+41
+00:01:41,360 --> 00:01:43,660
+with an ID of 2.
+
+42
+00:01:43,660 --> 00:01:46,160
+Lastly, we want to retrieve
+all the movies that
+
+43
+00:01:46,160 --> 00:01:48,860
+have the title The Kid.
+
+44
+00:01:48,860 --> 00:01:50,800
+Let's take a look
+at a SQL recipe
+
+45
+00:01:50,800 --> 00:01:53,810
+that will return the precise
+results that we're looking for.
+
+46
+00:01:53,810 --> 00:01:57,080
+To do this, we're going
+to use a SELECT statement.
+
+47
+00:01:57,080 --> 00:02:03,036
+In the SELECT recipe, we
+have SELECT blank FROM blank.
+
+48
+00:02:03,036 --> 00:02:04,410
+The first blank
+is where we would
+
+49
+00:02:04,410 --> 00:02:06,750
+enter the name of
+the column from which
+
+50
+00:02:06,750 --> 00:02:08,820
+we want to get some data.
+
+51
+00:02:08,820 --> 00:02:10,490
+And the second
+blank is the table
+
+52
+00:02:10,490 --> 00:02:12,120
+where the data is located.
+
+53
+00:02:12,120 --> 00:02:16,380
+Additionally, all SQL
+statements must have a semicolon
+
+54
+00:02:16,380 --> 00:02:20,410
+at the end to complete
+the statement.
+
+55
+00:02:20,410 --> 00:02:21,970
+Let's tackle the
+original question
+
+56
+00:02:21,970 --> 00:02:24,520
+of retrieving all the movie
+titles from the Gatsby
+
+57
+00:02:24,520 --> 00:02:25,540
+Theaters.
+
+58
+00:02:25,540 --> 00:02:29,920
+Here we have the Movies table
+and all of its contents.
+
+59
+00:02:29,920 --> 00:02:32,790
+We want to write a SQL SELECT
+statement that will return
+
+60
+00:02:32,790 --> 00:02:35,220
+a list of all movie titles.
+
+61
+00:02:35,220 --> 00:02:37,810
+To do this, we will
+use the SELECT recipe
+
+62
+00:02:37,810 --> 00:02:41,930
+and write SELECT title, which
+is the column we're interested
+
+63
+00:02:41,930 --> 00:02:46,240
+in, and then FROM movies,
+which is the table the title
+
+64
+00:02:46,240 --> 00:02:47,980
+column is located in.
+
+65
+00:02:47,980 --> 00:02:49,930
+Only a single
+column was selected
+
+66
+00:02:49,930 --> 00:02:51,910
+from which to get some data.
+
+67
+00:02:51,910 --> 00:02:54,950
+So the result will contain
+only this column's data
+
+68
+00:02:54,950 --> 00:02:56,700
+for any matching rows.
+
+69
+00:02:56,700 --> 00:02:59,180
+So now if we run this
+awesome SQL code,
+
+70
+00:02:59,180 --> 00:03:01,440
+we'll see that the Gatsby
+Theater database returns
+
+71
+00:03:01,440 --> 00:03:03,420
+all the requested titles.
+
+72
+00:03:03,420 --> 00:03:06,780
+Since we didn't give the database
+any more specific requests,
+
+73
+00:03:06,780 --> 00:03:10,010
+it will return
+all of the titles.
+
+74
+00:03:10,010 --> 00:03:11,940
+Looking at our
+next task, we want
+
+75
+00:03:11,940 --> 00:03:14,120
+to list all of the movies
+and the information
+
+76
+00:03:14,120 --> 00:03:15,550
+that goes along with them.
+
+77
+00:03:15,550 --> 00:03:17,950
+Check out this
+first box of code.
+
+78
+00:03:17,950 --> 00:03:19,560
+You can see here
+that we can actually
+
+79
+00:03:19,560 --> 00:03:21,930
+select more than one column.
+
+80
+00:03:21,930 --> 00:03:24,060
+This statement would
+return all movie titles
+
+81
+00:03:24,060 --> 00:03:27,730
+as before, but along with the
+genre for those movies as well.
+
+82
+00:03:27,730 --> 00:03:31,220
+With that in mind, it's possible
+to add all of our columns
+
+83
+00:03:31,220 --> 00:03:34,890
+to the SELECT statement,
+as shown in the second box.
+
+84
+00:03:34,890 --> 00:03:38,100
+This would return all
+data in all columns.
+
+85
+00:03:38,100 --> 00:03:40,680
+What if you had 100,000 columns?
+
+86
+00:03:40,680 --> 00:03:43,690
+You wouldn't want to list
+all of those out, right?
+
+87
+00:03:43,690 --> 00:03:45,530
+It turns out we have
+an alternate way
+
+88
+00:03:45,530 --> 00:03:47,690
+of signaling all columns.
+
+89
+00:03:47,690 --> 00:03:50,480
+If we were to run the SELECT
+statement with the asterisk,
+
+90
+00:03:50,480 --> 00:03:53,490
+we would have all of the
+movies and their data returned,
+
+91
+00:03:53,490 --> 00:03:56,070
+as if we had listed
+out all the columns.
+
+92
+00:03:56,070 --> 00:03:56,950
+Pretty cool, right?
+
+93
+00:03:59,790 --> 00:04:00,700
+Alright.
+
+94
+00:04:00,700 --> 00:04:02,560
+So now we know we can
+go to the database
+
+95
+00:04:02,560 --> 00:04:06,037
+and get all of our data,
+which is, of course, useful.
+
+96
+00:04:06,037 --> 00:04:07,620
+But what if we only
+wanted to retrieve
+
+97
+00:04:07,620 --> 00:04:10,400
+a small portion of that data?
+
+98
+00:04:10,400 --> 00:04:12,870
+We can filter or
+pinpoint the data
+
+99
+00:04:12,870 --> 00:04:16,890
+we want to find by using
+a WHERE clause at the end
+
+100
+00:04:16,890 --> 00:04:18,790
+of our SELECT statement.
+
+101
+00:04:18,790 --> 00:04:22,089
+If we look here at
+our WHERE recipe box,
+
+102
+00:04:22,089 --> 00:04:25,220
+we can see the WHERE
+clause at the end.
+
+103
+00:04:25,220 --> 00:04:27,170
+Let's show the
+effectiveness of adding this
+
+104
+00:04:27,170 --> 00:04:30,430
+by now requesting the movie
+title with an ID of 2.
+
+105
+00:04:34,020 --> 00:04:37,860
+In order to retrieve the title
+of a movie with an ID of 2,
+
+106
+00:04:37,860 --> 00:04:40,670
+we would include a
+WHERE ID equals 2
+
+107
+00:04:40,670 --> 00:04:43,110
+at the end of the
+SELECT statement.
+
+108
+00:04:43,110 --> 00:04:46,700
+This will allow us to return a
+more well-defined set of data,
+
+109
+00:04:46,700 --> 00:04:49,850
+specifically all titles
+to all movies that
+
+110
+00:04:49,850 --> 00:04:51,840
+happen to have an ID of 2.
+
+111
+00:04:51,840 --> 00:04:55,920
+This bit of SQL will first
+select all columns named title
+
+112
+00:04:55,920 --> 00:04:58,060
+from the table called Movies.
+
+113
+00:04:58,060 --> 00:05:01,260
+Next, the database
+finds the ID column
+
+114
+00:05:01,260 --> 00:05:04,940
+and seeks where the
+ID of the movie is 2.
+
+115
+00:05:04,940 --> 00:05:06,160
+Look at that first box.
+
+116
+00:05:06,160 --> 00:05:08,060
+Is that ID correct?
+
+117
+00:05:08,060 --> 00:05:09,650
+No, clearly not.
+
+118
+00:05:09,650 --> 00:05:11,940
+So now let's look
+further down the column.
+
+119
+00:05:11,940 --> 00:05:15,750
+With one more step —
+aha, we found a match
+
+120
+00:05:15,750 --> 00:05:19,080
+where the ID is, in fact, 2.
+
+121
+00:05:19,080 --> 00:05:21,420
+If we find a row that
+meets all the conditions
+
+122
+00:05:21,420 --> 00:05:24,410
+of our WHERE clause, the
+database will pull that row
+
+123
+00:05:24,410 --> 00:05:26,500
+and get it ready for returning.
+
+124
+00:05:26,500 --> 00:05:28,570
+But it's not done searching yet.
+
+125
+00:05:28,570 --> 00:05:31,900
+So we found one correct
+row, but the database
+
+126
+00:05:31,900 --> 00:05:35,420
+doesn't know if there are
+any other rows with that ID.
+
+127
+00:05:35,420 --> 00:05:38,130
+So the last two rows
+are also searched
+
+128
+00:05:38,130 --> 00:05:39,870
+for matching conditions.
+
+129
+00:05:39,870 --> 00:05:42,260
+Turns out, though,
+that there aren't any.
+
+130
+00:05:42,260 --> 00:05:44,610
+So now, with the
+search complete, we
+
+131
+00:05:44,610 --> 00:05:48,170
+find that the cell
+that contains Nosferatu
+
+132
+00:05:48,170 --> 00:05:50,570
+is the data that
+we're looking for.
+
+133
+00:05:50,570 --> 00:05:52,800
+And since we are only
+selecting one column,
+
+134
+00:05:52,800 --> 00:05:57,005
+right, which is title, then
+only the data from that column
+
+135
+00:05:57,005 --> 00:05:59,910
+is returned.
+
+136
+00:05:59,910 --> 00:06:02,560
+What if instead we wanted to
+search for a string of data,
+
+137
+00:06:02,560 --> 00:06:04,850
+such as a word or a phrase?
+
+138
+00:06:04,850 --> 00:06:07,300
+SQL will allow us
+do this as well.
+
+139
+00:06:07,300 --> 00:06:09,140
+We can use actual
+words in what can
+
+140
+00:06:09,140 --> 00:06:11,690
+be seen as a string of
+letters or characters
+
+141
+00:06:11,690 --> 00:06:14,680
+to search for matching
+words within that table.
+
+142
+00:06:14,680 --> 00:06:16,750
+Here, we are
+searching all columns
+
+143
+00:06:16,750 --> 00:06:20,470
+by using the star within
+the table Movies, where
+
+144
+00:06:20,470 --> 00:06:23,720
+inside the column title,
+there is a record that
+
+145
+00:06:23,720 --> 00:06:27,420
+matches The Kid exactly.
+
+146
+00:06:27,420 --> 00:06:29,740
+Because we are selecting
+all data from movies,
+
+147
+00:06:29,740 --> 00:06:31,250
+we know that all
+records are first
+
+148
+00:06:31,250 --> 00:06:33,020
+considered for the search.
+
+149
+00:06:33,020 --> 00:06:36,240
+The WHERE clause allows us
+to focus on the column title
+
+150
+00:06:36,240 --> 00:06:37,890
+as the first filter.
+
+151
+00:06:37,890 --> 00:06:40,140
+And within that column,
+we find a matching record
+
+152
+00:06:40,140 --> 00:06:43,820
+for The Kid, which is the
+record we're looking for.
+
+153
+00:06:43,820 --> 00:06:46,320
+Something to be aware of
+when performing searches
+
+154
+00:06:46,320 --> 00:06:49,740
+of this type — check out how
+we have the single quotes
+
+155
+00:06:49,740 --> 00:06:51,420
+around the string value.
+
+156
+00:06:51,420 --> 00:06:53,200
+We use these when
+we are selecting
+
+157
+00:06:53,200 --> 00:06:57,150
+exact sequences of characters
+that we want to match.
+
+158
+00:06:57,150 --> 00:06:59,840
+In other words, you will need
+to use single quotes when
+
+159
+00:06:59,840 --> 00:07:03,200
+doing searches of this type.
+
+160
+00:07:03,200 --> 00:07:04,880
+And that is all for section two.
+
+161
+00:07:04,880 --> 00:07:06,710
+Now it's time for
+some more challenges.
+
+162
+00:07:06,710 --> 00:07:09,020
+We'll see you in
+the next section.
+

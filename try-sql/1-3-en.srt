@@ -1,0 +1,797 @@
+﻿1
+00:00:02,040 --> 00:00:03,220
+Welcome back to Try SQL.
+
+2
+00:00:03,220 --> 00:00:05,080
+I hope you're having
+as much fun as I am.
+
+3
+00:00:05,080 --> 00:00:06,540
+Let's continue.
+
+4
+00:00:06,540 --> 00:00:10,209
+In section three, we'll
+be guiding data criteria.
+
+5
+00:00:10,209 --> 00:00:11,750
+In the previous
+section, we found out
+
+6
+00:00:11,750 --> 00:00:14,590
+how to select and filter
+data that we wanted to find.
+
+7
+00:00:14,590 --> 00:00:17,320
+But what if we wanted to sort
+this data in a special way?
+
+8
+00:00:17,320 --> 00:00:20,810
+For example, what if we wanted
+to find all movie titles
+
+9
+00:00:20,810 --> 00:00:25,140
+and sort these by their duration
+or their length of movie time?
+
+10
+00:00:25,140 --> 00:00:27,810
+To achieve this goal,
+we'll use a new SQL recipe.
+
+11
+00:00:27,810 --> 00:00:29,700
+We'll call it the
+ORDER BY recipe.
+
+12
+00:00:29,700 --> 00:00:30,680
+Let's take a look.
+
+13
+00:00:30,680 --> 00:00:34,310
+We use the SELECT and FROM
+clauses as we normally have,
+
+14
+00:00:34,310 --> 00:00:37,860
+but we add an ORDER BY
+clause after the FROM clause.
+
+15
+00:00:37,860 --> 00:00:40,860
+This allows us to sort
+the data by columns based
+
+16
+00:00:40,860 --> 00:00:44,010
+on how we choose to view it.
+
+17
+00:00:44,010 --> 00:00:45,740
+So back to the question at hand.
+
+18
+00:00:45,740 --> 00:00:47,520
+We want to retrieve
+all movie titles
+
+19
+00:00:47,520 --> 00:00:49,780
+but sort them by duration.
+
+20
+00:00:49,780 --> 00:00:53,490
+To start, we have to select
+these from the title column.
+
+21
+00:00:53,490 --> 00:00:55,700
+When using the
+ORDER BY clause, we
+
+22
+00:00:55,700 --> 00:00:57,330
+can also choose
+which way to view
+
+23
+00:00:57,330 --> 00:01:00,430
+the data, in either ascending
+or descending order.
+
+24
+00:01:00,430 --> 00:01:02,150
+So keeping in mind
+that we are looking
+
+25
+00:01:02,150 --> 00:01:05,430
+for results from
+the title column,
+
+26
+00:01:05,430 --> 00:01:07,680
+we must also remember that
+we are sorting the title
+
+27
+00:01:07,680 --> 00:01:10,750
+column based on which
+duration is the lowest.
+
+28
+00:01:10,750 --> 00:01:13,355
+This is one of the advantages
+of using the ORDER BY clause.
+
+29
+00:01:17,690 --> 00:01:19,810
+Now, if we run the
+SELECT statement,
+
+30
+00:01:19,810 --> 00:01:22,640
+we can see that the film titles
+are returned to us in ascending
+
+31
+00:01:22,640 --> 00:01:25,110
+order, or lowest to highest.
+
+32
+00:01:25,110 --> 00:01:27,610
+This means that the titles
+are sorted by lowest duration
+
+33
+00:01:27,610 --> 00:01:30,400
+first, but that the title
+with the highest duration
+
+34
+00:01:30,400 --> 00:01:33,220
+is to be last because
+the duration is growing
+
+35
+00:01:33,220 --> 00:01:34,970
+as more results are returned.
+
+36
+00:01:34,970 --> 00:01:37,880
+Notice that we aren't getting
+any duration results back,
+
+37
+00:01:37,880 --> 00:01:39,905
+just the titles
+organized by duration.
+
+38
+00:01:42,470 --> 00:01:44,290
+But this can be
+done the other way
+
+39
+00:01:44,290 --> 00:01:46,850
+around by returning the
+film titles in what's
+
+40
+00:01:46,850 --> 00:01:48,680
+known as descending order.
+
+41
+00:01:48,680 --> 00:01:51,280
+This means that the titles
+are returned with the highest
+
+42
+00:01:51,280 --> 00:01:54,490
+duration time first and
+descends all the way
+
+43
+00:01:54,490 --> 00:01:57,790
+until the title with the
+lowest duration is returned.
+
+44
+00:01:57,790 --> 00:02:01,540
+Notice that DESC is used to
+denote what the ORDER BY clause
+
+45
+00:02:01,540 --> 00:02:03,750
+will return in this fashion.
+
+46
+00:02:03,750 --> 00:02:06,900
+SQL automatically assumes
+that if this is not given,
+
+47
+00:02:06,900 --> 00:02:09,229
+the sort order will be
+returned in ascending order,
+
+48
+00:02:09,229 --> 00:02:12,400
+as we saw previously.
+
+49
+00:02:12,400 --> 00:02:14,040
+So now we've found
+a few different ways
+
+50
+00:02:14,040 --> 00:02:17,520
+to improve SQL searches by
+including some search criteria.
+
+51
+00:02:17,520 --> 00:02:21,100
+But what if we wanted to
+return specific ranges of data
+
+52
+00:02:21,100 --> 00:02:24,980
+based on comparison by
+including some boundary value?
+
+53
+00:02:24,980 --> 00:02:28,370
+As an example, let's
+retrieve all films
+
+54
+00:02:28,370 --> 00:02:31,799
+that have a duration of
+over 100 minutes using SQL.
+
+55
+00:02:31,799 --> 00:02:33,340
+We're not looking
+for films that have
+
+56
+00:02:33,340 --> 00:02:36,840
+exactly 100 minutes, but
+rather all films that have more
+
+57
+00:02:36,840 --> 00:02:38,290
+than that.
+
+58
+00:02:38,290 --> 00:02:40,590
+We will use the SELECT
+FROM WHERE recipe
+
+59
+00:02:40,590 --> 00:02:44,220
+and include a comparison
+operator between two objects.
+
+60
+00:02:44,220 --> 00:02:47,820
+Here, you can see the
+special comparison operator.
+
+61
+00:02:47,820 --> 00:02:51,210
+The greater than sign,
+commonly used in mathematics,
+
+62
+00:02:51,210 --> 00:02:53,740
+to signify that all
+items in this column
+
+63
+00:02:53,740 --> 00:02:58,070
+are greater than what is to the
+right of the greater than sign.
+
+64
+00:02:58,070 --> 00:02:58,920
+But guess what?
+
+65
+00:02:58,920 --> 00:03:01,910
+We've already introduced
+a comparison operator.
+
+66
+00:03:01,910 --> 00:03:02,490
+That's right.
+
+67
+00:03:02,490 --> 00:03:04,860
+The equal sign is a
+type of comparison.
+
+68
+00:03:04,860 --> 00:03:06,980
+The query here
+retrieves no records
+
+69
+00:03:06,980 --> 00:03:09,610
+which provide a true
+result when compared,
+
+70
+00:03:09,610 --> 00:03:15,520
+because no film has a duration
+that is exactly 100 minutes.
+
+71
+00:03:15,520 --> 00:03:19,480
+But if we use the greater
+than sign in the WHERE clause,
+
+72
+00:03:19,480 --> 00:03:21,530
+we retrieve the above record.
+
+73
+00:03:21,530 --> 00:03:23,270
+Since the duration
+for Metropolis
+
+74
+00:03:23,270 --> 00:03:26,900
+is compared to all movie
+durations in the table,
+
+75
+00:03:26,900 --> 00:03:28,780
+it is the only film
+in the table that
+
+76
+00:03:28,780 --> 00:03:31,200
+has a duration that is
+greater than or longer
+
+77
+00:03:31,200 --> 00:03:33,820
+than 100 minutes.
+
+78
+00:03:33,820 --> 00:03:35,410
+There are other
+comparison operators
+
+79
+00:03:35,410 --> 00:03:38,040
+used in SQL that we want
+to illustrate for you.
+
+80
+00:03:38,040 --> 00:03:40,660
+First, by adding the
+less than operator,
+
+81
+00:03:40,660 --> 00:03:42,770
+the query will
+return all records
+
+82
+00:03:42,770 --> 00:03:46,000
+with a duration of
+less than 100 minutes.
+
+83
+00:03:46,000 --> 00:03:49,470
+If we exchange it for the
+greater than or equal to sign,
+
+84
+00:03:49,470 --> 00:03:51,540
+the query will
+retrieve all records
+
+85
+00:03:51,540 --> 00:03:55,310
+where the duration is greater
+than or equal to 94 minutes.
+
+86
+00:03:55,310 --> 00:03:57,460
+And finally, if
+it were exchanged
+
+87
+00:03:57,460 --> 00:04:00,320
+for the less than
+or equal to sign,
+
+88
+00:04:00,320 --> 00:04:02,510
+the query will
+retrieve all records
+
+89
+00:04:02,510 --> 00:04:08,570
+where the duration is less
+than or equal to 95 minutes.
+
+90
+00:04:08,570 --> 00:04:10,520
+We have one last
+comparison operator,
+
+91
+00:04:10,520 --> 00:04:12,990
+which kind of looks like a
+strange less than/greater
+
+92
+00:04:12,990 --> 00:04:14,260
+than thing.
+
+93
+00:04:14,260 --> 00:04:15,720
+What the heck is that?
+
+94
+00:04:15,720 --> 00:04:18,500
+Well, this operator
+finds all records
+
+95
+00:04:18,500 --> 00:04:22,340
+that do not match the search
+criteria we're looking for.
+
+96
+00:04:22,340 --> 00:04:25,050
+This is the not equal to sign.
+
+97
+00:04:25,050 --> 00:04:27,850
+Say, for example, you want
+to see all movies that
+
+98
+00:04:27,850 --> 00:04:30,250
+are not horror films.
+
+99
+00:04:30,250 --> 00:04:33,180
+You could use the not equal
+to sign to compare all
+
+100
+00:04:33,180 --> 00:04:37,110
+records that do not have a
+genre of horror, as shown.
+
+101
+00:04:37,110 --> 00:04:40,030
+Metropolis, The Kid,
+and The Gold Rush
+
+102
+00:04:40,030 --> 00:04:43,100
+do not have a genre of horror.
+
+103
+00:04:43,100 --> 00:04:45,460
+Next up, what would
+we do if we wanted
+
+104
+00:04:45,460 --> 00:04:49,300
+to find data with multiple
+specific conditions to match?
+
+105
+00:04:49,300 --> 00:04:51,110
+How would we accomplish this?
+
+106
+00:04:51,110 --> 00:04:53,400
+Let's say, for
+example, that we are
+
+107
+00:04:53,400 --> 00:04:57,140
+asked to find all records
+which have both an ID of 1
+
+108
+00:04:57,140 --> 00:04:59,380
+and a genre of comedy.
+
+109
+00:04:59,380 --> 00:05:01,410
+How can we do this with SQL?
+
+110
+00:05:01,410 --> 00:05:05,070
+We are presented with a new
+operator — the AND operator —
+
+111
+00:05:05,070 --> 00:05:07,900
+and with that, a new SQL recipe.
+
+112
+00:05:07,900 --> 00:05:11,380
+We can use a normal
+SELECT FROM WHERE clause.
+
+113
+00:05:11,380 --> 00:05:14,010
+At the end of the
+statement, the AND operator
+
+114
+00:05:14,010 --> 00:05:16,460
+is added to help
+add matching yet
+
+115
+00:05:16,460 --> 00:05:18,160
+specific criteria for a search.
+
+116
+00:05:20,800 --> 00:05:22,860
+Looking back at
+the Movies table,
+
+117
+00:05:22,860 --> 00:05:27,460
+in SQL, when using the AND
+operator, part of the criteria
+
+118
+00:05:27,460 --> 00:05:30,110
+is that all the conditions
+of the SELECT statement
+
+119
+00:05:30,110 --> 00:05:31,720
+must be met.
+
+120
+00:05:31,720 --> 00:05:36,040
+As we see here, when we try
+to use it on the Movies table,
+
+121
+00:05:36,040 --> 00:05:38,280
+we perform the SELECT
+statement and find
+
+122
+00:05:38,280 --> 00:05:41,800
+that there are no records that
+match all of the criteria we
+
+123
+00:05:41,800 --> 00:05:43,500
+are searching for.
+
+124
+00:05:43,500 --> 00:05:46,950
+But if we change the genre
+of the film Metropolis
+
+125
+00:05:46,950 --> 00:05:51,590
+to comedy from sci-fi, now
+we'll get some useful results.
+
+126
+00:05:51,590 --> 00:05:55,910
+So, taking into consideration
+that both the WHERE and the AND
+
+127
+00:05:55,910 --> 00:06:00,440
+conditions must be met, we see
+that all the data with an ID
+
+128
+00:06:00,440 --> 00:06:02,760
+of 1 is first located.
+
+129
+00:06:02,760 --> 00:06:05,420
+And then those items
+are searched for genres
+
+130
+00:06:05,420 --> 00:06:07,240
+matching comedy.
+
+131
+00:06:07,240 --> 00:06:10,500
+Based on our new genre
+switch, only the first title,
+
+132
+00:06:10,500 --> 00:06:13,640
+Metropolis, meets all of the
+conditions for that search.
+
+133
+00:06:16,590 --> 00:06:19,230
+Now, let's look at another
+way to return data
+
+134
+00:06:19,230 --> 00:06:21,160
+based on matching criteria.
+
+135
+00:06:21,160 --> 00:06:24,470
+What if, instead of finding
+all film titles which
+
+136
+00:06:24,470 --> 00:06:29,020
+have both an ID of 1
+and a genre of comedy,
+
+137
+00:06:29,020 --> 00:06:32,690
+we search for all film
+titles with either an ID of 1
+
+138
+00:06:32,690 --> 00:06:35,120
+or a genre of comedy.
+
+139
+00:06:35,120 --> 00:06:37,950
+SQL offers us another
+new piece of syntax
+
+140
+00:06:37,950 --> 00:06:39,820
+to handle this scenario:
+
+141
+00:06:39,820 --> 00:06:43,800
+the OR keyword, along
+with a new SQL recipe.
+
+142
+00:06:43,800 --> 00:06:48,890
+First, we use the SELECT FROM
+WHERE clause, as we've done.
+
+143
+00:06:48,890 --> 00:06:51,170
+And at the end of
+the statement, we
+
+144
+00:06:51,170 --> 00:06:55,460
+add the OR operator to look for
+matching criteria in the query.
+
+145
+00:06:55,460 --> 00:06:58,320
+Looking at the OR
+operator, when referencing
+
+146
+00:06:58,320 --> 00:07:02,360
+two or more separate conditions,
+either one of the criteria
+
+147
+00:07:02,360 --> 00:07:04,600
+can be met for a
+SELECT statement
+
+148
+00:07:04,600 --> 00:07:05,895
+to return matching results.
+
+149
+00:07:10,960 --> 00:07:13,330
+In the SELECT
+statement shown here,
+
+150
+00:07:13,330 --> 00:07:16,910
+we are simply looking for either
+the record to have an ID of 1
+
+151
+00:07:16,910 --> 00:07:19,620
+or have a genre of comedy.
+
+152
+00:07:19,620 --> 00:07:22,890
+Turns out the table has two
+records in the title column
+
+153
+00:07:22,890 --> 00:07:25,330
+that match the search criteria.
+
+154
+00:07:25,330 --> 00:07:28,270
+As we see, Metropolis
+has an ID of 1
+
+155
+00:07:28,270 --> 00:07:30,770
+and also happens to
+have a genre of comedy,
+
+156
+00:07:30,770 --> 00:07:33,520
+while The Kid just
+has a genre of comedy.
+
+157
+00:07:33,520 --> 00:07:35,390
+And since each of
+these titles has
+
+158
+00:07:35,390 --> 00:07:37,660
+one of the allowable
+criteria, they
+
+159
+00:07:37,660 --> 00:07:41,490
+both get returned in our result.
+
+160
+00:07:41,490 --> 00:07:44,890
+This is all for section
+three and also for level one.
+
+161
+00:07:44,890 --> 00:07:47,469
+Now it's time for some more
+fun challenges with SQL.
+
+162
+00:07:47,469 --> 00:07:49,010
+We'll see you back
+in the next level.
+
+163
+00:07:51,950 --> 00:07:53,620
+It's time to suck less at SQL.
+
+164
+00:07:53,620 --> 00:07:54,980
+We can reinforce these issues.
+
+165
+00:07:57,570 --> 00:07:58,830
+Say.
+
+166
+00:07:58,830 --> 00:08:00,410
+Something to be aware —
+
+167
+00:08:00,410 --> 00:08:01,250
+A werewolf?
+
+168
+00:08:01,250 --> 00:08:03,128
+A werewolf, yeah.
+
