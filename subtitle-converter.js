@@ -20,7 +20,7 @@ var errCount = 0,
       }
     };
 
-glob(argv['i'] || "**/*.srt", {}, function (err, files) {
+glob(argv['i'] || '**/*.srt', {}, function (err, files) {
   if (err) {
     msg(err.message);
   } else if (!files.length) {
@@ -28,7 +28,7 @@ glob(argv['i'] || "**/*.srt", {}, function (err, files) {
   } else {
     files.forEach(function (filePath) {
       var filePathNorm = path.normalize(filePath),
-          fileName = path.basename(filePathNorm) + '.vtt',
+          fileName = path.basename(filePathNorm, path.extname(filePathNorm)) + '.vtt',
           filePathDir = path.dirname(filePathNorm),
           usePath;
       if (argv['o']) {
