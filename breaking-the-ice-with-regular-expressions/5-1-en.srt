@@ -1,0 +1,566 @@
+﻿1
+00:00:00,000 --> 00:00:02,820
+[SINGING] You started with
+a string you need validated.
+
+2
+00:00:02,820 --> 00:00:05,422
+Used conditionals, and
+things got complicated.
+
+3
+00:00:05,422 --> 00:00:06,380
+There's a better way. 
+
+4
+00:00:06,380 --> 00:00:08,750
+We'll teach you the lessons,
+and you'll be writing patterns
+
+5
+00:00:08,750 --> 00:00:10,200
+with regular expressions.
+
+6
+00:00:10,200 --> 00:00:11,460
+Operators add a zing. 
+
+7
+00:00:11,460 --> 00:00:12,295
+Modifiers are the thing
+
+8
+00:00:12,295 --> 00:00:15,130
+to find yourself the matches
+on your subject string.
+
+9
+00:00:15,130 --> 00:00:17,680
+You'll be parsing files
+if you follow our advice.
+
+10
+00:00:17,680 --> 00:00:22,210
+Sooner than you know it, you'll
+be breaking the ice, ice, ice.
+
+11
+00:00:23,160 --> 00:00:26,460
+Welcome back to Breaking the
+Ice With Regular Expressions.
+
+12
+00:00:26,460 --> 00:00:29,410
+I hope you enjoyed working
+with our new modifiers.
+
+13
+00:00:29,410 --> 00:00:34,590
+Let's now wrap up our final
+level-- Capture Groups.
+
+14
+00:00:34,590 --> 00:00:37,440
+Each shipmate has
+entered their address.
+
+15
+00:00:37,440 --> 00:00:39,450
+Wouldn't it be great
+if we could break apart
+
+16
+00:00:39,450 --> 00:00:42,990
+each section of the address
+to store separately?
+
+17
+00:00:42,990 --> 00:00:49,100
+Here, that includes the
+street, city, state, and zip.
+
+18
+00:00:49,100 --> 00:00:51,200
+Because this pattern
+is getting pretty long,
+
+19
+00:00:51,200 --> 00:00:53,116
+we're going to need to
+break it apart and look
+
+20
+00:00:53,116 --> 00:00:55,080
+at each individual section.
+
+21
+00:00:55,080 --> 00:00:57,240
+So the first part,
+the street name, we
+
+22
+00:00:57,240 --> 00:00:59,290
+match any amount of numbers.
+
+23
+00:00:59,290 --> 00:01:04,140
+This is followed by a space,
+and then a word of any length.
+
+24
+00:01:04,140 --> 00:01:06,590
+This is then followed
+by another space
+
+25
+00:01:06,590 --> 00:01:11,310
+and a word of exactly four
+to six characters in length.
+
+26
+00:01:11,310 --> 00:01:14,070
+Finally, we end with a
+comma and a white space
+
+27
+00:01:14,070 --> 00:01:16,185
+to finish off the first
+section of our pattern.
+
+28
+00:01:20,910 --> 00:01:24,070
+Continuing with the city, we're
+going to match on one to two
+
+29
+00:01:24,070 --> 00:01:28,320
+words, followed by a comma, and
+then followed by another space.
+
+30
+00:01:32,310 --> 00:01:35,020
+Moving to our two-letter
+state abbreviation,
+
+31
+00:01:35,020 --> 00:01:37,310
+we will match using
+a two-letter word.
+
+32
+00:01:37,310 --> 00:01:39,035
+This is then
+followed by a space.
+
+33
+00:01:43,100 --> 00:01:44,780
+Wrapping up our
+pattern, we're going
+
+34
+00:01:44,780 --> 00:01:48,180
+to match on the zip, which
+is a number of exactly five
+
+35
+00:01:48,180 --> 00:01:49,180
+characters in length.
+
+36
+00:01:52,110 --> 00:01:53,880
+We can also add our
+anchor characters
+
+37
+00:01:53,880 --> 00:01:57,410
+to ensure there's nothing
+before or after our address,
+
+38
+00:01:57,410 --> 00:01:59,470
+and we're looking pretty good.
+
+39
+00:01:59,470 --> 00:02:01,760
+However, wouldn't
+it be great if we
+
+40
+00:02:01,760 --> 00:02:04,410
+could extract different
+sections of the pattern
+
+41
+00:02:04,410 --> 00:02:05,325
+to be used later?
+
+42
+00:02:07,950 --> 00:02:09,970
+We've used parentheses
+up to this point
+
+43
+00:02:09,970 --> 00:02:12,980
+to create groups for
+evaluation purposes,
+
+44
+00:02:12,980 --> 00:02:15,420
+but did you know that
+groups can actually be
+
+45
+00:02:15,420 --> 00:02:17,980
+used to return values to you?
+
+46
+00:02:17,980 --> 00:02:20,360
+So let's start with
+a simple example.
+
+47
+00:02:20,360 --> 00:02:21,990
+Here, we have a
+regular expression--
+
+48
+00:02:21,990 --> 00:02:23,910
+literal learn by doing.
+
+49
+00:02:23,910 --> 00:02:26,780
+And let's say we get the
+subject-- "learn by doing".
+
+50
+00:02:26,780 --> 00:02:29,180
+We're going to get
+a direct match.
+
+51
+00:02:29,180 --> 00:02:32,610
+Now what if we put parentheses
+around our pattern,
+
+52
+00:02:32,610 --> 00:02:34,390
+"learn by doing"?
+
+53
+00:02:34,390 --> 00:02:37,850
+Well, this still matches
+our subject, "learn by doing",
+
+54
+00:02:37,850 --> 00:02:40,650
+but it also returns
+us an extra thing,
+
+55
+00:02:40,650 --> 00:02:43,470
+that we capture everything
+within our parentheses
+
+56
+00:02:43,470 --> 00:02:46,580
+and we get returned to us
+a match group containing
+
+57
+00:02:46,580 --> 00:02:48,220
+"learn by doing".
+
+58
+00:02:48,220 --> 00:02:51,120
+Now we can actually
+nest parentheses too
+
+59
+00:02:51,120 --> 00:02:52,815
+to return even more groups.
+
+60
+00:02:55,700 --> 00:02:59,340
+By wrapping the "by doing"
+within "learn by doing",
+
+61
+00:02:59,340 --> 00:03:03,050
+we'll not only extract our first
+match group of "learn by doing",
+
+62
+00:03:03,050 --> 00:03:05,055
+but we'll also extract "by doing".
+
+63
+00:03:08,630 --> 00:03:12,060
+And finally, surrounding
+the "by" with parentheses,
+
+64
+00:03:12,060 --> 00:03:15,300
+we will extract our third
+and final group, the "by",
+
+65
+00:03:15,300 --> 00:03:18,250
+which will give us three
+match groups-- "learn by doing",
+
+66
+00:03:18,250 --> 00:03:20,450
+"by doing", and "by".
+
+67
+00:03:20,450 --> 00:03:23,340
+And keep in mind, we still
+match our original subject--
+
+68
+00:03:23,340 --> 00:03:24,220
+"learn by doing".
+
+69
+00:03:26,870 --> 00:03:29,890
+Now we can easily return
+the house number and street
+
+70
+00:03:29,890 --> 00:03:31,960
+by surrounding them
+in parentheses, which
+
+71
+00:03:31,960 --> 00:03:33,900
+will create a
+capturing group for us,
+
+72
+00:03:33,900 --> 00:03:36,940
+and will get returned
+to us "1 Reindeer Lane".
+
+73
+00:03:39,570 --> 00:03:42,850
+Continuing on, we'll surround the
+second section of our pattern
+
+74
+00:03:42,850 --> 00:03:44,010
+to return the city.
+
+75
+00:03:44,010 --> 00:03:46,640
+And in this case, we're
+going to get North Pole.
+
+76
+00:03:46,640 --> 00:03:48,480
+We're looking pretty good.
+
+77
+00:03:48,480 --> 00:03:51,730
+Now notice that we did not
+extract the comma or the space
+
+78
+00:03:51,730 --> 00:03:52,980
+in our capture group.
+
+79
+00:03:52,980 --> 00:03:54,580
+Well, this is
+because we only will
+
+80
+00:03:54,580 --> 00:03:57,200
+capture anything that's
+inside of our parentheses,
+
+81
+00:03:57,200 --> 00:03:58,375
+and those existed outside.
+
+82
+00:04:01,130 --> 00:04:03,470
+Adding parentheses
+around the third section
+
+83
+00:04:03,470 --> 00:04:06,470
+will give us our third
+returned match, or in this case
+
+84
+00:04:06,470 --> 00:04:08,180
+"AK" or "Alaska".
+
+85
+00:04:08,180 --> 00:04:09,070
+We're almost there.
+
+86
+00:04:11,630 --> 00:04:14,530
+Wrapping the final digit
+metacharacter in parentheses
+
+87
+00:04:14,530 --> 00:04:17,019
+will return us our
+five-digit zip.
+
+88
+00:04:17,019 --> 00:04:19,959
+We've now got all four
+groups returned to us,
+
+89
+00:04:19,959 --> 00:04:23,590
+exactly what we needed.
+
+90
+00:04:23,590 --> 00:04:26,070
+Lastly, we need to restrict
+any potential street
+
+91
+00:04:26,070 --> 00:04:28,220
+names to only "street" or "lane".
+
+92
+00:04:31,420 --> 00:04:34,230
+We can add another group
+to our street name section
+
+93
+00:04:34,230 --> 00:04:37,580
+to make sure that we only
+match on "street" or "lane",
+
+94
+00:04:37,580 --> 00:04:38,540
+and this works.
+
+95
+00:04:38,540 --> 00:04:43,940
+We're getting a match
+on our subjects.
+
+96
+00:04:43,940 --> 00:04:47,120
+But, wait, we just added
+parentheses around our street
+
+97
+00:04:47,120 --> 00:04:51,610
+or lane, however, this
+just returned "lane" to us
+
+98
+00:04:51,610 --> 00:04:53,720
+as one of our match groups.
+
+99
+00:04:53,720 --> 00:04:56,230
+Well, we can't have this.
+
+100
+00:04:56,230 --> 00:04:59,710
+We can only have four matches
+consisting of a street, city,
+
+101
+00:04:59,710 --> 00:05:02,340
+state, and zip.
+
+102
+00:05:02,340 --> 00:05:04,310
+So how can we still
+use this group,
+
+103
+00:05:04,310 --> 00:05:07,500
+but make sure that it does not
+return the street name back
+
+104
+00:05:07,500 --> 00:05:09,900
+to us?
+
+105
+00:05:09,900 --> 00:05:11,760
+We can use the
+question mark colon
+
+106
+00:05:11,760 --> 00:05:15,820
+at the beginning of our group
+to create a non-capturing group.
+
+107
+00:05:15,820 --> 00:05:18,700
+This way we can do
+evaluations within our group
+
+108
+00:05:18,700 --> 00:05:21,030
+without returning a value.
+
+109
+00:05:21,030 --> 00:05:23,540
+And now we only have
+four match groups
+
+110
+00:05:23,540 --> 00:05:29,840
+consisting of 1 Reindeer Lane,
+North Pole, AK, and 99705.
+
+111
+00:05:29,840 --> 00:05:33,030
+Looking really good.
+
+112
+00:05:33,030 --> 00:05:34,860
+It's time to
+practice some capture
+
+113
+00:05:34,860 --> 00:05:35,960
+groups in the challenges.
+
+114
+00:05:35,960 --> 00:05:39,790
+I'll see you again
+at the wrap-up video.
+
+115
+00:05:39,790 --> 00:05:42,098
+The next want to.
+
+116
+00:05:42,098 --> 00:05:43,370
+Dang.
+
+117
+00:05:43,370 --> 00:05:44,622
+Base.
+
+118
+00:05:44,622 --> 00:05:47,810
+Empty string.
+
+119
+00:05:47,810 --> 00:05:51,130
+G in moder-- moderfiers.
+
+120
+00:05:51,130 --> 00:05:52,030
+Modifiers.
+
+121
+00:05:52,030 --> 00:05:54,137
+There's your
+blooper.
+

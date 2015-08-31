@@ -1,0 +1,538 @@
+﻿1
+00:00:00,000 --> 00:00:02,820
+[SINGING] You started with
+a string you need validated.
+
+2
+00:00:02,820 --> 00:00:05,660
+Used conditionals, and
+things got complicated.
+
+3
+00:00:05,660 --> 00:00:06,540
+There's a better way.
+
+4
+00:00:06,540 --> 00:00:08,998
+We'll teach you the lessons,
+and you'll be writing patterns
+
+5
+00:00:08,998 --> 00:00:10,200
+with regular expressions.
+
+6
+00:00:10,200 --> 00:00:11,300
+Operators add a zing. 
+
+7
+00:00:11,300 --> 00:00:12,175
+Modifiers are the thing
+
+8
+00:00:12,175 --> 00:00:14,880
+to find yourself the matches
+on your subject string.
+
+9
+00:00:14,880 --> 00:00:17,435
+You'll be parsing files
+if you follow our advice.
+
+10
+00:00:17,435 --> 00:00:23,030
+Sooner than you know it, you'll
+be breaking the ice, ice ice.
+
+11
+00:00:23,030 --> 00:00:26,340
+Welcome back to Breaking the
+Ice With Regular Expressions.
+
+12
+00:00:26,340 --> 00:00:28,660
+I hope you enjoyed
+validating crew emails
+
+13
+00:00:28,660 --> 00:00:31,340
+and writing some more
+complex patterns.
+
+14
+00:00:31,340 --> 00:00:35,860
+Let's now continue on
+our Confirmative level.
+
+15
+00:00:35,860 --> 00:00:38,520
+We now have valid names
+and email addresses
+
+16
+00:00:38,520 --> 00:00:40,480
+for our potential crew members.
+
+17
+00:00:40,480 --> 00:00:42,340
+The crew members
+have also confirmed
+
+18
+00:00:42,340 --> 00:00:45,160
+that they're willing to
+travel on our adventure.
+
+19
+00:00:45,160 --> 00:00:48,740
+However, each has answered
+us in a different way.
+
+20
+00:00:48,740 --> 00:00:51,450
+And even more, each
+potential crew member
+
+21
+00:00:51,450 --> 00:00:53,980
+has given us an answer
+within a phrase.
+
+22
+00:00:53,980 --> 00:00:56,580
+So we're going to need to
+extract each answer out
+
+23
+00:00:56,580 --> 00:00:58,420
+of these phrases
+so we can decide
+
+24
+00:00:58,420 --> 00:01:01,880
+whether they're willing to go.
+
+25
+00:01:01,880 --> 00:01:04,730
+Our first acceptable
+match is "OK".
+
+26
+00:01:04,730 --> 00:01:08,070
+So we can start our pattern
+by using a literal OK, which
+
+27
+00:01:08,070 --> 00:01:10,210
+will match the characters "OK".
+
+28
+00:01:10,210 --> 00:01:12,860
+Now this gets us
+on our first match.
+
+29
+00:01:12,860 --> 00:01:16,480
+However, it also appears we've
+matched the "OK" within "okie
+
+30
+00:01:16,480 --> 00:01:17,550
+dokie".
+
+31
+00:01:17,550 --> 00:01:20,450
+Now if you remember, one of our
+pattern goals is that we cannot
+
+32
+00:01:20,450 --> 00:01:23,030
+have a word that is
+part of a larger word.
+
+33
+00:01:23,030 --> 00:01:26,840
+So we're going to need
+to take care of this.
+
+34
+00:01:26,840 --> 00:01:29,320
+The word boundary
+metacharacter, or backslash
+
+35
+00:01:29,320 --> 00:01:32,056
+"b", is an anchor like the
+caret and the dollar sign,
+
+36
+00:01:32,056 --> 00:01:33,430
+except it allows
+you to perform
+
+37
+00:01:33,430 --> 00:01:35,630
+matches on whole words only.
+
+38
+00:01:35,630 --> 00:01:37,400
+So if you look at
+our example, we
+
+39
+00:01:37,400 --> 00:01:41,120
+put a backslash "b" before
+and after our backslash "w"
+
+40
+00:01:41,120 --> 00:01:42,310
+with the plus.
+
+41
+00:01:42,310 --> 00:01:44,380
+This results in boundaries
+around each word
+
+42
+00:01:44,380 --> 00:01:48,350
+in our subject, around "learn",
+around "by", and around "doing".
+
+43
+00:01:52,390 --> 00:01:56,290
+Using backslash "b", we can match
+based upon the surrounding
+
+44
+00:01:56,290 --> 00:01:59,030
+words or characters,
+and now we match
+
+45
+00:01:59,030 --> 00:02:03,662
+the letters "OK" in our subject,
+but no longer match "okie dokie".
+
+46
+00:02:03,662 --> 00:02:04,870
+So we're looking pretty good.
+
+47
+00:02:10,070 --> 00:02:12,870
+Next we need to match in
+a different version of "OK",
+
+48
+00:02:12,870 --> 00:02:17,010
+spelled "O-k-a-y" with
+a capital "O". Well,
+
+49
+00:02:17,010 --> 00:02:19,250
+how can we match different
+versions of this word?
+
+50
+00:02:21,959 --> 00:02:23,750
+One thing we could do
+would be to surround
+
+51
+00:02:23,750 --> 00:02:26,680
+our "OK" with boundary
+metacharacters followed by an
+
+52
+00:02:26,680 --> 00:02:29,230
+or and then the other
+version of "OK" that's
+
+53
+00:02:29,230 --> 00:02:31,590
+surrounded by boundary
+metacharacters,
+
+54
+00:02:31,590 --> 00:02:34,050
+but this isn't very efficient.
+
+55
+00:02:34,050 --> 00:02:36,710
+If we had a way to
+make the "a-y" optional,
+
+56
+00:02:36,710 --> 00:02:39,220
+we could match with
+a single pattern.
+
+57
+00:02:39,220 --> 00:02:43,270
+So let's find a way
+that we can do this.
+
+58
+00:02:43,270 --> 00:02:46,430
+We know that we can use
+a literal to match "ship",
+
+59
+00:02:46,430 --> 00:02:49,330
+but if we try to match it
+against something like "shirt",
+
+60
+00:02:49,330 --> 00:02:51,890
+we're not going to get a match.
+
+61
+00:02:51,890 --> 00:02:54,980
+The question mark operator
+matches the proceeding pattern
+
+62
+00:02:54,980 --> 00:02:57,140
+zero to one time.
+
+63
+00:02:57,140 --> 00:02:59,960
+If we add one after
+the "p" in "ship",
+
+64
+00:02:59,960 --> 00:03:01,670
+we're going to make
+the "p" optional.
+
+65
+00:03:01,670 --> 00:03:04,250
+So we'll match on
+"ship", but we'll also
+
+66
+00:03:04,250 --> 00:03:05,890
+get a partial match on "shirt".
+
+67
+00:03:09,950 --> 00:03:14,070
+We can also use the question
+mark operator with a group.
+
+68
+00:03:14,070 --> 00:03:17,250
+So in this example,
+we have "pirate ship".
+
+69
+00:03:17,250 --> 00:03:20,120
+By putting "ship" in a group
+and putting a question mark
+
+70
+00:03:20,120 --> 00:03:22,950
+after it, we will make
+the "ship" optional.
+
+71
+00:03:22,950 --> 00:03:27,310
+This allows us to match on both
+"pirate ship" and "pirate boat".
+
+72
+00:03:31,450 --> 00:03:36,150
+So if we have a group
+with "a-y", after the "OK",
+
+73
+00:03:36,150 --> 00:03:39,120
+with a question mark,
+we'll make the "a-y" portion
+
+74
+00:03:39,120 --> 00:03:40,920
+of the pattern optional.
+
+75
+00:03:40,920 --> 00:03:45,354
+This will allow us to
+match on "OK" or "O-k-a-y".
+
+76
+00:03:45,354 --> 00:03:46,770
+Just like we've
+done before, we're
+
+77
+00:03:46,770 --> 00:03:48,690
+going to add the "i"
+modifier to handle
+
+78
+00:03:48,690 --> 00:03:52,260
+for uppercase and lowercase
+characters within our pattern.
+
+79
+00:03:52,260 --> 00:03:54,920
+Now both variations
+of "OK" are accepted.
+
+80
+00:03:58,510 --> 00:04:02,230
+Another potential key word a
+shipmate may enter is "sure".
+
+81
+00:04:02,230 --> 00:04:04,810
+However, we're not checking
+for this right now.
+
+82
+00:04:04,810 --> 00:04:06,620
+Using the OR
+operator, we can match
+
+83
+00:04:06,620 --> 00:04:09,850
+either version of "OK" or "sure".
+
+84
+00:04:09,850 --> 00:04:12,280
+And because we're
+using the backslash "b",
+
+85
+00:04:12,280 --> 00:04:15,480
+we're automatically just
+going to be matching on words.
+
+86
+00:04:15,480 --> 00:04:19,190
+However, we're also getting
+a partial match here.
+
+87
+00:04:19,190 --> 00:04:21,140
+This is because
+the first boundary
+
+88
+00:04:21,140 --> 00:04:24,200
+is right before the "OK"
+portion in our pattern,
+
+89
+00:04:24,200 --> 00:04:27,600
+and the second boundary
+is right after the "sure".
+
+90
+00:04:27,600 --> 00:04:29,250
+How can we make
+the boundary anchor
+
+91
+00:04:29,250 --> 00:04:32,920
+to both the beginning and the
+end of "OK" and the beginning
+
+92
+00:04:32,920 --> 00:04:36,480
+and the end of "sure"?
+
+93
+00:04:36,480 --> 00:04:38,490
+Using a group, we
+can encapsulate
+
+94
+00:04:38,490 --> 00:04:41,100
+the "OK" and "sure"
+portion of our pattern,
+
+95
+00:04:41,100 --> 00:04:43,670
+giving us our
+intended result. This
+
+96
+00:04:43,670 --> 00:04:47,680
+means that our desired matches
+only appear as single words
+
+97
+00:04:47,680 --> 00:04:50,450
+and our subject "ensure"
+no longer matches.
+
+98
+00:04:54,830 --> 00:04:57,860
+Much like matching "sure", we
+can use another OR operator
+
+99
+00:04:57,860 --> 00:05:01,790
+and add "yes" to match on
+our next acceptable answer.
+
+100
+00:05:01,790 --> 00:05:05,600
+However, this won't match on
+the single character "y", which
+
+101
+00:05:05,600 --> 00:05:07,750
+is also an acceptable answer.
+
+102
+00:05:07,750 --> 00:05:09,370
+So let's go ahead
+and handle for this.
+
+103
+00:05:13,110 --> 00:05:15,590
+Well, much like our
+two versions of "OK",
+
+104
+00:05:15,590 --> 00:05:20,290
+we can construct two versions
+of "yes"-- the "y" and the "y-e-s".
+
+105
+00:05:20,290 --> 00:05:23,150
+By surrounding the "e-s"
+in a group and adding
+
+106
+00:05:23,150 --> 00:05:25,310
+another one of those
+question mark operators,
+
+107
+00:05:25,310 --> 00:05:27,530
+we'll make the "e-s" optional.
+
+108
+00:05:27,530 --> 00:05:30,345
+And this allows us to
+match on "y" and "y-e-s".
+
+109
+00:05:34,920 --> 00:05:37,019
+Our pattern is now
+matching all answers
+
+110
+00:05:37,019 --> 00:05:38,060
+from potential shipmates.
+
+111
+00:05:42,020 --> 00:05:44,480
+It's now your turn to
+try writing some patterns
+
+112
+00:05:44,480 --> 00:05:47,030
+with boundaries and optionals.
+

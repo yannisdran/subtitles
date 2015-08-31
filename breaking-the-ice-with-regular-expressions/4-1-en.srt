@@ -1,0 +1,385 @@
+﻿1
+00:00:00,000 --> 00:00:02,820
+[SINGING] You started with a
+string you need validated.
+
+2
+00:00:02,820 --> 00:00:05,660
+Used conditionals, and
+things got complicated.
+
+3
+00:00:05,660 --> 00:00:06,540
+There's a better way.
+
+4
+00:00:06,540 --> 00:00:08,998
+We'll teach you the lessons,
+and you'll be writing patterns
+
+5
+00:00:08,998 --> 00:00:10,200
+with regular expressions.
+
+6
+00:00:10,200 --> 00:00:11,460
+Operators add a zing. 
+
+7
+00:00:11,460 --> 00:00:12,440
+Modifiers are the thing
+
+8
+00:00:12,440 --> 00:00:14,910
+to find yourself the matches
+on your subject string.
+
+9
+00:00:14,910 --> 00:00:17,700
+You'll be parsing files
+if you follow our advice.
+
+10
+00:00:17,700 --> 00:00:23,220
+Sooner than you know it, you'll
+be breaking the ice, ice, ice.
+
+11
+00:00:23,220 --> 00:00:26,010
+Welcome back to Breaking the
+Ice With Regular Expressions.
+
+12
+00:00:26,010 --> 00:00:28,980
+I hope you enjoyed the
+confirmative challenges.
+
+13
+00:00:28,980 --> 00:00:30,880
+Let's now continue
+on with working
+
+14
+00:00:30,880 --> 00:00:32,135
+with multi-line strings.
+
+15
+00:00:34,646 --> 00:00:36,520
+We've been cataloging
+every animal that we've
+
+16
+00:00:36,520 --> 00:00:38,610
+encountered on our voyage.
+
+17
+00:00:38,610 --> 00:00:40,690
+We now have a very
+large document
+
+18
+00:00:40,690 --> 00:00:43,760
+containing multiple lines
+of different animals.
+
+19
+00:00:43,760 --> 00:00:45,550
+We need a way to
+look through the data
+
+20
+00:00:45,550 --> 00:00:50,090
+set that's longer than just one
+line to find all of the birds.
+
+21
+00:00:50,090 --> 00:00:52,960
+Now in case you're not
+aware, our available birds
+
+22
+00:00:52,960 --> 00:00:55,585
+are penguins,
+albatrosses, and terns.
+
+23
+00:00:59,550 --> 00:01:02,820
+So far, we've worked with
+very small subject strings
+
+24
+00:01:02,820 --> 00:01:05,300
+that just contain one line.
+
+25
+00:01:05,300 --> 00:01:08,070
+Let's now work with
+a multi-line subject.
+
+26
+00:01:08,070 --> 00:01:11,310
+But what exactly is
+a multi-line string?
+
+27
+00:01:11,310 --> 00:01:15,250
+The list you see here is
+actually a multi-line subject.
+
+28
+00:01:15,250 --> 00:01:19,340
+Hidden at the end of each
+line is a newline character.
+
+29
+00:01:19,340 --> 00:01:22,030
+As you can see here,
+the newline character
+
+30
+00:01:22,030 --> 00:01:24,510
+is usually written
+with a backslash "n".
+
+31
+00:01:28,300 --> 00:01:30,920
+Let's start by
+analyzing our subject.
+
+32
+00:01:30,920 --> 00:01:34,750
+We have multiple lines separated
+by newline characters.
+
+33
+00:01:34,750 --> 00:01:38,110
+Each animal is approximately
+one to two words in length,
+
+34
+00:01:38,110 --> 00:01:41,530
+and we have a mix of uppercase
+and lowercase characters.
+
+35
+00:01:41,530 --> 00:01:42,450
+So we can start there.
+
+36
+00:01:45,740 --> 00:01:48,880
+First, we're going to use
+a literal to match "penguin".
+
+37
+00:01:48,880 --> 00:01:52,550
+We will also add the "i"
+modifier, but we only
+
+38
+00:01:52,550 --> 00:01:54,650
+match on the first
+occurrence of "penguin",
+
+39
+00:01:54,650 --> 00:01:56,480
+and then we ignore the rest.
+
+40
+00:01:56,480 --> 00:01:57,930
+So how can we solve this?
+
+41
+00:02:02,180 --> 00:02:04,330
+By adding a "g" to the
+modifier section,
+
+42
+00:02:04,330 --> 00:02:06,930
+we'll add what is known
+as a global modifier.
+
+43
+00:02:06,930 --> 00:02:10,169
+A global modifier will match
+every instance of "penguin",
+
+44
+00:02:10,169 --> 00:02:12,510
+instead of just the first one.
+
+45
+00:02:12,510 --> 00:02:17,810
+So let's continue on by
+matching the entire name.
+
+46
+00:02:17,810 --> 00:02:21,090
+If we add a word and a space,
+before our penguin literal,
+
+47
+00:02:21,090 --> 00:02:22,630
+we'll match on our full name.
+
+48
+00:02:22,630 --> 00:02:24,630
+And we're looking
+really, really good.
+
+49
+00:02:24,630 --> 00:02:27,050
+We now match on all
+instances of "penguin".
+
+50
+00:02:30,760 --> 00:02:32,670
+As we've done
+previously, we can use
+
+51
+00:02:32,670 --> 00:02:34,860
+anchors to ensure
+there's nothing before
+
+52
+00:02:34,860 --> 00:02:37,450
+or after our desired pattern.
+
+53
+00:02:37,450 --> 00:02:40,480
+However, when we do this
+here, we don't get a match.
+
+54
+00:02:40,480 --> 00:02:43,090
+It looks like we've
+broken our pattern.
+
+55
+00:02:43,090 --> 00:02:45,230
+Well, this is because
+anchors, typically,
+
+56
+00:02:45,230 --> 00:02:46,690
+will check to
+the very beginning
+
+57
+00:02:46,690 --> 00:02:48,830
+to the very end of the subject.
+
+58
+00:02:48,830 --> 00:02:51,020
+We need it to check
+from the very beginning
+
+59
+00:02:51,020 --> 00:02:53,260
+to the very end of
+each individual line.
+
+60
+00:02:56,540 --> 00:02:59,390
+Now, typically, an anchor
+in this example will
+
+61
+00:02:59,390 --> 00:03:02,214
+start at "king" and
+will end at "seal".
+
+62
+00:03:05,076 --> 00:03:07,840
+By placing an "m" in
+our modifier section,
+
+63
+00:03:07,840 --> 00:03:11,070
+we'll add what is known
+as a multi-line modifier.
+
+64
+00:03:11,070 --> 00:03:13,250
+So instead of the
+caret anchor anchoring
+
+65
+00:03:13,250 --> 00:03:15,090
+to the beginning of
+our subject, it's
+
+66
+00:03:15,090 --> 00:03:18,610
+going to anchor to the
+beginning of every single line.
+
+67
+00:03:18,610 --> 00:03:20,480
+And instead of the
+dollar sign anchoring
+
+68
+00:03:20,480 --> 00:03:22,205
+to the very end
+of our subject, it
+
+69
+00:03:22,205 --> 00:03:26,780
+is going to anchor to the
+very end of every single line.
+
+70
+00:03:26,780 --> 00:03:28,350
+Now we can be sure
+there's nothing
+
+71
+00:03:28,350 --> 00:03:30,310
+before or after our bird names.
+
+72
+00:03:34,050 --> 00:03:36,710
+We can now continue matching
+on additional birds.
+
+73
+00:03:36,710 --> 00:03:39,660
+We're going to add a group
+around our penguin literal
+
+74
+00:03:39,660 --> 00:03:43,300
+add an OR operator, and
+then "albatross" within.
+
+75
+00:03:43,300 --> 00:03:45,805
+And we're now matching
+on "wandering albatross".
+
+76
+00:03:49,280 --> 00:03:53,280
+Using one final OR operator, we
+can add "tern" to our pattern.
+
+77
+00:03:53,280 --> 00:03:56,110
+And we're now matching
+on all available birds,
+
+78
+00:03:56,110 --> 00:03:58,630
+and we're not matching on
+anything that is not a bird.
+
+79
+00:04:01,340 --> 00:04:03,420
+Let's now try using
+some of the modifiers
+
+80
+00:04:03,420 --> 00:04:06,680
+we've learned in this
+section on the challenges.
+

@@ -1,0 +1,810 @@
+1
+00:00:02,040 --> 00:00:04,790
+Welcome back to section
+two of The String Story.
+
+2
+00:00:04,790 --> 00:00:08,480
+I hope you enjoyed writing
+your first regular expressions.
+
+3
+00:00:08,480 --> 00:00:10,010
+We're assembling a crew!
+
+4
+00:00:10,010 --> 00:00:12,290
+The captain of our mighty
+ship has set voyage
+
+5
+00:00:12,290 --> 00:00:14,680
+to study the
+elusive sea monster.
+
+6
+00:00:14,680 --> 00:00:17,830
+We need to validate that each
+potential crew member has
+
+7
+00:00:17,830 --> 00:00:21,447
+given us the correct information
+before letting them proceed.
+
+8
+00:00:21,447 --> 00:00:23,030
+We're going to use
+regular expressions
+
+9
+00:00:23,030 --> 00:00:26,240
+to help us validate this data.
+
+10
+00:00:26,240 --> 00:00:29,150
+Our first shipmate has
+signed up-- smitty.
+
+11
+00:00:29,150 --> 00:00:31,660
+We're going to use a regular
+expression literal, like we
+
+12
+00:00:31,660 --> 00:00:34,555
+had before, to match every
+character in the subject
+
+13
+00:00:34,555 --> 00:00:38,970
+"smitty", and we get
+a positive match.
+
+14
+00:00:38,970 --> 00:00:43,070
+And our next potential
+shipmate has signed up-- james.
+
+15
+00:00:43,070 --> 00:00:45,670
+Using the OR operator
+and then "james",
+
+16
+00:00:45,670 --> 00:00:48,770
+we can match either
+"smitty" or "james",
+
+17
+00:00:48,770 --> 00:00:50,050
+and we get a match on both.
+
+18
+00:00:54,090 --> 00:00:56,500
+Now, not all potential
+shipmates are
+
+19
+00:00:56,500 --> 00:00:58,170
+going to give us their name.
+
+20
+00:00:58,170 --> 00:01:00,510
+Some are just going to say, "ar".
+
+21
+00:01:00,510 --> 00:01:02,840
+However, some of the
+shipmates have spelled
+
+22
+00:01:02,840 --> 00:01:04,950
+this in several different ways.
+
+23
+00:01:04,950 --> 00:01:08,070
+Some have spelled it with
+one "r", some with 10, and some
+
+24
+00:01:08,070 --> 00:01:09,470
+with more.
+
+25
+00:01:09,470 --> 00:01:11,010
+So we're going to
+need to find a way
+
+26
+00:01:11,010 --> 00:01:14,330
+to account for all the different
+possible combinations of "ar"
+
+27
+00:01:14,330 --> 00:01:16,040
+that we may encounter.
+
+28
+00:01:16,040 --> 00:01:18,380
+So we're going to start
+with "ar" literal here, where
+
+29
+00:01:18,380 --> 00:01:22,220
+we'll just match the
+letters "a" and "r". However,
+
+30
+00:01:22,220 --> 00:01:24,910
+when we start adding
+more "r"s to our subject,
+
+31
+00:01:24,910 --> 00:01:27,190
+we're going to start
+getting partial matches.
+
+32
+00:01:27,190 --> 00:01:28,460
+And this is undesirable.
+
+33
+00:01:28,460 --> 00:01:30,570
+We want to match
+the entire "ar".
+
+34
+00:01:30,570 --> 00:01:31,590
+So what can we do?
+
+35
+00:01:34,150 --> 00:01:37,400
+One possible solution is to
+use the OR operator like we've
+
+36
+00:01:37,400 --> 00:01:40,370
+been doing, and then add
+every combination of "ar"
+
+37
+00:01:40,370 --> 00:01:41,910
+that we might encounter.
+
+38
+00:01:41,910 --> 00:01:44,950
+But our pattern is going to
+get extremely long doing this,
+
+39
+00:01:44,950 --> 00:01:46,382
+and it's inefficient.
+
+40
+00:01:46,382 --> 00:01:47,590
+So we need a better solution.
+
+41
+00:01:50,300 --> 00:01:53,880
+As it turns out, we can use the
+special plus character, which
+
+42
+00:01:53,880 --> 00:01:58,170
+is a plus operator, and it will
+repeat the "r" one or more times
+
+43
+00:01:58,170 --> 00:02:00,490
+until it is no longer matched.
+
+44
+00:02:00,490 --> 00:02:05,230
+This allows us to match on a-r,
+a-r-r, and every combination
+
+45
+00:02:05,230 --> 00:02:07,010
+that we could possibly see.
+
+46
+00:02:07,010 --> 00:02:10,049
+This now allows us to match
+on all versions of "ar"
+
+47
+00:02:10,049 --> 00:02:10,549
+effectively.
+
+48
+00:02:13,880 --> 00:02:17,700
+Adding an OR operator and then
+our different versions of "ar",
+
+49
+00:02:17,700 --> 00:02:21,430
+we're going to match on
+"smitty", "james", or "ar",
+
+50
+00:02:21,430 --> 00:02:23,180
+and our expression is
+looking pretty good.
+
+51
+00:02:26,870 --> 00:02:30,260
+Our third potential shipmate
+has signed up-- jameson.
+
+52
+00:02:30,260 --> 00:02:33,820
+However, we're not matching
+on the o-n portion of jameson.
+
+53
+00:02:33,820 --> 00:02:35,800
+We're only matching on "james".
+
+54
+00:02:35,800 --> 00:02:38,140
+Well, this is what is
+known as a partial match,
+
+55
+00:02:38,140 --> 00:02:40,000
+and it isn't always undesirable,
+
+56
+00:02:40,000 --> 00:02:42,600
+but in this case, we want
+to match the full name.
+
+57
+00:02:42,600 --> 00:02:46,140
+One possible solution would be
+to add an OR operator and then
+
+58
+00:02:46,140 --> 00:02:47,500
+"jameson".
+
+59
+00:02:47,500 --> 00:02:49,860
+But the line at our
+booth's getting pretty long
+
+60
+00:02:49,860 --> 00:02:51,820
+at this point,
+and let's face it,
+
+61
+00:02:51,820 --> 00:02:54,200
+we're not going to be able
+account for every single name
+
+62
+00:02:54,200 --> 00:02:57,660
+that we could see, so we
+need a better solution.
+
+63
+00:02:57,660 --> 00:03:00,380
+Let's reanalyze our
+subject strings.
+
+64
+00:03:00,380 --> 00:03:04,389
+What's one thing that all of
+these names have in common?
+
+65
+00:03:04,389 --> 00:03:06,180
+They all contain letters
+from the alphabet.
+
+66
+00:03:08,800 --> 00:03:11,240
+Using the OR operator,
+we could match
+
+67
+00:03:11,240 --> 00:03:17,310
+every character within the
+alphabet-- "a" or "b" or "c" or "d".
+
+68
+00:03:17,310 --> 00:03:19,780
+But this is going to
+become a very long pattern,
+
+69
+00:03:19,780 --> 00:03:22,810
+and it's almost worse
+than our previous example.
+
+70
+00:03:22,810 --> 00:03:25,630
+One solution would be
+to use a character set.
+
+71
+00:03:25,630 --> 00:03:27,260
+And a character
+set is represented
+
+72
+00:03:27,260 --> 00:03:29,380
+by these square
+brackets and represents
+
+73
+00:03:29,380 --> 00:03:31,670
+one character in our subject.
+
+74
+00:03:31,670 --> 00:03:34,000
+And then within, we're
+going to use a range.
+
+75
+00:03:34,000 --> 00:03:36,880
+And here, we're using
+a range from "a" to "z"
+
+76
+00:03:36,880 --> 00:03:40,560
+So we will match one character
+in our subject string
+
+77
+00:03:40,560 --> 00:03:44,880
+from "a" to "z". Now there's two
+important notes about this.
+
+78
+00:03:44,880 --> 00:03:47,480
+A range only works
+within a character set,
+
+79
+00:03:47,480 --> 00:03:49,330
+and a character
+set only represents
+
+80
+00:03:49,330 --> 00:03:50,745
+one character in our subject.
+
+81
+00:03:54,090 --> 00:03:55,910
+Back to our original example.
+
+82
+00:03:55,910 --> 00:03:58,440
+We can use our character
+set with the range within
+
+83
+00:03:58,440 --> 00:04:02,780
+to match the first character
+of "smitty", and we get the "s".
+
+84
+00:04:02,780 --> 00:04:08,670
+So how about matching the rest
+of the characters of "smitty"?
+
+85
+00:04:08,670 --> 00:04:10,320
+Well, one thing
+we could do would
+
+86
+00:04:10,320 --> 00:04:13,620
+be to repeat the character
+set five more times to match
+
+87
+00:04:13,620 --> 00:04:15,520
+all six characters of "smitty".
+
+88
+00:04:15,520 --> 00:04:17,910
+With our character set
+repeated six times,
+
+89
+00:04:17,910 --> 00:04:19,970
+we do get a match on "smitty".
+
+90
+00:04:19,970 --> 00:04:23,280
+However, we're no longer
+going to get a match on "james".
+
+91
+00:04:23,280 --> 00:04:26,280
+And this is because "james"
+only has five characters,
+
+92
+00:04:26,280 --> 00:04:30,370
+and we're expecting six
+with a range from "a" to "z".
+
+93
+00:04:30,370 --> 00:04:31,830
+So this isn't going to work.
+
+94
+00:04:35,530 --> 00:04:38,860
+When using the plus operator--
+as we've done before-- directly
+
+95
+00:04:38,860 --> 00:04:41,050
+after our character
+set, we can repeat
+
+96
+00:04:41,050 --> 00:04:43,430
+the character set one
+or more times until it
+
+97
+00:04:43,430 --> 00:04:45,140
+is no longer matched.
+
+98
+00:04:45,140 --> 00:04:49,290
+This allows us to match on
+"smitty", "james", and "jameson" as
+
+99
+00:04:49,290 --> 00:04:52,235
+well as every version of
+"ar" that we could encounter.
+
+100
+00:04:56,260 --> 00:04:59,520
+Our next potential shipmate
+has signed up-- Blackbeard.
+
+101
+00:04:59,520 --> 00:05:01,740
+However, we're getting
+a partial match here.
+
+102
+00:05:01,740 --> 00:05:04,910
+We haven't matched on the
+capital "B" of "Blackbeard",
+
+103
+00:05:04,910 --> 00:05:06,790
+and this is because
+our range only
+
+104
+00:05:06,790 --> 00:05:10,680
+has a lowercase "a" through "z".
+
+105
+00:05:10,680 --> 00:05:12,390
+Well, one possible
+solution would
+
+106
+00:05:12,390 --> 00:05:16,670
+be to add another range
+to our character set.
+
+107
+00:05:16,670 --> 00:05:20,420
+With a capital "A" through "Z" range
+added to our character set,
+
+108
+00:05:20,420 --> 00:05:23,130
+we're going to match
+on "Blackbeard" fully.
+
+109
+00:05:23,130 --> 00:05:24,890
+However, there's
+actually another way
+
+110
+00:05:24,890 --> 00:05:28,140
+that we can write this.
+
+111
+00:05:28,140 --> 00:05:32,020
+By adding an "i" to the right,
+outside of our final slash,
+
+112
+00:05:32,020 --> 00:05:34,680
+we'll add what is
+known as a modifier.
+
+113
+00:05:34,680 --> 00:05:37,430
+Now the "i" modifier
+means "case insensitive"
+
+114
+00:05:37,430 --> 00:05:39,190
+and will match the
+entire pattern--
+
+115
+00:05:39,190 --> 00:05:42,300
+both uppercase and lowercase.
+
+116
+00:05:42,300 --> 00:05:44,890
+Now one thing to keep a
+note is that modifiers
+
+117
+00:05:44,890 --> 00:05:46,500
+are language
+specific, so you want
+
+118
+00:05:46,500 --> 00:05:51,060
+to check your docs before
+jumping into modifiers.
+
+119
+00:05:51,060 --> 00:05:54,296
+Our next potential shipmate
+has signed up-- Captain hook.
+
+120
+00:05:54,296 --> 00:05:56,670
+However, it looks like we're
+getting a partial match here
+
+121
+00:05:56,670 --> 00:05:57,450
+as well.
+
+122
+00:05:57,450 --> 00:06:00,350
+We're leaving off the "hook"
+portion of "Captain hook".
+
+123
+00:06:00,350 --> 00:06:02,910
+It looks like we're not
+matching on the whitespace.
+
+124
+00:06:02,910 --> 00:06:07,220
+So let's go ahead and
+take care of this next.
+
+125
+00:06:07,220 --> 00:06:10,090
+We can match on white space
+by using a whitespace
+
+126
+00:06:10,090 --> 00:06:13,200
+literal, which is just a
+space within our pattern.
+
+127
+00:06:13,200 --> 00:06:15,050
+However, we're going
+to go ahead and use
+
+128
+00:06:15,050 --> 00:06:19,770
+the backslash "s" metacharacter--
+which will equal a space, tab,
+
+129
+00:06:19,770 --> 00:06:22,020
+new line, and more.
+
+130
+00:06:22,020 --> 00:06:24,294
+Now, it's typically best
+to be more explicit,
+
+131
+00:06:24,294 --> 00:06:25,710
+so we're going to
+go ahead and use
+
+132
+00:06:25,710 --> 00:06:31,020
+the backslash "s" to represent
+whitespace in our pattern.
+
+133
+00:06:31,020 --> 00:06:32,170
+Back to our example.
+
+134
+00:06:32,170 --> 00:06:35,270
+We can use the backslash
+"s" within our character set
+
+135
+00:06:35,270 --> 00:06:39,040
+to match on whitespace, and
+we now match on "Captain hook".
+
+136
+00:06:39,040 --> 00:06:40,250
+Now one thing to note--
+
+137
+00:06:40,250 --> 00:06:42,690
+the order of the characters
+within the character set
+
+138
+00:06:42,690 --> 00:06:43,800
+are irrelevant.
+
+139
+00:06:43,800 --> 00:06:46,610
+You can do backslash
+"s" range "a" through "Z",
+
+140
+00:06:46,610 --> 00:06:49,520
+or range "a" through
+"z" backslash "s".
+
+141
+00:06:49,520 --> 00:06:53,110
+They're exactly the same thing.
+
+142
+00:06:53,110 --> 00:06:55,330
+Our final potential
+shipmate has signed up--
+
+143
+00:06:55,330 --> 00:06:56,880
+Long John the 3rd.
+
+144
+00:06:56,880 --> 00:06:59,330
+However, it looks like we're
+getting a partial match here
+
+145
+00:06:59,330 --> 00:06:59,970
+as well.
+
+146
+00:06:59,970 --> 00:07:02,880
+We're not matching on the
+number portion of his name.
+
+147
+00:07:02,880 --> 00:07:04,630
+Well, we're not
+accounting for numbers
+
+148
+00:07:04,630 --> 00:07:07,660
+right now because we have a
+lowercase "a" through "z" range
+
+149
+00:07:07,660 --> 00:07:09,500
+and our backslash "s".
+
+150
+00:07:09,500 --> 00:07:11,570
+So let's go ahead and
+add another range.
+
+151
+00:07:14,500 --> 00:07:17,680
+By adding a 0 through 9
+range to our character set,
+
+152
+00:07:17,680 --> 00:07:19,230
+we're going to match on numbers.
+
+153
+00:07:19,230 --> 00:07:22,240
+And we now match on
+Long John the 3rd.
+
+154
+00:07:22,240 --> 00:07:24,620
+However, there's another
+way we can write this.
+
+155
+00:07:27,230 --> 00:07:28,940
+We can refactor
+our character set
+
+156
+00:07:28,940 --> 00:07:30,640
+to use the word
+metacharacter, which
+
+157
+00:07:30,640 --> 00:07:32,740
+is written as backslash "w".
+
+158
+00:07:32,740 --> 00:07:34,520
+This literally
+equals a character
+
+159
+00:07:34,520 --> 00:07:37,370
+set with a lowercase
+range "a" through "z",
+
+160
+00:07:37,370 --> 00:07:42,110
+an uppercase range "A" through
+"Z", and a range 0 through 9.
+
+161
+00:07:42,110 --> 00:07:44,890
+By adding in our backslash
+"s" to the character set
+
+162
+00:07:44,890 --> 00:07:46,880
+with our backslash
+"w", we're going
+
+163
+00:07:46,880 --> 00:07:48,800
+to get our desired pattern.
+
+164
+00:07:48,800 --> 00:07:52,180
+Now, using our new pattern,
+we can drop the "i" modifier
+
+165
+00:07:52,180 --> 00:07:55,020
+because capital letters
+are taken care of for us.
+
+166
+00:07:55,020 --> 00:07:57,210
+And we're now
+matching on all names.
+
+167
+00:07:57,210 --> 00:07:58,367
+Great job.
+
+168
+00:07:58,367 --> 00:08:01,230
+[MUSIC PLAYING]
+
+169
+00:08:01,230 --> 00:08:04,620
+Now let's go ahead and try
+some more regular expressions
+
+170
+00:08:04,620 --> 00:08:05,440
+in the challenges.
+
+171
+00:08:05,440 --> 00:08:07,890
+[MUSIC PLAYING]
+

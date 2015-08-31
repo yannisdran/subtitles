@@ -1,0 +1,660 @@
+1
+00:00:00,340 --> 00:00:02,800
+(SINGING) You started with
+a string you need validated.
+
+2
+00:00:02,800 --> 00:00:05,660
+Used conditionals, and
+things got complicated.
+
+3
+00:00:05,660 --> 00:00:06,540
+There's a better way.
+
+4
+00:00:06,540 --> 00:00:08,998
+We'll teach you the lessons,
+and you'll be writing patterns
+
+5
+00:00:08,998 --> 00:00:10,200
+with regular expressions.
+
+6
+00:00:10,200 --> 00:00:11,441
+Operators add a zing.
+
+7
+00:00:11,441 --> 00:00:12,440
+Modifiers are the thing
+
+8
+00:00:12,440 --> 00:00:14,715
+to find yourself the matches
+on your subject string.
+
+9
+00:00:14,715 --> 00:00:17,680
+You'll be parsing files
+if you follow our advice.
+
+10
+00:00:17,680 --> 00:00:22,571
+Sooner than you know it, you'll
+be breaking the ice, ice, ice.
+
+11
+00:00:22,571 --> 00:00:23,070
+Hi.
+
+12
+00:00:23,070 --> 00:00:24,190
+My name's Dan Bickford.
+
+13
+00:00:24,190 --> 00:00:26,430
+And together, we'll be
+taking an adventure.
+
+14
+00:00:26,430 --> 00:00:28,520
+And in the process,
+we'll be breaking the ice
+
+15
+00:00:28,520 --> 00:00:30,630
+with regular expressions.
+
+16
+00:00:30,630 --> 00:00:33,310
+Now regular expressions
+are a clear and concise way
+
+17
+00:00:33,310 --> 00:00:34,990
+to search through text.
+
+18
+00:00:34,990 --> 00:00:36,410
+What you will learn
+in this course
+
+19
+00:00:36,410 --> 00:00:40,520
+can be applied to many
+different programming languages.
+
+20
+00:00:40,520 --> 00:00:43,240
+Our journey will consist
+of five different levels.
+
+21
+00:00:43,240 --> 00:00:45,600
+First, we'll be introduced
+to regular expressions
+
+22
+00:00:45,600 --> 00:00:47,070
+and strings.
+
+23
+00:00:47,070 --> 00:00:49,950
+Second, we'll be
+validating emails,
+
+24
+00:00:49,950 --> 00:00:51,570
+and then third,
+we'll be searching
+
+25
+00:00:51,570 --> 00:00:53,580
+through text for clues.
+
+26
+00:00:53,580 --> 00:00:56,440
+Fourth, we'll be working
+with multi-line strings,
+
+27
+00:00:56,440 --> 00:00:59,480
+and then finally, we'll be
+working with capture groups.
+
+28
+00:00:59,480 --> 00:01:04,239
+So let's begin our journey with
+level one--The String Story.
+
+29
+00:01:04,239 --> 00:01:07,490
+Imagine we run a website that
+asks people for their Orlando
+
+30
+00:01:07,490 --> 00:01:10,390
+area phone number so they
+can receive local restaurant
+
+31
+00:01:10,390 --> 00:01:12,390
+offers to their cell phone.
+
+32
+00:01:12,390 --> 00:01:15,110
+Well, if we think about what
+makes this number valid,
+
+33
+00:01:15,110 --> 00:01:17,040
+we start seeing a few rules.
+
+34
+00:01:17,040 --> 00:01:20,250
+For example, the first
+three digits of our number
+
+35
+00:01:20,250 --> 00:01:25,980
+must begin with 407 or 321.
+
+36
+00:01:25,980 --> 00:01:28,430
+Next, the character
+should be a dash.
+
+37
+00:01:28,430 --> 00:01:31,630
+However, this dash is optional,
+and it doesn't necessarily
+
+38
+00:01:31,630 --> 00:01:33,190
+have to be there.
+
+39
+00:01:33,190 --> 00:01:37,800
+This is then followed by three
+more single digit numbers.
+
+40
+00:01:37,800 --> 00:01:40,990
+We then have one more of
+those optional dashes,
+
+41
+00:01:40,990 --> 00:01:44,960
+and finally, we end with four
+more single digit numbers.
+
+42
+00:01:44,960 --> 00:01:46,630
+So what would some
+code look like
+
+43
+00:01:46,630 --> 00:01:48,220
+to help validate these rules?
+
+44
+00:01:50,980 --> 00:01:53,520
+It might look a little
+bit something like this.
+
+45
+00:01:53,520 --> 00:01:56,260
+We would have a variable holding
+the characters of our subject
+
+46
+00:01:56,260 --> 00:01:57,850
+string, named chars.
+
+47
+00:01:57,850 --> 00:02:00,990
+And we would check if
+the first character is 4,
+
+48
+00:02:00,990 --> 00:02:04,400
+the second character is 0,
+and the third character is 7.
+
+49
+00:02:04,400 --> 00:02:06,880
+Or the first character is 3,
+
+50
+00:02:06,880 --> 00:02:09,990
+the second character is 2,
+and the third character is 1.
+
+51
+00:02:09,990 --> 00:02:11,820
+We would surround
+that in parentheses,
+
+52
+00:02:11,820 --> 00:02:13,390
+and then we'd put an "&&."
+
+53
+00:02:13,390 --> 00:02:16,230
+And then we'd check, does the
+fourth character equal a dash,
+
+54
+00:02:16,230 --> 00:02:19,650
+or does the fourth character
+equal an empty string?
+
+55
+00:02:19,650 --> 00:02:22,900
+And that's just for
+the first few numbers.
+
+56
+00:02:22,900 --> 00:02:24,750
+By writing a regular
+expression, though,
+
+57
+00:02:24,750 --> 00:02:26,720
+we can accomplish
+the same validation
+
+58
+00:02:26,720 --> 00:02:29,210
+using much more concise code.
+
+59
+00:02:29,210 --> 00:02:31,125
+So what exactly are
+regular expressions?
+
+60
+00:02:34,230 --> 00:02:36,970
+There are two main parts
+to a regular expression.
+
+61
+00:02:36,970 --> 00:02:38,790
+First, we have the
+subject string--
+
+62
+00:02:38,790 --> 00:02:41,342
+which we're going to refer to
+as a subject in this course--
+
+63
+00:02:41,342 --> 00:02:43,050
+and it's the text
+we're searching through
+
+64
+00:02:43,050 --> 00:02:44,870
+to find a match.
+
+65
+00:02:44,870 --> 00:02:48,000
+Next, we'll have our
+regular expression, or regex,
+
+66
+00:02:48,000 --> 00:02:49,730
+and this is a
+group of characters
+
+67
+00:02:49,730 --> 00:02:52,420
+that represents rules for
+searching and matching
+
+68
+00:02:52,420 --> 00:02:53,115
+against text.
+
+69
+00:02:57,840 --> 00:03:00,860
+So how does a regular
+expression engine work?
+
+70
+00:03:00,860 --> 00:03:03,080
+The regex engine
+walks each character
+
+71
+00:03:03,080 --> 00:03:06,680
+in the pattern and the subject,
+trying to find matches.
+
+72
+00:03:06,680 --> 00:03:08,910
+Here, we're going to
+get a match on the 4
+
+73
+00:03:08,910 --> 00:03:12,080
+in the regular expression
+pattern and the subject.
+
+74
+00:03:12,080 --> 00:03:14,850
+And then next, we're going
+to get a match on the 0
+
+75
+00:03:14,850 --> 00:03:17,500
+in the pattern and
+the 0 in the subject.
+
+76
+00:03:17,500 --> 00:03:19,845
+And then finally, we're
+going to get a match on the 7
+
+77
+00:03:19,845 --> 00:03:22,270
+in the pattern and
+the 7 in the subject.
+
+78
+00:03:22,270 --> 00:03:24,070
+And the regular
+expression engine
+
+79
+00:03:24,070 --> 00:03:26,590
+returns that we've found
+a match-- or in this case,
+
+80
+00:03:26,590 --> 00:03:28,621
+we get a true.
+
+81
+00:03:28,621 --> 00:03:31,600
+Well, how about a pattern that
+does not match our subject?
+
+82
+00:03:31,600 --> 00:03:34,440
+Here, we're trying to match
+a 4 against our subject,
+
+83
+00:03:34,440 --> 00:03:37,020
+which does not contain a 4.
+
+84
+00:03:37,020 --> 00:03:40,010
+If the regular expression
+engine does not find a match,
+
+85
+00:03:40,010 --> 00:03:42,410
+it will backtrack, both
+the regular expression
+
+86
+00:03:42,410 --> 00:03:45,530
+and the subject, where it can
+try to find a different match.
+
+87
+00:03:45,530 --> 00:03:48,200
+If no matches can be found,
+the regular expression
+
+88
+00:03:48,200 --> 00:03:50,600
+will return that there
+are no available matches--
+
+89
+00:03:50,600 --> 00:03:53,355
+or in our case here,
+we'll receive a false.
+
+90
+00:03:53,355 --> 00:03:57,350
+Well, how would we make a
+pattern match both 407 or 321?
+
+91
+00:04:00,830 --> 00:04:03,600
+By adding what is known
+as an OR operator right
+
+92
+00:04:03,600 --> 00:04:07,650
+after our 407 and then
+321, we can conditionally
+
+93
+00:04:07,650 --> 00:04:10,330
+match 407 or 321.
+
+94
+00:04:10,330 --> 00:04:15,700
+So our subject beginning with
+the area code 321 now matches.
+
+95
+00:04:15,700 --> 00:04:17,440
+So what would this
+regular expression
+
+96
+00:04:17,440 --> 00:04:21,240
+look like outside of code?
+
+97
+00:04:21,240 --> 00:04:24,610
+So when we say we're writing
+regex, what we're really asking
+
+98
+00:04:24,610 --> 00:04:28,920
+is, does this group of characters
+match a specific pattern?
+
+99
+00:04:28,920 --> 00:04:32,090
+The pattern starts
+after the first slash,
+
+100
+00:04:32,090 --> 00:04:35,460
+and it ends before
+the final slash.
+
+101
+00:04:35,460 --> 00:04:38,071
+And what is in between is
+known as our regular expression
+
+102
+00:04:38,071 --> 00:04:38,570
+pattern.
+
+103
+00:04:43,270 --> 00:04:45,890
+Now, the regex engine
+doesn't necessarily just
+
+104
+00:04:45,890 --> 00:04:47,010
+match on numbers.
+
+105
+00:04:47,010 --> 00:04:49,590
+We can also match
+on letters as well.
+
+106
+00:04:49,590 --> 00:04:52,790
+So here, we're using a regular
+expression literal, "boat",
+
+107
+00:04:52,790 --> 00:04:56,230
+which literally matches every
+single character in the word
+
+108
+00:04:56,230 --> 00:04:57,150
+"boat".
+
+109
+00:04:57,150 --> 00:04:59,460
+And we have our
+subject "boat" as well.
+
+110
+00:04:59,460 --> 00:05:01,530
+And we get a positive match.
+
+111
+00:05:01,530 --> 00:05:05,240
+However, if we bring in
+another subject, such as "ship",
+
+112
+00:05:05,240 --> 00:05:06,990
+we're not going to
+get a match with "boat"
+
+113
+00:05:06,990 --> 00:05:10,060
+because "boat" and "ship"
+are two different words.
+
+114
+00:05:10,060 --> 00:05:15,890
+How can we construct a pattern
+to match on both "boat" or "ship"?
+
+115
+00:05:15,890 --> 00:05:20,930
+Much like our pattern with two
+different numbers, 407 or 321,
+
+116
+00:05:20,930 --> 00:05:23,610
+we can use two different
+words with an OR operator
+
+117
+00:05:23,610 --> 00:05:27,380
+to match either "boat" or "ship",
+and we get a match on both.
+
+118
+00:05:32,960 --> 00:05:34,930
+Some common uses of
+regular expressions
+
+119
+00:05:34,930 --> 00:05:38,620
+include validations of phone
+numbers, emails, passwords,
+
+120
+00:05:38,620 --> 00:05:40,760
+and domain names,
+and for searching
+
+121
+00:05:40,760 --> 00:05:43,350
+for words in a sentence,
+unwanted characters,
+
+122
+00:05:43,350 --> 00:05:46,390
+extracting sections,
+or replacing, cleaning,
+
+123
+00:05:46,390 --> 00:05:49,340
+and formatting text.
+
+124
+00:05:49,340 --> 00:05:51,090
+Before we let you loose
+in the challenges,
+
+125
+00:05:51,090 --> 00:05:52,680
+I wanted to give
+you a quick overview
+
+126
+00:05:52,680 --> 00:05:55,390
+of the regular expression
+challenge interface.
+
+127
+00:05:55,390 --> 00:05:57,630
+Here, we have a text box
+on the top where you'll
+
+128
+00:05:57,630 --> 00:05:59,450
+enter the regular expression.
+
+129
+00:05:59,450 --> 00:06:01,730
+Modifiers will be
+entered on the right.
+
+130
+00:06:01,730 --> 00:06:04,380
+Below, you have your subject
+strings and any feedback
+
+131
+00:06:04,380 --> 00:06:06,210
+pertaining to the challenge.
+
+132
+00:06:06,210 --> 00:06:08,040
+On the left are
+the tasks at hand,
+
+133
+00:06:08,040 --> 00:06:11,540
+and new tasks will appear as
+you complete your current task.
+
+134
+00:06:11,540 --> 00:06:14,310
+You can also hover over
+the regex and subjects
+
+135
+00:06:14,310 --> 00:06:17,826
+to get more information on the
+matches that are happening.
+
+136
+00:06:17,826 --> 00:06:19,820
+[MUSIC PLAYING]
+
+137
+00:06:19,820 --> 00:06:22,770
+How about now you go write
+your first regular expression
+
+138
+00:06:22,770 --> 00:06:23,920
+in the challenges?
+
+139
+00:06:23,920 --> 00:06:26,480
+[MUSIC PLAYING]
+
