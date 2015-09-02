@@ -1,0 +1,395 @@
+﻿1
+00:00:02,029 --> 00:00:02,870
+Welcome back.
+
+2
+00:00:02,870 --> 00:00:04,850
+I hope you enjoyed
+working with boundaries.
+
+3
+00:00:04,850 --> 00:00:08,200
+Let's now continue
+on with section two.
+
+4
+00:00:08,200 --> 00:00:10,850
+Each potential shipmate has
+entered their own custom
+
+5
+00:00:10,850 --> 00:00:11,940
+tagline.
+
+6
+00:00:11,940 --> 00:00:14,060
+Now, taglines have a few rules.
+
+7
+00:00:14,060 --> 00:00:17,540
+Taglines cannot contain
+any numbers, and they must
+
+8
+00:00:17,540 --> 00:00:20,840
+ have a minimum length of 20
+and a maximum length of 40.
+
+9
+00:00:20,840 --> 00:00:23,480
+So let's continue.
+
+10
+00:00:23,480 --> 00:00:26,200
+As we've seen before, we
+can use the plus operator
+
+11
+00:00:26,200 --> 00:00:29,590
+behind our character set
+containing a range from "a" to "z".
+
+12
+00:00:29,590 --> 00:00:32,479
+This matches "work" within
+our subject string,
+
+13
+00:00:32,479 --> 00:00:34,260
+but we're not matching
+on whitespace.
+
+14
+00:00:34,260 --> 00:00:38,500
+So let's continue
+forming our pattern.
+
+15
+00:00:38,500 --> 00:00:40,940
+We will add to our
+character set a backslash
+
+16
+00:00:40,940 --> 00:00:43,650
+"s", which takes us
+right up to the comma.
+
+17
+00:00:43,650 --> 00:00:48,910
+So let's continue forming our
+pattern to match that comma.
+
+18
+00:00:48,910 --> 00:00:51,180
+We will add to our
+character set a comma.
+
+19
+00:00:51,180 --> 00:00:52,930
+Now this gets us a
+little bit further,
+
+20
+00:00:52,930 --> 00:00:54,500
+but wouldn't it be
+great if there was
+
+21
+00:00:54,500 --> 00:00:56,210
+another way we
+could represent this
+
+22
+00:00:56,210 --> 00:00:57,775
+based upon our pattern goals?
+
+23
+00:01:00,470 --> 00:01:02,830
+We're currently trying to
+match against a specific set
+
+24
+00:01:02,830 --> 00:01:05,519
+of characters, instead
+let's try to match
+
+25
+00:01:05,519 --> 00:01:09,340
+any character that is not a
+number with this pattern here.
+
+26
+00:01:09,340 --> 00:01:13,240
+The caret means "not" when
+placed within a character set,
+
+27
+00:01:13,240 --> 00:01:17,390
+and the backslash "d" means
+anything that is a number.
+
+28
+00:01:17,390 --> 00:01:21,330
+So this pattern means
+anything that is not a number.
+
+29
+00:01:24,120 --> 00:01:28,870
+We will now use the character
+set with our not backslash "d".
+
+30
+00:01:28,870 --> 00:01:31,440
+This allows us to drop
+the "i" modifier, as well,
+
+31
+00:01:31,440 --> 00:01:34,980
+because we're matching
+anything that is not a number.
+
+32
+00:01:34,980 --> 00:01:37,770
+Now we're also going to add
+the caret and dollar sign
+
+33
+00:01:37,770 --> 00:01:39,360
+anchors to our
+pattern, because we
+
+34
+00:01:39,360 --> 00:01:41,340
+want to make sure
+there's nothing before
+
+35
+00:01:41,340 --> 00:01:43,780
+or after our desired match.
+
+36
+00:01:43,780 --> 00:01:46,860
+But if you notice, we're
+using two different carets,
+
+37
+00:01:46,860 --> 00:01:49,910
+which actually represent
+two different things, which
+
+38
+00:01:49,910 --> 00:01:51,800
+can get a little bit confusing.
+
+39
+00:01:51,800 --> 00:01:55,490
+So let's go ahead and
+refactor our pattern.
+
+40
+00:01:55,490 --> 00:01:57,710
+As it turns out,
+capitalized metacharacters
+
+41
+00:01:57,710 --> 00:02:01,266
+will match the opposite of
+their lowercase counterpart.
+
+42
+00:02:01,266 --> 00:02:03,640
+Now this includes metacharacters
+that we've already used,
+
+43
+00:02:03,640 --> 00:02:09,070
+much like the backslash
+"d", the backslash "s",
+
+44
+00:02:09,070 --> 00:02:10,810
+and the backslash "w".
+
+45
+00:02:10,810 --> 00:02:14,150
+And there's some more too.
+
+46
+00:02:14,150 --> 00:02:16,490
+Using the capital
+backslash "D", we'll
+
+47
+00:02:16,490 --> 00:02:20,290
+match the opposite as
+lowercase backslash "d".
+
+48
+00:02:20,290 --> 00:02:23,020
+We now match all characters
+on our subject string
+
+49
+00:02:23,020 --> 00:02:24,470
+that are not numbers.
+
+50
+00:02:24,470 --> 00:02:26,540
+So let's go ahead
+and continue matching
+
+51
+00:02:26,540 --> 00:02:29,880
+on the length of our subject.
+
+52
+00:02:29,880 --> 00:02:35,200
+We get a positive match on
+a very short or very long
+
+53
+00:02:35,200 --> 00:02:39,180
+subject, much like our example
+concatenated or repeated
+
+54
+00:02:39,180 --> 00:02:40,550
+over and over.
+
+55
+00:02:40,550 --> 00:02:42,130
+How can we ensure
+that our subject
+
+56
+00:02:42,130 --> 00:02:46,320
+has a minimum of 20 characters?
+
+57
+00:02:46,320 --> 00:02:49,440
+Using an interval expression,
+or these curly braces,
+
+58
+00:02:49,440 --> 00:02:51,710
+we can match a specific
+number of times
+
+59
+00:02:51,710 --> 00:02:54,070
+with fine-grain control.
+
+60
+00:02:54,070 --> 00:02:55,690
+So this example,
+with our character
+
+61
+00:02:55,690 --> 00:02:58,010
+set with a range
+from "a" to "z", we will
+
+62
+00:02:58,010 --> 00:03:00,940
+match exactly two characters.
+
+63
+00:03:00,940 --> 00:03:04,580
+Now interval expressions can
+also match across a range.
+
+64
+00:03:04,580 --> 00:03:06,540
+So in our example
+to the right, we
+
+65
+00:03:06,540 --> 00:03:08,840
+have a character set
+with a range from "a" to "z",
+
+66
+00:03:08,840 --> 00:03:11,930
+and we're going to match a
+minimum number of times of 1
+
+67
+00:03:11,930 --> 00:03:14,250
+the maximum number
+of times of 3.
+
+68
+00:03:14,250 --> 00:03:18,270
+So "t", "te", and "tes"
+will all match.
+
+69
+00:03:21,310 --> 00:03:23,240
+By adding a value to
+the first position
+
+70
+00:03:23,240 --> 00:03:24,920
+of our interval
+expression, we can
+
+71
+00:03:24,920 --> 00:03:26,790
+include a minimum
+number of characters
+
+72
+00:03:26,790 --> 00:03:28,490
+required to get a match.
+
+73
+00:03:28,490 --> 00:03:31,770
+Here, we're saying the very
+minimum we will match is 20,
+
+74
+00:03:31,770 --> 00:03:34,340
+and our short example
+is no longer matching.
+
+75
+00:03:38,120 --> 00:03:40,710
+Now by adding to our interval
+expression a value
+
+76
+00:03:40,710 --> 00:03:43,590
+in our upper bound, we can
+limit the number of characters
+
+77
+00:03:43,590 --> 00:03:45,190
+that we're going to match.
+
+78
+00:03:45,190 --> 00:03:47,880
+Here we're using 40, which
+will limit our subject
+
+79
+00:03:47,880 --> 00:03:50,070
+string to 40 characters.
+
+80
+00:03:50,070 --> 00:03:52,575
+Now our repeated subject
+is no longer matched.
+
+81
+00:03:55,580 --> 00:03:58,290
+It's now time to start
+practicing negating characters
+
+82
+00:03:58,290 --> 00:03:59,220
+on your own.
+
+83
+00:03:59,220 --> 00:04:01,340
+Let's start some challenges.
+
