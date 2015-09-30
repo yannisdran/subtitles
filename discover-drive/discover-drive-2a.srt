@@ -1,0 +1,755 @@
+﻿1
+00:00:02,009 --> 00:00:03,700
+You're watching
+Discover Drive, and this
+
+2
+00:00:03,700 --> 00:00:06,200
+is level two, where we're going
+to be talking about the Google
+
+3
+00:00:06,200 --> 00:00:08,420
+Picker.
+
+4
+00:00:08,420 --> 00:00:11,480
+When it comes to handling file
+uploads in your application,
+
+5
+00:00:11,480 --> 00:00:14,080
+the process might look
+something like this.
+
+6
+00:00:14,080 --> 00:00:17,790
+You give an upload form to the
+client, they submit a file,
+
+7
+00:00:17,790 --> 00:00:20,300
+you receive that file
+in your application,
+
+8
+00:00:20,300 --> 00:00:22,300
+and then you might
+do something with it.
+
+9
+00:00:22,300 --> 00:00:25,290
+It's usually a good practice
+to take the files that you
+
+10
+00:00:25,290 --> 00:00:30,900
+get and put them into a content
+delivery network, or CDN.
+
+11
+00:00:30,900 --> 00:00:34,950
+Or we also sometimes call
+that a cloud service.
+
+12
+00:00:34,950 --> 00:00:38,360
+So at this point you might
+save it in the cloud,
+
+13
+00:00:38,360 --> 00:00:41,390
+then you get a URL back
+from that cloud service,
+
+14
+00:00:41,390 --> 00:00:43,740
+which you store,
+so your application
+
+15
+00:00:43,740 --> 00:00:47,085
+knows where that file is.
+
+16
+00:00:47,085 --> 00:00:49,210
+The Google Picker allows
+you to skip the step where
+
+17
+00:00:49,210 --> 00:00:51,180
+your application
+receives the file,
+
+18
+00:00:51,180 --> 00:00:56,030
+and go straight from the
+upload form into the cloud.
+
+19
+00:00:56,030 --> 00:00:58,760
+It's then going to return
+a URL from the cloud back
+
+20
+00:00:58,760 --> 00:01:00,570
+into your application,
+so you know
+
+21
+00:01:00,570 --> 00:01:02,140
+where to access that file from.
+
+22
+00:01:02,140 --> 00:01:04,480
+And the URL might look
+something like this.
+
+23
+00:01:07,430 --> 00:01:09,120
+The Google Picker
+is a modal window,
+
+24
+00:01:09,120 --> 00:01:11,850
+which will pop up inside
+your web application
+
+25
+00:01:11,850 --> 00:01:15,950
+and allow the user to
+upload or select a file.
+
+26
+00:01:15,950 --> 00:01:19,080
+You might note here that if
+the user isn't authenticated
+
+27
+00:01:19,080 --> 00:01:20,710
+with a Google account
+at this point,
+
+28
+00:01:20,710 --> 00:01:23,640
+it will prompt them to log in.
+
+29
+00:01:23,640 --> 00:01:27,520
+In this window, you can
+simply drag a folder into it,
+
+30
+00:01:27,520 --> 00:01:29,660
+or select a file
+from your computer,
+
+31
+00:01:29,660 --> 00:01:32,410
+and it will automatically
+be uploaded to Google Drive,
+
+32
+00:01:32,410 --> 00:01:34,940
+the modal will close and
+notify your application
+
+33
+00:01:34,940 --> 00:01:36,975
+of the URL where this
+file can be located.
+
+34
+00:01:40,100 --> 00:01:43,990
+The Google Picker uploads files
+directly into a user's Drive.
+
+35
+00:01:43,990 --> 00:01:47,290
+This means it's not taking
+up space on our server,
+
+36
+00:01:47,290 --> 00:01:49,490
+it's not using any
+of our bandwidth,
+
+37
+00:01:49,490 --> 00:01:51,370
+and we don't have
+to write any code
+
+38
+00:01:51,370 --> 00:01:53,790
+to parse the file
+that's being uploaded.
+
+39
+00:01:53,790 --> 00:01:55,820
+Lastly, it also
+looks a lot nicer
+
+40
+00:01:55,820 --> 00:01:57,800
+than the standard
+file upload form.
+
+41
+00:02:00,182 --> 00:02:01,640
+You might have
+noticed that there's
+
+42
+00:02:01,640 --> 00:02:05,820
+two links on the navigation
+bar in this window-- Upload
+
+43
+00:02:05,820 --> 00:02:09,180
+and Google Docs.
+
+44
+00:02:09,180 --> 00:02:11,640
+When they click on this,
+it will then show the user
+
+45
+00:02:11,640 --> 00:02:14,750
+a list of all the files
+inside their Google Drive.
+
+46
+00:02:14,750 --> 00:02:18,512
+They can select one to send
+into our web application.
+
+47
+00:02:18,512 --> 00:02:20,930
+Our application will
+then get notified
+
+48
+00:02:20,930 --> 00:02:23,190
+as to where it can
+find this file.
+
+49
+00:02:26,034 --> 00:02:27,450
+In order to use
+the Google Picker,
+
+50
+00:02:27,450 --> 00:02:30,760
+we first need to learn about
+the Google Developers Console.
+
+51
+00:02:30,760 --> 00:02:32,340
+Inside the console,
+we're first going
+
+52
+00:02:32,340 --> 00:02:36,940
+to create a new API project,
+enable the Google Picker API,
+
+53
+00:02:36,940 --> 00:02:40,420
+create a new OAuth client
+ID, developer API key,
+
+54
+00:02:40,420 --> 00:02:44,030
+then inside of our application
+we can include the Google API
+
+55
+00:02:44,030 --> 00:02:46,110
+loader script,
+authorize the user,
+
+56
+00:02:46,110 --> 00:02:47,790
+and then render the Picker.
+
+57
+00:02:47,790 --> 00:02:50,550
+We're going to do
+that all in one page.
+
+58
+00:02:50,550 --> 00:02:53,230
+To get to the Developers Console,
+you can click on this link
+
+59
+00:02:53,230 --> 00:02:55,430
+that you'll find in the
+slides, or you probably
+
+60
+00:02:55,430 --> 00:02:57,990
+can Google "Google
+Developers Console".
+
+61
+00:02:57,990 --> 00:03:02,072
+And you'll need to create a
+new project once you get there.
+
+62
+00:03:02,072 --> 00:03:03,530
+Once you create
+the project, you'll
+
+63
+00:03:03,530 --> 00:03:07,790
+want to go into the sidebar,
+select APIs and auth, then
+
+64
+00:03:07,790 --> 00:03:09,470
+select APIs.
+
+65
+00:03:09,470 --> 00:03:11,600
+And here you'll see
+this screen with a bunch
+
+66
+00:03:11,600 --> 00:03:13,350
+of on and off buttons.
+
+67
+00:03:13,350 --> 00:03:17,380
+You'll want to enable
+the Google Picker API.
+
+68
+00:03:17,380 --> 00:03:19,460
+Then also under APIs
+and auth, you'll
+
+69
+00:03:19,460 --> 00:03:24,240
+want to look for Credentials,
+and click CREATE NEW CLIENT ID.
+
+70
+00:03:24,240 --> 00:03:28,080
+Here you'll want to make sure to
+select Web application and also
+
+71
+00:03:28,080 --> 00:03:31,700
+input your authorized
+JavaScript origins, which
+
+72
+00:03:31,700 --> 00:03:35,100
+is going to be the
+domain of your website.
+
+73
+00:03:35,100 --> 00:03:37,570
+This page will now
+show our client ID,
+
+74
+00:03:37,570 --> 00:03:40,750
+which we may want to copy
+and paste into a file for use
+
+75
+00:03:40,750 --> 00:03:42,780
+later.
+
+76
+00:03:42,780 --> 00:03:44,750
+Now we want to go
+into Credentials
+
+77
+00:03:44,750 --> 00:03:50,250
+and click CREATE NEW KEY
+and choose Browser key.
+
+78
+00:03:50,250 --> 00:03:53,480
+We'll then be prompted
+to enter our site's URL.
+
+79
+00:03:53,480 --> 00:03:55,060
+And then this will
+generate for us
+
+80
+00:03:55,060 --> 00:03:57,680
+a new API key, which
+we'll need inside
+
+81
+00:03:57,680 --> 00:04:00,940
+of our browser application.
+
+82
+00:04:00,940 --> 00:04:04,320
+Now let's jump back into our
+web page and load up the Picker.
+
+83
+00:04:04,320 --> 00:04:06,760
+We've got to do a bunch of
+authorization to get there,
+
+84
+00:04:06,760 --> 00:04:09,970
+but don't worry, we'll take
+you through it step by step.
+
+85
+00:04:09,970 --> 00:04:13,340
+First, we're going to load
+the Google API loader script.
+
+86
+00:04:13,340 --> 00:04:15,020
+It looks something like this.
+
+87
+00:04:15,020 --> 00:04:17,630
+Now we need to
+specify, on load, what
+
+88
+00:04:17,630 --> 00:04:21,749
+method to call when the API
+loader script is ready for use.
+
+89
+00:04:21,749 --> 00:04:23,040
+We'll declare that in a minute.
+
+90
+00:04:23,040 --> 00:04:25,610
+Inside the onApiLoad
+method, this
+
+91
+00:04:25,610 --> 00:04:30,540
+is where we specify what Google
+API libraries we want to load.
+
+92
+00:04:30,540 --> 00:04:34,030
+In this case, we first want
+to load the Auth library.
+
+93
+00:04:34,030 --> 00:04:35,830
+We need it to call
+a method when it's
+
+94
+00:04:35,830 --> 00:04:41,150
+done loading the Auth library
+called onAuthApiLoad.
+
+95
+00:04:41,150 --> 00:04:45,870
+Also here, we want to
+load the Picker library.
+
+96
+00:04:45,870 --> 00:04:47,870
+Now inside the
+callback method, we
+
+97
+00:04:47,870 --> 00:04:49,570
+need to authorize
+our application
+
+98
+00:04:49,570 --> 00:04:52,010
+to get access to
+the user's Drive.
+
+99
+00:04:52,010 --> 00:04:56,180
+This call requires the client ID
+that we generated a moment ago.
+
+100
+00:04:56,180 --> 00:04:58,330
+And the scope
+option you see here
+
+101
+00:04:58,330 --> 00:05:01,340
+tells Google we want
+access to the user's Drive.
+
+102
+00:05:01,340 --> 00:05:04,770
+We'll talk a little more about
+different scope options later.
+
+103
+00:05:04,770 --> 00:05:06,620
+Lastly, we need to
+specify a method that
+
+104
+00:05:06,620 --> 00:05:10,410
+will get called once a
+user tries to authenticate.
+
+105
+00:05:10,410 --> 00:05:12,600
+Whether or not it's
+successful, it's
+
+106
+00:05:12,600 --> 00:05:15,900
+going to call this
+callback method.
+
+107
+00:05:15,900 --> 00:05:18,510
+If we loaded up the
+page as we have it,
+
+108
+00:05:18,510 --> 00:05:21,000
+and the user hasn't
+authenticated yet,
+
+109
+00:05:21,000 --> 00:05:23,590
+we would see this prompt.
+
+110
+00:05:23,590 --> 00:05:25,530
+As you can see, it's
+asking for authorization
+
+111
+00:05:25,530 --> 00:05:30,940
+for our application to get
+access to this user's Drive.
+
+112
+00:05:30,940 --> 00:05:33,280
+After the user attempts
+to authenticate,
+
+113
+00:05:33,280 --> 00:05:35,680
+it's going to call our
+callback method, which
+
+114
+00:05:35,680 --> 00:05:37,320
+we need to define now.
+
+115
+00:05:37,320 --> 00:05:40,500
+Here you can see it's
+checking for the authResult,
+
+116
+00:05:40,500 --> 00:05:42,890
+and that it didn't
+result in an error.
+
+117
+00:05:42,890 --> 00:05:45,430
+We're then going to
+set our AuthToken
+
+118
+00:05:45,430 --> 00:05:48,570
+to our authResult.access_token.
+
+119
+00:05:48,570 --> 00:05:50,932
+And we'll create a new
+method, which we'll call now,
+
+120
+00:05:50,932 --> 00:05:51,765
+called createPicker.
+
+121
+00:05:54,860 --> 00:05:57,380
+Here in our new
+createPicker function,
+
+122
+00:05:57,380 --> 00:06:01,760
+we're first going to build a
+new Picker object, like so.
+
+123
+00:06:01,760 --> 00:06:04,044
+Then we'll set the authToken.
+
+124
+00:06:04,044 --> 00:06:06,350
+We'll then set the
+DeveloperKey, which
+
+125
+00:06:06,350 --> 00:06:09,640
+we got from the
+Developers Console.
+
+126
+00:06:09,640 --> 00:06:12,650
+And then call the
+Build function.
+
+127
+00:06:12,650 --> 00:06:14,329
+Lastly, to get it
+visible on the screen,
+
+128
+00:06:14,329 --> 00:06:17,870
+we just call
+picker.setVisible(true).
+
+129
+00:06:19,476 --> 00:06:23,310
+If we ran this code as it is,
+this is what we would see.
+
+130
+00:06:23,310 --> 00:06:24,470
+And it's blank.
+
+131
+00:06:24,470 --> 00:06:25,650
+What's going on?
+
+132
+00:06:25,650 --> 00:06:28,680
+Well it turns out we're
+missing some views.
+
+133
+00:06:28,680 --> 00:06:30,815
+Views are pages we
+can add to the Picker
+
+134
+00:06:30,815 --> 00:06:33,000
+to give it additional
+functionality.
+
+135
+00:06:33,000 --> 00:06:36,440
+Without any views, well,
+we get a blank page.
+
+136
+00:06:36,440 --> 00:06:38,960
+Every view we add will get
+added to the navigation bar.
+
+137
+00:06:38,960 --> 00:06:40,830
+And as we click on
+it, it will render
+
+138
+00:06:40,830 --> 00:06:44,460
+that view in the
+main content area.
+
+139
+00:06:44,460 --> 00:06:47,480
+To add a view, we use
+the addView function.
+
+140
+00:06:47,480 --> 00:06:51,690
+And we're simply going to chain
+that on to our existing Picker
+
+141
+00:06:51,690 --> 00:06:52,330
+builder.
+
+142
+00:06:52,330 --> 00:06:53,060
+Like this.
+
+143
+00:06:53,060 --> 00:06:57,020
+Here we're adding the
+google.picker.DocsUploadView.
+
+144
+00:06:57,020 --> 00:06:58,990
+A full list of the
+different views you can add
+
+145
+00:06:58,990 --> 00:07:03,940
+can be found at this link
+at the bottom of the slide.
+
+146
+00:07:03,940 --> 00:07:07,160
+So with a single view, we now
+get the ability to upload files
+
+147
+00:07:07,160 --> 00:07:09,420
+into our user's Google Drive.
+
+148
+00:07:09,420 --> 00:07:10,120
+Just like so.
+
+149
+00:07:12,870 --> 00:07:15,130
+To add the ability for
+our user to select files
+
+150
+00:07:15,130 --> 00:07:18,520
+from their Google Drive, we're
+going to add another view--
+
+151
+00:07:18,520 --> 00:07:19,370
+the DocsView.
+
+152
+00:07:23,610 --> 00:07:26,430
+Now our modal has two
+different views in it,
+
+153
+00:07:26,430 --> 00:07:29,610
+and we can select the
+DocsView to select files
+
+154
+00:07:29,610 --> 00:07:33,500
+from our Google Drive.
+
+155
+00:07:33,500 --> 00:07:36,530
+Why don't you try
+the Google Picker?
+
+156
+00:07:36,530 --> 00:07:38,660
+I'll see you in
+the next section.
+

@@ -1,0 +1,678 @@
+﻿1
+00:00:02,090 --> 00:00:03,892
+You're watching
+Discover Drive, and this
+
+2
+00:00:03,892 --> 00:00:05,350
+is level four, where
+we're going to be
+
+3
+00:00:05,350 --> 00:00:08,940
+talking about uploading files.
+
+4
+00:00:08,940 --> 00:00:11,310
+Our application,
+Pictures of Pugs,
+
+5
+00:00:11,310 --> 00:00:14,080
+is using Google Drive
+as user storage.
+
+6
+00:00:14,080 --> 00:00:17,850
+We need to be able to do things
+like upload new images, list
+
+7
+00:00:17,850 --> 00:00:21,170
+images, search images,
+download images,
+
+8
+00:00:21,170 --> 00:00:24,400
+share them, share them
+with specific people,
+
+9
+00:00:24,400 --> 00:00:26,900
+organize pictures
+within folders,
+
+10
+00:00:26,900 --> 00:00:29,050
+get notified when
+an image is changed,
+
+11
+00:00:29,050 --> 00:00:32,000
+and one other top
+secret feature that I'll
+
+12
+00:00:32,000 --> 00:00:35,090
+let you know about
+when we get there.
+
+13
+00:00:35,090 --> 00:00:39,230
+So first off, let's talk about
+uploading files from our app
+
+14
+00:00:39,230 --> 00:00:41,706
+to the user's Google Drive.
+
+15
+00:00:41,706 --> 00:00:43,470
+To do this, we're
+always going to want
+
+16
+00:00:43,470 --> 00:00:45,910
+to use Multipart Upload.
+
+17
+00:00:45,910 --> 00:00:48,780
+And as you might know, a
+Multipart Upload has two parts.
+
+18
+00:00:48,780 --> 00:00:52,520
+It has the file, which
+contains the document, image,
+
+19
+00:00:52,520 --> 00:00:55,210
+or whatever, and
+it has metadata,
+
+20
+00:00:55,210 --> 00:00:57,320
+which includes the
+title, description,
+
+21
+00:00:57,320 --> 00:01:01,200
+or other information
+about the file.
+
+22
+00:01:01,200 --> 00:01:03,210
+Our first step is
+to load the file
+
+23
+00:01:03,210 --> 00:01:07,650
+by creating a new UploadIO
+object, passing in the path
+
+24
+00:01:07,650 --> 00:01:11,390
+to the file, as you see here.
+
+25
+00:01:11,390 --> 00:01:13,910
+Next, since this is
+a multipart upload,
+
+26
+00:01:13,910 --> 00:01:16,940
+we can define some metadata
+to accompany our file.
+
+27
+00:01:16,940 --> 00:01:19,430
+Here you can see we're
+defining a title of "Pug"
+
+28
+00:01:19,430 --> 00:01:24,330
+and a description of, "This
+is one photogenic pug."
+
+29
+00:01:24,330 --> 00:01:25,800
+A full list of
+metadata properties
+
+30
+00:01:25,800 --> 00:01:30,470
+can be found on the Google
+website at this link.
+
+31
+00:01:30,470 --> 00:01:33,320
+Next, we're actually going
+to execute the request, which
+
+32
+00:01:33,320 --> 00:01:36,180
+is going to make a call
+out to Google Drive.
+
+33
+00:01:36,180 --> 00:01:38,030
+It looks a little
+something like this.
+
+34
+00:01:38,030 --> 00:01:42,240
+Now let's go through
+this line by line.
+
+35
+00:01:42,240 --> 00:01:45,790
+First up, all the API calls
+we're going to be doing
+
+36
+00:01:45,790 --> 00:01:48,960
+are going to be made by
+calling execute on the client
+
+37
+00:01:48,960 --> 00:01:51,760
+that we authenticated earlier.
+
+38
+00:01:51,760 --> 00:01:55,610
+The first option we need to
+specify is the API method.
+
+39
+00:01:55,610 --> 00:01:59,380
+Which method do we want
+to call on the Drive API?
+
+40
+00:01:59,380 --> 00:02:01,370
+Remember that Drive
+object we created earlier
+
+41
+00:02:01,370 --> 00:02:04,400
+that contains all
+the API definitions?
+
+42
+00:02:04,400 --> 00:02:08,580
+Well, here we want to
+call drive.files.insert
+
+43
+00:02:08,580 --> 00:02:12,910
+because we want
+to upload a file.
+
+44
+00:02:12,910 --> 00:02:15,486
+Next up is the
+body_object option,
+
+45
+00:02:15,486 --> 00:02:17,235
+and this is where we
+specify our metadata.
+
+46
+00:02:21,740 --> 00:02:23,440
+In the media
+option, that's where
+
+47
+00:02:23,440 --> 00:02:26,130
+we specify the file
+object we created earlier.
+
+48
+00:02:28,650 --> 00:02:31,390
+And lastly, some
+Drive API methods
+
+49
+00:02:31,390 --> 00:02:33,640
+have some optional or
+acquired parameters
+
+50
+00:02:33,640 --> 00:02:35,320
+that you can pass in here.
+
+51
+00:02:35,320 --> 00:02:37,100
+In our parameters,
+we can specify
+
+52
+00:02:37,100 --> 00:02:41,382
+that we want to perform
+a multipart upload.
+
+53
+00:02:41,382 --> 00:02:42,840
+Once we run this
+line of code, it's
+
+54
+00:02:42,840 --> 00:02:44,470
+going to call the
+Drive API, which
+
+55
+00:02:44,470 --> 00:02:47,755
+will return some JSON data,
+which looks like this.
+
+56
+00:02:47,755 --> 00:02:50,180
+You'll notice that it
+contains all the metadata
+
+57
+00:02:50,180 --> 00:02:51,730
+for the file we just uploaded.
+
+58
+00:02:51,730 --> 00:02:55,575
+And it can be accessed in
+the result.data object.
+
+59
+00:02:58,930 --> 00:03:02,080
+The most important piece
+of data that gets returned
+
+60
+00:03:02,080 --> 00:03:04,730
+is the ID of this file.
+
+61
+00:03:04,730 --> 00:03:07,660
+We're going to need to store
+this in our application
+
+62
+00:03:07,660 --> 00:03:10,230
+so we can reference
+this file later.
+
+63
+00:03:10,230 --> 00:03:12,795
+Here's how we would get the
+ID and store it in a variable.
+
+64
+00:03:17,650 --> 00:03:20,680
+Uploads can fail
+sometimes, especially when
+
+65
+00:03:20,680 --> 00:03:23,020
+you're dealing with large files.
+
+66
+00:03:23,020 --> 00:03:27,110
+This is why we can use the
+resumable upload type instead
+
+67
+00:03:27,110 --> 00:03:30,680
+of multipart, which will
+allow us to continue uploads
+
+68
+00:03:30,680 --> 00:03:33,130
+where they left
+off if they fail.
+
+69
+00:03:33,130 --> 00:03:35,710
+It's a good practice that if
+you have a file less than five
+
+70
+00:03:35,710 --> 00:03:37,630
+megabytes, you
+can use multipart.
+
+71
+00:03:37,630 --> 00:03:39,904
+But if it's bigger
+than five megabytes,
+
+72
+00:03:39,904 --> 00:03:41,820
+you definitely want to
+use a resumable upload.
+
+73
+00:03:44,910 --> 00:03:46,950
+To do this, all we
+have to do is specify
+
+74
+00:03:46,950 --> 00:03:50,180
+the uploadType resumable inside
+the parameters of our upload
+
+75
+00:03:50,180 --> 00:03:50,680
+call.
+
+76
+00:03:53,550 --> 00:03:56,950
+We can use this to check to
+see if the upload is resumable,
+
+77
+00:03:56,950 --> 00:04:00,120
+meaning that the upload is
+neither complete nor expired,
+
+78
+00:04:00,120 --> 00:04:04,770
+and we can resume
+it and try again.
+
+79
+00:04:04,770 --> 00:04:06,620
+To resume it, it's
+pretty simple.
+
+80
+00:04:06,620 --> 00:04:09,100
+We just do another
+client.execute call,
+
+81
+00:04:09,100 --> 00:04:12,045
+sending in the
+result.resumable_upload object.
+
+82
+00:04:15,084 --> 00:04:16,750
+Of course there's no
+guarantee that it's
+
+83
+00:04:16,750 --> 00:04:19,940
+going to work the second time
+when we resume the upload.
+
+84
+00:04:19,940 --> 00:04:21,570
+So one way to deal
+with this would
+
+85
+00:04:21,570 --> 00:04:24,010
+be to just put it
+in a While loop.
+
+86
+00:04:24,010 --> 00:04:27,630
+So while the upload
+is resumable,
+
+87
+00:04:27,630 --> 00:04:29,980
+keep on uploading the file.
+
+88
+00:04:29,980 --> 00:04:31,670
+Of course if it's
+a big file, you
+
+89
+00:04:31,670 --> 00:04:34,810
+wouldn't want your user
+to be waiting on you.
+
+90
+00:04:34,810 --> 00:04:37,850
+So if this code was invoked
+by somebody clicking
+
+91
+00:04:37,850 --> 00:04:40,510
+on a button on a web
+page, for example,
+
+92
+00:04:40,510 --> 00:04:43,680
+you might want to load
+this as a background task
+
+93
+00:04:43,680 --> 00:04:46,860
+in Ruby, maybe using
+something like delayed job,
+
+94
+00:04:46,860 --> 00:04:49,412
+so that the client doesn't
+hang, and the upload
+
+95
+00:04:49,412 --> 00:04:50,495
+happens in the background.
+
+96
+00:04:53,410 --> 00:04:55,350
+There's another small
+problem with our code,
+
+97
+00:04:55,350 --> 00:04:57,120
+and that is if we
+have a While loop,
+
+98
+00:04:57,120 --> 00:04:59,650
+and we're trying over
+and over and over again.
+
+99
+00:04:59,650 --> 00:05:02,570
+If our error is
+recurring quickly,
+
+100
+00:05:02,570 --> 00:05:06,670
+well, that means we're hitting
+the server over and over
+
+101
+00:05:06,670 --> 00:05:09,340
+and over again, maybe
+100 times a second,
+
+102
+00:05:09,340 --> 00:05:10,810
+to try to do the upload.
+
+103
+00:05:10,810 --> 00:05:13,230
+And this is a sure way
+to hit our usage quota
+
+104
+00:05:13,230 --> 00:05:15,200
+and to overload our server.
+
+105
+00:05:15,200 --> 00:05:17,820
+So how might we get around this?
+
+106
+00:05:17,820 --> 00:05:19,940
+One way to solve this
+problem is by using
+
+107
+00:05:19,940 --> 00:05:23,060
+something called
+Exponential Backoff.
+
+108
+00:05:23,060 --> 00:05:26,220
+This involves waiting an
+exponentially increasing amount
+
+109
+00:05:26,220 --> 00:05:29,045
+of time before
+retrying the upload.
+
+110
+00:05:29,045 --> 00:05:32,070
+I know it sounds confusing,
+but bear with me.
+
+111
+00:05:32,070 --> 00:05:33,830
+So we make one API call.
+
+112
+00:05:33,830 --> 00:05:36,640
+If it fails, we wait one second.
+
+113
+00:05:36,640 --> 00:05:37,410
+We try again.
+
+114
+00:05:37,410 --> 00:05:39,040
+If it fails again,
+we wait two seconds.
+
+115
+00:05:39,040 --> 00:05:42,230
+If it fails again,
+we wait four seconds.
+
+116
+00:05:42,230 --> 00:05:43,680
+And then eight seconds.
+
+117
+00:05:43,680 --> 00:05:46,380
+And then it increases that time.
+
+118
+00:05:46,380 --> 00:05:48,602
+So that way, if it's
+definitely going to fail,
+
+119
+00:05:48,602 --> 00:05:50,810
+it's going to wait a longer
+and longer amount of time
+
+120
+00:05:50,810 --> 00:05:52,390
+before retrying.
+
+121
+00:05:52,390 --> 00:05:54,470
+You can read more about
+Exponential Backoff
+
+122
+00:05:54,470 --> 00:05:55,585
+at this link in the slide.
+
+123
+00:05:59,070 --> 00:06:02,240
+Here's what Exponential Backoff
+might look like in Ruby.
+
+124
+00:06:02,240 --> 00:06:04,340
+So here we've changed
+our While loop to a
+
+125
+00:06:04,340 --> 00:06:09,020
+For loop, which is going to
+retry after one, two, four,
+
+126
+00:06:09,020 --> 00:06:13,087
+eight, and 16 seconds,
+finally just exiting out
+
+127
+00:06:13,087 --> 00:06:14,420
+if it's still unable to connect.
+
+128
+00:06:17,280 --> 00:06:19,450
+After the loop
+finishes, we still
+
+129
+00:06:19,450 --> 00:06:24,630
+need to know if the file upload
+succeeded, if it expired,
+
+130
+00:06:24,630 --> 00:06:27,220
+or if it tried five
+times and failed.
+
+131
+00:06:27,220 --> 00:06:30,700
+We can do this by checking to
+see if the resumable upload is
+
+132
+00:06:30,700 --> 00:06:33,140
+complete, and we might want
+to show the user a success
+
+133
+00:06:33,140 --> 00:06:34,010
+message.
+
+134
+00:06:34,010 --> 00:06:36,810
+Finally, if neither of
+these conditions are true,
+
+135
+00:06:36,810 --> 00:06:39,140
+that means the upload
+failed to complete.
+
+136
+00:06:39,140 --> 00:06:42,660
+Otherwise, we must have tried
+to do the upload five times,
+
+137
+00:06:42,660 --> 00:06:44,620
+and it still didn't
+succeed, and we
+
+138
+00:06:44,620 --> 00:06:47,290
+should let the user know that.
+
+139
+00:06:47,290 --> 00:06:49,580
+Now it's time for you
+to start making some API
+
+140
+00:06:49,580 --> 00:06:51,150
+calls with Google Drive.
+
+141
+00:06:51,150 --> 00:06:53,650
+See you in the next level.
+

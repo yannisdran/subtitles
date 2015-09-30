@@ -1,0 +1,92 @@
+﻿1
+00:00:01,130 --> 00:00:02,690
+You're watching
+Discover Drive where
+
+2
+00:00:02,690 --> 00:00:06,470
+we're going to be talking about
+downloading and sharing files.
+
+3
+00:00:06,470 --> 00:00:08,210
+So our application
+might have just
+
+4
+00:00:08,210 --> 00:00:12,690
+fetched a bunch of metadata,
+saw a bunch of file IDs,
+
+5
+00:00:12,690 --> 00:00:15,360
+and now we want to
+download a specific file.
+
+6
+00:00:15,360 --> 00:00:17,130
+How do we do that?
+
+7
+00:00:17,130 --> 00:00:19,970
+Well, if we don't have the
+metadata yet for this file,
+
+8
+00:00:19,970 --> 00:00:23,770
+we're going to want to fetch it
+by doing a files.get request.
+
+9
+00:00:23,770 --> 00:00:27,090
+In the metadata, we're going
+to find a download URL.
+
+10
+00:00:32,670 --> 00:00:36,090
+Next, we're going to make a
+new API call, this time passing
+
+11
+00:00:36,090 --> 00:00:40,580
+in just the download_URL
+as a URI option.
+
+12
+00:00:40,580 --> 00:00:42,330
+What this is going
+to do is return
+
+13
+00:00:42,330 --> 00:00:44,680
+the binary data for this file.
+
+14
+00:00:44,680 --> 00:00:46,110
+In this case, pug.jpg.
+
+15
+00:00:50,355 --> 00:00:53,470
+But having the binary data
+doesn't do us any good.
+
+16
+00:00:53,470 --> 00:00:57,130
+We need to store this in
+a file in our file system.
+
+17
+00:00:57,130 --> 00:00:58,900
+So since this is
+Ruby, we're going
+
+18
+00:00:58,900 --> 00:01:01,995
+to call file.open and just
+write it out to the file system.
+
+19
+00:01:05,180 --> 00:01:07,980
+Why don't you give this
+a try in the challenges.
+

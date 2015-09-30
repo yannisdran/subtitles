@@ -1,0 +1,840 @@
+﻿1
+00:00:02,484 --> 00:00:04,025
+You're watching
+Discover Drive, where
+
+2
+00:00:04,025 --> 00:00:05,990
+we're going to be talking
+about authenticating
+
+3
+00:00:05,990 --> 00:00:07,710
+a user with Drive.
+
+4
+00:00:07,710 --> 00:00:09,855
+We're about to dive into
+the Google Drive API.
+
+5
+00:00:09,855 --> 00:00:11,480
+And we're going to
+build an application
+
+6
+00:00:11,480 --> 00:00:16,210
+along the way called Pictures
+of Pugs, which will allow people
+
+7
+00:00:16,210 --> 00:00:20,130
+to upload and share
+pictures of pugs.
+
+8
+00:00:20,130 --> 00:00:24,210
+Using the Drive API, we can do
+things like upload and download
+
+9
+00:00:24,210 --> 00:00:28,320
+files, store application
+data, manage permissions
+
+10
+00:00:28,320 --> 00:00:31,520
+across those files,
+receive push notifications
+
+11
+00:00:31,520 --> 00:00:34,560
+if those files change,
+and a lot of other things.
+
+12
+00:00:34,560 --> 00:00:36,660
+So let's dive into it.
+
+13
+00:00:36,660 --> 00:00:40,190
+To get started with the API,
+we need to do a few things.
+
+14
+00:00:40,190 --> 00:00:43,150
+First, we need to go back
+to Google's website.
+
+15
+00:00:43,150 --> 00:00:47,070
+If we haven't yet, we need
+to create a new API project,
+
+16
+00:00:47,070 --> 00:00:50,310
+enable the Drive API,
+register a new application,
+
+17
+00:00:50,310 --> 00:00:52,950
+and customize the
+consent screen.
+
+18
+00:00:52,950 --> 00:00:54,780
+Then in our
+application, we're going
+
+19
+00:00:54,780 --> 00:00:57,220
+to install the Google
+client library,
+
+20
+00:00:57,220 --> 00:01:00,210
+create a client object, get
+authorization from the user,
+
+21
+00:01:00,210 --> 00:01:04,709
+and then we can make API
+calls to the user's Drive.
+
+22
+00:01:04,709 --> 00:01:06,320
+The first few steps
+are all really
+
+23
+00:01:06,320 --> 00:01:08,370
+so we can get a client ID.
+
+24
+00:01:08,370 --> 00:01:10,930
+This will allow us to
+communicate with Google
+
+25
+00:01:10,930 --> 00:01:14,850
+to get information
+about a user's Drive.
+
+26
+00:01:14,850 --> 00:01:18,390
+So back into the Google's
+Developer Console we go.
+
+27
+00:01:18,390 --> 00:01:20,297
+You might have already
+created a project
+
+28
+00:01:20,297 --> 00:01:22,380
+based on what we showed
+you in the previous level,
+
+29
+00:01:22,380 --> 00:01:24,500
+so if you have,
+well, obviously you
+
+30
+00:01:24,500 --> 00:01:28,066
+don't need to create a new one.
+
+31
+00:01:28,066 --> 00:01:29,440
+Inside your project,
+you're going
+
+32
+00:01:29,440 --> 00:01:33,430
+to want to go back
+to APIs and auth, APIs,
+
+33
+00:01:33,430 --> 00:01:38,720
+and here you want to enable
+the Drive API and Drive SDK.
+
+34
+00:01:38,720 --> 00:01:40,670
+Now back on the
+Credentials page,
+
+35
+00:01:40,670 --> 00:01:44,750
+we need to create a new
+client ID for our application.
+
+36
+00:01:44,750 --> 00:01:46,240
+We're creating a
+web application,
+
+37
+00:01:46,240 --> 00:01:47,540
+so we'll select that.
+
+38
+00:01:47,540 --> 00:01:50,880
+We'll enter in our authorized
+JavaScript origin, which
+
+39
+00:01:50,880 --> 00:01:53,500
+is our domain,
+and lastly we need
+
+40
+00:01:53,500 --> 00:01:56,792
+to specify an
+authorized redirect URI.
+
+41
+00:01:56,792 --> 00:01:58,250
+This is the page
+in our application
+
+42
+00:01:58,250 --> 00:02:00,900
+that Google will
+redirect users back
+
+43
+00:02:00,900 --> 00:02:05,130
+to once they've
+authorized with Google.
+
+44
+00:02:05,130 --> 00:02:07,329
+Once we hit that Create
+Client ID button,
+
+45
+00:02:07,329 --> 00:02:09,120
+we'll be given a client
+ID that we can then
+
+46
+00:02:09,120 --> 00:02:12,510
+use in our application.
+
+47
+00:02:12,510 --> 00:02:15,550
+Next, we might want to
+customize our consent screen.
+
+48
+00:02:15,550 --> 00:02:17,120
+This is the page
+that Google shows
+
+49
+00:02:17,120 --> 00:02:22,430
+users when they're asked to
+authorize our application
+
+50
+00:02:22,430 --> 00:02:24,650
+to get access to their Drive.
+
+51
+00:02:24,650 --> 00:02:26,380
+And as you can see
+here, we can customize
+
+52
+00:02:26,380 --> 00:02:29,510
+product name, homepage
+URL, and logo.
+
+53
+00:02:29,510 --> 00:02:32,370
+Now that we have OAuth
+and our client ID set up,
+
+54
+00:02:32,370 --> 00:02:37,517
+we can start diving into
+calls to the Google Drive API.
+
+55
+00:02:37,517 --> 00:02:39,350
+In the previous level,
+we took all the steps
+
+56
+00:02:39,350 --> 00:02:42,040
+we needed to get set up
+with a Google Drive API
+
+57
+00:02:42,040 --> 00:02:43,910
+on the Google website.
+
+58
+00:02:43,910 --> 00:02:46,700
+Now it's time to get the
+Google Drive API set up
+
+59
+00:02:46,700 --> 00:02:49,820
+on our application,
+on the server side.
+
+60
+00:02:49,820 --> 00:02:52,970
+We're going to be using the
+Ruby language with a Ruby client
+
+61
+00:02:52,970 --> 00:02:54,340
+library to do this.
+
+62
+00:02:54,340 --> 00:02:57,270
+Now don't worry if Ruby's
+not your language of choice,
+
+63
+00:02:57,270 --> 00:03:01,050
+and you prefer something like
+PHP, or Python, or Objective-C,
+
+64
+00:03:01,050 --> 00:03:02,490
+or even Java.
+
+65
+00:03:02,490 --> 00:03:04,860
+There are client libraries
+for all those languages.
+
+66
+00:03:04,860 --> 00:03:07,455
+And you can still follow
+along through this tutorial.
+
+67
+00:03:07,455 --> 00:03:09,080
+Just when it comes
+time to code, you're
+
+68
+00:03:09,080 --> 00:03:11,970
+going to want to look up how to
+do it in your client library.
+
+69
+00:03:11,970 --> 00:03:14,000
+The three steps we're
+going over in this level
+
+70
+00:03:14,000 --> 00:03:16,270
+is installing the
+proper client library,
+
+71
+00:03:16,270 --> 00:03:18,630
+creating a client
+object, and then getting
+
+72
+00:03:18,630 --> 00:03:21,710
+authorization from the
+user to access their Drive.
+
+73
+00:03:21,710 --> 00:03:24,090
+We'll then be able to make
+API calls to the user's Drive,
+
+74
+00:03:24,090 --> 00:03:27,780
+but that'll be in
+the next level.
+
+75
+00:03:27,780 --> 00:03:29,480
+To install the Ruby
+client library,
+
+76
+00:03:29,480 --> 00:03:31,510
+we're just going to
+manually install the gem
+
+77
+00:03:31,510 --> 00:03:35,074
+by running gem install
+google-api-client.
+
+78
+00:03:35,074 --> 00:03:36,740
+Or if we're using
+Bundler, we can add it
+
+79
+00:03:36,740 --> 00:03:39,995
+to our Gemfile just doing
+gem google-api-client.
+
+80
+00:03:39,995 --> 00:03:42,160
+Then to require the
+API in our application,
+
+81
+00:03:42,160 --> 00:03:43,980
+we just do require
+google/api_client.
+
+82
+00:03:47,150 --> 00:03:50,790
+To use this client, we simply
+create a client object,
+
+83
+00:03:50,790 --> 00:03:52,140
+like you see here.
+
+84
+00:03:52,140 --> 00:03:56,700
+This is what we'll be
+making our API calls on.
+
+85
+00:03:56,700 --> 00:03:59,650
+Next up, we'll need the
+client ID and client secret
+
+86
+00:03:59,650 --> 00:04:03,190
+that we got from the Google
+website on our previous level.
+
+87
+00:04:03,190 --> 00:04:05,820
+We'll put them in here,
+just like you see,
+
+88
+00:04:05,820 --> 00:04:08,820
+as well as the
+redirect URI, where people
+
+89
+00:04:08,820 --> 00:04:11,220
+are going to get redirected
+after they authorize
+
+90
+00:04:11,220 --> 00:04:13,510
+with Google.
+
+91
+00:04:13,510 --> 00:04:14,970
+With these variables
+in place, we
+
+92
+00:04:14,970 --> 00:04:18,510
+can request access to
+a user's Drive account.
+
+93
+00:04:18,510 --> 00:04:21,910
+However, we need to
+know what type of access
+
+94
+00:04:21,910 --> 00:04:23,790
+we're requesting.
+
+95
+00:04:23,790 --> 00:04:26,680
+We could get create,
+edit, and delete access
+
+96
+00:04:26,680 --> 00:04:30,070
+for just the files that
+our application creates.
+
+97
+00:04:30,070 --> 00:04:33,210
+We can get read-only
+access to files.
+
+98
+00:04:33,210 --> 00:04:35,680
+We can get full access to files.
+
+99
+00:04:35,680 --> 00:04:39,510
+Or there's a few
+other options here.
+
+100
+00:04:39,510 --> 00:04:42,170
+We need to figure out what
+type of authorization scope
+
+101
+00:04:42,170 --> 00:04:44,500
+to request from Google,
+which will give us
+
+102
+00:04:44,500 --> 00:04:47,630
+different levels of
+access to a user's Drive.
+
+103
+00:04:47,630 --> 00:04:49,860
+If we ask for this
+first scope, we're
+
+104
+00:04:49,860 --> 00:04:53,110
+going to get per-file
+access to all the files
+
+105
+00:04:53,110 --> 00:04:55,670
+that we upload through the API.
+
+106
+00:04:55,670 --> 00:04:58,010
+If we ask for just
+Drive scope access,
+
+107
+00:04:58,010 --> 00:05:01,300
+we get full access
+to the user's files.
+
+108
+00:05:01,300 --> 00:05:03,780
+And if we ask for
+Drive.readonly access,
+
+109
+00:05:03,780 --> 00:05:07,810
+we get read-only access to
+file metadata and file content.
+
+110
+00:05:07,810 --> 00:05:09,740
+It's a best practice
+to only request
+
+111
+00:05:09,740 --> 00:05:12,630
+the minimum level of
+authorization you need,
+
+112
+00:05:12,630 --> 00:05:14,230
+which in most
+cases is just going
+
+113
+00:05:14,230 --> 00:05:16,470
+to be this top authorization.
+
+114
+00:05:16,470 --> 00:05:18,410
+You only want to
+request full access
+
+115
+00:05:18,410 --> 00:05:20,785
+when it's absolutely necessary.
+
+116
+00:05:20,785 --> 00:05:23,690
+A full list of scopes can be
+found on the Google website
+
+117
+00:05:23,690 --> 00:05:24,420
+at this link.
+
+118
+00:05:26,970 --> 00:05:29,460
+We only care about reading
+and modifying files
+
+119
+00:05:29,460 --> 00:05:30,735
+that our application creates.
+
+120
+00:05:30,735 --> 00:05:33,630
+You know, our Pictures
+of Pugs application.
+
+121
+00:05:33,630 --> 00:05:36,140
+So we can specify that
+authorization scope.
+
+122
+00:05:38,940 --> 00:05:42,290
+In some cases, you might want to
+request multiple authorization
+
+123
+00:05:42,290 --> 00:05:44,730
+scopes, in which case
+you can request them
+
+124
+00:05:44,730 --> 00:05:48,140
+all up front-- so you don't
+have to request them again--
+
+125
+00:05:48,140 --> 00:05:50,910
+by just using an array,
+like you see here.
+
+126
+00:05:50,910 --> 00:05:52,610
+It'll become obvious
+why you might
+
+127
+00:05:52,610 --> 00:05:54,065
+want to do this
+in future levels.
+
+128
+00:05:56,700 --> 00:05:59,900
+Next, we're going to ask the
+client library for the URL
+
+129
+00:05:59,900 --> 00:06:04,760
+that we're going to deliver to
+our user to authenticate access
+
+130
+00:06:04,760 --> 00:06:07,290
+to their Google Drive account.
+
+131
+00:06:07,290 --> 00:06:11,400
+If we were using Rails, we
+would use a redirect command.
+
+132
+00:06:11,400 --> 00:06:15,675
+So in a controller, we would
+redirect them to this URL,
+
+133
+00:06:15,675 --> 00:06:17,050
+and they would
+see something that
+
+134
+00:06:17,050 --> 00:06:20,440
+looks like this, asking them
+if our application, Pictures
+
+135
+00:06:20,440 --> 00:06:25,120
+of Pugs, can get access
+to their Google Drive.
+
+136
+00:06:25,120 --> 00:06:27,600
+If the user accepts the
+authorization request
+
+137
+00:06:27,600 --> 00:06:29,880
+on the Google website,
+they'll be redirected
+
+138
+00:06:29,880 --> 00:06:33,650
+to the redirect URI
+that we set earlier.
+
+139
+00:06:33,650 --> 00:06:36,420
+Also, attached to this request
+when they get sent back
+
+140
+00:06:36,420 --> 00:06:39,650
+to our server, it's going to
+have an authorization code.
+
+141
+00:06:39,650 --> 00:06:41,240
+Here you can see
+what the URL might
+
+142
+00:06:41,240 --> 00:06:44,560
+look like with the authorization
+code appended to it.
+
+143
+00:06:44,560 --> 00:06:46,560
+We'll want to set
+this authorization
+
+144
+00:06:46,560 --> 00:06:49,050
+code equal to client.code.
+
+145
+00:06:52,500 --> 00:06:56,500
+Now that we have this code, we
+can call the fetch_access_token
+
+146
+00:06:56,500 --> 00:07:00,220
+method on our client, which
+will make a request to Google,
+
+147
+00:07:00,220 --> 00:07:02,970
+and get back from it
+the access token, which
+
+148
+00:07:02,970 --> 00:07:05,820
+is what actually grants us
+access to the user's Drive.
+
+149
+00:07:05,820 --> 00:07:07,820
+This also sets
+the refresh token,
+
+150
+00:07:07,820 --> 00:07:10,240
+which we can use later
+to request a new access
+
+151
+00:07:10,240 --> 00:07:11,770
+token when it expires.
+
+152
+00:07:11,770 --> 00:07:14,310
+That way we don't
+need to send the user
+
+153
+00:07:14,310 --> 00:07:18,400
+to authorize with Google every
+time we need a new token.
+
+154
+00:07:18,400 --> 00:07:21,040
+You can read more about
+access and refresh tokens over
+
+155
+00:07:21,040 --> 00:07:25,160
+on the Google
+website at this URL.
+
+156
+00:07:25,160 --> 00:07:27,465
+If you are building a
+Ruby web application,
+
+157
+00:07:27,465 --> 00:07:28,840
+there are other
+libraries that'll
+
+158
+00:07:28,840 --> 00:07:31,980
+make this authentication
+even easier, like OmniAuth.
+
+159
+00:07:34,957 --> 00:07:36,540
+Now that we've done
+the authentication
+
+160
+00:07:36,540 --> 00:07:39,740
+necessary to make
+Drive API calls,
+
+161
+00:07:39,740 --> 00:07:43,140
+we need to load the
+Drive API definitions.
+
+162
+00:07:43,140 --> 00:07:46,500
+To do that, we call
+client.discovered_API,
+
+163
+00:07:46,500 --> 00:07:50,480
+specify the API we want to
+load, as well as the version.
+
+164
+00:07:50,480 --> 00:07:53,330
+This Drive object we've created
+contains all the methods
+
+165
+00:07:53,330 --> 00:07:57,180
+we can use with the Drive API,
+which we'll see in a minute.
+
+166
+00:07:57,180 --> 00:08:00,100
+You can read more about the
+Google API's Discovery Service
+
+167
+00:08:00,100 --> 00:08:00,760
+at this URL.
+
+168
+00:08:06,130 --> 00:08:07,870
+So we've installed
+the client library,
+
+169
+00:08:07,870 --> 00:08:10,020
+we created the client
+object, and we've
+
+170
+00:08:10,020 --> 00:08:13,620
+done the authorization we need
+to start making API calls.
+
+171
+00:08:13,620 --> 00:08:15,700
+So we're ready to do it.
+
+172
+00:08:15,700 --> 00:08:18,070
+And we're going to do
+that in the next level.
+
+173
+00:08:18,070 --> 00:08:19,960
+See you then.
+

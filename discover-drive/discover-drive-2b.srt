@@ -1,0 +1,243 @@
+﻿1
+00:00:02,029 --> 00:00:02,960
+Welcome back.
+
+2
+00:00:02,960 --> 00:00:05,020
+So in the previous level,
+we saw how Google Picker
+
+3
+00:00:05,020 --> 00:00:07,550
+allows us to take file
+uploads and bring them
+
+4
+00:00:07,550 --> 00:00:10,290
+right into a user's
+Google Drive.
+
+5
+00:00:10,290 --> 00:00:15,390
+But once it's there, how does
+our application get notified
+
+6
+00:00:15,390 --> 00:00:18,304
+where that file's
+located on their drive.
+
+7
+00:00:18,304 --> 00:00:19,345
+How does it get that URL?
+
+8
+00:00:22,200 --> 00:00:24,520
+Well if we look at our
+current application,
+
+9
+00:00:24,520 --> 00:00:27,760
+and we select a file, and
+hit that Select button,
+
+10
+00:00:27,760 --> 00:00:29,680
+well, it's not going to work.
+
+11
+00:00:29,680 --> 00:00:32,490
+And that's because we
+need to specify a callback
+
+12
+00:00:32,490 --> 00:00:35,960
+function to receive
+information about the file that
+
+13
+00:00:35,960 --> 00:00:37,420
+was selected.
+
+14
+00:00:37,420 --> 00:00:40,520
+Let's see how to do that.
+
+15
+00:00:40,520 --> 00:00:43,390
+What we need to do is add
+another change function,
+
+16
+00:00:43,390 --> 00:00:45,930
+the setCallback function.
+
+17
+00:00:45,930 --> 00:00:49,500
+And then we're going to specify
+the pickerCallback function,
+
+18
+00:00:49,500 --> 00:00:51,300
+which we're going to define now.
+
+19
+00:00:51,300 --> 00:00:54,320
+This function receives some
+data, which contains information
+
+20
+00:00:54,320 --> 00:00:57,724
+about the file, and the action
+that triggered the callback.
+
+21
+00:00:57,724 --> 00:00:59,390
+The first thing we
+might want to do here
+
+22
+00:00:59,390 --> 00:01:03,000
+is check to see if
+the action is picked,
+
+23
+00:01:03,000 --> 00:01:06,670
+which is triggered when the
+user picks or uploads a file.
+
+24
+00:01:06,670 --> 00:01:10,355
+We can also check to see if the
+user hit Cancel, in which case
+
+25
+00:01:10,355 --> 00:01:14,770
+it will return
+the cancel action.
+
+26
+00:01:14,770 --> 00:01:16,870
+In this data object,
+we can access things
+
+27
+00:01:16,870 --> 00:01:21,420
+about the file, like the
+name, description, and URL.
+
+28
+00:01:21,420 --> 00:01:24,330
+In our case, we're just
+going to print out an alert
+
+29
+00:01:24,330 --> 00:01:27,720
+to the screen with
+the URL of the file.
+
+30
+00:01:27,720 --> 00:01:31,990
+Now you might notice here
+that docs is an array.
+
+31
+00:01:31,990 --> 00:01:35,350
+That's because sometimes
+we might allow a user
+
+32
+00:01:35,350 --> 00:01:40,140
+to select multiple files
+inside of our Google Picker.
+
+33
+00:01:40,140 --> 00:01:41,840
+There are a lot of
+other properties
+
+34
+00:01:41,840 --> 00:01:44,410
+about a file that you
+might want to access,
+
+35
+00:01:44,410 --> 00:01:46,196
+including its content.
+
+36
+00:01:46,196 --> 00:01:47,570
+And we'll show
+you how to do that
+
+37
+00:01:47,570 --> 00:01:51,400
+using the Drive API
+in future levels.
+
+38
+00:01:51,400 --> 00:01:53,900
+If we ran this code
+and selected a file,
+
+39
+00:01:53,900 --> 00:01:56,360
+you can see here
+that an alert pops up
+
+40
+00:01:56,360 --> 00:02:01,570
+with the URL where we can access
+the file we just selected.
+
+41
+00:02:01,570 --> 00:02:04,780
+If we do want to allow our
+user to select multiple files,
+
+42
+00:02:04,780 --> 00:02:07,410
+we need to enable
+that as a feature
+
+43
+00:02:07,410 --> 00:02:10,470
+by using the enableFeature
+method, like you see here,
+
+44
+00:02:10,470 --> 00:02:12,360
+with MULTISELECT_ENABLED.
+
+45
+00:02:13,580 --> 00:02:16,240
+We can also disable
+features with
+
+46
+00:02:16,240 --> 00:02:17,952
+the disableFeature function.
+
+47
+00:02:17,952 --> 00:02:19,410
+And you can find
+a list of features
+
+48
+00:02:19,410 --> 00:02:21,170
+at this URL on the slide.
+
+49
+00:02:24,280 --> 00:02:25,510
+That's the end of level two.
+
+50
+00:02:25,510 --> 00:02:28,470
+It's time for you to
+complete your Google Picker.
+
+51
+00:02:28,470 --> 00:02:31,050
+And I'll see you
+in the next level.
+

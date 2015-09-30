@@ -1,0 +1,378 @@
+﻿1
+00:00:01,832 --> 00:00:03,129
+Welcome back.
+
+2
+00:00:03,129 --> 00:00:04,670
+In the previous
+level, we took a look
+
+3
+00:00:04,670 --> 00:00:07,250
+at how to upload
+files into Drive,
+
+4
+00:00:07,250 --> 00:00:10,260
+and get back identifiers
+for those files.
+
+5
+00:00:10,260 --> 00:00:13,770
+But how do we then look up
+files inside someone's Drive
+
+6
+00:00:13,770 --> 00:00:16,260
+and get information about them?
+
+7
+00:00:16,260 --> 00:00:18,390
+This is where metadata comes in.
+
+8
+00:00:18,390 --> 00:00:22,690
+We can get information like
+title, description, mimeType,
+
+9
+00:00:22,690 --> 00:00:24,990
+links for sharing
+and downloading,
+
+10
+00:00:24,990 --> 00:00:27,800
+from getting the metadata.
+
+11
+00:00:27,800 --> 00:00:29,450
+To retrieve a
+file's metadata, we
+
+12
+00:00:29,450 --> 00:00:33,740
+need to initiate a files.get
+request, as you see here.
+
+13
+00:00:33,740 --> 00:00:36,040
+We'll need to send
+in the file ID
+
+14
+00:00:36,040 --> 00:00:40,421
+that we received when we
+uploaded the file initially.
+
+15
+00:00:40,421 --> 00:00:45,560
+We'll then get back from the
+server all the file's metadata.
+
+16
+00:00:45,560 --> 00:00:46,740
+This might look familiar.
+
+17
+00:00:46,740 --> 00:00:51,680
+This is the same data that we
+get back when we upload a file.
+
+18
+00:00:51,680 --> 00:00:54,430
+We can access this
+metadata in the response
+
+19
+00:00:54,430 --> 00:00:57,280
+by calling result.data.
+
+20
+00:00:57,280 --> 00:01:00,840
+So we can do result.data.title,
+and result.data.description.
+
+21
+00:01:03,720 --> 00:01:06,300
+But what if we want to
+list out all the files
+
+22
+00:01:06,300 --> 00:01:10,120
+that we have access
+to in a user's Drive?
+
+23
+00:01:10,120 --> 00:01:13,920
+To do this, we do a
+file.list request.
+
+24
+00:01:13,920 --> 00:01:15,960
+Don't forget, the
+files we have access to
+
+25
+00:01:15,960 --> 00:01:18,520
+are determined by the
+authorization scope
+
+26
+00:01:18,520 --> 00:01:21,850
+that we initially set.
+
+27
+00:01:21,850 --> 00:01:24,390
+The response will look
+something like this.
+
+28
+00:01:24,390 --> 00:01:27,290
+Inside of it we'll
+see an items array,
+
+29
+00:01:27,290 --> 00:01:31,900
+which will have all the
+files that we have access to.
+
+30
+00:01:31,900 --> 00:01:35,270
+Each item in this array
+isn't the entire file,
+
+31
+00:01:35,270 --> 00:01:38,300
+it's simply the
+metadata for each file
+
+32
+00:01:38,300 --> 00:01:39,890
+that we have access to.
+
+33
+00:01:39,890 --> 00:01:42,410
+And we can simply
+do a loop if we
+
+34
+00:01:42,410 --> 00:01:45,010
+want to iterate through
+each item that was returned,
+
+35
+00:01:45,010 --> 00:01:48,170
+and print out the title.
+
+36
+00:01:48,170 --> 00:01:51,540
+What happens when we have a
+lot of files stored on Drive,
+
+37
+00:01:51,540 --> 00:01:54,400
+and we need to
+filter through them?
+
+38
+00:01:54,400 --> 00:01:57,320
+Well, we can actually
+do some search queries
+
+39
+00:01:57,320 --> 00:01:59,810
+when we do our initial request.
+
+40
+00:01:59,810 --> 00:02:04,050
+We do this by providing a field
+that we want to filter by,
+
+41
+00:02:04,050 --> 00:02:08,479
+an operator, like
+"contains", and a value.
+
+42
+00:02:08,479 --> 00:02:10,520
+Obviously, this would
+return only files
+
+43
+00:02:10,520 --> 00:02:14,420
+that title contains puppy.
+
+44
+00:02:14,420 --> 00:02:17,450
+Let's take a look at a few
+metadata fields with operators
+
+45
+00:02:17,450 --> 00:02:19,235
+and value types you
+can use with them.
+
+46
+00:02:19,235 --> 00:02:20,680
+So here you can see title.
+
+47
+00:02:20,680 --> 00:02:22,380
+The value here is
+going to be a string.
+
+48
+00:02:22,380 --> 00:02:24,160
+And the operators
+we can use with it
+
+49
+00:02:24,160 --> 00:02:25,860
+are either contains or equals.
+
+50
+00:02:25,860 --> 00:02:28,630
+We can do a full
+text search, which
+
+51
+00:02:28,630 --> 00:02:31,150
+includes title,
+description, and for files
+
+52
+00:02:31,150 --> 00:02:32,740
+containing text content.
+
+53
+00:02:32,740 --> 00:02:35,990
+So we can see if any of these
+contain a certain string.
+
+54
+00:02:35,990 --> 00:02:39,230
+We can also search by mimeType,
+so the type of file it is,
+
+55
+00:02:39,230 --> 00:02:41,970
+like perhaps a text
+file or an image.
+
+56
+00:02:41,970 --> 00:02:46,120
+And lastly, we can
+search by modified date.
+
+57
+00:02:46,120 --> 00:02:47,800
+A full list of
+searchable metadata
+
+58
+00:02:47,800 --> 00:02:49,020
+can be found at this URL.
+
+59
+00:02:52,440 --> 00:02:55,060
+To do a search for a
+particular list of files,
+
+60
+00:02:55,060 --> 00:02:59,070
+we simply use the API method
+drive.files.list and send
+
+61
+00:02:59,070 --> 00:03:01,450
+in the queue parameter,
+meaning query,
+
+62
+00:03:01,450 --> 00:03:06,060
+with our field,
+operator, and value.
+
+63
+00:03:06,060 --> 00:03:07,890
+The response is
+going to look exactly
+
+64
+00:03:07,890 --> 00:03:10,680
+like the response from
+our files.list call, which
+
+65
+00:03:10,680 --> 00:03:13,300
+has an array of items
+we can iterate through.
+
+66
+00:03:16,000 --> 00:03:18,980
+But what if we have
+multiple search parameters?
+
+67
+00:03:18,980 --> 00:03:22,810
+Like if we wanted to only find
+images with a title of "puppy".
+
+68
+00:03:22,810 --> 00:03:26,500
+So we can add a new clause
+to refine our query results,
+
+69
+00:03:26,500 --> 00:03:29,770
+using the And operator to
+combine multiple clauses.
+
+70
+00:03:29,770 --> 00:03:32,060
+Here you can see,
+we're searching
+
+71
+00:03:32,060 --> 00:03:39,050
+for title contains puppy, and
+mimeType equals image/jpeg.
+
+72
+00:03:39,050 --> 00:03:43,470
+So we can find cute
+little images of puppies.
+
+73
+00:03:43,470 --> 00:03:46,090
+If we wanted to find
+a file that has "puppy"
+
+74
+00:03:46,090 --> 00:03:50,900
+not only in its title, but
+maybe also in its description,
+
+75
+00:03:50,900 --> 00:03:54,750
+or if it was a text file, in
+the contents of the file itself,
+
+76
+00:03:54,750 --> 00:04:00,030
+we can search on the fullText
+field, like you see here.
+
+77
+00:04:00,030 --> 00:04:03,010
+Time for you to get
+some metadata and search
+
+78
+00:04:03,010 --> 00:04:04,250
+for some files.
+
+79
+00:04:04,250 --> 00:04:06,360
+See you in the next level.
+

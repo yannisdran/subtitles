@@ -1,0 +1,284 @@
+﻿1
+00:00:02,009 --> 00:00:05,450
+So that's how you download a
+file into your application.
+
+2
+00:00:05,450 --> 00:00:07,110
+But what if you
+wanted to provide
+
+3
+00:00:07,110 --> 00:00:09,050
+a link that the
+user could download
+
+4
+00:00:09,050 --> 00:00:12,510
+this file from in their browser?
+
+5
+00:00:12,510 --> 00:00:15,410
+You wouldn't give
+them the download URL.
+
+6
+00:00:15,410 --> 00:00:20,790
+What you would give them, though,
+is the data.webContentLink.
+
+7
+00:00:20,790 --> 00:00:24,410
+However, this URL is only going
+to be useful to this user,
+
+8
+00:00:24,410 --> 00:00:27,630
+because it's inside their
+Google Drive account.
+
+9
+00:00:27,630 --> 00:00:31,250
+If they took this URL and shared
+it with someone else-- well,
+
+10
+00:00:31,250 --> 00:00:33,150
+they would see 403.
+
+11
+00:00:33,150 --> 00:00:38,120
+It's an error because they
+don't have access to this file.
+
+12
+00:00:38,120 --> 00:00:39,670
+This is where
+permissions come in.
+
+13
+00:00:39,670 --> 00:00:41,730
+And the Google API
+gives us the ability
+
+14
+00:00:41,730 --> 00:00:44,380
+to manage file permissions.
+
+15
+00:00:44,380 --> 00:00:47,040
+And file permissions
+come in three parts.
+
+16
+00:00:47,040 --> 00:00:51,440
+The role-- basically what a user
+can do with the file; type--
+
+17
+00:00:51,440 --> 00:00:54,370
+what type of user we're
+granting access to;
+
+18
+00:00:54,370 --> 00:00:56,650
+and value-- specifying
+an identifier
+
+19
+00:00:56,650 --> 00:00:58,970
+for that type of user,
+such as email address.
+
+20
+00:01:01,640 --> 00:01:03,350
+The most common roles
+you'll encounter
+
+21
+00:01:03,350 --> 00:01:06,960
+are owner, writer, and reader.
+
+22
+00:01:06,960 --> 00:01:10,510
+The owner can read, modify,
+comment on, and delete.
+
+23
+00:01:10,510 --> 00:01:14,150
+The writer can read, modify,
+and comment on the file.
+
+24
+00:01:14,150 --> 00:01:16,610
+And the reader obviously
+can just read it.
+
+25
+00:01:16,610 --> 00:01:22,290
+You can read more about roles
+at this URL on Google's website.
+
+26
+00:01:22,290 --> 00:01:24,670
+Using types and
+values, we can specify
+
+27
+00:01:24,670 --> 00:01:27,280
+what user or group of
+users gets assigned
+
+28
+00:01:27,280 --> 00:01:29,890
+to the role we just specified.
+
+29
+00:01:29,890 --> 00:01:32,670
+If we specify user as
+a type, then our value
+
+30
+00:01:32,670 --> 00:01:35,250
+is going to be a
+user's email address.
+
+31
+00:01:35,250 --> 00:01:37,560
+If we specify a
+group, the value is
+
+32
+00:01:37,560 --> 00:01:39,460
+going to be a group's
+email address.
+
+33
+00:01:39,460 --> 00:01:41,950
+If we specify a
+domain, the value
+
+34
+00:01:41,950 --> 00:01:44,480
+is going to be the
+Google Apps domain.
+
+35
+00:01:44,480 --> 00:01:46,890
+And if we specify
+anyone as a type,
+
+36
+00:01:46,890 --> 00:01:48,530
+then the value
+doesn't really matter,
+
+37
+00:01:48,530 --> 00:01:50,360
+because this link is
+going to be public.
+
+38
+00:01:50,360 --> 00:01:52,380
+You can read more about
+types and values here.
+
+39
+00:01:54,881 --> 00:01:56,380
+Let's create a
+permission that gives
+
+40
+00:01:56,380 --> 00:01:58,990
+a friend of ours, an
+individual, access
+
+41
+00:01:58,990 --> 00:02:02,770
+to read one of our pug images.
+
+42
+00:02:02,770 --> 00:02:07,460
+So here we'd specify the
+role of reader, the type
+
+43
+00:02:07,460 --> 00:02:10,039
+to user, because this
+is an individual.
+
+44
+00:02:10,039 --> 00:02:12,130
+And the value would be
+their email address.
+
+45
+00:02:14,860 --> 00:02:18,810
+We now need to make an API call
+to the permissions.insert API
+
+46
+00:02:18,810 --> 00:02:23,140
+method, passing in as the body
+object the permission object
+
+47
+00:02:23,140 --> 00:02:27,800
+we just created, and specifying
+in the parameters which
+
+48
+00:02:27,800 --> 00:02:31,980
+file we're setting
+permissions on.
+
+49
+00:02:31,980 --> 00:02:35,039
+The response will simply contain
+details about the permission,
+
+50
+00:02:35,039 --> 00:02:37,080
+letting us know that it
+was successfully created.
+
+51
+00:02:40,110 --> 00:02:43,120
+The user will be automatically
+notified via email
+
+52
+00:02:43,120 --> 00:02:45,580
+that they've been granted
+read access to this file.
+
+53
+00:02:45,580 --> 00:02:49,910
+The email might look
+something like this.
+
+54
+00:02:49,910 --> 00:02:52,930
+The user can open the file by
+clicking the link in the email.
+
+55
+00:02:52,930 --> 00:02:54,460
+Or if they go to
+their Google Drive
+
+56
+00:02:54,460 --> 00:02:57,850
+and click on the Shared
+With Me navigation link,
+
+57
+00:02:57,850 --> 00:03:01,530
+they'll see that this file
+was shared with them in Drive.
+
+58
+00:03:01,530 --> 00:03:04,990
+Now it's time for a few more
+challenges on permissions.
+
