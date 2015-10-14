@@ -1,0 +1,197 @@
+﻿1
+00:00:00,760 --> 00:00:04,790
+[SINGING] Your website
+is unused because
+
+2
+00:00:04,790 --> 00:00:06,800
+your users are confused.
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,740
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,740 --> 00:00:12,490
+Make buttons
+scale and skew.
+
+6
+00:00:12,490 --> 00:00:14,700
+Keyframes
+animate it too.
+
+7
+00:00:14,700 --> 00:00:16,630
+Change color
+and use easing.
+
+8
+00:00:16,630 --> 00:00:18,460
+The effect will
+be quite pleasing.
+
+9
+00:00:18,460 --> 00:00:22,710
+Try rotations and
+translations in
+
+10
+00:00:22,710 --> 00:00:25,583
+Adventures in Web Animations.
+
+11
+00:00:29,810 --> 00:00:33,720
+Welcome back to level two in
+Adventures in Web Animations.
+
+12
+00:00:33,720 --> 00:00:38,660
+This section, we'll be talking
+about transforming rotate.
+
+13
+00:00:38,660 --> 00:00:41,860
+CSS transforms let
+you modify elements
+
+14
+00:00:41,860 --> 00:00:44,190
+in their coordinate space.
+
+15
+00:00:44,190 --> 00:00:51,820
+They can be rotated, translated,
+scaled, and even skewed.
+
+16
+00:00:51,820 --> 00:00:53,700
+In our application,
+something fun
+
+17
+00:00:53,700 --> 00:00:58,050
+to animate that's part of our UI
+could be this close icon on our
+
+18
+00:00:58,050 --> 00:00:59,630
+buy game form.
+
+19
+00:00:59,630 --> 00:01:02,410
+With transform, we can
+easily rotate this.
+
+20
+00:01:06,170 --> 00:01:09,330
+We call out our
+modal close on hover
+
+21
+00:01:09,330 --> 00:01:14,210
+and we say transform
+rotate 360 degrees.
+
+22
+00:01:14,210 --> 00:01:18,420
+Rotate takes any number value
+with a degree or a turn unit
+
+23
+00:01:18,420 --> 00:01:19,520
+suffix.
+
+24
+00:01:19,520 --> 00:01:24,830
+So transform rotate one turn
+is the same as 360 degrees.
+
+25
+00:01:24,830 --> 00:01:28,310
+Our icon on hover, though, is
+jumping from the start state
+
+26
+00:01:28,310 --> 00:01:30,140
+immediately to the end state.
+
+27
+00:01:30,140 --> 00:01:34,050
+You don't actually get
+to see the rotation.
+
+28
+00:01:34,050 --> 00:01:37,990
+This is where transitions,
+yet again, come to the rescue.
+
+29
+00:01:37,990 --> 00:01:40,970
+Inside our modal
+close's initial state,
+
+30
+00:01:40,970 --> 00:01:45,690
+we'll say transition
+transform four seconds.
+
+31
+00:01:45,690 --> 00:01:47,790
+Adding transition
+transform allows
+
+32
+00:01:47,790 --> 00:01:49,885
+us to see the icon
+changing on hover.
+
+33
+00:01:53,990 --> 00:01:57,000
+So far, we've only been using
+the default timing function
+
+34
+00:01:57,000 --> 00:01:59,310
+of ease on our transitions.
+
+35
+00:01:59,310 --> 00:02:02,730
+However, we have this full
+list here available to us.
+
+36
+00:02:02,730 --> 00:02:05,270
+So if we go ahead and
+say transition transform
+
+37
+00:02:05,270 --> 00:02:09,169
+four seconds and use
+ease out, for instance,
+
+38
+00:02:09,169 --> 00:02:11,636
+you'll see how the x
+icon rotates slower
+
+39
+00:02:11,636 --> 00:02:12,885
+near the end of the animation.
+
+40
+00:02:21,760 --> 00:02:24,780
+Go ahead and try your
+hand at transforms,
+
+41
+00:02:24,780 --> 00:02:27,320
+and I'll see you in
+the next section.
+

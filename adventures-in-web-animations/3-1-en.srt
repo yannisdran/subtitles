@@ -1,0 +1,462 @@
+﻿1
+00:00:00,760 --> 00:00:04,790
+[SINGING] Your website
+is unused because
+
+2
+00:00:04,790 --> 00:00:06,800
+your users are confused. 
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,740
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,740 --> 00:00:12,490
+Make buttons
+scale and skew.
+
+6
+00:00:12,490 --> 00:00:14,700
+Keyframes
+animate it too.
+
+7
+00:00:14,700 --> 00:00:16,790
+Change color
+and use easing.
+
+8
+00:00:16,790 --> 00:00:18,460
+The effect will
+be quite pleasing.
+
+9
+00:00:18,460 --> 00:00:22,830
+Try rotations and
+translations in
+
+10
+00:00:22,830 --> 00:00:25,170
+Adventures in Web Animations.
+
+11
+00:00:29,650 --> 00:00:33,090
+Welcome back to Adventures
+in Web Animations.
+
+12
+00:00:33,090 --> 00:00:35,750
+This is level three where
+we'll be talking about creating
+
+13
+00:00:35,750 --> 00:00:38,980
+and reusing keyframes.
+
+14
+00:00:38,980 --> 00:00:41,230
+So here's our site so far.
+
+15
+00:00:41,230 --> 00:00:43,730
+We've learned how to transform
+elements and transition
+
+16
+00:00:43,730 --> 00:00:46,950
+properties that are
+changing in CSS.
+
+17
+00:00:46,950 --> 00:00:48,830
+Our site's starting
+to look pretty good.
+
+18
+00:00:51,570 --> 00:00:53,740
+So keyframe
+animations are a list
+
+19
+00:00:53,740 --> 00:00:57,540
+of what should happen over the
+course of the animation-- which
+
+20
+00:00:57,540 --> 00:01:00,240
+property should
+change, how, and when.
+
+21
+00:01:00,240 --> 00:01:03,200
+We're used to, right now,
+specifying a start state,
+
+22
+00:01:03,200 --> 00:01:07,560
+like a white star, and then
+an end state of a purple star.
+
+23
+00:01:07,560 --> 00:01:11,090
+And then we're expecting the
+transition to just make up
+
+24
+00:01:11,090 --> 00:01:12,860
+what happens between.
+
+25
+00:01:12,860 --> 00:01:14,640
+A keyframe animation,
+however, allows
+
+26
+00:01:14,640 --> 00:01:18,310
+us to specify certain steps
+throughout this animation.
+
+27
+00:01:18,310 --> 00:01:20,830
+At 25%, make the star pink.
+
+28
+00:01:20,830 --> 00:01:22,810
+At 50%, make it blue.
+
+29
+00:01:22,810 --> 00:01:24,742
+Before hitting the
+end of the animation,
+
+30
+00:01:24,742 --> 00:01:25,950
+when the star becomes purple.
+
+31
+00:01:28,700 --> 00:01:30,870
+We're going to start using
+keyframes on our site
+
+32
+00:01:30,870 --> 00:01:33,740
+by animating this
+donut character.
+
+33
+00:01:33,740 --> 00:01:35,860
+As you can see, he's
+got a lot going on.
+
+34
+00:01:35,860 --> 00:01:37,500
+He's moving his
+arms back and forth.
+
+35
+00:01:37,500 --> 00:01:39,120
+He's tapping his foot.
+
+36
+00:01:39,120 --> 00:01:41,000
+His icing is swinging
+and the sprinkles
+
+37
+00:01:41,000 --> 00:01:42,890
+are flying off and disappearing.
+
+38
+00:01:42,890 --> 00:01:44,230
+But we're going to start simple.
+
+39
+00:01:44,230 --> 00:01:49,480
+Let's just start by swinging
+his arm back and forth.
+
+40
+00:01:49,480 --> 00:01:52,150
+There are two parts to
+keyframe animations.
+
+41
+00:01:52,150 --> 00:01:54,000
+First, create the animation.
+
+42
+00:01:54,000 --> 00:01:56,560
+And then second,
+assign the animation.
+
+43
+00:01:56,560 --> 00:01:59,610
+In order to create it,
+we'll use this recipe here.
+
+44
+00:01:59,610 --> 00:02:02,670
+We'll declare the animation
+with the at keyframes rule
+
+45
+00:02:02,670 --> 00:02:03,610
+and name it.
+
+46
+00:02:03,610 --> 00:02:05,250
+And then inside of
+that, we'll define
+
+47
+00:02:05,250 --> 00:02:07,270
+the steps of the animation.
+
+48
+00:02:07,270 --> 00:02:11,620
+So for our donut, we'll call
+it swing-- at keyframes swing.
+
+49
+00:02:11,620 --> 00:02:12,730
+This is a custom name.
+
+50
+00:02:12,730 --> 00:02:15,170
+It could be called
+beau-knut-arm-swing.
+
+51
+00:02:15,170 --> 00:02:17,380
+But we'll keep it
+short and simple.
+
+52
+00:02:17,380 --> 00:02:20,420
+Then inside, we'll specify
+the two different steps,
+
+53
+00:02:20,420 --> 00:02:24,880
+our 0% for our first one,
+and 100% for our second one.
+
+54
+00:02:24,880 --> 00:02:28,320
+We'll start off at transform
+rotate zero degrees,
+
+55
+00:02:28,320 --> 00:02:30,310
+so I'm not moving at all.
+
+56
+00:02:30,310 --> 00:02:33,450
+But by the end of the
+keyframe, at 100%,
+
+57
+00:02:33,450 --> 00:02:37,720
+I want it to say transform
+rotate negative 10 degrees.
+
+58
+00:02:37,720 --> 00:02:40,460
+There are two ways to
+define these inner steps.
+
+59
+00:02:40,460 --> 00:02:42,540
+You can do percentages,
+like we've done here,
+
+60
+00:02:42,540 --> 00:02:47,470
+or you can use keywords "from"
+and "to." "From" being the 0%,
+
+61
+00:02:47,470 --> 00:02:48,650
+"to" being 100%.
+
+62
+00:02:51,180 --> 00:02:54,590
+We've created the animation, but
+our next step is to assign it.
+
+63
+00:02:54,590 --> 00:02:57,260
+To make this possible,
+we've broken the PNG
+
+64
+00:02:57,260 --> 00:03:01,360
+into multiple elements each
+with their own PNG inside.
+
+65
+00:03:01,360 --> 00:03:04,050
+So the left arm has
+its own element.
+
+66
+00:03:04,050 --> 00:03:07,650
+The donut body has its own
+element, so on and so forth.
+
+67
+00:03:07,650 --> 00:03:09,680
+In order to assign
+the animation,
+
+68
+00:03:09,680 --> 00:03:14,430
+we'll select the left arm ID,
+give it an animation property,
+
+69
+00:03:14,430 --> 00:03:16,950
+and then we'll
+specify the values.
+
+70
+00:03:16,950 --> 00:03:20,220
+So first, the swing
+name of the animation.
+
+71
+00:03:20,220 --> 00:03:21,200
+Then, the duration.
+
+72
+00:03:21,200 --> 00:03:22,800
+We'll give it two seconds.
+
+73
+00:03:22,800 --> 00:03:23,880
+The delay is next.
+
+74
+00:03:23,880 --> 00:03:27,000
+We want no delay, so
+we'll say zero seconds.
+
+75
+00:03:27,000 --> 00:03:30,770
+Infinite iteration, which is
+how many times it will loop.
+
+76
+00:03:30,770 --> 00:03:33,980
+And finally, the timing
+function of ease.
+
+77
+00:03:33,980 --> 00:03:36,770
+The one important thing
+to note is that duration
+
+78
+00:03:36,770 --> 00:03:38,590
+has to come before delay.
+
+79
+00:03:38,590 --> 00:03:40,530
+If you have two
+numbers, it's always
+
+80
+00:03:40,530 --> 00:03:43,350
+going to take that first
+number as your duration
+
+81
+00:03:43,350 --> 00:03:45,255
+and the second
+number as your delay.
+
+82
+00:03:45,255 --> 00:03:48,110
+If we go ahead and check back
+in with our donut now,
+
+83
+00:03:48,110 --> 00:03:51,340
+you'll see that he's rotating,
+but something, something
+
+84
+00:03:51,340 --> 00:03:52,020
+looks off.
+
+85
+00:03:57,600 --> 00:04:02,560
+Well, this is because transform
+origin is set to center center.
+
+86
+00:04:02,560 --> 00:04:04,620
+If we specify a
+different origin,
+
+87
+00:04:04,620 --> 00:04:07,820
+so that it's rotating
+at top center,
+
+88
+00:04:07,820 --> 00:04:11,470
+it will rotate from the
+shoulder instead of the elbow.
+
+89
+00:04:11,470 --> 00:04:14,820
+Our donut is now swinging
+his arm to and fro quite nicely.
+
+90
+00:04:20,630 --> 00:04:23,650
+Let's reuse this keyframe
+on the right arm now.
+
+91
+00:04:23,650 --> 00:04:26,480
+We'll go ahead and call
+out the ID of right arm,
+
+92
+00:04:26,480 --> 00:04:30,160
+give it an animation,
+swing two seconds infinite,
+
+93
+00:04:30,160 --> 00:04:32,630
+and then we'll also
+change its origin
+
+94
+00:04:32,630 --> 00:04:36,040
+to transform origin top center.
+
+95
+00:04:36,040 --> 00:04:38,715
+Now as you can see, both of the
+donut's arms are swinging.
+
+96
+00:04:44,140 --> 00:04:46,390
+Why don't you go practice
+keyframes in the challenges,
+
+97
+00:04:46,390 --> 00:04:49,220
+and I'll see you back
+for the next section.
+

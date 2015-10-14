@@ -1,0 +1,439 @@
+﻿1
+00:00:02,040 --> 00:00:04,450
+Welcome back to level
+two, section two,
+
+2
+00:00:04,450 --> 00:00:09,650
+where we'll be transforming
+scale and translate.
+
+3
+00:00:09,650 --> 00:00:13,890
+Another good use of animation
+on the web is form inputs.
+
+4
+00:00:13,890 --> 00:00:17,110
+We can create a cool
+interactivity between our input
+
+5
+00:00:17,110 --> 00:00:19,020
+and our input label.
+
+6
+00:00:19,020 --> 00:00:21,240
+As you can see here,
+our input label
+
+7
+00:00:21,240 --> 00:00:23,775
+is animating between
+two separate states.
+
+8
+00:00:26,560 --> 00:00:29,510
+If we break it down, we
+can see that our input
+
+9
+00:00:29,510 --> 00:00:33,210
+label on its initial
+state is acting as a text
+
+10
+00:00:33,210 --> 00:00:35,820
+placeholder over the input.
+
+11
+00:00:35,820 --> 00:00:38,490
+When the input is
+focused on, we want
+
+12
+00:00:38,490 --> 00:00:42,200
+the label to slide
+up and scale down,
+
+13
+00:00:42,200 --> 00:00:45,810
+becoming your average
+label for an input.
+
+14
+00:00:45,810 --> 00:00:49,700
+We're also darkening the input
+label on the focus state.
+
+15
+00:00:49,700 --> 00:00:55,100
+So let's start by transitioning
+the color of the label.
+
+16
+00:00:55,100 --> 00:01:01,070
+So just as we've done before,
+we'll set the initial color.
+
+17
+00:01:01,070 --> 00:01:04,900
+And then on input focus,
+we'll set the focus color
+
+18
+00:01:04,900 --> 00:01:05,670
+for the label. 
+
+19
+00:01:05,670 --> 00:01:10,890
+Then, we'll transition the
+color over 0.3 seconds.
+
+20
+00:01:10,890 --> 00:01:14,570
+I want to point out that we
+use the adjacent selector here.
+
+21
+00:01:14,570 --> 00:01:19,050
+That's only going to select the
+first label after each input.
+
+22
+00:01:19,050 --> 00:01:21,740
+This is important because you
+might have multiple labels
+
+23
+00:01:21,740 --> 00:01:26,160
+or inputs inside a form.
+
+24
+00:01:26,160 --> 00:01:28,840
+So we've transitioned
+color, and our next step
+
+25
+00:01:28,840 --> 00:01:33,270
+is going to be scaling it down
+by 80%, as you can see here.
+
+26
+00:01:36,450 --> 00:01:40,380
+Scale is used to stretch
+an element based on a value
+
+27
+00:01:40,380 --> 00:01:42,430
+multiplier that's passed in.
+
+28
+00:01:42,430 --> 00:01:44,560
+So if you only
+pass in one value,
+
+29
+00:01:44,560 --> 00:01:48,730
+it's going to stretch it in
+both directions by that value.
+
+30
+00:01:48,730 --> 00:01:51,850
+So for instance, if I
+say transform scale two,
+
+31
+00:01:51,850 --> 00:01:56,250
+my box is going to grow double
+the size on height and width.
+
+32
+00:01:56,250 --> 00:02:00,120
+We can also say
+transform scale four two,
+
+33
+00:02:00,120 --> 00:02:03,060
+and this is going to stretch
+it horizontally by four
+
+34
+00:02:03,060 --> 00:02:05,540
+and vertically by two.
+
+35
+00:02:05,540 --> 00:02:08,990
+You can specify the x
+and y separately like so.
+
+36
+00:02:13,020 --> 00:02:15,240
+So when the input
+is focused, we'll
+
+37
+00:02:15,240 --> 00:02:20,020
+add transform scale
+0.8 to the form label.
+
+38
+00:02:20,020 --> 00:02:25,410
+We also want to transition
+this by, we'll say, 0.3 seconds.
+
+39
+00:02:25,410 --> 00:02:27,530
+When you focus on the
+input, though, you'll
+
+40
+00:02:27,530 --> 00:02:30,680
+notice that this
+label is moving right.
+
+41
+00:02:30,680 --> 00:02:33,140
+We never specified a
+change in position.
+
+42
+00:02:33,140 --> 00:02:34,275
+So why is this happening?
+
+43
+00:02:37,300 --> 00:02:40,520
+When you scale something down,
+it maintains its original box
+
+44
+00:02:40,520 --> 00:02:41,890
+model size.
+
+45
+00:02:41,890 --> 00:02:45,250
+So for instance, let's
+say our CC Number label
+
+46
+00:02:45,250 --> 00:02:48,660
+has 100 pixels in
+height and 400 in width,
+
+47
+00:02:48,660 --> 00:02:51,650
+no matter how small you
+scale it down, this label's
+
+48
+00:02:51,650 --> 00:02:56,850
+always going to
+take up 100 by 400.
+
+49
+00:02:56,850 --> 00:03:00,650
+So here we have an input
+and an input label.
+
+50
+00:03:00,650 --> 00:03:05,420
+The dashed line specifies
+the label's element size.
+
+51
+00:03:05,420 --> 00:03:09,110
+Here's our desired focus
+state with it scaling down
+
+52
+00:03:09,110 --> 00:03:11,660
+80% of its original size.
+
+53
+00:03:11,660 --> 00:03:15,390
+And the current focus state,
+which is also scaling down
+
+54
+00:03:15,390 --> 00:03:17,580
+80% of its original size.
+
+55
+00:03:17,580 --> 00:03:20,000
+However, it's doing
+this from its center.
+
+56
+00:03:23,820 --> 00:03:28,310
+An easy fix to this is to simply
+specify a different origin.
+
+57
+00:03:28,310 --> 00:03:31,800
+We can say transform
+origin center left--
+
+58
+00:03:31,800 --> 00:03:36,160
+center being the y origin,
+and left being the x origin.
+
+59
+00:03:36,160 --> 00:03:39,520
+Once we specify left
+for our x origin,
+
+60
+00:03:39,520 --> 00:03:42,220
+we'll be transforming
+along the left side,
+
+61
+00:03:42,220 --> 00:03:44,910
+and this will give us
+our desired focus state.
+
+62
+00:03:44,910 --> 00:03:47,790
+We can set this transform
+origin in either keywords,
+
+63
+00:03:47,790 --> 00:03:50,480
+like center right
+top, or in pixels.
+
+64
+00:03:53,540 --> 00:03:58,270
+So to put this into practice,
+in the initial state of the form
+
+65
+00:03:58,270 --> 00:04:02,520
+input label, we'll say
+transform origin center left.
+
+66
+00:04:02,520 --> 00:04:06,270
+Now when it's clicked, both
+the color and the scale
+
+67
+00:04:06,270 --> 00:04:08,115
+change along the left side.
+
+68
+00:04:12,850 --> 00:04:17,790
+Our third and final step is
+to translate up, or move it up,
+
+69
+00:04:17,790 --> 00:04:18,890
+above the input.
+
+70
+00:04:22,050 --> 00:04:24,920
+So translate simply
+means to move.
+
+71
+00:04:24,920 --> 00:04:28,570
+We could say transform
+translate x by three pixels,
+
+72
+00:04:28,570 --> 00:04:31,740
+and all that's saying
+is move right three.
+
+73
+00:04:31,740 --> 00:04:34,720
+We can say translate
+y negative 3 pixels,
+
+74
+00:04:34,720 --> 00:04:37,600
+and that will move up three.
+
+75
+00:04:37,600 --> 00:04:40,794
+We can also say
+translate three pixels
+
+76
+00:04:40,794 --> 00:04:42,210
+and this is going
+to use the three
+
+77
+00:04:42,210 --> 00:04:44,830
+pixels for both the
+x and the y value,
+
+78
+00:04:44,830 --> 00:04:47,330
+moving us down and
+to the right by three.
+
+79
+00:04:51,790 --> 00:04:53,990
+Now when the input
+is focused, we'll
+
+80
+00:04:53,990 --> 00:04:58,010
+set our form label to
+transform translate y
+
+81
+00:04:58,010 --> 00:04:59,840
+by negative 40 pixels--
+
+82
+00:04:59,840 --> 00:05:02,120
+move up 40 pixels.
+
+83
+00:05:02,120 --> 00:05:05,430
+We are already
+transitioning our transform.
+
+84
+00:05:05,430 --> 00:05:10,020
+So both scale and translate
+are being transitioned.
+
+85
+00:05:10,020 --> 00:05:13,200
+We could shorten this, however,
+to use the all keyword.
+
+86
+00:05:16,110 --> 00:05:18,240
+So now, when you
+click on the input,
+
+87
+00:05:18,240 --> 00:05:21,920
+our label changes color,
+scales down by 80%,
+
+88
+00:05:21,920 --> 00:05:25,995
+and moves up 40 pixels--
+all with a nice, smooth transition.
+
+89
+00:05:32,440 --> 00:05:35,170
+Now it's time for you to
+practice transforming scale
+
+90
+00:05:35,170 --> 00:05:36,410
+and translate.
+
+91
+00:05:36,410 --> 00:05:39,330
+I'll see you back
+in the next level.
+

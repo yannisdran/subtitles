@@ -1,0 +1,308 @@
+﻿1
+00:00:02,040 --> 00:00:03,060
+Welcome back.
+
+2
+00:00:03,060 --> 00:00:05,900
+This is section two of
+the transitions level,
+
+3
+00:00:05,900 --> 00:00:09,710
+and we'll be talking about
+transitioning position.
+
+4
+00:00:09,710 --> 00:00:13,200
+So far, you've seen us use
+transitions to smoothly change
+
+5
+00:00:13,200 --> 00:00:16,480
+the background color and the
+text color on this button.
+
+6
+00:00:16,480 --> 00:00:18,470
+However, moving
+in hidden content
+
+7
+00:00:18,470 --> 00:00:21,430
+is another common use
+case for transitions.
+
+8
+00:00:21,430 --> 00:00:23,070
+So with this
+button, let's say we
+
+9
+00:00:23,070 --> 00:00:27,595
+want to show perhaps the price
+of the game on hover as well.
+
+10
+00:00:27,595 --> 00:00:28,720
+Well, how could we do this?
+
+11
+00:00:28,720 --> 00:00:29,886
+Let's go ahead and find out.
+
+12
+00:00:32,210 --> 00:00:34,929
+So here's our
+current button HTML.
+
+13
+00:00:34,929 --> 00:00:36,470
+There's going to
+be a couple steps
+
+14
+00:00:36,470 --> 00:00:38,980
+to achieve this transitioning
+in hidden content
+
+15
+00:00:38,980 --> 00:00:40,290
+that we want to do.
+
+16
+00:00:40,290 --> 00:00:42,830
+The first is to create
+the two inner spans--
+
+17
+00:00:42,830 --> 00:00:44,660
+one that will hold
+the current Buy
+
+18
+00:00:44,660 --> 00:00:48,060
+Now content, and another that
+will show the hidden text
+
+19
+00:00:48,060 --> 00:00:49,300
+content.
+
+20
+00:00:49,300 --> 00:00:51,450
+We'll also want to style
+the initial and hover
+
+21
+00:00:51,450 --> 00:00:53,410
+states of these spans.
+
+22
+00:00:53,410 --> 00:00:56,200
+And then, we'll want to create a
+transition between the hover
+
+23
+00:00:56,200 --> 00:00:56,980
+and initial state.
+
+24
+00:00:59,570 --> 00:01:01,930
+To start, let's go ahead
+and create this span.
+
+25
+00:01:01,930 --> 00:01:04,099
+We'll wrap the Buy
+Now with a span
+
+26
+00:01:04,099 --> 00:01:07,040
+and give it a class
+of top content.
+
+27
+00:01:07,040 --> 00:01:09,190
+We'll then create a
+second span, give it
+
+28
+00:01:09,190 --> 00:01:12,673
+a class of bottom content,
+and say On Sale $59.
+
+29
+00:01:17,820 --> 00:01:21,110
+For the second step, we'll want
+to style the initial position
+
+30
+00:01:21,110 --> 00:01:22,830
+of each of the spans.
+
+31
+00:01:22,830 --> 00:01:27,320
+So first, we'll call out the
+Big Momma wrapper, the .btn,
+
+32
+00:01:27,320 --> 00:01:29,600
+and we'll give it a
+position of relative.
+
+33
+00:01:29,600 --> 00:01:33,030
+Then, we'll call out
+the two inner spans
+
+34
+00:01:33,030 --> 00:01:36,500
+with the class of content, and
+give them position absolute.
+
+35
+00:01:36,500 --> 00:01:39,870
+Position absolute means position
+me relative to my nearest
+
+36
+00:01:39,870 --> 00:01:42,110
+positioned parent or document.
+
+37
+00:01:42,110 --> 00:01:44,160
+In this case, it's our button.
+
+38
+00:01:44,160 --> 00:01:47,620
+Next, we'll set the positions
+of both of the spans.
+
+39
+00:01:47,620 --> 00:01:50,680
+We'll set the top to be
+zero, so it'll be snug up
+
+40
+00:01:50,680 --> 00:01:52,545
+against the top of the button.
+
+41
+00:01:52,545 --> 00:01:56,010
+And we'll set bottom
+to be 100 pixels away
+
+42
+00:01:56,010 --> 00:01:57,530
+from the top of the button.
+
+43
+00:01:57,530 --> 00:01:59,630
+It'll be outside of
+the visible area.
+
+44
+00:02:03,930 --> 00:02:06,010
+So when our button
+is hovered, we
+
+45
+00:02:06,010 --> 00:02:08,630
+want to call it the
+top class and give it
+
+46
+00:02:08,630 --> 00:02:11,440
+a top of negative 100 pixels.
+
+47
+00:02:11,440 --> 00:02:14,240
+We'll do the exact same
+when the button is hovered.
+
+48
+00:02:14,240 --> 00:02:18,630
+We'll call it the bottom class
+and give its top zero pixels.
+
+49
+00:02:18,630 --> 00:02:21,690
+This is going to give
+this slide up effect.
+
+50
+00:02:21,690 --> 00:02:24,900
+So now on hover,
+both of the spans
+
+51
+00:02:24,900 --> 00:02:26,955
+are popping up by 100 pixels.
+
+52
+00:02:31,540 --> 00:02:32,500
+We're getting close.
+
+53
+00:02:32,500 --> 00:02:34,850
+All we need to do
+now is transition
+
+54
+00:02:34,850 --> 00:02:37,780
+these smoothly so it
+looks like it's sliding up.
+
+55
+00:02:37,780 --> 00:02:40,720
+So now all we have
+to do is transition
+
+56
+00:02:40,720 --> 00:02:44,210
+the top property
+for 0.3 seconds.
+
+57
+00:02:44,210 --> 00:02:45,710
+If you go and hover
+over the button,
+
+58
+00:02:45,710 --> 00:02:49,380
+you'll see instead of popping
+up 100 pixels, they're both
+
+59
+00:02:49,380 --> 00:02:51,670
+sliding up nicely.
+
+60
+00:02:51,670 --> 00:02:53,950
+We can still see both
+of our spans, though,
+
+61
+00:02:53,950 --> 00:02:56,590
+so inside the content
+selector, we'll
+
+62
+00:02:56,590 --> 00:02:58,770
+just set overflow to hidden.
+
+63
+00:02:58,770 --> 00:03:01,540
+And now, our button looks
+exactly as hoped for.
+
+64
+00:03:05,770 --> 00:03:08,590
+Go practice transitioning
+position in the challenges,
+
+65
+00:03:08,590 --> 00:03:12,590
+and I'll see you back for the
+last section of level one.
+

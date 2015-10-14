@@ -1,0 +1,297 @@
+﻿1
+00:00:02,120 --> 00:00:03,980
+Welcome back to level three.
+
+2
+00:00:03,980 --> 00:00:05,027
+We're on section two.
+
+3
+00:00:05,027 --> 00:00:06,860
+We'll be talking about
+multi-step keyframes.
+
+4
+00:00:09,640 --> 00:00:11,610
+Our donut's arms are
+swinging, but the swing
+
+5
+00:00:11,610 --> 00:00:14,680
+doesn't feel quite right
+with only two steps.
+
+6
+00:00:14,680 --> 00:00:16,400
+Let's go ahead
+and add more steps
+
+7
+00:00:16,400 --> 00:00:19,350
+so that our swing animation
+looks more natural.
+
+8
+00:00:19,350 --> 00:00:22,070
+So in between our
+start and end state,
+
+9
+00:00:22,070 --> 00:00:27,090
+we'll add a 25%,
+50%, and 75% step.
+
+10
+00:00:27,090 --> 00:00:31,120
+We'll have it rotate between
+negative 10 degrees to 0
+
+11
+00:00:31,120 --> 00:00:32,585
+and then up to 10 degrees.
+
+12
+00:00:38,340 --> 00:00:40,495
+So let's say we give
+the swing animation
+
+13
+00:00:40,495 --> 00:00:42,960
+a duration of 2 seconds.
+
+14
+00:00:42,960 --> 00:00:47,210
+At 25% of 2 seconds,
+we'll be at 0.5 seconds.
+
+15
+00:00:47,210 --> 00:00:49,670
+And then at 50%,
+we'll be at 1 second,
+
+16
+00:00:49,670 --> 00:00:52,660
+and 75%, we'll be at 1.5 seconds.
+
+17
+00:00:52,660 --> 00:00:55,170
+Because we've spaced
+these out evenly,
+
+18
+00:00:55,170 --> 00:00:57,295
+our animation is
+nice and linear.
+
+19
+00:01:00,470 --> 00:01:03,930
+If we wanted the animation
+to be faster at the beginning
+
+20
+00:01:03,930 --> 00:01:07,550
+and then slower at the end, we
+could change our percentages
+
+21
+00:01:07,550 --> 00:01:11,490
+to 10%, 20%, and then 30%.
+
+22
+00:01:11,490 --> 00:01:14,131
+This would then cause
+an ease-out spacing
+
+23
+00:01:14,131 --> 00:01:16,130
+so that it happens really
+quick at the beginning
+
+24
+00:01:16,130 --> 00:01:18,250
+and then slow near the end.
+
+25
+00:01:18,250 --> 00:01:21,130
+Instead of manually spacing
+out the steps of the keyframe,
+
+26
+00:01:21,130 --> 00:01:24,050
+however, if you want
+an ease-out feel,
+
+27
+00:01:24,050 --> 00:01:26,240
+simply use an ease-
+out timing function
+
+28
+00:01:26,240 --> 00:01:27,657
+to do this work for you.
+
+29
+00:01:30,786 --> 00:01:34,300
+You may have noticed that
+our start state, end state,
+
+30
+00:01:34,300 --> 00:01:38,670
+and middle state are all the
+same of rotate 0 degrees.
+
+31
+00:01:38,670 --> 00:01:41,170
+We can condense
+these duplicate lines
+
+32
+00:01:41,170 --> 00:01:43,310
+by comma separating
+the percent values.
+
+33
+00:01:48,190 --> 00:01:51,500
+Both of our arms are
+rotating right and left
+
+34
+00:01:51,500 --> 00:01:53,050
+at the same time.
+
+35
+00:01:53,050 --> 00:01:56,580
+However, we want one to
+move left and the other one
+
+36
+00:01:56,580 --> 00:02:00,170
+to move right at the
+same time-- opposites.
+
+37
+00:02:00,170 --> 00:02:02,004
+There are two ways
+we can achieve this.
+
+38
+00:02:02,004 --> 00:02:04,500
+First off, we can write two
+completely different keyframes--
+
+39
+00:02:04,500 --> 00:02:07,690
+one with negative 10
+degrees at the same time
+
+40
+00:02:07,690 --> 00:02:10,139
+as this one is
+positive 10 degrees.
+
+41
+00:02:10,139 --> 00:02:12,890
+Or we could just use a delay
+with the same keyframe.
+
+42
+00:02:17,200 --> 00:02:21,330
+So if we go ahead back in
+to our right arm selector,
+
+43
+00:02:21,330 --> 00:02:24,910
+we can add a one-second delay,
+giving the right arm a delay
+
+44
+00:02:24,910 --> 00:02:28,630
+so it starts halfway through
+the left arm's animation.
+
+45
+00:02:28,630 --> 00:02:31,000
+You'll see now our donut
+pauses his right arm
+
+46
+00:02:31,000 --> 00:02:35,420
+for a second, and then both arms
+continue out and in together.
+
+47
+00:02:40,760 --> 00:02:43,950
+Let's create one final keyframe
+before the challenges.
+
+48
+00:02:43,950 --> 00:02:45,480
+How about that left foot?
+
+49
+00:02:45,480 --> 00:02:49,100
+In order to get it to tap,
+we'll create an at keyframes
+
+50
+00:02:49,100 --> 00:02:50,970
+tap animation.
+
+51
+00:02:50,970 --> 00:02:53,530
+We'll give it a
+start and end state
+
+52
+00:02:53,530 --> 00:02:57,170
+where its translate y is at 0--
+so exactly where your foot is.
+
+53
+00:02:57,170 --> 00:03:03,170
+But in the middle, we want
+to translate y up 5 pixels.
+
+54
+00:03:03,170 --> 00:03:05,420
+We've created the
+animation, but remember,
+
+55
+00:03:05,420 --> 00:03:07,550
+you have to assign it as well.
+
+56
+00:03:07,550 --> 00:03:10,810
+So let's go ahead and
+call out that left leg ID,
+
+57
+00:03:10,810 --> 00:03:16,985
+give it an animation property
+with a tap 1 second infinitely.
+
+58
+00:03:16,985 --> 00:03:19,330
+If you'll look at our
+donut now, both his arms
+
+59
+00:03:19,330 --> 00:03:21,350
+are swinging, and his
+left foot is tapping.
+
+60
+00:03:25,470 --> 00:03:28,140
+Now it's time for you to
+practice multi-step keyframes
+
+61
+00:03:28,140 --> 00:03:29,040
+in the challenges.
+
+62
+00:03:29,040 --> 00:03:33,010
+I'll see you back for the
+final section of level three.
+

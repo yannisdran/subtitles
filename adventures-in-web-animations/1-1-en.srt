@@ -1,0 +1,554 @@
+﻿1
+00:00:00,500 --> 00:00:04,800
+[SINGING] Your website
+is unused because
+
+2
+00:00:04,800 --> 00:00:06,800
+your users are confused.
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,500
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,500 --> 00:00:12,500
+Make buttons
+scale and skew.
+
+6
+00:00:12,500 --> 00:00:14,420
+Keyframes
+animate it too.
+
+7
+00:00:14,420 --> 00:00:16,540
+Change color
+and use easing.
+
+8
+00:00:16,540 --> 00:00:18,530
+The effect will
+be quite pleasing.
+
+9
+00:00:18,530 --> 00:00:22,310
+Try rotations and
+translations in
+
+10
+00:00:22,310 --> 00:00:25,170
+Adventures in Web Animations.
+
+11
+00:00:29,850 --> 00:00:32,340
+Welcome to Adventures
+in Web Animations.
+
+12
+00:00:32,340 --> 00:00:35,880
+My name is Alyssa Nicoll,
+and I'll be your guide.
+
+13
+00:00:35,880 --> 00:00:38,220
+We guide users online
+using the tools
+
+14
+00:00:38,220 --> 00:00:42,450
+that we have available like
+color, font, and motion.
+
+15
+00:00:42,450 --> 00:00:45,730
+So in this course, we're going
+to be diving specifically
+
+16
+00:00:45,730 --> 00:00:47,480
+into motion.
+
+17
+00:00:47,480 --> 00:00:49,930
+We'll learn how to create
+helpful and fun animations
+
+18
+00:00:49,930 --> 00:00:54,040
+using transitions, transforms,
+keyframe animations, and even
+
+19
+00:00:54,040 --> 00:00:57,042
+animating SVGs.
+
+20
+00:00:57,042 --> 00:00:58,750
+Throughout this course,
+we'll be learning
+
+21
+00:00:58,750 --> 00:01:01,230
+to animate this
+site here, which is
+
+22
+00:01:01,230 --> 00:01:03,720
+selling Sweet Lands, the game.
+
+23
+00:01:03,720 --> 00:01:05,760
+You'll need a working
+knowledge of HTML,
+
+24
+00:01:05,760 --> 00:01:08,840
+and CSS as a prereq
+for this course.
+
+25
+00:01:08,840 --> 00:01:13,590
+A bit of JavaScript and jQuery
+are helpful, but not required.
+
+26
+00:01:13,590 --> 00:01:15,580
+Welcome to level one,
+transitions, where
+
+27
+00:01:15,580 --> 00:01:19,910
+we will be talking about
+transitioning color.
+
+28
+00:01:19,910 --> 00:01:21,980
+Transitions cause
+changes to a property
+
+29
+00:01:21,980 --> 00:01:25,200
+to take place over
+a period of time.
+
+30
+00:01:25,200 --> 00:01:27,240
+So for instance, instead
+of an element changing
+
+31
+00:01:27,240 --> 00:01:29,740
+color from white
+to pink instantly,
+
+32
+00:01:29,740 --> 00:01:34,600
+transitions will cause this
+to take place over time.
+
+33
+00:01:34,600 --> 00:01:37,335
+This period of time is
+referred to as a duration.
+
+34
+00:01:42,560 --> 00:01:44,400
+We just talked
+about all the things
+
+35
+00:01:44,400 --> 00:01:47,250
+we have available on
+the web to guide users.
+
+36
+00:01:47,250 --> 00:01:49,400
+But guide them to what?
+
+37
+00:01:49,400 --> 00:01:53,480
+Well, a primary call
+to action, or CTA,
+
+38
+00:01:53,480 --> 00:01:57,430
+is the primary goal for
+a user on a web app.
+
+39
+00:01:57,430 --> 00:01:59,170
+And for our site,
+this would be to
+
+40
+00:01:59,170 --> 00:02:01,300
+purchase the
+Sweet Lands game.
+
+41
+00:02:01,300 --> 00:02:03,690
+So we're going to use
+CSS transitions to make
+
+42
+00:02:03,690 --> 00:02:07,100
+this Buy Now button more of
+a prominent call to action.
+
+43
+00:02:10,289 --> 00:02:12,120
+So we're going to
+start off by styling
+
+44
+00:02:12,120 --> 00:02:15,980
+the initial and hover
+background states of our button.
+
+45
+00:02:15,980 --> 00:02:19,000
+For the initial state, we'll
+give it a lighter blue,
+
+46
+00:02:19,000 --> 00:02:21,240
+and then for the
+hover state, we'll
+
+47
+00:02:21,240 --> 00:02:23,880
+give it a slightly darker blue.
+
+48
+00:02:23,880 --> 00:02:26,860
+One thing to note with
+transitions like this,
+
+49
+00:02:26,860 --> 00:02:30,690
+is you can transition from a
+keyword to a hex or from a hex
+
+50
+00:02:30,690 --> 00:02:31,390
+to RGB.
+
+51
+00:02:31,390 --> 00:02:36,160
+It doesn't have to be
+the same type of value.
+
+52
+00:02:36,160 --> 00:02:38,270
+We have our initial
+and hover states set.
+
+53
+00:02:38,270 --> 00:02:40,870
+So for any transition
+that we're going to do,
+
+54
+00:02:40,870 --> 00:02:42,280
+we'll use this recipe.
+
+55
+00:02:42,280 --> 00:02:44,280
+We'll say transition,
+and then give it
+
+56
+00:02:44,280 --> 00:02:46,250
+a property and a duration.
+
+57
+00:02:46,250 --> 00:02:49,340
+So for our button,
+we'll say transition,
+
+58
+00:02:49,340 --> 00:02:51,350
+the property of
+background color,
+
+59
+00:02:51,350 --> 00:02:54,250
+and then 0.4 seconds
+for the duration.
+
+60
+00:02:54,250 --> 00:02:57,540
+As you can see here on our site,
+when you hover over the button,
+
+61
+00:02:57,540 --> 00:03:01,270
+it's transitioning from this
+lighter blue to a darker blue.
+
+62
+00:03:01,270 --> 00:03:04,060
+It's a good idea to stay
+subtle with transitions
+
+63
+00:03:04,060 --> 00:03:06,590
+and only dramatize when you
+really need to call attention
+
+64
+00:03:06,590 --> 00:03:07,530
+to an element.
+
+65
+00:03:07,530 --> 00:03:11,740
+And even then, be wary of
+super crazy transitions.
+
+66
+00:03:11,740 --> 00:03:14,770
+The fastest transition
+easily seen by the human eye
+
+67
+00:03:14,770 --> 00:03:20,030
+is 0.256 seconds, so anything
+a lot faster than that
+
+68
+00:03:20,030 --> 00:03:21,090
+might not be noticeable.
+
+69
+00:03:24,190 --> 00:03:26,700
+You can transition
+multiple properties
+
+70
+00:03:26,700 --> 00:03:28,750
+when they're comma separated.
+
+71
+00:03:28,750 --> 00:03:33,300
+So on hover, we've given the
+text a slightly darker color.
+
+72
+00:03:33,300 --> 00:03:36,420
+To transition that color along
+with the background color,
+
+73
+00:03:36,420 --> 00:03:39,310
+we say comma, color, and
+then give it a duration.
+
+74
+00:03:39,310 --> 00:03:41,150
+We'll say 0.4 seconds.
+
+75
+00:03:41,150 --> 00:03:44,090
+And you can see here that on
+hover, both the background
+
+76
+00:03:44,090 --> 00:03:45,865
+and the text color
+are transitioning.
+
+77
+00:03:49,340 --> 00:03:51,880
+If you'll notice, both the
+background color and the text
+
+78
+00:03:51,880 --> 00:03:55,020
+color have a 0.4
+second duration.
+
+79
+00:03:55,020 --> 00:03:57,760
+We can shorten this by
+using the all keyword
+
+80
+00:03:57,760 --> 00:04:01,010
+and just say all 0.4 seconds.
+
+81
+00:04:01,010 --> 00:04:05,190
+Be careful, though, because any
+property that can animate will,
+
+82
+00:04:05,190 --> 00:04:08,810
+because we're saying
+transition all properties.
+
+83
+00:04:08,810 --> 00:04:10,130
+As you can see
+on the site, though,
+
+84
+00:04:10,130 --> 00:04:11,795
+it's still working
+as expected.
+
+85
+00:04:15,600 --> 00:04:19,720
+Thus far, we've only been using
+transitions with two values.
+
+86
+00:04:19,720 --> 00:04:24,020
+But there's actually four values
+to a full transition recipe.
+
+87
+00:04:24,020 --> 00:04:26,600
+The property and the
+duration, which we know about,
+
+88
+00:04:26,600 --> 00:04:29,140
+and then the timing
+function and delay.
+
+89
+00:04:29,140 --> 00:04:33,340
+Technically, all that needs to
+be specified is the duration.
+
+90
+00:04:33,340 --> 00:04:37,930
+The rest have defaults, like
+the property defaults to all,
+
+91
+00:04:37,930 --> 00:04:41,320
+the timing function
+defaults to ease,
+
+92
+00:04:41,320 --> 00:04:44,450
+and the delay defaults to zero.
+
+93
+00:04:44,450 --> 00:04:46,660
+So that means a
+transition like this
+
+94
+00:04:46,660 --> 00:04:49,660
+that are specifying all
+of the default values
+
+95
+00:04:49,660 --> 00:04:53,810
+can be shortened to just
+transition 0.4 seconds.
+
+96
+00:04:53,810 --> 00:04:55,570
+You want to leave
+the defaults out
+
+97
+00:04:55,570 --> 00:04:56,980
+unless you need to change them.
+
+98
+00:04:59,690 --> 00:05:02,980
+All of our examples thus far
+and for the rest of the course
+
+99
+00:05:02,980 --> 00:05:05,230
+will be without vendor prefixes.
+
+100
+00:05:05,230 --> 00:05:08,840
+However, out in production,
+you might need to use them.
+
+101
+00:05:08,840 --> 00:05:11,860
+Prefixes look like
+this-- webkit, moz,
+
+102
+00:05:11,860 --> 00:05:15,280
+ms. They're just these
+prefix-y keywords that go
+
+103
+00:05:15,280 --> 00:05:18,980
+before things like transition.
+
+104
+00:05:18,980 --> 00:05:22,160
+How do I know which property
+will need a prefix, though,
+
+105
+00:05:22,160 --> 00:05:24,080
+and for what browser?
+
+106
+00:05:24,080 --> 00:05:28,020
+I personally like to use a
+website called caniuse.com.
+
+107
+00:05:28,020 --> 00:05:29,720
+Here you simply
+type in the thing
+
+108
+00:05:29,720 --> 00:05:33,390
+you're wanting to use, like
+transition or keyframes,
+
+109
+00:05:33,390 --> 00:05:35,940
+and then it will list out
+each of the browsers that
+
+110
+00:05:35,940 --> 00:05:37,820
+are compatible
+with that and which
+
+111
+00:05:37,820 --> 00:05:39,780
+ones you need to use prefixes.
+
+112
+00:05:39,780 --> 00:05:42,490
+Sometimes browsers don't
+even work with prefixes,
+
+113
+00:05:42,490 --> 00:05:46,760
+and you'll see those
+highlighted in red.
+
+114
+00:05:46,760 --> 00:05:48,930
+Have fun practicing
+transitioning color,
+
+115
+00:05:48,930 --> 00:05:52,540
+in the challenges, and I'll see
+you back in the next section.
+

@@ -1,0 +1,352 @@
+﻿1
+00:00:02,140 --> 00:00:04,250
+Welcome back to
+level one, transitions.
+
+2
+00:00:04,250 --> 00:00:05,920
+You're in the final
+section, where we'll
+
+3
+00:00:05,920 --> 00:00:09,400
+be transitioning visibility.
+
+4
+00:00:09,400 --> 00:00:10,830
+So here's our
+current application
+
+5
+00:00:10,830 --> 00:00:12,770
+with our snazzy button.
+
+6
+00:00:12,770 --> 00:00:16,200
+It's doing the background,
+the color, and hidden content
+
+7
+00:00:16,200 --> 00:00:18,070
+that are all transitioning in.
+
+8
+00:00:18,070 --> 00:00:19,880
+When we click on the
+button, however, we
+
+9
+00:00:19,880 --> 00:00:22,420
+have a form that just
+pops in instantly,
+
+10
+00:00:22,420 --> 00:00:24,170
+and this seems like
+a perfect place
+
+11
+00:00:24,170 --> 00:00:26,315
+to go ahead and use our
+knowledge of transitions.
+
+12
+00:00:29,254 --> 00:00:31,170
+So here's the form that
+we're going to display
+
+13
+00:00:31,170 --> 00:00:32,860
+when the button is clicked.
+
+14
+00:00:32,860 --> 00:00:35,090
+There are three main parts.
+
+15
+00:00:35,090 --> 00:00:39,554
+There's the modal header, which
+has the close icon and the H3.
+
+16
+00:00:39,554 --> 00:00:41,970
+There's the modal content,
+which contains the form and all
+
+17
+00:00:41,970 --> 00:00:43,390
+the input goodies.
+
+18
+00:00:43,390 --> 00:00:45,530
+And then lastly, there's
+the modal overlay,
+
+19
+00:00:45,530 --> 00:00:49,030
+which is this big, semi-opaque
+purple box covering up
+
+20
+00:00:49,030 --> 00:00:51,920
+our background.
+
+21
+00:00:51,920 --> 00:00:53,320
+Just like we did
+with the button,
+
+22
+00:00:53,320 --> 00:00:54,986
+we're going to want
+to style the initial
+
+23
+00:00:54,986 --> 00:00:57,190
+and the hover
+state of the modal.
+
+24
+00:00:57,190 --> 00:00:59,470
+So we'll call out the modal
+and the modal overlay,
+
+25
+00:00:59,470 --> 00:01:01,760
+and we'll give them a
+visibility of hidden
+
+26
+00:01:01,760 --> 00:01:03,530
+and an opacity of zero.
+
+27
+00:01:03,530 --> 00:01:06,390
+We don't want them
+showing up initially.
+
+28
+00:01:06,390 --> 00:01:09,350
+Then we want the modal
+when it's active
+
+29
+00:01:09,350 --> 00:01:13,720
+and the modal overlay when it's
+active, to have an opacity of one
+
+30
+00:01:13,720 --> 00:01:15,090
+and a visibility of visible.
+
+31
+00:01:19,810 --> 00:01:23,030
+You might be wondering why
+we're using both opacity zero
+
+32
+00:01:23,030 --> 00:01:24,350
+and visibility hidden.
+
+33
+00:01:24,350 --> 00:01:26,420
+Why not one or the other?
+
+34
+00:01:26,420 --> 00:01:29,250
+Well, opacity zero
+hides the element,
+
+35
+00:01:29,250 --> 00:01:31,820
+but it still takes up the same
+amount of width and height
+
+36
+00:01:31,820 --> 00:01:32,760
+on the page.
+
+37
+00:01:32,760 --> 00:01:35,970
+So it would be blocking
+anything else on the screen.
+
+38
+00:01:35,970 --> 00:01:38,100
+So visibility hidden
+comes in and makes
+
+39
+00:01:38,100 --> 00:01:41,630
+the element transparent
+to these click events.
+
+40
+00:01:41,630 --> 00:01:43,470
+This might also
+have you thinking,
+
+41
+00:01:43,470 --> 00:01:45,630
+why not just use display none?
+
+42
+00:01:45,630 --> 00:01:48,290
+Why use opacity and
+visibility at all?
+
+43
+00:01:48,290 --> 00:01:50,880
+Well, as it turns out,
+not all properties
+
+44
+00:01:50,880 --> 00:01:53,360
+are transitionable in CSS.
+
+45
+00:01:53,360 --> 00:01:57,450
+So when transitioning, use
+both opacity and visibility
+
+46
+00:01:57,450 --> 00:02:03,980
+instead of display none
+
+47
+00:02:03,980 --> 00:02:08,259
+So now let's transition the
+opacity for 0.5 seconds.
+
+48
+00:02:08,259 --> 00:02:11,150
+You'll see, though, that
+it's disappearing right away.
+
+49
+00:02:11,150 --> 00:02:12,470
+Something's not quite right.
+
+50
+00:02:12,470 --> 00:02:15,070
+What happened to
+our whole fade out?
+
+51
+00:02:15,070 --> 00:02:17,780
+Well, we need to transition
+both the visibility
+
+52
+00:02:17,780 --> 00:02:21,580
+property and our opacity.
+
+53
+00:02:21,580 --> 00:02:26,080
+We'll just comma separate that
+and say visibility 0.5 seconds.
+
+54
+00:02:26,080 --> 00:02:27,960
+Or, as we learned
+before, you just
+
+55
+00:02:27,960 --> 00:02:31,460
+say transition all 0.5 seconds.
+
+56
+00:02:31,460 --> 00:02:33,240
+And now, on button
+click, you can
+
+57
+00:02:33,240 --> 00:02:35,830
+see that the modal
+and modal overlay
+
+58
+00:02:35,830 --> 00:02:40,070
+are transitioning in and out.
+
+59
+00:02:40,070 --> 00:02:42,090
+Just as with display,
+we'll be running
+
+60
+00:02:42,090 --> 00:02:46,940
+across this multiple times, of
+what properties can transition.
+
+61
+00:02:46,940 --> 00:02:50,630
+A good rule of thumb is,
+does it have a middle state?
+
+62
+00:02:50,630 --> 00:02:53,350
+So with opacity, our
+start state was zero
+
+63
+00:02:53,350 --> 00:02:55,420
+and our end state was one.
+
+64
+00:02:55,420 --> 00:02:59,750
+So our theoretical middle
+transition state would be 0.5.
+
+65
+00:02:59,750 --> 00:03:02,170
+So yes, it transitions.
+
+66
+00:03:02,170 --> 00:03:05,270
+Display, however, has
+a start state of none
+
+67
+00:03:05,270 --> 00:03:07,520
+and an end state of block.
+
+68
+00:03:07,520 --> 00:03:11,510
+So its transitioning middle
+state would be sort of?
+
+69
+00:03:11,510 --> 00:03:12,190
+No.
+
+70
+00:03:12,190 --> 00:03:13,865
+It's definitely
+not transitionable.
+
+71
+00:03:17,580 --> 00:03:20,340
+The properties that can
+be transitioned in CSS
+
+72
+00:03:20,340 --> 00:03:22,660
+are always being
+updated, so make sure
+
+73
+00:03:22,660 --> 00:03:24,420
+you check out the
+full list on the web.
+
+74
+00:03:28,520 --> 00:03:30,920
+Have fun transitioning
+visibility in the challenges,
+
+75
+00:03:30,920 --> 00:03:33,910
+and I'll see you
+back in level two.
+
