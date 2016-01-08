@@ -24,3 +24,6 @@ your pull request. Wouldn't be surprised if you get some free stuff. :-)
 ## Deployment on Code School
 We will only release new subtitles to a course when all videos for all levels have
 been translated.
+
+## Subtitle Status
+For more information on the status of our subtitles, please check out [this issue](https://github.com/codeschool/subtitles/issues/9).
