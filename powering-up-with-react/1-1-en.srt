@@ -1,31 +1,31 @@
 1
 00:00:00,500 --> 00:00:03,900
 [SINGING] When your page load is slow
-and your code is off track
+and your code is off track,
 
 2
 00:00:03,900 --> 00:00:07,200
-It is fun for a fact to try using React
+it is fun for a fact to try using React.
 
 3
 00:00:07,200 --> 00:00:10,800
-To keep your app clarity
+To keep your app clarity,
 component modularity
 
 4
 00:00:10,800 --> 00:00:13,900
-When in doubt it changes your
-state to update the pages
+When your data changes,
+use state to update the pages
 
 5
 00:00:13,900 --> 00:00:17,500
-To load it quickly all along
-It is the virtual DOM
+To load it quickly all along,
+it is the virtual DOM
 
 6
 00:00:17,500 --> 00:00:20,700
-Send your data all around
-Using props to call it down
+Send your data all around,
+using props to call it down.
 
 6
 00:00:20,700 --> 00:00:26,200
