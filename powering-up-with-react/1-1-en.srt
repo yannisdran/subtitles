@@ -1,0 +1,626 @@
+1
+00:00:00,500 --> 00:00:03,900
+[SINGING] When your page load is slow
+and your code is off track
+
+2
+00:00:03,900 --> 00:00:07,200
+It is fun for a fact to try using React
+
+3
+00:00:07,200 --> 00:00:10,800
+To keep your app clarity
+component modularity
+
+4
+00:00:10,800 --> 00:00:13,900
+When in doubt it changes your
+state to update the pages
+
+5
+00:00:13,900 --> 00:00:17,500
+To load it quickly all along
+It is the virtual DOM
+
+6
+00:00:17,500 --> 00:00:20,700
+Send your data all around
+Using props to call it down
+
+6
+00:00:20,700 --> 00:00:26,200
+It's time to act, keep your app intact
+Powering Up With React
+
+7
+00:00:27,200 --> 00:00:32,000
+Hi!  I'm Sergio Cruz and you're
+watching Powering Up With React.
+
+8
+00:00:32,000 --> 00:00:34,100
+In this first level we're going to jump right in
+
+9
+00:00:34,100 --> 00:00:37,800
+and learn how we can write our first React component.
+
+10
+00:00:37,800 --> 00:00:41,200
+But before we do that, you might be wondering
+what is React?
+
+11
+00:00:41,200 --> 00:00:44,500
+We all heard it was good at some point,
+but what makes it useful?
+
+12
+00:00:44,500 --> 00:00:49,700
+React is a JavaScript library for
+building user interfaces.
+
+13
+00:00:49,700 --> 00:00:52,800
+Some people use it as the V in MVC.
+
+14
+00:00:52,800 --> 00:00:55,000
+React was built to solve one problem:
+
+15
+00:00:55,000 --> 00:00:58,700
+building large applications with data
+that changes over time.
+
+16
+00:00:58,700 --> 00:01:03,700
+React was originally conceived
+at Facebook and heavily used 
+and battle-tested 
+
+17
+00:01:03,700 --> 00:01:06,300
+on products like the Facebook website
+and also Instagram.
+
+18
+00:01:06,300 --> 00:01:10,000
+These applications contain complex UIs,
+
+19
+00:01:10,000 --> 00:01:15,500
+and React was built to simplify some of
+the process behind developing these apps.
+
+20
+00:01:15,500 --> 00:01:19,500
+After using React internally for a while
+Facebook got around to open-sourcing it
+
+21
+00:01:19,500 --> 00:01:22,700
+and now it's used by many
+major players in our industry.
+
+22
+00:01:24,200 --> 00:01:28,000
+Before we start diving deep into
+React, here are some prereqs.
+
+23
+00:01:28,000 --> 00:01:30,000
+You need to know JavaScript.
+
+24
+00:01:30,000 --> 00:01:33,300
+Be sure to check out the JavaScript
+fundamentals course here at CodeSchool.
+
+25
+00:01:33,300 --> 00:01:35,800
+We'll be using ES2015 syntax throughout this course.
+
+26
+00:01:35,800 --> 00:01:41,600
+More specifically the class syntax, 
+arrow functions and the spread operator.
+
+27
+00:01:41,600 --> 00:01:45,100
+If you're not familiar with those,
+check out our course on ES2015.
+
+28
+00:01:46,800 --> 00:01:49,300
+In this course we'll learn what makes React great,
+
+29
+00:01:49,300 --> 00:01:53,000
+which includes how to write React components,
+
+30
+00:01:53,000 --> 00:01:58,600
+rendering data to the page, how to pass data
+from one component to another,
+
+31
+00:01:58,600 --> 00:02:04,500
+how react handles events, capture user
+input, talk to remote servers.
+
+32
+00:02:04,500 --> 00:02:08,200
+Now that we know what React is and
+what we'll be learning in this course
+
+33
+00:02:08,200 --> 00:02:11,200
+let's start exploring how to build things in React.
+
+34
+00:02:11,200 --> 00:02:14,700
+To do that, we need to start
+thinking in terms of components.
+
+35
+00:02:14,700 --> 00:02:16,600
+Let me show you what that means.
+
+36
+00:02:18,500 --> 00:02:25,600
+When using React, we solve problems using
+something called component based architecture.
+
+37
+00:02:25,600 --> 00:02:29,500
+We create components, and if a component gets too complex
+
+38
+00:02:29,500 --> 00:02:32,800
+we break it into smaller, simpler components.
+
+39
+00:02:32,800 --> 00:02:35,000
+Let's look at a social media feed
+
+40
+00:02:35,000 --> 00:02:40,000
+and try to visually identify some
+components we might end up creating.
+
+41
+00:02:40,000 --> 00:02:43,000
+The first component is what
+brings everything together.
+
+42
+00:02:43,000 --> 00:02:47,300
+We'll call it StoryBox.
+This'll be our root component.
+
+43
+00:02:47,300 --> 00:02:50,600
+The second component we'll create is StoryForm.
+
+44
+00:02:50,600 --> 00:02:56,900
+This component will contain 
+a form that will allow users 
+to add new stories to our feed.
+
+45
+00:02:56,900 --> 00:03:00,300
+And the third component we'll create is called Story.
+
+46
+00:03:00,300 --> 00:03:06,600 
+This component is responsible for
+holding information about each
+individual story in our feed.
+
+47
+00:03:06,600 --> 00:03:10,600 
+Notice that we're reusing the
+Story component over and over again
+
+48
+00:03:10,600 --> 00:03:13,700 
+but with different data each time.
+Pretty cool, right?
+
+49
+00:03:15,300 --> 00:03:20,800 
+We have been using the term component a lot.
+But what is a component in React?
+
+50
+00:03:20,800 --> 00:03:26,000 
+Components work similarly to JavaScript functions.
+
+51
+00:03:26,000 --> 00:03:30,500 
+They ultimately generate
+what becomes our HTML code.
+
+52
+00:03:30,500 --> 00:03:32,500 
+Let's look at this simple component.
+
+53
+00:03:32,500 --> 00:03:37,000 
+When the render method
+is called on it, it returns Output #1
+
+54
+00:03:37,000 --> 00:03:41,900
+with some some markup in it saying
+good morning, and the current time, 10:45am.
+
+55
+00:03:41,900 --> 00:03:44,700
+Later on, we'll call this same component's render method again
+
+56
+00:03:44,700 --> 00:03:47,500
+and then we'll generate what we see in Output #2.
+
+57
+00:03:48,000 --> 00:03:53,800
+Some some markup saying good morning,
+and the time, which is now 10:55am.
+
+58
+00:03:53,800 --> 00:03:57,800
+Now just because the component produced a brand new output
+
+59
+00:03:57,800 --> 00:04:05,100
+it doesn't mean the whole DOM has changed.
+That's where the virutal DOM comes in.
+
+60
+00:04:05,100 --> 00:04:10,300
+The virtual DOM is an
+in-memory representation of the real DOM
+
+61
+00:04:10,300 --> 00:04:14,200
+generated by React components
+before any changes are made to the page.
+
+62
+00:04:15,000 --> 00:04:21,600
+It's a step that happens between the render function
+being called and the displaying of elements on the screen.
+
+63
+00:04:21,600 --> 00:04:28,400
+A component's render method returns some markup,
+but it's not the final HTML yet.
+
+63
+00:04:28,400 --> 00:04:31,200
+It's the in-memory representation
+
+64
+00:04:31,200 --> 00:04:33,500
+of what will become real elements.
+
+65
+00:04:33,500 --> 00:04:34,900
+This is Step 1.
+
+66
+00:04:34,900 --> 00:04:39,400
+Then that output will be
+transformed into real HTML,
+
+67
+00:04:39,400 --> 00:04:42,500
+which is what gets displayed in the browser,
+
+68
+00:04:42,500 --> 00:04:43,800
+as we can see in Step 2.
+
+69
+00:04:43,800 --> 00:04:48,500
+You may be wondering, why go through
+the extra step of generating a virtual DOM?
+
+70
+00:04:48,500 --> 00:04:52,600
+Well, this is what allows React to be fast.
+
+71
+00:04:52,600 --> 00:04:57,000
+It does this by means of virtual DOM diffing.
+
+72
+00:04:59,000 --> 00:05:05,700
+Diffing allows React to minimize
+changes to the DOM as a result from user actions,
+
+73
+00:05:05,700 --> 00:05:09,200
+therefore increasing browser performance.
+
+74
+00:05:09,200 --> 00:05:15,400
+So back to our original component example.
+The first time the render method is called
+
+75
+00:05:15,400 --> 00:05:22,000
+it'll return some markup with two paragraphs.
+Good morning and 10:45am
+
+76
+00:05:22,000 --> 00:05:27,900
+The second time the render method is called
+it will return the same markup but with one difference:
+
+77
+00:05:27,900 --> 00:05:33,300
+the new time is now 10:55am.
+
+78
+00:05:33,300 --> 00:05:35,900
+Because we have a virtual DOM
+diffing mechanism in place
+
+79
+00:05:35,900 --> 00:05:41,600
+the only part of the DOM that gets
+updated is the paragraph with the current time
+
+80
+00:05:41,600 --> 00:05:48,700
+making the browser DOM work as least as possible,
+since it's known for being slow.
+
+81
+00:05:48,700 --> 00:05:55,700
+Now that we understand how the virtual DOM works,
+let's start building our first React application.
+
+82
+00:05:58,300 --> 00:06:01,000
+What we want out of this application is very simple.
+
+83
+00:06:01,000 --> 00:06:04,300
+We just want to
+print the words Story Box on the screen.
+
+84
+00:06:04,300 --> 00:06:08,400
+So, let's see what writing
+this React component will look like.
+
+85
+00:06:10,200 --> 00:06:16,600
+Components in React are JavaScript classes
+that extend from the React.Component base class.
+
+86
+00:06:16,600 --> 00:06:22,200
+Let's break it down a bit.
+First we declare a class called StoryBox
+
+87
+00:06:22,200 --> 00:06:25,000
+and make it extend React.Component.
+
+88
+00:06:25,000 --> 00:06:30,500
+Every component in React needs to include a render function.
+
+89
+00:06:30,500 --> 00:06:38,400
+This is a must have for every component we write.
+Our render function will return some markup.
+
+90
+00:06:38,400 --> 00:06:42,400
+You're probably wondering why
+we don't have to put quotes around this markup.
+
+91
+00:06:42,400 --> 00:06:46,500
+And that's because of something called JSX.
+
+92
+00:06:46,500 --> 00:06:51,300
+It basically allows us to inlude HTML in our JavaScript.
+
+93
+00:06:51,300 --> 00:06:55,500
+But it has some enhancements.
+We'll talk about that in the next section.
+
+94
+00:06:55,500 --> 00:07:00,500
+Now that we have a component written,
+we need to put the result into a web page.
+
+95
+00:07:02,500 --> 00:07:08,000
+We will use the React DOM object
+to render components to our HTML page
+
+96
+00:07:08,000 --> 00:07:13,500
+as it reads output from a supplied
+React component and adds it to the DOM.
+
+97
+00:07:13,500 --> 00:07:18,200
+We'll call ReactDOM.render
+and that method takes two arguments.
+
+98
+00:07:18,200 --> 00:07:22,700
+The first is the StoryBox component,
+again with no quotes.
+
+99
+00:07:22,700 --> 00:07:28,200
+The second argument of the
+render function is a target container
+
+100
+00:07:28,200 --> 00:07:30,300
+where the component will be rendered to. 
+
+101
+00:07:30,300 --> 00:07:35,500
+In this case an HTML element with the story-app id.
+
+102
+00:07:35,500 --> 00:07:43,100
+Every time we create a React component we use it
+by writing an element named after its class.
+
+103
+00:07:43,100 --> 00:07:46,600
+In this example when we invoke StoryBox
+
+104
+00:07:46,600 --> 00:07:53,600
+we are referencing a variable using JSX syntax.
+So the case here is very important
+
+105
+00:07:53,600 --> 00:07:57,500
+so it matches the variable,
+which is the class name in scope.
+
+106
+00:08:00,700 --> 00:08:04,200
+Now let's start writing the HTML code for our page.
+
+107
+00:08:04,200 --> 00:08:10,000
+The target element in the
+ReactDOM.render method is called story-app,
+
+108
+00:08:10,000 --> 00:08:14,900
+so let's make sure our page
+contains a div with that id associated to it.
+
+109
+00:08:14,900 --> 00:08:20,900
+Once our div is in place we can start including
+some script tags to get React to work.
+
+110
+00:08:23,100 --> 00:08:30,500
+Let's go ahead and include the source code for
+React, React DOM, Babel and our components file.
+
+111
+00:08:30,500 --> 00:08:35,600
+React and React DOM will take care
+of rendering our components for us.
+
+112
+00:08:35,600 --> 00:08:41,800
+Babel will help our web page
+understand ES2015 code as well as JSX.
+
+113
+00:08:41,800 --> 00:08:46,200
+Let's take a look at our
+project folder here on the left.
+
+114
+00:08:46,200 --> 00:08:51,700
+We have an index.html file, components.js, which is where
+
+115
+00:08:51,700 --> 00:08:54,900
+all of our components will live, and the vendor files.
+
+116
+00:08:54,900 --> 00:09:01,600
+And when we run index.html, we will see the
+Story Box text being displayed on our web page.
+
+117
+00:09:01,600 --> 00:09:08,100
+Let's take a step back, and review how
+our React application comes together
+
+118
+00:09:08,100 --> 00:09:11,200
+It all starts with index.html.
+
+119
+00:09:11,200 --> 00:09:15,600
+When opened the browser will download
+the dependencies that come with it
+
+120
+00:09:15,600 --> 00:09:19,500
+causing the React library
+and our components to be loaded.
+
+121
+00:09:19,500 --> 00:09:25,500
+Then the React DOM renderer
+will render our StoryBox component.
+
+122
+00:09:25,500 --> 00:09:32,400
+It will take in a virtual representation
+of the DOM that is returned from the StoryBox render method
+
+123
+00:09:32,400 --> 00:09:35,300
+and then turns that into real DOM elements.
+
+124
+00:09:35,300 --> 00:09:39,900
+Consequently, the Story Box message
+gets displayed on the screen.
+
+125
+00:09:42,200 --> 00:09:46,800
+I know that might sound like it's a lot,
+but let's do a quick recap on what makes React awesome.
+
+126
+00:09:46,800 --> 00:09:49,200
+It was built to solve one problem:
+
+127
+00:09:49,200 --> 00:09:53,100
+building large applications with
+data that changes over time.
+
+128
+00:09:53,100 --> 00:09:57,200
+In React, we write apps in terms of components.
+
+129
+00:09:57,200 --> 00:10:02,300
+We use JavaScript classes
+when declaring React components.
+
+130
+00:10:02,300 --> 00:10:09,000
+Components must extend the React.Component class
+and must contain a render method.
+
+131
+00:10:09,000 --> 00:10:15,200
+Finally, we call the ReactDOM.render function
+to render components to a web page.
+
+132
+00:10:17,000 --> 00:10:22,200
+We've reached the end of the section.  Head over
+to the challenges and I'll see you here in our next section.
