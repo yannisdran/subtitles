@@ -1,0 +1,495 @@
+1
+00:00:00,000 --> 00:00:02,009
+
+
+2
+00:00:02,009 --> 00:00:03,215
+Welcome back.
+
+3
+00:00:03,215 --> 00:00:04,590
+In this section,
+we'll learn more
+
+4
+00:00:04,590 --> 00:00:08,722
+about JSX, the markup that
+lives in our JavaScript code.
+
+5
+00:00:08,722 --> 00:00:10,430
+The first thing you
+need to know about it
+
+6
+00:00:10,430 --> 00:00:12,920
+is that it's not a string.
+
+7
+00:00:12,920 --> 00:00:16,630
+When writing JSX code, elements
+that start with the lowercase
+
+8
+00:00:16,630 --> 00:00:20,140
+are rendered as normal
+HTML elements, like the div
+
+9
+00:00:20,140 --> 00:00:21,750
+we wrote up here.
+
+10
+00:00:21,750 --> 00:00:24,370
+And elements in
+upper camel case are
+
+11
+00:00:24,370 --> 00:00:28,492
+rendered as React components,
+like the StoryBox down here.
+
+12
+00:00:28,492 --> 00:00:31,730
+
+
+13
+00:00:31,730 --> 00:00:34,450
+JSX is just another way
+of writing JavaScript
+
+14
+00:00:34,450 --> 00:00:36,810
+with a transpile step.
+
+15
+00:00:36,810 --> 00:00:40,570
+JSX stands for JavaScript XML.
+
+16
+00:00:40,570 --> 00:00:43,490
+Let's take a look at how
+the browser reads JSX code
+
+17
+00:00:43,490 --> 00:00:45,710
+once it's transpiled.
+
+18
+00:00:45,710 --> 00:00:48,690
+As we can see in the
+return method of StoryBox,
+
+19
+00:00:48,690 --> 00:00:54,240
+our div becomes simple function
+calls to React.createElement,
+
+20
+00:00:54,240 --> 00:00:56,150
+including arguments
+describing what
+
+21
+00:00:56,150 --> 00:00:57,920
+our markup should look like.
+
+22
+00:00:57,920 --> 00:01:01,970
+If we look below where we refer
+to the StoryBox component,
+
+23
+00:01:01,970 --> 00:01:04,440
+it's the same thing:
+another function call
+
+24
+00:01:04,440 --> 00:01:07,410
+to React.createElement,
+but this time
+
+25
+00:01:07,410 --> 00:01:09,850
+passing the StoryBox variable.
+
+26
+00:01:09,850 --> 00:01:11,640
+This might take a
+little getting used to,
+
+27
+00:01:11,640 --> 00:01:13,510
+but it will feel
+natural in no time.
+
+28
+00:01:13,510 --> 00:01:16,340
+
+
+29
+00:01:16,340 --> 00:01:19,660
+We've seen that JSX
+looks similar to HTML,
+
+30
+00:01:19,660 --> 00:01:22,420
+but gets strings formed
+into JavaScript code.
+
+31
+00:01:22,420 --> 00:01:26,690
+Now let's look at how we can
+expand our StoryBox component.
+
+32
+00:01:26,690 --> 00:01:30,110
+Here we have an h3
+and a paragraph tag.
+
+33
+00:01:30,110 --> 00:01:33,610
+See how we can easily
+define HTML elements?
+
+34
+00:01:33,610 --> 00:01:37,440
+Notice that our paragraph tag
+has an HTML class associated
+
+35
+00:01:37,440 --> 00:01:41,660
+to it, and also notice that
+we used the keyword className
+
+36
+00:01:41,660 --> 00:01:43,630
+instead of class.
+
+37
+00:01:43,630 --> 00:01:46,140
+The reason for that
+is because class
+
+38
+00:01:46,140 --> 00:01:48,240
+is a reserved word
+in JavaScript,
+
+39
+00:01:48,240 --> 00:01:52,330
+so JSX adopted a new way
+of expressing HTML classes.
+
+40
+00:01:52,330 --> 00:01:54,250
+And we have seen this before.
+
+41
+00:01:54,250 --> 00:01:58,670
+This JSX code is
+transpiled to JavaScript
+
+42
+00:01:58,670 --> 00:01:59,804
+that looks like this.
+
+43
+00:01:59,804 --> 00:02:04,330
+
+
+44
+00:02:04,330 --> 00:02:06,480
+Let's take a look at
+how the flow works when
+
+45
+00:02:06,480 --> 00:02:10,340
+transforming JSX into HTML.
+
+46
+00:02:10,340 --> 00:02:13,310
+In our components,
+we write JSX code.
+
+47
+00:02:13,310 --> 00:02:18,110
+But remember, browsers don't
+understand JSX natively,
+
+48
+00:02:18,110 --> 00:02:19,840
+but they do
+understand JavaScript,
+
+49
+00:02:19,840 --> 00:02:23,590
+which is what all JSX
+code gets transformed to.
+
+50
+00:02:23,590 --> 00:02:26,510
+Then that JavaScript is
+rendered by the browser,
+
+51
+00:02:26,510 --> 00:02:29,680
+which ultimately becomes HTML.
+
+52
+00:02:29,680 --> 00:02:32,250
+As you can see,
+we write JSX which
+
+53
+00:02:32,250 --> 00:02:35,230
+React transforms into
+JavaScript, which
+
+54
+00:02:35,230 --> 00:02:38,100
+then generates the DOM tree.
+
+55
+00:02:38,100 --> 00:02:40,710
+We don't have to worry
+about managing the DOM.
+
+56
+00:02:40,710 --> 00:02:44,490
+React does that for us.
+
+57
+00:02:44,490 --> 00:02:46,220
+Let's take a look
+at this example
+
+58
+00:02:46,220 --> 00:02:48,370
+and see how we can display
+the current time using
+
+59
+00:02:48,370 --> 00:02:50,900
+JavaScript inside of JSX.
+
+60
+00:02:50,900 --> 00:02:53,610
+Since JSX ultimately
+becomes JavaScript,
+
+61
+00:02:53,610 --> 00:02:56,020
+we can easily mix the two.
+
+62
+00:02:56,020 --> 00:02:59,000
+This allows us to accomplish
+some really neat things.
+
+63
+00:02:59,000 --> 00:03:02,510
+Let's display the current time
+in our StoryBox component.
+
+64
+00:03:02,510 --> 00:03:04,370
+The first thing we
+need to do is create
+
+65
+00:03:04,370 --> 00:03:08,570
+a new variable called now and
+give it a new Date object.
+
+66
+00:03:08,570 --> 00:03:11,260
+Then we use that variable
+to display the time
+
+67
+00:03:11,260 --> 00:03:14,300
+in our component within JSX.
+
+68
+00:03:14,300 --> 00:03:16,660
+Notice that any
+code that is written
+
+69
+00:03:16,660 --> 00:03:20,280
+within curly braces in
+JSX gets interpreted
+
+70
+00:03:20,280 --> 00:03:22,780
+as literal JavaScript.
+
+71
+00:03:22,780 --> 00:03:24,780
+Finally, as we
+can see, we're now
+
+72
+00:03:24,780 --> 00:03:27,590
+displaying the current
+time in our browser.
+
+73
+00:03:27,590 --> 00:03:29,240
+Pretty straightforward, right?
+
+74
+00:03:29,240 --> 00:03:31,890
+Let's look at another example.
+
+75
+00:03:31,890 --> 00:03:34,200
+This time we will display
+a list of elements
+
+76
+00:03:34,200 --> 00:03:38,560
+using JSX in JavaScript's
+native map function.
+
+77
+00:03:38,560 --> 00:03:41,230
+So we create a variable
+called topicsList
+
+78
+00:03:41,230 --> 00:03:45,630
+and we'll give it an array of
+strings with HTML, JavaScript,
+
+79
+00:03:45,630 --> 00:03:46,960
+and React.
+
+80
+00:03:46,960 --> 00:03:49,350
+Then we use the map
+function to create
+
+81
+00:03:49,350 --> 00:03:52,120
+a new array of JSX elements.
+
+82
+00:03:52,120 --> 00:03:55,100
+The result is equivalent to
+declaring the list of elements
+
+83
+00:03:55,100 --> 00:03:57,700
+one by one, except
+we're combining
+
+84
+00:03:57,700 --> 00:04:02,730
+the power of JSX and JavaScript
+to make this process dynamic.
+
+85
+00:04:02,730 --> 00:04:06,150
+Finally, we get to see
+our StoryBox component
+
+86
+00:04:06,150 --> 00:04:09,415
+displaying the current time
+and our new array of interests.
+
+87
+00:04:09,415 --> 00:04:12,130
+
+
+88
+00:04:12,130 --> 00:04:14,410
+And this wraps up
+our first level,
+
+89
+00:04:14,410 --> 00:04:17,740
+but let's do a
+quick recap on JSX.
+
+90
+00:04:17,740 --> 00:04:20,420
+JSX stands for JavaScript XML.
+
+91
+00:04:20,420 --> 00:04:23,910
+JSX markup looks
+similar to HTML,
+
+92
+00:04:23,910 --> 00:04:28,150
+but ultimately gets transpiled
+to JavaScript function calls.
+
+93
+00:04:28,150 --> 00:04:31,070
+React will know how
+to render to the page.
+
+94
+00:04:31,070 --> 00:04:34,300
+Code written within curly
+braces are interpreted
+
+95
+00:04:34,300 --> 00:04:36,680
+as literal JavaScript.
+
+96
+00:04:36,680 --> 00:04:41,310
+It is common to map
+arrays to JSX elements.
+
+97
+00:04:41,310 --> 00:04:43,560
+Now head over to the challenges,
+and I'll see you here
+
+98
+00:04:43,560 --> 00:04:44,395
+for level 2.
+
+99
+00:04:44,395 --> 00:04:46,960
+
+
+100
+00:04:46,960 --> 00:04:47,700
+Ha ha.  That was perfect.
+
+101
+00:04:47,700 --> 00:04:50,020
+Do that again. Ha ha ha ...
+
+102
+00:04:50,020 --> 00:04:53,850
+Inherit from the React-- I
+don't know how to say the word
+
+103
+00:04:53,850 --> 00:04:54,836
+"inherit."
+
+104
+00:04:54,836 --> 00:04:56,870
+Inherit.
+
+105
+00:04:56,870 --> 00:05:03,180
+That inherit-- That inherit--
+I was totally thinking
+
+106
+00:05:03,180 --> 00:05:04,970
+of "in-hair-it."
+
+107
+00:05:04,970 --> 00:05:05,759
