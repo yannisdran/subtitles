@@ -1,0 +1,573 @@
+1
+00:00:00,000 --> 00:00:02,100
+
+
+2
+00:00:02,100 --> 00:00:03,300
+Welcome back.
+
+3
+00:00:03,300 --> 00:00:07,800
+In this section, we're going
+to learn about dynamic props.
+
+4
+00:00:07,800 --> 00:00:11,330
+As you can see here, we're
+passing hard coded strings
+
+5
+00:00:11,330 --> 00:00:13,850
+as props for author and body.
+
+6
+00:00:13,850 --> 00:00:17,620
+But what if we wanted to
+traverse an array of objects
+
+7
+00:00:17,620 --> 00:00:19,630
+in the real world
+where we hardly ever deal
+
+8
+00:00:19,630 --> 00:00:21,650
+with hard coded values?
+
+9
+00:00:21,650 --> 00:00:24,530
+Instead, we'll usually
+deal with dynamic objects
+
+10
+00:00:24,530 --> 00:00:28,030
+that are loaded from an
+AJAX request, for example.
+
+11
+00:00:28,030 --> 00:00:31,780
+Let's start exploring on what
+that flow would look like.
+
+12
+00:00:31,780 --> 00:00:34,520
+Typically, when we consume
+data from API servers,
+
+13
+00:00:34,520 --> 00:00:37,000
+we've returned an
+array of objects,
+
+14
+00:00:37,000 --> 00:00:38,760
+kind of what we see here.
+
+15
+00:00:38,760 --> 00:00:43,200
+Here, we have a commentList
+array with two objects.
+
+16
+00:00:43,200 --> 00:00:47,650
+These objects have the ID,
+author, and body properties.
+
+17
+00:00:47,650 --> 00:00:50,470
+Given this array, let's see how
+we can use this data structure
+
+18
+00:00:50,470 --> 00:00:53,940
+from inside our app.
+
+19
+00:00:53,940 --> 00:00:55,900
+To use this in our
+code, we'll start
+
+20
+00:00:55,900 --> 00:00:59,820
+by declaring a new method
+called _getComments.
+
+21
+00:00:59,820 --> 00:01:02,510
+We're using a convention
+that uses an underscore
+
+22
+00:01:02,510 --> 00:01:04,800
+in the beginning of
+the name of our method
+
+23
+00:01:04,800 --> 00:01:07,150
+so we can easily
+distinguish custom-written
+
+24
+00:01:07,150 --> 00:01:11,060
+methods from the methods
+that React uses natively.
+
+25
+00:01:11,060 --> 00:01:15,320
+The _getComments method will
+return an array of JSX elements
+
+26
+00:01:15,320 --> 00:01:17,620
+that is generated dynamically.
+
+27
+00:01:17,620 --> 00:01:20,910
+To do that, we use the
+JavaScript map function
+
+28
+00:01:20,910 --> 00:01:24,080
+and return a common
+element for each object
+
+29
+00:01:24,080 --> 00:01:26,470
+in the commentList array.
+
+30
+00:01:26,470 --> 00:01:29,031
+Next, let's pass dynamic
+props through these comment
+
+31
+00:01:29,031 --> 00:01:29,530
+components.
+
+32
+00:01:29,530 --> 00:01:33,240
+
+
+33
+00:01:33,240 --> 00:01:35,910
+The callback to map
+takes an argument
+
+34
+00:01:35,910 --> 00:01:39,680
+which represents each element
+from the calling object.
+
+35
+00:01:39,680 --> 00:01:42,180
+To pass variables
+as props, we can
+
+36
+00:01:42,180 --> 00:01:45,560
+take advantage of a JSX
+syntax we have already seen
+
+37
+00:01:45,560 --> 00:01:48,270
+in this course, curly braces.
+
+38
+00:01:48,270 --> 00:01:49,870
+Here's a word of wisdom.
+
+39
+00:01:49,870 --> 00:01:54,420
+In JSX-land, anything that's
+written within two curly braces
+
+40
+00:01:54,420 --> 00:01:57,330
+is interpreted as
+literal JavaScript,
+
+41
+00:01:57,330 --> 00:01:58,990
+including variables.
+
+42
+00:01:58,990 --> 00:02:02,130
+This makes our job
+really simple here.
+
+43
+00:02:02,130 --> 00:02:06,140
+Let's see how we can go about
+passing two props to comment,
+
+44
+00:02:06,140 --> 00:02:08,639
+author and body, dynamically.
+
+45
+00:02:08,639 --> 00:02:12,692
+So within curly braces,
+we can call comment.author
+
+46
+00:02:12,692 --> 00:02:13,400
+and comment.body.
+
+47
+00:02:13,400 --> 00:02:17,660
+
+
+48
+00:02:17,660 --> 00:02:19,310
+Now, one last thing
+we need to do.
+
+49
+00:02:19,310 --> 00:02:21,320
+Since our comments
+are dynamic, we
+
+50
+00:02:21,320 --> 00:02:24,880
+need to pass a special
+type of prop called key.
+
+51
+00:02:24,880 --> 00:02:29,160
+This prop helps React keep
+track of which element is which
+
+52
+00:02:29,160 --> 00:02:30,200
+in the loop.
+
+53
+00:02:30,200 --> 00:02:35,030
+It's a good practice to pass
+a unique id as the component's
+
+54
+00:02:35,030 --> 00:02:35,850
+key.
+
+55
+00:02:35,850 --> 00:02:37,280
+We're done writing _getComments.
+
+56
+00:02:37,280 --> 00:02:42,240
+So let's go back to the render
+function and use this method.
+
+57
+00:02:42,240 --> 00:02:45,820
+Here in render, we'll create
+a new variable called comments
+
+58
+00:02:45,820 --> 00:02:49,320
+and store the result
+of _getComments in it.
+
+59
+00:02:49,320 --> 00:02:52,790
+Since the return value of
+_getComments is an array,
+
+60
+00:02:52,790 --> 00:02:55,870
+we'll get to call its
+length property to find out
+
+61
+00:02:55,870 --> 00:02:58,940
+how many comments are
+available in our title,
+
+62
+00:02:58,940 --> 00:03:00,480
+making that dynamic.
+
+63
+00:03:00,480 --> 00:03:02,440
+Then a little
+further down, we'll
+
+64
+00:03:02,440 --> 00:03:05,780
+just use the comments variable
+to display the comments.
+
+65
+00:03:05,780 --> 00:03:10,940
+JSX knows how to render an array
+of JSX elements automatically.
+
+66
+00:03:10,940 --> 00:03:14,510
+So all we need to do is
+place the variable there.
+
+67
+00:03:14,510 --> 00:03:16,940
+When we run the code,
+we'll see our values
+
+68
+00:03:16,940 --> 00:03:21,880
+from the array are being
+displayed on the screen.
+
+69
+00:03:21,880 --> 00:03:24,340
+The next problem we're
+facing is that we're always
+
+70
+00:03:24,340 --> 00:03:28,140
+using plural case no matter
+how many comments are returned.
+
+71
+00:03:28,140 --> 00:03:30,760
+As you can see here,
+this causes the grammar
+
+72
+00:03:30,760 --> 00:03:34,100
+to be incorrect if the
+_getComments method returns
+
+73
+00:03:34,100 --> 00:03:37,360
+one single comment,
+or even zero comments.
+
+74
+00:03:37,360 --> 00:03:40,630
+Let's fix this.
+
+75
+00:03:40,630 --> 00:03:45,830
+To fix this issue, we'll write a
+method called _getCommentsTitle.
+
+76
+00:03:45,830 --> 00:03:50,230
+This method takes one argument
+as input, commentCount,
+
+77
+00:03:50,230 --> 00:03:52,670
+a variable that contains
+the number of comments
+
+78
+00:03:52,670 --> 00:03:53,960
+we're displaying.
+
+79
+00:03:53,960 --> 00:03:56,320
+If there are zero comments,
+we return a message
+
+80
+00:03:56,320 --> 00:03:59,110
+that reads, 'No comments yet'.
+
+81
+00:03:59,110 --> 00:04:01,490
+If there is one comment,
+we return a message
+
+82
+00:04:01,490 --> 00:04:03,440
+that reads, '1 comment'.
+
+83
+00:04:03,440 --> 00:04:06,630
+And finally, if there is
+more than one comment,
+
+84
+00:04:06,630 --> 00:04:10,960
+we will return that number
+followed by the 'comments' word.
+
+85
+00:04:10,960 --> 00:04:14,310
+Pretty standard, right?
+
+86
+00:04:14,310 --> 00:04:16,079
+Now, we can call
+the method we just
+
+87
+00:04:16,079 --> 00:04:19,120
+created by passing it
+the length of comments.
+
+88
+00:04:19,120 --> 00:04:20,749
+Hopefully, this
+fixed our problems.
+
+89
+00:04:20,749 --> 00:04:21,540
+Let's check it out.
+
+90
+00:04:21,540 --> 00:04:24,110
+
+
+91
+00:04:24,110 --> 00:04:26,030
+When we run our
+code again, we can
+
+92
+00:04:26,030 --> 00:04:30,180
+see that our grammar is
+correct for all three cases.
+
+93
+00:04:30,180 --> 00:04:33,530
+When there are no comments,
+one comment, or more than one
+
+94
+00:04:33,530 --> 00:04:34,530
+comment.
+
+95
+00:04:34,530 --> 00:04:35,630
+And we did it.
+
+96
+00:04:35,630 --> 00:04:37,330
+Our problems were solved.
+
+97
+00:04:37,330 --> 00:04:41,290
+Let's do a quick recap
+on what we just learned.
+
+98
+00:04:41,290 --> 00:04:44,010
+In this section, we learned
+how to pass dynamic props
+
+99
+00:04:44,010 --> 00:04:45,580
+as variables.
+
+100
+00:04:45,580 --> 00:04:48,710
+We also learned how to
+map an array of objects
+
+101
+00:04:48,710 --> 00:04:52,020
+to an array of JSX elements
+for display purposes.
+
+102
+00:04:52,020 --> 00:04:56,320
+We also used JavaScript
+to handle the plural case
+
+103
+00:04:56,320 --> 00:04:59,120
+on our components' title.
+
+104
+00:04:59,120 --> 00:05:00,450
+That's it for this level.
+
+105
+00:05:00,450 --> 00:05:02,790
+Go practice some props
+in the challenges,
+
+106
+00:05:02,790 --> 00:05:05,600
+and I'll see you back
+here in just a little bit.
+
+107
+00:05:05,600 --> 00:05:06,470
+[BEEP]
+
+108
+00:05:06,470 --> 00:05:08,570
+--reached the end. Ha ha ha.
+
+109
+00:05:08,570 --> 00:05:09,860
+I can't speak today.
+
+110
+00:05:09,860 --> 00:05:10,360
+[BEEP]
+
+111
+00:05:10,360 --> 00:05:13,341
+--tag like we see over here.
+
+112
+00:05:13,341 --> 00:05:13,840
+[BEEP]
+
+113
+00:05:13,840 --> 00:05:14,660
+Did I do that?
+
+114
+00:05:14,660 --> 00:05:15,900
+OK.
+
+115
+00:05:15,900 --> 00:05:17,070
+Let me redo it then.
+
+116
+00:05:17,070 --> 00:05:17,580
+Because that was weird.
+
+117
+00:05:17,580 --> 00:05:18,080
+No.
+
+118
+00:05:18,080 --> 00:05:19,431
+We're keeping it. Ha ha ha.
+
+119
+00:05:19,431 --> 00:05:19,930
+[BEEP]
+
+120
+00:05:19,930 --> 00:05:21,540
+Closing tag like
+we see over here.
+
+121
+00:05:21,540 --> 00:05:24,171
+Ha ha ha
+
+122
+00:05:24,171 --> 00:05:24,670
+[BEEP]
+
+123
+00:05:24,670 --> 00:05:27,720
+--here in our next section.
+
+124
+00:05:27,720 --> 00:05:29,330
+Is that OK?
+
+125
+00:05:29,330 --> 00:05:30,880
+[BEEP]
