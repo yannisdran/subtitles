@@ -1,0 +1,596 @@
+﻿1
+00:00:02,090 --> 00:00:03,170
+Welcome back.
+
+2
+00:00:03,170 --> 00:00:06,250
+In this section, we'll learn
+how to add and delete comments
+
+3
+00:00:06,250 --> 00:00:09,078
+from a remote server.
+
+4
+00:00:09,078 --> 00:00:12,240
+Currently in our app
+we have delete button
+
+5
+00:00:12,240 --> 00:00:15,910
+next to each comment, but
+it doesn't do anything.
+
+6
+00:00:15,910 --> 00:00:19,940
+Let's add some
+functionality to them.
+
+7
+00:00:19,940 --> 00:00:22,090
+To start, we'll add a
+new method to comment
+
+8
+00:00:22,090 --> 00:00:24,820
+box called deleteComment.
+
+9
+00:00:24,820 --> 00:00:29,180
+deleteComment will receive a
+comment object as an argument.
+
+10
+00:00:29,180 --> 00:00:32,570
+Then we will make an
+AJAX request to delete
+
+11
+00:00:32,570 --> 00:00:34,720
+the comment using jQuery.
+
+12
+00:00:34,720 --> 00:00:39,670
+We'll pass an object with two
+properties to the AJAX method.
+
+13
+00:00:39,670 --> 00:00:42,250
+The first indicates
+that jQuery will have
+
+14
+00:00:42,250 --> 00:00:45,580
+to make a delete HTTP request.
+
+15
+00:00:45,580 --> 00:00:47,990
+The second is the URL.
+
+16
+00:00:47,990 --> 00:00:52,200
+For that we use a string
+template from ES2015
+
+17
+00:00:52,200 --> 00:00:58,140
+to interpolate the common
+ID as part of the path.
+
+18
+00:00:58,140 --> 00:01:00,190
+But we'll not wait
+for the API request
+
+19
+00:01:00,190 --> 00:01:03,750
+to be completed before we
+update the component state.
+
+20
+00:01:03,750 --> 00:01:06,990
+We will give our users
+an immediate feedback.
+
+21
+00:01:06,990 --> 00:01:10,420
+This is also known as
+optimistic updates.
+
+22
+00:01:10,420 --> 00:01:14,240
+In our code, we create a
+new array called comments
+
+23
+00:01:14,240 --> 00:01:17,160
+by copying the
+elements of the state.
+
+24
+00:01:17,160 --> 00:01:19,830
+We do that by using
+the spread operator
+
+25
+00:01:19,830 --> 00:01:22,510
+and wrapping the
+statement in brackets.
+
+26
+00:01:22,510 --> 00:01:27,250
+Then we use indexOf to find
+the index of the comment that
+
+27
+00:01:27,250 --> 00:01:31,010
+is about to be deleted and
+assign it to a variable called
+
+28
+00:01:31,010 --> 00:01:33,090
+comment index.
+
+29
+00:01:33,090 --> 00:01:36,060
+Next we'll remove the
+comment from the comments
+
+30
+00:01:36,060 --> 00:01:38,780
+array using the splice method.
+
+31
+00:01:38,780 --> 00:01:43,200
+Lastly, we call setState
+with our new comments array,
+
+32
+00:01:43,200 --> 00:01:45,600
+causing the UI to
+update immediately
+
+33
+00:01:45,600 --> 00:01:47,440
+with the new array of comments.
+
+34
+00:01:47,440 --> 00:01:49,900
+Now that the delete method
+comment is in place,
+
+35
+00:01:49,900 --> 00:01:51,180
+how can we use it?
+
+36
+00:01:51,180 --> 00:01:54,530
+We'll go back to the
+getComments method.
+
+37
+00:01:54,530 --> 00:01:58,020
+Delete events are fired
+from the common component.
+
+38
+00:01:58,020 --> 00:02:01,150
+Since the event handler
+is defined in the parent
+
+39
+00:02:01,150 --> 00:02:04,590
+CommentBox, we will
+pass the method
+
+40
+00:02:04,590 --> 00:02:08,539
+as a prop called onDelete
+delete to comment.
+
+41
+00:02:08,539 --> 00:02:11,380
+We still need to bind
+the deleteComment method
+
+42
+00:02:11,380 --> 00:02:14,460
+to our current
+context, CommentBox
+
+43
+00:02:14,460 --> 00:02:17,710
+so when the method is called
+from the comment component,
+
+44
+00:02:17,710 --> 00:02:23,940
+it will know which class
+the this keyword refers to.
+
+45
+00:02:23,940 --> 00:02:26,230
+Now we're looking at
+the comment component.
+
+46
+00:02:26,230 --> 00:02:30,080
+Let's add an event listener
+to the delete link.
+
+47
+00:02:30,080 --> 00:02:34,060
+We start by declaring a new
+method called handleDelete.
+
+48
+00:02:34,060 --> 00:02:38,210
+Within it, we call
+events.preventDefault to make
+
+49
+00:02:38,210 --> 00:02:40,070
+sure the page
+doesn't get reloaded
+
+50
+00:02:40,070 --> 00:02:42,120
+when the link is clicked.
+
+51
+00:02:42,120 --> 00:02:45,950
+Then we call
+this.props.onDelete,
+
+52
+00:02:45,950 --> 00:02:48,760
+passing the current
+comment as an argument.
+
+53
+00:02:48,760 --> 00:02:52,500
+Next, we add an onClick
+prop to our button,
+
+54
+00:02:52,500 --> 00:02:56,820
+making it call the handleDelete
+method every time it's clicked.
+
+55
+00:02:56,820 --> 00:02:59,020
+Now everything works
+as desired, right?
+
+56
+00:02:59,020 --> 00:03:04,240
+Well, yes but we'd like
+to add one more feature.
+
+57
+00:03:04,240 --> 00:03:07,660
+It is a good UX practice
+to ask for a confirmation
+
+58
+00:03:07,660 --> 00:03:11,610
+before performing a destructive
+action like deleting a comment.
+
+59
+00:03:11,610 --> 00:03:14,510
+So let's go ahead and
+add an IF statement,
+
+60
+00:03:14,510 --> 00:03:18,300
+and only call
+this.props.onDelete
+
+61
+00:03:18,300 --> 00:03:20,990
+if the user confirms the action.
+
+62
+00:03:20,990 --> 00:03:23,500
+Confirm is a native
+JavaScript function
+
+63
+00:03:23,500 --> 00:03:26,820
+that displays a modal
+dialogue with a message
+
+64
+00:03:26,820 --> 00:03:30,090
+and two buttons-- OK and cancel.
+
+65
+00:03:30,090 --> 00:03:33,560
+If a user clicks OK, the
+comment will be deleted.
+
+66
+00:03:33,560 --> 00:03:36,140
+Otherwise, the comment
+will remain in place.
+
+67
+00:03:36,140 --> 00:03:38,600
+And our deleting comments
+feature is complete.
+
+68
+00:03:38,600 --> 00:03:40,972
+Great job.
+
+69
+00:03:40,972 --> 00:03:42,680
+Let's look at the last
+feature our app is
+
+70
+00:03:42,680 --> 00:03:46,720
+missing-- persisting new
+comments in a remote server.
+
+71
+00:03:46,720 --> 00:03:48,550
+When new comments
+are added, let's
+
+72
+00:03:48,550 --> 00:03:51,280
+make an AJAX request
+to persist them.
+
+73
+00:03:51,280 --> 00:03:54,670
+Currently, addComment
+has two problems.
+
+74
+00:03:54,670 --> 00:03:57,080
+The first is that it's
+generating a new comments
+
+75
+00:03:57,080 --> 00:03:59,150
+ID on the client
+side when it should
+
+76
+00:03:59,150 --> 00:04:00,680
+come from the server side.
+
+77
+00:04:00,680 --> 00:04:04,877
+The second is that it's not
+making the AJAX request at all.
+
+78
+00:04:04,877 --> 00:04:06,085
+Let's address these problems.
+
+79
+00:04:08,880 --> 00:04:12,940
+We'll start by creating a simple
+object with author and body,
+
+80
+00:04:12,940 --> 00:04:16,910
+and assigning it to a
+variable called comment.
+
+81
+00:04:16,910 --> 00:04:20,990
+Then we'll use jQuery to make
+a post request to the server,
+
+82
+00:04:20,990 --> 00:04:23,660
+sending the new comment object.
+
+83
+00:04:23,660 --> 00:04:25,920
+When the request is
+successfully completed,
+
+84
+00:04:25,920 --> 00:04:29,240
+we will update the state
+with the new array containing
+
+85
+00:04:29,240 --> 00:04:31,830
+the new comment that
+was just created.
+
+86
+00:04:31,830 --> 00:04:35,260
+Since the new comment is
+being returned from the API,
+
+87
+00:04:35,260 --> 00:04:38,610
+its ID was generated
+on the server side.
+
+88
+00:04:38,610 --> 00:04:43,120
+Therefore, we addressed
+both our problems.
+
+89
+00:04:43,120 --> 00:04:46,500
+We have now used something that
+React calls one-way control
+
+90
+00:04:46,500 --> 00:04:47,960
+flow more than once.
+
+91
+00:04:47,960 --> 00:04:49,360
+Let's see what it looks like.
+
+92
+00:04:49,360 --> 00:04:52,920
+In React, control flows
+from higher-level components
+
+93
+00:04:52,920 --> 00:04:55,990
+down to child components,
+forcing changes
+
+94
+00:04:55,990 --> 00:04:57,900
+to happen reactively.
+
+95
+00:04:57,900 --> 00:05:01,830
+This helps the apps we
+write stay modular and fast.
+
+96
+00:05:01,830 --> 00:05:04,540
+We use one-way data
+flow, for example,
+
+97
+00:05:04,540 --> 00:05:07,170
+when passing the
+deleteComment method
+
+98
+00:05:07,170 --> 00:05:12,420
+declared in the comments box
+down to its child, the comments
+
+99
+00:05:12,420 --> 00:05:18,180
+component, and also when we
+pass addComment to comment form.
+
+100
+00:05:18,180 --> 00:05:21,970
+In other words, data is
+only passed down from parent
+
+101
+00:05:21,970 --> 00:05:24,940
+to child components
+through props,
+
+102
+00:05:24,940 --> 00:05:28,730
+like we did when we mapped over
+the comments in comment box
+
+103
+00:05:28,730 --> 00:05:31,210
+and created comment
+components, passing
+
+104
+00:05:31,210 --> 00:05:34,070
+it an author and body as props.
+
+105
+00:05:34,070 --> 00:05:37,970
+However, when a child component
+would like to send data back
+
+106
+00:05:37,970 --> 00:05:42,170
+to its parent, it does so
+by receiving a call back
+
+107
+00:05:42,170 --> 00:05:46,780
+also as a prop, and
+calling it accordingly.
+
+108
+00:05:46,780 --> 00:05:50,710
+Component communication can
+be a bit tricky in React.
+
+109
+00:05:50,710 --> 00:05:53,460
+Here's a review on the
+two most important things
+
+110
+00:05:53,460 --> 00:05:55,250
+we learned in this section.
+
+111
+00:05:55,250 --> 00:05:58,890
+Parent components can send
+data to child components
+
+112
+00:05:58,890 --> 00:06:00,590
+using props.
+
+113
+00:06:00,590 --> 00:06:05,740
+Child components can accept
+callback functions as props
+
+114
+00:06:05,740 --> 00:06:08,395
+to communicate back
+with parent components.
+
+115
+00:06:11,330 --> 00:06:14,070
+We have reached the
+end of our course.
+
+116
+00:06:14,070 --> 00:06:16,520
+Go take the last few
+challenges, and I'll see you
+
+117
+00:06:16,520 --> 00:06:19,963
+back here in our wrap up video.
+
+118
+00:06:19,963 --> 00:06:21,212
+Except that my face was weird.
+
+119
+00:06:21,212 --> 00:06:22,460
+It was like this.
+
+120
+00:06:22,460 --> 00:06:24,790
+None of you saw it,
+but it was awful.
+
+121
+00:06:24,790 --> 00:06:35,630
+Performance of our component
+We will make-- aw, come on.
+
+122
+00:06:35,630 --> 00:06:37,316
+Great job.
+
+123
+00:06:37,316 --> 00:06:39,650
+Don't fall back, dude.
+
+124
+00:06:39,650 --> 00:06:41,960
+Everything works
+as desired, right?
+
+125
+00:06:41,960 --> 00:06:44,050
+Well, not quite.
+
