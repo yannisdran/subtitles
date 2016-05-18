@@ -1,642 +1,631 @@
 ﻿1
-00:00:00,000 --> 00:00:03,160
-[SINGING] When your page load
-is slow, when your code is off
+00:00:00,500 --> 00:00:03,900
+[SINGING] When your page load is slow
+and your code is off track,
 
 2
-00:00:03,160 --> 00:00:05,540
-track, it is time,
-for a fact, to try
+00:00:03,900 --> 00:00:07,200
+it is fun for a fact to try using React.
 
 3
-00:00:05,540 --> 00:00:10,490
-using React to keep your app
-clarity, component modularity.
+00:00:07,200 --> 00:00:10,800
+To keep your app clarity,
+component modularity
 
 4
-00:00:10,490 --> 00:00:13,680
-When your data changes you
-state to update the pages.
+00:00:10,800 --> 00:00:13,900
+When your data changes,
+use state to update the pages
 
 5
-00:00:13,680 --> 00:00:15,630
-To load it quickly all along.
+00:00:13,900 --> 00:00:17,500
+To load it quickly all along,
+it is the virtual DOM
 
 6
-00:00:15,630 --> 00:00:19,600
-It is the virtual DOM
-Send your data all around using
+00:00:17,500 --> 00:00:20,700
+Send your data all around,
+using props to call it down.
 
 7
-00:00:19,600 --> 00:00:20,475
-pops to call it down.
+00:00:20,700 --> 00:00:26,200
+It's time to act, keep your app intact
+Powering Up With React
 
 8
-00:00:20,475 --> 00:00:22,040
-It's time to act.
-
-9
-00:00:22,040 --> 00:00:23,205
-Keep your app intact.
-
-10
-00:00:23,205 --> 00:00:27,070
-Powering up with React.
-
-11
 00:00:27,070 --> 00:00:28,020
 Welcome back.
 
-12
+9
 00:00:28,020 --> 00:00:29,660
 I'm Sergio Cruz,
 and you're watching
 
-13
+10
 00:00:29,660 --> 00:00:31,780
-Powering Up with React.
+Powering Up With React.
 
-14
+11
 00:00:31,780 --> 00:00:36,360
 In this level, we'll learn
 about component state.
 
-15
+12
 00:00:36,360 --> 00:00:38,590
 Let's write a new
 feature for our app.
 
-16
+13
 00:00:38,590 --> 00:00:43,480
 We want to add a button that
 when clicked will show or hide
 
-17
+14
 00:00:43,480 --> 00:00:45,700
 our list of comments.
 
-18
+15
 00:00:45,700 --> 00:00:48,320
 To do that, we added a
 button to the screen,
 
-19
+16
 00:00:48,320 --> 00:00:51,080
 allowing the toggle
 action to happen.
 
-20
+17
 00:00:51,080 --> 00:00:54,610
-The comments start our
+The comments start out
 hidden and the button text
 
-21
+18
 00:00:54,610 --> 00:00:57,760
-reads "show comments."
+reads "SHOW COMMENTS."
 
-22
+19
 00:00:57,760 --> 00:01:01,740
 Then when the button is clicked,
 the comments are displayed
 
-23
+20
 00:01:01,740 --> 00:01:05,620
 and the button text
-becomes "hide comments."
+becomes "HIDE COMMENTS"
 
-24
+21
 00:01:05,620 --> 00:01:09,610
 But how can we toggle the
 comments and the button text
 
-25
+22
 00:01:09,610 --> 00:01:13,160
 based on button click?
 
-26
+23
 00:01:13,160 --> 00:01:15,580
 There are two main ways
 to solve this problem.
 
-27
+24
 00:01:15,580 --> 00:01:18,480
 The first is direct
 DOM manipulation,
 
-28
+25
 00:01:18,480 --> 00:01:22,540
 which is how we do things
 using jQuery or Backbone.
 
-29
+26
 00:01:22,540 --> 00:01:26,000
 The second is indirect
 DOM manipulation,
 
-30
+27
 00:01:26,000 --> 00:01:28,990
 which is how we solve
 this problem using React.
 
-31
+28
 00:01:28,990 --> 00:01:32,710
 Let's take a look at
 a couple of examples.
 
-32
+29
 00:01:32,710 --> 00:01:36,210
 With direct DOM manipulation,
 we access the DOM APIs
 
-33
+30
 00:01:36,210 --> 00:01:41,220
 directly using JavaScript as a
 response from browser events.
 
-34
+31
 00:01:41,220 --> 00:01:43,910
 If we take a look at this
 example using jQuery,
 
-35
+32
 00:01:43,910 --> 00:01:47,810
 we have event listeners that
 execute certain actions when
 
-36
+33
 00:01:47,810 --> 00:01:50,650
 they are clicked,
 causing the comment list
 
-37
+34
 00:01:50,650 --> 00:01:52,570
 element to show or hide.
 
-38
+35
 00:01:55,130 --> 00:01:56,990
 With indirect DOM
 manipulation, we
 
-39
+36
 00:01:56,990 --> 00:01:59,500
 don't modify the DOM directly.
 
-40
+37
 00:01:59,500 --> 00:02:03,970
 Instead, we modify a component
 state object in response
 
-41
+38
 00:02:03,970 --> 00:02:09,240
 to user events, and let React
 handle updates to the DOM.
 
-42
+39
 00:02:09,240 --> 00:02:12,630
 Let's take a look at this
 code example that uses React.
 
-43
+40
 00:02:12,630 --> 00:02:16,930
 The display logic is wrapped
-into an IF statement that
+into an if statement that
 
-44
+41
 00:02:16,930 --> 00:02:21,890
 takes care of either displaying
 or hiding the list of comments.
 
-45
+42
 00:02:21,890 --> 00:02:25,380
 Let's see how that
 looks in practice.
 
-46
+43
 00:02:25,380 --> 00:02:28,060
 The state is a
 JavaScript object that
 
-47
+44
 00:02:28,060 --> 00:02:30,870
 lives inside each component.
 
-48
+45
 00:02:30,870 --> 00:02:34,930
 We can access it
-using this.state.
+using this.state
 
-49
+46
 00:02:34,930 --> 00:02:38,280
 In our render function,
-we'll add an IF statement
+we'll add an if statement
 
-50
+47
 00:02:38,280 --> 00:02:40,860
 that will display
 the list of comments
 
-51
+48
 00:02:40,860 --> 00:02:46,350
 if this.state.showComments
 is a truthy value.
 
-52
+49
 00:02:46,350 --> 00:02:48,390
 Next we'll need to
 move the comments
 
-53
+50
 00:02:48,390 --> 00:02:50,959
-variable into the IF statement.
+variable into the if statement.
 
-54
+51
 00:02:50,959 --> 00:02:52,250
 Let's see what that looks like.
 
-55
+52
 00:02:55,000 --> 00:02:57,060
 To move the comments
 into the conditional,
 
-56
+53
 00:02:57,060 --> 00:03:00,810
 we use a new variable
 called commentNodes and only
 
-57
+54
 00:03:00,810 --> 00:03:05,420
 assign the div to it if
 this.state.showComments
 
-58
+55
 00:03:05,420 --> 00:03:07,410
 has a truthy value.
 
-59
+56
 00:03:07,410 --> 00:03:11,350
 Then we use that same
 variable within our JSX code.
 
-60
+57
 00:03:11,350 --> 00:03:16,470
 If showComments is true,
 it'll contain the div.
 
-61
+58
 00:03:16,470 --> 00:03:19,480
 Otherwise, it just
 won't display anything.
 
-62
+59
 00:03:19,480 --> 00:03:22,850
 Pretty straightforward, right?
 
-63
+60
 00:03:22,850 --> 00:03:25,550
 Because we want to start
 with our comments hidden,
 
-64
+61
 00:03:25,550 --> 00:03:29,670
 the initial value of show
 comments must be false.
 
-65
+62
 00:03:29,670 --> 00:03:33,090
 To do that, we must declare
 a class constructor.
 
-66
+63
 00:03:33,090 --> 00:03:34,600
 And here's a heads up.
 
-67
+64
 00:03:34,600 --> 00:03:37,300
 Any time we declare
 a constructor,
 
-68
+65
 00:03:37,300 --> 00:03:40,490
 super must be the
 first thing called.
 
-69
+66
 00:03:40,490 --> 00:03:43,770
 Here we're setting the
 initial state of showComments
 
-70
+67
 00:03:43,770 --> 00:03:48,900
 to false, which is
 our desired behavior.
 
-71
+68
 00:03:48,900 --> 00:03:51,550
 We know how to set
 an initial state,
 
-72
+69
 00:03:51,550 --> 00:03:54,340
 but how can we change
 the state as a response
 
-73
+70
 00:03:54,340 --> 00:03:56,430
 to a user's action?
 
-74
+71
 00:03:56,430 --> 00:03:59,170
 One way not to do
 it is by assigning
 
-75
+72
 00:03:59,170 --> 00:04:02,750
 to the component state
-directly this will not work.
+directly. This will not work.
 
-76
+73
 00:04:02,750 --> 00:04:03,770
 Don't do it.
 
-77
+74
 00:04:03,770 --> 00:04:06,780
 The correct way to
 update a component state
 
-78
+75
 00:04:06,780 --> 00:04:09,130
-is to call setState.
+is to call setState
 
-79
+76
 00:04:09,130 --> 00:04:11,390
 In this example,
 we're calling setState
 
-80
+77
 00:04:11,390 --> 00:04:15,850
 passing an object setting
 showComments to true.
 
-81
+78
 00:04:15,850 --> 00:04:18,720
 This will update the
 showComments property
 
-82
+79
 00:04:18,720 --> 00:04:20,630
 and re-render the component.
 
-83
+80
 00:04:20,630 --> 00:04:23,730
 Calling setState will only
 replace the properties that
 
-84
+81
 00:04:23,730 --> 00:04:27,500
 were passed as an argument and
 not replace the entire state
 
-85
+82
 00:04:27,500 --> 00:04:30,260
 object.
 
-86
+83
 00:04:30,260 --> 00:04:33,330
 There are few actions that
 can cause our state to change,
 
-87
+84
 00:04:33,330 --> 00:04:36,920
 and they're usually from
 interactions made with our app.
 
-88
+85
 00:04:36,920 --> 00:04:41,680
 Here are a few examples--
 button clicks, link clicks,
 
-89
+86
 00:04:41,680 --> 00:04:46,550
 form submissions, and AJAX
 requests, just to name a few.
 
-90
+87
 00:04:46,550 --> 00:04:48,890
 Anything that has
 an impact on our UI
 
-91
+88
 00:04:48,890 --> 00:04:51,760
 can potentially
 cause a state change.
 
-92
+89
 00:04:51,760 --> 00:04:54,910
 With that in mind, let's move
 on to the next feature variety,
 
-93
+90
 00:04:54,910 --> 00:04:58,520
 responding to button clicks.
 
-94
+91
 00:04:58,520 --> 00:05:00,590
 Let's write a
 function that toggles
 
-95
+92
 00:05:00,590 --> 00:05:02,890
 the visibility of our comments.
 
-96
+93
 00:05:02,890 --> 00:05:05,780
 First thing we'll do is
 add a button to the screen
 
-97
+94
 00:05:05,780 --> 00:05:08,830
 within an onClick
 handler that calls
 
-98
+95
 00:05:08,830 --> 00:05:12,040
-a method called handleClick.
+a method called _handleClick.
 
-99
+96
 00:05:12,040 --> 00:05:14,230
-The handleClick
+The _handleClick
 method takes care
 
-100
+97
 00:05:14,230 --> 00:05:18,940
 of switching the visibility
 of comments to true or false.
 
-101
+98
 00:05:18,940 --> 00:05:22,570
 This button click has an
-immediate impact on the US
+immediate impact on the UI
 
-102
+99
 00:05:22,570 --> 00:05:24,900
 since it's calling setState.
 
-103
+100
 00:05:24,900 --> 00:05:27,000
-The handleClick
+The _handleClick
 method takes care
 
-104
+101
 00:05:27,000 --> 00:05:30,970
 of switching the visibility
 of comments to true or false.
 
-105
+102
 00:05:30,970 --> 00:05:33,410
 It does that by calling
 the setState method
 
-106
+103
 00:05:33,410 --> 00:05:38,490
 and passing an object, changing
-the value of show comments.
+the value of showComments.
 
-107
+104
 00:05:38,490 --> 00:05:41,600
 If it was true, it's
 now going to be false.
 
-108
+105
 00:05:41,600 --> 00:05:44,250
 And if it was false, it's
 now going to be true.
 
-109
+106
 00:05:47,260 --> 00:05:50,760
 The last thing we want to
 do is switch the button text
 
-110
+107
 00:05:50,760 --> 00:05:53,030
 based on state.
 
-111
+108
 00:05:53,030 --> 00:05:57,190
 Initially, the button text
-will be "show comments."
+will be "Show comments."
 
-112
+109
 00:05:57,190 --> 00:05:59,950
 But if comments are
 already being displayed,
 
-113
+110
 00:05:59,950 --> 00:06:03,700
 we will switch the button
-text to read "hide comments"
+text to read "Hide comments"
 
-114
+111
 00:06:03,700 --> 00:06:04,980
 instead.
 
-115
+112
 00:06:04,980 --> 00:06:11,220
 Then we can simply display that
 variable within our JSX code.
 
-116
+113
 00:06:11,220 --> 00:06:13,280
 Let's see our app working.
 
-117
+114
 00:06:13,280 --> 00:06:15,790
 When we click the
-Show Comments button,
+SHOW COMMENTS button,
 
-118
+115
 00:06:15,790 --> 00:06:19,250
 the comments are displayed
 and the text of the button
 
-119
+116
 00:06:19,250 --> 00:06:22,490
-switches to "Hide
-Comments" instead.
+switches to "HIDE
+COMMENTS" instead.
 
-120
+117
 00:06:22,490 --> 00:06:26,360
 When we click the button
 again, the comments disappear
 
-121
+118
 00:06:26,360 --> 00:06:30,700
 and the text of the button
-switch back to "Show Comments."
+switch back to "SHOW COMMENTS"
 
-122
+119
 00:06:30,700 --> 00:06:31,520
 Pretty cool, right?
 
-123
+120
 00:06:34,750 --> 00:06:36,550
 We covered a lot
 in this section,
 
-124
+121
 00:06:36,550 --> 00:06:38,490
 so here's a quick
 recap on state.
 
-125
+122
 00:06:38,490 --> 00:06:41,510
 The state is a vital
 part of React apps.
 
-126
+123
 00:06:41,510 --> 00:06:45,160
 It's what makes our
 UIs interactive.
 
-127
+124
 00:06:45,160 --> 00:06:48,930
 State represents data
 that changes over time.
 
-128
+125
 00:06:48,930 --> 00:06:52,860
 We declare an initial state
-in the components constructor.
+in the component's constructor.
 
-129
+126
 00:06:52,860 --> 00:06:57,450
 We update state by
-calling this.setState.
+calling this.setState
 
-130
+127
 00:06:57,450 --> 00:07:01,010
 In calling setState, we'll cause
 our component to re-render.
 
-131
+128
 00:07:03,980 --> 00:07:05,660
 This is it for this level.
 
-132
+129
 00:07:05,660 --> 00:07:07,520
 Go take some
 challenges on state,
 
-133
+130
 00:07:07,520 --> 00:07:09,590
 and I'll see you back
 here for our next level.
 
-134
+131
 00:07:14,240 --> 00:07:18,240
 Render will component and
 the component will re-render.
 
-135
+132
 00:07:18,240 --> 00:07:20,750
 We'll replace the whole--
 
