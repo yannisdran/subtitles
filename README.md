@@ -19,7 +19,7 @@ You can find a list of the [ISO 639-1 language codes on Wikipedia](http://en.wik
 which one to use.
 
 If you have a Code School account, make sure to let us know what your username is in
-your pull request. Wouldn't be surprised if you get some free stuff. :-)
+your pull request. Wouldn't be surprised if you get some free stuff!!! :-)
 
 ## Deployment on Code School
 We will only release new subtitles to a course when all videos for all levels have
