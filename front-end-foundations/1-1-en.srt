@@ -1,0 +1,1103 @@
+1
+00:00:00,000 --> 00:00:00,500
+
+
+2
+00:00:00,500 --> 00:00:02,930
+[SINGING] In 1980 Tim
+wrote ENQUIRE at CERN
+
+3
+00:00:02,930 --> 00:00:07,300
+and invented the idea
+of hyperlinks in turn.
+
+4
+00:00:07,300 --> 00:00:10,790
+In 1990 Robert joined,
+a document they charted.
+
+5
+00:00:10,790 --> 00:00:15,050
+And that's pretty much how the
+whole world wide web started.
+
+6
+00:00:15,050 --> 00:00:16,885
+They defined some
+markup code called
+
+7
+00:00:16,885 --> 00:00:21,300
+HTML, which paved the way for
+stylesheets to decorate, as
+
+8
+00:00:21,300 --> 00:00:22,050
+well.
+
+9
+00:00:22,050 --> 00:00:25,684
+Navigate through URLs
+to internet locations.
+
+10
+00:00:25,684 --> 00:00:27,836
+You can learn it all at
+Front-End Foundations.
+
+11
+00:00:27,836 --> 00:00:31,280
+
+
+12
+00:00:31,280 --> 00:00:33,370
+You're watching
+Front-End Foundations.
+
+13
+00:00:33,370 --> 00:00:34,114
+I'm Jon Friskics.
+
+14
+00:00:34,114 --> 00:00:35,780
+And in this course,
+we're going to learn
+
+15
+00:00:35,780 --> 00:00:37,840
+how to build a basic web page.
+
+16
+00:00:37,840 --> 00:00:41,890
+To do this, we're going
+to learn HTML and CSS.
+
+17
+00:00:41,890 --> 00:00:46,142
+We're going to write HTML text
+tags and use CSS selectors.
+
+18
+00:00:46,142 --> 00:00:47,600
+We're going to
+learn how to lay out
+
+19
+00:00:47,600 --> 00:00:52,020
+a web page that has multiple
+sections and multiple pages.
+
+20
+00:00:52,020 --> 00:00:54,786
+We're going to work with
+images on that web page.
+
+21
+00:00:54,786 --> 00:00:56,160
+And finally, we're
+going to learn
+
+22
+00:00:56,160 --> 00:01:00,459
+how to customize fonts
+and build HTML forms.
+
+23
+00:01:00,459 --> 00:01:03,000
+Now, once you've completed all
+the challenges in this course,
+
+24
+00:01:03,000 --> 00:01:05,340
+you'll learn the course badge.
+
+25
+00:01:05,340 --> 00:01:08,570
+If you're already pretty
+familiar with HTML and CSS,
+
+26
+00:01:08,570 --> 00:01:10,960
+you might consider skipping
+ahead to the challenges,
+
+27
+00:01:10,960 --> 00:01:14,330
+so you can earn that badge.
+
+28
+00:01:14,330 --> 00:01:16,370
+Before we dive into
+some code, let's look
+
+29
+00:01:16,370 --> 00:01:19,580
+at a short history of the
+web and its creator Tim
+
+30
+00:01:19,580 --> 00:01:20,590
+Berners-Lee.
+
+31
+00:01:20,590 --> 00:01:22,530
+In the early '80s,
+Tim worked for a group
+
+32
+00:01:22,530 --> 00:01:25,540
+called CERN, where he proposed
+a better way for researchers
+
+33
+00:01:25,540 --> 00:01:28,030
+to share and read documents.
+
+34
+00:01:28,030 --> 00:01:30,170
+You know, CERN, you
+probably know that better
+
+35
+00:01:30,170 --> 00:01:34,730
+now as the people who run
+the Large Hadron Collider.
+
+36
+00:01:34,730 --> 00:01:36,910
+In 1984, he built
+a system that he
+
+37
+00:01:36,910 --> 00:01:41,500
+called ENQUIRE, which took a
+series of cards, or documents,
+
+38
+00:01:41,500 --> 00:01:44,750
+and linked them together with
+things called hyperlinks.
+
+39
+00:01:44,750 --> 00:01:47,060
+Now, it was a really
+cool system for the time.
+
+40
+00:01:47,060 --> 00:01:50,780
+But it was only being used
+by researchers internally.
+
+41
+00:01:50,780 --> 00:01:53,600
+So he had an idea that
+he could take this system
+
+42
+00:01:53,600 --> 00:01:56,660
+and make it available
+to the entire world.
+
+43
+00:01:56,660 --> 00:02:00,270
+So with Robert Cailliau,
+he wrote a proposal in 1990
+
+44
+00:02:00,270 --> 00:02:04,850
+for the creation of what
+became the world wide web.
+
+45
+00:02:04,850 --> 00:02:07,250
+This is actually world
+wide web's first logo.
+
+46
+00:02:07,250 --> 00:02:10,220
+It's come a long way since then.
+
+47
+00:02:10,220 --> 00:02:12,450
+Like ENQUIRE, the
+web links together
+
+48
+00:02:12,450 --> 00:02:16,350
+documents called web
+pages with hyperlinks.
+
+49
+00:02:16,350 --> 00:02:19,850
+And the language of building
+a web page is called HTML.
+
+50
+00:02:19,850 --> 00:02:23,170
+HTML allows you to take a
+plain text document written
+
+51
+00:02:23,170 --> 00:02:26,860
+in any simple text editor
+and organize it into lists,
+
+52
+00:02:26,860 --> 00:02:30,730
+link to other web pages,
+include images, and more.
+
+53
+00:02:30,730 --> 00:02:33,290
+
+
+54
+00:02:33,290 --> 00:02:37,080
+You might be wondering what
+the letters in HTML stand for.
+
+55
+00:02:37,080 --> 00:02:40,030
+They stand for HyperText
+Markup Language.
+
+56
+00:02:40,030 --> 00:02:42,340
+Now, hypertext is
+really just a fancy way
+
+57
+00:02:42,340 --> 00:02:45,510
+of saying text that has
+some enhanced capabilities,
+
+58
+00:02:45,510 --> 00:02:47,640
+like the ability
+to be interactive.
+
+59
+00:02:47,640 --> 00:02:49,470
+And markup language,
+which literally
+
+60
+00:02:49,470 --> 00:02:53,670
+means you can mark up different
+sections of your page as lists,
+
+61
+00:02:53,670 --> 00:02:57,650
+links, and even do things like
+specify attributes and change
+
+62
+00:02:57,650 --> 00:03:00,810
+the font sizes, for example.
+
+63
+00:03:00,810 --> 00:03:04,080
+When we write HTML, we
+put it inside of a file.
+
+64
+00:03:04,080 --> 00:03:06,860
+And we always make sure that
+the extension for that file
+
+65
+00:03:06,860 --> 00:03:09,220
+is dot html.
+
+66
+00:03:09,220 --> 00:03:11,860
+And that lets our web
+browser know to display
+
+67
+00:03:11,860 --> 00:03:14,580
+that markup properly.
+
+68
+00:03:14,580 --> 00:03:18,700
+So a web browser is really
+just an HTML reader.
+
+69
+00:03:18,700 --> 00:03:21,580
+The browser takes in
+some HTML and knows
+
+70
+00:03:21,580 --> 00:03:24,640
+how to display that
+markup language properly
+
+71
+00:03:24,640 --> 00:03:26,390
+on the screen for you.
+
+72
+00:03:26,390 --> 00:03:29,220
+And hopefully, that markup is
+displayed the same no matter
+
+73
+00:03:29,220 --> 00:03:30,780
+which browser you use.
+
+74
+00:03:30,780 --> 00:03:32,150
+At least that's the idea.
+
+75
+00:03:32,150 --> 00:03:35,360
+
+
+76
+00:03:35,360 --> 00:03:36,860
+In this course,
+we'll be showing you
+
+77
+00:03:36,860 --> 00:03:42,460
+HTML code, CSS code, and the way
+that the browser displays them.
+
+78
+00:03:42,460 --> 00:03:43,960
+So keep an eye out
+for these symbols
+
+79
+00:03:43,960 --> 00:03:46,910
+so you always know the type of
+content that you're looking at.
+
+80
+00:03:46,910 --> 00:03:49,369
+
+
+81
+00:03:49,369 --> 00:03:51,410
+The site that we will be
+building in these videos
+
+82
+00:03:51,410 --> 00:03:53,430
+is called Recipe World.
+
+83
+00:03:53,430 --> 00:03:58,630
+It's a multi-page site that has
+a home page, a list of recipes,
+
+84
+00:03:58,630 --> 00:04:02,850
+an individual recipe page with
+directions and ingredients,
+
+85
+00:04:02,850 --> 00:04:06,660
+and even a
+suggest-a-recipe page.
+
+86
+00:04:06,660 --> 00:04:09,565
+We're going to start by
+building out the recipe page.
+
+87
+00:04:09,565 --> 00:04:11,330
+Now, before you
+build any web page,
+
+88
+00:04:11,330 --> 00:04:13,130
+you always have to
+figure out what content
+
+89
+00:04:13,130 --> 00:04:15,400
+you're going to display on it.
+
+90
+00:04:15,400 --> 00:04:17,350
+And a good way to start
+that is to figure out
+
+91
+00:04:17,350 --> 00:04:21,032
+what the main sections of
+content are going to be.
+
+92
+00:04:21,032 --> 00:04:22,490
+So here we know
+we're going to have
+
+93
+00:04:22,490 --> 00:04:25,030
+a page title, Recipe World.
+
+94
+00:04:25,030 --> 00:04:28,510
+We know we're going to have the
+name of our recipe, Magic Cake.
+
+95
+00:04:28,510 --> 00:04:30,640
+And we're going to have
+a section for ingredients
+
+96
+00:04:30,640 --> 00:04:31,295
+and directions.
+
+97
+00:04:31,295 --> 00:04:34,670
+
+
+98
+00:04:34,670 --> 00:04:38,330
+The way you write HTML is
+with something called a tag.
+
+99
+00:04:38,330 --> 00:04:42,140
+And most tags have opening
+and closing versions.
+
+100
+00:04:42,140 --> 00:04:46,850
+And content goes in between
+those opening and closing tags.
+
+101
+00:04:46,850 --> 00:04:49,030
+Here we've put
+some content, which
+
+102
+00:04:49,030 --> 00:04:54,700
+is the title of the page, Recipe
+World, inside of an h1 tag.
+
+103
+00:04:54,700 --> 00:04:57,910
+You can see that we
+first open the tag.
+
+104
+00:04:57,910 --> 00:05:00,400
+We put our content next.
+
+105
+00:05:00,400 --> 00:05:03,490
+And then we close the tag
+by writing the tag name
+
+106
+00:05:03,490 --> 00:05:07,760
+but putting a slash before
+the name that appears.
+
+107
+00:05:07,760 --> 00:05:10,390
+And this is how that will
+display in the browser.
+
+108
+00:05:10,390 --> 00:05:13,400
+h1 is just one of
+many HTML tags.
+
+109
+00:05:13,400 --> 00:05:16,000
+And we'll be looking at a
+bunch of them in this course.
+
+110
+00:05:16,000 --> 00:05:18,310
+Don't worry about
+memorizing every single tag
+
+111
+00:05:18,310 --> 00:05:20,310
+right now because you'll
+always be able to refer
+
+112
+00:05:20,310 --> 00:05:22,020
+to a list of them later on.
+
+113
+00:05:22,020 --> 00:05:24,880
+
+
+114
+00:05:24,880 --> 00:05:28,780
+h1 is part of a group of
+tags called heading tags.
+
+115
+00:05:28,780 --> 00:05:30,450
+And heading tags
+are used whenever
+
+116
+00:05:30,450 --> 00:05:33,760
+you want to declare the
+title of a section of content
+
+117
+00:05:33,760 --> 00:05:35,000
+on your page.
+
+118
+00:05:35,000 --> 00:05:37,910
+Generally speaking,
+the lower the h number,
+
+119
+00:05:37,910 --> 00:05:41,410
+the more important the
+content is for that page.
+
+120
+00:05:41,410 --> 00:05:44,560
+So you'll usually see things
+like a page title or company
+
+121
+00:05:44,560 --> 00:05:49,630
+name inside of a h1 tag,
+the main subject or idea
+
+122
+00:05:49,630 --> 00:05:51,770
+of the page in an h2 tag.
+
+123
+00:05:51,770 --> 00:05:54,940
+Here it's Magic Cake,
+the name of the recipe
+
+124
+00:05:54,940 --> 00:05:56,820
+the rest of the
+page will be about.
+
+125
+00:05:56,820 --> 00:06:00,190
+And then h3 through h6 are
+used to further organize
+
+126
+00:06:00,190 --> 00:06:03,520
+some of the lesser important
+content on the page.
+
+127
+00:06:03,520 --> 00:06:05,590
+Here on our recipe
+page, it's going
+
+128
+00:06:05,590 --> 00:06:08,830
+to be the ingredients and
+the directions for combining
+
+129
+00:06:08,830 --> 00:06:10,190
+those ingredients.
+
+130
+00:06:10,190 --> 00:06:11,870
+When we display
+this in the browser,
+
+131
+00:06:11,870 --> 00:06:15,320
+you'll notice that the h1
+tag is naturally displayed
+
+132
+00:06:15,320 --> 00:06:18,350
+bigger than the h2 and h3.
+
+133
+00:06:18,350 --> 00:06:20,300
+And the h3 is smaller
+than the h1 and h2.
+
+134
+00:06:20,300 --> 00:06:22,980
+
+
+135
+00:06:22,980 --> 00:06:25,565
+Next, we'll add a
+description of our recipe.
+
+136
+00:06:25,565 --> 00:06:29,670
+Now, any time that you have
+text content on the page that's
+
+137
+00:06:29,670 --> 00:06:32,200
+not part of one of the
+headers, it usually
+
+138
+00:06:32,200 --> 00:06:36,489
+goes inside of a paragraph
+tag, which is written with p.
+
+139
+00:06:36,489 --> 00:06:37,780
+The name's a little misleading.
+
+140
+00:06:37,780 --> 00:06:40,490
+You don't have to only
+put paragraphs in there.
+
+141
+00:06:40,490 --> 00:06:42,130
+Even if you only
+have a few words
+
+142
+00:06:42,130 --> 00:06:44,915
+to add that aren't part
+of a section title,
+
+143
+00:06:44,915 --> 00:06:46,540
+you should put them
+in a paragraph tag.
+
+144
+00:06:46,540 --> 00:06:49,490
+
+
+145
+00:06:49,490 --> 00:06:51,940
+If you need to display
+a list of things,
+
+146
+00:06:51,940 --> 00:06:55,250
+you can use an
+unordered list tag.
+
+147
+00:06:55,250 --> 00:06:58,570
+Now, with an unordered
+list, each item in the list
+
+148
+00:06:58,570 --> 00:07:02,810
+also has to be inside of
+an li tag or list item tag.
+
+149
+00:07:02,810 --> 00:07:07,224
+
+
+150
+00:07:07,224 --> 00:07:09,390
+Now, you'll notice that
+this is the first time we've
+
+151
+00:07:09,390 --> 00:07:12,770
+had a tag that
+contains another tag.
+
+152
+00:07:12,770 --> 00:07:15,870
+Before, we've just had an
+opening tag, some text,
+
+153
+00:07:15,870 --> 00:07:17,840
+and then a closing tag.
+
+154
+00:07:17,840 --> 00:07:21,600
+But here in between the
+open and close ul tags,
+
+155
+00:07:21,600 --> 00:07:24,440
+we've got a couple other tags
+that are opening and closing
+
+156
+00:07:24,440 --> 00:07:25,530
+inside of there.
+
+157
+00:07:25,530 --> 00:07:27,750
+This is called nesting tags.
+
+158
+00:07:27,750 --> 00:07:33,060
+And when you have a tag like
+li that's inside of a ul tag,
+
+159
+00:07:33,060 --> 00:07:36,090
+the ul is called the parent tag.
+
+160
+00:07:36,090 --> 00:07:40,140
+And the li is called the
+child because the li is inside
+
+161
+00:07:40,140 --> 00:07:41,990
+of the ul.
+
+162
+00:07:41,990 --> 00:07:44,020
+Indenting your
+code is a great way
+
+163
+00:07:44,020 --> 00:07:47,300
+to see which tags are
+nested inside of others.
+
+164
+00:07:47,300 --> 00:07:49,420
+Anytime you have a
+tag that's nested,
+
+165
+00:07:49,420 --> 00:07:52,090
+you put either two
+spaces or a tab,
+
+166
+00:07:52,090 --> 00:07:54,520
+so you can really
+easily scan the page
+
+167
+00:07:54,520 --> 00:07:58,980
+and see which tags
+are inside of others.
+
+168
+00:07:58,980 --> 00:08:02,370
+Here's an example of how
+not to write nested tags.
+
+169
+00:08:02,370 --> 00:08:04,920
+This is technically valid HTML.
+
+170
+00:08:04,920 --> 00:08:07,910
+But it's pretty hard to
+just look at really quick
+
+171
+00:08:07,910 --> 00:08:11,850
+and determine that these
+lis are inside of a ul tag.
+
+172
+00:08:11,850 --> 00:08:15,530
+So stick with
+indenting your tags.
+
+173
+00:08:15,530 --> 00:08:17,850
+Our list of ingredients
+was an unordered list
+
+174
+00:08:17,850 --> 00:08:20,800
+because it didn't need to
+appear in any specific order.
+
+175
+00:08:20,800 --> 00:08:24,140
+But if you do you need items
+to appear in a specific order,
+
+176
+00:08:24,140 --> 00:08:27,180
+like in the case of directions
+for making this cake,
+
+177
+00:08:27,180 --> 00:08:29,920
+you can use an ordered list tag.
+
+178
+00:08:29,920 --> 00:08:32,760
+Ordered lists work just
+like unordered lists,
+
+179
+00:08:32,760 --> 00:08:36,580
+but the tag name is
+ol instead of ul.
+
+180
+00:08:36,580 --> 00:08:39,470
+Here's what that list
+looks like in the browser.
+
+181
+00:08:39,470 --> 00:08:42,559
+Ordered lists will naturally
+number each one of the list
+
+182
+00:08:42,559 --> 00:08:47,790
+items because they need to be
+followed in a certain order.
+
+183
+00:08:47,790 --> 00:08:49,760
+We're making great
+progress on our page.
+
+184
+00:08:49,760 --> 00:08:52,190
+And we've got all of
+our content marked up.
+
+185
+00:08:52,190 --> 00:08:53,630
+But there's a few
+additional tags
+
+186
+00:08:53,630 --> 00:08:55,260
+that we'll need to
+wrap everything in
+
+187
+00:08:55,260 --> 00:08:59,150
+to make a truly
+standards-compliant HTML page.
+
+188
+00:08:59,150 --> 00:09:01,370
+So the first is body.
+
+189
+00:09:01,370 --> 00:09:04,720
+All of the visible
+content on your page
+
+190
+00:09:04,720 --> 00:09:07,200
+should be wrapped
+inside of a body tag
+
+191
+00:09:07,200 --> 00:09:10,900
+so that the body is the
+parent of all of that content.
+
+192
+00:09:10,900 --> 00:09:13,760
+Body doesn't actually
+display anything or change
+
+193
+00:09:13,760 --> 00:09:15,520
+the way things are displayed.
+
+194
+00:09:15,520 --> 00:09:18,700
+But it just helps keep the page
+content organized and helps
+
+195
+00:09:18,700 --> 00:09:21,830
+the browser understand that
+that's the stuff that it really
+
+196
+00:09:21,830 --> 00:09:24,750
+should be showing.
+
+197
+00:09:24,750 --> 00:09:28,490
+Any code that has to be run
+before the page displays
+
+198
+00:09:28,490 --> 00:09:30,910
+goes inside of the head tag.
+
+199
+00:09:30,910 --> 00:09:34,500
+We don't actually have anything
+to put inside of this tag yet.
+
+200
+00:09:34,500 --> 00:09:37,160
+But we'll eventually use it
+to load other useful scripts,
+
+201
+00:09:37,160 --> 00:09:40,310
+like CSS and even JavaScript.
+
+202
+00:09:40,310 --> 00:09:42,510
+So we'll add it to
+our page right now,
+
+203
+00:09:42,510 --> 00:09:44,280
+so it's ready for later.
+
+204
+00:09:44,280 --> 00:09:47,220
+Then we'll want to go one step
+further and take everything
+
+205
+00:09:47,220 --> 00:09:49,860
+in our head and body
+tags and make them
+
+206
+00:09:49,860 --> 00:09:52,560
+children of a single HTML tag.
+
+207
+00:09:52,560 --> 00:09:55,090
+There's always only
+one HTML tag on a page.
+
+208
+00:09:55,090 --> 00:09:57,320
+And like head and
+body, it doesn't really
+
+209
+00:09:57,320 --> 00:09:59,500
+change the way anything looks.
+
+210
+00:09:59,500 --> 00:10:02,420
+But it just helps keep all
+of your content organized,
+
+211
+00:10:02,420 --> 00:10:05,600
+so the browser can display
+it in the best way possible.
+
+212
+00:10:05,600 --> 00:10:07,260
+Notice, too, that
+as we build out
+
+213
+00:10:07,260 --> 00:10:09,930
+this final structure
+of our HTML page,
+
+214
+00:10:09,930 --> 00:10:12,930
+we're keeping those
+indentations accurate.
+
+215
+00:10:12,930 --> 00:10:15,460
+So we can easily see
+that head and body
+
+216
+00:10:15,460 --> 00:10:18,110
+are children of the HTML tag.
+
+217
+00:10:18,110 --> 00:10:20,730
+And our h1's and
+paragraphs and lists
+
+218
+00:10:20,730 --> 00:10:24,800
+are also still children of body.
+
+219
+00:10:24,800 --> 00:10:27,560
+So the final cherry on
+the top of our HTML cake
+
+220
+00:10:27,560 --> 00:10:29,190
+is the doctype.
+
+221
+00:10:29,190 --> 00:10:32,020
+The doctype sets
+the version of HTML
+
+222
+00:10:32,020 --> 00:10:34,510
+that the browser
+should use to display
+
+223
+00:10:34,510 --> 00:10:36,360
+the HTML that you wrote.
+
+224
+00:10:36,360 --> 00:10:41,025
+By writing doctype HTML and not
+specifying a version number,
+
+225
+00:10:41,025 --> 00:10:42,650
+we're actually just
+telling the browser
+
+226
+00:10:42,650 --> 00:10:46,059
+to use the latest version.
+
+227
+00:10:46,059 --> 00:10:47,600
+If we go back to
+the browser and look
+
+228
+00:10:47,600 --> 00:10:49,840
+at the page we've
+created so far,
+
+229
+00:10:49,840 --> 00:10:52,080
+we can see that we're
+off to a good start.
+
+230
+00:10:52,080 --> 00:10:53,770
+So now it's your
+turn to practice
+
+231
+00:10:53,770 --> 00:10:56,690
+writing HTML in the challenges.
+
+232
+00:10:56,690 --> 00:10:58,498
+
+end
