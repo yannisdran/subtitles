@@ -1,3 +1,477 @@
-1
-00:00:00,000 --> 00:00:02,100
-[No subtitles yet]
+﻿1
+00:00:00,500 --> 00:00:03,900
+[SINGING] When your page load is slow
+and your code is off track,
+
+2
+00:00:03,900 --> 00:00:07,200
+it is fun for a fact to try using React.
+
+3
+00:00:07,200 --> 00:00:10,800
+To keep your app clarity,
+component modularity
+
+4
+00:00:10,800 --> 00:00:13,900
+When your data changes,
+use state to update the pages
+
+5
+00:00:13,900 --> 00:00:17,500
+To load it quickly all along,
+it is the virtual DOM
+
+6
+00:00:17,500 --> 00:00:20,700
+Send your data all around,
+using props to call it down.
+
+7
+00:00:20,700 --> 00:00:27,390
+It's time to act, keep your app intact
+Powering Up With React
+
+8
+00:00:27,390 --> 00:00:29,570
+Welcome back to level two.
+
+9
+00:00:29,570 --> 00:00:32,830
+In this section, we will
+be learning about props
+
+10
+00:00:32,830 --> 00:00:34,930
+and components communication.
+
+11
+00:00:34,930 --> 00:00:36,620
+Throughout the rest
+of this course,
+
+12
+00:00:36,620 --> 00:00:40,500
+we will be building a
+commenting engine app.
+
+13
+00:00:40,500 --> 00:00:43,940
+It can be placed immediately
+after a blog post, picture,
+
+14
+00:00:43,940 --> 00:00:47,960
+or even a video allowing users
+to interact with each other.
+
+15
+00:00:50,900 --> 00:00:54,050
+Let's structure our app
+in terms of components.
+
+16
+00:00:54,050 --> 00:00:56,280
+It's a bit simpler this time.
+
+17
+00:00:56,280 --> 00:00:58,200
+We'll have two
+components this time.
+
+18
+00:00:58,200 --> 00:01:03,220
+CommentBox as a root component
+and Comment as a component that
+
+19
+00:01:03,220 --> 00:01:05,390
+gets used with different data.
+
+20
+00:01:05,390 --> 00:01:08,530
+Let's start writing
+these components.
+
+21
+00:01:08,530 --> 00:01:10,220
+Every time we write
+a new component,
+
+22
+00:01:10,220 --> 00:01:12,350
+there's a pattern
+we must follow.
+
+23
+00:01:12,350 --> 00:01:15,320
+First, we need to
+declare a class.
+
+24
+00:01:15,320 --> 00:01:17,320
+Then we'll make
+that class extend
+
+25
+00:01:17,320 --> 00:01:19,790
+the React.Component class.
+
+26
+00:01:19,790 --> 00:01:22,320
+As stated before,
+our component's class
+
+27
+00:01:22,320 --> 00:01:25,050
+need to have a render function.
+
+28
+00:01:25,050 --> 00:01:27,940
+That returns some JSX code.
+
+29
+00:01:27,940 --> 00:01:30,070
+Now that we're familiar
+with this pattern, let's
+
+30
+00:01:30,070 --> 00:01:34,255
+start converting an HTML mock
+up into a React component.
+
+31
+00:01:37,330 --> 00:01:40,210
+Here's an existing HTML mock up.
+
+32
+00:01:40,210 --> 00:01:44,670
+Our job is to convert this
+markup into React components.
+
+33
+00:01:44,670 --> 00:01:46,860
+By looking at the
+HTML code, we can
+
+34
+00:01:46,860 --> 00:01:50,870
+start to identify which parts
+will be what components.
+
+35
+00:01:50,870 --> 00:01:53,400
+The outer code is what
+holds it all together.
+
+36
+00:01:53,400 --> 00:01:56,280
+So it will become the
+CommentBox component,
+
+37
+00:01:56,280 --> 00:01:57,900
+which is the root component.
+
+38
+00:01:57,900 --> 00:02:01,830
+Next, we will isolate individual
+comments into a component.
+
+39
+00:02:01,830 --> 00:02:03,670
+So we can reuse it later.
+
+40
+00:02:03,670 --> 00:02:06,220
+Notice that our div CSS
+classes have the same name
+
+41
+00:02:06,220 --> 00:02:07,470
+as our components.
+
+42
+00:02:07,470 --> 00:02:08,970
+This is a good
+practice when writing
+
+43
+00:02:08,970 --> 00:02:11,500
+mockups but not a requirement.
+
+44
+00:02:11,500 --> 00:02:14,225
+Now let's see what converting
+the HTML code to React
+
+45
+00:02:14,225 --> 00:02:14,850
+will look like.
+
+46
+00:02:17,800 --> 00:02:19,990
+We'll start with writing
+the common component.
+
+47
+00:02:19,990 --> 00:02:22,140
+The Comment component
+renders the markup
+
+48
+00:02:22,140 --> 00:02:24,330
+for each individual comment.
+
+49
+00:02:24,330 --> 00:02:26,730
+We start by declaring our
+component's class called
+
+50
+00:02:26,730 --> 00:02:28,180
+Comment.
+
+51
+00:02:28,180 --> 00:02:30,480
+And its render
+function will return
+
+52
+00:02:30,480 --> 00:02:33,490
+JSX code that matches
+the HTML code we've
+
+53
+00:02:33,490 --> 00:02:35,620
+seen before for each comment.
+
+54
+00:02:35,620 --> 00:02:37,310
+With one exception, however.
+
+55
+00:02:37,310 --> 00:02:42,000
+The class attribute
+becomes className in JSX.
+
+56
+00:02:42,000 --> 00:02:43,820
+Now that our
+component is created,
+
+57
+00:02:43,820 --> 00:02:47,010
+we can use it with the self
+closing JSX tag, like this.
+
+58
+00:02:52,400 --> 00:02:54,500
+Next, we're going to
+write the CommentBox
+
+59
+00:02:54,500 --> 00:02:57,760
+component, following the
+same steps we've seen before.
+
+60
+00:02:57,760 --> 00:03:01,130
+We'll create a class called
+CommentBox and make it extend,
+
+61
+00:03:01,130 --> 00:03:02,910
+React.Component.
+
+62
+00:03:02,910 --> 00:03:04,720
+Then we'll declare
+the render method,
+
+63
+00:03:04,720 --> 00:03:07,320
+we'll make it return
+some JSX code.
+
+64
+00:03:07,320 --> 00:03:10,810
+This time though, we get to use
+the Comment component we just
+
+65
+00:03:10,810 --> 00:03:11,630
+created.
+
+66
+00:03:11,630 --> 00:03:14,480
+Pretty cool, right?
+
+67
+00:03:14,480 --> 00:03:15,890
+There's a little problem here.
+
+68
+00:03:15,890 --> 00:03:17,821
+All our comments look the same.
+
+69
+00:03:17,821 --> 00:03:19,070
+Let's see how we can fix that.
+
+70
+00:03:22,170 --> 00:03:24,970
+Just like JavaScript
+functions, React components
+
+71
+00:03:24,970 --> 00:03:27,170
+are able to receive arguments.
+
+72
+00:03:27,170 --> 00:03:29,700
+And these arguments are
+called props in React.
+
+73
+00:03:29,700 --> 00:03:32,870
+And they look just
+like HTML attributes.
+
+74
+00:03:32,870 --> 00:03:35,650
+Let's send arguments to
+the Comment components
+
+75
+00:03:35,650 --> 00:03:39,842
+by adding two props,
+author and body.
+
+76
+00:03:39,842 --> 00:03:41,300
+Now that we're
+passing props, let's
+
+77
+00:03:41,300 --> 00:03:46,890
+see how we can read them from
+inside the Comment component.
+
+78
+00:03:46,890 --> 00:03:49,600
+To read props that were
+passed to the component,
+
+79
+00:03:49,600 --> 00:03:52,910
+we'll use the this.props object.
+
+80
+00:03:52,910 --> 00:03:56,970
+The first usage
+this.props is for author.
+
+81
+00:03:56,970 --> 00:04:01,610
+We'll display the author data
+in the first paragraph tag.
+
+82
+00:04:01,610 --> 00:04:07,440
+Then we'll read this.props.body
+in the next paragraph over.
+
+83
+00:04:07,440 --> 00:04:09,160
+And when we run the
+code again, we'll
+
+84
+00:04:09,160 --> 00:04:13,820
+see that the comments
+no longer look the same.
+
+85
+00:04:13,820 --> 00:04:16,899
+Here's a review on
+passing and reading props.
+
+86
+00:04:16,899 --> 00:04:18,790
+Let's look at them side by side.
+
+87
+00:04:18,790 --> 00:04:21,899
+On the left, we invoke
+a component giving it
+
+88
+00:04:21,899 --> 00:04:24,890
+two props, author and body.
+
+89
+00:04:24,890 --> 00:04:27,990
+Again, they look just
+like HTML attributes.
+
+90
+00:04:27,990 --> 00:04:33,240
+On the right, we read those
+props using this.props.author
+
+91
+00:04:33,240 --> 00:04:35,820
+and this.props.body
+
+92
+00:04:35,820 --> 00:04:40,100
+Hopefully this is
+a bit clearer now.
+
+93
+00:04:40,100 --> 00:04:42,230
+We learned quite a few
+things in the section.
+
+94
+00:04:42,230 --> 00:04:43,890
+Here's a quick recap.
+
+95
+00:04:43,890 --> 00:04:48,410
+We learned how to convert HTML
+markups to React components.
+
+96
+00:04:48,410 --> 00:04:52,660
+We created two components,
+CommentBox and Comments.
+
+97
+00:04:52,660 --> 00:04:56,990
+We learned how to pass arguments
+to components using props.
+
+98
+00:04:56,990 --> 00:04:58,680
+And we also learned
+that props 
+
+99
+00:04:58,680 --> 00:05:03,120
+look just like HTML attributes.
+
+100
+00:05:03,120 --> 00:05:04,680
+This is it for this section.
+
+101
+00:05:04,680 --> 00:05:06,310
+Head over to the
+challenges and I'll
+
+102
+00:05:06,310 --> 00:05:08,630
+see you here in a little bit.
+
