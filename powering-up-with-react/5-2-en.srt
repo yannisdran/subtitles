@@ -573,24 +573,32 @@ None of you saw it,
 but it was awful.
 
 121
-00:06:24,790 --> 00:06:35,630
+00:06:24,812 --> 00:06:28,000
 Performance of our component
-We will make-- aw, come on.
 
 122
-00:06:35,630 --> 00:06:37,316
-Great job.
+00:06:31,500 --> 00:06:35,630
+We will make-- aw, come on.
 
 123
+00:06:35,630 --> 00:06:35,790
+Great job.
+We will make-- aw, come on.
+
+124
+00:06:35,790 --> 00:06:37,316
+Great job.
+
+125
 00:06:37,316 --> 00:06:39,650
 Don't fall back, dude.
 
-124
+126
 00:06:39,650 --> 00:06:41,960
 Everything works
 as desired, right?
 
-125
+127
 00:06:41,960 --> 00:06:44,050
 Well, not quite.
 
