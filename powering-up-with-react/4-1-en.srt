@@ -1,3 +1,925 @@
 1
-00:00:00,000 --> 00:00:02,100
-[No subtitles yet]
+00:00:00,000 --> 00:00:03,330
+[SINGING] When your page load is slow and your code is off
+
+2
+00:00:03,330 --> 00:00:07,010
+track, it is time for a
+fact to try using React.
+
+3
+00:00:07,010 --> 00:00:10,450
+To keep your app clarity,
+component modularity,
+
+4
+00:00:10,450 --> 00:00:14,480
+when your data changes you state
+to update the pages, to load it
+
+5
+00:00:14,480 --> 00:00:16,930
+quickly all along, it is
+the virtual DOM,
+
+6
+00:00:16,930 --> 00:00:20,890
+send your data all around
+using props to call it down,
+
+7
+00:00:20,890 --> 00:00:23,490
+it's time to act keep
+your app in tact,
+
+8
+00:00:23,490 --> 00:00:27,460
+Powering Up With React.
+
+9
+00:00:27,460 --> 00:00:28,040
+Hi.
+
+10
+00:00:28,040 --> 00:00:29,110
+I'm Sergio Cruz.
+
+11
+00:00:29,110 --> 00:00:32,119
+And you're watching
+Powering Up With React.
+
+12
+00:00:32,119 --> 00:00:36,740
+In this level, we'll learn
+about synthetic events.
+
+13
+00:00:36,740 --> 00:00:39,026
+Let's add a new
+feature to our app.
+
+14
+00:00:39,026 --> 00:00:42,840
+Let's allow users
+to add new comments.
+
+15
+00:00:42,840 --> 00:00:46,290
+We're going to have to write a
+brand new component for this.
+
+16
+00:00:46,290 --> 00:00:48,190
+We'll call it CommentForm.
+
+17
+00:00:48,190 --> 00:00:51,790
+And when we're done, this is
+what it's going to look like.
+
+18
+00:00:51,790 --> 00:00:56,850
+How can we go about building
+this form using React?
+
+19
+00:00:56,850 --> 00:01:01,840
+CommentForm will be a child
+of the comment box component,
+
+20
+00:01:01,840 --> 00:01:05,075
+and it will be placed at the
+top above the list of comments.
+
+21
+00:01:05,075 --> 00:01:08,410
+
+
+22
+00:01:08,410 --> 00:01:10,230
+To code a new
+component, we'll start
+
+23
+00:01:10,230 --> 00:01:14,140
+by declaring a new JavaScript
+class called CommentForm,
+
+24
+00:01:14,140 --> 00:01:16,980
+and make it extent
+react.component.
+
+25
+00:01:16,980 --> 00:01:20,280
+From there, we'll
+declare the render method
+
+26
+00:01:20,280 --> 00:01:23,843
+that returns the JSX mark
+up that our form will use.
+
+27
+00:01:23,843 --> 00:01:27,290
+
+
+28
+00:01:27,290 --> 00:01:29,260
+Right now or from is static.
+
+29
+00:01:29,260 --> 00:01:31,390
+To make it listen
+to user events,
+
+30
+00:01:31,390 --> 00:01:33,880
+we'll add the onSubmit handler.
+
+31
+00:01:33,880 --> 00:01:37,320
+And we'll make it trigger
+the handleSubmit method.
+
+32
+00:01:37,320 --> 00:01:39,450
+Since the handleSubmit
+method will
+
+33
+00:01:39,450 --> 00:01:43,280
+be run in a different context,
+other than CommentForm,
+
+34
+00:01:43,280 --> 00:01:46,600
+we need to call bind this.
+
+35
+00:01:46,600 --> 00:01:49,430
+Otherwise, this will not work.
+
+36
+00:01:49,430 --> 00:01:52,600
+Let's declare the
+handleSubmit method.
+
+37
+00:01:52,600 --> 00:01:56,600
+And it will receive an event
+object as its argument.
+
+38
+00:01:56,600 --> 00:02:00,310
+And we will call
+events.preventDefault to make
+
+39
+00:02:00,310 --> 00:02:03,304
+sure the page doesn't reload
+when the form is submitted.
+
+40
+00:02:03,304 --> 00:02:06,150
+
+
+41
+00:02:06,150 --> 00:02:07,330
+We're not done yet.
+
+42
+00:02:07,330 --> 00:02:09,710
+We need a way to access
+our input and text
+
+43
+00:02:09,710 --> 00:02:12,110
+area from our submit handler.
+
+44
+00:02:12,110 --> 00:02:14,900
+
+
+45
+00:02:14,900 --> 00:02:19,390
+To access these fields, we'll
+use something called refs.
+
+46
+00:02:19,390 --> 00:02:21,820
+Refs allow us to
+reference the fields
+
+47
+00:02:21,820 --> 00:02:25,100
+from anywhere in the class
+after the component has
+
+48
+00:02:25,100 --> 00:02:26,140
+been rendered.
+
+49
+00:02:26,140 --> 00:02:27,920
+Here's what they look like.
+
+50
+00:02:27,920 --> 00:02:30,370
+I know, this syntax
+can be a little
+
+51
+00:02:30,370 --> 00:02:34,010
+scary with the arrow function
+and the class variable
+
+52
+00:02:34,010 --> 00:02:35,390
+assignment.
+
+53
+00:02:35,390 --> 00:02:37,630
+Let's expand this code
+and see what it's really
+
+54
+00:02:37,630 --> 00:02:38,737
+doing behind the scenes.
+
+55
+00:02:38,737 --> 00:02:41,600
+
+
+56
+00:02:41,600 --> 00:02:43,760
+We are passing a
+function that gets
+
+57
+00:02:43,760 --> 00:02:46,730
+called with the
+element as an argument.
+
+58
+00:02:46,730 --> 00:02:49,400
+In this case, we
+called it input.
+
+59
+00:02:49,400 --> 00:02:52,150
+Once our function
+receives this input,
+
+60
+00:02:52,150 --> 00:02:56,400
+it will assign it to a property
+so we can have access to it
+
+61
+00:02:56,400 --> 00:02:58,640
+anywhere within the class scope.
+
+62
+00:02:58,640 --> 00:03:01,840
+Of course, since we're
+using the this keyword,
+
+63
+00:03:01,840 --> 00:03:06,610
+we need to bind this function
+to the CommentForm class.
+
+64
+00:03:06,610 --> 00:03:09,560
+That's where the arrow
+function comes in handy.
+
+65
+00:03:09,560 --> 00:03:11,770
+That's the long version
+of our code above.
+
+66
+00:03:11,770 --> 00:03:13,050
+Not bad, right?
+
+67
+00:03:13,050 --> 00:03:14,110
+One more note.
+
+68
+00:03:14,110 --> 00:03:17,050
+You might be wondering
+who caused this function?
+
+69
+00:03:17,050 --> 00:03:19,620
+And the answer is React does.
+
+70
+00:03:19,620 --> 00:03:22,710
+React caused dysfunction when
+it renders our component.
+
+71
+00:03:22,710 --> 00:03:25,330
+
+
+72
+00:03:25,330 --> 00:03:27,670
+Now we have a way of
+accessing those methods
+
+73
+00:03:27,670 --> 00:03:29,780
+from the handleSubmit method.
+
+74
+00:03:29,780 --> 00:03:32,290
+We assigned the author
+and body elements
+
+75
+00:03:32,290 --> 00:03:36,510
+populated from refs in
+JSX to local variables.
+
+76
+00:03:36,510 --> 00:03:38,440
+Since these are
+elements, we need
+
+77
+00:03:38,440 --> 00:03:44,680
+to call the dot value property
+to have access to their values.
+
+78
+00:03:44,680 --> 00:03:48,660
+Lastly, we call
+addComment method.
+
+79
+00:03:48,660 --> 00:03:51,400
+Notice we call this
+method from props,
+
+80
+00:03:51,400 --> 00:03:56,330
+which means it was passed as
+an argument to CommentForm.
+
+81
+00:03:56,330 --> 00:03:58,590
+We haven't done this
+yet, but this method
+
+82
+00:03:58,590 --> 00:04:03,920
+will be passed to CommentForm
+from its parent comment box.
+
+83
+00:04:03,920 --> 00:04:06,200
+This is a pattern we
+use a lot in React
+
+84
+00:04:06,200 --> 00:04:09,690
+to pass functions from parent
+components to child components.
+
+85
+00:04:09,690 --> 00:04:11,410
+So let's talk about
+that for a second.
+
+86
+00:04:11,410 --> 00:04:14,350
+
+
+87
+00:04:14,350 --> 00:04:19,560
+Our comments data live in our
+parent component comment box.
+
+88
+00:04:19,560 --> 00:04:23,990
+However, data for a new
+comment is being input
+
+89
+00:04:23,990 --> 00:04:26,730
+in the CommentForm component.
+
+90
+00:04:26,730 --> 00:04:30,760
+So we need a way to propagate
+data from the CommentForm
+
+91
+00:04:30,760 --> 00:04:32,910
+over to the CommentBox.
+
+92
+00:04:32,910 --> 00:04:34,610
+While this may
+sound complicated,
+
+93
+00:04:34,610 --> 00:04:38,140
+JavaScript actually makes it
+quite simple, due to the fact
+
+94
+00:04:38,140 --> 00:04:41,700
+that we can pass functions
+around as an argument.
+
+95
+00:04:41,700 --> 00:04:47,040
+So let's go back to the
+CommentBox for a second.
+
+96
+00:04:47,040 --> 00:04:49,440
+Now in CommentBox,
+the first thing we do
+
+97
+00:04:49,440 --> 00:04:53,020
+is declare the
+addComment method.
+
+98
+00:04:53,020 --> 00:04:56,400
+This is the method that will
+be called from our CommentForm
+
+99
+00:04:56,400 --> 00:04:57,530
+component.
+
+100
+00:04:57,530 --> 00:05:01,610
+Now in our render method, let's
+include CommentForm, and give
+
+101
+00:05:01,610 --> 00:05:04,620
+it a prop called addComment.
+
+102
+00:05:04,620 --> 00:05:07,360
+So remember, functions
+in JavaScript
+
+103
+00:05:07,360 --> 00:05:09,360
+are first class citizens.
+
+104
+00:05:09,360 --> 00:05:12,160
+So we can pass them
+around as arguments.
+
+105
+00:05:12,160 --> 00:05:13,880
+That's exactly what
+we're going to do
+
+106
+00:05:13,880 --> 00:05:16,220
+with the addComment function.
+
+107
+00:05:16,220 --> 00:05:20,160
+Passing it as an argument
+to addComment prop,
+
+108
+00:05:20,160 --> 00:05:22,555
+and binding it to the
+CommentBox component.
+
+109
+00:05:22,555 --> 00:05:25,580
+
+
+110
+00:05:25,580 --> 00:05:28,120
+Now from inside the
+addComment method,
+
+111
+00:05:28,120 --> 00:05:32,130
+we will build a new
+object called comment,
+
+112
+00:05:32,130 --> 00:05:34,910
+using the author and
+body arguments that
+
+113
+00:05:34,910 --> 00:05:36,440
+are passed to it.
+
+114
+00:05:36,440 --> 00:05:39,570
+We'll also generate an
+idea on the client side,
+
+115
+00:05:39,570 --> 00:05:43,390
+based on how many items are
+in the comment state array.
+
+116
+00:05:43,390 --> 00:05:46,270
+Then, we'll call
+setState and use
+
+117
+00:05:46,270 --> 00:05:49,920
+the concat a JavaScript
+function to add a new comment
+
+118
+00:05:49,920 --> 00:05:51,440
+at the end of the array.
+
+119
+00:05:51,440 --> 00:05:54,690
+We chose to use concat
+instead of push,
+
+120
+00:05:54,690 --> 00:05:58,980
+because calm cat returns a new
+reference to the array instead
+
+121
+00:05:58,980 --> 00:06:01,550
+of mutating the existing array.
+
+122
+00:06:01,550 --> 00:06:06,360
+This helps React remain fast by
+detecting the change to happen
+
+123
+00:06:06,360 --> 00:06:08,060
+in the array early on.
+
+124
+00:06:08,060 --> 00:06:11,120
+But this comments array
+doesn't exist in the state yet.
+
+125
+00:06:11,120 --> 00:06:13,660
+So let's create it.
+
+126
+00:06:13,660 --> 00:06:17,090
+So far, we've been defining
+a new array every time
+
+127
+00:06:17,090 --> 00:06:20,580
+the getComments method is
+called like we see over here
+
+128
+00:06:20,580 --> 00:06:24,260
+with the commentList array, but
+in order to dynamically update
+
+129
+00:06:24,260 --> 00:06:27,340
+the component, we need
+to move those comments
+
+130
+00:06:27,340 --> 00:06:29,950
+into the component state.
+
+131
+00:06:29,950 --> 00:06:32,470
+To do that, let's
+move this array over
+
+132
+00:06:32,470 --> 00:06:35,800
+to the initial state
+code in our constructor.
+
+133
+00:06:35,800 --> 00:06:37,570
+From inside the
+constructor, we add
+
+134
+00:06:37,570 --> 00:06:40,120
+a new property to the
+initial state object
+
+135
+00:06:40,120 --> 00:06:43,320
+called comments, and
+assign our existing
+
+136
+00:06:43,320 --> 00:06:45,560
+comments to this property.
+
+137
+00:06:45,560 --> 00:06:47,560
+Now they're part of
+the component state.
+
+138
+00:06:47,560 --> 00:06:50,500
+
+
+139
+00:06:50,500 --> 00:06:52,520
+Back to the
+getComments method, we
+
+140
+00:06:52,520 --> 00:06:56,350
+can now read from
+this.state.comments
+
+141
+00:06:56,350 --> 00:06:58,730
+and create components
+by looping over
+
+142
+00:06:58,730 --> 00:07:01,120
+each one of the
+elements in the array
+
+143
+00:07:01,120 --> 00:07:03,530
+by using the map function.
+
+144
+00:07:03,530 --> 00:07:05,650
+The return statement
+remains the same.
+
+145
+00:07:05,650 --> 00:07:08,610
+We're invoking a common
+component each time,
+
+146
+00:07:08,610 --> 00:07:12,310
+giving it an author, a
+body, and a key prop.
+
+147
+00:07:12,310 --> 00:07:16,920
+Let's see a demo of
+our app working now.
+
+148
+00:07:16,920 --> 00:07:20,130
+We'll type our name here,
+so Morgan McCircuit,
+
+149
+00:07:20,130 --> 00:07:23,340
+and our comment as
+a great picture.
+
+150
+00:07:23,340 --> 00:07:24,870
+Then we'll click
+the Post Comment
+
+151
+00:07:24,870 --> 00:07:28,180
+button, which will cause
+the form to get submitted.
+
+152
+00:07:28,180 --> 00:07:30,370
+Behind the scenes,
+the new comment gets
+
+153
+00:07:30,370 --> 00:07:33,480
+added to the comment state,
+causing the new comment
+
+154
+00:07:33,480 --> 00:07:35,800
+to get displayed below the form.
+
+155
+00:07:35,800 --> 00:07:38,300
+Pretty cool, Right
+
+156
+00:07:38,300 --> 00:07:41,230
+One more note about
+event handling in React.
+
+157
+00:07:41,230 --> 00:07:44,530
+In order to ensure that events
+have consistent properties
+
+158
+00:07:44,530 --> 00:07:47,260
+across different
+browsers, React wraps
+
+159
+00:07:47,260 --> 00:07:52,410
+the browser's native events into
+what it calls synthetic events.
+
+160
+00:07:52,410 --> 00:07:55,920
+What this means is that we
+can consistently handle events
+
+161
+00:07:55,920 --> 00:07:59,020
+within React, and it will handle
+all of the different browser
+
+162
+00:07:59,020 --> 00:08:01,280
+behaviors seamlessly.
+
+163
+00:08:01,280 --> 00:08:02,800
+Let's look at the Submit event.
+
+164
+00:08:02,800 --> 00:08:06,690
+Let's pretend for a second that
+all browsers treated the Submit
+
+165
+00:08:06,690 --> 00:08:08,220
+event differently.
+
+166
+00:08:08,220 --> 00:08:11,050
+So Chrome might call
+it Event Submit.
+
+167
+00:08:11,050 --> 00:08:14,650
+Firefox might call it
+Submit Event, and so on.
+
+168
+00:08:14,650 --> 00:08:16,780
+This is just a
+hypothetical example.
+
+169
+00:08:16,780 --> 00:08:19,420
+But if it was true,
+React would know
+
+170
+00:08:19,420 --> 00:08:22,910
+how to handle each
+browser's event accordingly.
+
+171
+00:08:22,910 --> 00:08:26,030
+Well, we as developers have
+a consistent synthetic event
+
+172
+00:08:26,030 --> 00:08:28,840
+in React called onSubmit.
+
+173
+00:08:28,840 --> 00:08:31,500
+React does that with
+a long list of events.
+
+174
+00:08:31,500 --> 00:08:34,049
+Be sure to check out this link
+right here for the full list.
+
+175
+00:08:34,049 --> 00:08:36,620
+
+
+176
+00:08:36,620 --> 00:08:39,309
+Let's review what we just
+learned about React's Event
+
+177
+00:08:39,309 --> 00:08:40,169
+System.
+
+178
+00:08:40,169 --> 00:08:42,720
+We use React's Event
+System to capture
+
+179
+00:08:42,720 --> 00:08:47,030
+user input, including form
+submissions and button clicks.
+
+180
+00:08:47,030 --> 00:08:50,890
+Refs allow us to reference
+DOM elements in our code
+
+181
+00:08:50,890 --> 00:08:53,360
+after the component
+has been rendered.
+
+182
+00:08:53,360 --> 00:08:56,380
+Parent components can
+pass functions as props
+
+183
+00:08:56,380 --> 00:09:00,840
+to child components to
+allow two-way communication.
+
+184
+00:09:00,840 --> 00:09:03,700
+Synthetic events are a
+cross-browser wrapper
+
+185
+00:09:03,700 --> 00:09:07,670
+around the browser's
+native event system.
+
+186
+00:09:07,670 --> 00:09:08,940
+This is it for level four.
+
+187
+00:09:08,940 --> 00:09:10,990
+It's your turn to
+take some challenges,
+
+188
+00:09:10,990 --> 00:09:15,040
+and I'll see you here
+for our final level.
+
+189
+00:09:15,040 --> 00:09:15,790
+[BEEP] [BEEP]
+
+190
+00:09:15,790 --> 00:09:16,790
+Whoa.
+
+191
+00:09:16,790 --> 00:09:21,460
+There's like an echo
+in the room though.
+
+192
+00:09:21,460 --> 00:09:23,740
+I didn't like my face
+while I was doing that.
+
+193
+00:09:23,740 --> 00:09:25,246
+Pretty cool, right?
+
+194
+00:09:25,246 --> 00:09:27,180
+You say that a lot.
+
+195
+00:09:27,180 --> 00:09:27,970
+I know I do.
+
+196
+00:09:27,970 --> 00:09:29,510
+I hate it.
+
+197
+00:09:29,510 --> 00:09:30,760
+[BEEP] [BEEP]
