@@ -1,3 +1,877 @@
-1
-00:00:00,000 --> 00:00:02,100
-[No subtitles yet]
+﻿1
+00:00:00,000 --> 00:00:03,030
+[SINGING] When your page load is slow and your code is
+
+2
+00:00:03,030 --> 00:00:07,010
+off track, it is time for
+a fact to try using React,
+
+3
+00:00:07,010 --> 00:00:10,420
+to keep your app clarity,
+component modularity,
+
+4
+00:00:10,420 --> 00:00:14,480
+when your data changes you state
+to update the pages, to load it
+
+5
+00:00:14,480 --> 00:00:17,410
+quickly all along, it
+is the virtual dom
+
+
+6
+00:00:17,410 --> 00:00:20,890
+send your data all around
+using pops to call it down,
+
+7
+00:00:20,890 --> 00:00:26,851
+It's time to act keep your app
+in tact Powering Up With React.
+
+8
+00:00:26,851 --> 00:00:27,350
+Hi.
+
+9
+00:00:27,350 --> 00:00:29,000
+I'm Sergio Cruz,
+and you're watching
+
+10
+00:00:29,000 --> 00:00:30,950
+Powering Up With React.
+
+11
+00:00:30,950 --> 00:00:34,570
+In this section we'll learn how
+to talk to remote servers using
+
+12
+00:00:34,570 --> 00:00:38,410
+React's Lifecycle Methods.
+
+13
+00:00:38,410 --> 00:00:41,090
+In the previous level, we
+moved over our comments
+
+14
+00:00:41,090 --> 00:00:43,250
+to be part of the
+component state.
+
+15
+00:00:43,250 --> 00:00:45,110
+However they're
+still hard coded.
+
+16
+00:00:45,110 --> 00:00:48,030
+In the real world we might
+want to pull those comments
+
+17
+00:00:48,030 --> 00:00:49,530
+from an API.
+
+18
+00:00:49,530 --> 00:00:52,115
+The first step to integrating
+our apps with an API
+
+19
+00:00:52,115 --> 00:00:54,608
+is to make sure these
+comments are dynamic.
+
+20
+00:00:58,990 --> 00:01:02,000
+The first step to doing that
+is to set the initial state
+
+21
+00:01:02,000 --> 00:01:04,510
+of comments as an
+empty array so it
+
+22
+00:01:04,510 --> 00:01:06,720
+can be later populated
+with data that
+
+23
+00:01:06,720 --> 00:01:10,560
+comes from a remote server.
+
+24
+00:01:10,560 --> 00:01:14,570
+In order to make Ajax requests,
+we'll be using jQuery.
+
+25
+00:01:14,570 --> 00:01:16,820
+We can download jQuery
+from their website
+
+26
+00:01:16,820 --> 00:01:22,020
+and include it as a dependency
+to our index.html file.
+
+27
+00:01:22,020 --> 00:01:25,140
+If you're not too familiar
+with making Ajax requests
+
+28
+00:01:25,140 --> 00:01:27,400
+with jQuery, it's
+highly recommended
+
+29
+00:01:27,400 --> 00:01:29,910
+that you check out the
+course jQuery Return
+
+30
+00:01:29,910 --> 00:01:32,802
+Flight here on Code School.
+
+31
+00:01:32,802 --> 00:01:34,260
+Now that jQuery is
+available, we'll
+
+32
+00:01:34,260 --> 00:01:37,260
+write a new method called
+fetch comments that will take
+
+33
+00:01:37,260 --> 00:01:39,930
+care of making Ajax requests.
+
+34
+00:01:39,930 --> 00:01:42,740
+This method will
+make a GET request
+
+35
+00:01:42,740 --> 00:01:49,060
+to slash API slash comments
+every time it's called.
+
+36
+00:01:49,060 --> 00:01:51,590
+When the Ajax
+request is complete,
+
+37
+00:01:51,590 --> 00:01:55,120
+we'll call setState with
+the new array of comments
+
+38
+00:01:55,120 --> 00:01:57,380
+that we received
+from the server.
+
+39
+00:01:57,380 --> 00:01:59,730
+We used an arrow
+function here to make
+
+40
+00:01:59,730 --> 00:02:03,800
+sure our success callback is
+bound to the comment box class.
+
+41
+00:02:07,240 --> 00:02:10,949
+Another method for making
+Ajax requests is written.
+
+42
+00:02:10,949 --> 00:02:12,410
+Where should we call it from?
+
+43
+00:02:12,410 --> 00:02:14,740
+We might be tempted
+to call fetch comments
+
+44
+00:02:14,740 --> 00:02:16,200
+from the render function.
+
+45
+00:02:16,200 --> 00:02:19,710
+But since fetch
+comments calls setState
+
+46
+00:02:19,710 --> 00:02:21,590
+when the request
+is complete, that
+
+47
+00:02:21,590 --> 00:02:24,860
+will calls in the
+synchronous infinite loop.
+
+48
+00:02:24,860 --> 00:02:25,850
+Bad idea.
+
+49
+00:02:25,850 --> 00:02:29,400
+We need to find a way
+to call fetch comments
+
+50
+00:02:29,400 --> 00:02:31,850
+before the render
+method is called.
+
+51
+00:02:31,850 --> 00:02:34,220
+And to do that, I'd
+like to introduce to you
+
+52
+00:02:34,220 --> 00:02:37,880
+React's lifecycle methods.
+
+53
+00:02:37,880 --> 00:02:40,310
+Lifecycle methods in
+React are functions
+
+54
+00:02:40,310 --> 00:02:42,880
+that get called while the
+component is being rendered
+
+55
+00:02:42,880 --> 00:02:45,570
+for the first time or
+when it's about to be
+
+56
+00:02:45,570 --> 00:02:47,120
+removed from the DOM.
+
+57
+00:02:47,120 --> 00:02:50,890
+In this course we will focus
+on three lifecycle methods.
+
+58
+00:02:50,890 --> 00:02:53,790
+Let's go through a React
+components lifecycle.
+
+59
+00:02:53,790 --> 00:02:57,580
+The first lifecycle method to
+be called is componentWillMount.
+
+60
+00:02:57,580 --> 00:03:00,990
+And it is called before
+the component is rendered.
+
+61
+00:03:00,990 --> 00:03:02,660
+Then the render
+method is called,
+
+62
+00:03:02,660 --> 00:03:04,510
+and the component gets rendered.
+
+63
+00:03:04,510 --> 00:03:06,590
+When the component
+is done rendering,
+
+64
+00:03:06,590 --> 00:03:09,510
+the componentDidMount
+method gets called.
+
+65
+00:03:09,510 --> 00:03:12,380
+And the last lifecycle
+method to be called
+
+66
+00:03:12,380 --> 00:03:15,240
+is componentWillUnmount,
+which is
+
+67
+00:03:15,240 --> 00:03:18,840
+when the component is about
+to be removed from the DOM.
+
+68
+00:03:18,840 --> 00:03:21,370
+There are other lifecycle
+methods in React.
+
+69
+00:03:21,370 --> 00:03:24,080
+But in this course, we'll
+be focusing on these three.
+
+70
+00:03:24,080 --> 00:03:26,910
+Check out the URL
+for the full list.
+
+71
+00:03:26,910 --> 00:03:29,750
+By the way, mounting
+here means being
+
+72
+00:03:29,750 --> 00:03:31,920
+rendered for the first time.
+
+73
+00:03:31,920 --> 00:03:34,150
+And as you can
+imagine, unmounting
+
+74
+00:03:34,150 --> 00:03:38,370
+means getting
+removed from the DOM.
+
+75
+00:03:38,370 --> 00:03:40,690
+Back to our comment
+box, we will use
+
+76
+00:03:40,690 --> 00:03:45,100
+componentWillMount to call
+the fetch comments method.
+
+77
+00:03:45,100 --> 00:03:47,060
+Remember, since the
+component Will Mount
+
+78
+00:03:47,060 --> 00:03:51,050
+method is called before
+the component is rendered,
+
+79
+00:03:51,050 --> 00:03:53,570
+this will be the
+perfect place to have
+
+80
+00:03:53,570 --> 00:03:55,710
+our Ajax request get started.
+
+81
+00:03:58,350 --> 00:04:02,080
+Another component made its
+first Ajax request, how can we
+
+82
+00:04:02,080 --> 00:04:03,750
+go about getting updates?
+
+83
+00:04:03,750 --> 00:04:07,030
+One way is to periodically
+make the same API
+
+84
+00:04:07,030 --> 00:04:10,970
+request, checking if there
+are new comments available.
+
+85
+00:04:10,970 --> 00:04:13,672
+This process is
+known as polling.
+
+86
+00:04:13,672 --> 00:04:15,380
+Where should we start
+the polling process
+
+87
+00:04:15,380 --> 00:04:17,959
+in our component?
+
+88
+00:04:17,959 --> 00:04:21,420
+Since the component Did
+Mount method is called
+
+89
+00:04:21,420 --> 00:04:23,970
+after the component
+is rendered, this
+
+90
+00:04:23,970 --> 00:04:27,980
+will be the perfect place to
+start our polling process.
+
+91
+00:04:27,980 --> 00:04:29,820
+In componentDidMount,
+we will use
+
+92
+00:04:29,820 --> 00:04:34,690
+setInterval to make sure fetch
+comment is called every five
+
+93
+00:04:34,690 --> 00:04:35,780
+seconds.
+
+94
+00:04:35,780 --> 00:04:38,780
+Calling effects comments and
+re-rendering the component
+
+95
+00:04:38,780 --> 00:04:41,766
+every five seconds
+may sound expensive,
+
+96
+00:04:41,766 --> 00:04:43,140
+but let me show
+you why it's not.
+
+97
+00:04:45,710 --> 00:04:48,170
+React optimizes the
+rendering process
+
+98
+00:04:48,170 --> 00:04:51,540
+by only updating the DOM
+when changes are detected
+
+99
+00:04:51,540 --> 00:04:53,194
+on the resulting markup.
+
+100
+00:04:53,194 --> 00:04:54,610
+If you're anything
+like me, you're
+
+101
+00:04:54,610 --> 00:04:58,010
+probably concerned about the
+performance of our component.
+
+102
+00:04:58,010 --> 00:04:59,830
+If you recall from
+our first level,
+
+103
+00:04:59,830 --> 00:05:03,040
+React uses something
+called the virtual DOM,
+
+104
+00:05:03,040 --> 00:05:07,160
+and will only apply changes
+to the DOM when needed.
+
+105
+00:05:07,160 --> 00:05:10,180
+So even though we call
+setState, which
+
+106
+00:05:10,180 --> 00:05:12,690
+causes the render
+function to get called,
+
+107
+00:05:12,690 --> 00:05:17,420
+the browser DOM is only touched
+when actual changes were made.
+
+108
+00:05:17,420 --> 00:05:19,240
+Let's go through the steps.
+
+109
+00:05:19,240 --> 00:05:22,090
+When the component is
+loaded for the first time,
+
+110
+00:05:22,090 --> 00:05:26,220
+we'll see the No Comments
+Yet message on the screen.
+
+111
+00:05:26,220 --> 00:05:29,480
+Then we finally get a
+response from the server,
+
+112
+00:05:29,480 --> 00:05:33,170
+causing our component to
+re-render with five comments.
+
+113
+00:05:33,170 --> 00:05:36,330
+Then we make sure their
+Ajax cause that contains
+
+114
+00:05:36,330 --> 00:05:38,380
+the same five comments.
+
+115
+00:05:38,380 --> 00:05:42,820
+And since there were no changes,
+the DOM is never touched.
+
+116
+00:05:42,820 --> 00:05:46,400
+Finally, when we make our
+third call to the server,
+
+117
+00:05:46,400 --> 00:05:49,470
+we receive six comments
+instead of five.
+
+118
+00:05:49,470 --> 00:05:55,880
+So React intelligently applies
+the changes to the DOM.
+
+119
+00:05:55,880 --> 00:05:57,410
+There is one more
+concern we need
+
+120
+00:05:57,410 --> 00:05:59,570
+to address with our component.
+
+121
+00:05:59,570 --> 00:06:01,470
+It may have some memory leaks.
+
+122
+00:06:01,470 --> 00:06:03,170
+Let's look at this example.
+
+123
+00:06:03,170 --> 00:06:05,660
+Page transitions in a
+single page app environment
+
+124
+00:06:05,660 --> 00:06:09,370
+will cause comment box
+to keep adding timers.
+
+125
+00:06:09,370 --> 00:06:12,540
+For example, when we
+first load a video page
+
+126
+00:06:12,540 --> 00:06:16,440
+with our comment box component,
+it will create a timer.
+
+127
+00:06:16,440 --> 00:06:18,660
+Then if we transition
+to another page,
+
+128
+00:06:18,660 --> 00:06:22,360
+say a blog article, which
+also has a comment box
+
+129
+00:06:22,360 --> 00:06:25,760
+component, that will
+create a second timer
+
+130
+00:06:25,760 --> 00:06:28,190
+with the first
+timer still running.
+
+131
+00:06:28,190 --> 00:06:32,210
+Then, if we keep transitioning
+to other pages that also have
+
+132
+00:06:32,210 --> 00:06:35,040
+the comment box
+component, new timers
+
+133
+00:06:35,040 --> 00:06:38,700
+will keep getting added to
+the equation unnecessarily.
+
+134
+00:06:38,700 --> 00:06:40,850
+Ultimately, this will
+lead up to a memory leak,
+
+135
+00:06:40,850 --> 00:06:43,400
+causing our component to
+grow because of this leak.
+
+136
+00:06:43,400 --> 00:06:47,100
+Let's see how we can fix this.
+
+137
+00:06:47,100 --> 00:06:48,770
+We need to make
+sure each component
+
+138
+00:06:48,770 --> 00:06:50,830
+we write is responsible
+for removing
+
+139
+00:06:50,830 --> 00:06:52,745
+any timers we may have added.
+
+140
+00:06:52,745 --> 00:06:55,540
+We will remove the timer
+from the comment box
+
+141
+00:06:55,540 --> 00:06:58,890
+component in the
+componentWillUnmount lifecycle
+
+142
+00:06:58,890 --> 00:06:59,850
+method.
+
+143
+00:06:59,850 --> 00:07:02,300
+To do that, we'll
+start the return value
+
+144
+00:07:02,300 --> 00:07:07,170
+from the setInterval call
+into a property called timer.
+
+145
+00:07:07,170 --> 00:07:09,860
+Then, when the component
+is about to be removed
+
+146
+00:07:09,860 --> 00:07:12,780
+from the DOM, causing
+componentWillUnmount to be
+
+147
+00:07:12,780 --> 00:07:15,940
+called, we will
+call clearInterval,
+
+148
+00:07:15,940 --> 00:07:18,260
+passing at the
+interval ID, which
+
+149
+00:07:18,260 --> 00:07:22,520
+is what is stored in
+the timer property.
+
+150
+00:07:22,520 --> 00:07:25,330
+Another component is
+removing the timer.
+
+151
+00:07:25,330 --> 00:07:27,590
+We can see that in
+page transitions,
+
+152
+00:07:27,590 --> 00:07:29,822
+we only have one
+timer at a time.
+
+153
+00:07:34,160 --> 00:07:37,030
+Here's a review of how
+we used lifecycle methods
+
+154
+00:07:37,030 --> 00:07:38,400
+in our application.
+
+155
+00:07:38,400 --> 00:07:43,190
+First, componentWillMount is
+called, then render is called
+
+156
+00:07:43,190 --> 00:07:45,760
+and a comment box is mounted.
+
+157
+00:07:45,760 --> 00:07:49,040
+Then our component waits
+for the API response.
+
+158
+00:07:49,040 --> 00:07:53,070
+And when it's received, setState
+gets called causing render
+
+159
+00:07:53,070 --> 00:07:54,840
+to be called again.
+
+160
+00:07:54,840 --> 00:07:58,150
+Then componentDidMount
+gets called, causing
+
+161
+00:07:58,150 --> 00:08:01,700
+this dot fetch comments to
+be triggered at every five
+
+162
+00:08:01,700 --> 00:08:03,000
+seconds.
+
+163
+00:08:03,000 --> 00:08:06,400
+Lastly, componentWillUnmount
+is called
+
+164
+00:08:06,400 --> 00:08:09,580
+when the component is about
+to be removed from the DOM
+
+165
+00:08:09,580 --> 00:08:12,060
+and clears the
+fetchComments timeout.
+
+166
+00:08:15,000 --> 00:08:15,940
+Whoo!
+
+167
+00:08:15,940 --> 00:08:17,160
+This was a lot.
+
+168
+00:08:17,160 --> 00:08:20,130
+But here's a quick review
+on lifecycle methods.
+
+169
+00:08:20,130 --> 00:08:22,060
+There are functions
+in React that
+
+170
+00:08:22,060 --> 00:08:25,840
+get called during certain phases
+that components go through.
+
+171
+00:08:25,840 --> 00:08:28,950
+ComponentWillMount is
+called before the component
+
+172
+00:08:28,950 --> 00:08:30,550
+is rendered.
+
+173
+00:08:30,550 --> 00:08:34,450
+ComponentDidMount is
+called after the component
+
+174
+00:08:34,450 --> 00:08:35,510
+is rendered.
+
+175
+00:08:35,510 --> 00:08:38,950
+And lastly, componentWillUnmount
+is called immediately
+
+176
+00:08:38,950 --> 00:08:42,570
+before the component is
+removed from the DOM.
+
+177
+00:08:42,570 --> 00:08:45,700
+And don't forget to check out
+React's official documentation
+
+178
+00:08:45,700 --> 00:08:49,064
+to learn about all the other
+React lifecycle methods there
+
+179
+00:08:49,064 --> 00:08:49,564
+are.
+
+180
+00:08:52,580 --> 00:08:54,350
+This is it for this section.
+
+181
+00:08:54,350 --> 00:08:56,860
+Go take some challenges
+on lifecycle methods,
+
+182
+00:08:56,860 --> 00:09:00,490
+and I'll see you here for the
+last section of Powering Up
+
+183
+00:09:00,490 --> 00:09:02,280
+With React.
+
