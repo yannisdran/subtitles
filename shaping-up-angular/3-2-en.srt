@@ -1,0 +1,304 @@
+﻿1
+00:00:02,004 --> 00:00:03,420
+So we're back
+working on our form.
+
+2
+00:00:03,420 --> 00:00:05,690
+And before we get
+any further we need
+
+3
+00:00:05,690 --> 00:00:08,119
+to organize our
+code a little bit.
+
+4
+00:00:08,119 --> 00:00:09,520
+See that review variable?
+
+5
+00:00:09,520 --> 00:00:11,250
+We didn't define it anywhere.
+
+6
+00:00:11,250 --> 00:00:14,130
+And it's good
+practice to define it.
+
+7
+00:00:14,130 --> 00:00:17,200
+We can use ng-init, but
+like we mentioned before,
+
+8
+00:00:17,200 --> 00:00:20,530
+it's better to do initialization
+inside a controller.
+
+9
+00:00:20,530 --> 00:00:25,070
+So let's create a controller
+for our review form.
+
+10
+00:00:25,070 --> 00:00:26,796
+We'll call it ReviewController.
+
+11
+00:00:26,796 --> 00:00:28,670
+and the only thing we
+need to do inside of it
+
+12
+00:00:28,670 --> 00:00:32,950
+so far is to initialize
+a property called review
+
+13
+00:00:32,950 --> 00:00:35,370
+and set it equal
+to an empty object.
+
+14
+00:00:35,370 --> 00:00:38,900
+Then on our form we're going to
+use the ng-controller directive
+
+15
+00:00:38,900 --> 00:00:45,360
+and attach the review
+controller as reviewCtrl.
+
+16
+00:00:45,360 --> 00:00:47,300
+Why are we using Ctrl?
+
+17
+00:00:47,300 --> 00:00:49,940
+Because if you read other
+people's Angular code
+
+18
+00:00:49,940 --> 00:00:55,070
+they'll often use that as
+an alias, just adding Ctrl.
+
+19
+00:00:55,070 --> 00:00:56,900
+Now we need to update
+all the expressions
+
+20
+00:00:56,900 --> 00:00:58,480
+to use this controller alias.
+
+21
+00:00:58,480 --> 00:00:59,380
+So let's do that.
+
+22
+00:01:02,030 --> 00:01:03,070
+Perfect.
+
+23
+00:01:03,070 --> 00:01:06,660
+Now let's make our form actually
+submit and do something.
+
+24
+00:01:06,660 --> 00:01:08,860
+We need a new
+directive for that.
+
+25
+00:01:08,860 --> 00:01:11,150
+In this case, ng-submit.
+
+26
+00:01:11,150 --> 00:01:13,800
+ng-submit allows us
+to call a function
+
+27
+00:01:13,800 --> 00:01:16,010
+when the form is submitted.
+
+28
+00:01:16,010 --> 00:01:23,040
+So we'll simply specify
+ng-submit reviwCtrl.addReview
+
+29
+00:01:23,040 --> 00:01:26,560
+and we're going to send
+in the current product
+
+30
+00:01:26,560 --> 00:01:28,570
+that we're iterating
+through, you
+
+31
+00:01:28,570 --> 00:01:30,320
+know, from our StoreController.
+
+32
+00:01:30,320 --> 00:01:32,900
+Next step, we need to
+define this function
+
+33
+00:01:32,900 --> 00:01:36,450
+inside of our ReviewController.
+
+34
+00:01:36,450 --> 00:01:39,000
+So here's the add
+review function.
+
+35
+00:01:39,000 --> 00:01:42,590
+It takes in product
+as a single argument,
+
+36
+00:01:42,590 --> 00:01:44,520
+then we'll get the
+product's current reviews
+
+37
+00:01:44,520 --> 00:01:47,230
+by calling product.reviews.
+
+38
+00:01:47,230 --> 00:01:51,410
+And we'll push the controller's
+review, this.review,
+
+39
+00:01:51,410 --> 00:01:55,070
+on to the reviews array.
+
+40
+00:01:55,070 --> 00:01:57,190
+Now if we jump
+back into the form,
+
+41
+00:01:57,190 --> 00:01:59,500
+we can go ahead and
+submit our review.
+
+42
+00:01:59,500 --> 00:02:04,900
+You can see it gets added, but
+now the form wasn't cleared out
+
+43
+00:02:04,900 --> 00:02:07,340
+and our live preview
+wasn't either.
+
+44
+00:02:07,340 --> 00:02:11,210
+So it looks like we have
+two different reviews.
+
+45
+00:02:11,210 --> 00:02:12,520
+That's not good.
+
+46
+00:02:12,520 --> 00:02:15,150
+So how might we
+reset the form, which
+
+47
+00:02:15,150 --> 00:02:18,030
+will clear up the live
+preview as well?
+
+48
+00:02:18,030 --> 00:02:19,780
+So now jumping
+back into our code,
+
+49
+00:02:19,780 --> 00:02:22,340
+inside the addReview
+function, we simply
+
+50
+00:02:22,340 --> 00:02:28,230
+need to set this.review equal to
+a brand new JavaScript object.
+
+51
+00:02:28,230 --> 00:02:30,570
+This should properly
+clear out the form
+
+52
+00:02:30,570 --> 00:02:32,810
+and hide that live preview.
+
+53
+00:02:32,810 --> 00:02:36,260
+Now let's jump into the
+form and see what happens.
+
+54
+00:02:36,260 --> 00:02:40,530
+So now, if we type in
+a review, hit Submit,
+
+55
+00:02:40,530 --> 00:02:43,230
+you can see that the
+form gets cleared out,
+
+56
+00:02:43,230 --> 00:02:46,890
+and we no longer see
+duplicate reviews.
+
+57
+00:02:46,890 --> 00:02:48,500
+Before getting to
+the challenges,
+
+58
+00:02:48,500 --> 00:02:50,930
+you might have noticed
+if you're playing along
+
+59
+00:02:50,930 --> 00:02:54,190
+at home, that we're not
+persisting this data.
+
+60
+00:02:54,190 --> 00:02:57,320
+If you were to refresh the
+page after adding a review,
+
+61
+00:02:57,320 --> 00:02:59,250
+it would get blown away.
+
+62
+00:02:59,250 --> 00:03:03,170
+We're not saving this to a
+server anywhere and that's OK.
+
+63
+00:03:03,170 --> 00:03:05,650
+We'll get so that
+eventually in this course.
+
+64
+00:03:05,650 --> 00:03:09,620
+But in the meantime,
+go practice this stuff.
+
