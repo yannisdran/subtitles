@@ -1,0 +1,208 @@
+﻿1
+00:00:01,892 --> 00:00:04,100
+In this section we're going
+to add another directive,
+
+2
+00:00:04,100 --> 00:00:07,180
+and this time, attach
+a controller to it.
+
+3
+00:00:07,180 --> 00:00:09,560
+So in our previous
+section, we had
+
+4
+00:00:09,560 --> 00:00:14,710
+this HTML we encapsulated
+into an attribute directive,
+
+5
+00:00:14,710 --> 00:00:16,910
+and an element directive.
+
+6
+00:00:20,370 --> 00:00:23,060
+Here's some additional code
+that we can encapsulate
+
+7
+00:00:23,060 --> 00:00:25,170
+into a directive,
+but you'll notice
+
+8
+00:00:25,170 --> 00:00:27,550
+it also has a controller.
+
+9
+00:00:27,550 --> 00:00:29,920
+So let's change this
+into a directive
+
+10
+00:00:29,920 --> 00:00:32,439
+and then figure out how
+to add the controller.
+
+11
+00:00:32,439 --> 00:00:34,240
+First step, as
+you might imagine,
+
+12
+00:00:34,240 --> 00:00:37,562
+is we're going to take this code
+and we're going to pull it out
+
+13
+00:00:37,562 --> 00:00:38,770
+into the product-panels.html.
+
+14
+00:00:41,740 --> 00:00:43,670
+Inside our index.html
+we'll create
+
+15
+00:00:43,670 --> 00:00:46,900
+the product-panels
+custom directive.
+
+16
+00:00:50,150 --> 00:00:54,610
+Then our app.js will start
+defining the custom directive.
+
+17
+00:00:54,610 --> 00:00:58,590
+We'll call it productPanels,
+notice the camel case,
+
+18
+00:00:58,590 --> 00:00:59,730
+it's an element directive.
+
+19
+00:00:59,730 --> 00:01:02,420
+So we write restrict 'E'.
+
+20
+00:01:02,420 --> 00:01:07,520
+And the template here is going
+to be product-panels.html.
+
+21
+00:01:07,520 --> 00:01:11,000
+Now how do we move the
+controller into the directive?
+
+22
+00:01:11,000 --> 00:01:12,790
+Well first things
+first, we're going
+
+23
+00:01:12,790 --> 00:01:16,410
+to move the functionality
+of the controller
+
+24
+00:01:16,410 --> 00:01:19,980
+into the directive using
+the controller keyword.
+
+25
+00:01:19,980 --> 00:01:22,380
+So we have our
+product-panels directive
+
+26
+00:01:22,380 --> 00:01:25,690
+with our panel controller
+and it works fine.
+
+27
+00:01:25,690 --> 00:01:27,550
+We would just have to
+remember every time
+
+28
+00:01:27,550 --> 00:01:29,630
+we add this
+product-panels directive
+
+29
+00:01:29,630 --> 00:01:32,000
+to also include this controller.
+
+30
+00:01:32,000 --> 00:01:34,330
+So how might we
+move this controller
+
+31
+00:01:34,330 --> 00:01:36,080
+inside the directive?
+
+32
+00:01:36,080 --> 00:01:37,630
+The first thing
+we need to do, we
+
+33
+00:01:37,630 --> 00:01:41,690
+need to specify that alias
+we'll want to use inside
+
+34
+00:01:41,690 --> 00:01:44,280
+of this directive to
+refer to the controller.
+
+35
+00:01:44,280 --> 00:01:48,090
+In this case, panels.
+
+36
+00:01:48,090 --> 00:01:49,770
+And that's all there is to it.
+
+37
+00:01:49,770 --> 00:01:52,410
+And we can see that
+everything works as it should,
+
+38
+00:01:52,410 --> 00:01:56,180
+nothing much has changed,
+except our HTML has
+
+39
+00:01:56,180 --> 00:01:59,880
+become more organized
+and expressive.
+
+40
+00:01:59,880 --> 00:02:01,850
+Time for you to jump
+into the challenges.
+
+41
+00:02:01,850 --> 00:02:05,290
+Try this out and I'll see
+you in the next level.
+
+42
+00:02:05,290 --> 00:02:07,710
+Director [MUMBLING]
+
+43
+00:02:07,710 --> 00:02:10,520
+Tells web page [NONSENSE SPEAK]
+
+44
+00:02:10,520 --> 00:02:13,440
+Or attribute or att-- [LAUGHS]
+

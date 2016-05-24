@@ -1,0 +1,241 @@
+﻿1
+00:00:00,196 --> 00:00:01,820
+[SINGING] The
+Flatlanders need to store
+
+2
+00:00:01,820 --> 00:00:04,790
+to sell their gems and more -
+and they need it really quick.
+
+3
+00:00:04,790 --> 00:00:06,510
+Angular will do the trick.
+
+4
+00:00:06,510 --> 00:00:09,460
+Directives set the
+stage in your HTML page.
+
+5
+00:00:09,460 --> 00:00:12,310
+Controllers give your wrap
+the behavior that it lacks.
+
+6
+00:00:12,310 --> 00:00:14,525
+Write expressions so that
+you can add your data
+
+7
+00:00:14,525 --> 00:00:16,800
+to the view. And modules
+make connections
+
+8
+00:00:16,800 --> 00:00:18,320
+with dependency injections.
+
+9
+00:00:18,320 --> 00:00:19,780
+You're a scripting
+connoisseur when
+
+10
+00:00:19,780 --> 00:00:22,870
+shaping up with Angular JS.
+
+11
+00:00:27,640 --> 00:00:30,770
+You're watching Shaping up with
+Angular and this is level five.
+
+12
+00:00:30,770 --> 00:00:35,820
+where we're going to be talking about
+dependencies and services.
+
+13
+00:00:35,820 --> 00:00:38,320
+Back in our app.js,
+our application
+
+14
+00:00:38,320 --> 00:00:41,720
+is starting to get pretty long.
+
+15
+00:00:41,720 --> 00:00:44,450
+And well, we've got a lot of
+different things happening.
+
+16
+00:00:44,450 --> 00:00:46,750
+Directives that are
+concerned with one thing
+
+17
+00:00:46,750 --> 00:00:48,440
+are mingling with
+other directives
+
+18
+00:00:48,440 --> 00:00:51,240
+and you need a way to
+organize this code.
+
+19
+00:00:51,240 --> 00:00:53,910
+To do that, we're going to
+start isolating some of our code
+
+20
+00:00:53,910 --> 00:00:55,590
+in their own modules.
+
+21
+00:00:55,590 --> 00:00:57,760
+The first step here
+is to pull out,
+
+22
+00:00:57,760 --> 00:01:01,220
+let's say, all of our
+product related directives
+
+23
+00:01:01,220 --> 00:01:04,280
+into the products.js file.
+
+24
+00:01:04,280 --> 00:01:07,330
+Here we're going to wrap
+it in its own closure
+
+25
+00:01:07,330 --> 00:01:11,040
+and then define app
+equals angular.module,
+
+26
+00:01:11,040 --> 00:01:14,290
+declaring a new module
+just for product things,
+
+27
+00:01:14,290 --> 00:01:19,560
+and then specify the module
+name of store-products.
+
+28
+00:01:19,560 --> 00:01:22,060
+There's nothing magical
+about the module name here,
+
+29
+00:01:22,060 --> 00:01:24,830
+we just decided to
+call it store-products,
+
+30
+00:01:24,830 --> 00:01:27,620
+because it's the products
+which belong to the store.
+
+31
+00:01:27,620 --> 00:01:30,700
+You'll notice we're using that
+app variable in both our app.js
+
+32
+00:01:30,700 --> 00:01:33,820
+and products.js, which is
+fine because they're both
+
+33
+00:01:33,820 --> 00:01:35,600
+wrapped in a closure.
+
+34
+00:01:35,600 --> 00:01:38,110
+Now we need to tell
+our store module
+
+35
+00:01:38,110 --> 00:01:42,790
+and it depends on this
+store-products module.
+
+36
+00:01:42,790 --> 00:01:46,980
+To do that, we simply add
+it to that blank array
+
+37
+00:01:46,980 --> 00:01:50,120
+when we initialize
+our store module.
+
+38
+00:01:50,120 --> 00:01:52,470
+The other thing we need
+to do to make this work
+
+39
+00:01:52,470 --> 00:01:56,380
+is to include this products.js
+file inside our index.html.
+
+40
+00:02:00,470 --> 00:02:03,810
+Now, if we go back to our
+web page-- hey big surprise--
+
+41
+00:02:03,810 --> 00:02:05,610
+it still works, but
+this time our code
+
+42
+00:02:05,610 --> 00:02:06,860
+is a little more maintainable.
+
+43
+00:02:11,020 --> 00:02:14,870
+It's best to split up modules
+based on their functionality.
+
+44
+00:02:14,870 --> 00:02:18,310
+So in our case, we'll take all
+the functionality for products,
+
+45
+00:02:18,310 --> 00:02:22,180
+and only products, and
+put it inside products.js.
+
+46
+00:02:22,180 --> 00:02:25,010
+Directives like product
+title and product panels.
+
+47
+00:02:25,010 --> 00:02:28,770
+If we had a shopping cart or
+a contact page on our store,
+
+48
+00:02:28,770 --> 00:02:32,876
+it might be good to create
+module files for those as well.
+
+49
+00:02:32,876 --> 00:02:35,250
+Why don't you try creating a
+module and I'll see you back
+
+50
+00:02:35,250 --> 00:02:37,187
+in the last section.
+

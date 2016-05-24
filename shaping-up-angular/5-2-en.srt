@@ -1,0 +1,541 @@
+﻿1
+00:00:02,040 --> 00:00:02,660
+Welcome back.
+
+2
+00:00:02,660 --> 00:00:05,810
+In this last section we're going
+to be talking about services.
+
+3
+00:00:05,810 --> 00:00:08,760
+One of which will
+allow us to get rid
+
+4
+00:00:08,760 --> 00:00:12,750
+of this array of data we're
+storing right here in our page
+
+5
+00:00:12,750 --> 00:00:17,080
+and instead pull it from an API.
+
+6
+00:00:17,080 --> 00:00:19,190
+So here you might
+see a sample URL
+
+7
+00:00:19,190 --> 00:00:22,590
+that we might call out
+to products.json which
+
+8
+00:00:22,590 --> 00:00:26,084
+will return us a JSON array
+of all of our products,
+
+9
+00:00:26,084 --> 00:00:28,000
+which we want to load
+in our store controller.
+
+10
+00:00:28,000 --> 00:00:29,380
+Hm.
+
+11
+00:00:29,380 --> 00:00:32,409
+So what does that
+code look like?
+
+12
+00:00:32,409 --> 00:00:35,000
+As I mentioned,
+we need a service.
+
+13
+00:00:35,000 --> 00:00:36,940
+Angular comes with
+a bunch of services
+
+14
+00:00:36,940 --> 00:00:38,860
+built in which you
+can use to give
+
+15
+00:00:38,860 --> 00:00:41,250
+your controller
+additional functionality.
+
+16
+00:00:41,250 --> 00:00:43,110
+You could do things
+like fetching JSON
+
+17
+00:00:43,110 --> 00:00:46,070
+from a web service
+using the HTTP service.
+
+18
+00:00:46,070 --> 00:00:49,040
+You can also log out messages
+to the JavaScript console
+
+19
+00:00:49,040 --> 00:00:50,510
+with a log service.
+
+20
+00:00:50,510 --> 00:00:54,200
+Or you could filter out an
+array with the filter service.
+
+21
+00:00:54,200 --> 00:00:56,170
+As you might have noticed,
+all these services
+
+22
+00:00:56,170 --> 00:00:58,660
+begin with a dollar sign.
+
+23
+00:00:58,660 --> 00:01:03,052
+That's because they're built-in
+services with Angular.
+
+24
+00:01:03,052 --> 00:01:05,150
+The HTTP service
+is the one we need
+
+25
+00:01:05,150 --> 00:01:07,990
+to use to get that JSON
+data from our server.
+
+26
+00:01:07,990 --> 00:01:10,210
+We can do this by
+using the HTTP method
+
+27
+00:01:10,210 --> 00:01:14,030
+as a function with an options
+object, like you see here,
+
+28
+00:01:14,030 --> 00:01:16,950
+sending in the
+method and the url.
+
+29
+00:01:16,950 --> 00:01:19,480
+Or we can use one of
+the shortcut methods,
+
+30
+00:01:19,480 --> 00:01:22,480
+using the get method,
+sending in a URL,
+
+31
+00:01:22,480 --> 00:01:24,160
+and any additional
+query parameters
+
+32
+00:01:24,160 --> 00:01:26,180
+by sending in a
+JavaScript object.
+
+33
+00:01:26,180 --> 00:01:28,420
+Both of these methods
+return a promise.
+
+34
+00:01:28,420 --> 00:01:30,800
+And if you're not
+familiar with promises,
+
+35
+00:01:30,800 --> 00:01:33,270
+check out our JQuery
+courses on Code School.
+
+36
+00:01:33,270 --> 00:01:36,130
+A promise object allows
+you to call backs on it,
+
+37
+00:01:36,130 --> 00:01:40,250
+like success or error, which
+you'll see in a minute.
+
+38
+00:01:40,250 --> 00:01:42,190
+One nice feature of
+the service is it
+
+39
+00:01:42,190 --> 00:01:45,270
+if we tell HTTP to
+fetch JSON, the result
+
+40
+00:01:45,270 --> 00:01:48,480
+will automatically be decoded
+into JavaScript objects
+
+41
+00:01:48,480 --> 00:01:49,570
+in arrays.
+
+42
+00:01:49,570 --> 00:01:50,150
+Pretty nice.
+
+43
+00:01:53,480 --> 00:01:56,300
+We need our controllers
+to tell Angular
+
+44
+00:01:56,300 --> 00:01:58,570
+which services they need.
+
+45
+00:01:58,570 --> 00:02:02,070
+To do this, we use a
+funky array syntax.
+
+46
+00:02:02,070 --> 00:02:04,060
+First in this array
+syntax we specify
+
+47
+00:02:04,060 --> 00:02:07,700
+the names of the services
+that our controller needs.
+
+48
+00:02:07,700 --> 00:02:12,450
+These services become arguments
+in our controller function.
+
+49
+00:02:12,450 --> 00:02:17,190
+Here we can then use $http
+inside the controller.
+
+50
+00:02:17,190 --> 00:02:20,270
+This way of specifying
+the different services
+
+51
+00:02:20,270 --> 00:02:24,400
+our controller needs is
+called dependency injection.
+
+52
+00:02:24,400 --> 00:02:26,757
+And if you needed more
+than one service here's
+
+53
+00:02:26,757 --> 00:02:27,840
+what that might look like.
+
+54
+00:02:30,790 --> 00:02:32,420
+I know this looks
+a little funky,
+
+55
+00:02:32,420 --> 00:02:34,890
+this dependency injection
+thing's a little weird.
+
+56
+00:02:34,890 --> 00:02:38,380
+So let me see if I can try to
+explain what's going on here.
+
+57
+00:02:38,380 --> 00:02:42,060
+When Angular loads it creates
+something called an injector.
+
+58
+00:02:42,060 --> 00:02:44,010
+When these built-in
+services load,
+
+59
+00:02:44,010 --> 00:02:48,590
+they register with the injector
+as being available libraries.
+
+60
+00:02:48,590 --> 00:02:52,450
+Then when our application loads,
+it registers our controller
+
+61
+00:02:52,450 --> 00:02:55,070
+with the injector, telling
+it that when it gets
+
+62
+00:02:55,070 --> 00:03:00,230
+executed it's going to need
+the HTTP and log services.
+
+63
+00:03:00,230 --> 00:03:01,930
+Injector says, cool.
+
+64
+00:03:01,930 --> 00:03:05,240
+Then when our page loads,
+and our controller gets used,
+
+65
+00:03:05,240 --> 00:03:08,450
+the injector grabs the
+services that our controller
+
+66
+00:03:08,450 --> 00:03:13,160
+needs and passes
+them in as arguments.
+
+67
+00:03:13,160 --> 00:03:17,240
+That's called
+dependency injection
+
+68
+00:03:17,240 --> 00:03:21,000
+because it's injecting the
+dependencies-- in this case,
+
+69
+00:03:21,000 --> 00:03:26,960
+the services-- into the
+controller as arguments.
+
+70
+00:03:26,960 --> 00:03:29,620
+So here we are back in
+our store controller.
+
+71
+00:03:29,620 --> 00:03:32,840
+And we need that HTTP service.
+
+72
+00:03:32,840 --> 00:03:38,750
+So, we use that weird
+array syntax and we specify
+
+73
+00:03:38,750 --> 00:03:42,760
+'$http' there as a
+service it needs,
+
+74
+00:03:42,760 --> 00:03:47,524
+and then we specify
+$http has an argument.
+
+75
+00:03:47,524 --> 00:03:49,190
+Now we can use it
+inside our controller.
+
+76
+00:03:53,500 --> 00:03:58,350
+So we'll write $http.get
+specify the URL to call.
+
+77
+00:03:58,350 --> 00:04:02,230
+Now we need to tell it what to
+do when it gets the data back.
+
+78
+00:04:02,230 --> 00:04:06,640
+So we'll write .success,
+sending a call back to success,
+
+79
+00:04:06,640 --> 00:04:09,180
+because it's going
+to return some data.
+
+80
+00:04:09,180 --> 00:04:11,720
+And now we need to do
+something with that data.
+
+81
+00:04:11,720 --> 00:04:15,280
+Really, we need to set it
+equal to this.products,
+
+82
+00:04:15,280 --> 00:04:18,899
+but can we write this.products
+inside that callback?
+
+83
+00:04:18,899 --> 00:04:20,000
+No.
+
+84
+00:04:20,000 --> 00:04:25,980
+Because this inside of that
+callback is the service, $http.
+
+85
+00:04:25,980 --> 00:04:28,950
+So here we need to do
+something a little funky.
+
+86
+00:04:28,950 --> 00:04:31,960
+We're going to create a
+variable called store.
+
+87
+00:04:31,960 --> 00:04:36,712
+Set it equal to this, and
+now inside of our callback
+
+88
+00:04:36,712 --> 00:04:41,550
+we can write
+store.products = data.
+
+89
+00:04:41,550 --> 00:04:43,350
+This request might
+take a second,
+
+90
+00:04:43,350 --> 00:04:45,520
+but our page isn't
+going to wait for it.
+
+91
+00:04:45,520 --> 00:04:47,870
+It's going to go ahead and load.
+
+92
+00:04:47,870 --> 00:04:50,170
+So it might be a good idea
+to initialize products
+
+93
+00:04:50,170 --> 00:04:51,570
+to an empty array.
+
+94
+00:04:51,570 --> 00:04:55,130
+That way when the page
+loads there's no errors.
+
+95
+00:04:55,130 --> 00:04:57,510
+Then later on, after
+we fetch the JSON,
+
+96
+00:04:57,510 --> 00:05:00,080
+we can load that data
+into the products,
+
+97
+00:05:00,080 --> 00:05:02,085
+and the page will
+automatically get updated.
+
+98
+00:05:04,870 --> 00:05:07,800
+Here you can see
+our page loading
+
+99
+00:05:07,800 --> 00:05:14,450
+and our products getting loaded
+dynamically from a remote API.
+
+100
+00:05:14,450 --> 00:05:18,230
+In addition to get requests,
+HTTP can do things like post,
+
+101
+00:05:18,230 --> 00:05:19,510
+put, and delete.
+
+102
+00:05:19,510 --> 00:05:22,380
+And here's the syntax for that.
+
+103
+00:05:22,380 --> 00:05:24,660
+It can also go load
+any other HTTP method
+
+104
+00:05:24,660 --> 00:05:28,744
+by using a config object,
+like you see here.
+
+105
+00:05:28,744 --> 00:05:30,160
+You'll need some
+of these commands
+
+106
+00:05:30,160 --> 00:05:33,540
+in the challenges which I'm
+going to set you loose on.
+
+107
+00:05:33,540 --> 00:05:35,760
+Complete those
+challenges and I will
+
+108
+00:05:35,760 --> 00:05:39,880
+see you in the outro video
+at the end of the course.
+
+109
+00:05:39,880 --> 00:05:42,140
+Thanks for watching.
+
+110
+00:05:42,140 --> 00:05:44,220
+In the HTTP [NONSENSICAL SOUNDS]
+
+111
+00:05:44,220 --> 00:05:47,510
+It's over here
+[NONSENSICAL SOUNDS]
+
+112
+00:05:47,510 --> 00:05:49,960
+Cool, I got it!
+
