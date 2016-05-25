@@ -1,0 +1,668 @@
+﻿1
+00:00:01,850 --> 00:00:05,580
+Welcome to ES2015, The
+Shape of JavaScript to Come.
+
+2
+00:00:05,580 --> 00:00:07,226
+I'm Carlos Sosa
+and in this course
+
+3
+00:00:07,226 --> 00:00:09,350
+we're going to be learning
+some of the new features
+
+4
+00:00:09,350 --> 00:00:11,300
+of the JavaScript language.
+
+5
+00:00:11,300 --> 00:00:13,000
+[SINGING] We've
+had about enough,
+
+6
+00:00:13,000 --> 00:00:16,140
+JavaScript is getting tough,
+ECMAScript is the solution.
+
+7
+00:00:16,140 --> 00:00:17,396
+Join the revolution.
+
+8
+00:00:17,396 --> 00:00:20,500
+Let your objects fill the
+gaps inside the Sets and Maps,
+
+9
+00:00:20,500 --> 00:00:22,780
+use the OOP patterns to the max.
+
+10
+00:00:22,780 --> 00:00:25,240
+New class and module
+syntax, const and let
+
+11
+00:00:25,240 --> 00:00:28,126
+will do the thing, to
+stop the hoisting.
+
+12
+00:00:28,126 --> 00:00:31,493
+With pure arrays struggling
+is destructuring.
+
+13
+00:00:31,493 --> 00:00:40,690
+Keep your JS nice and
+lean by using ES2015.
+
+14
+00:00:40,690 --> 00:00:43,290
+This is definitely
+not an intro course.
+
+15
+00:00:43,290 --> 00:00:46,260
+For those of you that don't feel
+comfortable reading and writing
+
+16
+00:00:46,260 --> 00:00:48,520
+JavaScript
+applications, I highly
+
+17
+00:00:48,520 --> 00:00:51,940
+recommend you check out the
+JavaScript Road Trip series.
+
+18
+00:00:51,940 --> 00:00:55,260
+It's a slower-pace course
+that goes over the very basics
+
+19
+00:00:55,260 --> 00:00:56,900
+of the JavaScript language.
+
+20
+00:00:56,900 --> 00:01:00,160
+Once you're done with that you
+come back and take this one.
+
+21
+00:01:00,160 --> 00:01:02,950
+ES2015 is the most
+extensive update
+
+22
+00:01:02,950 --> 00:01:07,580
+to the JavaScript language since
+it was first published in 1997.
+
+23
+00:01:07,580 --> 00:01:09,900
+You might have heard
+it by the name ES6,
+
+24
+00:01:09,900 --> 00:01:11,640
+but this is the old name.
+
+25
+00:01:11,640 --> 00:01:14,540
+The committee decided to
+change from version number
+
+26
+00:01:14,540 --> 00:01:17,970
+to year of release to better
+reflect their plans to release
+
+27
+00:01:17,970 --> 00:01:19,900
+a new version every year.
+
+28
+00:01:19,900 --> 00:01:22,380
+Which is great news
+for us developers.
+
+29
+00:01:22,380 --> 00:01:25,110
+This course covers some of
+the most interesting features
+
+30
+00:01:25,110 --> 00:01:29,850
+of ES2015, like new ways to
+work with variables, functions,
+
+31
+00:01:29,850 --> 00:01:32,240
+more efficient data
+structures, and a new way
+
+32
+00:01:32,240 --> 00:01:36,140
+to write asynchronous code
+using generators and promises.
+
+33
+00:01:36,140 --> 00:01:38,170
+By the end of this
+course you'll be
+
+34
+00:01:38,170 --> 00:01:41,430
+writing faster, cleaner,
+and less error-prone
+
+35
+00:01:41,430 --> 00:01:42,630
+JavaScript code.
+
+36
+00:01:42,630 --> 00:01:46,080
+So let's get started.
+
+37
+00:01:46,080 --> 00:01:48,340
+In this level we'll
+look at two new ways
+
+38
+00:01:48,340 --> 00:01:51,380
+to declare variables,
+using let and const.
+
+39
+00:01:51,380 --> 00:01:54,360
+We'll see how they can help us
+write better JavaScript code
+
+40
+00:01:54,360 --> 00:01:59,025
+and work around some well
+known JavaScript gotchas.
+
+41
+00:01:59,025 --> 00:02:00,650
+Throughout this course
+we'll be looking
+
+42
+00:02:00,650 --> 00:02:02,310
+at features of a forum.
+
+43
+00:02:02,310 --> 00:02:04,710
+This should be a pretty
+common application for most
+
+44
+00:02:04,710 --> 00:02:06,800
+of us that use the web.
+
+45
+00:02:06,800 --> 00:02:09,340
+We'll focus on
+client-side JavaScript.
+
+46
+00:02:09,340 --> 00:02:12,610
+In other words JavaScript
+that runs in browsers.
+
+47
+00:02:12,610 --> 00:02:14,580
+But most of the code
+that we see here
+
+48
+00:02:14,580 --> 00:02:16,970
+should be supported
+by server-side engines
+
+49
+00:02:16,970 --> 00:02:18,576
+like Node.js.
+
+50
+00:02:18,576 --> 00:02:20,700
+The first feature that
+we're going to be looking at
+
+51
+00:02:20,700 --> 00:02:23,800
+is loading user
+profiles on the sidebar.
+
+52
+00:02:23,800 --> 00:02:27,460
+Here we can see the page for
+the topic and In Hybrid Moments,
+
+53
+00:02:27,460 --> 00:02:29,010
+Give me a Moment.
+
+54
+00:02:29,010 --> 00:02:32,700
+This page is initially loaded
+with a post and its comments,
+
+55
+00:02:32,700 --> 00:02:36,150
+those two are the most
+important parts of this page.
+
+56
+00:02:36,150 --> 00:02:39,270
+Once the page loads we'll
+run a JavaScript function
+
+57
+00:02:39,270 --> 00:02:42,350
+called loadProfiles
+that builds the sidebar
+
+58
+00:02:42,350 --> 00:02:46,480
+widget with the users
+active on this post.
+
+59
+00:02:46,480 --> 00:02:48,650
+This list allows
+us to quickly see
+
+60
+00:02:48,650 --> 00:02:52,520
+who's participating
+on this current topic.
+
+61
+00:02:52,520 --> 00:02:55,610
+The function responsible for
+building this sidebar widget
+
+62
+00:02:55,610 --> 00:02:58,110
+is called loadProfiles.
+
+63
+00:02:58,110 --> 00:03:01,880
+We load this function in our
+HTML page using the script tag,
+
+64
+00:03:01,880 --> 00:03:07,670
+and call it passing an array of
+names, Sam, Tyler, and Brook.
+
+65
+00:03:07,670 --> 00:03:09,470
+Now let's take a
+look under the hood
+
+66
+00:03:09,470 --> 00:03:12,910
+and see how this function
+might be implemented.
+
+67
+00:03:12,910 --> 00:03:16,880
+The loadProfiles function
+takes one argument, userNames.
+
+68
+00:03:16,880 --> 00:03:19,230
+And the first thing we
+do in the function body
+
+69
+00:03:19,230 --> 00:03:23,600
+is check to see if there's
+more than three userNames.
+
+70
+00:03:23,600 --> 00:03:25,730
+If so, then it
+might take a while
+
+71
+00:03:25,730 --> 00:03:28,250
+to grab all the information
+for these users.
+
+72
+00:03:28,250 --> 00:03:30,200
+So we want to show a
+spinner on the page
+
+73
+00:03:30,200 --> 00:03:33,690
+with a message that says,
+"This might take a while."
+
+74
+00:03:33,690 --> 00:03:36,110
+This is so we can give our
+users immediate feedback
+
+75
+00:03:36,110 --> 00:03:38,700
+on an action that might take
+longer than they expect.
+
+76
+00:03:38,700 --> 00:03:41,160
+Otherwise, if it's not
+more than three users
+
+77
+00:03:41,160 --> 00:03:42,950
+then it should
+load pretty quick.
+
+78
+00:03:42,950 --> 00:03:47,060
+So we'd give it another message
+saying, "Loading Profiles."
+
+79
+00:03:47,060 --> 00:03:48,880
+Then we'll do some
+stuff after that,
+
+80
+00:03:48,880 --> 00:03:50,530
+like fetching the
+user information,
+
+81
+00:03:50,530 --> 00:03:52,060
+and building the sidebar widget.
+
+82
+00:03:52,060 --> 00:03:55,610
+But for now let's just
+focus on this initial part.
+
+83
+00:03:55,610 --> 00:03:57,620
+Now let's go ahead
+and run our function,
+
+84
+00:03:57,620 --> 00:04:02,590
+giving it in an array with
+four names, Sam, Tyler,
+
+85
+00:04:02,590 --> 00:04:04,830
+Brook, and Alex.
+
+86
+00:04:04,830 --> 00:04:08,560
+And here's each step of
+how this function is run.
+
+87
+00:04:08,560 --> 00:04:13,360
+First, because we have four
+names it executes the if block.
+
+88
+00:04:13,360 --> 00:04:16,410
+Inside this block we
+declare and assign [a value]
+
+89
+00:04:16,410 --> 00:04:19,320
+to the loadingMessage
+variable, and then
+
+90
+00:04:19,320 --> 00:04:21,850
+call the _displaySpinner
+function.
+
+91
+00:04:21,850 --> 00:04:24,380
+The else block is
+never executed,
+
+92
+00:04:24,380 --> 00:04:27,860
+and none of the code inside
+the else block is run.
+
+93
+00:04:27,860 --> 00:04:30,240
+However if for
+some reason we try
+
+94
+00:04:30,240 --> 00:04:32,710
+accessing the
+flashMessage variable
+
+95
+00:04:32,710 --> 00:04:38,020
+from after the else block, then
+our code will print undefined.
+
+96
+00:04:38,020 --> 00:04:41,610
+The C icon here indicates
+a console output.
+
+97
+00:04:41,610 --> 00:04:45,040
+The fact that we see undefined,
+as opposed to an error message
+
+98
+00:04:45,040 --> 00:04:47,400
+or have a program
+crash, might be
+
+99
+00:04:47,400 --> 00:04:50,150
+surprising for some of us
+coming from other programming
+
+100
+00:04:50,150 --> 00:04:51,620
+languages.
+
+101
+00:04:51,620 --> 00:04:54,770
+The same thing happens if we
+try accessing flashMessage
+
+102
+00:04:54,770 --> 00:04:57,370
+from inside the if block.
+
+103
+00:04:57,370 --> 00:05:00,950
+We wouldn't get an
+error, just undefined.
+
+104
+00:05:00,950 --> 00:05:02,790
+So why does this happen?
+
+105
+00:05:02,790 --> 00:05:04,770
+Why are we able to
+access variables
+
+106
+00:05:04,770 --> 00:05:07,980
+from outside the blocks where
+they were defined, and not
+
+107
+00:05:07,980 --> 00:05:09,660
+have our program crash?
+
+108
+00:05:09,660 --> 00:05:13,590
+Well, one thing that JavaScript
+does before executing our code
+
+109
+00:05:13,590 --> 00:05:16,260
+is move all the
+var declarations up
+
+110
+00:05:16,260 --> 00:05:18,870
+to the top of the nearest
+enclosing function,
+
+111
+00:05:18,870 --> 00:05:21,210
+on what is known as hoisting.
+
+112
+00:05:21,210 --> 00:05:24,070
+Before our loadProfiles
+function is executed,
+
+113
+00:05:24,070 --> 00:05:26,820
+it's transformed
+into code like this.
+
+114
+00:05:26,820 --> 00:05:28,900
+And this explains
+why variables declared
+
+115
+00:05:28,900 --> 00:05:31,930
+using var inside blocks,
+like if, and else,
+
+116
+00:05:31,930 --> 00:05:35,570
+are still accessible from
+outside those blocks.
+
+117
+00:05:35,570 --> 00:05:38,100
+They're visible to the
+entire function, which
+
+118
+00:05:38,100 --> 00:05:40,960
+might cause some unexpected
+behavior like the one we just
+
+119
+00:05:40,960 --> 00:05:41,880
+saw.
+
+120
+00:05:41,880 --> 00:05:44,890
+One way you can fix this
+unexpected behavior is
+
+121
+00:05:44,890 --> 00:05:48,480
+using a new keyword for
+variable declaration, let.
+
+122
+00:05:52,020 --> 00:05:54,450
+The let keyword
+defines new variables
+
+123
+00:05:54,450 --> 00:05:58,120
+scoped to the nearest
+block, not function.
+
+124
+00:05:58,120 --> 00:06:00,060
+So we go back to
+our loadProfiles
+
+125
+00:06:00,060 --> 00:06:03,820
+function and change our
+variables to use let.
+
+126
+00:06:03,820 --> 00:06:07,870
+Unlike var, variables declared
+with let, are not hoisted
+
+127
+00:06:07,870 --> 00:06:10,600
+to the top of the function.
+
+128
+00:06:10,600 --> 00:06:14,250
+Now that we're using let,
+loadingMessage and flashMessage
+
+129
+00:06:14,250 --> 00:06:17,460
+are trapped inside of
+their nearest curly braces.
+
+130
+00:06:17,460 --> 00:06:20,590
+If we go back and run the
+loadProfiles function again,
+
+131
+00:06:20,590 --> 00:06:25,340
+we'll see that flashMessage is
+never declared or initialized.
+
+132
+00:06:25,340 --> 00:06:27,270
+Now if we try and
+access this variable
+
+133
+00:06:27,270 --> 00:06:30,800
+from outside the conditional
+we'll get a ReferenceError.
+
+134
+00:06:30,800 --> 00:06:32,730
+And this behavior
+is closer to what
+
+135
+00:06:32,730 --> 00:06:35,070
+we would see in other similar
+programming languages.
+
+136
+00:06:37,700 --> 00:06:40,300
+And now it's time for
+you to learn by doing,
+
+137
+00:06:40,300 --> 00:06:43,420
+by practicing some of the things
+we learned in the challenges,
+
+138
+00:06:43,420 --> 00:06:46,680
+and I'll meet you back
+here in the next section.
+
