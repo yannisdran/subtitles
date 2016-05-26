@@ -1,0 +1,347 @@
+﻿1
+00:00:02,240 --> 00:00:03,100
+Welcome back.
+
+2
+00:00:03,100 --> 00:00:04,660
+And in this section,
+we'll learn how
+
+3
+00:00:04,660 --> 00:00:09,610
+let can help us solve
+some issues in for loops.
+
+4
+00:00:09,610 --> 00:00:11,640
+When using var and
+for loops there's
+
+5
+00:00:11,640 --> 00:00:13,470
+some unexpected behavior.
+
+6
+00:00:13,470 --> 00:00:16,120
+Let's take a look at
+the following code.
+
+7
+00:00:16,120 --> 00:00:20,070
+Still inside our loadProfiles
+function we have a for in loop
+
+8
+00:00:20,070 --> 00:00:24,120
+that goes over each name
+on the userNames array.
+
+9
+00:00:24,120 --> 00:00:28,840
+For each run it assigns an
+array index to the i variable.
+
+10
+00:00:28,840 --> 00:00:31,980
+Then it calls the underlying
+_fetchProfile function
+
+11
+00:00:31,980 --> 00:00:34,200
+which accepts two arguments.
+
+12
+00:00:34,200 --> 00:00:37,890
+First, is the server URL
+to grab the user's profile.
+
+13
+00:00:37,890 --> 00:00:40,090
+And the second is
+a callback, that's
+
+14
+00:00:40,090 --> 00:00:42,910
+run when we get a response
+back from the server.
+
+15
+00:00:42,910 --> 00:00:46,120
+Inside our callback we
+access i again, and log
+
+16
+00:00:46,120 --> 00:00:48,960
+a message to the console
+saying which users
+
+17
+00:00:48,960 --> 00:00:51,670
+info. was just fetched.
+
+18
+00:00:51,670 --> 00:00:55,640
+When we run our function with
+the same four names, Sam, Tyler,
+
+19
+00:00:55,640 --> 00:00:58,350
+Brook and Alex,
+we see an output
+
+20
+00:00:58,350 --> 00:01:01,320
+that looks like this:
+"Fetched for Alex"
+
+21
+00:01:01,320 --> 00:01:04,660
+is repeated all four times.
+
+22
+00:01:04,660 --> 00:01:09,430
+Kind of weird, let's take
+a look at why this happens.
+
+23
+00:01:09,430 --> 00:01:12,580
+Again, the var i
+declaration is hoisted
+
+24
+00:01:12,580 --> 00:01:14,210
+to the top of the function.
+
+25
+00:01:14,210 --> 00:01:16,460
+And the same i
+variable is shared
+
+26
+00:01:16,460 --> 00:01:18,930
+across all runs of the loop.
+
+27
+00:01:18,930 --> 00:01:22,780
+So we have a single i variable,
+and for each run of the loop
+
+28
+00:01:22,780 --> 00:01:25,370
+it is modified before
+calling the function
+
+29
+00:01:25,370 --> 00:01:29,120
+and registering, not
+executing, the callback.
+
+30
+00:01:29,120 --> 00:01:34,310
+On the first one i is assigned
+the value of the first index 0.
+
+31
+00:01:34,310 --> 00:01:37,310
+_fetchProfile is called,
+and the first callback
+
+32
+00:01:37,310 --> 00:01:41,200
+is registered,
+again, not executed.
+
+33
+00:01:41,200 --> 00:01:44,470
+This happens three
+more times, and i is
+
+34
+00:01:44,470 --> 00:01:47,490
+incremented on each iteration.
+
+35
+00:01:47,490 --> 00:01:50,460
+Only after _fetchProfile
+has been called four times
+
+36
+00:01:50,460 --> 00:01:53,980
+do the callbacks
+start being executed.
+
+37
+00:01:53,980 --> 00:01:56,210
+To clarify where
+the bug lives let's
+
+38
+00:01:56,210 --> 00:01:59,010
+look at this execution
+in another way.
+
+39
+00:01:59,010 --> 00:02:01,880
+When callbacks begin
+to run, the i variable
+
+40
+00:02:01,880 --> 00:02:05,170
+holds the last value assigned
+to it from the for loop.
+
+41
+00:02:05,170 --> 00:02:07,940
+All callbacks are
+accessing the same element
+
+42
+00:02:07,940 --> 00:02:10,820
+at index 3 of the
+userNames array.
+
+43
+00:02:10,820 --> 00:02:13,160
+And this is the reason
+we see the last argument
+
+44
+00:02:13,160 --> 00:02:16,260
+of the function
+repeated all four times.
+
+45
+00:02:16,260 --> 00:02:18,260
+This is a very tricky
+problem, but it's
+
+46
+00:02:18,260 --> 00:02:21,230
+easy to solve simply
+by replacing var
+
+47
+00:02:21,230 --> 00:02:24,770
+with let inside our for loop.
+
+48
+00:02:24,770 --> 00:02:29,180
+Using let, a new i variable
+is created on each iteration.
+
+49
+00:02:29,180 --> 00:02:32,770
+And there's no sharing between
+different callback functions.
+
+50
+00:02:32,770 --> 00:02:35,750
+From the i variable the
+first callback function
+
+51
+00:02:35,750 --> 00:02:37,830
+will always read 0.
+
+52
+00:02:37,830 --> 00:02:42,100
+The second will always read 1,
+the third will always read 2,
+
+53
+00:02:42,100 --> 00:02:44,930
+and the fourth
+would always read 3.
+
+54
+00:02:44,930 --> 00:02:48,500
+Remember let declarations
+are not hoisted.
+
+55
+00:02:48,500 --> 00:02:51,980
+A new i variable is created
+for each run of the loop,
+
+56
+00:02:51,980 --> 00:02:55,970
+and each callback receives
+their own version of i.
+
+57
+00:02:55,970 --> 00:02:57,820
+We run our function
+again, and it now
+
+58
+00:02:57,820 --> 00:03:00,220
+prints all four names properly.
+
+59
+00:03:00,220 --> 00:03:03,915
+Fetched for Sam,
+Tyler, Brook and Alex.
+
+60
+00:03:07,310 --> 00:03:11,420
+Lastly, variables declared
+with let can be reassigned
+
+61
+00:03:11,420 --> 00:03:15,730
+but cannot be redeclared
+within the same scope.
+
+62
+00:03:15,730 --> 00:03:20,330
+Here we declare flashMessage
+and assign it the string "Hello".
+
+63
+00:03:20,330 --> 00:03:24,290
+Then we re-assign a
+new string, "Goodbye".
+
+64
+00:03:24,290 --> 00:03:25,970
+We are allowed to do that.
+
+65
+00:03:25,970 --> 00:03:29,590
+However if we try redeclaring
+the flashMessage using
+
+66
+00:03:29,590 --> 00:03:31,910
+let again we'll run
+into a TypeError.
+
+67
+00:03:34,830 --> 00:03:38,510
+Now from inside a new scope,
+like the loadProfiles function
+
+68
+00:03:38,510 --> 00:03:41,940
+for example, we can
+declare a new flashMessage
+
+69
+00:03:41,940 --> 00:03:44,650
+with let and will not
+run into an error.
+
+70
+00:03:47,950 --> 00:03:50,600
+Now it's time for you to
+exercise what we just learned
+
+71
+00:03:50,600 --> 00:03:52,360
+about let in the challenges.
+
+72
+00:03:52,360 --> 00:03:54,960
+And I'll see you in
+the next section.
+

@@ -303,7 +303,7 @@ HTML page using the script tag,
 64
 00:03:01,880 --> 00:03:07,670
 and call it passing an array of
-names, Sam, Tyler, and Brook.
+names, Sam, Tyler and Brook.
 
 65
 00:03:07,670 --> 00:03:09,470
@@ -406,7 +406,7 @@ four names, Sam, Tyler,
 
 85
 00:04:02,590 --> 00:04:04,830
-Brook, and Alex.
+Brook and Alex.
 
 86
 00:04:04,830 --> 00:04:08,560

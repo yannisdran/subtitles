@@ -1,0 +1,372 @@
+﻿1
+00:00:02,510 --> 00:00:03,660
+Welcome back.
+
+2
+00:00:03,660 --> 00:00:05,900
+In this section, we'll
+look at the second type
+
+3
+00:00:05,900 --> 00:00:10,580
+of variable declaration
+added to JavaScript, const.
+
+4
+00:00:10,580 --> 00:00:12,250
+Let's go back to
+our loadProfiles
+
+5
+00:00:12,250 --> 00:00:15,520
+function and take a look
+at the very first line,
+
+6
+00:00:15,520 --> 00:00:19,520
+if userNames.length
+greater than 3.
+
+7
+00:00:19,520 --> 00:00:21,160
+The number three in
+this if statement
+
+8
+00:00:21,160 --> 00:00:23,640
+is what we call a magic number.
+
+9
+00:00:23,640 --> 00:00:26,160
+It's a literal value, but
+it doesn't tell us much more
+
+10
+00:00:26,160 --> 00:00:27,090
+than that.
+
+11
+00:00:27,090 --> 00:00:30,250
+It's not clear, especially when
+someone other than the author
+
+12
+00:00:30,250 --> 00:00:31,860
+reads this code.
+
+13
+00:00:31,860 --> 00:00:34,350
+If we need to use the
+number 3 multiple times
+
+14
+00:00:34,350 --> 00:00:36,230
+in this function,
+then we'll be making
+
+15
+00:00:36,230 --> 00:00:38,350
+things even more confusing.
+
+16
+00:00:38,350 --> 00:00:41,340
+We'll need to remember the
+reason behind each occurrence
+
+17
+00:00:41,340 --> 00:00:43,160
+of the number 3.
+
+18
+00:00:43,160 --> 00:00:47,880
+For example when we read this,
+if someValue greater than 3.
+
+19
+00:00:47,880 --> 00:00:51,215
+Is this 3 serving the same
+purpose as the one above,
+
+20
+00:00:51,215 --> 00:00:52,770
+or is it different?
+
+21
+00:00:52,770 --> 00:00:56,350
+If we change one, should we
+change the other one as well?
+
+22
+00:00:56,350 --> 00:00:57,950
+You see where I'm
+going with this?
+
+23
+00:00:57,950 --> 00:01:00,030
+By using magic numbers
+like this we're
+
+24
+00:01:00,030 --> 00:01:05,780
+making this code hard to read
+and even harder to maintain.
+
+25
+00:01:05,780 --> 00:01:09,050
+We can fix this by using
+a new declaration, const.
+
+26
+00:01:09,050 --> 00:01:13,200
+const allows us to create
+a read-only named constant.
+
+27
+00:01:13,200 --> 00:01:16,460
+Let's go ahead and create
+a const name MAX_USERS,
+
+28
+00:01:16,460 --> 00:01:18,820
+and assign 3 to it.
+
+29
+00:01:18,820 --> 00:01:21,890
+We'll then use our new
+constant in the first if block,
+
+30
+00:01:21,890 --> 00:01:25,870
+and right away we can tell
+our code reads much better.
+
+31
+00:01:25,870 --> 00:01:28,930
+Although we are technically
+writing more code,
+
+32
+00:01:28,930 --> 00:01:32,590
+it is code that is much,
+much easier to understand.
+
+33
+00:01:32,590 --> 00:01:34,610
+As it turns out,
+the second block
+
+34
+00:01:34,610 --> 00:01:38,420
+is using the number 3 with a
+completely different purpose.
+
+35
+00:01:38,420 --> 00:01:41,860
+It is not using 3 to refer
+to the max number of users,
+
+36
+00:01:41,860 --> 00:01:45,190
+but instead to the
+max number of replies.
+
+37
+00:01:45,190 --> 00:01:48,700
+So we'll give it its own
+constant, MAX_REPLIES.
+
+38
+00:01:48,700 --> 00:01:52,210
+Now if we have to go back and
+change either one of those,
+
+39
+00:01:52,210 --> 00:01:56,520
+it is clear that we don't
+have to change the other.
+
+40
+00:01:56,520 --> 00:01:58,960
+Constants cannot be reassigned.
+
+41
+00:01:58,960 --> 00:02:02,840
+In this example we're
+initializing MAX_USERS to 3.
+
+42
+00:02:02,840 --> 00:02:05,490
+If you try assigning
+a new value, 10,
+
+43
+00:02:05,490 --> 00:02:08,070
+we'll probably run
+into a syntax error.
+
+44
+00:02:08,070 --> 00:02:10,979
+The outcome will vary depending
+on the JavaScript engine
+
+45
+00:02:10,979 --> 00:02:12,010
+that you use.
+
+46
+00:02:12,010 --> 00:02:15,880
+Some will raise errors while
+others will silently fail.
+
+47
+00:02:15,880 --> 00:02:22,350
+But one thing is for sure,
+MAX_USERS will always be 3.
+
+48
+00:02:22,350 --> 00:02:24,130
+Another important
+feature of constants
+
+49
+00:02:24,130 --> 00:02:27,190
+is that they must be
+assigned an initial value.
+
+50
+00:02:27,190 --> 00:02:30,190
+In this example we first
+declared MAX_USERS,
+
+51
+00:02:30,190 --> 00:02:34,250
+and then assign the value
+to it on the following line.
+
+52
+00:02:34,250 --> 00:02:39,480
+This code will generate an
+error and will not work.
+
+53
+00:02:39,480 --> 00:02:42,730
+Similar to let, constants
+are block-scoped,
+
+54
+00:02:42,730 --> 00:02:44,550
+which means that
+they're not hoisted
+
+55
+00:02:44,550 --> 00:02:46,400
+to the top of the function.
+
+56
+00:02:46,400 --> 00:02:51,350
+In this example MAX_REPLIES is
+declared inside the if block.
+
+57
+00:02:51,350 --> 00:02:53,590
+If we try and access
+it from outside the
+
+58
+00:02:53,590 --> 00:02:57,100
+if block we'll get a ReferenceError
+ saying MAX_REPLIES
+
+59
+00:02:57,100 --> 00:02:57,780
+is not defined.
+
+60
+00:03:00,310 --> 00:03:05,220
+In most cases let and const
+will behave very similarly.
+
+61
+00:03:05,220 --> 00:03:08,020
+When deciding to choose
+one versus the other
+
+62
+00:03:08,020 --> 00:03:10,450
+consider the semantics.
+
+63
+00:03:10,450 --> 00:03:14,240
+In this code, we used let for
+loadingMessage, currentAge,
+
+64
+00:03:14,240 --> 00:03:15,720
+and totalCost.
+
+65
+00:03:15,720 --> 00:03:18,340
+Because those are
+variables whose values
+
+66
+00:03:18,340 --> 00:03:22,070
+can be changed throughout
+the lifespan of this program.
+
+67
+00:03:22,070 --> 00:03:26,560
+On the other hand we use const
+for MAX_USERS, SEPARATOR,
+
+68
+00:03:26,560 --> 00:03:29,250
+and ALLOW_EDIT, because
+we want to express
+
+69
+00:03:29,250 --> 00:03:32,310
+the idea that those are values
+that should not be changed.
+
+70
+00:03:35,837 --> 00:03:37,420
+We've reached the
+end of this section.
+
+71
+00:03:37,420 --> 00:03:39,875
+Now it's your turn to practice
+working with constants
+
+72
+00:03:39,875 --> 00:03:40,625
+in the challenges.
+
+73
+00:03:43,440 --> 00:03:49,165
+Kind of weird, why does
+this happen? [GIGGLES]
+
+74
+00:03:51,510 --> 00:03:52,541
+Kind of weird, right?
+
+75
+00:03:52,541 --> 00:03:53,415
+Why does this happen?
+
+76
+00:03:57,850 --> 00:04:01,040
+To practice-- to
+practice some constants.
+
+77
+00:04:01,040 --> 00:04:05,970
+To practice-- to practice come
+constants and the challenges.
+
+78
+00:04:05,970 --> 00:04:07,520
+Yes.
+
