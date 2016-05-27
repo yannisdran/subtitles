@@ -1,0 +1,706 @@
+﻿1
+00:00:02,120 --> 00:00:04,930
+[SINGING] In 1980 0 Tim
+wrote Enquire at CERN,
+
+2
+00:00:04,930 --> 00:00:07,600
+invented the idea of
+hyperlinks in turn.
+
+3
+00:00:07,600 --> 00:00:10,780
+In 1990 Robert joined,
+a document they charted,
+
+4
+00:00:10,780 --> 00:00:14,131
+that's pretty much how the
+world wide web started.
+
+5
+00:00:14,131 --> 00:00:15,630
+They defined some
+markup code called
+
+6
+00:00:15,630 --> 00:00:18,010
+HTML, which paved the
+way for stylesheets
+
+7
+00:00:18,010 --> 00:00:19,470
+to decorate as well.
+
+8
+00:00:19,470 --> 00:00:22,610
+Navigate through URLs
+to internet locations,
+
+9
+00:00:22,610 --> 00:00:25,430
+you can learn it all with
+Front-End Foundations,
+
+10
+00:00:25,430 --> 00:00:29,320
+you can learn it all with
+Front-End Foundations.
+
+11
+00:00:29,320 --> 00:00:30,960
+Eh.
+
+12
+00:00:30,960 --> 00:00:31,799
+Welcome back.
+
+13
+00:00:31,799 --> 00:00:33,340
+In this section,
+we're going to learn
+
+14
+00:00:33,340 --> 00:00:38,440
+how we can use CSS to change
+the style of our HTML tags.
+
+15
+00:00:38,440 --> 00:00:40,260
+So back in the early
+days of the web
+
+16
+00:00:40,260 --> 00:00:43,460
+there was no CSS,
+and that meant there
+
+17
+00:00:43,460 --> 00:00:48,540
+was no separation between the
+HTML that defines your content,
+
+18
+00:00:48,540 --> 00:00:51,070
+and the way that HTML looks.
+
+19
+00:00:51,070 --> 00:00:53,360
+So you would have really
+nasty HTML like this,
+
+20
+00:00:53,360 --> 00:00:56,560
+where you would determine
+the color as an attribute
+
+21
+00:00:56,560 --> 00:00:59,320
+inside of your tag, and
+you would write things,
+
+22
+00:00:59,320 --> 00:01:02,160
+like center, as tags
+that really just modified
+
+23
+00:01:02,160 --> 00:01:07,390
+the way things looked, rather
+than the way that they worked.
+
+24
+00:01:07,390 --> 00:01:09,240
+So thankfully the
+people making the web
+
+25
+00:01:09,240 --> 00:01:12,100
+realize that that was not
+the greatest way to go.
+
+26
+00:01:12,100 --> 00:01:14,330
+So they created a
+separate language
+
+27
+00:01:14,330 --> 00:01:18,420
+where you can make rules
+for how tags should display,
+
+28
+00:01:18,420 --> 00:01:20,920
+and that language is called CSS.
+
+29
+00:01:20,920 --> 00:01:23,440
+With CSS you describe
+how a tag should
+
+30
+00:01:23,440 --> 00:01:27,620
+look, saying things like,
+make the h3 tag green,
+
+31
+00:01:27,620 --> 00:01:30,010
+make it have a
+bigger font, and make
+
+32
+00:01:30,010 --> 00:01:31,770
+it have a border at the bottom.
+
+33
+00:01:31,770 --> 00:01:34,270
+The combination of
+all of these CSS rules
+
+34
+00:01:34,270 --> 00:01:38,470
+is going to make your page
+look the way that it does.
+
+35
+00:01:38,470 --> 00:01:42,240
+In fact, if go to any web
+page and turn off the CSS,
+
+36
+00:01:42,240 --> 00:01:44,450
+they all kind of start
+looking the same there's
+
+37
+00:01:44,450 --> 00:01:46,430
+no differences between them.
+
+38
+00:01:46,430 --> 00:01:49,385
+It's all of those CSS rules
+that make all of the pages
+
+39
+00:01:49,385 --> 00:01:52,680
+that you visit look
+different from each other.
+
+40
+00:01:52,680 --> 00:01:55,540
+Here's what our page currently
+looks like without CSS
+
+41
+00:01:55,540 --> 00:01:57,130
+in the browser.
+
+42
+00:01:57,130 --> 00:02:02,810
+Here's what it might look like
+after we apply some CSS styles.
+
+43
+00:02:02,810 --> 00:02:05,090
+The way CSS works
+is you write code
+
+44
+00:02:05,090 --> 00:02:10,220
+called selectors that
+select HTML tags.
+
+45
+00:02:10,220 --> 00:02:12,240
+And then you can
+alter the properties
+
+46
+00:02:12,240 --> 00:02:14,630
+of the display of
+those HTML tags
+
+47
+00:02:14,630 --> 00:02:16,860
+to change the way
+that things look.
+
+48
+00:02:16,860 --> 00:02:20,650
+So here we've got a simple
+paragraph tag in HTML.
+
+49
+00:02:20,650 --> 00:02:24,360
+If we want to select that
+paragraph tag in CSS,
+
+50
+00:02:24,360 --> 00:02:27,550
+we start by writing the
+letter P. The simplest way
+
+51
+00:02:27,550 --> 00:02:31,350
+to select a tag is just to
+write the name of the tag
+
+52
+00:02:31,350 --> 00:02:33,430
+without those angle brackets.
+
+53
+00:02:33,430 --> 00:02:36,260
+So CSS does not include
+the angle brackets.
+
+54
+00:02:36,260 --> 00:02:39,460
+In this example we're altering
+the text decoration property,
+
+55
+00:02:39,460 --> 00:02:42,250
+which is one of many
+properties that you can change
+
+56
+00:02:42,250 --> 00:02:44,290
+of the display of each tag.
+
+57
+00:02:44,290 --> 00:02:46,210
+Unlike before,
+don't worry so much
+
+58
+00:02:46,210 --> 00:02:48,050
+about memorizing the properties.
+
+59
+00:02:48,050 --> 00:02:49,960
+You'll be able to
+look them up later.
+
+60
+00:02:49,960 --> 00:02:53,040
+We're setting the value of
+the text decoration property
+
+61
+00:02:53,040 --> 00:02:56,380
+to underline, and the result
+when we look in our browser,
+
+62
+00:02:56,380 --> 00:02:58,550
+is that our paragraph
+tag is now underlined.
+
+63
+00:03:01,140 --> 00:03:04,020
+So the general format
+for writing any selector
+
+64
+00:03:04,020 --> 00:03:07,530
+is to first write the selector
+name, followed by a space
+
+65
+00:03:07,530 --> 00:03:09,240
+and then a curly bracket.
+
+66
+00:03:09,240 --> 00:03:12,880
+Inside of that curly bracket
+you can write a property name,
+
+67
+00:03:12,880 --> 00:03:17,465
+and then a colon, and then
+the value for that property,
+
+68
+00:03:17,465 --> 00:03:18,340
+and then a semicolon.
+
+69
+00:03:21,336 --> 00:03:22,960
+This is actually very
+important, if you
+
+70
+00:03:22,960 --> 00:03:26,460
+forget the curly bracket,
+colon, or semicolon,
+
+71
+00:03:26,460 --> 00:03:28,420
+or don't have them
+in the right spot,
+
+72
+00:03:28,420 --> 00:03:30,970
+then your CSS is not
+going to work properly.
+
+73
+00:03:30,970 --> 00:03:35,020
+Finally you close off your list
+of properties for that selector
+
+74
+00:03:35,020 --> 00:03:36,915
+by writing a closed
+curly bracket.
+
+75
+00:03:42,460 --> 00:03:44,360
+That curly bracket
+is nice, because it
+
+76
+00:03:44,360 --> 00:03:48,950
+lets you write more than one
+property for each selector.
+
+77
+00:03:48,950 --> 00:03:50,880
+So back at our
+paragraph tag we've
+
+78
+00:03:50,880 --> 00:03:53,500
+set the text
+decoration to underline
+
+79
+00:03:53,500 --> 00:03:55,370
+in the previous slide.
+
+80
+00:03:55,370 --> 00:04:00,220
+But now we've also added a new
+rule to set the color to red.
+
+81
+00:04:00,220 --> 00:04:01,900
+And if we look in
+the browser now we
+
+82
+00:04:01,900 --> 00:04:04,335
+have a red underlined paragraph.
+
+83
+00:04:07,060 --> 00:04:12,730
+When we select the tag in CSS
+by writing the tag name, that
+
+84
+00:04:12,730 --> 00:04:16,300
+rule we define is applied
+to every single instance
+
+85
+00:04:16,300 --> 00:04:20,040
+of that tag in the HTML page.
+
+86
+00:04:20,040 --> 00:04:23,530
+So here, even though we've only
+set one rule, where the font
+
+87
+00:04:23,530 --> 00:04:27,410
+size should be 24
+pixels for li it
+
+88
+00:04:27,410 --> 00:04:31,040
+gets applied to every
+single li tag on the page.
+
+89
+00:04:31,040 --> 00:04:33,440
+You can see here that they
+all just got a little bigger.
+
+90
+00:04:36,600 --> 00:04:41,080
+If you want to only apply a
+CSS rule to a certain, smaller
+
+91
+00:04:41,080 --> 00:04:44,670
+subset of tags, one way we
+can do that is with something
+
+92
+00:04:44,670 --> 00:04:46,740
+called a descendant selector.
+
+93
+00:04:46,740 --> 00:04:49,240
+The way a descendant
+selector is written
+
+94
+00:04:49,240 --> 00:04:53,080
+is you first write the parent
+tag in your selector name,
+
+95
+00:04:53,080 --> 00:04:55,030
+and then the child tag.
+
+96
+00:04:55,030 --> 00:04:57,900
+This CSS rule of making
+the font size bigger
+
+97
+00:04:57,900 --> 00:05:01,320
+is now only going
+to apply to li tags
+
+98
+00:05:01,320 --> 00:05:03,850
+that are children of ul tags.
+
+99
+00:05:03,850 --> 00:05:05,420
+And we view that
+in the browser, we
+
+100
+00:05:05,420 --> 00:05:08,370
+can see that our honorerd
+list text got bigger,
+
+101
+00:05:08,370 --> 00:05:10,390
+while our ordered
+list text stayed
+
+102
+00:05:10,390 --> 00:05:12,910
+the same size, because the
+rule doesn't apply to it.
+
+103
+00:05:15,620 --> 00:05:18,160
+Another type of selector
+is the pseudo-selector.
+
+104
+00:05:18,160 --> 00:05:21,630
+You can see here that we've
+set our anchor tags to all
+
+105
+00:05:21,630 --> 00:05:24,340
+have text-decoration:
+none; which
+
+106
+00:05:24,340 --> 00:05:26,140
+means that every
+link on our page
+
+107
+00:05:26,140 --> 00:05:28,900
+is no longer going to have
+an underline under it.
+
+108
+00:05:28,900 --> 00:05:32,100
+If we also declare another
+rule for the anchor tag,
+
+109
+00:05:32,100 --> 00:05:35,270
+with the colon hover
+pseudo-selector,
+
+110
+00:05:35,270 --> 00:05:37,410
+and we set the text
+decoration to underline
+
+111
+00:05:37,410 --> 00:05:39,850
+and the color to
+dark red, that rule
+
+112
+00:05:39,850 --> 00:05:42,400
+is only going to be
+applied when the mouse is
+
+113
+00:05:42,400 --> 00:05:45,470
+over the link, when
+it's hovering over it.
+
+114
+00:05:45,470 --> 00:05:47,420
+So pseudo-selectors
+are used to modify
+
+115
+00:05:47,420 --> 00:05:51,310
+the appearance of an HTML tag
+based on some type of action
+
+116
+00:05:51,310 --> 00:05:52,610
+or behavior.
+
+117
+00:05:52,610 --> 00:05:55,700
+When you're no longer
+hovered over the link,
+
+118
+00:05:55,700 --> 00:05:58,190
+then the underline and
+the color red go away.
+
+119
+00:06:00,720 --> 00:06:02,470
+Another pseudo-selector
+you could add
+
+120
+00:06:02,470 --> 00:06:04,910
+is called first child.
+
+121
+00:06:04,910 --> 00:06:07,880
+If a tag has children,
+adding first-child to the end
+
+122
+00:06:07,880 --> 00:06:10,620
+of the selector name will
+select the first child
+
+123
+00:06:10,620 --> 00:06:13,300
+that's nested inside of it.
+
+124
+00:06:13,300 --> 00:06:14,800
+Here you can see
+we're only changing
+
+125
+00:06:14,800 --> 00:06:16,990
+the color of the first
+ordered list item
+
+126
+00:06:16,990 --> 00:06:21,515
+by using the selector ol
+colon first dash child.
+
+127
+00:06:25,160 --> 00:06:27,740
+I hope you're getting excited
+about the crazy possibilities
+
+128
+00:06:27,740 --> 00:06:31,870
+of using CSS to change
+the way your HTML looks.
+
+129
+00:06:31,870 --> 00:06:34,750
+So to write CSS inside
+of our HTML pages
+
+130
+00:06:34,750 --> 00:06:36,540
+there's a couple
+different ways to do it.
+
+131
+00:06:36,540 --> 00:06:38,880
+One of the simplest
+ways to add CSS
+
+132
+00:06:38,880 --> 00:06:42,860
+is to include a style tag
+as a child of the head tag.
+
+133
+00:06:42,860 --> 00:06:44,900
+Remember that we set
+up our head tag before,
+
+134
+00:06:44,900 --> 00:06:46,520
+but we didn't have
+anything in it.
+
+135
+00:06:46,520 --> 00:06:49,019
+And this is the first thing
+that we're putting inside of it.
+
+136
+00:06:49,019 --> 00:06:50,990
+If we create that
+style tag, and give it
+
+137
+00:06:50,990 --> 00:06:56,920
+an attribute name of type, with
+the value of text slash CSS,
+
+138
+00:06:56,920 --> 00:06:59,130
+then the browser
+is going to know
+
+139
+00:06:59,130 --> 00:07:03,330
+to look at that block of
+CSS and apply it to our HTML
+
+140
+00:07:03,330 --> 00:07:05,140
+whenever the page is displayed.
+
+141
+00:07:05,140 --> 00:07:07,890
+So we can set up our CSS
+rules, with our selectors,
+
+142
+00:07:07,890 --> 00:07:10,660
+and our properties,
+and those values,
+
+143
+00:07:10,660 --> 00:07:13,310
+inside of that style
+tag and they'll all
+
+144
+00:07:13,310 --> 00:07:14,900
+be applied to the HTML page.
+
+145
+00:07:18,124 --> 00:07:19,540
+Now you're ready
+to start changing
+
+146
+00:07:19,540 --> 00:07:23,710
+the presentation of the tags
+on your page in the challenges.
+

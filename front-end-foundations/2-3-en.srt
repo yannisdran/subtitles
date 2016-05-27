@@ -1,0 +1,1257 @@
+﻿1
+00:00:02,029 --> 00:00:03,160
+Welcome back.
+
+2
+00:00:03,160 --> 00:00:06,180
+So you had a chance to play
+around with some basic CSS
+
+3
+00:00:06,180 --> 00:00:10,080
+selectors, changing some
+simple properties like color.
+
+4
+00:00:10,080 --> 00:00:13,930
+But got a question about the
+current state of our page here.
+
+5
+00:00:13,930 --> 00:00:17,910
+How does our page know how much
+vertical and horizontal space
+
+6
+00:00:17,910 --> 00:00:20,090
+to put between the tags?
+
+7
+00:00:20,090 --> 00:00:22,470
+We've got spacing
+in between the h1,
+
+8
+00:00:22,470 --> 00:00:26,460
+and the ULs, and the paragraphs,
+and even the ordered lists.
+
+9
+00:00:26,460 --> 00:00:30,220
+But how does the browser know
+to put that much spacing there?
+
+10
+00:00:30,220 --> 00:00:32,080
+And even more
+importantly, how can we
+
+11
+00:00:32,080 --> 00:00:35,400
+change that spacing if we
+want to make it more or less?
+
+12
+00:00:35,400 --> 00:00:39,310
+And the answer lies in
+something called the box model.
+
+13
+00:00:39,310 --> 00:00:41,910
+So first, let's talk
+about what the box is.
+
+14
+00:00:41,910 --> 00:00:43,720
+Every tag that's
+shown on the page
+
+15
+00:00:43,720 --> 00:00:46,210
+is contained in this
+invisible rectangle
+
+16
+00:00:46,210 --> 00:00:48,260
+that we're going
+to call the box.
+
+17
+00:00:48,260 --> 00:00:53,230
+So here I've got two paragraph
+tags on MagicCake.HTML.
+
+18
+00:00:53,230 --> 00:00:56,020
+And if we look at how those
+get rendered in the browser,
+
+19
+00:00:56,020 --> 00:00:57,810
+we can imagine that
+there's these two
+
+20
+00:00:57,810 --> 00:00:59,610
+invisible boxes around them.
+
+21
+00:00:59,610 --> 00:01:03,930
+We'll show the boxes here so it
+makes it easier to talk about.
+
+22
+00:01:03,930 --> 00:01:06,600
+If we look at the rest of
+the content on our page,
+
+23
+00:01:06,600 --> 00:01:10,040
+we can imagine that these boxes
+that contain all this content
+
+24
+00:01:10,040 --> 00:01:11,400
+look something like this.
+
+25
+00:01:11,400 --> 00:01:15,150
+We got a box that represents
+the content of every single tag
+
+26
+00:01:15,150 --> 00:01:15,895
+on our page.
+
+27
+00:01:18,710 --> 00:01:20,850
+So it turns out that
+almost all of these tags we
+
+28
+00:01:20,850 --> 00:01:22,820
+have on our page
+right now are what's
+
+29
+00:01:22,820 --> 00:01:25,270
+known as a block-level tag.
+
+30
+00:01:25,270 --> 00:01:29,030
+When you have block level
+tags, their content box
+
+31
+00:01:29,030 --> 00:01:32,820
+takes up the entire width of
+the container that they're in.
+
+32
+00:01:32,820 --> 00:01:36,180
+The container for
+these tags is the body.
+
+33
+00:01:36,180 --> 00:01:40,230
+So every one of these tags takes
+up as much horizontal space
+
+34
+00:01:40,230 --> 00:01:41,360
+as it can.
+
+35
+00:01:41,360 --> 00:01:44,510
+Sense block-level tags
+take up the entire width
+
+36
+00:01:44,510 --> 00:01:47,570
+of their container,
+every new box
+
+37
+00:01:47,570 --> 00:01:51,060
+gets automatically pushed
+down to the line below.
+
+38
+00:01:51,060 --> 00:01:53,906
+Here's a list of just some of
+the tags that are block level.
+
+39
+00:01:53,906 --> 00:01:55,780
+And you can see that
+they are tags that we're
+
+40
+00:01:55,780 --> 00:01:59,160
+using in our page right now.
+
+41
+00:01:59,160 --> 00:02:04,860
+If a tag is not block-level,
+it's called inline-level.
+
+42
+00:02:04,860 --> 00:02:08,470
+Inline-level tags do not try
+to take up the entire width
+
+43
+00:02:08,470 --> 00:02:10,449
+of their container.
+
+44
+00:02:10,449 --> 00:02:12,540
+And they actually
+just flow along
+
+45
+00:02:12,540 --> 00:02:16,000
+with the text and other
+content around them.
+
+46
+00:02:16,000 --> 00:02:19,760
+Anchor tag as an example
+of an inline-level tag.
+
+47
+00:02:19,760 --> 00:02:22,140
+So that's why when
+we nest an anchor tag
+
+48
+00:02:22,140 --> 00:02:25,350
+inside of a paragraph
+tag, it doesn't try
+
+49
+00:02:25,350 --> 00:02:27,550
+to push itself onto a new line.
+
+50
+00:02:27,550 --> 00:02:32,060
+It just flows naturally with
+the rest of the paragraph text.
+
+51
+00:02:32,060 --> 00:02:34,120
+Some other examples
+of inline-level tags
+
+52
+00:02:34,120 --> 00:02:38,030
+are img, inputs, and labels,
+which we'll touch on later
+
+53
+00:02:38,030 --> 00:02:38,710
+in this course.
+
+54
+00:02:41,390 --> 00:02:44,510
+Sometimes you'll even want
+to turn a block-level tag
+
+55
+00:02:44,510 --> 00:02:48,360
+into an inline-level
+tag, or vice versa.
+
+56
+00:02:48,360 --> 00:02:51,710
+You can do that by setting
+the display property in CSS
+
+57
+00:02:51,710 --> 00:02:55,260
+for that tag to inline.
+
+58
+00:02:55,260 --> 00:02:57,820
+So here we've taken
+all list items that
+
+59
+00:02:57,820 --> 00:03:00,990
+are children of
+an unordered list
+
+60
+00:03:00,990 --> 00:03:03,610
+and we set them
+to display inline.
+
+61
+00:03:03,610 --> 00:03:06,850
+This is really handy because it
+allows us to take these three
+
+62
+00:03:06,850 --> 00:03:10,350
+li block-level boxes,
+and display them
+
+63
+00:03:10,350 --> 00:03:16,040
+as inline boxes from left to
+right, as you can see here.
+
+64
+00:03:16,040 --> 00:03:19,720
+All right, so we know that
+each tags content is contained
+
+65
+00:03:19,720 --> 00:03:21,890
+in this invisible box.
+
+66
+00:03:21,890 --> 00:03:24,300
+And we know that
+every block-level tags
+
+67
+00:03:24,300 --> 00:03:28,590
+box is going to try to take up
+an entire line of the container
+
+68
+00:03:28,590 --> 00:03:29,570
+that it's in.
+
+69
+00:03:29,570 --> 00:03:31,470
+So back to that
+original problem,
+
+70
+00:03:31,470 --> 00:03:35,180
+how does the browser know
+how much space goes in
+
+71
+00:03:35,180 --> 00:03:36,130
+between those boxes?
+
+72
+00:03:38,670 --> 00:03:42,170
+To be able to fully understand
+how to answer that question,
+
+73
+00:03:42,170 --> 00:03:44,440
+we need to learn
+about the box model.
+
+74
+00:03:44,440 --> 00:03:47,830
+Now, the box model is just a
+way to describe the borders
+
+75
+00:03:47,830 --> 00:03:51,960
+and spacing in between
+the boxes for each tag.
+
+76
+00:03:51,960 --> 00:03:55,090
+And there's actually four
+components to the box model.
+
+77
+00:03:55,090 --> 00:03:57,259
+The first one is called
+the content area.
+
+78
+00:03:57,259 --> 00:03:58,800
+And the content area
+is the part that
+
+79
+00:03:58,800 --> 00:04:01,160
+contains your actual content.
+
+80
+00:04:01,160 --> 00:04:05,960
+So if we write an h1 tag or h2
+tag and it has some text in it,
+
+81
+00:04:05,960 --> 00:04:09,265
+that text is inside of the
+content area of the box.
+
+82
+00:04:13,220 --> 00:04:15,490
+The second part is padding.
+
+83
+00:04:15,490 --> 00:04:18,649
+And padding describes a
+layer just to around all
+
+84
+00:04:18,649 --> 00:04:20,810
+of the edges of
+the content area.
+
+85
+00:04:20,810 --> 00:04:24,400
+Padding can be added to
+the top, right, bottom,
+
+86
+00:04:24,400 --> 00:04:28,730
+or left of the content
+area independently.
+
+87
+00:04:28,730 --> 00:04:31,400
+Now, most tags are not
+going to need a border.
+
+88
+00:04:31,400 --> 00:04:34,980
+But if they do, you can add
+one with the border property.
+
+89
+00:04:34,980 --> 00:04:37,520
+Like the padding, borders
+can be added individually
+
+90
+00:04:37,520 --> 00:04:41,700
+to the top, right, bottom,
+or left of the box.
+
+91
+00:04:41,700 --> 00:04:46,550
+Or they can be applied
+to all sides at once.
+
+92
+00:04:46,550 --> 00:04:49,690
+The fourth and final part of
+the box model are margins.
+
+93
+00:04:49,690 --> 00:04:53,490
+Margins are space that can
+be added to the top, right,
+
+94
+00:04:53,490 --> 00:04:55,410
+bottom, or left of the border.
+
+95
+00:04:58,310 --> 00:05:01,920
+So not every tag is going
+to have padding, border,
+
+96
+00:05:01,920 --> 00:05:05,720
+and margins added all
+at once to all sides.
+
+97
+00:05:05,720 --> 00:05:10,290
+But the size of the box is
+equal to the size of the content
+
+98
+00:05:10,290 --> 00:05:16,220
+area, plus the padding, plus
+the border, plus any margins.
+
+99
+00:05:21,550 --> 00:05:23,800
+The way that we can
+control these in CSS
+
+100
+00:05:23,800 --> 00:05:26,410
+is through a series
+of properties.
+
+101
+00:05:26,410 --> 00:05:30,870
+So we can either set the padding
+top, right, bottom, and left
+
+102
+00:05:30,870 --> 00:05:34,640
+individually each with
+one separate rule in CSS,
+
+103
+00:05:34,640 --> 00:05:38,490
+or we can combine all of them
+into the shorthand, where
+
+104
+00:05:38,490 --> 00:05:42,840
+we write the top, right,
+bottom, and left padding
+
+105
+00:05:42,840 --> 00:05:44,100
+all in one line.
+
+106
+00:05:44,100 --> 00:05:46,720
+You can see here that we've
+added a padding of six pixels
+
+107
+00:05:46,720 --> 00:05:50,910
+to the top of this box,
+three pixels to the right,
+
+108
+00:05:50,910 --> 00:05:52,990
+and no padding on the
+bottom or the left.
+
+109
+00:05:55,730 --> 00:05:58,250
+To add a border around
+all sides of a box,
+
+110
+00:05:58,250 --> 00:06:01,110
+you can either set these three
+properties individually--
+
+111
+00:06:01,110 --> 00:06:04,180
+the width of the border,
+the style of the border,
+
+112
+00:06:04,180 --> 00:06:06,090
+and the color of the border.
+
+113
+00:06:06,090 --> 00:06:10,380
+Or like padding, you can use
+the special shorthand syntax
+
+114
+00:06:10,380 --> 00:06:12,500
+that declares the
+width, style, and color
+
+115
+00:06:12,500 --> 00:06:14,490
+all on one line with one rule.
+
+116
+00:06:17,960 --> 00:06:20,100
+Now, this applies a
+border to all sides
+
+117
+00:06:20,100 --> 00:06:22,490
+of the box at the same time.
+
+118
+00:06:22,490 --> 00:06:25,010
+So if you do you want to
+apply a border to just one
+
+119
+00:06:25,010 --> 00:06:29,140
+side of a box, you can use
+either border top, right,
+
+120
+00:06:29,140 --> 00:06:30,870
+bottom, or left.
+
+121
+00:06:30,870 --> 00:06:33,200
+And then set the width
+style and color there.
+
+122
+00:06:37,380 --> 00:06:40,540
+Adding margins works the same
+way that you add padding.
+
+123
+00:06:40,540 --> 00:06:43,270
+You just either set the
+margin top, right, bottom,
+
+124
+00:06:43,270 --> 00:06:45,330
+and left properties
+individually.
+
+125
+00:06:45,330 --> 00:06:47,610
+Or use that shorthand
+that combines them
+
+126
+00:06:47,610 --> 00:06:49,600
+all into one line.
+
+127
+00:06:49,600 --> 00:06:52,320
+Here we've got a bottom
+margin of six pixels
+
+128
+00:06:52,320 --> 00:06:55,460
+and a top margin of six
+pixels, but no right and left
+
+129
+00:06:55,460 --> 00:06:56,730
+margins at all.
+
+130
+00:06:56,730 --> 00:06:59,720
+And we can see the final version
+with the final dimensions
+
+131
+00:06:59,720 --> 00:07:00,305
+of our box.
+
+132
+00:07:03,340 --> 00:07:05,680
+The place to use borders
+is pretty obvious.
+
+133
+00:07:05,680 --> 00:07:08,230
+You add a border if
+you want a border.
+
+134
+00:07:08,230 --> 00:07:10,760
+But using padding and margins
+needs a little bit more
+
+135
+00:07:10,760 --> 00:07:12,440
+explanation.
+
+136
+00:07:12,440 --> 00:07:13,990
+So in general,
+you'll use padding
+
+137
+00:07:13,990 --> 00:07:17,550
+to control the size of
+a box without adjusting
+
+138
+00:07:17,550 --> 00:07:20,410
+the size of the content inside.
+
+139
+00:07:20,410 --> 00:07:22,560
+So here on the left, we
+can see that the padding
+
+140
+00:07:22,560 --> 00:07:25,530
+is 0 for all four
+sides of this box that
+
+141
+00:07:25,530 --> 00:07:27,570
+contains the text magic cake.
+
+142
+00:07:27,570 --> 00:07:31,450
+And if we set a top and
+bottom padding of 10 pixels,
+
+143
+00:07:31,450 --> 00:07:35,350
+we can see that the size of the
+magic cake part hasn't changed.
+
+144
+00:07:35,350 --> 00:07:38,580
+But we have increased the
+size of the content box
+
+145
+00:07:38,580 --> 00:07:40,990
+by 10 pixels on
+the top and bottom.
+
+146
+00:07:40,990 --> 00:07:44,220
+So our content box got bigger,
+while the content inside
+
+147
+00:07:44,220 --> 00:07:46,860
+did not.
+
+148
+00:07:46,860 --> 00:07:50,670
+Margins should be used to
+add space between two boxes.
+
+149
+00:07:50,670 --> 00:07:52,620
+In this example
+on the left, we're
+
+150
+00:07:52,620 --> 00:07:55,690
+setting a top and bottom
+margin of 20 pixels.
+
+151
+00:07:55,690 --> 00:07:58,580
+And you can see what that
+looks like in the browser here.
+
+152
+00:07:58,580 --> 00:08:01,050
+And notice how
+that red box that's
+
+153
+00:08:01,050 --> 00:08:04,580
+showing us our
+box for the h2 tag
+
+154
+00:08:04,580 --> 00:08:07,350
+is not any bigger
+because of the margins.
+
+155
+00:08:07,350 --> 00:08:11,500
+The margins are that invisible
+space outside of that red line.
+
+156
+00:08:11,500 --> 00:08:15,260
+If we were to change
+that number from 20 to 4,
+
+157
+00:08:15,260 --> 00:08:18,920
+we can see that the vertical
+space between the three boxes
+
+158
+00:08:18,920 --> 00:08:21,580
+gets smaller, because
+we've decreased
+
+159
+00:08:21,580 --> 00:08:25,340
+the margins between them.
+
+160
+00:08:25,340 --> 00:08:27,660
+OK, so a quick summary
+of all the things
+
+161
+00:08:27,660 --> 00:08:30,520
+we know now about boxes
+and the box model.
+
+162
+00:08:30,520 --> 00:08:33,730
+We know each tags content
+fits in this invisible box.
+
+163
+00:08:33,730 --> 00:08:35,820
+We know that each
+block level tags
+
+164
+00:08:35,820 --> 00:08:38,409
+box takes up an entire line.
+
+165
+00:08:38,409 --> 00:08:39,909
+We know that we
+should use padding
+
+166
+00:08:39,909 --> 00:08:42,260
+to adjust the space
+inside a container.
+
+167
+00:08:42,260 --> 00:08:45,680
+And margine to adjust the
+spacing between containers.
+
+168
+00:08:45,680 --> 00:08:48,550
+But why is there spacing here?
+
+169
+00:08:48,550 --> 00:08:51,860
+We didn't write any
+CSS to change any
+
+170
+00:08:51,860 --> 00:08:53,460
+of these margins or padding.
+
+171
+00:08:53,460 --> 00:08:58,110
+So why is the browser
+doing that for us?
+
+172
+00:08:58,110 --> 00:09:00,650
+Well, the answer is that
+the browser actually
+
+173
+00:09:00,650 --> 00:09:03,010
+has a default style sheet.
+
+174
+00:09:03,010 --> 00:09:07,630
+And if you don't override those
+styles to make them your own,
+
+175
+00:09:07,630 --> 00:09:09,980
+it's just going to
+use the defaults.
+
+176
+00:09:09,980 --> 00:09:13,690
+So here on the left we can
+see the defaults left on.
+
+177
+00:09:13,690 --> 00:09:16,930
+If we were to turn those default
+padding margins and borders
+
+178
+00:09:16,930 --> 00:09:19,470
+off, this is what
+our page would look
+
+179
+00:09:19,470 --> 00:09:20,976
+like when we viewed it again.
+
+180
+00:09:20,976 --> 00:09:22,350
+Definitely looks
+a lot different,
+
+181
+00:09:22,350 --> 00:09:24,683
+and we're certainly missing
+a lot of those nice spacing.
+
+182
+00:09:27,230 --> 00:09:29,870
+Here's some CSS that we
+could write to achieve
+
+183
+00:09:29,870 --> 00:09:32,580
+this reset layout of the page.
+
+184
+00:09:32,580 --> 00:09:34,810
+We just include one
+selector for each one
+
+185
+00:09:34,810 --> 00:09:36,710
+of the tags in our page.
+
+186
+00:09:36,710 --> 00:09:41,550
+And we set the padding, border,
+and margin equal to zero.
+
+187
+00:09:41,550 --> 00:09:45,140
+And that's going to reset all
+of those box model properties
+
+188
+00:09:45,140 --> 00:09:46,900
+back to this even
+baseline that we
+
+189
+00:09:46,900 --> 00:09:50,740
+can use to build up our own
+version of the box model
+
+190
+00:09:50,740 --> 00:09:52,610
+for each of these tags.
+
+191
+00:09:52,610 --> 00:09:55,220
+This is important to
+start from this baseline.
+
+192
+00:09:55,220 --> 00:09:57,480
+Because if you let
+the browser determine
+
+193
+00:09:57,480 --> 00:09:59,510
+what your defaults
+are, you're never
+
+194
+00:09:59,510 --> 00:10:01,820
+going to be sure if
+the CSS you're writing
+
+195
+00:10:01,820 --> 00:10:05,880
+is affecting the layout, or if
+it's that default browser CSS
+
+196
+00:10:05,880 --> 00:10:09,140
+that's affecting everything.
+
+197
+00:10:09,140 --> 00:10:10,850
+Now that all these
+properties are reset,
+
+198
+00:10:10,850 --> 00:10:12,308
+we're going to need
+to do some work
+
+199
+00:10:12,308 --> 00:10:13,920
+to build up the
+layout of our page
+
+200
+00:10:13,920 --> 00:10:16,350
+again, so that it's
+something that is little bit
+
+201
+00:10:16,350 --> 00:10:17,920
+easier to look at.
+
+202
+00:10:17,920 --> 00:10:19,510
+There's probably
+many different places
+
+203
+00:10:19,510 --> 00:10:20,634
+you could start doing this.
+
+204
+00:10:20,634 --> 00:10:24,180
+So we're just going to suggest
+one approach in this video.
+
+205
+00:10:24,180 --> 00:10:27,030
+First, start with the body
+tag and add some padding
+
+206
+00:10:27,030 --> 00:10:28,980
+around all of the sides.
+
+207
+00:10:28,980 --> 00:10:31,040
+This is going to have
+the effect of pushing
+
+208
+00:10:31,040 --> 00:10:35,200
+all of the children of the body
+tag, which is all of our HTML,
+
+209
+00:10:35,200 --> 00:10:39,055
+pushing that inside away
+from the edges of the screen.
+
+210
+00:10:39,055 --> 00:10:42,760
+And you can see the
+effect of that here.
+
+211
+00:10:42,760 --> 00:10:44,560
+After we've set our
+body style, we'll
+
+212
+00:10:44,560 --> 00:10:47,120
+move on to the next most
+important tag, which
+
+213
+00:10:47,120 --> 00:10:48,906
+in this document is the h1.
+
+214
+00:10:48,906 --> 00:10:53,102
+For that h1, we'll add a
+top and bottom margin, which
+
+215
+00:10:53,102 --> 00:10:55,185
+is going to have the effect
+of adding some spacing
+
+216
+00:10:55,185 --> 00:10:59,210
+a little bit before and a little
+bit below that recipe world
+
+217
+00:10:59,210 --> 00:11:02,030
+title.
+
+218
+00:11:02,030 --> 00:11:04,240
+Next, we'll move
+on to the h2 tags.
+
+219
+00:11:04,240 --> 00:11:07,000
+And again, we'll add
+some margin in there,
+
+220
+00:11:07,000 --> 00:11:09,420
+leaving us some space
+between our menu
+
+221
+00:11:09,420 --> 00:11:12,410
+items and our paragraph tag.
+
+222
+00:11:12,410 --> 00:11:15,069
+Then we'll move
+on to the h3 tag.
+
+223
+00:11:15,069 --> 00:11:16,860
+Again, making some
+adjustments so that it's
+
+224
+00:11:16,860 --> 00:11:19,260
+a little bit easier
+to read the section
+
+225
+00:11:19,260 --> 00:11:22,540
+header and it's not too close to
+the paragraphs above or below.
+
+226
+00:11:25,550 --> 00:11:28,050
+Then after your
+margins are in place,
+
+227
+00:11:28,050 --> 00:11:30,810
+think about where borders
+might be necessary.
+
+228
+00:11:30,810 --> 00:11:33,290
+Not a lot of places were going
+to use borders in the site.
+
+229
+00:11:33,290 --> 00:11:35,850
+But one place that might make
+things a little more readable
+
+230
+00:11:35,850 --> 00:11:39,990
+is to add a bottom
+border to our h3 tags.
+
+231
+00:11:39,990 --> 00:11:42,500
+When we do this, we've got
+this nice section divider
+
+232
+00:11:42,500 --> 00:11:46,870
+for our ingredients and
+directions sections.
+
+233
+00:11:46,870 --> 00:11:49,730
+If you feel that the border
+at the bottom of that h3
+
+234
+00:11:49,730 --> 00:11:52,530
+is a little bit too close
+to the ingredients text,
+
+235
+00:11:52,530 --> 00:11:54,860
+you could always add
+some bottom padding
+
+236
+00:11:54,860 --> 00:11:58,570
+to push the border a little
+bit away from the content area.
+
+237
+00:11:58,570 --> 00:12:01,690
+Remember that the box model
+goes content, padding,
+
+238
+00:12:01,690 --> 00:12:03,192
+and then border.
+
+239
+00:12:03,192 --> 00:12:04,650
+So by adding some
+padding in there,
+
+240
+00:12:04,650 --> 00:12:09,790
+we're pushing the content away
+from the border a little bit.
+
+241
+00:12:09,790 --> 00:12:13,330
+Another use for padding
+is to indent list items.
+
+242
+00:12:13,330 --> 00:12:17,550
+Since we turn all of our padding
+off when we reset our styles,
+
+243
+00:12:17,550 --> 00:12:19,570
+our list items are
+pushing all the way
+
+244
+00:12:19,570 --> 00:12:21,510
+to the left of the screen.
+
+245
+00:12:21,510 --> 00:12:23,210
+And you can even see
+in our ordered list
+
+246
+00:12:23,210 --> 00:12:25,860
+that those numbers are kind
+of getting cut off on the edge
+
+247
+00:12:25,860 --> 00:12:28,610
+because we don't have the
+padding that's needed there.
+
+248
+00:12:28,610 --> 00:12:30,730
+We'd much rather have
+some of that side padding,
+
+249
+00:12:30,730 --> 00:12:32,030
+like you see here on the right.
+
+250
+00:12:35,670 --> 00:12:38,510
+We want to add this
+padding to the list itself,
+
+251
+00:12:38,510 --> 00:12:41,180
+and not just the items inside.
+
+252
+00:12:41,180 --> 00:12:43,600
+So we can add a left
+padding of 50 pixels
+
+253
+00:12:43,600 --> 00:12:47,560
+to both the unordered list
+and unordered list tags.
+
+254
+00:12:47,560 --> 00:12:50,850
+And now we've got some
+padding to push those lists
+
+255
+00:12:50,850 --> 00:12:54,130
+a little bit over to the right.
+
+256
+00:12:54,130 --> 00:12:56,710
+Here's the result of reapplying
+all of those box model
+
+257
+00:12:56,710 --> 00:12:59,380
+properties to the
+tags on our page.
+
+258
+00:12:59,380 --> 00:13:00,810
+There's still a
+few layout issues
+
+259
+00:13:00,810 --> 00:13:03,120
+that we'll handle at the
+beginning of the next level.
+
+260
+00:13:03,120 --> 00:13:05,760
+But for now, it's your turn
+to try working with the box
+
+261
+00:13:05,760 --> 00:13:07,030
+model in the challenges.
+
+262
+00:13:07,030 --> 00:13:08,880
+Have fun.
+

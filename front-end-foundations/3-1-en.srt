@@ -1,0 +1,985 @@
+﻿1
+00:00:00,499 --> 00:00:03,685
+[SINGING] In 1980 Tim
+wrote ENQUIRE at CERN,
+
+2
+00:00:03,685 --> 00:00:06,660
+invented the idea of
+hyperlinks in turn.
+
+3
+00:00:06,660 --> 00:00:09,710
+In 1990 Robert joined,
+a document they charted.
+
+4
+00:00:09,710 --> 00:00:12,250
+That's pretty much how the
+world wide web started.
+
+5
+00:00:12,250 --> 00:00:14,420
+They defined some
+markup code called
+
+6
+00:00:14,420 --> 00:00:18,410
+HTML, which paved the way for
+stylesheets to decorate, as
+
+7
+00:00:18,410 --> 00:00:19,170
+well.
+
+8
+00:00:19,170 --> 00:00:23,060
+Navigate through URLs
+to internet locations.
+
+9
+00:00:23,060 --> 00:00:27,264
+You can learn it all with
+Front-End Foundations.
+
+10
+00:00:27,264 --> 00:00:30,430
+That's right.
+
+11
+00:00:30,430 --> 00:00:32,790
+Welcome back to
+Front-End Foundations.
+
+12
+00:00:32,790 --> 00:00:34,540
+We've got our page in
+a pretty good place.
+
+13
+00:00:34,540 --> 00:00:37,010
+But there's still a
+few layout issues.
+
+14
+00:00:37,010 --> 00:00:39,650
+One of those problems
+that I can see right away
+
+15
+00:00:39,650 --> 00:00:43,790
+is that we've got a padding
+applied to our navigation
+
+16
+00:00:43,790 --> 00:00:46,730
+and to our ingredients
+unordered lists.
+
+17
+00:00:46,730 --> 00:00:49,170
+But we really only want
+that padding to be applied
+
+18
+00:00:49,170 --> 00:00:50,800
+to the ingredients list.
+
+19
+00:00:50,800 --> 00:00:52,970
+The problem is
+that we can't just
+
+20
+00:00:52,970 --> 00:00:57,790
+set padding on ul because that's
+going to apply to all uls.
+
+21
+00:00:57,790 --> 00:01:02,100
+We need a way to add padding
+to one ul and not the other.
+
+22
+00:01:02,100 --> 00:01:05,560
+So we need a way to
+differentiate those two tags.
+
+23
+00:01:05,560 --> 00:01:08,040
+Solving this problem
+is a two-part fix.
+
+24
+00:01:08,040 --> 00:01:10,330
+First, in the HTML,
+we'll want to go
+
+25
+00:01:10,330 --> 00:01:13,480
+into the unordered list that
+contains our site navigation
+
+26
+00:01:13,480 --> 00:01:16,660
+and give that tag an
+attribute of class.
+
+27
+00:01:16,660 --> 00:01:19,720
+And set that class
+attribute equal to nav.
+
+28
+00:01:19,720 --> 00:01:23,870
+Then in our CSS, we
+can write dot nav.
+
+29
+00:01:23,870 --> 00:01:25,870
+And that tag will be selected.
+
+30
+00:01:25,870 --> 00:01:29,030
+So we have a class
+of nav in HTML.
+
+31
+00:01:29,030 --> 00:01:32,590
+And we can access the tag
+that has that class by writing
+
+32
+00:01:32,590 --> 00:01:34,510
+dot class name.
+
+33
+00:01:34,510 --> 00:01:36,710
+Now inside of that
+nav rule, we can
+
+34
+00:01:36,710 --> 00:01:39,240
+set our padding left to zero.
+
+35
+00:01:39,240 --> 00:01:42,740
+And our padding for our
+site navigation is gone.
+
+36
+00:01:42,740 --> 00:01:45,270
+But the padding for our
+ingredients ul remains.
+
+37
+00:01:48,690 --> 00:01:51,080
+Now that we have the
+special nav class,
+
+38
+00:01:51,080 --> 00:01:53,200
+what if you want to do
+something like change
+
+39
+00:01:53,200 --> 00:01:57,100
+the style of only anchor
+tags that are inside
+
+40
+00:01:57,100 --> 00:01:59,440
+of a tag with that class?
+
+41
+00:01:59,440 --> 00:02:01,470
+Well, we can do that with
+descendant selectors,
+
+42
+00:02:01,470 --> 00:02:03,250
+just like we learned before.
+
+43
+00:02:03,250 --> 00:02:06,560
+So we can write dot nav space a.
+
+44
+00:02:06,560 --> 00:02:09,550
+And that means find all
+"a" tags that are inside
+
+45
+00:02:09,550 --> 00:02:13,815
+of the dot nav tag and apply
+these styles to those anchors.
+
+46
+00:02:16,165 --> 00:02:17,540
+With this knowledge,
+we should be
+
+47
+00:02:17,540 --> 00:02:20,130
+able to fix another main
+problem with our unordered list
+
+48
+00:02:20,130 --> 00:02:24,120
+layouts-- the fact that our
+site navigation is displaying
+
+49
+00:02:24,120 --> 00:02:25,410
+inline.
+
+50
+00:02:25,410 --> 00:02:28,320
+But our ingredients list
+is also displaying inline.
+
+51
+00:02:28,320 --> 00:02:30,760
+We would rather have
+that still display block,
+
+52
+00:02:30,760 --> 00:02:32,240
+so we get those
+nice bullet points.
+
+53
+00:02:34,900 --> 00:02:37,610
+Right now in our CSS
+we've got this rule.
+
+54
+00:02:37,610 --> 00:02:41,330
+We're selecting all list
+items that are children of ul
+
+55
+00:02:41,330 --> 00:02:43,660
+and setting them
+to display inline.
+
+56
+00:02:43,660 --> 00:02:47,120
+That's making sure that the site
+navigation and the ingredients
+
+57
+00:02:47,120 --> 00:02:48,530
+are displaying inline.
+
+58
+00:02:48,530 --> 00:02:51,450
+But now that we have a more
+specific navigation class,
+
+59
+00:02:51,450 --> 00:02:53,820
+we can move that
+display inline rule
+
+60
+00:02:53,820 --> 00:02:56,650
+into the dot nav li selector.
+
+61
+00:02:56,650 --> 00:02:59,540
+And it's only going to apply
+to the site navigation.
+
+62
+00:02:59,540 --> 00:03:01,870
+That means our
+regular unordered list
+
+63
+00:03:01,870 --> 00:03:03,890
+inside of our
+ingredients section
+
+64
+00:03:03,890 --> 00:03:05,300
+gets its bullet points back.
+
+65
+00:03:08,436 --> 00:03:10,060
+I want to point out
+something important
+
+66
+00:03:10,060 --> 00:03:11,740
+when you start
+working with class
+
+67
+00:03:11,740 --> 00:03:15,230
+selectors and regular
+type selectors together.
+
+68
+00:03:15,230 --> 00:03:18,660
+The order that you write those
+selectors in your CSS file
+
+69
+00:03:18,660 --> 00:03:20,070
+matters.
+
+70
+00:03:20,070 --> 00:03:22,210
+Here, I've got a dot
+nav selector that
+
+71
+00:03:22,210 --> 00:03:24,310
+sets the padding left to zero.
+
+72
+00:03:24,310 --> 00:03:26,660
+That padding left for
+the ul is actually
+
+73
+00:03:26,660 --> 00:03:29,820
+going to override the
+padding for the dot nav.
+
+74
+00:03:29,820 --> 00:03:33,470
+That's because the HTML
+tag that has a class of nav
+
+75
+00:03:33,470 --> 00:03:35,520
+is also a ul.
+
+76
+00:03:35,520 --> 00:03:38,660
+Since the HTML tag
+with a class of nav
+
+77
+00:03:38,660 --> 00:03:42,680
+is an unordered list,
+by writing my generic ul
+
+78
+00:03:42,680 --> 00:03:46,580
+selector after that, I'm
+actually overriding the padding
+
+79
+00:03:46,580 --> 00:03:49,020
+that I set in dot nav.
+
+80
+00:03:49,020 --> 00:03:52,860
+And that's not what
+I want to happen.
+
+81
+00:03:52,860 --> 00:03:56,030
+So a good rule of thumb when
+you're organizing your CSS
+
+82
+00:03:56,030 --> 00:03:59,230
+is to always declare
+your broad, generic rules
+
+83
+00:03:59,230 --> 00:04:03,110
+for individual tags at
+the top of your CSS file.
+
+84
+00:04:03,110 --> 00:04:06,710
+And then after that, you can
+declare any specific rules
+
+85
+00:04:06,710 --> 00:04:10,410
+that will get applied to the
+class versions of those tags.
+
+86
+00:04:10,410 --> 00:04:15,190
+Now we're setting a padding
+left of 50 for all ul tags,
+
+87
+00:04:15,190 --> 00:04:20,510
+except for just this one ul
+tag with a class of dot nav.
+
+88
+00:04:20,510 --> 00:04:22,560
+That's going to have a
+padding left of zero.
+
+89
+00:04:22,560 --> 00:04:26,370
+You might even say that the
+broader rules cascade down
+
+90
+00:04:26,370 --> 00:04:28,457
+into the more specific rules.
+
+91
+00:04:28,457 --> 00:04:30,040
+And that's actually
+part of the reason
+
+92
+00:04:30,040 --> 00:04:35,570
+why CSS is called
+Cascading Style Sheets.
+
+93
+00:04:35,570 --> 00:04:39,480
+So far, we've only been
+working in magic-cake.html.
+
+94
+00:04:39,480 --> 00:04:42,130
+But there's other
+pages for our site.
+
+95
+00:04:42,130 --> 00:04:44,130
+One of those pages
+is the recipes page.
+
+96
+00:04:44,130 --> 00:04:47,330
+So let's switch gears and
+start building that page up.
+
+97
+00:04:47,330 --> 00:04:50,270
+The HTML structure of that page
+will look something like this.
+
+98
+00:04:50,270 --> 00:04:53,440
+We've got the same h1
+and site navigation.
+
+99
+00:04:53,440 --> 00:04:55,490
+But we've got
+different header two,
+
+100
+00:04:55,490 --> 00:04:57,970
+indicating this is
+the list of recipes.
+
+101
+00:04:57,970 --> 00:05:01,090
+And we'll set up an
+unordered list of list items.
+
+102
+00:05:01,090 --> 00:05:04,000
+And instead of just a single
+tag in those list items,
+
+103
+00:05:04,000 --> 00:05:07,160
+it will contain a link to a
+recipe and a short description
+
+104
+00:05:07,160 --> 00:05:09,280
+of that recipe with
+a paragraph tag.
+
+105
+00:05:12,230 --> 00:05:14,730
+If we try to view this page
+right now in our browser,
+
+106
+00:05:14,730 --> 00:05:17,890
+though, it looks like
+we're back to square one.
+
+107
+00:05:17,890 --> 00:05:20,980
+None of our styles that we
+just created have carried over.
+
+108
+00:05:20,980 --> 00:05:24,430
+That's because in
+magic-cake.html we included
+
+109
+00:05:24,430 --> 00:05:28,030
+the style tag in the
+head of that page.
+
+110
+00:05:28,030 --> 00:05:31,910
+But that style tag is not in
+the head of this recipes page.
+
+111
+00:05:31,910 --> 00:05:37,470
+So we need a way to take our
+CSS, put it all in one file,
+
+112
+00:05:37,470 --> 00:05:41,590
+and link to that file from every
+single one of our HTML pages
+
+113
+00:05:41,590 --> 00:05:43,590
+so that we don't have
+to constantly rewrite
+
+114
+00:05:43,590 --> 00:05:47,350
+the same CSS over and over.
+
+115
+00:05:47,350 --> 00:05:51,270
+Luckily for us, CSS can actually
+be written in a plain text
+
+116
+00:05:51,270 --> 00:05:52,977
+file, also.
+
+117
+00:05:52,977 --> 00:05:54,560
+All we have to do
+is make sure that we
+
+118
+00:05:54,560 --> 00:05:58,550
+save that file with
+the extension dot css.
+
+119
+00:05:58,550 --> 00:06:01,190
+So here we'll take all
+the CSS that was currently
+
+120
+00:06:01,190 --> 00:06:05,060
+in that style tag in our
+HTML, and we'll copy it over
+
+121
+00:06:05,060 --> 00:06:09,330
+to a file called main.css
+so that all of our CSS
+
+122
+00:06:09,330 --> 00:06:10,385
+can live in one place.
+
+123
+00:06:13,950 --> 00:06:19,150
+Next, we need to import
+main.css into our HTML file
+
+124
+00:06:19,150 --> 00:06:23,520
+so that those styles can
+be applied to our page.
+
+125
+00:06:23,520 --> 00:06:25,946
+And the way we can do this
+is with a tag called link.
+
+126
+00:06:25,946 --> 00:06:28,320
+Now, link looks a little bit
+different than any tag we've
+
+127
+00:06:28,320 --> 00:06:31,860
+seen so far in that it doesn't
+have a corresponding closing
+
+128
+00:06:31,860 --> 00:06:32,520
+version.
+
+129
+00:06:32,520 --> 00:06:35,640
+You just write the opening link
+tag, and you don't close it.
+
+130
+00:06:38,820 --> 00:06:40,840
+So since there's
+no closing part,
+
+131
+00:06:40,840 --> 00:06:42,610
+you might have
+guessed that we can
+
+132
+00:06:42,610 --> 00:06:46,280
+tell this tag what to do by
+giving it certain attributes.
+
+133
+00:06:46,280 --> 00:06:48,980
+The first attribute we
+can add is called type.
+
+134
+00:06:48,980 --> 00:06:52,112
+And we can set it
+equal to text/css.
+
+135
+00:06:52,112 --> 00:06:54,570
+And that's going to let the
+browser know that we're getting
+
+136
+00:06:54,570 --> 00:06:58,390
+ready to load a CSS file.
+
+137
+00:06:58,390 --> 00:07:00,380
+Another attribute
+called rel, which
+
+138
+00:07:00,380 --> 00:07:04,580
+is short for relationship,
+can be set to stylesheet.
+
+139
+00:07:04,580 --> 00:07:09,370
+And that lets the HTML know
+that it should relate to the CSS
+
+140
+00:07:09,370 --> 00:07:12,600
+and apply it to the page.
+
+141
+00:07:12,600 --> 00:07:15,000
+And finally, we can
+use an href attribute,
+
+142
+00:07:15,000 --> 00:07:17,330
+just like we did when
+we had an anchor tag,
+
+143
+00:07:17,330 --> 00:07:20,940
+to set the path of the CSS
+file that should be loaded.
+
+144
+00:07:20,940 --> 00:07:23,980
+Adding the single link tag
+to the head of your document
+
+145
+00:07:23,980 --> 00:07:27,870
+with these options is going to
+make sure that CSS file gets
+
+146
+00:07:27,870 --> 00:07:29,360
+loaded at the top of your page.
+
+147
+00:07:32,520 --> 00:07:35,250
+Now if we reload our
+recipes.html page
+
+148
+00:07:35,250 --> 00:07:37,140
+after we've linked
+that CSS file,
+
+149
+00:07:37,140 --> 00:07:38,930
+things are looking much better.
+
+150
+00:07:38,930 --> 00:07:41,650
+We're now inheriting all
+those same styles that we made
+
+151
+00:07:41,650 --> 00:07:45,610
+originally for magic-cake.html
+But those broad rules are being
+
+152
+00:07:45,610 --> 00:07:51,600
+applied to all of the tags
+inside of recipes.html, too.
+
+153
+00:07:51,600 --> 00:07:55,550
+The very top of
+recipes.html looks OK as is.
+
+154
+00:07:55,550 --> 00:07:59,610
+But the list of recipes could
+use a little bit of attention.
+
+155
+00:07:59,610 --> 00:08:01,980
+Because we're applying
+those same broad styles
+
+156
+00:08:01,980 --> 00:08:04,120
+that we had in
+magic-cake, you can
+
+157
+00:08:04,120 --> 00:08:06,740
+see that we've got these
+bullet points next to each one
+
+158
+00:08:06,740 --> 00:08:07,900
+of the list items.
+
+159
+00:08:07,900 --> 00:08:10,150
+We've got an underline
+underneath the name
+
+160
+00:08:10,150 --> 00:08:11,300
+of the recipe.
+
+161
+00:08:11,300 --> 00:08:15,789
+And the spacing, in general,
+is just kind of off.
+
+162
+00:08:15,789 --> 00:08:17,330
+Instead, we can work
+towards a layout
+
+163
+00:08:17,330 --> 00:08:18,680
+that's something like this.
+
+164
+00:08:18,680 --> 00:08:22,500
+We don't want any kind
+of list style for the ul.
+
+165
+00:08:22,500 --> 00:08:24,480
+So we don't have any bullets.
+
+166
+00:08:24,480 --> 00:08:26,860
+We want to have a
+border around the li,
+
+167
+00:08:26,860 --> 00:08:29,160
+so we can differentiate
+the sections.
+
+168
+00:08:29,160 --> 00:08:32,380
+We want to have some left
+padding between the list item
+
+169
+00:08:32,380 --> 00:08:35,860
+border and the content
+area of the list item.
+
+170
+00:08:35,860 --> 00:08:38,739
+We want to remove that
+border underneath the h3.
+
+171
+00:08:38,739 --> 00:08:40,870
+And we want to use our
+green heading color
+
+172
+00:08:40,870 --> 00:08:43,289
+for that anchor tag
+for the recipe name,
+
+173
+00:08:43,289 --> 00:08:47,320
+instead of just that
+default blue link color.
+
+174
+00:08:47,320 --> 00:08:48,900
+So this is really
+a similar problem
+
+175
+00:08:48,900 --> 00:08:51,800
+to the one we faced with
+our site navigation.
+
+176
+00:08:51,800 --> 00:08:55,270
+We need a way to differentiate
+the second unordered list
+
+177
+00:08:55,270 --> 00:08:56,900
+from any other
+unordered list that
+
+178
+00:08:56,900 --> 00:08:59,460
+might appear on any other page.
+
+179
+00:08:59,460 --> 00:09:03,280
+So like before, we can assign
+this unordered list a class.
+
+180
+00:09:03,280 --> 00:09:05,720
+And we'll call this one
+recipes, since this style will
+
+181
+00:09:05,720 --> 00:09:07,770
+apply to only the recipes page.
+
+182
+00:09:10,600 --> 00:09:15,130
+Our existing broad ul style
+has a left padding of 50.
+
+183
+00:09:15,130 --> 00:09:19,650
+We can take our recipes
+class style, which is a ul,
+
+184
+00:09:19,650 --> 00:09:21,830
+and we can set the
+list-style-type to none
+
+185
+00:09:21,830 --> 00:09:23,870
+to make those bullet
+points disappear.
+
+186
+00:09:23,870 --> 00:09:25,530
+And we can set the
+padding to zero
+
+187
+00:09:25,530 --> 00:09:27,150
+to turn that left padding off.
+
+188
+00:09:31,610 --> 00:09:34,080
+To add some border
+and padding to the li,
+
+189
+00:09:34,080 --> 00:09:39,235
+we can just select the dot
+recipes li and apply it there.
+
+190
+00:09:39,235 --> 00:09:40,360
+And this is what we'll get.
+
+191
+00:09:43,580 --> 00:09:46,060
+To create a more specific
+version of our h3
+
+192
+00:09:46,060 --> 00:09:48,820
+that's inside of
+the recipes ul, we
+
+193
+00:09:48,820 --> 00:09:50,820
+don't have to do a whole
+lot because we actually
+
+194
+00:09:50,820 --> 00:09:53,370
+want to still inherit
+all of these styles
+
+195
+00:09:53,370 --> 00:09:55,341
+from the generic h3.
+
+196
+00:09:55,341 --> 00:09:58,510
+We just want to turn
+the bottom border off.
+
+197
+00:09:58,510 --> 00:10:00,980
+So we can do that by
+writing border-bottom zero.
+
+198
+00:10:04,880 --> 00:10:06,780
+And finally, we'll
+make a specific rule
+
+199
+00:10:06,780 --> 00:10:09,310
+that changes the color
+of the anchor tags that
+
+200
+00:10:09,310 --> 00:10:13,640
+are only inside of the recipes
+ul with the recipes class.
+
+201
+00:10:13,640 --> 00:10:15,733
+And we'll remove that
+underline from them.
+
+202
+00:10:18,840 --> 00:10:22,270
+So now it's your turn to tweak
+styles on multiple pages using
+
+203
+00:10:22,270 --> 00:10:25,060
+class selectors and
+move all of your CSS
+
+204
+00:10:25,060 --> 00:10:28,010
+into a separate file
+in the challenges.
+

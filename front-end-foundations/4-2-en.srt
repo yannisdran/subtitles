@@ -1,0 +1,539 @@
+﻿1
+00:00:02,000 --> 00:00:02,580
+Welcome back.
+
+2
+00:00:02,580 --> 00:00:04,080
+In this section,
+we're going to look
+
+3
+00:00:04,080 --> 00:00:07,286
+at how to add background
+images to tags on the page.
+
+4
+00:00:07,286 --> 00:00:08,660
+And this is the
+layout that we're
+
+5
+00:00:08,660 --> 00:00:10,701
+going to be going for by
+the end of this section.
+
+6
+00:00:13,160 --> 00:00:15,710
+Background images are
+not added in HTML.
+
+7
+00:00:15,710 --> 00:00:17,940
+They're added in CSS.
+
+8
+00:00:17,940 --> 00:00:19,890
+And there's several
+different properties
+
+9
+00:00:19,890 --> 00:00:22,630
+that relate to adding
+background images.
+
+10
+00:00:22,630 --> 00:00:25,410
+The first is the
+background-color property.
+
+11
+00:00:25,410 --> 00:00:27,970
+Now, even if you're going
+to be displaying an image,
+
+12
+00:00:27,970 --> 00:00:30,800
+you should always set a
+background color in case,
+
+13
+00:00:30,800 --> 00:00:33,970
+for some reason, that
+background image fails to load.
+
+14
+00:00:33,970 --> 00:00:36,540
+You want to use that
+color as a fallback.
+
+15
+00:00:36,540 --> 00:00:39,560
+So since our background image is
+going to be a very dark image,
+
+16
+00:00:39,560 --> 00:00:41,790
+we'll set our background
+color to dark gray.
+
+17
+00:00:44,310 --> 00:00:46,670
+Next, we can use the
+background-image property
+
+18
+00:00:46,670 --> 00:00:49,130
+to actually define
+an image file.
+
+19
+00:00:49,130 --> 00:00:51,140
+And the syntax here is
+a little bit different
+
+20
+00:00:51,140 --> 00:00:52,960
+than it was in HTML.
+
+21
+00:00:52,960 --> 00:00:56,430
+You set this property
+equal to the word url,
+
+22
+00:00:56,430 --> 00:01:00,320
+with lowercase letters,
+open and close parentheses,
+
+23
+00:01:00,320 --> 00:01:03,970
+and then inside the parentheses
+the relative path to your image
+
+24
+00:01:03,970 --> 00:01:04,989
+file.
+
+25
+00:01:04,989 --> 00:01:07,880
+Also notice that quotes don't
+need to be around the path
+
+26
+00:01:07,880 --> 00:01:11,090
+when you're adding a
+background image with CSS.
+
+27
+00:01:11,090 --> 00:01:14,040
+Here, that's going to
+load the gobbler.png file
+
+28
+00:01:14,040 --> 00:01:17,020
+from our Images folder as
+a background of the body,
+
+29
+00:01:17,020 --> 00:01:20,280
+since that's the
+tag we're selecting.
+
+30
+00:01:20,280 --> 00:01:21,490
+Which looks like this.
+
+31
+00:01:26,040 --> 00:01:28,272
+Next, we can control
+the background position
+
+32
+00:01:28,272 --> 00:01:32,000
+of where in the container
+the image appears.
+
+33
+00:01:32,000 --> 00:01:34,790
+And we do that by
+declaring two key words.
+
+34
+00:01:34,790 --> 00:01:38,376
+The first keyword can either
+be top, center, or bottom.
+
+35
+00:01:38,376 --> 00:01:39,750
+And the second
+keyword can either
+
+36
+00:01:39,750 --> 00:01:42,340
+be left, center, or right.
+
+37
+00:01:42,340 --> 00:01:45,320
+So here by saying
+top left, we're
+
+38
+00:01:45,320 --> 00:01:47,530
+taking the small
+background image,
+
+39
+00:01:47,530 --> 00:01:49,970
+and we're making it appear
+in the top, left corner
+
+40
+00:01:49,970 --> 00:01:51,420
+of the body.
+
+41
+00:01:51,420 --> 00:01:54,420
+If we were instead to set the
+background position to center
+
+42
+00:01:54,420 --> 00:01:57,380
+right, you can see here
+that the small background
+
+43
+00:01:57,380 --> 00:01:59,060
+image will appear
+vertically centered
+
+44
+00:01:59,060 --> 00:02:01,850
+in the body on the right side.
+
+45
+00:02:01,850 --> 00:02:04,910
+So since we just have the
+small background image,
+
+46
+00:02:04,910 --> 00:02:07,570
+we would like it to repeat
+across the entire page.
+
+47
+00:02:07,570 --> 00:02:10,460
+And we can do that with the
+background-repeat property
+
+48
+00:02:10,460 --> 00:02:12,760
+by setting it to repeat.
+
+49
+00:02:12,760 --> 00:02:15,510
+And you can see when we do
+that the small background
+
+50
+00:02:15,510 --> 00:02:17,740
+image actually gets
+tiled all across
+
+51
+00:02:17,740 --> 00:02:19,940
+and repeated all
+across the body.
+
+52
+00:02:19,940 --> 00:02:21,830
+And it appears to be
+one solid background.
+
+53
+00:02:24,440 --> 00:02:26,800
+Now there are some other
+options for background repeat
+
+54
+00:02:26,800 --> 00:02:29,470
+like repeat just in
+the x-direction or just
+
+55
+00:02:29,470 --> 00:02:30,950
+in the y-direction.
+
+56
+00:02:30,950 --> 00:02:35,240
+Or we can explicitly say don't
+repeat this image at all.
+
+57
+00:02:35,240 --> 00:02:37,676
+But here it makes the
+most sense to use repeat,
+
+58
+00:02:37,676 --> 00:02:39,050
+since we want this
+to be repeated
+
+59
+00:02:39,050 --> 00:02:43,190
+in the x- and the y-directions
+across the entire body tag.
+
+60
+00:02:45,710 --> 00:02:48,290
+Like some other CSS
+properties, background
+
+61
+00:02:48,290 --> 00:02:51,110
+can be shortened
+into just one line
+
+62
+00:02:51,110 --> 00:02:55,270
+by first defining the
+color, then the image, then
+
+63
+00:02:55,270 --> 00:03:00,960
+the position, and then whether
+it needs to repeat or not.
+
+64
+00:03:00,960 --> 00:03:03,450
+Since we have different
+sections on our page,
+
+65
+00:03:03,450 --> 00:03:06,900
+we can also get creative with
+our tile background images.
+
+66
+00:03:06,900 --> 00:03:09,580
+And we can set one
+background for the body,
+
+67
+00:03:09,580 --> 00:03:11,830
+another background
+for the main content
+
+68
+00:03:11,830 --> 00:03:15,110
+which sits on top of the
+body, and another background
+
+69
+00:03:15,110 --> 00:03:19,240
+for the recipes list items which
+are on top of the main content.
+
+70
+00:03:22,140 --> 00:03:24,660
+And now when we view
+that in the browser,
+
+71
+00:03:24,660 --> 00:03:28,280
+we can see that the main
+content sits on top of the body.
+
+72
+00:03:28,280 --> 00:03:31,640
+And the recipes' lis sit
+on top of the main content.
+
+73
+00:03:31,640 --> 00:03:34,362
+And it gives a little bit of a
+sense of depth and separation
+
+74
+00:03:34,362 --> 00:03:35,945
+to the different
+sections of our page.
+
+75
+00:03:38,490 --> 00:03:40,970
+Another common use
+of background images
+
+76
+00:03:40,970 --> 00:03:44,290
+is to set up containers
+that display backgrounds
+
+77
+00:03:44,290 --> 00:03:47,250
+and then add text
+tags on top of them.
+
+78
+00:03:47,250 --> 00:03:51,590
+Here's a list from the Game Spot
+website that does just that.
+
+79
+00:03:51,590 --> 00:03:54,300
+Each one of those games
+has a background image
+
+80
+00:03:54,300 --> 00:03:58,510
+that has actual HTML
+text tags on top of it.
+
+81
+00:03:58,510 --> 00:04:02,130
+It would not be practical to try
+to do this with content images.
+
+82
+00:04:02,130 --> 00:04:03,940
+So layout images
+in the background
+
+83
+00:04:03,940 --> 00:04:06,850
+are a good choice here.
+
+84
+00:04:06,850 --> 00:04:10,390
+So one way to do this is to
+create a div specifically
+
+85
+00:04:10,390 --> 00:04:12,760
+for displaying a
+background image.
+
+86
+00:04:12,760 --> 00:04:15,150
+So here on our
+home.html we're going
+
+87
+00:04:15,150 --> 00:04:17,860
+to show a featured
+recipe of the month.
+
+88
+00:04:17,860 --> 00:04:19,660
+To do that, we'll
+create a new div
+
+89
+00:04:19,660 --> 00:04:23,690
+with a class of featured-image
+inside of our main content.
+
+90
+00:04:23,690 --> 00:04:27,160
+And then we'll adjust the
+CSS for that featured image
+
+91
+00:04:27,160 --> 00:04:29,070
+to have a width
+and height that's
+
+92
+00:04:29,070 --> 00:04:32,400
+equal to the size of our
+background image to make sure
+
+93
+00:04:32,400 --> 00:04:33,890
+that we're showing all of it.
+
+94
+00:04:33,890 --> 00:04:36,640
+And then we'll set the
+background to load our image.
+
+95
+00:04:36,640 --> 00:04:39,440
+You can see here that our image
+is displaying in this container
+
+96
+00:04:39,440 --> 00:04:42,470
+as we expect.
+
+97
+00:04:42,470 --> 00:04:45,300
+But since this is
+a background image,
+
+98
+00:04:45,300 --> 00:04:48,590
+we can add a text tag
+inside of that div
+
+99
+00:04:48,590 --> 00:04:50,500
+as a child of that div.
+
+100
+00:04:50,500 --> 00:04:52,160
+Here we're using an h3.
+
+101
+00:04:52,160 --> 00:04:54,890
+And we're saying
+featured magic cake.
+
+102
+00:04:54,890 --> 00:04:57,540
+When we style that h3
+tag, we can do things
+
+103
+00:04:57,540 --> 00:04:59,930
+like set the background
+color to something different,
+
+104
+00:04:59,930 --> 00:05:03,620
+change the color of the text
+inside, adjust the padding,
+
+105
+00:05:03,620 --> 00:05:06,010
+even do something crazy
+like make the text all
+
+106
+00:05:06,010 --> 00:05:09,450
+uppercase so it really stands
+out against that image.
+
+107
+00:05:09,450 --> 00:05:10,970
+When we look at
+the browser again,
+
+108
+00:05:10,970 --> 00:05:14,560
+now we have text appearing
+on top of an image
+
+109
+00:05:14,560 --> 00:05:18,145
+because that image
+is in the background.
+
+110
+00:05:18,145 --> 00:05:20,020
+So now it's your turn
+to play with background
+
+111
+00:05:20,020 --> 00:05:22,250
+images in the challenges.
+

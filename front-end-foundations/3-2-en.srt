@@ -1,0 +1,452 @@
+﻿1
+00:00:02,050 --> 00:00:03,360
+Welcome back.
+
+2
+00:00:03,360 --> 00:00:05,850
+We're on a roll organizing
+the different parts
+
+3
+00:00:05,850 --> 00:00:07,530
+and styles for our page.
+
+4
+00:00:07,530 --> 00:00:10,440
+So let's go another
+step further.
+
+5
+00:00:10,440 --> 00:00:13,290
+In our current layout, we've
+got this pretty clear separation
+
+6
+00:00:13,290 --> 00:00:16,360
+on all of our pages between
+the header of the page that
+
+7
+00:00:16,360 --> 00:00:20,400
+contains our site title
+and the site navigation
+
+8
+00:00:20,400 --> 00:00:22,930
+and all the content
+that's below it.
+
+9
+00:00:22,930 --> 00:00:25,340
+So we should go an
+extra step and somehow
+
+10
+00:00:25,340 --> 00:00:30,070
+organize these into
+separate units on the page.
+
+11
+00:00:30,070 --> 00:00:31,870
+We can do that with
+a tag called div,
+
+12
+00:00:31,870 --> 00:00:33,740
+which is short for division.
+
+13
+00:00:33,740 --> 00:00:36,100
+And it's really just
+this block-level tag
+
+14
+00:00:36,100 --> 00:00:39,580
+that's a very generic
+way to group related
+
+15
+00:00:39,580 --> 00:00:42,080
+content on your page.
+
+16
+00:00:42,080 --> 00:00:44,460
+Grouping your HTML
+inside of divs
+
+17
+00:00:44,460 --> 00:00:46,190
+is really just as
+simple as deciding
+
+18
+00:00:46,190 --> 00:00:50,300
+where the open and close
+div tags go on the page.
+
+19
+00:00:50,300 --> 00:00:53,910
+Here, since we want our
+h1 and our site navigation
+
+20
+00:00:53,910 --> 00:00:56,340
+inside of our header
+div, we'll create
+
+21
+00:00:56,340 --> 00:00:59,680
+one open and close div block
+that contains just those two
+
+22
+00:00:59,680 --> 00:01:01,560
+pieces of HTML.
+
+23
+00:01:01,560 --> 00:01:03,300
+For the rest of the
+HTML on the page,
+
+24
+00:01:03,300 --> 00:01:05,910
+we'll create another
+open and close div block.
+
+25
+00:01:05,910 --> 00:01:08,350
+We'll throw all of
+that inside of there.
+
+26
+00:01:08,350 --> 00:01:11,460
+And we'll indent
+all the HTML again
+
+27
+00:01:11,460 --> 00:01:14,820
+to show that these two divs
+are children of the body tag.
+
+28
+00:01:17,330 --> 00:01:18,950
+Now that we have
+two divs, we need
+
+29
+00:01:18,950 --> 00:01:21,570
+a way to differentiate
+them in our CSS.
+
+30
+00:01:21,570 --> 00:01:24,090
+So, again, we'll add
+a class of header
+
+31
+00:01:24,090 --> 00:01:28,000
+to the first div and a class of
+main-content to the second div,
+
+32
+00:01:28,000 --> 00:01:31,270
+so we can tell them apart.
+
+33
+00:01:31,270 --> 00:01:33,730
+As we're adjusting the
+styles for these divs,
+
+34
+00:01:33,730 --> 00:01:37,000
+we'll want to reset the padding
+of 20 pixels that's currently
+
+35
+00:01:37,000 --> 00:01:39,520
+around our body
+and just turn that
+
+36
+00:01:39,520 --> 00:01:41,540
+off and make it zero again.
+
+37
+00:01:41,540 --> 00:01:44,140
+And then we can reapply
+that padding individually
+
+38
+00:01:44,140 --> 00:01:48,204
+to both the header div
+and the main-content div,
+
+39
+00:01:48,204 --> 00:01:50,620
+along with some other properties
+like borders and margins.
+
+40
+00:01:53,789 --> 00:01:56,080
+Another thing we can do now
+that our header is separate
+
+41
+00:01:56,080 --> 00:01:59,130
+is we can give it a completely
+distinct visual style
+
+42
+00:01:59,130 --> 00:02:01,030
+from the rest of the page.
+
+43
+00:02:01,030 --> 00:02:03,360
+So here we've set the
+background color of the header
+
+44
+00:02:03,360 --> 00:02:05,300
+to this reddish color.
+
+45
+00:02:05,300 --> 00:02:07,010
+And then we change
+the anchors that
+
+46
+00:02:07,010 --> 00:02:10,710
+are in the header and the h1
+tag, which is in the header
+
+47
+00:02:10,710 --> 00:02:16,780
+also, to white, so we can see
+them against this new color.
+
+48
+00:02:16,780 --> 00:02:20,270
+Since div is a block-level
+tag, its natural tendency
+
+49
+00:02:20,270 --> 00:02:22,910
+is going to be to take
+up 100% of the width
+
+50
+00:02:22,910 --> 00:02:25,970
+that it has available
+inside of a container.
+
+51
+00:02:25,970 --> 00:02:28,760
+In this case, it's the
+body tag as a container.
+
+52
+00:02:28,760 --> 00:02:31,390
+But we can change this by
+setting the width property
+
+53
+00:02:31,390 --> 00:02:34,560
+on the div to some number.
+
+54
+00:02:34,560 --> 00:02:37,410
+Here we've set it to 500 pixels.
+
+55
+00:02:37,410 --> 00:02:41,800
+So now that div is only ever
+going to be 500 pixels wide.
+
+56
+00:02:41,800 --> 00:02:43,510
+And all of the
+content inside of it
+
+57
+00:02:43,510 --> 00:02:47,245
+is also going to have to reflow
+to fit in that 500-pixel space.
+
+58
+00:02:50,270 --> 00:02:51,890
+Since the width
+of this div is now
+
+59
+00:02:51,890 --> 00:02:54,970
+less than the entire
+width of the screen,
+
+60
+00:02:54,970 --> 00:02:57,900
+it'd be really cool if we
+could center it on the page.
+
+61
+00:02:57,900 --> 00:03:01,050
+There's two ways to center
+content when you're using CSS.
+
+62
+00:03:01,050 --> 00:03:03,940
+And it depends on the type of
+content that you're centering.
+
+63
+00:03:03,940 --> 00:03:08,580
+If you want to center an entire
+block-level tag and that tag
+
+64
+00:03:08,580 --> 00:03:12,840
+is fixed width, then you can
+set the left and right margins
+
+65
+00:03:12,840 --> 00:03:15,490
+for that tag to Auto.
+
+66
+00:03:15,490 --> 00:03:18,220
+As you can see in the
+browser, that main content div
+
+67
+00:03:18,220 --> 00:03:19,035
+is now centered.
+
+68
+00:03:23,180 --> 00:03:26,920
+Auto is the special value that
+really means take as much space
+
+69
+00:03:26,920 --> 00:03:28,680
+as you can.
+
+70
+00:03:28,680 --> 00:03:30,970
+And since both the
+left and right margins
+
+71
+00:03:30,970 --> 00:03:33,872
+are trying to take up as
+much space as they can,
+
+72
+00:03:33,872 --> 00:03:39,970
+they push the main content div
+into the center of the screen.
+
+73
+00:03:39,970 --> 00:03:43,910
+So margin auto is for centering
+an entire block-level tag.
+
+74
+00:03:43,910 --> 00:03:46,650
+But if you want to center
+content that's inside
+
+75
+00:03:46,650 --> 00:03:51,000
+of a block-level tag, then you
+set the text-align property
+
+76
+00:03:51,000 --> 00:03:53,720
+of that content to center.
+
+77
+00:03:53,720 --> 00:03:59,110
+So here I'm taking the h1
+that's inside of our header div,
+
+78
+00:03:59,110 --> 00:04:01,210
+setting the
+text-align to center.
+
+79
+00:04:01,210 --> 00:04:04,620
+And that's going to put that
+h1 in the center of the screen.
+
+80
+00:04:07,160 --> 00:04:10,090
+We can use the same technique
+to center the navigation menu
+
+81
+00:04:10,090 --> 00:04:13,430
+in the header and even
+the h2 that's inside
+
+82
+00:04:13,430 --> 00:04:14,900
+of our main content section.
+
+83
+00:04:18,010 --> 00:04:19,930
+So before you try
+some more challenges,
+
+84
+00:04:19,930 --> 00:04:23,180
+I wanted to say one
+thing about fixed widths.
+
+85
+00:04:23,180 --> 00:04:26,100
+If you've been reading about
+or making websites before,
+
+86
+00:04:26,100 --> 00:04:27,620
+you're probably
+wondering why we're
+
+87
+00:04:27,620 --> 00:04:30,890
+teaching fixed widths here
+instead of relative widths,
+
+88
+00:04:30,890 --> 00:04:33,600
+like percentages and ems.
+
+89
+00:04:33,600 --> 00:04:37,420
+Fixed widths are great for
+learning how page layout works.
+
+90
+00:04:37,420 --> 00:04:39,380
+And after this course,
+you can actually
+
+91
+00:04:39,380 --> 00:04:41,796
+continue into our Journey
+Into Mobile course
+
+92
+00:04:41,796 --> 00:04:43,170
+where you'll learn
+how to convert
+
+93
+00:04:43,170 --> 00:04:46,970
+all your fixed widths into
+their relative equivalents.
+
+94
+00:04:46,970 --> 00:04:49,230
+So have fun in the challenges.
+
