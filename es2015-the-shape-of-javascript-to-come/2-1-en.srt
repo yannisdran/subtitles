@@ -1,0 +1,683 @@
+﻿1
+00:00:00,000 --> 00:00:01,760
+[SINGING] We've
+had about enough,
+
+2
+00:00:01,760 --> 00:00:05,200
+JavaScript is getting tough,
+ECMAScript is the solution.
+
+3
+00:00:05,200 --> 00:00:06,192
+Join the revolution.
+
+4
+00:00:06,192 --> 00:00:09,060
+Let your objects fill the
+gaps inside the Sets and Maps,
+
+5
+00:00:09,060 --> 00:00:11,530
+use OOP patterns to the max.
+
+6
+00:00:11,530 --> 00:00:15,450
+New class and module syntax,
+constant and let will do the thing,
+
+7
+00:00:15,450 --> 00:00:17,098
+to stop the hoisting.
+
+8
+00:00:17,098 --> 00:00:19,912
+With pure arrays struggling
+is destructuring.
+
+9
+00:00:19,912 --> 00:00:28,810
+Keep your JS nice and
+lean by using ES2015.
+
+10
+00:00:28,810 --> 00:00:32,710
+You're watching ES2015 The
+Shape of JavaScript to Come.
+
+11
+00:00:32,710 --> 00:00:34,642
+I'm Carlos Souza,
+and in this level
+
+12
+00:00:34,642 --> 00:00:36,100
+we're going to be
+looking at what's
+
+13
+00:00:36,100 --> 00:00:42,130
+new in functions, the foundation
+of the JavaScript language.
+
+14
+00:00:42,130 --> 00:00:44,790
+Let's go back to our
+loadProfiles function.
+
+15
+00:00:44,790 --> 00:00:48,130
+This function is expected
+to be called with an array.
+
+16
+00:00:48,130 --> 00:00:52,760
+In this example we pass in an
+array with three elements, Sam,
+
+17
+00:00:52,760 --> 00:00:54,620
+Tyler and Brook.
+
+18
+00:00:54,620 --> 00:00:58,460
+When used properly like this,
+this code works just fine.
+
+19
+00:00:58,460 --> 00:01:01,170
+However what would happen
+if we called this function
+
+20
+00:01:01,170 --> 00:01:06,260
+with no arguments, or with
+an explicit undefined?
+
+21
+00:01:06,260 --> 00:01:09,480
+Well, if we did that
+our code would break.
+
+22
+00:01:09,480 --> 00:01:12,350
+We would see a TypeError
+similar to this one,
+
+23
+00:01:12,350 --> 00:01:15,560
+Cannot read property
+'length' of undefined.
+
+24
+00:01:15,560 --> 00:01:17,610
+Looking at the
+function signature
+
+25
+00:01:17,610 --> 00:01:19,500
+we can notice that
+this function expects
+
+26
+00:01:19,500 --> 00:01:22,230
+to be called with one argument.
+
+27
+00:01:22,230 --> 00:01:25,610
+JavaScript, however, will
+allow us to call this function
+
+28
+00:01:25,610 --> 00:01:27,090
+with no argument.
+
+29
+00:01:27,090 --> 00:01:29,660
+And the only reason
+we'll see a TypeError
+
+30
+00:01:29,660 --> 00:01:31,960
+is because we're trying
+to access the length
+
+31
+00:01:31,960 --> 00:01:34,410
+property on the argument.
+
+32
+00:01:34,410 --> 00:01:36,730
+When calling a function
+with no argument,
+
+33
+00:01:36,730 --> 00:01:39,580
+userNames will
+actually be undefined.
+
+34
+00:01:39,580 --> 00:01:42,650
+And that's why we see an error
+message that looks like this,
+
+35
+00:01:42,650 --> 00:01:46,250
+Cannot read property
+'length' of undefined.
+
+36
+00:01:46,250 --> 00:01:48,820
+In this example it is
+not always safe to assume
+
+37
+00:01:48,820 --> 00:01:52,260
+that userNames will always
+be assigned a value.
+
+38
+00:01:52,260 --> 00:01:54,950
+Historically, a common
+practice for validating
+
+39
+00:01:54,950 --> 00:01:57,630
+the presence of function
+arguments in JavaScript
+
+40
+00:01:57,630 --> 00:02:00,110
+was to check for them
+as the very first thing
+
+41
+00:02:00,110 --> 00:02:01,590
+in the function.
+
+42
+00:02:01,590 --> 00:02:05,110
+In this example we are using
+typeof to check whether
+
+43
+00:02:05,110 --> 00:02:09,050
+the type of userNames is
+different than 'undefined'.
+
+44
+00:02:09,050 --> 00:02:12,500
+If so, then return the
+value from that variable,
+
+45
+00:02:12,500 --> 00:02:17,430
+otherwise we return a
+default value of empty array.
+
+46
+00:02:17,430 --> 00:02:21,510
+This solution works, but as
+you can see it's pretty verbose
+
+47
+00:02:21,510 --> 00:02:25,336
+and doesn't scale well for
+checking multiple arguments.
+
+48
+00:02:25,336 --> 00:02:26,960
+We could make this
+code better by using
+
+49
+00:02:26,960 --> 00:02:30,020
+a new feature of JavaScript
+called default parameters,
+
+50
+00:02:30,020 --> 00:02:32,520
+which help move default
+values from the function
+
+51
+00:02:32,520 --> 00:02:35,340
+body to the function signature.
+
+52
+00:02:35,340 --> 00:02:39,070
+We'll go ahead and assign
+an empty array to userNames.
+
+53
+00:02:39,070 --> 00:02:41,140
+This empty array
+will be used in case
+
+54
+00:02:41,140 --> 00:02:45,150
+no argument is passed when
+loadProfiles is called.
+
+55
+00:02:45,150 --> 00:02:48,670
+Now if we called loadProfiles
+with no arguments,
+
+56
+00:02:48,670 --> 00:02:51,770
+it will set a default
+value of empty array.
+
+57
+00:02:51,770 --> 00:02:53,610
+The default value
+for userNames will
+
+58
+00:02:53,610 --> 00:02:58,320
+be used even if we
+explicitly pass in undefined.
+
+59
+00:02:58,320 --> 00:03:02,130
+Now let's take a look at a
+new function, setPageThread.
+
+60
+00:03:02,130 --> 00:03:03,660
+Here's how we call it.
+
+61
+00:03:03,660 --> 00:03:07,020
+The first argument is
+a string, in this case,
+
+62
+00:03:07,020 --> 00:03:09,520
+"New Version out Soon!".
+
+63
+00:03:09,520 --> 00:03:14,630
+The second argument is what
+we call an <i>options object</i>.
+
+64
+00:03:14,630 --> 00:03:18,040
+This object holds configuration
+settings set by the caller
+
+65
+00:03:18,040 --> 00:03:20,280
+to be used by the
+rest of the function.
+
+66
+00:03:20,280 --> 00:03:22,880
+It's pretty common to use an
+options object as an argument
+
+67
+00:03:22,880 --> 00:03:24,470
+like we see here.
+
+68
+00:03:24,470 --> 00:03:27,090
+We want to avoid accessing
+the options object
+
+69
+00:03:27,090 --> 00:03:30,880
+properties directly, so we
+assign each of its properties
+
+70
+00:03:30,880 --> 00:03:35,070
+to local variables in order to
+make our code easier to read.
+
+71
+00:03:35,070 --> 00:03:37,410
+We can give our options
+object a default value
+
+72
+00:03:37,410 --> 00:03:39,680
+using the new default
+parameters feature we just
+
+73
+00:03:39,680 --> 00:03:41,770
+learned, in case this
+function is called
+
+74
+00:03:41,770 --> 00:03:44,960
+with just the first argument.
+
+75
+00:03:44,960 --> 00:03:47,360
+That's cool, but one issue
+with using the options
+
+76
+00:03:47,360 --> 00:03:48,960
+object like this,
+is that it makes
+
+77
+00:03:48,960 --> 00:03:52,260
+it tempting to keep adding more
+options than what we really
+
+78
+00:03:52,260 --> 00:03:53,370
+need.
+
+79
+00:03:53,370 --> 00:03:55,990
+From the caller's perspective
+it's also unclear
+
+80
+00:03:55,990 --> 00:03:58,650
+what the options are just
+by looking at the function
+
+81
+00:03:58,650 --> 00:03:59,790
+signature.
+
+82
+00:03:59,790 --> 00:04:03,050
+And while it is a good practice
+to assign to local variables
+
+83
+00:04:03,050 --> 00:04:05,860
+instead of reading directly
+from the options object,
+
+84
+00:04:05,860 --> 00:04:10,830
+it does force us to write
+boilerplate code like this.
+
+85
+00:04:10,830 --> 00:04:12,580
+A new feature in
+JavaScript allows
+
+86
+00:04:12,580 --> 00:04:16,480
+us to get around this issue
+it's called named parameters.
+
+87
+00:04:16,480 --> 00:04:19,100
+Using named parameters
+for optional settings
+
+88
+00:04:19,100 --> 00:04:20,970
+makes it easier
+to understand how
+
+89
+00:04:20,970 --> 00:04:23,190
+a function should be invoked.
+
+90
+00:04:23,190 --> 00:04:24,690
+Here's what it looks like.
+
+91
+00:04:24,690 --> 00:04:27,690
+We use curly braces to group
+all the available options
+
+92
+00:04:27,690 --> 00:04:30,540
+or functions [it] accepts
+as variables.
+
+93
+00:04:30,540 --> 00:04:34,020
+Now we can tell which options
+are available by looking
+
+94
+00:04:34,020 --> 00:04:35,970
+at the function signature.
+
+95
+00:04:35,970 --> 00:04:38,270
+It makes your code
+easier to read.
+
+96
+00:04:38,270 --> 00:04:40,400
+Each option is available
+from the function
+
+97
+00:04:40,400 --> 00:04:42,300
+body as a local variable.
+
+98
+00:04:42,300 --> 00:04:45,140
+So we don't have any more
+of that boilerplate code.
+
+99
+00:04:45,140 --> 00:04:49,590
+From the caller's perspective, the
+function call remains the same.
+
+100
+00:04:49,590 --> 00:04:51,620
+Let's call it and
+see what happens.
+
+101
+00:04:51,620 --> 00:04:54,760
+For the first argument we'll
+use the string "New Version out
+
+102
+00:04:54,760 --> 00:04:55,750
+Soon!"
+
+103
+00:04:55,750 --> 00:04:57,330
+And for the second
+argument we'll
+
+104
+00:04:57,330 --> 00:05:00,360
+pass an object, just
+like before, with values
+
+105
+00:05:00,360 --> 00:05:04,710
+for popular, expires,
+and activeClass.
+
+106
+00:05:04,710 --> 00:05:07,230
+Each property of the
+object is matched
+
+107
+00:05:07,230 --> 00:05:09,940
+with the available options
+in the function signature.
+
+108
+00:05:09,940 --> 00:05:13,920
+And then we can see the values
+printed out to the console.
+
+109
+00:05:13,920 --> 00:05:17,790
+Now what happens when the call
+setPageThread but leave out
+
+110
+00:05:17,790 --> 00:05:19,360
+some of the available options?
+
+111
+00:05:19,360 --> 00:05:20,932
+Well, let's see.
+
+112
+00:05:20,932 --> 00:05:22,890
+We'll call the function
+with the first argument
+
+113
+00:05:22,890 --> 00:05:24,250
+just like before.
+
+114
+00:05:24,250 --> 00:05:27,270
+But for the options object,
+which is the second argument,
+
+115
+00:05:27,270 --> 00:05:30,200
+we'll only pass a value
+for the popular option,
+
+116
+00:05:30,200 --> 00:05:31,700
+setting it to true.
+
+117
+00:05:31,700 --> 00:05:34,910
+We'll leave out expires
+and activeClass.
+
+118
+00:05:34,910 --> 00:05:38,590
+When we run our code the
+function does not error out,
+
+119
+00:05:38,590 --> 00:05:40,990
+it prints out undefined
+for the two options
+
+120
+00:05:40,990 --> 00:05:44,480
+that we didn't specify a value
+for, expires and activeClass.
+
+121
+00:05:47,640 --> 00:05:50,460
+It is not safe, however,
+to omit all arguments
+
+122
+00:05:50,460 --> 00:05:54,120
+when invoking a function with
+named parameters like this.
+
+123
+00:05:54,120 --> 00:05:55,930
+If we tried calling
+setPageThread
+
+124
+00:05:55,930 --> 00:05:58,320
+with just the first
+argument and nothing
+
+125
+00:05:58,320 --> 00:06:01,260
+for the second argument,
+we'll run into an error.
+
+126
+00:06:01,260 --> 00:06:03,110
+The error we see
+will vary depending
+
+127
+00:06:03,110 --> 00:06:04,880
+on where we run our code.
+
+128
+00:06:04,880 --> 00:06:07,200
+Running this code
+through Babel and Node,
+
+129
+00:06:07,200 --> 00:06:09,450
+which we'll talk more about
+at the end of this course,
+
+130
+00:06:09,450 --> 00:06:12,350
+gives us a TypeError.
+
+131
+00:06:12,350 --> 00:06:14,760
+To get around this is
+actually pretty simple.
+
+132
+00:06:14,760 --> 00:06:16,530
+Remember default parameters?
+
+133
+00:06:16,530 --> 00:06:19,190
+That's exactly what
+we'll use here.
+
+134
+00:06:19,190 --> 00:06:22,580
+The entire second
+argument to setPageThread
+
+135
+00:06:22,580 --> 00:06:27,460
+will be assigned an empty
+object as the default value.
+
+136
+00:06:27,460 --> 00:06:29,420
+Now when we call
+this function again
+
+137
+00:06:29,420 --> 00:06:33,180
+with just the first argument we
+can see it doesn't raise errors
+
+138
+00:06:33,180 --> 00:06:36,640
+anymore, it prints the value
+for the first argument,
+
+139
+00:06:36,640 --> 00:06:38,770
+and undefined for
+all named parameters.
+
+140
+00:06:42,586 --> 00:06:43,960
+Now it's time for
+you to practice
+
+141
+00:06:43,960 --> 00:06:45,960
+some of the things we've
+learned about functions
+
+142
+00:06:45,960 --> 00:06:49,240
+in the challenges, and I'll
+see you in the next section.
+

@@ -5,7 +5,7 @@ Shape of JavaScript to Come.
 
 2
 00:00:05,580 --> 00:00:07,226
-I'm Carlos Sosa
+I'm Carlos Souza
 and in this course
 
 3
@@ -38,7 +38,7 @@ gaps inside the Sets and Maps,
 
 9
 00:00:20,500 --> 00:00:22,780
-use the OOP patterns to the max.
+use OOP patterns to the max.
 
 10
 00:00:22,780 --> 00:00:25,240
