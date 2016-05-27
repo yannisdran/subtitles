@@ -1,0 +1,736 @@
+﻿1
+00:00:02,090 --> 00:00:03,420
+Welcome back.
+
+2
+00:00:03,420 --> 00:00:05,270
+We've got our web page
+started, but now we
+
+3
+00:00:05,270 --> 00:00:06,940
+want to also have
+the ability to go
+
+4
+00:00:06,940 --> 00:00:09,940
+to different pages
+inside our website,
+
+5
+00:00:09,940 --> 00:00:12,730
+and even maybe link to a page
+that's not on our website
+
+6
+00:00:12,730 --> 00:00:13,859
+at all.
+
+7
+00:00:13,859 --> 00:00:16,400
+So in this level, we're going
+to look at how we can add links
+
+8
+00:00:16,400 --> 00:00:18,940
+to our page with HTML.
+
+9
+00:00:18,940 --> 00:00:21,180
+We'll add a site
+navigation that allows
+
+10
+00:00:21,180 --> 00:00:24,220
+us to switch between the
+different pages in our website,
+
+11
+00:00:24,220 --> 00:00:26,770
+and we'll even add a link
+inside of a paragraph tag
+
+12
+00:00:26,770 --> 00:00:28,500
+to a legal description
+in our site.
+
+13
+00:00:31,760 --> 00:00:33,580
+Let's first think
+about what happens
+
+14
+00:00:33,580 --> 00:00:37,630
+when you type a URL in
+the browser address bar.
+
+15
+00:00:37,630 --> 00:00:41,290
+You type that URL in, which
+is made up of a protocol,
+
+16
+00:00:41,290 --> 00:00:44,770
+which is the HTTP
+part, a server,
+
+17
+00:00:44,770 --> 00:00:48,635
+which we'll use example.com
+here, and a path to a file,
+
+18
+00:00:48,635 --> 00:00:49,510
+like magic-cake.html.
+
+19
+00:00:52,025 --> 00:00:55,770
+We'll enter that URL in the
+address bar, and hit Enter.
+
+20
+00:00:55,770 --> 00:01:00,450
+A request is then sent to the
+example.com server for the file
+
+21
+00:01:00,450 --> 00:01:03,130
+magic cake.
+
+22
+00:01:03,130 --> 00:01:07,380
+Example.com sends
+magic-cake.html back over
+
+23
+00:01:07,380 --> 00:01:12,330
+to the browser, and the
+browser displays it.
+
+24
+00:01:12,330 --> 00:01:16,260
+So a link in HTML is actually
+working the exact same way,
+
+25
+00:01:16,260 --> 00:01:20,410
+it's just that the URL is
+stored inside of the HTML,
+
+26
+00:01:20,410 --> 00:01:22,830
+so you don't have to type it
+in the browser address bar
+
+27
+00:01:22,830 --> 00:01:24,650
+every time.
+
+28
+00:01:24,650 --> 00:01:28,870
+Here we've got a link that's
+inside of magic-cake.html that
+
+29
+00:01:28,870 --> 00:01:29,915
+links to legal.html.
+
+30
+00:01:32,440 --> 00:01:36,890
+If we click that link we're
+requesting legal.html from
+
+31
+00:01:36,890 --> 00:01:41,070
+the example.com server, and
+then legal.html is, again,
+
+32
+00:01:41,070 --> 00:01:46,250
+returned to the browser, and it
+replaces magic-cake.html with
+
+33
+00:01:46,250 --> 00:01:48,150
+the new legal page.
+
+34
+00:01:48,150 --> 00:01:50,200
+The browser even
+updates the address bar
+
+35
+00:01:50,200 --> 00:01:54,800
+so that we can see that
+our new page is loaded.
+
+36
+00:01:54,800 --> 00:01:58,200
+To create a link in
+HTML, you use the a tag,
+
+37
+00:01:58,200 --> 00:02:00,520
+which is short for anchor.
+
+38
+00:02:00,520 --> 00:02:03,485
+You use an opening and
+closing a tag, and any text
+
+39
+00:02:03,485 --> 00:02:05,980
+that you put inside
+of those tags
+
+40
+00:02:05,980 --> 00:02:08,900
+is going to be the
+clickable part of the link.
+
+41
+00:02:08,900 --> 00:02:11,880
+Now there's no URL
+inside of this a tag yet,
+
+42
+00:02:11,880 --> 00:02:15,560
+so we need a way to put
+that URL inside of there.
+
+43
+00:02:15,560 --> 00:02:19,040
+And we do this with something
+called a HTML attribute.
+
+44
+00:02:19,040 --> 00:02:22,030
+Attributes are written
+inside of an opening tag,
+
+45
+00:02:22,030 --> 00:02:25,450
+by writing the attribute name,
+then an equal sign, and then
+
+46
+00:02:25,450 --> 00:02:27,610
+the value of that attribute.
+
+47
+00:02:27,610 --> 00:02:29,490
+Here we're using
+the href attribute,
+
+48
+00:02:29,490 --> 00:02:33,290
+which sets what the page should
+open when the link is clicked.
+
+49
+00:02:33,290 --> 00:02:35,470
+And we've assigned
+that to a URL.
+
+50
+00:02:35,470 --> 00:02:38,400
+And that URL is in quotes, it's
+important to have those quotes
+
+51
+00:02:38,400 --> 00:02:39,230
+there.
+
+52
+00:02:39,230 --> 00:02:42,040
+HTML attributes let you
+add additional features,
+
+53
+00:02:42,040 --> 00:02:44,590
+or additional information
+beyond what you can just
+
+54
+00:02:44,590 --> 00:02:47,580
+put in between the
+opening and closing tags.
+
+55
+00:02:47,580 --> 00:02:50,790
+Now, like HTML tags, don't
+worry about memorizing
+
+56
+00:02:50,790 --> 00:02:53,370
+every single HTML
+attribute out there.
+
+57
+00:02:53,370 --> 00:02:55,364
+You'll be able to
+refer to a reference
+
+58
+00:02:55,364 --> 00:02:56,780
+when you're writing
+this yourself.
+
+59
+00:02:59,390 --> 00:03:02,360
+Another example of an attribute
+that works with an anchor tag
+
+60
+00:03:02,360 --> 00:03:04,670
+is the target attribute.
+
+61
+00:03:04,670 --> 00:03:07,180
+The target attribute
+sets where the page
+
+62
+00:03:07,180 --> 00:03:09,890
+that you set in the
+href should open up
+
+63
+00:03:09,890 --> 00:03:11,670
+whenever that link is clicked.
+
+64
+00:03:11,670 --> 00:03:15,280
+So if we set the
+target equal to _blank,
+
+65
+00:03:15,280 --> 00:03:17,890
+that means that when this
+link is clicked we should open
+
+66
+00:03:17,890 --> 00:03:20,450
+the page in a new
+tab, or window.
+
+67
+00:03:20,450 --> 00:03:24,520
+If we set it to _self, it
+means just replace the page
+
+68
+00:03:24,520 --> 00:03:27,420
+we're currently looking
+at with the new one that
+
+69
+00:03:27,420 --> 00:03:28,890
+we're requesting.
+
+70
+00:03:28,890 --> 00:03:30,984
+And the default behavior
+is actually self,
+
+71
+00:03:30,984 --> 00:03:32,400
+so if you want it
+to work that way
+
+72
+00:03:32,400 --> 00:03:34,450
+you don't have to write
+that target attribute.
+
+73
+00:03:37,040 --> 00:03:38,690
+Back in our browser,
+you can see now
+
+74
+00:03:38,690 --> 00:03:41,975
+that when we click on
+the legal page link text
+
+75
+00:03:41,975 --> 00:03:48,100
+it's going to open up a new tab
+with the legal.html content.
+
+76
+00:03:48,100 --> 00:03:52,790
+Now the URL that we included as
+the value of our href attribute
+
+77
+00:03:52,790 --> 00:03:55,370
+is called an absolute path.
+
+78
+00:03:55,370 --> 00:03:58,720
+Absolute paths ask
+for a specific file
+
+79
+00:03:58,720 --> 00:04:01,670
+from a specific server.
+
+80
+00:04:01,670 --> 00:04:03,310
+Here we're writing
+that we want this
+
+81
+00:04:03,310 --> 00:04:07,520
+file to come from example.com
+always and forever.
+
+82
+00:04:07,520 --> 00:04:09,650
+But that's not always
+the best approach,
+
+83
+00:04:09,650 --> 00:04:12,510
+and instead we can
+use a relative path.
+
+84
+00:04:12,510 --> 00:04:14,960
+Relative paths ask
+for a file, but they
+
+85
+00:04:14,960 --> 00:04:17,560
+don't specify any server.
+
+86
+00:04:17,560 --> 00:04:19,660
+So it would look like
+this href="legal.html".
+
+87
+00:04:22,970 --> 00:04:25,620
+Since there's no protocol
+or server name specified
+
+88
+00:04:25,620 --> 00:04:29,290
+in the path, the browser
+performs some magic,
+
+89
+00:04:29,290 --> 00:04:32,060
+and it assumes that you
+mean the same server
+
+90
+00:04:32,060 --> 00:04:34,240
+that the link your
+clicking is currently on.
+
+91
+00:04:36,750 --> 00:04:39,730
+So if this link appears
+in a page that's currently
+
+92
+00:04:39,730 --> 00:04:42,950
+on the example.com
+server, the browser
+
+93
+00:04:42,950 --> 00:04:49,130
+is going to automatically
+insert that http://example.com
+
+94
+00:04:49,130 --> 00:04:52,510
+in front of the legal.html
+
+95
+00:04:52,510 --> 00:04:55,600
+Just to be sure how this works,
+let's look at it another way.
+
+96
+00:04:55,600 --> 00:05:00,640
+We have magic-cake.html that's
+on the example.com server
+
+97
+00:05:00,640 --> 00:05:02,330
+currently loaded in the browser.
+
+98
+00:05:02,330 --> 00:05:08,150
+That contains a link for a
+relative path to legal.html.
+
+99
+00:05:08,150 --> 00:05:10,650
+When we click on that
+link, the browser
+
+100
+00:05:10,650 --> 00:05:13,980
+assumes that we're
+trying to find legal.html
+
+101
+00:05:13,980 --> 00:05:18,210
+on example.com because we
+didn't specify that server name.
+
+102
+00:05:18,210 --> 00:05:21,374
+And then it returns legal.html
+back to the browser,
+
+103
+00:05:21,374 --> 00:05:22,290
+just like we expected.
+
+104
+00:05:24,800 --> 00:05:27,420
+Since our site has
+multiple web pages,
+
+105
+00:05:27,420 --> 00:05:30,770
+where you're going to
+have multiple HTML files.
+
+106
+00:05:30,770 --> 00:05:32,650
+So if we look at the
+folder on our server
+
+107
+00:05:32,650 --> 00:05:34,460
+that is going to
+contain all these files,
+
+108
+00:05:34,460 --> 00:05:37,150
+it might look
+something like this.
+
+109
+00:05:37,150 --> 00:05:38,850
+The three main pages
+on our site are
+
+110
+00:05:38,850 --> 00:05:43,044
+going to be the home,
+recipes, and suggest pages.
+
+111
+00:05:43,044 --> 00:05:44,460
+So those are the
+three that should
+
+112
+00:05:44,460 --> 00:05:46,760
+go on our main site navigation.
+
+113
+00:05:46,760 --> 00:05:48,890
+We'll be able to
+get to magic cake
+
+114
+00:05:48,890 --> 00:05:52,587
+and legal from the recipes
+page, so that doesn't need
+
+115
+00:05:52,587 --> 00:05:53,795
+to be in our main navigation.
+
+116
+00:05:56,850 --> 00:05:59,080
+Now relative links
+should almost always
+
+117
+00:05:59,080 --> 00:06:02,670
+be used whenever you're
+linking to pages that are all
+
+118
+00:06:02,670 --> 00:06:05,320
+stored on the same site.
+
+119
+00:06:05,320 --> 00:06:07,990
+So here we've created
+an unordered list
+
+120
+00:06:07,990 --> 00:06:09,860
+underneath our h1 tag.
+
+121
+00:06:09,860 --> 00:06:12,220
+And that list has
+three list items.
+
+122
+00:06:12,220 --> 00:06:15,240
+And each of those list
+items has an anchor tag
+
+123
+00:06:15,240 --> 00:06:18,550
+with a relative link
+inside of it, one for home,
+
+124
+00:06:18,550 --> 00:06:21,440
+one for recipes,
+and one for suggest.
+
+125
+00:06:21,440 --> 00:06:24,570
+If we take this unordered
+list block of HTML,
+
+126
+00:06:24,570 --> 00:06:27,640
+and put it on all
+of our HTML pages,
+
+127
+00:06:27,640 --> 00:06:32,090
+we'll be able to navigate
+between each page.
+
+128
+00:06:32,090 --> 00:06:35,460
+And we've created starter
+pages for home, recipes,
+
+129
+00:06:35,460 --> 00:06:40,090
+and suggest, that just have an
+h2 with the title of the page.
+
+130
+00:06:40,090 --> 00:06:42,870
+And as we click through those
+three main navigation items
+
+131
+00:06:42,870 --> 00:06:45,200
+you can see we're able
+to load, and freely
+
+132
+00:06:45,200 --> 00:06:49,320
+move between each one
+of those three pages.
+
+133
+00:06:49,320 --> 00:06:51,480
+Back on our magic
+cake recipe page,
+
+134
+00:06:51,480 --> 00:06:54,180
+let's say there's a certain
+kind of sugar that really should
+
+135
+00:06:54,180 --> 00:06:56,490
+be used when making this cake.
+
+136
+00:06:56,490 --> 00:06:59,120
+We might go to a
+site like Amazon.com
+
+137
+00:06:59,120 --> 00:07:01,910
+and find the specific
+sugar that should be used.
+
+138
+00:07:01,910 --> 00:07:05,270
+Then we can copy the
+URL from Amazon.com,
+
+139
+00:07:05,270 --> 00:07:08,250
+and we can paste it
+into our magic cake page
+
+140
+00:07:08,250 --> 00:07:09,940
+as an absolute link.
+
+141
+00:07:09,940 --> 00:07:12,110
+Absolute links need
+to be used whenever
+
+142
+00:07:12,110 --> 00:07:16,860
+you're linking to a page
+that's not on your website.
+
+143
+00:07:16,860 --> 00:07:19,990
+Notice in the link that
+the protocol and server,
+
+144
+00:07:19,990 --> 00:07:22,650
+Amazon.com, are still there.
+
+145
+00:07:22,650 --> 00:07:24,990
+Absolute paths need
+to be used whenever
+
+146
+00:07:24,990 --> 00:07:28,640
+you're linking to a file
+that's not on your own website.
+
+147
+00:07:28,640 --> 00:07:32,440
+Since this file is on Amazon,
+we need the protocol and server
+
+148
+00:07:32,440 --> 00:07:34,580
+in there for an absolute path.
+
+149
+00:07:34,580 --> 00:07:37,180
+And now when we click
+on that link for sugar,
+
+150
+00:07:37,180 --> 00:07:38,760
+we're redirected
+to Amazon where we
+
+151
+00:07:38,760 --> 00:07:42,100
+can buy the sugar that we need.
+
+152
+00:07:42,100 --> 00:07:44,700
+Now it's time for you to set
+up multiple pages of site
+
+153
+00:07:44,700 --> 00:07:48,420
+navigation, and some other
+links in the challenges.
+
