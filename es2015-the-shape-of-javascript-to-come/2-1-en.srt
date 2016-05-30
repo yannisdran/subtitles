@@ -24,7 +24,7 @@ use OOP patterns to the max.
 6
 00:00:11,530 --> 00:00:15,450
 New class and module syntax,
-constant and let will do the thing,
+const and let will do the thing,
 
 7
 00:00:15,450 --> 00:00:17,098
