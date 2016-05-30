@@ -1,0 +1,862 @@
+﻿1
+00:00:02,140 --> 00:00:03,050
+Welcome back.
+
+2
+00:00:03,050 --> 00:00:05,300
+In this section, we'll look
+at some more new additions
+
+3
+00:00:05,300 --> 00:00:06,310
+to functions.
+
+4
+00:00:06,310 --> 00:00:08,750
+But before we do that, let's
+look at another feature
+
+5
+00:00:08,750 --> 00:00:12,480
+from a web forum, tags.
+
+6
+00:00:12,480 --> 00:00:15,180
+Tags are a very useful
+feature in web applications
+
+7
+00:00:15,180 --> 00:00:18,390
+that have a lot of reading
+content, like web forums.
+
+8
+00:00:18,390 --> 00:00:20,860
+They allow us to
+perform faster searches,
+
+9
+00:00:20,860 --> 00:00:24,430
+and to filter results
+based on specific keywords.
+
+10
+00:00:24,430 --> 00:00:27,190
+Tags basically help
+us find stuff faster.
+
+11
+00:00:27,190 --> 00:00:31,040
+So let's see how we
+can add tags to our forum.
+
+12
+00:00:31,040 --> 00:00:35,260
+We want to write a displayTags
+function that looks like this.
+
+13
+00:00:35,260 --> 00:00:39,810
+It should except one
+tag, songs, or two tags,
+
+14
+00:00:39,810 --> 00:00:44,940
+songs and lyrics, or three,
+songs, lyrics, bands, or four,
+
+15
+00:00:44,940 --> 00:00:47,340
+or as many tags as we give it.
+
+16
+00:00:47,340 --> 00:00:50,610
+This type of function is
+called a variadic function.
+
+17
+00:00:50,610 --> 00:00:54,050
+Variadic functions can accept
+any number of arguments,
+
+18
+00:00:54,050 --> 00:00:56,150
+and they're not
+specific to JavaScript,
+
+19
+00:00:56,150 --> 00:00:59,240
+so you might have used
+them in other languages.
+
+20
+00:00:59,240 --> 00:01:00,990
+In previous versions
+of JavaScript,
+
+21
+00:01:00,990 --> 00:01:03,570
+here's how we could have
+implemented our display tags
+
+22
+00:01:03,570 --> 00:01:05,069
+function.
+
+23
+00:01:05,069 --> 00:01:08,250
+In this example, we're
+using the arguments object,
+
+24
+00:01:08,250 --> 00:01:11,720
+which is sort of like an
+array, but not an actual array,
+
+25
+00:01:11,720 --> 00:01:15,500
+and corresponds to all arguments
+passed to the function.
+
+26
+00:01:15,500 --> 00:01:18,580
+We use a for loop to grab
+each individual element
+
+27
+00:01:18,580 --> 00:01:21,770
+and pass it to the underlying
+add topic function.
+
+28
+00:01:21,770 --> 00:01:23,780
+Assume this function
+is defined elsewhere,
+
+29
+00:01:23,780 --> 00:01:28,250
+and all it does is add
+a tag to the HTML page.
+
+30
+00:01:28,250 --> 00:01:30,780
+There's a couple of
+issues with this function.
+
+31
+00:01:30,780 --> 00:01:34,140
+First, the function
+signature isn't clear.
+
+32
+00:01:34,140 --> 00:01:35,550
+Looking at the
+function signature
+
+33
+00:01:35,550 --> 00:01:37,300
+gives us the impression
+that this function
+
+34
+00:01:37,300 --> 00:01:40,360
+takes no arguments,
+when in fact, it accepts
+
+35
+00:01:40,360 --> 00:01:43,340
+a variable number of tags.
+
+36
+00:01:43,340 --> 00:01:46,860
+Second issue is that any changes
+to the function signature
+
+37
+00:01:46,860 --> 00:01:48,620
+will break our code.
+
+38
+00:01:48,620 --> 00:01:50,180
+If we wanted to
+change our function
+
+39
+00:01:50,180 --> 00:01:53,740
+to accept a target element
+as the first argument,
+
+40
+00:01:53,740 --> 00:01:56,750
+this would break our for
+loop, since index zero
+
+41
+00:01:56,750 --> 00:01:59,940
+of the arguments object
+would no longer be a tag,
+
+42
+00:01:59,940 --> 00:02:02,290
+but the target element instead.
+
+43
+00:02:02,290 --> 00:02:04,910
+Now let's see how we
+can solve these issues.
+
+44
+00:02:04,910 --> 00:02:06,690
+We'll use a new
+feature of JavaScript
+
+45
+00:02:06,690 --> 00:02:08,870
+called rest parameters,
+which allows
+
+46
+00:02:08,870 --> 00:02:11,910
+us to represent an indefinite
+number of arguments
+
+47
+00:02:11,910 --> 00:02:15,820
+as an explicit array argument,
+a real array this time.
+
+48
+00:02:15,820 --> 00:02:18,480
+This way, changes the
+function signature
+
+49
+00:02:18,480 --> 00:02:21,140
+are less likely
+to break our code.
+
+50
+00:02:21,140 --> 00:02:23,430
+Let's add a parameter to
+the function signature
+
+51
+00:02:23,430 --> 00:02:25,315
+and name it tags.
+
+52
+00:02:25,315 --> 00:02:28,430
+We'll prefix it with these
+three dots over here.
+
+53
+00:02:28,430 --> 00:02:31,810
+The three dots make
+tags a rest parameter,
+
+54
+00:02:31,810 --> 00:02:34,420
+which means it will group
+all arguments we pass
+
+55
+00:02:34,420 --> 00:02:36,610
+to this function into an array.
+
+56
+00:02:36,610 --> 00:02:40,240
+Now from the function body,
+tags is just a regular array.
+
+57
+00:02:40,240 --> 00:02:42,930
+So we can use the for
+loop just like before,
+
+58
+00:02:42,930 --> 00:02:45,210
+navigate through
+each individual tag,
+
+59
+00:02:45,210 --> 00:02:49,130
+and pass it to the
+_addToTopic function.
+
+60
+00:02:49,130 --> 00:02:52,360
+Now that we have our tags rest
+parameter, any changes made
+
+61
+00:02:52,360 --> 00:02:55,310
+to the function signature,
+like adding a target element
+
+62
+00:02:55,310 --> 00:02:59,030
+as the first argument, will
+not affect our for loop.
+
+63
+00:02:59,030 --> 00:03:01,660
+It's worth noting that
+rest parameters must always
+
+64
+00:03:01,660 --> 00:03:04,050
+be the last parameter
+in a function.
+
+65
+00:03:04,050 --> 00:03:06,670
+In the second example, we're
+grabbing every argument
+
+66
+00:03:06,670 --> 00:03:08,860
+passed to the display
+tags function,
+
+67
+00:03:08,860 --> 00:03:11,660
+except for the first one.
+
+68
+00:03:11,660 --> 00:03:13,330
+Now we can use our
+display tags function
+
+69
+00:03:13,330 --> 00:03:19,620
+to add one tag, songs, or
+multiple tags, songs, lyrics,
+
+70
+00:03:19,620 --> 00:03:21,930
+and bands.
+
+71
+00:03:21,930 --> 00:03:25,410
+Let's say that the list of tags
+is now available from an API
+
+72
+00:03:25,410 --> 00:03:27,300
+and we'll use an
+existing function,
+
+73
+00:03:27,300 --> 00:03:31,300
+getRequest, to get the
+list of tags for each topic.
+
+74
+00:03:31,300 --> 00:03:32,800
+Don't worry about
+the implementation
+
+75
+00:03:32,800 --> 00:03:34,920
+of this function,
+all we need to know
+
+76
+00:03:34,920 --> 00:03:38,390
+is that it takes the URL
+path as the first argument.
+
+77
+00:03:38,390 --> 00:03:41,190
+In this example, we're
+grabbing all the tags
+
+78
+00:03:41,190 --> 00:03:44,100
+for the topic with ID 17.
+
+79
+00:03:44,100 --> 00:03:46,030
+What we get back in
+our callback function
+
+80
+00:03:46,030 --> 00:03:49,230
+is a response object
+with the tags property,
+
+81
+00:03:49,230 --> 00:03:52,870
+except that it gives us
+the tags as an array.
+
+82
+00:03:52,870 --> 00:03:55,270
+If you remember, our
+displayTags function
+
+83
+00:03:55,270 --> 00:03:57,380
+is a variadic
+function, which means
+
+84
+00:03:57,380 --> 00:04:01,100
+it accepts individual
+arguments, not an array.
+
+85
+00:04:01,100 --> 00:04:03,360
+So how can we convert
+the array that we
+
+86
+00:04:03,360 --> 00:04:06,570
+get back from the server
+into individual elements
+
+87
+00:04:06,570 --> 00:04:10,340
+as expected by the
+displayTags function?
+
+88
+00:04:10,340 --> 00:04:13,410
+We can do that using
+the new spread operator.
+
+89
+00:04:13,410 --> 00:04:16,950
+The spread operator allows us
+to split an array of arguments
+
+90
+00:04:16,950 --> 00:04:18,940
+into individual elements.
+
+91
+00:04:18,940 --> 00:04:20,420
+The syntax for the
+spread operator
+
+92
+00:04:20,420 --> 00:04:22,480
+should look very familiar.
+
+93
+00:04:22,480 --> 00:04:25,760
+It's those same three dots we've
+used before in rest parameters,
+
+94
+00:04:25,760 --> 00:04:29,340
+but this time used in the
+function invocation, not
+
+95
+00:04:29,340 --> 00:04:31,690
+function definition.
+
+96
+00:04:31,690 --> 00:04:34,470
+Prefixing the tags array
+with these three dots
+
+97
+00:04:34,470 --> 00:04:37,660
+in the function call is the
+same as passing each element
+
+98
+00:04:37,660 --> 00:04:41,780
+in the array as an individual
+argument to display tags.
+
+99
+00:04:41,780 --> 00:04:43,870
+Think of the spread
+operator like opening up
+
+100
+00:04:43,870 --> 00:04:48,330
+a box of thinks, extracting
+each element out of that box,
+
+101
+00:04:48,330 --> 00:04:51,420
+and passing them as individual
+arguments to the function
+
+102
+00:04:51,420 --> 00:04:53,440
+where it's being used.
+
+103
+00:04:53,440 --> 00:04:57,160
+To recap, the syntax for rest
+parameters and spread operator
+
+104
+00:04:57,160 --> 00:05:00,480
+look pretty much the
+same, the three dots.
+
+105
+00:05:00,480 --> 00:05:04,530
+However, rest parameter is
+used in function definitions,
+
+106
+00:05:04,530 --> 00:05:09,100
+whereas the spread operator is
+used in function invocations.
+
+107
+00:05:09,100 --> 00:05:11,780
+Same syntax, but
+behaves differently
+
+108
+00:05:11,780 --> 00:05:14,320
+depending on where it's used.
+
+109
+00:05:14,320 --> 00:05:16,220
+Now let's go back
+and take another look
+
+110
+00:05:16,220 --> 00:05:19,340
+at the code used
+for displaying tags.
+
+111
+00:05:19,340 --> 00:05:22,420
+Our code works, but here's
+a problem, every time
+
+112
+00:05:22,420 --> 00:05:24,020
+you want to add
+tags to our page,
+
+113
+00:05:24,020 --> 00:05:27,040
+we must remember to
+type all this code.
+
+114
+00:05:27,040 --> 00:05:30,350
+Functions like get request
+and display tags are actually
+
+115
+00:05:30,350 --> 00:05:32,270
+implementation details.
+
+116
+00:05:32,270 --> 00:05:35,070
+Our lives would be a lot
+simpler if all this logic were
+
+117
+00:05:35,070 --> 00:05:38,550
+encapsulated inside a new
+abstraction, or JavaScript
+
+118
+00:05:38,550 --> 00:05:41,850
+object, like TagComponent.
+
+119
+00:05:41,850 --> 00:05:44,870
+JavaScript objects can help
+keep your code encapsulated,
+
+120
+00:05:44,870 --> 00:05:49,040
+organized, and easier to
+write automated tests for.
+
+121
+00:05:49,040 --> 00:05:53,629
+Now, let's see how it can
+write our TagComponent object.
+
+122
+00:05:53,629 --> 00:05:55,170
+We start with a
+constructor function
+
+123
+00:05:55,170 --> 00:05:57,530
+function called TagComponent.
+
+124
+00:05:57,530 --> 00:06:01,470
+This function accepts target
+and urlPath as parameters
+
+125
+00:06:01,470 --> 00:06:04,640
+and assigns them to
+instance properties.
+
+126
+00:06:04,640 --> 00:06:07,250
+Then, using the
+function prototype,
+
+127
+00:06:07,250 --> 00:06:10,650
+we add an instance
+method call render.
+
+128
+00:06:10,650 --> 00:06:13,240
+Property set on the
+constructor function
+
+129
+00:06:13,240 --> 00:06:16,470
+can be accessed from render,
+and from any other instance
+
+130
+00:06:16,470 --> 00:06:18,790
+method on TagComponent.
+
+131
+00:06:18,790 --> 00:06:22,080
+In this example, we are
+reading this.urlPath
+
+132
+00:06:22,080 --> 00:06:26,020
+from render, which was set
+from the constructor function.
+
+133
+00:06:26,020 --> 00:06:29,130
+To use our new component,
+we create a new object
+
+134
+00:06:29,130 --> 00:06:31,380
+with new TagComponent.
+
+135
+00:06:31,380 --> 00:06:35,240
+Passing the target element
+and URL path as arguments,
+
+136
+00:06:35,240 --> 00:06:37,610
+and assign the return
+object to a variable
+
+137
+00:06:37,610 --> 00:06:39,630
+we call tagComponent.
+
+138
+00:06:39,630 --> 00:06:41,920
+Then, from the 
+tagComponent object
+
+139
+00:06:41,920 --> 00:06:44,260
+we can call the render method.
+
+140
+00:06:44,260 --> 00:06:48,010
+So far so good, but let's
+touch on a well known issue
+
+141
+00:06:48,010 --> 00:06:49,270
+in JavaScript.
+
+142
+00:06:49,270 --> 00:06:51,000
+If you've written
+enough code, you've
+
+143
+00:06:51,000 --> 00:06:53,630
+probably been bit by this one.
+
+144
+00:06:53,630 --> 00:06:56,450
+From inside the
+getRequest callback function,
+
+145
+00:06:56,450 --> 00:06:59,770
+one might think we can call
+other properties from
+
+146
+00:06:59,770 --> 00:07:02,750
+TagComponent like 
+this.targetElement,
+
+147
+00:07:02,750 --> 00:07:04,880
+but we actually cannot.
+
+148
+00:07:04,880 --> 00:07:08,240
+The problem is that the scope
+of the TagComponent object
+
+149
+00:07:08,240 --> 00:07:11,530
+is not the same as the
+scope of the callback run
+
+150
+00:07:11,530 --> 00:07:13,030
+by getRequest.
+
+151
+00:07:13,030 --> 00:07:17,270
+So this.targetElement from
+inside the callback does not
+
+152
+00:07:17,270 --> 00:07:20,690
+exist, and returns undefined.
+
+153
+00:07:20,690 --> 00:07:22,530
+There's a new type of
+function in JavaScript
+
+154
+00:07:22,530 --> 00:07:27,330
+that we can use to fix this
+bug, it's called arrow function.
+
+155
+00:07:27,330 --> 00:07:30,550
+To change our current function
+to an arrow function is simple.
+
+156
+00:07:30,550 --> 00:07:32,820
+We get rid of the
+function keyword,
+
+157
+00:07:32,820 --> 00:07:35,150
+keep the data
+argument in params,
+
+158
+00:07:35,150 --> 00:07:36,890
+and use these two
+characters, that
+
+159
+00:07:36,890 --> 00:07:40,430
+look like an arrow, the equal
+sign, followed by the greater
+
+160
+00:07:40,430 --> 00:07:41,980
+than symbol.
+
+161
+00:07:41,980 --> 00:07:45,330
+Arrow functions have what is
+called a lexical binding, which
+
+162
+00:07:45,330 --> 00:07:49,050
+means that they bind to the
+scope of where they're defined,
+
+163
+00:07:49,050 --> 00:07:50,730
+not where they run.
+
+164
+00:07:50,730 --> 00:07:53,790
+Our new arrow function binds to
+the scope of the TagComponent
+
+165
+00:07:53,790 --> 00:07:54,930
+object.
+
+166
+00:07:54,930 --> 00:07:57,030
+Now, when we call
+this.targetElement
+
+167
+00:07:57,030 --> 00:07:59,200
+we'll be
+referring to the same
+
+168
+00:07:59,200 --> 00:08:02,310
+this.targetElement that was
+assigned from the constructor
+
+169
+00:08:02,310 --> 00:08:03,790
+function.
+
+170
+00:08:03,790 --> 00:08:06,400
+When we run our code we
+will see it successfully
+
+171
+00:08:06,400 --> 00:08:07,895
+renders the tags to the page.
+
+172
+00:08:10,900 --> 00:08:12,540
+That's it for this
+level, now it's
+
+173
+00:08:12,540 --> 00:08:15,370
+your turn to practice your
+knowledge in the challenges.
+
+174
+00:08:15,370 --> 00:08:18,750
+And I'll see you
+in the next level.
+
+175
+00:08:18,750 --> 00:08:25,527
+Do you remember-- Almost
+singing Michael Jackson there.
+
+176
+00:08:25,527 --> 00:08:26,610
+Do you remember the time--
+
+177
+00:08:26,610 --> 00:08:33,350
+Do you remember the
+time-- That we can
+
+178
+00:08:33,350 --> 00:08:37,944
+use to fix this abominable bug.
+
+179
+00:08:37,944 --> 00:08:39,360
+It's a very strong
+term, like kids
+
+180
+00:08:39,360 --> 00:08:41,470
+will be crying and [BLEEP].
+
