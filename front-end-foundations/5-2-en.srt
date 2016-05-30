@@ -1,0 +1,746 @@
+﻿1
+00:00:02,029 --> 00:00:03,322
+Welcome back.
+
+2
+00:00:03,322 --> 00:00:05,780
+In this last section, we're
+going to look at how we can add
+
+3
+00:00:05,780 --> 00:00:08,450
+and style web forms.
+
+4
+00:00:08,450 --> 00:00:11,050
+Forms are a way for a
+web page to get input
+
+5
+00:00:11,050 --> 00:00:15,340
+from a user beyond simple
+input like just clicking links.
+
+6
+00:00:15,340 --> 00:00:18,430
+HTML forms, like this
+Code School sign-in form,
+
+7
+00:00:18,430 --> 00:00:20,430
+usually contain
+things like labels,
+
+8
+00:00:20,430 --> 00:00:24,430
+inputs of different types,
+text areas, and even
+
+9
+00:00:24,430 --> 00:00:26,420
+a Submit button, so
+all of the information
+
+10
+00:00:26,420 --> 00:00:30,160
+entered into the form fields
+can be sent to a server.
+
+11
+00:00:30,160 --> 00:00:33,050
+Now, that last part I mentioned
+of sending data to a server
+
+12
+00:00:33,050 --> 00:00:35,690
+is not going to be
+covered in this course.
+
+13
+00:00:35,690 --> 00:00:37,690
+But it is covered in
+many other code school
+
+14
+00:00:37,690 --> 00:00:40,170
+courses that talk about
+server-side topics,
+
+15
+00:00:40,170 --> 00:00:43,950
+like Rails for
+Zombies for example.
+
+16
+00:00:43,950 --> 00:00:46,230
+But we can still
+design how we want
+
+17
+00:00:46,230 --> 00:00:47,910
+this form to look
+in the browser,
+
+18
+00:00:47,910 --> 00:00:52,270
+even if we don't hook it up
+to a server to save that data.
+
+19
+00:00:52,270 --> 00:00:55,290
+So on our suggest.html
+page, we're
+
+20
+00:00:55,290 --> 00:00:58,780
+going to have a form that
+has several labels, a text
+
+21
+00:00:58,780 --> 00:01:03,540
+area, several input
+fields, a check box input,
+
+22
+00:01:03,540 --> 00:01:04,950
+and, finally, a Submit button.
+
+23
+00:01:07,900 --> 00:01:10,790
+Here's some HTML for
+a very simple form.
+
+24
+00:01:10,790 --> 00:01:12,880
+It starts with a form tag.
+
+25
+00:01:12,880 --> 00:01:16,270
+And that's a parent tag that
+contains a couple others.
+
+26
+00:01:16,270 --> 00:01:20,940
+This one contains a label
+and an input with type text.
+
+27
+00:01:20,940 --> 00:01:23,150
+The label describes
+what the user should
+
+28
+00:01:23,150 --> 00:01:25,850
+enter for that text input.
+
+29
+00:01:25,850 --> 00:01:28,360
+In this case, the
+label is recipe name,
+
+30
+00:01:28,360 --> 00:01:30,780
+so this text input
+should have a recipe
+
+31
+00:01:30,780 --> 00:01:32,600
+name when the user's done.
+
+32
+00:01:32,600 --> 00:01:36,370
+We're also including a special
+input type called submit,
+
+33
+00:01:36,370 --> 00:01:38,480
+which will take all
+of the user input
+
+34
+00:01:38,480 --> 00:01:44,260
+and send it up to the server,
+assuming you connect that part.
+
+35
+00:01:44,260 --> 00:01:46,205
+There's several
+different types of inputs
+
+36
+00:01:46,205 --> 00:01:47,580
+that you could
+have in your page,
+
+37
+00:01:47,580 --> 00:01:52,230
+like text, check
+boxes, radio buttons,
+
+38
+00:01:52,230 --> 00:01:55,120
+file uploads, a
+password which will just
+
+39
+00:01:55,120 --> 00:01:58,100
+change all the letters that
+you're typing in the field
+
+40
+00:01:58,100 --> 00:02:01,050
+to hide the password that's
+being typed, and, of course,
+
+41
+00:02:01,050 --> 00:02:02,350
+the Submit button.
+
+42
+00:02:02,350 --> 00:02:07,179
+There are several others, but
+these are a few common ones.
+
+43
+00:02:07,179 --> 00:02:08,720
+There's also some
+attributes that you
+
+44
+00:02:08,720 --> 00:02:11,180
+should add to your
+labels and inputs
+
+45
+00:02:11,180 --> 00:02:14,770
+in order to connect them
+together at the HTML level.
+
+46
+00:02:14,770 --> 00:02:17,610
+So the label tag takes an
+attribute called for that
+
+47
+00:02:17,610 --> 00:02:19,100
+can be set to any value.
+
+48
+00:02:19,100 --> 00:02:22,040
+Here, I've said
+it to recipe-name.
+
+49
+00:02:22,040 --> 00:02:25,640
+And in order to associate
+that label with the text input
+
+50
+00:02:25,640 --> 00:02:30,790
+below it, you want to set an
+ID on that text input that's
+
+51
+00:02:30,790 --> 00:02:36,090
+equivalent to the same value of
+the for attribute in the label.
+
+52
+00:02:36,090 --> 00:02:40,720
+So again, our label's for
+attribute is recipe-name.
+
+53
+00:02:40,720 --> 00:02:45,480
+And therefore our input's ID
+should also be recipe-name.
+
+54
+00:02:45,480 --> 00:02:48,460
+And now that label is
+associated with that input.
+
+55
+00:02:51,750 --> 00:02:53,850
+Input tags are great if
+you only need your users
+
+56
+00:02:53,850 --> 00:02:56,220
+to enter a little bit of text.
+
+57
+00:02:56,220 --> 00:02:58,090
+But if you want them
+to enter a lot of text
+
+58
+00:02:58,090 --> 00:03:03,070
+or multiple lines of text,
+you should use a textarea tag.
+
+59
+00:03:03,070 --> 00:03:05,950
+Now, textarea tags look
+a lot like inputs that
+
+60
+00:03:05,950 --> 00:03:07,550
+are just a little bit taller.
+
+61
+00:03:07,550 --> 00:03:10,400
+But the way you write the
+HTML is actually different.
+
+62
+00:03:10,400 --> 00:03:13,020
+Textareas use opening
+and closing tags
+
+63
+00:03:13,020 --> 00:03:15,150
+where inputs do not.
+
+64
+00:03:15,150 --> 00:03:16,750
+You'll also notice
+that textareas
+
+65
+00:03:16,750 --> 00:03:19,690
+don't need to define a
+type, as the only thing that
+
+66
+00:03:19,690 --> 00:03:21,840
+can go inside of there is text.
+
+67
+00:03:21,840 --> 00:03:25,770
+And here we've also set an ID
+of ingredients on this textarea
+
+68
+00:03:25,770 --> 00:03:29,960
+because the associated label has
+a for attribute of ingredients.
+
+69
+00:03:33,690 --> 00:03:35,204
+When it comes to
+styling forms, one
+
+70
+00:03:35,204 --> 00:03:36,620
+of the first things
+you're usually
+
+71
+00:03:36,620 --> 00:03:40,220
+going to want to do when you
+have labels and text inputs
+
+72
+00:03:40,220 --> 00:03:44,100
+is switch their display to
+block instead of inline.
+
+73
+00:03:44,100 --> 00:03:45,760
+The reason for this
+is that you don't
+
+74
+00:03:45,760 --> 00:03:49,480
+want your labels and inputs
+reading from left to right.
+
+75
+00:03:49,480 --> 00:03:52,290
+You want them reading
+from top to bottom.
+
+76
+00:03:52,290 --> 00:03:56,657
+So here when we set our label
+and our input fields to block,
+
+77
+00:03:56,657 --> 00:03:58,240
+you can see the
+result in the browser.
+
+78
+00:04:01,700 --> 00:04:04,090
+We have multiple labels
+and inputs in our form.
+
+79
+00:04:04,090 --> 00:04:06,100
+And they're pretty scrunched
+together right now.
+
+80
+00:04:06,100 --> 00:04:07,920
+So we want to apply
+a bottom margin
+
+81
+00:04:07,920 --> 00:04:11,240
+to our labels which will put
+some space between the labels
+
+82
+00:04:11,240 --> 00:04:12,520
+and inputs.
+
+83
+00:04:12,520 --> 00:04:14,750
+And we'll also want
+to add a bottom margin
+
+84
+00:04:14,750 --> 00:04:17,260
+to our inputs which
+will put even more space
+
+85
+00:04:17,260 --> 00:04:19,600
+between the inputs and labels.
+
+86
+00:04:19,600 --> 00:04:21,630
+We can also set a
+width on our inputs
+
+87
+00:04:21,630 --> 00:04:24,075
+so that they're all the
+same horizontal size.
+
+88
+00:04:26,650 --> 00:04:29,270
+We have one problem,
+though, when we did this.
+
+89
+00:04:29,270 --> 00:04:32,780
+By setting that width
+on all input tags,
+
+90
+00:04:32,780 --> 00:04:36,100
+our Submit button was
+affected because it is also
+
+91
+00:04:36,100 --> 00:04:37,800
+an input tag.
+
+92
+00:04:37,800 --> 00:04:39,660
+And we don't want
+our Submit button
+
+93
+00:04:39,660 --> 00:04:43,390
+to be the same width
+as our text boxes.
+
+94
+00:04:43,390 --> 00:04:46,510
+So we can use a cool CSS
+selector called an attribute
+
+95
+00:04:46,510 --> 00:04:47,187
+selector.
+
+96
+00:04:47,187 --> 00:04:48,770
+And the way that you
+write that is you
+
+97
+00:04:48,770 --> 00:04:50,710
+write the name of the tag.
+
+98
+00:04:50,710 --> 00:04:52,990
+And then you write
+square brackets.
+
+99
+00:04:52,990 --> 00:04:55,420
+And you put the name
+of the attribute
+
+100
+00:04:55,420 --> 00:04:57,730
+equals the value
+of the attribute
+
+101
+00:04:57,730 --> 00:04:59,350
+that you want to select.
+
+102
+00:04:59,350 --> 00:05:01,360
+And notice also that
+we don't need quotes
+
+103
+00:05:01,360 --> 00:05:03,020
+around the attribute value.
+
+104
+00:05:03,020 --> 00:05:06,620
+So this selector is looking
+for all input tags that
+
+105
+00:05:06,620 --> 00:05:09,840
+have an attribute of type
+where that attribute is
+
+106
+00:05:09,840 --> 00:05:11,900
+equal to submit.
+
+107
+00:05:11,900 --> 00:05:14,910
+And we're applying the rule
+of making the width smaller
+
+108
+00:05:14,910 --> 00:05:18,700
+and adjusting the font size.
+
+109
+00:05:18,700 --> 00:05:21,290
+We can do something similar
+with our text inputs
+
+110
+00:05:21,290 --> 00:05:24,660
+by selecting only inputs
+that have a type of text
+
+111
+00:05:24,660 --> 00:05:27,840
+with another attribute selector
+and then setting their border
+
+112
+00:05:27,840 --> 00:05:29,000
+to some different color.
+
+113
+00:05:32,320 --> 00:05:34,720
+We've already adjusted the
+width of our input fields
+
+114
+00:05:34,720 --> 00:05:37,800
+by using the width property,
+but we can't actually
+
+115
+00:05:37,800 --> 00:05:40,980
+use the height property to
+adjust the height of text input
+
+116
+00:05:40,980 --> 00:05:42,420
+fields.
+
+117
+00:05:42,420 --> 00:05:44,680
+Instead, we have to use
+a combination of changing
+
+118
+00:05:44,680 --> 00:05:47,520
+the font size or padding.
+
+119
+00:05:47,520 --> 00:05:51,690
+So here you can see we changed
+the font size to 24 px.
+
+120
+00:05:51,690 --> 00:05:54,320
+And the input field
+has gotten bigger
+
+121
+00:05:54,320 --> 00:05:57,920
+to fit that new text size.
+
+122
+00:05:57,920 --> 00:05:59,610
+But if we also want
+to make the input
+
+123
+00:05:59,610 --> 00:06:03,600
+bigger beyond just the text,
+we can add some padding
+
+124
+00:06:03,600 --> 00:06:05,270
+to this text box.
+
+125
+00:06:05,270 --> 00:06:07,720
+Because, remember, that
+padding increases the space
+
+126
+00:06:07,720 --> 00:06:12,220
+between content and borders.
+
+127
+00:06:12,220 --> 00:06:14,850
+Textareas, on the
+other hand, can
+
+128
+00:06:14,850 --> 00:06:18,100
+be sized with the width
+and height properties.
+
+129
+00:06:18,100 --> 00:06:20,050
+So it's perfectly OK
+here to set the width
+
+130
+00:06:20,050 --> 00:06:23,295
+and height of this textarea
+and have it grow accordingly.
+
+131
+00:06:26,550 --> 00:06:30,030
+Our text and textarea inputs
+are at a pretty good spot.
+
+132
+00:06:30,030 --> 00:06:32,420
+So now we want to
+add a check box input
+
+133
+00:06:32,420 --> 00:06:33,950
+that the user will
+be able to check
+
+134
+00:06:33,950 --> 00:06:36,850
+if they want to receive a
+newsletter when they submit
+
+135
+00:06:36,850 --> 00:06:38,780
+a recipe to our site.
+
+136
+00:06:38,780 --> 00:06:43,190
+So we'll start by adding the
+HTML with a label and an input
+
+137
+00:06:43,190 --> 00:06:45,090
+for that check box.
+
+138
+00:06:45,090 --> 00:06:47,540
+But unlike text inputs,
+you don't usually
+
+139
+00:06:47,540 --> 00:06:51,760
+want to have your label and
+check box on different lines.
+
+140
+00:06:51,760 --> 00:06:54,520
+You want them to display from
+left to right because it's just
+
+141
+00:06:54,520 --> 00:06:56,500
+a lot easier to read that way.
+
+142
+00:06:56,500 --> 00:06:59,560
+The problem is we've already
+set all of our labels and inputs
+
+143
+00:06:59,560 --> 00:07:02,310
+to block, which is
+forcing that check box
+
+144
+00:07:02,310 --> 00:07:04,350
+input onto a new line.
+
+145
+00:07:04,350 --> 00:07:07,440
+So, again with
+attribute selectors,
+
+146
+00:07:07,440 --> 00:07:10,620
+we can select all inputs
+with a type of check box
+
+147
+00:07:10,620 --> 00:07:14,430
+and all labels with a for
+attribute equal to newsletter.
+
+148
+00:07:14,430 --> 00:07:17,700
+And you can set their
+display back to inline.
+
+149
+00:07:17,700 --> 00:07:20,545
+And now we've got our
+label and our check
+
+150
+00:07:20,545 --> 00:07:25,150
+box appearing next to each
+other on the same line.
+
+151
+00:07:25,150 --> 00:07:27,950
+Here we can see the final
+state of our suggest form.
+
+152
+00:07:27,950 --> 00:07:31,270
+And it's looking pretty good.
+
+153
+00:07:31,270 --> 00:07:33,620
+So now it's time for you
+to go into the challenges
+
+154
+00:07:33,620 --> 00:07:36,100
+and create and style your
+own form for the site
+
+155
+00:07:36,100 --> 00:07:37,160
+that you're building.
+
+156
+00:07:37,160 --> 00:07:38,880
+Good luck.
+

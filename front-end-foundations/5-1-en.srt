@@ -1,0 +1,576 @@
+﻿1
+00:00:01,976 --> 00:00:04,446
+[SINGING] In 1980 Tim
+wrote ENQUIRE at CERN,
+
+2
+00:00:04,446 --> 00:00:07,410
+invented the idea of
+hyperlinks in turn.
+
+3
+00:00:07,410 --> 00:00:10,345
+In 1990 Robert joined,
+a document they charted.
+
+4
+00:00:10,345 --> 00:00:12,844
+And that's pretty much how the
+whole world wide web started.
+
+5
+00:00:12,844 --> 00:00:14,573
+They defined some
+markup code called
+
+6
+00:00:14,573 --> 00:00:17,284
+HTML, which paved the way for
+stylesheets to decorate, as
+
+7
+00:00:17,284 --> 00:00:17,784
+well.
+
+8
+00:00:17,784 --> 00:00:20,748
+Navigate through URLs
+to internet locations.
+
+9
+00:00:20,748 --> 00:00:23,712
+You can learn it all with
+Front-end Foundations.
+
+10
+00:00:23,712 --> 00:00:27,710
+You can learn it all with
+Front-End Foundations.
+
+11
+00:00:27,710 --> 00:00:29,810
+Welcome back to
+Front-End Foundations.
+
+12
+00:00:29,810 --> 00:00:31,990
+In this final level
+of the course,
+
+13
+00:00:31,990 --> 00:00:34,780
+we're going to be polishing
+up our site's fonts
+
+14
+00:00:34,780 --> 00:00:37,700
+and even look at how we can
+implement some basic form
+
+15
+00:00:37,700 --> 00:00:41,260
+designs for our Suggest page.
+
+16
+00:00:41,260 --> 00:00:45,480
+So fonts and font styles
+can be controlled with CSS.
+
+17
+00:00:45,480 --> 00:00:47,380
+On a page like Code
+School, you can
+
+18
+00:00:47,380 --> 00:00:49,170
+see that we've got a
+couple different font
+
+19
+00:00:49,170 --> 00:00:50,990
+styles in action.
+
+20
+00:00:50,990 --> 00:00:55,390
+We've got a bold, large font
+for the tagline, Learn By Doing.
+
+21
+00:00:55,390 --> 00:00:58,560
+We've got a regular,
+medium-weight font
+
+22
+00:00:58,560 --> 00:01:00,830
+for the secondary
+tagline, No setup.
+
+23
+00:01:00,830 --> 00:01:01,480
+No hassle.
+
+24
+00:01:01,480 --> 00:01:03,060
+Just learning.
+
+25
+00:01:03,060 --> 00:01:05,910
+We've got regular, normal
+font for this sentence
+
+26
+00:01:05,910 --> 00:01:08,170
+or two of description
+of Code School.
+
+27
+00:01:08,170 --> 00:01:10,450
+We've got a smaller
+font for this tiny link
+
+28
+00:01:10,450 --> 00:01:14,360
+that says "Learn where to start"
+that takes you to a new page.
+
+29
+00:01:14,360 --> 00:01:16,370
+We've got an
+uppercase font applied
+
+30
+00:01:16,370 --> 00:01:19,410
+to the call-to-action
+button "view our courses."
+
+31
+00:01:19,410 --> 00:01:21,420
+And then we've got an
+uppercase font, again,
+
+32
+00:01:21,420 --> 00:01:24,980
+with bold applied to this
+"learn, get, backbone,
+
+33
+00:01:24,980 --> 00:01:27,810
+sass, rails, and jQuery" list.
+
+34
+00:01:27,810 --> 00:01:30,435
+So we've got multiple font
+styles on a single page.
+
+35
+00:01:32,990 --> 00:01:35,090
+Back on our Magic
+Cake page, we can
+
+36
+00:01:35,090 --> 00:01:37,330
+see that there's definitely
+been some fonts and font
+
+37
+00:01:37,330 --> 00:01:38,640
+styles applied.
+
+38
+00:01:38,640 --> 00:01:40,440
+And we haven't applied
+them ourselves,
+
+39
+00:01:40,440 --> 00:01:42,990
+so there's probably some
+default font trickery
+
+40
+00:01:42,990 --> 00:01:45,344
+that's happening in here.
+
+41
+00:01:45,344 --> 00:01:46,760
+But first let's
+look at how we can
+
+42
+00:01:46,760 --> 00:01:48,830
+change the font of our page.
+
+43
+00:01:48,830 --> 00:01:50,540
+In the body
+selector, which means
+
+44
+00:01:50,540 --> 00:01:54,070
+it's going to apply to every
+tag that's inside the body,
+
+45
+00:01:54,070 --> 00:01:55,850
+I can use the
+font-family property
+
+46
+00:01:55,850 --> 00:01:59,210
+to specify a list of
+fonts that should be used.
+
+47
+00:01:59,210 --> 00:02:02,516
+Now, the first font in that
+list is the ideal font,
+
+48
+00:02:02,516 --> 00:02:03,890
+meaning that the
+browser is going
+
+49
+00:02:03,890 --> 00:02:08,449
+to try first to load that font.
+
+50
+00:02:08,449 --> 00:02:11,290
+If the browser can't
+find that first font,
+
+51
+00:02:11,290 --> 00:02:13,200
+you can specify a
+list of other fonts
+
+52
+00:02:13,200 --> 00:02:15,485
+that it should try to
+load in the order it
+
+53
+00:02:15,485 --> 00:02:17,010
+should try to load them.
+
+54
+00:02:17,010 --> 00:02:19,180
+So here I'm also
+trying to load Arial
+
+55
+00:02:19,180 --> 00:02:22,540
+if Helvetica is not available,
+Times New Roman if Arial is not
+
+56
+00:02:22,540 --> 00:02:24,600
+available, and then
+finally just a very
+
+57
+00:02:24,600 --> 00:02:28,150
+generic sans-serif default
+font if none of those fonts
+
+58
+00:02:28,150 --> 00:02:29,460
+are available.
+
+59
+00:02:29,460 --> 00:02:32,700
+Remember, not all browsers
+and operating systems
+
+60
+00:02:32,700 --> 00:02:35,680
+have all fonts
+installed by default.
+
+61
+00:02:35,680 --> 00:02:38,970
+So sometimes the font you
+want is not just always going
+
+62
+00:02:38,970 --> 00:02:42,410
+to be available in the browser.
+
+63
+00:02:42,410 --> 00:02:45,290
+So here's our Magic Cake
+page after changing the font
+
+64
+00:02:45,290 --> 00:02:46,860
+to Helvetica.
+
+65
+00:02:46,860 --> 00:02:49,890
+And you can see that all of
+the fonts for every type of tag
+
+66
+00:02:49,890 --> 00:02:54,550
+have been updated because
+we applied this to the body.
+
+67
+00:02:54,550 --> 00:02:57,650
+If we look a little closer,
+though, some of our tags
+
+68
+00:02:57,650 --> 00:03:02,280
+definitely have different sizes
+and weights to those fonts.
+
+69
+00:03:02,280 --> 00:03:04,890
+We didn't set those
+in our CSS yet.
+
+70
+00:03:04,890 --> 00:03:07,870
+So this is a clue that lets us
+know that the browser is again
+
+71
+00:03:07,870 --> 00:03:12,160
+applying some of its default
+behaviors to our CSS.
+
+72
+00:03:12,160 --> 00:03:13,510
+We didn't set this.
+
+73
+00:03:13,510 --> 00:03:15,570
+The browser set it.
+
+74
+00:03:15,570 --> 00:03:18,510
+So just like we did with
+padding, borders, and margins,
+
+75
+00:03:18,510 --> 00:03:22,750
+we can reset our fonts to
+a baseline default level.
+
+76
+00:03:22,750 --> 00:03:24,490
+One of the easiest
+ways to do this
+
+77
+00:03:24,490 --> 00:03:28,480
+is to set the font-size property
+to 100% for all the tags
+
+78
+00:03:28,480 --> 00:03:32,780
+that appear in your page and set
+the font property to inherit.
+
+79
+00:03:32,780 --> 00:03:36,120
+And you can see, when you
+do that, now every tag's
+
+80
+00:03:36,120 --> 00:03:40,150
+font on the page is the same
+size and the same weight,
+
+81
+00:03:40,150 --> 00:03:42,820
+which is now a great template
+for us to improve upon.
+
+82
+00:03:45,520 --> 00:03:47,360
+So we can start with our h2.
+
+83
+00:03:47,360 --> 00:03:49,220
+And we can use the
+font-size property
+
+84
+00:03:49,220 --> 00:03:51,870
+to change the size
+to 26 pixels, which
+
+85
+00:03:51,870 --> 00:03:54,560
+is going to make it a lot bigger
+than the paragraph text that's
+
+86
+00:03:54,560 --> 00:03:56,430
+on the page.
+
+87
+00:03:56,430 --> 00:03:57,990
+Now pixels aren't
+the only option
+
+88
+00:03:57,990 --> 00:03:59,220
+when you're choosing size.
+
+89
+00:03:59,220 --> 00:04:02,950
+You can also use relative
+sizes like percentages and ems.
+
+90
+00:04:02,950 --> 00:04:05,650
+But like I mentioned in an
+earlier level, in this course
+
+91
+00:04:05,650 --> 00:04:07,990
+we're focusing just
+on fixed widths
+
+92
+00:04:07,990 --> 00:04:12,810
+so that you don't have too many
+options while you're learning.
+
+93
+00:04:12,810 --> 00:04:15,020
+We can change the
+thickness of this header
+
+94
+00:04:15,020 --> 00:04:17,070
+by adjusting the
+font-weight property
+
+95
+00:04:17,070 --> 00:04:19,230
+and setting it to bold.
+
+96
+00:04:19,230 --> 00:04:21,279
+Normal is the default weight.
+
+97
+00:04:21,279 --> 00:04:24,540
+And bold makes the
+font look bold.
+
+98
+00:04:24,540 --> 00:04:26,680
+You can also use
+some other keywords
+
+99
+00:04:26,680 --> 00:04:28,300
+like lighter and bolder.
+
+100
+00:04:28,300 --> 00:04:32,190
+Or you can just use
+numbers, like 100, 200, 300,
+
+101
+00:04:32,190 --> 00:04:38,090
+all the way through 900, to
+set the weight of the font.
+
+102
+00:04:38,090 --> 00:04:39,540
+There's many other
+font properties
+
+103
+00:04:39,540 --> 00:04:42,120
+that you can look up in
+a CSS reference guide
+
+104
+00:04:42,120 --> 00:04:44,692
+when you're writing
+your own font styles.
+
+105
+00:04:44,692 --> 00:04:46,150
+And we've just
+listed a few of them
+
+106
+00:04:46,150 --> 00:04:49,200
+here so you can see the
+effect they have on some text.
+
+107
+00:04:54,770 --> 00:04:56,660
+Aside from the font
+properties, there's
+
+108
+00:04:56,660 --> 00:05:00,420
+another important text-based
+property called line-height.
+
+109
+00:05:00,420 --> 00:05:04,400
+Line-height is like margin
+for each line inside a box.
+
+110
+00:05:04,400 --> 00:05:08,230
+You remember that we can adjust
+the space between content boxes
+
+111
+00:05:08,230 --> 00:05:10,080
+by using the margin property.
+
+112
+00:05:10,080 --> 00:05:12,330
+But that's not going
+to adjust the spacing
+
+113
+00:05:12,330 --> 00:05:14,990
+of the lines in a single box.
+
+114
+00:05:14,990 --> 00:05:17,490
+And that's what
+line-height is for.
+
+115
+00:05:17,490 --> 00:05:19,730
+By setting the line-height
+to some number,
+
+116
+00:05:19,730 --> 00:05:22,530
+we can make the spacing
+smaller or bigger
+
+117
+00:05:22,530 --> 00:05:25,990
+in between lines
+of the same tag,
+
+118
+00:05:25,990 --> 00:05:29,480
+in this case, the
+same paragraph tag.
+
+119
+00:05:29,480 --> 00:05:32,180
+So now it's your turn to
+adjust your site's font styles
+
+120
+00:05:32,180 --> 00:05:35,010
+and line heights
+in the challenges.
+
