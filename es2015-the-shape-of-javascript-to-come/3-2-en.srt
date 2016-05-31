@@ -1,0 +1,825 @@
+﻿1
+00:00:02,560 --> 00:00:04,440
+Welcome back, and
+in this section,
+
+2
+00:00:04,440 --> 00:00:06,701
+we'll be looking at a new
+function added to JavaScript
+
+3
+00:00:06,701 --> 00:00:07,575
+called Object.assign.
+
+4
+00:00:11,390 --> 00:00:14,650
+In order to understand the
+importance of Object.assign,
+
+5
+00:00:14,650 --> 00:00:18,000
+we're going to look at one of
+its most useful use-cases,
+
+6
+00:00:18,000 --> 00:00:21,300
+writing flexible and
+reusable functions.
+
+7
+00:00:21,300 --> 00:00:25,490
+In this example, we want to add
+a countdown timer to our forum.
+
+8
+00:00:25,490 --> 00:00:28,140
+The timer will display
+the time left for users
+
+9
+00:00:28,140 --> 00:00:31,880
+to undo their post after
+they've created it.
+
+10
+00:00:31,880 --> 00:00:36,100
+Once the time's up, they
+can't undo the post anymore.
+
+11
+00:00:36,100 --> 00:00:38,300
+Let's look at some code.
+
+12
+00:00:38,300 --> 00:00:40,610
+We'll write a countdown
+timer function,
+
+13
+00:00:40,610 --> 00:00:43,290
+but we'll use it not only
+in our forum web app,
+
+14
+00:00:43,290 --> 00:00:45,250
+but also in other
+web apps that we
+
+15
+00:00:45,250 --> 00:00:49,410
+work on that require a
+similar timer functionality.
+
+16
+00:00:49,410 --> 00:00:52,050
+For that to happen, the
+countdown timer function
+
+17
+00:00:52,050 --> 00:00:55,700
+needs to be able to
+accept different settings.
+
+18
+00:00:55,700 --> 00:00:58,700
+It needs to be able to be
+called as simple as this,
+
+19
+00:00:58,700 --> 00:01:01,580
+taking a target element
+as the first argument,
+
+20
+00:01:01,580 --> 00:01:05,260
+and the initial time in
+seconds as the second argument.
+
+21
+00:01:05,260 --> 00:01:08,360
+And it also needs to be called
+like this, with the first two
+
+22
+00:01:08,360 --> 00:01:12,480
+arguments, and then an options
+object with specific settings,
+
+23
+00:01:12,480 --> 00:01:14,430
+like a container class.
+
+24
+00:01:14,430 --> 00:01:17,340
+Or, passing a custom
+container class,
+
+25
+00:01:17,340 --> 00:01:19,910
+specifying a different
+timeUnit, and also
+
+26
+00:01:19,910 --> 00:01:22,320
+a new timeoutClass.
+
+27
+00:01:22,320 --> 00:01:24,210
+As you can see,
+our function needs
+
+28
+00:01:24,210 --> 00:01:26,600
+to be invoked in
+many different ways.
+
+29
+00:01:26,600 --> 00:01:29,250
+These custom options will vary
+depending on the application.
+
+30
+00:01:31,880 --> 00:01:33,710
+For functions like
+these that require
+
+31
+00:01:33,710 --> 00:01:36,990
+high level of customization
+and reusability,
+
+32
+00:01:36,990 --> 00:01:39,730
+it is OK to use
+an options object
+
+33
+00:01:39,730 --> 00:01:42,940
+instead of named parameters.
+
+34
+00:01:42,940 --> 00:01:46,500
+Too many named parameters can
+make functions hard to read.
+
+35
+00:01:46,500 --> 00:01:49,210
+Having a single options
+object makes it easier
+
+36
+00:01:49,210 --> 00:01:51,740
+to customize to
+different applications,
+
+37
+00:01:51,740 --> 00:01:53,680
+so we'll give our
+countdown timer
+
+38
+00:01:53,680 --> 00:01:57,967
+an options object as its last
+argument after target and
+
+39
+00:01:57,967 --> 00:01:58,466
+timeLeft.
+
+40
+00:02:04,020 --> 00:02:07,840
+When calling this function, some
+options might not be specified,
+
+41
+00:02:07,840 --> 00:02:11,280
+so we need to account for
+that using default values.
+
+42
+00:02:11,280 --> 00:02:13,380
+Here's one way we can do that.
+
+43
+00:02:13,380 --> 00:02:16,070
+We read each property
+in the options object,
+
+44
+00:02:16,070 --> 00:02:20,080
+and then do a short-circuit
+evaluation with a double pipe, ||,
+
+45
+00:02:20,080 --> 00:02:23,880
+to check for the presence
+of a value passed in.
+
+46
+00:02:23,880 --> 00:02:26,510
+If a value wasn't
+specified, the property
+
+47
+00:02:26,510 --> 00:02:30,166
+will return undefined, which
+evaluates to false so it
+
+48
+00:02:30,166 --> 00:02:31,880
+will give it a default value.
+
+49
+00:02:31,880 --> 00:02:33,810
+In this code, the
+container property
+
+50
+00:02:33,810 --> 00:02:36,910
+has a default value
+of ".timer-display".
+
+51
+00:02:36,910 --> 00:02:40,600
+timeUnit has a default
+value of "seconds", and so forth.
+
+52
+00:02:43,680 --> 00:02:46,610
+This works, and you've probably
+seen and even written code
+
+53
+00:02:46,610 --> 00:02:48,170
+like this many times.
+
+54
+00:02:48,170 --> 00:02:51,430
+The issue here is that we have
+default strings and numbers
+
+55
+00:02:51,430 --> 00:02:55,130
+all over the place, which makes
+this code hard to understand
+
+56
+00:02:55,130 --> 00:02:56,630
+and difficult to maintain.
+
+57
+00:02:56,630 --> 00:02:59,330
+Let's fix this.
+
+58
+00:02:59,330 --> 00:03:00,940
+The first step into
+making this code
+
+59
+00:03:00,940 --> 00:03:05,240
+better is to use a local object
+to group all the default values
+
+60
+00:03:05,240 --> 00:03:07,140
+for this function.
+
+61
+00:03:07,140 --> 00:03:09,540
+We'll call our object defaults.
+
+62
+00:03:09,540 --> 00:03:12,930
+Its properties will be named
+after each of the options
+
+63
+00:03:12,930 --> 00:03:15,930
+our function accepts, and we'll
+assign them their default
+
+64
+00:03:15,930 --> 00:03:17,250
+values.
+
+65
+00:03:17,250 --> 00:03:19,450
+Grouping default
+values in an object,
+
+66
+00:03:19,450 --> 00:03:23,300
+like this is a common pattern
+found in many large projects,
+
+67
+00:03:23,300 --> 00:03:26,630
+and can help us write
+more idiomatic JavaScript.
+
+68
+00:03:26,630 --> 00:03:29,030
+We're still not done
+here, but we can already
+
+69
+00:03:29,030 --> 00:03:32,932
+tell that this code requires
+a lot less brainpower for us
+
+70
+00:03:32,932 --> 00:03:33,515
+to understand.
+
+71
+00:03:36,490 --> 00:03:39,320
+The next step is to
+merge the options passed
+
+72
+00:03:39,320 --> 00:03:41,690
+by the caller of this
+function with the existing
+
+73
+00:03:41,690 --> 00:03:43,440
+values in defaults.
+
+74
+00:03:43,440 --> 00:03:45,390
+It needs to work like this.
+
+75
+00:03:45,390 --> 00:03:47,700
+We'll grab our default
+properties assigned
+
+76
+00:03:47,700 --> 00:03:50,480
+to the defaults
+variable, and then
+
+77
+00:03:50,480 --> 00:03:54,150
+merge them with the properties
+from the options object passed
+
+78
+00:03:54,150 --> 00:03:56,170
+by the caller of the function.
+
+79
+00:03:56,170 --> 00:03:59,820
+One very important detail is
+that all duplicate properties
+
+80
+00:03:59,820 --> 00:04:05,330
+found in the options object must
+override those from defaults.
+
+81
+00:04:05,330 --> 00:04:09,690
+Lastly, we'll assign the results
+to a variable called settings.
+
+82
+00:04:09,690 --> 00:04:11,970
+So this is what
+we want to happen,
+
+83
+00:04:11,970 --> 00:04:14,100
+but how can we write this code?
+
+84
+00:04:14,100 --> 00:04:17,700
+Well, this is where
+Object.assign comes in.
+
+85
+00:04:17,700 --> 00:04:22,300
+Object.assign copies properties
+from one or more source objects
+
+86
+00:04:22,300 --> 00:04:24,030
+into a target object.
+
+87
+00:04:24,030 --> 00:04:26,650
+It takes care of the
+whole merge process
+
+88
+00:04:26,650 --> 00:04:28,520
+that we just talked about.
+
+89
+00:04:28,520 --> 00:04:31,160
+In this code, we'll
+use a blank object
+
+90
+00:04:31,160 --> 00:04:34,850
+as the target object, which
+will be modified and used
+
+91
+00:04:34,850 --> 00:04:37,930
+as a return value
+for this operation.
+
+92
+00:04:37,930 --> 00:04:42,310
+Next, we can pass as many
+source objects as we'd like.
+
+93
+00:04:42,310 --> 00:04:44,470
+This is a variadic
+function, which you might
+
+94
+00:04:44,470 --> 00:04:46,740
+remember from the last level.
+
+95
+00:04:46,740 --> 00:04:49,120
+The source objects
+remain unchanged,
+
+96
+00:04:49,120 --> 00:04:52,520
+and we'll look at the importance
+of this in just a second.
+
+97
+00:04:52,520 --> 00:04:56,650
+Finally, we assign the result
+value to the settings variable.
+
+98
+00:04:56,650 --> 00:04:59,060
+settings will hold
+merged properties
+
+99
+00:04:59,060 --> 00:05:01,310
+from defaults and
+options, and this
+
+100
+00:05:01,310 --> 00:05:03,454
+is the object we'll refer
+to throughout the rest
+
+101
+00:05:03,454 --> 00:05:04,120
+of the function.
+
+102
+00:05:06,820 --> 00:05:09,390
+A neat feature of
+Object.assign is
+
+103
+00:05:09,390 --> 00:05:12,650
+that in case of duplicate
+properties on source objects,
+
+104
+00:05:12,650 --> 00:05:15,300
+the value from the last
+object on the chain
+
+105
+00:05:15,300 --> 00:05:17,170
+will always prevail.
+
+106
+00:05:17,170 --> 00:05:20,690
+In this example, duplicate
+properties from options3
+
+107
+00:05:20,690 --> 00:05:23,740
+will override properties
+on options2.
+
+108
+00:05:23,740 --> 00:05:25,950
+Those from options2
+will override
+
+109
+00:05:25,950 --> 00:05:29,550
+options, and et cetera.
+
+110
+00:05:29,550 --> 00:05:31,537
+Object.assign is
+pretty flexible,
+
+111
+00:05:31,537 --> 00:05:33,120
+and there's a couple
+of different ways
+
+112
+00:05:33,120 --> 00:05:36,120
+that we might see it being used.
+
+113
+00:05:36,120 --> 00:05:40,000
+First, we could use an existing
+object as the target object,
+
+114
+00:05:40,000 --> 00:05:41,510
+like defaults.
+
+115
+00:05:41,510 --> 00:05:43,620
+While it would still
+perform the merge correctly
+
+116
+00:05:43,620 --> 00:05:47,680
+with the options object, it
+would also mutate defaults.
+
+117
+00:05:47,680 --> 00:05:49,990
+This means that
+after the merge, we
+
+118
+00:05:49,990 --> 00:05:53,460
+would not be able to go back
+and access the original values
+
+119
+00:05:53,460 --> 00:05:55,030
+for defaults.
+
+120
+00:05:55,030 --> 00:05:58,060
+Then, there's a style
+that we use in our code.
+
+121
+00:05:58,060 --> 00:06:01,450
+We give Object.assign
+a blank target object,
+
+122
+00:06:01,450 --> 00:06:03,780
+followed by source objects.
+
+123
+00:06:03,780 --> 00:06:06,540
+Then we store the return
+value of the function call
+
+124
+00:06:06,540 --> 00:06:09,700
+in a new variable,
+which we call settings.
+
+125
+00:06:09,700 --> 00:06:11,320
+Now this one feels right.
+
+126
+00:06:11,320 --> 00:06:13,240
+It's a more functional
+approach, because it
+
+127
+00:06:13,240 --> 00:06:17,020
+avoids relying on side effects
+while it still preserves
+
+128
+00:06:17,020 --> 00:06:19,630
+the original default values.
+
+129
+00:06:19,630 --> 00:06:22,640
+A variation of this version
+is declaring a blank settings
+
+130
+00:06:22,640 --> 00:06:28,240
+object first, and then using it
+as a target for Object.assign.
+
+131
+00:06:28,240 --> 00:06:30,890
+Here, we have the benefit
+of the original value
+
+132
+00:06:30,890 --> 00:06:32,870
+not being changed,
+but I'm personally
+
+133
+00:06:32,870 --> 00:06:34,950
+not a fan of this
+style of coding,
+
+134
+00:06:34,950 --> 00:06:37,320
+because it relies on side
+effects being applied
+
+135
+00:06:37,320 --> 00:06:39,010
+to the settings variable.
+
+136
+00:06:39,010 --> 00:06:41,230
+We're not using the
+return value, which
+
+137
+00:06:41,230 --> 00:06:43,580
+feels to me a little sketchy.
+
+138
+00:06:43,580 --> 00:06:45,630
+We've mentioned accessing
+original default
+
+139
+00:06:45,630 --> 00:06:47,280
+values a couple of times.
+
+140
+00:06:47,280 --> 00:06:51,530
+Now, let's look at when
+that might be useful.
+
+141
+00:06:51,530 --> 00:06:53,570
+Preserving the
+original default values
+
+142
+00:06:53,570 --> 00:06:55,420
+gives us the ability
+to compare them
+
+143
+00:06:55,420 --> 00:06:57,650
+with the options
+passed as an argument
+
+144
+00:06:57,650 --> 00:07:00,680
+and act accordingly
+when necessary.
+
+145
+00:07:00,680 --> 00:07:02,830
+In this example,
+right after we merge
+
+146
+00:07:02,830 --> 00:07:08,000
+options using Object.assign,
+we check the value of timeUnit.
+
+147
+00:07:08,000 --> 00:07:10,250
+settings.timeUnit
+holds the value
+
+148
+00:07:10,250 --> 00:07:12,210
+that will be used
+throughout the function,
+
+149
+00:07:12,210 --> 00:07:16,900
+and defaults.timeUnit holds
+the original default value.
+
+150
+00:07:16,900 --> 00:07:20,070
+If the caller of this function
+passed the value for timeUnit
+
+151
+00:07:20,070 --> 00:07:22,510
+that's different than
+the default value,
+
+152
+00:07:22,510 --> 00:07:25,520
+then this comparison
+will return true.
+
+153
+00:07:25,520 --> 00:07:29,520
+If that happens, we run
+a conversion function.
+
+154
+00:07:29,520 --> 00:07:31,330
+This would not
+have been possible
+
+155
+00:07:31,330 --> 00:07:34,760
+if we didn't have access to
+the original default values,
+
+156
+00:07:34,760 --> 00:07:39,420
+and that's why it's important
+to keep them around.
+
+157
+00:07:39,420 --> 00:07:42,980
+Finally, let's run our
+countdownTimer function.
+
+158
+00:07:42,980 --> 00:07:45,020
+We'll pass it a target element.
+
+159
+00:07:45,020 --> 00:07:48,260
+This one, with a
+class of .btn-undo.
+
+160
+00:07:48,260 --> 00:07:52,390
+Give it 60 seconds, and
+specify a container class
+
+161
+00:07:52,390 --> 00:07:55,210
+of .new-post-options.
+
+162
+00:07:55,210 --> 00:07:58,970
+Inside our function, the value
+used for the container option
+
+163
+00:07:58,970 --> 00:08:02,920
+will be the one passed as an
+argument, '.new-post-options',
+
+164
+00:08:02,920 --> 00:08:06,340
+and not the default
+timer display.
+
+165
+00:08:06,340 --> 00:08:09,140
+Since we didn't pass
+anything for timeUnit,
+
+166
+00:08:09,140 --> 00:08:12,660
+it will keep its default
+value of "seconds".
+
+167
+00:08:12,660 --> 00:08:14,660
+If we print these
+to the console,
+
+168
+00:08:14,660 --> 00:08:17,645
+we'll see ".new-post-options"
+options and "seconds".
+
+169
+00:08:22,120 --> 00:08:23,340
+That's it for this level.
+
+170
+00:08:23,340 --> 00:08:27,010
+Now it's your turn to exercise
+your knowledge [of] Object.assign
+
+171
+00:08:27,010 --> 00:08:30,164
+in the challenges.
+
+172
+00:08:30,164 --> 00:08:30,664
+Awesome.
+
+173
+00:08:33,789 --> 00:08:36,300
+The honey boo-boo GIF, awesome.
+

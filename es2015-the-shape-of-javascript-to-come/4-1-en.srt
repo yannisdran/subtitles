@@ -1,0 +1,680 @@
+﻿1
+00:00:00,000 --> 00:00:01,760
+[SINGING] We've
+had about enough,
+
+2
+00:00:01,760 --> 00:00:05,200
+JavaScript is getting tough,
+ECMAScript is the solution.
+
+3
+00:00:05,200 --> 00:00:06,192
+Join the revolution.
+
+4
+00:00:06,192 --> 00:00:09,060
+Let your objects fill the
+gaps inside the Sets and Maps,
+
+5
+00:00:09,060 --> 00:00:11,530
+use OOP patterns to the max.
+
+6
+00:00:11,530 --> 00:00:15,450
+New class and module syntax,
+const and let will do the thing,
+
+7
+00:00:15,450 --> 00:00:17,098
+to stop the hoisting.
+
+8
+00:00:17,098 --> 00:00:19,912
+With pure arrays struggling
+is destructuring.
+
+9
+00:00:19,912 --> 00:00:28,540
+Keep your JS nice and
+lean by using ES2015.
+
+10
+00:00:28,540 --> 00:00:32,460
+You're watching ES2015, The
+Shape of JavaScript to Come.
+
+11
+00:00:32,460 --> 00:00:34,154
+I'm Carlos Souza,
+and in this level,
+
+12
+00:00:34,154 --> 00:00:36,570
+we're going to be looking at
+some new additions to arrays.
+
+13
+00:00:39,120 --> 00:00:41,290
+When working with
+arrays in JavaScript
+
+14
+00:00:41,290 --> 00:00:45,020
+it is not uncommon to access
+elements by their index.
+
+15
+00:00:45,020 --> 00:00:48,110
+In this example we have
+an array of users:
+
+16
+00:00:48,110 --> 00:00:50,880
+Sam, Tyler and Brook.
+
+17
+00:00:50,880 --> 00:00:54,850
+We assign them to local
+variables a, b and c using
+
+18
+00:00:54,850 --> 00:00:58,250
+their indices 0, 1 and 2.
+
+19
+00:00:58,250 --> 00:01:01,270
+This works but it's more
+code than we actually need,
+
+20
+00:01:01,270 --> 00:01:04,129
+and also if we add more
+elements to the array
+
+21
+00:01:04,129 --> 00:01:06,940
+we'll need to remember
+their exact index in order
+
+22
+00:01:06,940 --> 00:01:10,770
+to read their values, which
+doesn't scale very well.
+
+23
+00:01:10,770 --> 00:01:12,590
+A new feature of
+JavaScript called
+
+24
+00:01:12,590 --> 00:01:15,190
+array destructuring
+allows us to rewrite
+
+25
+00:01:15,190 --> 00:01:18,050
+this code in a much better way.
+
+26
+00:01:18,050 --> 00:01:20,510
+Instead of accessing
+elements by their index
+
+27
+00:01:20,510 --> 00:01:23,090
+we declare our local
+variables in a single line
+
+28
+00:01:23,090 --> 00:01:26,320
+of code between square
+brackets and assign them
+
+29
+00:01:26,320 --> 00:01:27,950
+our users array.
+
+30
+00:01:27,950 --> 00:01:31,480
+JavaScript will try to match the
+number of variables on the left
+
+31
+00:01:31,480 --> 00:01:34,020
+to the number of
+elements in the array.
+
+32
+00:01:34,020 --> 00:01:37,820
+As you can see
+variables a, b, and c
+
+33
+00:01:37,820 --> 00:01:41,310
+were signed Sam,
+Tyler and Brook.
+
+34
+00:01:41,310 --> 00:01:45,010
+It's so easy to understand
+and requires a lot less code.
+
+35
+00:01:45,010 --> 00:01:46,710
+Win win.
+
+36
+00:01:46,710 --> 00:01:49,250
+If there are any values
+we're not interested
+
+37
+00:01:49,250 --> 00:01:53,060
+in we can discard them during
+the assignment operation.
+
+38
+00:01:53,060 --> 00:01:55,220
+If we don't need a
+store say, Tyler,
+
+39
+00:01:55,220 --> 00:01:58,870
+we can declare the first
+variable <i>a</i>, then a comma,
+
+40
+00:01:58,870 --> 00:02:01,100
+followed by a blank
+space, followed
+
+41
+00:02:01,100 --> 00:02:03,280
+by the second variable <i>b</i>.
+
+42
+00:02:03,280 --> 00:02:06,960
+We run this code and
+we see "Sam Brook".
+
+43
+00:02:06,960 --> 00:02:08,979
+Tyler was discarded.
+
+44
+00:02:08,979 --> 00:02:09,590
+Poor Tyler.
+
+45
+00:02:12,670 --> 00:02:15,160
+We can do some pretty
+neat stuff by combining
+
+46
+00:02:15,160 --> 00:02:18,150
+array destructuring
+with rest parameters.
+
+47
+00:02:18,150 --> 00:02:19,340
+Remember them?
+
+48
+00:02:19,340 --> 00:02:23,390
+Here we assign the first
+element from our array, Sam,
+
+49
+00:02:23,390 --> 00:02:25,680
+to the local variable, <i>first</i>.
+
+50
+00:02:25,680 --> 00:02:29,360
+Then we use rest parameters
+with that three dot syntax
+
+51
+00:02:29,360 --> 00:02:32,080
+to assign all the remaining
+elements from the array
+
+52
+00:02:32,080 --> 00:02:33,920
+to the rest variable.
+
+53
+00:02:33,920 --> 00:02:37,990
+When we print this out we can
+see the single element <i>Sam</i>
+
+54
+00:02:37,990 --> 00:02:41,820
+and the array <i>["Tyler","Brook"]</i>.
+
+55
+00:02:41,820 --> 00:02:44,180
+Another place we can
+use array destructuring
+
+56
+00:02:44,180 --> 00:02:46,730
+is when returning
+values from functions.
+
+57
+00:02:46,730 --> 00:02:50,800
+We can use them to assign to
+multiple variables at once.
+
+58
+00:02:50,800 --> 00:02:54,280
+Here we have a function
+called active users which
+
+59
+00:02:54,280 --> 00:02:56,860
+returns an array
+with three elements:
+
+60
+00:02:56,860 --> 00:02:59,890
+Sam, Alex and Brook.
+
+61
+00:02:59,890 --> 00:03:02,910
+When we run this function we
+can assign the return value
+
+62
+00:03:02,910 --> 00:03:05,280
+to a variable, active.
+
+63
+00:03:05,280 --> 00:03:07,380
+We print out active
+to the console
+
+64
+00:03:07,380 --> 00:03:11,490
+and we see the array
+<i>["Sam", "Alex", "Brook"]</i>.
+
+65
+00:03:11,490 --> 00:03:13,090
+So far nothing new.
+
+66
+00:03:13,090 --> 00:03:15,500
+Pretty straight
+forward, but watch this.
+
+67
+00:03:15,500 --> 00:03:18,110
+Instead of using a
+local variable active,
+
+68
+00:03:18,110 --> 00:03:20,830
+we can instead use
+array destructuring
+
+69
+00:03:20,830 --> 00:03:24,660
+to assign to multiple
+individual variables at once.
+
+70
+00:03:24,660 --> 00:03:27,840
+The variables a,
+b and c now hold
+
+71
+00:03:27,840 --> 00:03:30,690
+the value for each of
+the strings in the array.
+
+72
+00:03:30,690 --> 00:03:37,210
+We print this out, we see the
+strings Sam, Alex and Brook.
+
+73
+00:03:37,210 --> 00:03:39,650
+Now, let's look at a new
+type of loop in JavaScript
+
+74
+00:03:39,650 --> 00:03:44,510
+called <i>for of</i> which can be used
+to iterate over property values
+
+75
+00:03:44,510 --> 00:03:48,500
+and offers a better way to work
+with arrays and other iterable
+
+76
+00:03:48,500 --> 00:03:49,270
+objects.
+
+77
+00:03:49,270 --> 00:03:51,830
+We'll learn about those
+later in this course.
+
+78
+00:03:51,830 --> 00:03:56,150
+Here we have an array of
+names, Sam, Tyler and Brook.
+
+79
+00:03:56,150 --> 00:04:00,910
+To loop over its elements we can
+use the well known for in loop.
+
+80
+00:04:00,910 --> 00:04:05,040
+For in returns the
+index for each element.
+
+81
+00:04:05,040 --> 00:04:08,200
+We assign it to the index
+variable on the loop
+
+82
+00:04:08,200 --> 00:04:12,520
+and then use the index to access
+each element from the names
+
+83
+00:04:12,520 --> 00:04:14,040
+array.
+
+84
+00:04:14,040 --> 00:04:17,350
+So first, we're assigning the
+index value to a variable.
+
+85
+00:04:17,350 --> 00:04:19,490
+And then second we
+are using that value
+
+86
+00:04:19,490 --> 00:04:21,220
+to read from the array.
+
+87
+00:04:21,220 --> 00:04:22,610
+Two steps.
+
+88
+00:04:22,610 --> 00:04:25,800
+Now with for of, we don't
+need to go through the index
+
+89
+00:04:25,800 --> 00:04:26,610
+anymore.
+
+90
+00:04:26,610 --> 00:04:29,370
+It reads each element
+directly from the array
+
+91
+00:04:29,370 --> 00:04:32,840
+and assigns it to
+the name variable.
+
+92
+00:04:32,840 --> 00:04:34,640
+That's only one step.
+
+93
+00:04:34,640 --> 00:04:40,570
+So using for of we can loop
+over arrays writing less code.
+
+94
+00:04:40,570 --> 00:04:43,270
+So can we use for
+of with objects?
+
+95
+00:04:43,270 --> 00:04:45,270
+The short answer is no.
+
+96
+00:04:45,270 --> 00:04:48,800
+We cannot use for of with
+plain JavaScript objects out
+
+97
+00:04:48,800 --> 00:04:49,770
+of the box.
+
+98
+00:04:49,770 --> 00:04:53,460
+If we try doing so we run
+into an error like this.
+
+99
+00:04:53,460 --> 00:04:58,320
+The error says post[Symbol.iterator]
+ is not a function.
+
+100
+00:04:58,320 --> 00:04:59,440
+Interesting.
+
+101
+00:04:59,440 --> 00:05:01,810
+Let's talk about where
+this error is coming from
+
+102
+00:05:01,810 --> 00:05:04,830
+and how we can use it to
+help determine whether or not
+
+103
+00:05:04,830 --> 00:05:09,160
+an object can be
+used with for of.
+
+104
+00:05:09,160 --> 00:05:13,390
+Essentially, in order to be able
+to work with for of, an object
+
+105
+00:05:13,390 --> 00:05:16,950
+needs a special function
+assigned to the 
+Symbol.iterator
+
+106
+00:05:16,950 --> 00:05:18,280
+property.
+
+107
+00:05:18,280 --> 00:05:21,000
+Checking for the presence of
+a function in this property
+
+108
+00:05:21,000 --> 00:05:23,510
+is the simplest way
+to know whether or not
+
+109
+00:05:23,510 --> 00:05:26,220
+an object works with for of.
+
+110
+00:05:26,220 --> 00:05:28,510
+As we can see here
+our names array
+
+111
+00:05:28,510 --> 00:05:32,030
+has a function inside the
+Symbol.iterator which means
+
+112
+00:05:32,030 --> 00:05:34,140
+we can use it with for of.
+
+113
+00:05:37,070 --> 00:05:40,820
+Now, let's run the same check
+on a plain JavaScript object,
+
+114
+00:05:40,820 --> 00:05:42,460
+post.
+
+115
+00:05:42,460 --> 00:05:46,180
+If we check for the typeof of
+the Symbol.iterator property
+
+116
+00:05:46,180 --> 00:05:50,350
+from the post object we'll
+notice it prints undefined.
+
+117
+00:05:50,350 --> 00:05:52,260
+Nothing is assigned
+to the property,
+
+118
+00:05:52,260 --> 00:05:56,670
+so the post object will
+not work with for of.
+
+119
+00:05:56,670 --> 00:06:00,610
+Lastly, let's take a look at
+Array.find, a new method that
+
+120
+00:06:00,610 --> 00:06:03,030
+makes it easier to
+find a specific element
+
+121
+00:06:03,030 --> 00:06:07,410
+in an array which satisfies
+a provided testing function.
+
+122
+00:06:07,410 --> 00:06:10,790
+Here we have an array of
+objects with login and admin
+
+123
+00:06:10,790 --> 00:06:12,110
+properties.
+
+124
+00:06:12,110 --> 00:06:15,620
+First user is Sam,
+who is not an admin.
+
+125
+00:06:15,620 --> 00:06:19,180
+Second user is Brook,
+who is an admin.
+
+126
+00:06:19,180 --> 00:06:22,290
+Then Tyler, who
+is also an admin.
+
+127
+00:06:22,290 --> 00:06:25,110
+In order to find the first
+admin in the users array
+
+128
+00:06:25,110 --> 00:06:30,080
+we can call the find method
+and give it a testing function.
+
+129
+00:06:30,080 --> 00:06:32,270
+Notice that we are using
+an arrow function here.
+
+130
+00:06:32,270 --> 00:06:34,970
+In this case, not for a
+scope reason, just because it
+
+131
+00:06:34,970 --> 00:06:36,610
+reads better this way.
+
+132
+00:06:36,610 --> 00:06:39,680
+Inside the testing function
+the first return value
+
+133
+00:06:39,680 --> 00:06:42,820
+that evaluates to true will
+cause the argument object
+
+134
+00:06:42,820 --> 00:06:44,190
+to be returned.
+
+135
+00:06:44,190 --> 00:06:47,980
+In this example, when
+user.admin returns true,
+
+136
+00:06:47,980 --> 00:06:51,500
+the find method returns
+that user object.
+
+137
+00:06:51,500 --> 00:06:53,630
+We assign it to
+the admin variable
+
+138
+00:06:53,630 --> 00:06:55,620
+and print it to the console.
+
+139
+00:06:55,620 --> 00:06:58,060
+We can make our arrow
+function even shorter
+
+140
+00:06:58,060 --> 00:07:01,580
+by omitting the parentheses for
+the user parameter, the return
+
+141
+00:07:01,580 --> 00:07:04,670
+keyword, and the curly braces.
+
+142
+00:07:04,670 --> 00:07:07,810
+As we can see, the
+output is still the same.
+
+143
+00:07:07,810 --> 00:07:11,840
+Now it's your turn to play with
+some arrays in the challenges.
+
