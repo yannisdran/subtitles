@@ -1,0 +1,772 @@
+﻿1
+00:00:01,940 --> 00:00:02,970
+Welcome back.
+
+2
+00:00:02,970 --> 00:00:05,080
+In this section, we'll
+be talking about Maps.
+
+3
+00:00:08,119 --> 00:00:11,010
+Maps are a data structure
+composed of collections
+
+4
+00:00:11,010 --> 00:00:12,710
+of key/value pairs.
+
+5
+00:00:12,710 --> 00:00:15,220
+They're present in many
+other programming languages
+
+6
+00:00:15,220 --> 00:00:18,720
+and are useful to store simple
+data, such as property values.
+
+7
+00:00:18,720 --> 00:00:24,020
+A Map stores collections of
+unique keys mapped to values.
+
+8
+00:00:24,020 --> 00:00:28,050
+Each key is associated with
+one and only one value.
+
+9
+00:00:28,050 --> 00:00:30,630
+In order to find a
+specific value in a Map
+
+10
+00:00:30,630 --> 00:00:34,890
+we give it its key and then
+receive the value in return.
+
+11
+00:00:34,890 --> 00:00:37,510
+JavaScript developers
+are first exposed to Maps
+
+12
+00:00:37,510 --> 00:00:38,890
+through objects.
+
+13
+00:00:38,890 --> 00:00:43,260
+And while it is possible to use
+objects as key/value stores,
+
+14
+00:00:43,260 --> 00:00:47,020
+there are some issues with that.
+
+15
+00:00:47,020 --> 00:00:50,090
+The biggest issue when
+using objects as Maps
+
+16
+00:00:50,090 --> 00:00:52,490
+and what may get some
+of us by surprise,
+
+17
+00:00:52,490 --> 00:00:56,050
+is that its keys are always
+converted to strings.
+
+18
+00:00:56,050 --> 00:00:58,770
+Let's take a look at an example.
+
+19
+00:00:58,770 --> 00:01:03,600
+We have two different
+objects, user1 and user2.
+
+20
+00:01:03,600 --> 00:01:07,120
+Next we have an object
+called totalReplies,
+
+21
+00:01:07,120 --> 00:01:10,690
+which we'll use to map users
+to the total number of replies
+
+22
+00:01:10,690 --> 00:01:12,230
+they have on our forum.
+
+23
+00:01:12,230 --> 00:01:16,040
+user1, Sam, doesn't visit
+the forum very often
+
+24
+00:01:16,040 --> 00:01:18,830
+and has only five replies.
+
+25
+00:01:18,830 --> 00:01:24,090
+We'll use the user1 object as
+key and assign it the value 5.
+
+26
+00:01:24,090 --> 00:01:26,670
+Tyler on the other
+hand, is pretty active
+
+27
+00:01:26,670 --> 00:01:29,460
+and has 42 total replies.
+
+28
+00:01:29,460 --> 00:01:34,560
+We'll use the user2 object as
+key and assign it the value 42.
+
+29
+00:01:34,560 --> 00:01:36,980
+Now watch what happens
+when we try reading values
+
+30
+00:01:36,980 --> 00:01:38,670
+from totalReplies.
+
+31
+00:01:38,670 --> 00:01:44,400
+When we use user1 as key the
+value that we get back is 42.
+
+32
+00:01:44,400 --> 00:01:47,800
+And then user2 also returns 42.
+
+33
+00:01:47,800 --> 00:01:50,430
+So although we're assigning
+two different values
+
+34
+00:01:50,430 --> 00:01:54,280
+to each one of the keys, the
+last value that we assign
+
+35
+00:01:54,280 --> 00:01:57,190
+overrides all the
+previous values.
+
+36
+00:01:57,190 --> 00:01:59,390
+This happens because
+behind the scenes
+
+37
+00:01:59,390 --> 00:02:03,260
+JavaScript converts both
+objects to this string, 
+
+38
+00:02:03,260 --> 00:02:05,250
+<i>object Object</i> between brackets.
+
+39
+00:02:05,250 --> 00:02:08,350
+And this is why we
+see 42 printed twice.
+
+40
+00:02:08,350 --> 00:02:11,370
+If we ask for the total list
+of keys in the totalReplies
+
+41
+00:02:11,370 --> 00:02:14,870
+object using Object.keys,
+we'll see an array
+
+42
+00:02:14,870 --> 00:02:17,940
+with only one element,
+that same string,
+
+43
+00:02:17,940 --> 00:02:20,400
+<i>object Object</i> within brackets.
+
+44
+00:02:20,400 --> 00:02:22,200
+To get around this
+issue we should
+
+45
+00:02:22,200 --> 00:02:25,980
+stop using JavaScript
+objects as maps right now,
+
+46
+00:02:25,980 --> 00:02:31,110
+and start using a new
+data structure called Map.
+
+47
+00:02:31,110 --> 00:02:33,630
+The Map object is a
+simple key/value data
+
+48
+00:02:33,630 --> 00:02:38,700
+structure that allows any value
+to be used as key or a value.
+
+49
+00:02:38,700 --> 00:02:41,280
+When we use objects
+as keys on a Map
+
+50
+00:02:41,280 --> 00:02:43,700
+they are not
+converted to strings.
+
+51
+00:02:43,700 --> 00:02:47,480
+Let's change totalReplies
+from an object to a Map.
+
+52
+00:02:47,480 --> 00:02:50,880
+To add entries to a Map
+we use the set method,
+
+53
+00:02:50,880 --> 00:02:54,980
+which takes two arguments,
+a key and a value.
+
+54
+00:02:54,980 --> 00:03:01,420
+Just like before, we'll assign
+5 to user1 and 42 to user2.
+
+55
+00:03:01,420 --> 00:03:03,460
+We can read the
+values from a Map
+
+56
+00:03:03,460 --> 00:03:05,610
+using the get
+method, which takes
+
+57
+00:03:05,610 --> 00:03:08,206
+a key as its only argument.
+
+58
+00:03:08,206 --> 00:03:13,100
+When we call get with
+user1 we receive 5,
+
+59
+00:03:13,100 --> 00:03:18,610
+and when we call get
+with user2 we receive 42.
+
+60
+00:03:18,610 --> 00:03:21,210
+As you can see these
+two values are properly
+
+61
+00:03:21,210 --> 00:03:23,180
+assigned to different keys.
+
+62
+00:03:23,180 --> 00:03:26,670
+So we mentioned that we should
+stop using JavaScript objects
+
+63
+00:03:26,670 --> 00:03:27,740
+as Maps.
+
+64
+00:03:27,740 --> 00:03:30,400
+However, there's one exception.
+
+65
+00:03:30,400 --> 00:03:33,560
+Most of the time you will
+want to use the Map data
+
+66
+00:03:33,560 --> 00:03:36,180
+structure, which is
+when keys for the Map
+
+67
+00:03:36,180 --> 00:03:39,760
+are unknown until run time.
+
+68
+00:03:39,760 --> 00:03:41,880
+In this first
+example we use a Map
+
+69
+00:03:41,880 --> 00:03:45,000
+to store the most recent
+post for each author.
+
+70
+00:03:45,000 --> 00:03:48,895
+First, we create a new Map
+and assign it to recentPosts.
+
+71
+00:03:48,895 --> 00:03:52,180
+Then, we call a createPost
+function defined elsewhere
+
+72
+00:03:52,180 --> 00:03:54,840
+in our code and give it a callback.
+
+73
+00:03:54,840 --> 00:03:57,580
+Inside the callback we
+use the recentPosts
+
+74
+00:03:57,580 --> 00:04:01,610
+Map to store the
+message for this author.
+
+75
+00:04:01,610 --> 00:04:03,960
+Here we don't know
+what data.author
+
+76
+00:04:03,960 --> 00:04:07,270
+is going to be until we
+actually run this code.
+
+77
+00:04:07,270 --> 00:04:10,560
+On the other hand, when
+storing pre-defined settings
+
+78
+00:04:10,560 --> 00:04:15,170
+it is OK to use an object, like
+we do here with userSettings.
+
+79
+00:04:15,170 --> 00:04:20,140
+In this code the keys per page
+and showRead are pre-defined.
+
+80
+00:04:20,140 --> 00:04:24,250
+We know exactly what they are
+just by looking at this code,
+
+81
+00:04:24,250 --> 00:04:27,890
+We should also use Maps when
+all keys are the same type
+
+82
+00:04:27,890 --> 00:04:31,540
+and all values
+are the same type.
+
+83
+00:04:31,540 --> 00:04:33,690
+For entries on our
+recentPosts Map
+
+84
+00:04:33,690 --> 00:04:39,270
+we use data.author for keys
+and data.message for the value.
+
+85
+00:04:39,270 --> 00:04:41,170
+Suppose we had another
+place in our code
+
+86
+00:04:41,170 --> 00:04:44,000
+that also added entries
+to recentPosts,
+
+87
+00:04:44,000 --> 00:04:46,060
+like a WebSocket
+connection receiving push
+
+88
+00:04:46,060 --> 00:04:48,200
+notifications from the server.
+
+89
+00:04:48,200 --> 00:04:51,860
+In this example an event
+coming in for a new post
+
+90
+00:04:51,860 --> 00:04:55,350
+sends data in the same format
+as your previous callback.
+
+91
+00:04:55,350 --> 00:04:58,280
+So we can also use
+data.author as key
+
+92
+00:04:58,280 --> 00:05:02,260
+to store the value
+for data.message.
+
+93
+00:05:02,260 --> 00:05:05,540
+Assuming responses from the
+API are always the same,
+
+94
+00:05:05,540 --> 00:05:09,310
+all keys from our recentPosts
+Map will be the same type,
+
+95
+00:05:09,310 --> 00:05:13,680
+and all data associated with
+them will be the same type too.
+
+96
+00:05:13,680 --> 00:05:15,900
+This helps keep
+our Maps consistent
+
+97
+00:05:15,900 --> 00:05:17,610
+and easier to work with.
+
+98
+00:05:17,610 --> 00:05:21,810
+On our object example both
+our keys are the same type.
+
+99
+00:05:21,810 --> 00:05:25,940
+However, perPage is
+assigned a number, 15.
+
+100
+00:05:25,940 --> 00:05:30,360
+And showRead is assigned
+a boolean, true.
+
+101
+00:05:30,360 --> 00:05:31,860
+Two different types.
+
+102
+00:05:31,860 --> 00:05:37,070
+So using an object here instead
+of a Map is our best choice.
+
+103
+00:05:37,070 --> 00:05:40,990
+Another neat thing about Maps
+is their ability to be used with
+
+104
+00:05:40,990 --> 00:05:42,270
+<i>for...of</i>.
+
+105
+00:05:42,270 --> 00:05:45,012
+In this example, we
+create a new Map,
+
+106
+00:05:45,012 --> 00:05:49,000
+mapSettings, and add
+three entries to it.
+
+107
+00:05:49,000 --> 00:05:52,080
+We can loop through Map
+settings using for...of.
+
+108
+00:05:52,080 --> 00:05:55,330
+And each run of the loop
+returns a [key, value] pair
+
+109
+00:05:55,330 --> 00:05:57,570
+for an entry in the Map.
+
+110
+00:05:57,570 --> 00:06:00,500
+Inside our for loop we'll
+use array destructuring
+
+111
+00:06:00,500 --> 00:06:05,200
+to assign to both the key and
+value local variables at once.
+
+112
+00:06:05,200 --> 00:06:08,310
+When we run this code, we can
+see that it successfully prints
+
+113
+00:06:08,310 --> 00:06:11,960
+each entry to the console.
+
+114
+00:06:11,960 --> 00:06:14,740
+JavaScript has also added
+a special kind of Map
+
+115
+00:06:14,740 --> 00:06:19,210
+called a WeakMap, where only
+objects can be used as keys.
+
+116
+00:06:19,210 --> 00:06:22,360
+Primitive types such as
+strings, numbers, and booleans
+
+117
+00:06:22,360 --> 00:06:26,150
+are not allowed to
+be used as keys.
+
+118
+00:06:26,150 --> 00:06:29,930
+In this example, we have a
+user and comment objects.
+
+119
+00:06:29,930 --> 00:06:34,020
+We create a new WeakMap and
+assign it to mapSettings.
+
+120
+00:06:34,020 --> 00:06:37,810
+We can use the same set and get
+methods to store and retrieve
+
+121
+00:06:37,810 --> 00:06:38,970
+values.
+
+122
+00:06:38,970 --> 00:06:41,990
+But if we try using
+a string as the key
+
+123
+00:06:41,990 --> 00:06:45,360
+we'll run into an
+error like this.
+
+124
+00:06:45,360 --> 00:06:47,480
+Primitive data types
+are not allowed
+
+125
+00:06:47,480 --> 00:06:51,170
+to be used as keys on a WeakMap.
+
+126
+00:06:51,170 --> 00:06:53,710
+One difference between
+a WeakMap and a Map
+
+127
+00:06:53,710 --> 00:06:57,890
+is that all methods on
+a WeakMap require a key.
+
+128
+00:06:57,890 --> 00:07:01,520
+Methods like get, which
+return an entry, has,
+
+129
+00:07:01,520 --> 00:07:03,690
+which checks for the
+presence of a key
+
+130
+00:07:03,690 --> 00:07:07,100
+and returns true if there's
+an entry for that key or false
+
+131
+00:07:07,100 --> 00:07:10,650
+if there isn't, and delete,
+which removes an entry
+
+132
+00:07:10,650 --> 00:07:14,500
+and returns a boolean based
+on whether that entry existed.
+
+133
+00:07:14,500 --> 00:07:18,890
+Another big difference is that
+WeakMaps are not iterable.
+
+134
+00:07:18,890 --> 00:07:22,060
+If we try using them for...of
+we'll run into an error like
+
+135
+00:07:22,060 --> 00:07:23,280
+this.
+
+136
+00:07:23,280 --> 00:07:27,350
+MapSettings[Symbol.iterator]
+is not a function.
+
+137
+00:07:27,350 --> 00:07:29,000
+So what's the deal
+with WeakMaps?
+
+138
+00:07:29,000 --> 00:07:31,110
+Why should we use them
+in the first place?
+
+139
+00:07:31,110 --> 00:07:34,190
+Well, WeakMaps are
+better with memory.
+
+140
+00:07:34,190 --> 00:07:37,100
+They're called weak because
+they hold a weak reference
+
+141
+00:07:37,100 --> 00:07:39,850
+to the objects used as keys.
+
+142
+00:07:39,850 --> 00:07:43,350
+In this example, we have a
+userObject and a userStatus
+
+143
+00:07:43,350 --> 00:07:44,520
+WeakMap.
+
+144
+00:07:44,520 --> 00:07:46,800
+The user object is
+being used as the key
+
+145
+00:07:46,800 --> 00:07:51,110
+to one of the entries in the [WeakMap]
+and assigned the value, "logged".
+
+146
+00:07:51,110 --> 00:07:53,970
+Now after some other
+function is finished
+
+147
+00:07:53,970 --> 00:07:55,710
+and when nothing
+else in our code
+
+148
+00:07:55,710 --> 00:07:58,590
+is referencing the user
+object, this object
+
+149
+00:07:58,590 --> 00:08:00,450
+becomes eligible for
+garbage collection.
+
+150
+00:08:03,080 --> 00:08:07,110
+Once that happens the user
+object is removed from memory
+
+151
+00:08:07,110 --> 00:08:10,130
+and the garbage collector
+knows to come and remove
+
+152
+00:08:10,130 --> 00:08:13,630
+the entry associated with that
+user object from the WeakMap,
+
+153
+00:08:13,630 --> 00:08:14,500
+as well.
+
+154
+00:08:14,500 --> 00:08:17,140
+Freeing up even more memory.
+
+155
+00:08:17,140 --> 00:08:20,520
+So WeakMaps are memory efficient
+because they don't prevent
+
+156
+00:08:20,520 --> 00:08:24,070
+the garbage collector from
+collecting objects currently
+
+157
+00:08:24,070 --> 00:08:28,120
+used as keys, but that are no
+longer referenced from anywhere
+
+158
+00:08:28,120 --> 00:08:30,430
+else in the system.
+
+159
+00:08:30,430 --> 00:08:31,570
+That's it for this section.
+
+160
+00:08:31,570 --> 00:08:33,159
+Now it's your turn
+to play around
+
+161
+00:08:33,159 --> 00:08:36,328
+with Maps and WeakMaps
+in the challenges.
+

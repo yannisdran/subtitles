@@ -1,0 +1,594 @@
+﻿1
+00:00:00,000 --> 00:00:01,760
+[SINGING] We've
+had about enough,
+
+2
+00:00:01,760 --> 00:00:05,200
+JavaScript is getting tough,
+ECMAScript is the solution.
+
+3
+00:00:05,200 --> 00:00:06,192
+Join the revolution.
+
+4
+00:00:06,192 --> 00:00:09,060
+Let your objects fill the
+gaps inside the Sets and Maps,
+
+5
+00:00:09,060 --> 00:00:11,530
+use OOP patterns to the max.
+
+6
+00:00:11,530 --> 00:00:15,450
+New class and module syntax,
+const and let will do the thing,
+
+7
+00:00:15,450 --> 00:00:17,098
+to stop the hoisting.
+
+8
+00:00:17,098 --> 00:00:19,912
+With pure arrays struggling
+is destructuring.
+
+9
+00:00:19,912 --> 00:00:28,740
+Keep your JS nice and
+lean by using ES2015.
+
+10
+00:00:28,740 --> 00:00:32,430
+You're watching ES2015, The
+Shape of JavaScript to Come.
+
+11
+00:00:32,430 --> 00:00:34,480
+I'm Carlos Souza,
+and in this level,
+
+12
+00:00:34,480 --> 00:00:35,880
+we'll be talking about classes.
+
+13
+00:00:39,320 --> 00:00:41,940
+We seem to be doing pretty
+good with our web forum,
+
+14
+00:00:41,940 --> 00:00:44,020
+and some companies
+have approached us
+
+15
+00:00:44,020 --> 00:00:47,390
+with the interest of adding
+sponsored advertisement.
+
+16
+00:00:47,390 --> 00:00:49,290
+Here's how this
+feature would look.
+
+17
+00:00:49,290 --> 00:00:51,680
+On the sidebar, there
+would be a small widget
+
+18
+00:00:51,680 --> 00:00:53,850
+below the list of active users.
+
+19
+00:00:53,850 --> 00:00:57,310
+Nothing too intrusive,
+just a small HTML snippet.
+
+20
+00:00:57,310 --> 00:00:59,280
+Let's see how the code
+for this could look,
+
+21
+00:00:59,280 --> 00:01:02,760
+first using functions.
+
+22
+00:01:02,760 --> 00:01:05,580
+A common approach for
+encapsulation in JavaScript
+
+23
+00:01:05,580 --> 00:01:08,600
+is using a constructor function.
+
+24
+00:01:08,600 --> 00:01:10,340
+The SponsorWidget
+constructor function
+
+25
+00:01:10,340 --> 00:01:14,610
+takes a name, description,
+url, and we assign them
+
+26
+00:01:14,610 --> 00:01:17,320
+to instance properties
+with the same name.
+
+27
+00:01:17,320 --> 00:01:19,800
+Then, we have a render function.
+
+28
+00:01:19,800 --> 00:01:22,360
+The best way to add this
+function to SponsorWidget
+
+29
+00:01:22,360 --> 00:01:24,740
+is via its prototype.
+
+30
+00:01:24,740 --> 00:01:27,810
+And invoking the SponsorWidget
+function looks like this.
+
+31
+00:01:27,810 --> 00:01:31,990
+We call SponsorWidget with <i>new</i>,
+assign it to a temp variable,
+
+32
+00:01:31,990 --> 00:01:34,130
+and call its render function.
+
+33
+00:01:34,130 --> 00:01:38,890
+This returns the
+final HTML snippet.
+
+34
+00:01:38,890 --> 00:01:41,910
+This works, but adding
+functions to the prototype
+
+35
+00:01:41,910 --> 00:01:45,680
+requires quite a bit of
+coding and some repetition.
+
+36
+00:01:45,680 --> 00:01:49,050
+We can do better.
+
+37
+00:01:49,050 --> 00:01:51,330
+Using the new class
+syntax, we can
+
+38
+00:01:51,330 --> 00:01:55,440
+write object oriented JavaScript
+code in a much simpler way,
+
+39
+00:01:55,440 --> 00:01:58,200
+that looks familiar to those
+coming from other object
+
+40
+00:01:58,200 --> 00:01:59,860
+oriented languages.
+
+41
+00:01:59,860 --> 00:02:02,500
+At first, I was a little
+skeptical, but turns out,
+
+42
+00:02:02,500 --> 00:02:05,410
+now I use this
+syntax quite a lot.
+
+43
+00:02:05,410 --> 00:02:09,340
+To define a class, we use
+the class keyword, followed
+
+44
+00:02:09,340 --> 00:02:12,570
+by the name of the
+class, SponsorWidget.
+
+45
+00:02:12,570 --> 00:02:16,780
+The body of the class is the
+part between the curly braces.
+
+46
+00:02:16,780 --> 00:02:19,040
+Instance method
+definition in classes
+
+47
+00:02:19,040 --> 00:02:21,860
+look just like the method
+initializer shorthand
+
+48
+00:02:21,860 --> 00:02:24,689
+in objects.
+
+49
+00:02:24,689 --> 00:02:26,230
+Now, let's talk
+about the constructor
+
+50
+00:02:26,230 --> 00:02:29,470
+your method which is a method
+for creating and initializing
+
+51
+00:02:29,470 --> 00:02:31,130
+an object.
+
+52
+00:02:31,130 --> 00:02:33,380
+The constructor
+method runs every time
+
+53
+00:02:33,380 --> 00:02:38,000
+a new instance is created
+with a new operator.
+
+54
+00:02:38,000 --> 00:02:40,520
+Inside the constructor
+method is a good place
+
+55
+00:02:40,520 --> 00:02:43,530
+to assign the instance
+variables that we want to access
+
+56
+00:02:43,530 --> 00:02:46,570
+from other instance methods.
+
+57
+00:02:46,570 --> 00:02:48,570
+To create an instance
+of SponsorWidget,
+
+58
+00:02:48,570 --> 00:02:51,460
+our code looks just like before.
+
+59
+00:02:51,460 --> 00:02:53,220
+We invoke the SponsorWidget
+function
+
+60
+00:02:53,220 --> 00:02:55,450
+with the new keyword,
+which returns
+
+61
+00:02:55,450 --> 00:02:57,480
+a new SponsorWidget
+object that we
+
+62
+00:02:57,480 --> 00:03:01,400
+can call the render method on.
+
+63
+00:03:01,400 --> 00:03:03,250
+Properties, or
+instance variables,
+
+64
+00:03:03,250 --> 00:03:05,320
+set in the constructor
+function can
+
+65
+00:03:05,320 --> 00:03:09,120
+be accessed from all other
+instance methods on the class.
+
+66
+00:03:09,120 --> 00:03:12,780
+For example, we set
+this.url at the constructor,
+
+67
+00:03:12,780 --> 00:03:14,750
+and read it from
+the render function,
+
+68
+00:03:14,750 --> 00:03:17,940
+using the same
+this.url name.
+
+69
+00:03:17,940 --> 00:03:20,040
+Same thing with
+instance methods.
+
+70
+00:03:20,040 --> 00:03:23,000
+_buildLink can
+be called by other methods
+
+71
+00:03:23,000 --> 00:03:27,120
+with this._buildLink.
+
+72
+00:03:27,120 --> 00:03:30,590
+Currently, there are no access
+modifiers in JavaScript,
+
+73
+00:03:30,590 --> 00:03:34,040
+like private and protected, like
+we do have in other languages.
+
+74
+00:03:34,040 --> 00:03:36,830
+So in case you're wondering,
+prefixing a method
+
+75
+00:03:36,830 --> 00:03:39,560
+with underscore is just
+a popular convention
+
+76
+00:03:39,560 --> 00:03:42,520
+that we use to indicate
+that a method should not
+
+77
+00:03:42,520 --> 00:03:45,920
+be called from its public API.
+
+78
+00:03:45,920 --> 00:03:48,270
+In this example,
+_buildLink
+
+79
+00:03:48,270 --> 00:03:51,930
+is being called from
+inside the SponsorWidget class,
+
+80
+00:03:51,930 --> 00:03:55,080
+because it's a private method.
+
+81
+00:03:55,080 --> 00:03:58,600
+The class syntax is not
+introducing a new object model
+
+82
+00:03:58,600 --> 00:03:59,880
+to JavaScript.
+
+83
+00:03:59,880 --> 00:04:02,870
+It's just an alternative
+to write the same code
+
+84
+00:04:02,870 --> 00:04:06,130
+over the existing
+prototype based model.
+
+85
+00:04:06,130 --> 00:04:08,620
+It's what we call
+syntactic sugar,
+
+86
+00:04:08,620 --> 00:04:10,960
+because it's just a sweeter
+way to write the same thing.
+
+87
+00:04:15,180 --> 00:04:17,660
+One benefit of using
+the new class syntax
+
+88
+00:04:17,660 --> 00:04:19,829
+is that we can use
+class inheritance
+
+89
+00:04:19,829 --> 00:04:21,959
+to reduce code repetition.
+
+90
+00:04:21,959 --> 00:04:25,130
+Child classes can
+inherit and specialize
+
+91
+00:04:25,130 --> 00:04:28,140
+code that's defined
+in parent classes.
+
+92
+00:04:28,140 --> 00:04:30,640
+Here, we can see that
+Widget class sets
+
+93
+00:04:30,640 --> 00:04:35,100
+the this.baseCSS property,
+and it has the parse instance
+
+94
+00:04:35,100 --> 00:04:36,170
+method.
+
+95
+00:04:36,170 --> 00:04:39,870
+The SponsorWidget class is a
+specialization of the Widget
+
+96
+00:04:39,870 --> 00:04:45,820
+class, and inherits this.baseCSS
+and this.parse.
+
+97
+00:04:45,820 --> 00:04:49,220
+PromoWidget and NewsWidge
+behave the same.
+
+98
+00:04:49,220 --> 00:04:53,080
+We call these three classes
+subclasses of the Widget class.
+
+99
+00:04:56,790 --> 00:05:00,400
+To create a subclass, we
+use the extends keyword,
+
+100
+00:05:00,400 --> 00:05:03,960
+which causes a class to
+inherit methods and properties
+
+101
+00:05:03,960 --> 00:05:05,930
+from a parent class.
+
+102
+00:05:05,930 --> 00:05:08,590
+In this code, we can
+see the class widget,
+
+103
+00:05:08,590 --> 00:05:12,420
+with its constructor method
+and the parse method.
+
+104
+00:05:12,420 --> 00:05:16,330
+Then, SponsorWidget,
+which extends widget,
+
+105
+00:05:16,330 --> 00:05:18,790
+defines its own
+constructor method.
+
+106
+00:05:18,790 --> 00:05:20,790
+And the render method.
+
+107
+00:05:20,790 --> 00:05:24,250
+The render method can
+access this dot parse,
+
+108
+00:05:24,250 --> 00:05:29,850
+and this dot base CSS, which
+are defined on its parent class.
+
+109
+00:05:29,850 --> 00:05:32,650
+These are inherited properties.
+
+110
+00:05:32,650 --> 00:05:35,100
+All child classes must
+call the super method
+
+111
+00:05:35,100 --> 00:05:37,560
+as the first line
+in the constructor.
+
+112
+00:05:37,560 --> 00:05:40,690
+This method causes the
+parent classes constructor
+
+113
+00:05:40,690 --> 00:05:42,410
+to be invoked.
+
+114
+00:05:42,410 --> 00:05:44,700
+We pretty much always
+want this to happen
+
+115
+00:05:44,700 --> 00:05:47,820
+before any code in our
+child class starts to run.
+
+116
+00:05:50,350 --> 00:05:52,490
+From outside the
+constructor method,
+
+117
+00:05:52,490 --> 00:05:55,580
+we can also use super,
+but as an object.
+
+118
+00:05:55,580 --> 00:05:59,470
+It holds a reference to the
+object from the base class.
+
+119
+00:05:59,470 --> 00:06:01,770
+So it can call methods
+defined up on the chain
+
+120
+00:06:01,770 --> 00:06:03,800
+like we see over here.
+
+121
+00:06:03,800 --> 00:06:07,340
+Super dot parse is calling
+the parse method defined
+
+122
+00:06:07,340 --> 00:06:08,305
+on the widget class.
+
+123
+00:06:11,820 --> 00:06:13,270
+That's it for this section.
+
+124
+00:06:13,270 --> 00:06:15,770
+Now, it's your turn to play
+with classes and the challenges,
+
+125
+00:06:15,770 --> 00:06:17,752
+and I'll see you in a bit.
+

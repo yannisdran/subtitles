@@ -1,0 +1,525 @@
+﻿1
+00:00:02,580 --> 00:00:03,660
+Welcome back.
+
+2
+00:00:03,660 --> 00:00:06,380
+In this section we'll
+be talking about Sets.
+
+3
+00:00:06,380 --> 00:00:09,910
+But before we understand
+the need to use Sets let's
+
+4
+00:00:09,910 --> 00:00:12,535
+go back to arrays and look
+at some of their limitations.
+
+5
+00:00:16,079 --> 00:00:20,180
+Arrays in JavaScript are super
+simple and very easy to use,
+
+6
+00:00:20,180 --> 00:00:24,680
+but one thing that they don't do
+is enforce uniqueness of items.
+
+7
+00:00:24,680 --> 00:00:28,570
+In arrays duplicate
+entries are allowed.
+
+8
+00:00:28,570 --> 00:00:30,880
+In this example, we
+have a tags array.
+
+9
+00:00:30,880 --> 00:00:34,360
+We use the push method
+to add the strings
+
+10
+00:00:34,360 --> 00:00:39,810
+"JavaScript", "Programming",
+"Web "and then "Web" again.
+
+11
+00:00:39,810 --> 00:00:43,970
+If we print the length of this
+array we'll see it prints four.
+
+12
+00:00:43,970 --> 00:00:46,860
+It includes "Web "there twice.
+
+13
+00:00:46,860 --> 00:00:48,780
+If we need to prevent
+duplicate entries
+
+14
+00:00:48,780 --> 00:00:51,710
+from being added to a
+collection, instead of arrays
+
+15
+00:00:51,710 --> 00:00:53,630
+we can use Sets.
+
+16
+00:00:53,630 --> 00:00:58,480
+Sets store unique values of any
+type, whether primitive values
+
+17
+00:00:58,480 --> 00:01:01,280
+or object references.
+
+18
+00:01:01,280 --> 00:01:04,209
+Here we create a new
+Set object and assign it
+
+19
+00:01:04,209 --> 00:01:06,330
+to the tags variable.
+
+20
+00:01:06,330 --> 00:01:10,420
+We can use the add method
+to add elements to a Set.
+
+21
+00:01:10,420 --> 00:01:13,780
+So we add the strings
+"JavaScript", "Programming",
+
+22
+00:01:13,780 --> 00:01:18,150
+and then an object with the
+version property set to "2015".
+
+23
+00:01:18,150 --> 00:01:21,190
+Then we try adding the
+string "Web" there twice.
+
+24
+00:01:21,190 --> 00:01:23,650
+The second "Web" is ignored.
+
+25
+00:01:23,650 --> 00:01:26,830
+We can verify that by checking
+the size property on the tags
+
+26
+00:01:26,830 --> 00:01:28,490
+object.
+
+27
+00:01:28,490 --> 00:01:32,300
+Total items is 4 not
+5, so our last attempt
+
+28
+00:01:32,300 --> 00:01:34,725
+to add "Web" to the Set
+was completely ignored.
+
+29
+00:01:37,490 --> 00:01:41,385
+Set objects are iterable so
+we can use them with for...of
+
+30
+00:01:41,385 --> 00:01:43,410
+and destructuring.
+
+31
+00:01:43,410 --> 00:01:48,020
+Here we use for...of to read
+each tag off of the tag Set
+
+32
+00:01:48,020 --> 00:01:50,520
+and print them to the console.
+
+33
+00:01:50,520 --> 00:01:53,230
+Then we extract
+elements from the Set
+
+34
+00:01:53,230 --> 00:01:55,800
+using the destructuring
+assignment.
+
+35
+00:01:55,800 --> 00:01:58,140
+We grab the first four
+values of the tags
+
+36
+00:01:58,140 --> 00:02:03,770
+Set and assign them to the
+variables a, b, c and d.
+
+37
+00:02:03,770 --> 00:02:06,040
+We print them out to the
+console and everything
+
+38
+00:02:06,040 --> 00:02:06,915
+works as expected.
+
+39
+00:02:09,810 --> 00:02:14,010
+Similar to WeakMaps we also
+have WeakSets which are more
+
+40
+00:02:14,010 --> 00:02:17,390
+memory efficient type of Sets.
+
+41
+00:02:17,390 --> 00:02:20,340
+Here we create a new
+WeakSet and assign it
+
+42
+00:02:20,340 --> 00:02:22,480
+to the weakTags variable.
+
+43
+00:02:22,480 --> 00:02:24,450
+If we try adding a
+string to it we'll
+
+44
+00:02:24,450 --> 00:02:27,330
+see an error like this
+one because only objects
+
+45
+00:02:27,330 --> 00:02:30,510
+can be added to a WeakSet.
+
+46
+00:02:30,510 --> 00:02:33,570
+A WeakSet gives us two
+more methods to use.
+
+47
+00:02:33,570 --> 00:02:35,850
+<i>has</i>, which returns
+whether or not
+
+48
+00:02:35,850 --> 00:02:39,200
+an object is part of the
+weak Set, and delete,
+
+49
+00:02:39,200 --> 00:02:44,050
+which removes an existing
+object from the WeakSet.
+
+50
+00:02:44,050 --> 00:02:48,540
+Again, WeakSets only allow
+objects, which allows entries
+
+51
+00:02:48,540 --> 00:02:51,510
+on a WeakSet to be garbage
+collected once they're not
+
+52
+00:02:51,510 --> 00:02:53,475
+being used anywhere
+else in the system.
+
+53
+00:02:56,330 --> 00:02:59,890
+WeakSets differ from Sets
+in a couple different ways.
+
+54
+00:02:59,890 --> 00:03:03,720
+They cannot be used with for...of
+and they offer no methods
+
+55
+00:03:03,720 --> 00:03:06,010
+for reading values from it.
+
+56
+00:03:06,010 --> 00:03:08,330
+If we try using
+them with for...of we
+
+57
+00:03:08,330 --> 00:03:11,400
+run into an error like this one.
+
+58
+00:03:11,400 --> 00:03:14,110
+Well, if we can't read
+values from a WeakSet,
+
+59
+00:03:14,110 --> 00:03:15,730
+when should we use them?
+
+60
+00:03:15,730 --> 00:03:18,919
+To illustrate a good use
+case for using WeakSets
+
+61
+00:03:18,919 --> 00:03:21,085
+let's take a look at another
+feature from our forum.
+
+62
+00:03:24,730 --> 00:03:27,410
+Here in this page we
+see a list of posts
+
+63
+00:03:27,410 --> 00:03:30,440
+and what we want to do here
+is add a different background
+
+64
+00:03:30,440 --> 00:03:34,070
+color to the posts that have
+not yet been read by the user,
+
+65
+00:03:34,070 --> 00:03:35,680
+like this first one.
+
+66
+00:03:35,680 --> 00:03:38,070
+Doing this can
+help users identify
+
+67
+00:03:38,070 --> 00:03:40,264
+unread posts much quicker.
+
+68
+00:03:40,264 --> 00:03:41,680
+Now let's see how
+we can implement
+
+69
+00:03:41,680 --> 00:03:43,245
+this feature using WeakSets.
+
+70
+00:03:45,960 --> 00:03:49,030
+Now, one way that we could
+implement this feature
+
+71
+00:03:49,030 --> 00:03:54,610
+is by changing a property on
+each post object, like isRead.
+
+72
+00:03:54,610 --> 00:03:58,030
+Once a post is clicked, we
+Set this property to true
+
+73
+00:03:58,030 --> 00:04:00,070
+for the given post.
+
+74
+00:04:00,070 --> 00:04:03,490
+Then in the section that
+renders the list of posts,
+
+75
+00:04:03,490 --> 00:04:07,660
+we check for the isRead
+property on each post.
+
+76
+00:04:07,660 --> 00:04:09,980
+If a post has not
+been read yet then
+
+77
+00:04:09,980 --> 00:04:14,470
+we can add a new CSS
+class to each DOM element.
+
+78
+00:04:14,470 --> 00:04:16,529
+The issue with this
+code is that we're
+
+79
+00:04:16,529 --> 00:04:20,120
+changing or mutating a
+property on each post object
+
+80
+00:04:20,120 --> 00:04:21,709
+unnecessarily.
+
+81
+00:04:21,709 --> 00:04:24,020
+Using immutable
+objects in JavaScript
+
+82
+00:04:24,020 --> 00:04:28,090
+is a common practice that should
+be favored whenever possible.
+
+83
+00:04:28,090 --> 00:04:31,020
+Doing so makes your code
+easier to understand
+
+84
+00:04:31,020 --> 00:04:34,000
+and leaves less room for errors.
+
+85
+00:04:34,000 --> 00:04:37,700
+Now, let's see how we can use
+WeakSets to improve this code.
+
+86
+00:04:37,700 --> 00:04:40,220
+Although WeakSets
+cannot return entries,
+
+87
+00:04:40,220 --> 00:04:43,130
+we can use them to create
+special groups from existing
+
+88
+00:04:43,130 --> 00:04:46,040
+objects without mutating them.
+
+89
+00:04:46,040 --> 00:04:50,620
+We'll start by creating a WeakSet
+named readPosts, then
+
+90
+00:04:50,620 --> 00:04:52,860
+each time a user
+clicks on a post
+
+91
+00:04:52,860 --> 00:04:57,320
+we'll add the post object
+to the readPosts WeakSet.
+
+92
+00:04:57,320 --> 00:05:01,140
+No changes are made to
+the post object itself.
+
+93
+00:05:01,140 --> 00:05:03,780
+Now back to the function that
+renders the post, instead
+
+94
+00:05:03,780 --> 00:05:06,000
+of checking for
+a property we use
+
+95
+00:05:06,000 --> 00:05:09,190
+the has method to check
+whether an object is
+
+96
+00:05:09,190 --> 00:05:12,340
+present on the WeakSet.
+If not, then
+
+97
+00:05:12,340 --> 00:05:16,150
+we add the CSS class
+to the post element.
+
+98
+00:05:16,150 --> 00:05:19,040
+So while we can't read
+values from a WeakSet,
+
+99
+00:05:19,040 --> 00:05:21,930
+we can use them to
+create groups of objects
+
+100
+00:05:21,930 --> 00:05:27,790
+and later check for the presence
+of those objects in the group.
+
+101
+00:05:27,790 --> 00:05:29,410
+That's it for this
+level, now it's
+
+102
+00:05:29,410 --> 00:05:34,560
+your turn to test your knowledge
+about Sets in the challenges.
+
+103
+00:05:34,560 --> 00:05:37,750
+And start using a new data
+structure called a Map.
+
+104
+00:05:37,750 --> 00:05:39,280
+[LAUGHING]
+
+105
+00:05:45,860 --> 00:05:49,860
+To fix this, we should
+stop using Maps.
+
+106
+00:05:49,860 --> 00:05:51,710
+To stop this we
+should stop using
+
+107
+00:05:51,710 --> 00:05:54,430
+JavaScript objects
+as maps right now
+
+108
+00:05:54,430 --> 00:05:56,120
+and start using a
+new data structure
+
+109
+00:05:56,120 --> 00:06:01,410
+added to JavaScript
+called drum roll Map.
+
+110
+00:06:01,410 --> 00:06:03,190
+Do that one again.
+
