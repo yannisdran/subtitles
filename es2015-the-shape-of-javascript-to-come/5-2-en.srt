@@ -1,0 +1,556 @@
+﻿1
+00:00:02,310 --> 00:00:03,420
+Welcome back.
+
+2
+00:00:03,420 --> 00:00:06,680
+In this section, we'll
+learn about modules.
+
+3
+00:00:06,680 --> 00:00:10,530
+Up until now the simplest way
+to load the JavaScript libraries
+
+4
+00:00:10,530 --> 00:00:14,510
+on our page was to add them
+to the global namespace using
+
+5
+00:00:14,510 --> 00:00:16,230
+script tags.
+
+6
+00:00:16,230 --> 00:00:18,090
+Let's look at this example.
+
+7
+00:00:18,090 --> 00:00:21,870
+Here's a snippet of HTML where
+we import all the JavaScript
+
+8
+00:00:21,870 --> 00:00:24,200
+libraries our app depends on.
+
+9
+00:00:24,200 --> 00:00:27,190
+We use the HTML script
+tag with the src
+
+10
+00:00:27,190 --> 00:00:31,530
+attribute pointing to the
+file where each library lives.
+
+11
+00:00:31,530 --> 00:00:34,230
+In this example
+we're loading jQuery,
+
+12
+00:00:34,230 --> 00:00:38,880
+underscore, and another
+library we call flash-message.
+
+13
+00:00:38,880 --> 00:00:41,780
+To use these libraries
+we simply reach out
+
+14
+00:00:41,780 --> 00:00:44,940
+to the global namespace
+and access the $
+
+15
+00:00:44,940 --> 00:00:49,230
+for jQuery, the _
+for underscore and the flashMessage
+
+16
+00:00:49,230 --> 00:00:53,530
+function from our
+flash-message library.
+
+17
+00:00:53,530 --> 00:00:56,030
+Writing programs that
+depend on global variables,
+
+18
+00:00:56,030 --> 00:00:57,680
+like we're doing
+over here, means
+
+19
+00:00:57,680 --> 00:01:00,270
+being vulnerable to
+unexpected side effects
+
+20
+00:01:00,270 --> 00:01:02,950
+and potential naming conflicts.
+
+21
+00:01:02,950 --> 00:01:05,220
+Let's see how we can use
+the new JavaScript module
+
+22
+00:01:05,220 --> 00:01:08,800
+syntax to write better code.
+
+23
+00:01:08,800 --> 00:01:11,740
+We'll start by creating a
+module for our flashMessage
+
+24
+00:01:11,740 --> 00:01:14,060
+function, which, as
+the name implies,
+
+25
+00:01:14,060 --> 00:01:15,770
+will be responsible
+for displaying
+
+26
+00:01:15,770 --> 00:01:18,087
+flash messages on our web page.
+
+27
+00:01:18,087 --> 00:01:22,850
+We create a file called
+flash-message.js.
+
+28
+00:01:22,850 --> 00:01:26,280
+Inside this file we define
+an anonymous function,
+
+29
+00:01:26,280 --> 00:01:28,510
+which takes a message
+as an argument
+
+30
+00:01:28,510 --> 00:01:30,590
+and calls the global
+alert function,
+
+31
+00:01:30,590 --> 00:01:32,780
+passing in the message.
+
+32
+00:01:32,780 --> 00:01:35,550
+To make this function
+available to the outside world
+
+33
+00:01:35,550 --> 00:01:38,950
+we use the export
+keyword, which exposes it
+
+34
+00:01:38,950 --> 00:01:41,390
+to the module system.
+
+35
+00:01:41,390 --> 00:01:44,690
+Then, we specify the
+default type export
+
+36
+00:01:44,690 --> 00:01:46,785
+which is the simplest
+way to export a function.
+
+37
+00:01:49,970 --> 00:01:54,030
+Next, we'll create another
+JavaScript file called app.js
+
+38
+00:01:54,030 --> 00:01:57,310
+which will serve as the entry
+point for JavaScript code
+
+39
+00:01:57,310 --> 00:02:00,920
+and where we'll import
+other modules from.
+
+40
+00:02:00,920 --> 00:02:05,350
+Now, to import these modules
+we'll use the import keyword,
+
+41
+00:02:05,350 --> 00:02:07,520
+then specify a new
+local variable,
+
+42
+00:02:07,520 --> 00:02:10,699
+in this case flashMessage,
+and use the from
+
+43
+00:02:10,699 --> 00:02:13,090
+keyword to tell the
+JavaScript engine
+
+44
+00:02:13,090 --> 00:02:15,500
+where the module can be found.
+
+45
+00:02:15,500 --> 00:02:18,900
+The flashMessage variable
+now holds the function
+
+46
+00:02:18,900 --> 00:02:21,680
+imported from the
+flashMessage module
+
+47
+00:02:21,680 --> 00:02:24,940
+so we can use it to invoke the
+function passing in the string
+
+48
+00:02:24,940 --> 00:02:26,410
+"Hello".
+
+49
+00:02:26,410 --> 00:02:29,730
+Because our flashMessage
+module is using the default type
+
+50
+00:02:29,730 --> 00:02:32,721
+export we could've named
+our flashMessage variable
+
+51
+00:02:32,721 --> 00:02:33,220
+anything.
+
+52
+00:02:36,850 --> 00:02:40,590
+Now, to run this code we
+go back to our HTML page
+
+53
+00:02:40,590 --> 00:02:45,151
+and load both the flash
+message module and app.js.
+
+54
+00:02:45,151 --> 00:02:47,660
+And as we can see,
+the string "Hello"
+
+55
+00:02:47,660 --> 00:02:50,950
+is successfully
+alerted to the page.
+
+56
+00:02:50,950 --> 00:02:53,740
+Now you might be thinking
+that this HTML is pretty
+
+57
+00:02:53,740 --> 00:02:56,070
+much the same as it was before.
+
+58
+00:02:56,070 --> 00:02:58,660
+However, in this
+version, we're not
+
+59
+00:02:58,660 --> 00:03:00,960
+adding to the global
+namespace, which
+
+60
+00:03:00,960 --> 00:03:04,130
+makes our code more
+encapsulated and protects us
+
+61
+00:03:04,130 --> 00:03:05,895
+from any potential
+naming conflicts.
+
+62
+00:03:08,510 --> 00:03:11,690
+From inside our modules
+we have total control
+
+63
+00:03:11,690 --> 00:03:14,690
+over what we expose
+to the outside world.
+
+64
+00:03:14,690 --> 00:03:16,540
+Now, let's go back
+to flash-message.js
+
+65
+00:03:16,540 --> 00:03:20,610
+and declare another
+function, logMessage.
+
+66
+00:03:20,610 --> 00:03:24,400
+Simply declaring this function
+does not make it available
+
+67
+00:03:24,400 --> 00:03:26,290
+outside of this module.
+
+68
+00:03:26,290 --> 00:03:30,610
+It's encapsulated, hidden
+from the global namespace.
+
+69
+00:03:30,610 --> 00:03:33,440
+The default type export
+limits the number of functions
+
+70
+00:03:33,440 --> 00:03:35,980
+that we can export
+out of a module.
+
+71
+00:03:35,980 --> 00:03:39,160
+So in order to be able to
+export any number of functions
+
+72
+00:03:39,160 --> 00:03:44,140
+we need to change the type of
+export that we're using here.
+
+73
+00:03:44,140 --> 00:03:47,220
+In order to export multiple
+functions from a module
+
+74
+00:03:47,220 --> 00:03:49,560
+we can use named exports.
+
+75
+00:03:49,560 --> 00:03:53,090
+So let's do that in the
+flash-message module.
+
+76
+00:03:53,090 --> 00:03:57,850
+First, we'll give our first
+function a name, alert message.
+
+77
+00:03:57,850 --> 00:04:01,950
+Now, we have alertMessage,
+which uses the alert pop up,
+
+78
+00:04:01,950 --> 00:04:05,740
+and logMessage, which
+uses console.log to print
+
+79
+00:04:05,740 --> 00:04:07,840
+the message to the console.
+
+80
+00:04:07,840 --> 00:04:10,550
+Then, we'll remove
+the default type
+
+81
+00:04:10,550 --> 00:04:14,330
+and use just the export
+keyword.  This way
+
+82
+00:04:14,330 --> 00:04:15,825
+we can use named exports.
+
+83
+00:04:18,790 --> 00:04:22,950
+Back to app.js, our functions
+are ready to be imported.
+
+84
+00:04:22,950 --> 00:04:25,485
+This time they must be
+assigned to variables
+
+85
+00:04:25,485 --> 00:04:28,910
+with the same name, as
+we can see over here.
+
+86
+00:04:28,910 --> 00:04:31,070
+They need to be
+wrapped in curly braces
+
+87
+00:04:31,070 --> 00:04:33,750
+and separated by a comma.
+
+88
+00:04:33,750 --> 00:04:35,840
+Once we import
+them we can simply
+
+89
+00:04:35,840 --> 00:04:38,100
+call these two functions.
+
+90
+00:04:38,100 --> 00:04:41,070
+Now, if we load our
+HTML page again we'll
+
+91
+00:04:41,070 --> 00:04:44,510
+see both the alert
+pop up and the output
+
+92
+00:04:44,510 --> 00:04:47,910
+printed to the console.
+
+93
+00:04:47,910 --> 00:04:50,290
+Another way that we could
+import our functions
+
+94
+00:04:50,290 --> 00:04:54,320
+is by importing the
+entire module as an object
+
+95
+00:04:54,320 --> 00:04:56,790
+and then calling each
+individual function
+
+96
+00:04:56,790 --> 00:04:59,860
+as a property on that object.
+
+97
+00:04:59,860 --> 00:05:04,490
+Here we use import * to
+import the entire flashMessage
+
+98
+00:05:04,490 --> 00:05:09,030
+module as an object and use
+the as key word to tell it
+
+99
+00:05:09,030 --> 00:05:11,660
+which variable to
+assign the object to,
+
+100
+00:05:11,660 --> 00:05:14,630
+in this example flash.
+
+101
+00:05:14,630 --> 00:05:17,930
+Then we can call the
+alertMessage and logMessage
+
+102
+00:05:17,930 --> 00:05:22,750
+functions as properties
+from the flash object.
+
+103
+00:05:22,750 --> 00:05:25,240
+Lastly, I want to show
+you a quick refactoring
+
+104
+00:05:25,240 --> 00:05:29,500
+that we can use to make this
+code even easier to read.
+
+105
+00:05:29,500 --> 00:05:32,430
+Notice here that we're
+repeating the export keyword
+
+106
+00:05:32,430 --> 00:05:36,140
+for each named function
+that we want to expose.
+
+107
+00:05:36,140 --> 00:05:38,840
+We could make this
+code shorter by moving
+
+108
+00:05:38,840 --> 00:05:44,640
+these multiple exports to
+a single export statement.
+
+109
+00:05:44,640 --> 00:05:46,880
+Export can take
+multiple function names
+
+110
+00:05:46,880 --> 00:05:50,700
+inside curly braces and
+separate it by a comma.
+
+111
+00:05:50,700 --> 00:05:53,000
+This version involves
+a little less typing
+
+112
+00:05:53,000 --> 00:05:55,410
+and it's easier to read as well.
+
+113
+00:05:55,410 --> 00:05:58,520
+Our code in app.js
+remains the same.
+
+114
+00:05:58,520 --> 00:06:01,320
+We still import our
+functions just like before.
+
+115
+00:06:04,400 --> 00:06:06,400
+Now it's your turn
+to practice working
+
+116
+00:06:06,400 --> 00:06:09,010
+with modules in the challenges.
+

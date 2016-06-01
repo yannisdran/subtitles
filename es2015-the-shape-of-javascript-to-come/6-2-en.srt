@@ -1,0 +1,632 @@
+﻿1
+00:00:02,570 --> 00:00:03,790
+Welcome back.
+
+2
+00:00:03,790 --> 00:00:06,480
+In this section, we'll
+talk about iterators,
+
+3
+00:00:06,480 --> 00:00:09,870
+but before we do that let's
+do a quick recap on what
+
+4
+00:00:09,870 --> 00:00:12,015
+we know so far about iterables.
+
+5
+00:00:15,310 --> 00:00:18,560
+We know that arrays are
+iterables so we can use them
+
+6
+00:00:18,560 --> 00:00:20,930
+with for...of like
+we're doing here,
+
+7
+00:00:20,930 --> 00:00:25,120
+looping through each name
+element from the names array.
+
+8
+00:00:25,120 --> 00:00:28,500
+We also know that plain
+JavaScript objects are not
+
+9
+00:00:28,500 --> 00:00:29,370
+iterable.
+
+10
+00:00:29,370 --> 00:00:33,290
+So they do not work with
+for...of out of the box.
+
+11
+00:00:33,290 --> 00:00:37,250
+If we try using for...of to loop
+through properties in this post
+
+12
+00:00:37,250 --> 00:00:39,070
+object we'll run into an error.
+
+13
+00:00:41,770 --> 00:00:43,680
+Iterables are
+objects that know how
+
+14
+00:00:43,680 --> 00:00:47,490
+to return a special
+object called an iterator.
+
+15
+00:00:47,490 --> 00:00:49,940
+An iterator is an
+object that knows
+
+16
+00:00:49,940 --> 00:00:53,390
+how to access items from
+a collection one at a time
+
+17
+00:00:53,390 --> 00:00:56,090
+while keeping track of
+its current position
+
+18
+00:00:56,090 --> 00:00:58,190
+within that sequence.
+
+19
+00:00:58,190 --> 00:01:00,150
+Let's look at an example.
+
+20
+00:01:00,150 --> 00:01:04,840
+Here we have our names array
+with Sam, Tyler and Brook.
+
+21
+00:01:04,840 --> 00:01:08,590
+We use for...of to loop through
+each one of its elements.
+
+22
+00:01:08,590 --> 00:01:11,060
+Every time we use
+for...of like this,
+
+23
+00:01:11,060 --> 00:01:14,790
+what we're really working
+with is an iterator object.
+
+24
+00:01:14,790 --> 00:01:17,380
+If we were to write the code
+for what's happening behind
+
+25
+00:01:17,380 --> 00:01:20,540
+the scenes in a for...of loop,
+it could look something like
+
+26
+00:01:20,540 --> 00:01:23,120
+this.
+
+27
+00:01:23,120 --> 00:01:24,830
+First, we call the
+function that's
+
+28
+00:01:24,830 --> 00:01:27,980
+assigned to the
+Symbol.iterator property.
+
+29
+00:01:27,980 --> 00:01:30,910
+This function returns
+an iterator object.
+
+30
+00:01:30,910 --> 00:01:33,430
+This iterator object
+knows exactly how
+
+31
+00:01:33,430 --> 00:01:36,830
+to navigate through the elements
+from the object it belongs to.
+
+32
+00:01:36,830 --> 00:01:40,510
+In this case, the names array.
+
+33
+00:01:40,510 --> 00:01:44,230
+To read an element from the iterator
+we call the next method.
+
+34
+00:01:44,230 --> 00:01:48,160
+Now when we're using for...of
+we don't have to call this next
+
+35
+00:01:48,160 --> 00:01:49,440
+method manually.
+
+36
+00:01:49,440 --> 00:01:52,380
+The loop takes care of
+calling this for us.
+
+37
+00:01:52,380 --> 00:01:54,910
+And what we get back from
+calling the next method
+
+38
+00:01:54,910 --> 00:01:59,970
+is an object with two
+properties, done and value.
+
+39
+00:01:59,970 --> 00:02:02,400
+We'll talk more about these
+two in just a little bit,
+
+40
+00:02:02,400 --> 00:02:07,000
+but for now all we need to know
+is that while done is false,
+
+41
+00:02:07,000 --> 00:02:09,750
+the for...of loop will
+keep reading values from
+
+42
+00:02:09,750 --> 00:02:11,200
+the iterator.
+
+43
+00:02:11,200 --> 00:02:14,550
+For our names array, once it
+calls next for the first time,
+
+44
+00:02:14,550 --> 00:02:18,610
+it reads value and assigns
+its results to name.
+
+45
+00:02:18,610 --> 00:02:20,820
+In this case, "Sam".
+
+46
+00:02:20,820 --> 00:02:25,150
+Then, on the second run
+it assigns "Tyler" to name.
+
+47
+00:02:25,150 --> 00:02:28,580
+Then, on the third run
+it assigns "Brook" to name.
+
+48
+00:02:28,580 --> 00:02:31,990
+Now in the fourth time it calls
+next the return object has
+
+49
+00:02:31,990 --> 00:02:36,060
+the done property set to true,
+which tells for...of that we
+
+50
+00:02:36,060 --> 00:02:39,150
+are done navigating through the
+elements and we can break out
+
+51
+00:02:39,150 --> 00:02:41,070
+of the loop.
+
+52
+00:02:41,070 --> 00:02:44,670
+As you can see the iterator
+object is pretty smart.
+
+53
+00:02:44,670 --> 00:02:48,450
+Most of the logic behind this
+happens in the next function.
+
+54
+00:02:48,450 --> 00:02:51,830
+So let's dive a little
+deeper into this function.
+
+55
+00:02:51,830 --> 00:02:54,080
+We've learned that each
+time that we call next it
+
+56
+00:02:54,080 --> 00:02:58,290
+returns an object with two
+properties, done and value.
+
+57
+00:02:58,290 --> 00:03:00,760
+And here's how they work.
+
+58
+00:03:00,760 --> 00:03:03,020
+done will be false
+if the iterator
+
+59
+00:03:03,020 --> 00:03:06,400
+is able to return a value
+from the current collection.
+
+60
+00:03:06,400 --> 00:03:09,300
+Here in our names array
+with three elements done
+
+61
+00:03:09,300 --> 00:03:11,840
+returns false three times.
+
+62
+00:03:11,840 --> 00:03:15,680
+On the fourth time its past the
+end of the collection so done
+
+63
+00:03:15,680 --> 00:03:18,130
+returns true.
+
+64
+00:03:18,130 --> 00:03:20,310
+The value property
+is sent to the value
+
+65
+00:03:20,310 --> 00:03:22,210
+returned by the iterator.
+
+66
+00:03:22,210 --> 00:03:24,180
+For the first three
+runs of the loop
+
+67
+00:03:24,180 --> 00:03:26,660
+it returns each
+element from the array.
+
+68
+00:03:26,660 --> 00:03:29,550
+Sam, Tyler and Brook.
+
+69
+00:03:29,550 --> 00:03:32,460
+The fourth time it runs
+through the loop the value
+
+70
+00:03:32,460 --> 00:03:35,210
+is set to undefined.
+
+71
+00:03:35,210 --> 00:03:37,490
+Now that we understand the
+mechanics of the iterator
+
+72
+00:03:37,490 --> 00:03:41,450
+object, in the next method we
+can write your own iterator
+
+73
+00:03:41,450 --> 00:03:44,850
+and return it from a
+plain JavaScript object.
+
+74
+00:03:44,850 --> 00:03:47,500
+Therefore, making it iterable.
+
+75
+00:03:47,500 --> 00:03:50,930
+Let's see how we can do that.
+
+76
+00:03:50,930 --> 00:03:54,890
+Here's our plain JavaScript
+object post with the title
+
+77
+00:03:54,890 --> 00:03:57,996
+and replies properties.
+
+78
+00:03:57,996 --> 00:03:59,370
+We've learned that
+an iterator is
+
+79
+00:03:59,370 --> 00:04:01,830
+an object with a next
+property returned
+
+80
+00:04:01,830 --> 00:04:05,620
+by a function assigned to
+the Symbol.iterator property.
+
+81
+00:04:05,620 --> 00:04:07,430
+We'll do just that.
+
+82
+00:04:07,430 --> 00:04:11,790
+First, we add a function to
+the Symbol.iterator property.
+
+83
+00:04:11,790 --> 00:04:14,530
+When this function is called,
+it will return an object
+
+84
+00:04:14,530 --> 00:04:16,380
+with the next property.
+
+85
+00:04:16,380 --> 00:04:19,339
+For now we'll simply
+write an empty function.
+
+86
+00:04:19,339 --> 00:04:21,079
+And notice we're using
+an arrow function,
+
+87
+00:04:21,079 --> 00:04:24,440
+and we'll see why
+in just a second.
+
+88
+00:04:24,440 --> 00:04:27,690
+If we try using our post object
+with the for...of loop now,
+
+89
+00:04:27,690 --> 00:04:29,700
+we're still going to
+run into an error.
+
+90
+00:04:29,700 --> 00:04:32,669
+However, we'll see a different
+error message than the one
+
+91
+00:04:32,669 --> 00:04:33,710
+that we're seeing before.
+
+92
+00:04:33,710 --> 00:04:35,530
+It means we're on
+the right track.
+
+93
+00:04:38,070 --> 00:04:39,810
+Next let's define
+some things that
+
+94
+00:04:39,810 --> 00:04:42,830
+can help us navigate through the
+sequence of values in our post
+
+95
+00:04:42,830 --> 00:04:44,420
+object.
+
+96
+00:04:44,420 --> 00:04:48,660
+First, we'll use Object.keys
+to grab the list of properties
+
+97
+00:04:48,660 --> 00:04:51,230
+defined in our object.
+
+98
+00:04:51,230 --> 00:04:53,750
+This method returns an array.
+
+99
+00:04:53,750 --> 00:04:58,550
+Then, we'll create a count
+variable and set it to zero.
+
+100
+00:04:58,550 --> 00:05:01,350
+This variable will help us
+access the properties array
+
+101
+00:05:01,350 --> 00:05:03,070
+by their index.
+
+102
+00:05:03,070 --> 00:05:06,730
+Finally, we'll create
+isDone and set it to false.
+
+103
+00:05:06,730 --> 00:05:09,590
+This is the variable that will
+be used as a value for the done
+
+104
+00:05:09,590 --> 00:05:11,670
+property and we'll
+set it to true
+
+105
+00:05:11,670 --> 00:05:14,120
+when we're done with the loop.
+
+106
+00:05:14,120 --> 00:05:15,900
+With these in
+place, we can start
+
+107
+00:05:15,900 --> 00:05:19,820
+implementing the next method.
+
+108
+00:05:19,820 --> 00:05:23,220
+First, we check to see if we're
+past the end of the collection.
+
+109
+00:05:23,220 --> 00:05:26,220
+If so, we'll set
+isDone to true,
+
+110
+00:05:26,220 --> 00:05:29,510
+which will cause the script to
+break out of the for...of loop
+
+111
+00:05:29,510 --> 00:05:32,260
+once we return from this method.
+
+112
+00:05:32,260 --> 00:05:36,220
+Then, we return the object with
+the done property and the value
+
+113
+00:05:36,220 --> 00:05:38,220
+property.
+
+114
+00:05:38,220 --> 00:05:39,940
+We use the count
+variable to grab
+
+115
+00:05:39,940 --> 00:05:42,140
+the value for the
+next property and then
+
+116
+00:05:42,140 --> 00:05:44,860
+increment count so
+the next time it runs
+
+117
+00:05:44,860 --> 00:05:47,970
+it reads the following value.
+
+118
+00:05:47,970 --> 00:05:50,030
+And that's all there is to it.
+
+119
+00:05:50,030 --> 00:05:52,130
+Now we have a working
+implementation
+
+120
+00:05:52,130 --> 00:05:55,170
+of the next method on a
+plain JavaScript object.
+
+121
+00:05:58,990 --> 00:06:02,760
+Now if we try using the post
+object in for...of loop,
+
+122
+00:06:02,760 --> 00:06:05,965
+we'll see that it properly
+returns the value for each
+
+123
+00:06:05,965 --> 00:06:06,465
+property.
+
+124
+00:06:10,150 --> 00:06:12,460
+And since we've made
+our post object iterable
+
+125
+00:06:12,460 --> 00:06:14,820
+we can also use it with
+other new features,
+
+126
+00:06:14,820 --> 00:06:16,940
+like the spread operator.
+
+127
+00:06:16,940 --> 00:06:19,720
+If we wrap our post
+object in square brackets
+
+128
+00:06:19,720 --> 00:06:22,250
+and prefix it with
+these three dots,
+
+129
+00:06:22,250 --> 00:06:26,730
+we can read the
+values as an array.
+
+130
+00:06:26,730 --> 00:06:30,500
+Or we can read from post using
+destructuring, assigning
+
+131
+00:06:30,500 --> 00:06:33,444
+to local variables title
+and replies at once,
+
+132
+00:06:33,444 --> 00:06:34,360
+like we're doing here.
+
+133
+00:06:39,010 --> 00:06:40,500
+That's it for this section.
+
+134
+00:06:40,500 --> 00:06:44,560
+Now it's your turn to practice
+iterators in the challenges.
+

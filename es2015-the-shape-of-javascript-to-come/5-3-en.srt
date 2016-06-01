@@ -1,0 +1,443 @@
+﻿1
+00:00:02,510 --> 00:00:03,562
+Welcome back.
+
+2
+00:00:03,562 --> 00:00:05,020
+In this section,
+we'll learn how we
+
+3
+00:00:05,020 --> 00:00:10,220
+can use modules to encapsulate
+constants in classes.
+
+4
+00:00:10,220 --> 00:00:13,420
+You probably remember when
+we talked about constants.
+
+5
+00:00:13,420 --> 00:00:16,230
+Here we have a loadProfiles
+function,
+
+6
+00:00:16,230 --> 00:00:18,470
+part of the
+load-profiles module which
+
+7
+00:00:18,470 --> 00:00:23,230
+declares two constants,
+MAX_USERS and MAX_REPLIES,
+
+8
+00:00:23,230 --> 00:00:26,010
+and assigns a value for each.
+
+9
+00:00:26,010 --> 00:00:28,540
+Then on the list-replies
+module we
+
+10
+00:00:28,540 --> 00:00:32,299
+define the MAX_REPLIES constant
+again and on the
+
+11
+00:00:32,299 --> 00:00:35,220
+display-watchers module we
+define MAX_USERS again.
+
+12
+00:00:38,850 --> 00:00:41,250
+You might be thinking, I
+thought we couldn't redefine
+
+13
+00:00:41,250 --> 00:00:43,350
+constants, what's up with that?
+
+14
+00:00:43,350 --> 00:00:46,780
+You were right, we cannot
+redefine constants within
+
+15
+00:00:46,780 --> 00:00:48,480
+the same scope.
+
+16
+00:00:48,480 --> 00:00:51,480
+But here we have three
+different functions,
+
+17
+00:00:51,480 --> 00:00:54,720
+each with their own
+scope, so this code
+
+18
+00:00:54,720 --> 00:00:56,960
+is technically correct.
+
+19
+00:00:56,960 --> 00:00:59,770
+However, it's
+unnecessary duplication
+
+20
+00:00:59,770 --> 00:01:02,400
+that can lead to bad code.
+
+21
+00:01:02,400 --> 00:01:04,230
+The issue here is
+that if we ever
+
+22
+00:01:04,230 --> 00:01:07,470
+have to change the value
+of any of these constants
+
+23
+00:01:07,470 --> 00:01:10,660
+we have to remember to
+change every occurrence
+
+24
+00:01:10,660 --> 00:01:14,640
+of that constant, which entirely
+defeats the purpose of using
+
+25
+00:01:14,640 --> 00:01:17,700
+constants in the first place.
+
+26
+00:01:17,700 --> 00:01:20,990
+A simple way to fix this
+is to create a module where
+
+27
+00:01:20,990 --> 00:01:23,270
+we can define our constants.
+
+28
+00:01:23,270 --> 00:01:27,030
+This allows them to be used from
+other places in the application
+
+29
+00:01:27,030 --> 00:01:31,180
+while hiding implementation
+details:  their values.
+
+30
+00:01:31,180 --> 00:01:35,650
+So we create a new module named
+constants.js and move our code
+
+31
+00:01:35,650 --> 00:01:36,970
+over there.
+
+32
+00:01:36,970 --> 00:01:41,360
+We use the export keyword
+followed by const, then
+
+33
+00:01:41,360 --> 00:01:45,040
+the name of the constant and
+then assign it its value.
+
+34
+00:01:45,040 --> 00:01:47,380
+Or we could also use
+the single exports
+
+35
+00:01:47,380 --> 00:01:52,640
+syntax, whichever you prefer,
+both of these work the same.
+
+36
+00:01:52,640 --> 00:01:54,940
+Now back to our load-profiles
+module.
+
+37
+00:01:54,940 --> 00:01:57,110
+We can use the import
+statement just like we
+
+38
+00:01:57,110 --> 00:01:59,030
+were doing before.
+
+39
+00:01:59,030 --> 00:02:03,894
+We import MAX_REPLIES and
+MAX_USERS from the constants module
+
+40
+00:02:03,894 --> 00:02:05,935
+and then we can use them
+throughout our function.
+
+41
+00:02:09,850 --> 00:02:13,420
+Same thing with the list-replies
+module and display-watchers
+
+42
+00:02:13,420 --> 00:02:14,520
+module.
+
+43
+00:02:14,520 --> 00:02:18,180
+We import MAX_REPLIES on
+the list-replies and
+
+44
+00:02:18,180 --> 00:02:21,990
+MAX_USERS on display-watchers.
+
+45
+00:02:21,990 --> 00:02:23,760
+All modules are
+now using constants
+
+46
+00:02:23,760 --> 00:02:25,830
+defined in a single place.
+
+47
+00:02:25,830 --> 00:02:28,150
+So if we ever need to
+update the value for any
+
+48
+00:02:28,150 --> 00:02:30,210
+of these constants,
+all we have to do
+
+49
+00:02:30,210 --> 00:02:34,120
+is go back to the constants
+module and update there once.
+
+50
+00:02:34,120 --> 00:02:36,850
+All changes will be
+reflected automatically.
+
+51
+00:02:36,850 --> 00:02:37,350
+Pretty cool.
+
+52
+00:02:40,360 --> 00:02:45,070
+Lastly, let's see how we can
+export classes from modules.
+
+53
+00:02:45,070 --> 00:02:48,440
+Here's a version of our
+flash-message module rewritten
+
+54
+00:02:48,440 --> 00:02:50,960
+to use the class syntax.
+
+55
+00:02:50,960 --> 00:02:54,700
+We have our class definition,
+class FlashMessage,
+
+56
+00:02:54,700 --> 00:02:58,740
+with a constructor setting
+the value for this.message.
+
+57
+00:02:58,740 --> 00:03:01,520
+Then we have two
+instance methods,
+
+58
+00:03:01,520 --> 00:03:04,210
+renderAlert and renderLog.
+
+59
+00:03:04,210 --> 00:03:07,360
+Both part of the
+FlashMessage class.
+
+60
+00:03:07,360 --> 00:03:09,950
+To export this class
+we use the export
+
+61
+00:03:09,950 --> 00:03:12,720
+keyword with the default
+type export right
+
+62
+00:03:12,720 --> 00:03:15,140
+before the class syntax.
+
+63
+00:03:15,140 --> 00:03:18,330
+Remember, because we're using
+the default type export here,
+
+64
+00:03:18,330 --> 00:03:21,190
+we can assign this class
+to any variable name
+
+65
+00:03:21,190 --> 00:03:22,035
+once it's imported.
+
+66
+00:03:25,220 --> 00:03:28,990
+Now, from app.js we can
+import FlashMessage
+
+67
+00:03:28,990 --> 00:03:31,490
+using the same import syntax.
+
+68
+00:03:31,490 --> 00:03:33,820
+The name of the class
+here could be anything,
+
+69
+00:03:33,820 --> 00:03:37,900
+but we'll stick with FlashMessage
+just for consistency.
+
+70
+00:03:37,900 --> 00:03:40,410
+The only thing different
+from the function version
+
+71
+00:03:40,410 --> 00:03:43,060
+is that we must create
+an instance of the
+
+72
+00:03:43,060 --> 00:03:45,410
+FlashMessage using new.
+
+73
+00:03:45,410 --> 00:03:47,710
+Once we do that we
+can call methods
+
+74
+00:03:47,710 --> 00:03:51,130
+like renderAlert and renderLog.
+
+75
+00:03:51,130 --> 00:03:54,020
+When we load our page again,
+we can see both the pop
+
+76
+00:03:54,020 --> 00:03:57,210
+up alert and the message
+printed to the console.
+
+77
+00:04:01,430 --> 00:04:04,440
+Just like we do with functions,
+we can also export classes
+
+78
+00:04:04,440 --> 00:04:07,290
+using named exports.
+
+79
+00:04:07,290 --> 00:04:09,600
+First, we define
+our class and then
+
+80
+00:04:09,600 --> 00:04:13,320
+we use the export statement with
+the name of the class wrapped
+
+81
+00:04:13,320 --> 00:04:15,130
+in curly braces.
+
+82
+00:04:15,130 --> 00:04:17,980
+This exports our class
+to the outside world.
+
+83
+00:04:24,050 --> 00:04:25,720
+Now that we're
+using named exports
+
+84
+00:04:25,720 --> 00:04:29,340
+we must go back to app.js
+and wrap our class name
+
+85
+00:04:29,340 --> 00:04:30,800
+in curly braces.
+
+86
+00:04:30,800 --> 00:04:34,270
+And the name of the class here
+needs to be the exact same name
+
+87
+00:04:34,270 --> 00:04:36,860
+that we use in our module.
+
+88
+00:04:36,860 --> 00:04:39,030
+If we load our page,
+we can see the output
+
+89
+00:04:39,030 --> 00:04:43,400
+is the same, alert pop up and
+message printed to the console.
+
+90
+00:04:47,890 --> 00:04:49,550
+That's it for this
+level, now it's
+
+91
+00:04:49,550 --> 00:04:51,220
+your turn to go back
+to the challenges
+
+92
+00:04:51,220 --> 00:04:54,720
+and practice some more.
+
+93
+00:04:54,720 --> 00:04:57,130
+Typing this
+SponsorWidget.prototype
+
+94
+00:04:57,130 --> 00:04:59,470
+every time is not cool.
+

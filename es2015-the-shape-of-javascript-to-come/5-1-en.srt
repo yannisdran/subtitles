@@ -482,7 +482,7 @@ from a parent class.
 102
 00:05:05,930 --> 00:05:08,590
 In this code, we can
-see the class widget,
+see the class Widget,
 
 103
 00:05:08,590 --> 00:05:12,420
@@ -492,7 +492,7 @@ and the parse method.
 104
 00:05:12,420 --> 00:05:16,330
 Then, SponsorWidget,
-which extends widget,
+which extends Widget,
 
 105
 00:05:16,330 --> 00:05:18,790
@@ -506,11 +506,11 @@ And the render method.
 107
 00:05:20,790 --> 00:05:24,250
 The render method can
-access this dot parse,
+access this.parse,
 
 108
 00:05:24,250 --> 00:05:29,850
-and this dot base CSS, which
+and this.baseCSS, which
 are defined on its parent class.
 
 109
@@ -530,7 +530,7 @@ in the constructor.
 112
 00:05:37,560 --> 00:05:40,690
 This method causes the
-parent classes constructor
+parent class' constructor
 
 113
 00:05:40,690 --> 00:05:42,410
@@ -572,12 +572,12 @@ like we see over here.
 
 121
 00:06:03,800 --> 00:06:07,340
-Super dot parse is calling
+super.parse is calling
 the parse method defined
 
 122
 00:06:07,340 --> 00:06:08,305
-on the widget class.
+on the Widget class.
 
 123
 00:06:11,820 --> 00:06:13,270

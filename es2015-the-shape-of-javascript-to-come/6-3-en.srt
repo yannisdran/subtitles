@@ -1,0 +1,371 @@
+﻿1
+00:00:02,900 --> 00:00:03,830
+Welcome back.
+
+2
+00:00:03,830 --> 00:00:06,610
+And in this section, we'll
+talk about generators,
+
+3
+00:00:06,610 --> 00:00:08,250
+which are a new type
+of function added
+
+4
+00:00:08,250 --> 00:00:10,400
+to JavaScript that
+make it easier
+
+5
+00:00:10,400 --> 00:00:12,260
+to work with iterator objects.
+
+6
+00:00:15,680 --> 00:00:19,170
+We create generator functions
+with the function keyword
+
+7
+00:00:19,170 --> 00:00:22,190
+followed by a
+*, then followed
+
+8
+00:00:22,190 --> 00:00:24,030
+by the name of the function.
+
+9
+00:00:24,030 --> 00:00:25,860
+Inside of a generator
+function, we
+
+10
+00:00:25,860 --> 00:00:30,530
+can use the yield keyword
+to return iterator objects.
+
+11
+00:00:30,530 --> 00:00:32,819
+Arguments past to
+yield are automatically
+
+12
+00:00:32,819 --> 00:00:35,110
+assigned to the value property,
+which we learned about
+
+13
+00:00:35,110 --> 00:00:37,070
+in the previous level.
+
+14
+00:00:37,070 --> 00:00:39,580
+For the function declaration,
+it doesn't matter where
+
+15
+00:00:39,580 --> 00:00:41,510
+we put *.
+
+16
+00:00:41,510 --> 00:00:44,390
+It could go right before
+the function name,
+
+17
+00:00:44,390 --> 00:00:47,130
+right after the
+function keyword,
+
+18
+00:00:47,130 --> 00:00:48,580
+or right in the middle.
+
+19
+00:00:48,580 --> 00:00:51,846
+It doesn't really matter as long
+as it comes after the function
+
+20
+00:00:51,846 --> 00:00:52,345
+keyword.
+
+21
+00:00:54,890 --> 00:00:56,900
+Generator functions
+return objects,
+
+22
+00:00:56,900 --> 00:00:59,560
+which provide the same
+next method expected
+
+23
+00:00:59,560 --> 00:01:03,770
+by for...of, the spread
+operator, and destructuring.
+
+24
+00:01:03,770 --> 00:01:07,690
+This next method is the same
+one we use with iterators.
+
+25
+00:01:07,690 --> 00:01:11,390
+In this example, the result of
+calling the nameList function
+
+26
+00:01:11,390 --> 00:01:15,480
+is a generator object, which
+then returns an iterator
+
+27
+00:01:15,480 --> 00:01:16,510
+object.
+
+28
+00:01:16,510 --> 00:01:19,610
+The first run of the loop returns
+"Sam" and the second run
+
+29
+00:01:19,610 --> 00:01:22,480
+of the loop returns
+"Tyler", both values
+
+30
+00:01:22,480 --> 00:01:25,050
+that were used as
+arguments to yield.
+
+31
+00:01:25,050 --> 00:01:28,930
+We can also use our nameList
+function with a spread operator
+
+32
+00:01:28,930 --> 00:01:31,080
+by wrapping it in
+square brackets
+
+33
+00:01:31,080 --> 00:01:34,010
+and prefixing it
+with the three dots.
+
+34
+00:01:34,010 --> 00:01:37,570
+This gives us a list of elements
+in the form of an array.
+
+35
+00:01:37,570 --> 00:01:39,430
+If we print names
+to the console,
+
+36
+00:01:39,430 --> 00:01:43,060
+we can see it prints an
+array with "Sam" and "Tyler",
+
+37
+00:01:43,060 --> 00:01:44,640
+and we can also
+use destructuring
+
+38
+00:01:44,640 --> 00:01:46,550
+to read from the
+nameList function
+
+39
+00:01:46,550 --> 00:01:49,950
+and assign to multiple variables
+at once, like we're doing here
+
+40
+00:01:49,950 --> 00:01:52,170
+with first and second.
+
+41
+00:01:52,170 --> 00:01:57,180
+We print them out to the console
+and we see "Sam" and "Tyler".
+
+42
+00:01:57,180 --> 00:01:59,490
+Now that we've learned
+about generator functions,
+
+43
+00:01:59,490 --> 00:02:02,640
+let's see how we can use them
+to clean up our post object
+
+44
+00:02:02,640 --> 00:02:04,130
+code a little bit.
+
+45
+00:02:04,130 --> 00:02:05,654
+This is where we ended up at.
+
+46
+00:02:09,830 --> 00:02:12,020
+Using the power of
+generator functions,
+
+47
+00:02:12,020 --> 00:02:17,550
+we can turn code like
+this into code like this.
+
+48
+00:02:17,550 --> 00:02:20,090
+First thing we do is change
+the function signature
+
+49
+00:02:20,090 --> 00:02:23,450
+to a generator function,
+and to do that, all we need
+
+50
+00:02:23,450 --> 00:02:25,480
+is a star character, *.
+
+51
+00:02:25,480 --> 00:02:28,526
+Generator functions
+can be anonymous.
+
+52
+00:02:28,526 --> 00:02:32,050
+Then, we replace our manual
+crafting of the return object
+
+53
+00:02:32,050 --> 00:02:35,520
+with a simple for...of
+loop that calls yield.
+
+54
+00:02:35,520 --> 00:02:40,610
+for...of will return the string's
+title and then replies.
+
+55
+00:02:40,610 --> 00:02:42,710
+Each time, we'll use
+each one of these strings
+
+56
+00:02:42,710 --> 00:02:44,790
+to look up the value
+of their property
+
+57
+00:02:44,790 --> 00:02:47,770
+using the object <i>this</i>,
+which refers to the post
+
+58
+00:02:47,770 --> 00:02:49,630
+object itself.
+
+59
+00:02:49,630 --> 00:02:53,740
+Then we'll pass the value
+as an argument to yield.
+
+60
+00:02:53,740 --> 00:02:55,410
+for...of will loop twice.
+
+61
+00:02:55,410 --> 00:02:58,590
+On the first time, it will
+assign the string title
+
+62
+00:02:58,590 --> 00:03:00,370
+to the variable p.
+
+63
+00:03:00,370 --> 00:03:02,990
+We'll use that string
+to look up the property
+
+64
+00:03:02,990 --> 00:03:06,400
+value on the object <i>this</i>,
+which refers to the post
+
+65
+00:03:06,400 --> 00:03:08,650
+object itself.
+
+66
+00:03:08,650 --> 00:03:11,870
+The same thing happens again,
+this time with the string
+
+67
+00:03:11,870 --> 00:03:13,540
+replies.
+
+68
+00:03:13,540 --> 00:03:18,110
+This for...of loop is the same as
+manually returning each value,
+
+69
+00:03:18,110 --> 00:03:20,870
+like we see over here.
+
+70
+00:03:20,870 --> 00:03:23,580
+Once we're done, we can
+see our post object still
+
+71
+00:03:23,580 --> 00:03:24,640
+behaves the same.
+
+72
+00:03:30,120 --> 00:03:31,300
+That's it for this level.
+
+73
+00:03:31,300 --> 00:03:32,970
+Now, you head over
+to the challenges
+
+74
+00:03:32,970 --> 00:03:36,570
+and I'll see you
+in the outro video.
+
+75
+00:03:36,570 --> 00:03:39,700
+We'll start implementing 
+getPollResultsFrom-- [BLEEP] name,
+
+76
+00:03:39,700 --> 00:03:40,200
+man.
+
+77
+00:03:40,200 --> 00:03:41,034
+What the [BLEEP]?
+
+78
+00:03:43,940 --> 00:03:46,290
+Here's what you-- [GIBBERISH].
+
+79
+00:03:46,290 --> 00:03:48,590
+It could look like this.
+

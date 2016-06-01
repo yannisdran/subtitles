@@ -1,0 +1,779 @@
+﻿1
+00:00:00,000 --> 00:00:01,760
+[SINGING] We've
+had about enough,
+
+2
+00:00:01,760 --> 00:00:05,200
+JavaScript is getting tough,
+ECMAScript is the solution.
+
+3
+00:00:05,200 --> 00:00:06,192
+Join the revolution.
+
+4
+00:00:06,192 --> 00:00:09,060
+Let your objects fill the
+gaps inside the Sets and Maps,
+
+5
+00:00:09,060 --> 00:00:11,530
+use OOP patterns to the max.
+
+6
+00:00:11,530 --> 00:00:15,450
+New class and module syntax,
+const and let will do the thing,
+
+7
+00:00:15,450 --> 00:00:17,098
+to stop the hoisting.
+
+8
+00:00:17,098 --> 00:00:19,912
+With pure arrays struggling
+is destructuring.
+
+9
+00:00:19,912 --> 00:00:28,390
+Keep your JS nice and
+lean by using ES2015.
+
+10
+00:00:28,390 --> 00:00:32,009
+You are watching ES2015, The
+Shape of JavaScript to Come.
+
+11
+00:00:32,009 --> 00:00:34,420
+I'm Carlos Souza
+and in this level,
+
+12
+00:00:34,420 --> 00:00:38,230
+we'll be talking about Promises,
+iterators, and generators
+
+13
+00:00:38,230 --> 00:00:40,890
+and these are pretty
+advanced topics
+
+14
+00:00:40,890 --> 00:00:43,810
+so we'll move a little faster
+doing the parts that we learned
+
+15
+00:00:43,810 --> 00:00:45,120
+in previous levels.
+
+16
+00:00:45,120 --> 00:00:47,330
+If some of it does
+not make sense
+
+17
+00:00:47,330 --> 00:00:50,430
+I recommend that you go
+back and redo those levels.
+
+18
+00:00:50,430 --> 00:00:52,400
+At the end of this
+course we'll also
+
+19
+00:00:52,400 --> 00:00:54,404
+be pointing out some
+additional material
+
+20
+00:00:54,404 --> 00:00:55,695
+that can help fill in the gaps.
+
+21
+00:00:58,810 --> 00:01:00,340
+In this first
+section, we'll talk
+
+22
+00:01:00,340 --> 00:01:03,940
+about Promises which are finally
+incorporated into the JavaScript
+
+23
+00:01:03,940 --> 00:01:07,480
+language after a long period
+of being tested and deployed
+
+24
+00:01:07,480 --> 00:01:09,660
+to production with polyfills.
+
+25
+00:01:09,660 --> 00:01:12,570
+To understand why Promises
+are a good alternative
+
+26
+00:01:12,570 --> 00:01:15,380
+to callback based code let's
+take a look at an example.
+
+27
+00:01:18,200 --> 00:01:21,430
+Something we do a lot on the
+web is clicking links, pictures,
+
+28
+00:01:21,430 --> 00:01:24,510
+or typing on input
+boxes, text areas
+
+29
+00:01:24,510 --> 00:01:26,340
+and when these
+actions occur they
+
+30
+00:01:26,340 --> 00:01:29,310
+might trigger other
+actions like fetching data
+
+31
+00:01:29,310 --> 00:01:31,240
+from a backend API.
+
+32
+00:01:31,240 --> 00:01:33,620
+While we wait for
+the response we still
+
+33
+00:01:33,620 --> 00:01:36,890
+must be able to
+interact with the page.
+
+34
+00:01:36,890 --> 00:01:39,310
+If we mess up and
+write bad code, code
+
+35
+00:01:39,310 --> 00:01:43,050
+that blocks the page, we can
+make elements non responsive
+
+36
+00:01:43,050 --> 00:01:45,800
+and affect user experience.
+
+37
+00:01:45,800 --> 00:01:48,700
+Here's how some of
+that code might look.
+
+38
+00:01:48,700 --> 00:01:51,570
+In this first example, we
+can see a synchronous style
+
+39
+00:01:51,570 --> 00:01:55,420
+function that must wait for
+the return values in order
+
+40
+00:01:55,420 --> 00:01:58,210
+to continue execution.
+
+41
+00:01:58,210 --> 00:02:00,720
+While we're waiting for
+getPollResultsFromServer
+
+42
+00:02:00,720 --> 00:02:03,900
+to resume the page freezes.
+
+43
+00:02:03,900 --> 00:02:06,730
+Once the browser blocks
+executing a script
+
+44
+00:02:06,730 --> 00:02:10,120
+it stops running other
+scripts, rendering elements,
+
+45
+00:02:10,120 --> 00:02:13,020
+and responding to user events
+like keyboard and mouse
+
+46
+00:02:13,020 --> 00:02:15,160
+directions.
+
+47
+00:02:15,160 --> 00:02:17,250
+That's why we write
+code that avoids
+
+48
+00:02:17,250 --> 00:02:19,700
+blocking the main
+thread of execution
+
+49
+00:02:19,700 --> 00:02:22,700
+and looks like this instead.
+
+50
+00:02:22,700 --> 00:02:25,130
+In the second example
+we pass a callback
+
+51
+00:02:25,130 --> 00:02:27,550
+to be run by the
+getPollResultsFromServer
+
+52
+00:02:27,550 --> 00:02:29,170
+function.
+
+53
+00:02:29,170 --> 00:02:32,610
+The function is now responsible
+for executing the call back
+
+54
+00:02:32,610 --> 00:02:37,570
+whenever it's done fetching
+the results from the server.
+
+55
+00:02:37,570 --> 00:02:41,070
+This style of code is sometimes
+referred to as
+
+56
+00:02:41,070 --> 00:02:42,680
+continuation-passing style.
+
+57
+00:02:42,680 --> 00:02:44,580
+This is because
+we tell a function
+
+58
+00:02:44,580 --> 00:02:47,907
+how to continue execution
+by giving it or passing
+
+59
+00:02:47,907 --> 00:02:48,490
+it a callback.
+
+60
+00:02:52,010 --> 00:02:54,330
+One big issue is that
+it could easily grow
+
+61
+00:02:54,330 --> 00:02:56,090
+to code that looks like this.
+
+62
+00:02:56,090 --> 00:03:00,210
+First, it's nesting a lot and
+making it super hard to read.
+
+63
+00:03:00,210 --> 00:03:02,350
+Next, we have to
+check for errors
+
+64
+00:03:02,350 --> 00:03:06,380
+on every single callback.
+
+65
+00:03:06,380 --> 00:03:08,280
+Promises were
+brought to JavaScript
+
+66
+00:03:08,280 --> 00:03:11,090
+trying to offer solutions
+to these issues.
+
+67
+00:03:11,090 --> 00:03:14,210
+They bring in a new abstraction
+that makes it easier
+
+68
+00:03:14,210 --> 00:03:17,440
+to write async code.
+
+69
+00:03:17,440 --> 00:03:20,220
+This is the code that we'll
+learn how to write together.
+
+70
+00:03:20,220 --> 00:03:22,680
+So let's get going.
+
+71
+00:03:22,680 --> 00:03:24,940
+We'll start implementing
+our function by returning
+
+72
+00:03:24,940 --> 00:03:28,190
+a new Promise object.
+
+73
+00:03:28,190 --> 00:03:31,170
+The Promise constructor
+takes an anonymous function
+
+74
+00:03:31,170 --> 00:03:35,020
+with two callback arguments
+known as handlers.
+
+75
+00:03:35,020 --> 00:03:37,600
+They are responsible for
+resolving or rejecting
+
+76
+00:03:37,600 --> 00:03:39,020
+the Promise.
+
+77
+00:03:39,020 --> 00:03:40,960
+These handlers are
+just functions,
+
+78
+00:03:40,960 --> 00:03:44,860
+so we can call them and
+optionally pass arguments.
+
+79
+00:03:44,860 --> 00:03:47,140
+We call resolve when
+the non-blocking code is
+
+80
+00:03:47,140 --> 00:03:52,790
+done executing or reject
+when an error occurs.
+
+81
+00:03:52,790 --> 00:03:55,090
+Promises go through
+a life cycle.
+
+82
+00:03:55,090 --> 00:03:57,380
+When we create a
+new Promise it's
+
+83
+00:03:57,380 --> 00:04:00,910
+automatically set to
+the pending state,
+
+84
+00:04:00,910 --> 00:04:04,100
+Then it can do
+one of two things.
+
+85
+00:04:04,100 --> 00:04:09,340
+It can become fulfilled when
+we call resolve or rejected
+
+86
+00:04:09,340 --> 00:04:11,980
+when we call reject.
+
+87
+00:04:11,980 --> 00:04:14,050
+One thing to know
+about Promises is
+
+88
+00:04:14,050 --> 00:04:17,120
+that whenever we return a
+new Promise object we're not
+
+89
+00:04:17,120 --> 00:04:19,540
+returning a result,
+we're returning
+
+90
+00:04:19,540 --> 00:04:23,220
+a future value such
+as the eventual result
+
+91
+00:04:23,220 --> 00:04:25,860
+of an async operation.
+
+92
+00:04:25,860 --> 00:04:28,190
+For that reason, our
+function no longer
+
+93
+00:04:28,190 --> 00:04:31,250
+needs a callback as
+the second argument.
+
+94
+00:04:31,250 --> 00:04:34,320
+To help us keep track of where
+we are in the Promise life
+
+95
+00:04:34,320 --> 00:04:36,840
+cycle we'll use this graph here.
+
+96
+00:04:36,840 --> 00:04:39,380
+And because we just
+created a Promise,
+
+97
+00:04:39,380 --> 00:04:42,970
+it starts on the pending state.
+
+98
+00:04:42,970 --> 00:04:44,890
+Now inside our
+Promise function we'll
+
+99
+00:04:44,890 --> 00:04:47,700
+write some
+XMLHttpRequest code,
+
+100
+00:04:47,700 --> 00:04:49,870
+which is the code that's
+going to fetch results
+
+101
+00:04:49,870 --> 00:04:51,210
+from the server.
+
+102
+00:04:51,210 --> 00:04:55,040
+This should be pretty familiar,
+but we'll go over it anyway.
+
+103
+00:04:55,040 --> 00:04:57,840
+First, we define the url path.
+
+104
+00:04:57,840 --> 00:05:00,090
+Notice we're using
+string templates here.
+
+105
+00:05:00,090 --> 00:05:04,490
+Then we create an XMLHttpRequest
+ object and tell it
+
+106
+00:05:04,490 --> 00:05:07,950
+what we want to do and what
+to do once it loads back
+
+107
+00:05:07,950 --> 00:05:09,280
+the response.
+
+108
+00:05:09,280 --> 00:05:13,290
+If it's a successful response
+within the 200 and the 400
+
+109
+00:05:13,290 --> 00:05:16,540
+status code range we
+resolve the Promise,
+
+110
+00:05:16,540 --> 00:05:18,530
+passing in the response.
+
+111
+00:05:18,530 --> 00:05:21,770
+Since request.response
+returns plain text
+
+112
+00:05:21,770 --> 00:05:26,390
+we'll go ahead and convert
+it to JSON using JSON.parse.
+
+113
+00:05:26,390 --> 00:05:30,130
+By calling resolve we move the
+Promise to a fulfilled state,
+
+114
+00:05:30,130 --> 00:05:33,460
+and once that happens
+we can read the results.
+
+115
+00:05:33,460 --> 00:05:34,830
+So let's see how we can do that.
+
+116
+00:05:38,000 --> 00:05:40,130
+With our Promise
+object in hand, we
+
+117
+00:05:40,130 --> 00:05:44,360
+can use the method called
+<i>then</i> to read back the results.
+
+118
+00:05:44,360 --> 00:05:46,560
+This method takes a
+callback function,
+
+119
+00:05:46,560 --> 00:05:50,270
+which will only be invoked
+once the Promise is resolved.
+
+120
+00:05:50,270 --> 00:05:53,140
+Notice here that the argument
+that is passed to the callback
+
+121
+00:05:53,140 --> 00:05:55,760
+is the same value that
+was passed to the call
+
+122
+00:05:55,760 --> 00:05:59,060
+to result from inside
+of the Promise.
+
+123
+00:05:59,060 --> 00:06:01,370
+No we're not free
+from using callbacks,
+
+124
+00:06:01,370 --> 00:06:06,767
+but now we can start using
+them in a much better way.
+
+125
+00:06:06,767 --> 00:06:08,600
+Another way that we can
+write this code that
+
+126
+00:06:08,600 --> 00:06:10,500
+makes it even
+better to work with
+
+127
+00:06:10,500 --> 00:06:14,670
+is without this temporary
+variable fetchingResults.
+
+128
+00:06:14,670 --> 00:06:17,670
+We can get rid of it and
+chain results like this.
+
+129
+00:06:20,370 --> 00:06:21,400
+I think it reads better.
+
+130
+00:06:24,960 --> 00:06:29,960
+If we need to we can pass values
+from one <i>then</i> to another <i>then</i>.
+
+131
+00:06:29,960 --> 00:06:33,270
+Let's do that by filtering
+our poll results to only
+
+132
+00:06:33,270 --> 00:06:36,110
+those coming from Orlando.
+
+133
+00:06:36,110 --> 00:06:40,020
+We'll use the filter function
+to check for the right city
+
+134
+00:06:40,020 --> 00:06:42,980
+and then return
+the result. Notice
+
+135
+00:06:42,980 --> 00:06:46,080
+we're using a one
+line arrow function.
+
+136
+00:06:46,080 --> 00:06:47,870
+The value returned
+from the first
+
+137
+00:06:47,870 --> 00:06:50,660
+<i>then</i> becomes the
+argument to the next one,
+
+138
+00:06:50,660 --> 00:06:55,440
+which calls ui.renderSidebar
+with the filtered results.
+
+139
+00:06:58,790 --> 00:07:02,050
+To reject a Promise we can
+call the reject handler.
+
+140
+00:07:02,050 --> 00:07:03,805
+Let's go back to our
+function and we'll
+
+141
+00:07:03,805 --> 00:07:06,550
+call reject on two places.
+
+142
+00:07:06,550 --> 00:07:10,620
+First, when the response
+is not successful.
+
+143
+00:07:10,620 --> 00:07:14,780
+Then, when the onerror
+event is emitted on our
+
+144
+00:07:14,780 --> 00:07:16,320
+XMLHttpRequest object.
+
+145
+00:07:19,300 --> 00:07:22,840
+In both cases we'll give
+reject a new error object
+
+146
+00:07:22,840 --> 00:07:23,465
+as an argument.
+
+147
+00:07:26,120 --> 00:07:29,830
+Once reject is called from
+inside our Promise execution
+
+148
+00:07:29,830 --> 00:07:32,820
+moves immediately to
+the catch function.
+
+149
+00:07:32,820 --> 00:07:35,000
+It skips any other
+<i>then</i> functions
+
+150
+00:07:35,000 --> 00:07:38,340
+that might be declared and
+passes the Error object
+
+151
+00:07:38,340 --> 00:07:40,485
+as an argument to the
+callback on catch.
+
+152
+00:07:44,730 --> 00:07:46,570
+We could make this
+code a little easier
+
+153
+00:07:46,570 --> 00:07:49,670
+to read by first
+declaring the functions
+
+154
+00:07:49,670 --> 00:07:54,010
+and passing them as
+handlers to calls to <i>then</i>.
+
+155
+00:07:54,010 --> 00:07:58,100
+Here we declare the
+filterResults named function and then
+
+156
+00:07:58,100 --> 00:08:02,370
+create a new ui object and
+assign a renderSidebar
+
+157
+00:08:02,370 --> 00:08:07,120
+method to it using the new
+method initializer shorthand.
+
+158
+00:08:07,120 --> 00:08:11,770
+Then below we pass
+filterResults and ui.renderSidebar
+
+159
+00:08:11,770 --> 00:08:14,250
+as handlers to the <i>then</i> method.
+
+160
+00:08:14,250 --> 00:08:17,690
+The code still behaves the same
+and the catch function still
+
+161
+00:08:17,690 --> 00:08:20,270
+catches errors from
+anywhere up on the chain.
+
+162
+00:08:23,160 --> 00:08:25,530
+Now it's your time to
+work on the challenges.
+
+163
+00:08:25,530 --> 00:08:28,320
+I Promise you'll
+have a good time.  Get it?
+
