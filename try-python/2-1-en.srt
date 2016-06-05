@@ -1,0 +1,615 @@
+﻿1
+00:00:00,000 --> 00:00:01,206
+[HORN PLAYING]
+
+2
+00:00:01,206 --> 00:00:02,940
+[SINGING] It's
+time to learn some
+
+3
+00:00:02,940 --> 00:00:06,280
+Python the language to rely
+on from printing strings
+
+4
+00:00:06,280 --> 00:00:09,340
+to math routines,
+variables on the horizon.
+
+5
+00:00:09,340 --> 00:00:12,570
+Start using true,
+false and conditionals
+
+6
+00:00:12,570 --> 00:00:17,160
+as you Try Python's
+basic principles.
+
+7
+00:00:17,160 --> 00:00:19,150
+Welcome back to "Try Python."
+
+8
+00:00:19,150 --> 00:00:22,400
+I'm Sarah Buchanan, and
+this is level two, where
+
+9
+00:00:22,400 --> 00:00:24,000
+we'll be talking about strings.
+
+10
+00:00:26,590 --> 00:00:28,530
+We've looked at
+math and variables.
+
+11
+00:00:28,530 --> 00:00:31,360
+Now we'll be looking at
+strings, which are just
+
+12
+00:00:31,360 --> 00:00:35,570
+a sequence of characters,
+meaning letters, numbers,
+
+13
+00:00:35,570 --> 00:00:38,300
+punctuation or a combination.
+
+14
+00:00:38,300 --> 00:00:42,440
+The way you indicate a string
+is a string and not a command
+
+15
+00:00:42,440 --> 00:00:44,880
+is by surrounding
+it with quotes.
+
+16
+00:00:44,880 --> 00:00:48,090
+Either single or double
+will work in Python.
+
+17
+00:00:48,090 --> 00:00:49,570
+You want to be consistent.
+
+18
+00:00:49,570 --> 00:00:51,860
+We'll use single quotes.
+
+19
+00:00:51,860 --> 00:00:56,040
+So here we create the string
+'Hello world'
+
+20
+00:00:56,040 --> 00:00:59,110
+And we've also created
+a string to store
+
+21
+00:00:59,110 --> 00:01:03,190
+the text of this
+license plate, 'SPAM83'
+
+22
+00:01:03,190 --> 00:01:05,960
+In these examples,
+the characters inside
+
+23
+00:01:05,960 --> 00:01:08,995
+of the open and closed
+quotes are now strings.
+
+24
+00:01:11,780 --> 00:01:12,920
+Just like with numbers.
+
+25
+00:01:12,920 --> 00:01:15,640
+We can store strings
+in variables.
+
+26
+00:01:15,640 --> 00:01:19,230
+Here we have the variable
+first_name storing the string
+
+27
+00:01:19,230 --> 00:01:22,010
+'Monty' and the
+variable last_name
+
+28
+00:01:22,010 --> 00:01:24,180
+storing the string 'Python'
+
+29
+00:01:24,180 --> 00:01:27,800
+Here we concatenated
+first_name with last_name
+
+30
+00:01:27,800 --> 00:01:30,920
+into the variable full_name.
+
+31
+00:01:30,920 --> 00:01:33,210
+And if we look at the
+contents of full_name,
+
+32
+00:01:33,210 --> 00:01:35,140
+we have 'MontyPython'
+
+33
+00:01:35,140 --> 00:01:37,480
+It doesn't have
+a space in there.
+
+34
+00:01:37,480 --> 00:01:41,360
+We'd have to concatenate
+that separately.
+
+35
+00:01:41,360 --> 00:01:45,270
+We can do that by combining
+first_name plus a space
+
+36
+00:01:45,270 --> 00:01:49,770
+character plus last_name to
+get the result of
+
+37
+00:01:49,770 --> 00:01:53,730
+'Monty Python'
+
+38
+00:01:53,730 --> 00:01:55,680
+As our programs get
+longer, we won't
+
+39
+00:01:55,680 --> 00:01:57,640
+want to type
+individual statements
+
+40
+00:01:57,640 --> 00:01:59,460
+into the interpreter.
+
+41
+00:01:59,460 --> 00:02:04,300
+What we'll want is a file
+or script to hold our code.
+
+42
+00:02:04,300 --> 00:02:05,820
+This is what it'll
+look like when we
+
+43
+00:02:05,820 --> 00:02:07,420
+have everything in one script.
+
+44
+00:02:07,420 --> 00:02:10,320
+We'll have the name of our
+script above the file that
+
+45
+00:02:10,320 --> 00:02:11,600
+contains our code.
+
+46
+00:02:11,600 --> 00:02:16,000
+Here it's named script.py,
+which stands for Python.
+
+47
+00:02:16,000 --> 00:02:18,980
+With the script, how
+can we output the value
+
+48
+00:02:18,980 --> 00:02:21,120
+of the full name variable?
+
+49
+00:02:21,120 --> 00:02:24,330
+We can't just query the
+variable name in the interpreter
+
+50
+00:02:24,330 --> 00:02:25,230
+as we've been doing.
+
+51
+00:02:27,910 --> 00:02:30,060
+We can use a
+function called print
+
+52
+00:02:30,060 --> 00:02:33,020
+to output from a script file.
+
+53
+00:02:33,020 --> 00:02:36,640
+You write it by typing
+<i>print</i> plus the value
+
+54
+00:02:36,640 --> 00:02:40,260
+or variable you want to
+print in the parentheses.
+
+55
+00:02:40,260 --> 00:02:42,240
+We can put as many
+arguments as we
+
+56
+00:02:42,240 --> 00:02:43,830
+want into the print function.
+
+57
+00:02:43,830 --> 00:02:47,100
+Just separate them with
+commas and print automatically
+
+58
+00:02:47,100 --> 00:02:49,890
+adds a space between
+your arguments.
+
+59
+00:02:49,890 --> 00:02:53,670
+So we don't have to worry about
+concatenating a space here.
+
+60
+00:02:53,670 --> 00:02:57,940
+You're probably using Python 3,
+but if you're using Python 2,
+
+61
+00:02:57,940 --> 00:03:03,630
+keep an eye out for these
+Py 2 icons in this course.
+
+62
+00:03:03,630 --> 00:03:07,130
+To run our script, assuming
+we have Python installed,
+
+63
+00:03:07,130 --> 00:03:10,560
+we go to the console and
+type <i>python</i> and the name
+
+64
+00:03:10,560 --> 00:03:14,340
+of our script, and it will
+print all of our output
+
+65
+00:03:14,340 --> 00:03:15,020
+to the console.
+
+66
+00:03:18,040 --> 00:03:20,090
+Let's demo running our script.
+
+67
+00:03:20,090 --> 00:03:24,900
+Here it's created in Idle, an
+editor installed with Python.
+
+68
+00:03:24,900 --> 00:03:26,740
+Then when we run
+our script, we can
+
+69
+00:03:26,740 --> 00:03:29,490
+see 'Monty Python' is
+printed to the screen.
+
+70
+00:03:32,620 --> 00:03:35,880
+Let's create a script to
+describe what Monty Python is.
+
+71
+00:03:35,880 --> 00:03:38,850
+We'll start the
+script with a comment.
+
+72
+00:03:38,850 --> 00:03:41,470
+The pound symbol (#) means
+this line is a comment
+
+73
+00:03:41,470 --> 00:03:43,370
+and doesn't get run.
+
+74
+00:03:43,370 --> 00:03:46,530
+A comment is a note to
+yourself and other programmers
+
+75
+00:03:46,530 --> 00:03:50,300
+describing what you're doing
+in case it's not clear.
+
+76
+00:03:50,300 --> 00:03:52,580
+We'll also create
+variables to describe
+
+77
+00:03:52,580 --> 00:03:56,060
+Monty Python: their
+name, description,
+
+78
+00:03:56,060 --> 00:03:58,810
+and the year they started.
+
+79
+00:03:58,810 --> 00:04:01,970
+We'll then concatenate all of
+these descriptive variables
+
+80
+00:04:01,970 --> 00:04:03,910
+into a sentence.
+
+81
+00:04:03,910 --> 00:04:05,630
+But when we try to
+run this, we get
+
+82
+00:04:05,630 --> 00:04:09,300
+an error:   "Can't convert
+'int' object to str implicitly."
+
+83
+00:04:09,300 --> 00:04:11,450
+This is confusing
+to the interpreter
+
+84
+00:04:11,450 --> 00:04:15,330
+because we're trying to
+add a number to a string.
+
+85
+00:04:15,330 --> 00:04:19,290
+So it's not sure whether we
+want to add or concatenate
+
+86
+00:04:19,290 --> 00:04:20,430
+the number.
+
+87
+00:04:20,430 --> 00:04:25,550
+We'll have to convert the
+number to a string first.
+
+88
+00:04:25,550 --> 00:04:29,300
+We could add quotes to make
+the year a string instead
+
+89
+00:04:29,300 --> 00:04:33,310
+of an int, but we really want
+to keep numbers as numbers.
+
+90
+00:04:33,310 --> 00:04:37,200
+So we'll have to try
+something else here.
+
+91
+00:04:37,200 --> 00:04:39,650
+Instead, we will
+convert our number
+
+92
+00:04:39,650 --> 00:04:44,440
+to a string using the <i>str</i>
+function around our year.
+
+93
+00:04:44,440 --> 00:04:46,720
+This will convert
+whatever is inside
+
+94
+00:04:46,720 --> 00:04:51,020
+the parentheses to a string
+and we get our desired sentence
+
+95
+00:04:51,020 --> 00:04:54,400
+printed to the screen.
+
+96
+00:04:54,400 --> 00:04:56,450
+We could have also
+put our values
+
+97
+00:04:56,450 --> 00:04:59,950
+into a print statement
+separated by commas,
+
+98
+00:04:59,950 --> 00:05:03,800
+and print would automatically
+convert them to strings for us
+
+99
+00:05:03,800 --> 00:05:07,870
+and add spaces between them.
+
+100
+00:05:07,870 --> 00:05:11,700
+Let's also add some Monty
+Python sketches to our program.
+
+101
+00:05:11,700 --> 00:05:14,060
+A good one is Hell's Grannies.
+
+102
+00:05:14,060 --> 00:05:17,490
+But if we run this,
+we get a syntax error.
+
+103
+00:05:17,490 --> 00:05:19,630
+The problem is when
+the interpreter sees
+
+104
+00:05:19,630 --> 00:05:23,480
+the apostrophe, it thinks the
+quote has ended and doesn't
+
+105
+00:05:23,480 --> 00:05:25,700
+know what the s is.
+
+106
+00:05:25,700 --> 00:05:29,190
+We can instead use double
+quotes to start our string,
+
+107
+00:05:29,190 --> 00:05:31,750
+and Python will look for
+the matching double quote
+
+108
+00:05:31,750 --> 00:05:33,390
+to end the string.
+
+109
+00:05:33,390 --> 00:05:36,530
+Then Python knows the
+single quote is literally
+
+110
+00:05:36,530 --> 00:05:38,505
+a single quote and
+not ending the string.
+
+111
+00:05:41,270 --> 00:05:44,760
+Let's add another famous
+sketch, the Dead Parrot.
+
+112
+00:05:44,760 --> 00:05:47,000
+And we can print
+these two sketches out
+
+113
+00:05:47,000 --> 00:05:48,780
+with a space between.
+
+114
+00:05:48,780 --> 00:05:50,940
+This works, but
+we want to format
+
+115
+00:05:50,940 --> 00:05:54,600
+it better to make it clear we're
+printing two separate sketches.
+
+116
+00:05:57,960 --> 00:06:01,920
+We can add a special character,
+a backslash (\) followed by an n.
+
+117
+00:06:01,920 --> 00:06:03,550
+This means newline.
+
+118
+00:06:03,550 --> 00:06:07,270
+The backslash encodes hard to
+type characters like new line
+
+119
+00:06:07,270 --> 00:06:08,550
+into a string.
+
+120
+00:06:08,550 --> 00:06:12,130
+We just add this into our string
+wherever we want a new line,
+
+121
+00:06:12,130 --> 00:06:14,550
+just like we would a space.
+
+122
+00:06:14,550 --> 00:06:17,660
+Let's also print the
+heading, 'Famous Work'
+
+123
+00:06:17,660 --> 00:06:20,020
+Our sketches are
+starting to look better,
+
+124
+00:06:20,020 --> 00:06:22,010
+but let's also
+indent the titles.
+
+125
+00:06:25,190 --> 00:06:28,060
+We can indent the
+sketches with \t,
+
+126
+00:06:28,060 --> 00:06:30,950
+a special character
+that means Tab.
+
+127
+00:06:30,950 --> 00:06:34,065
+And we can see our result
+now has the titles indented.
+
+128
+00:06:37,180 --> 00:06:38,720
+That's the end of section one.
+
+129
+00:06:38,720 --> 00:06:41,910
+It's time for you to practice
+strings in the challenges.
+
+130
+00:06:41,910 --> 00:06:43,758
+Have fun.
+
