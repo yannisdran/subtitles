@@ -1,0 +1,407 @@
+﻿1
+00:00:02,009 --> 00:00:03,340
+Welcome back.
+
+2
+00:00:03,340 --> 00:00:05,460
+We've calculated
+how many swallows
+
+3
+00:00:05,460 --> 00:00:07,410
+it takes to carry a coconut.
+
+4
+00:00:07,410 --> 00:00:09,810
+Now let's see if
+a single swallow
+
+5
+00:00:09,810 --> 00:00:12,560
+can carry any other fruits.
+
+6
+00:00:12,560 --> 00:00:15,730
+Repeating the same
+calculations for an apple,
+
+7
+00:00:15,730 --> 00:00:19,500
+we need 6.4 swallows.
+
+8
+00:00:19,500 --> 00:00:23,430
+For a cherry, we
+get 0.4 swallows.
+
+9
+00:00:23,430 --> 00:00:24,030
+And great!
+
+10
+00:00:24,030 --> 00:00:26,100
+We found one that works.
+
+11
+00:00:26,100 --> 00:00:29,710
+One swallow would be
+able to carry a cherry.
+
+12
+00:00:29,710 --> 00:00:33,440
+However, looking back at
+these three calculations,
+
+13
+00:00:33,440 --> 00:00:39,120
+we're repeating the same
+60 divided by 3 a lot.
+
+14
+00:00:39,120 --> 00:00:42,250
+Wouldn't it be great if
+we could store this value
+
+15
+00:00:42,250 --> 00:00:44,470
+and then use it when we need it?
+
+16
+00:00:44,470 --> 00:00:45,995
+We can do this with a variable.
+
+17
+00:00:49,690 --> 00:00:53,750
+A variable provides us with
+a way to label and access
+
+18
+00:00:53,750 --> 00:00:55,000
+information.
+
+19
+00:00:55,000 --> 00:00:56,950
+We create variables
+with the name
+
+20
+00:00:56,950 --> 00:00:59,510
+of the variable on
+the left and the value
+
+21
+00:00:59,510 --> 00:01:01,720
+we want to store on the right.
+
+22
+00:01:01,720 --> 00:01:04,560
+This is called an
+assignment statement.
+
+23
+00:01:04,560 --> 00:01:06,530
+Once we have created
+our variable,
+
+24
+00:01:06,530 --> 00:01:09,530
+we can reference it and
+get the value we stored,
+
+25
+00:01:09,530 --> 00:01:12,690
+which means less
+repeated calculations,
+
+26
+00:01:12,690 --> 00:01:14,270
+and our code is more organized.
+
+27
+00:01:17,200 --> 00:01:20,890
+Using variables also
+makes your code readable
+
+28
+00:01:20,890 --> 00:01:23,560
+by assigning meaning to values.
+
+29
+00:01:23,560 --> 00:01:26,410
+If we look at this line
+of code, it's not clear
+
+30
+00:01:26,410 --> 00:01:28,140
+what we're calculating.
+
+31
+00:01:28,140 --> 00:01:31,040
+But if we use a
+variable, we can infer
+
+32
+00:01:31,040 --> 00:01:33,770
+that we're calculating the
+number of swallows required
+
+33
+00:01:33,770 --> 00:01:37,750
+to carry a cherry, and then
+we can reference this variable
+
+34
+00:01:37,750 --> 00:01:42,460
+and get the value
+we calculated later.
+
+35
+00:01:42,460 --> 00:01:44,110
+There are certain
+rules for naming
+
+36
+00:01:44,110 --> 00:01:46,950
+your variables:
+no spaces and you
+
+37
+00:01:46,950 --> 00:01:50,020
+can't start with a number
+or a special character.
+
+38
+00:01:50,020 --> 00:01:52,390
+Other than that, it's
+whatever you want.
+
+39
+00:01:52,390 --> 00:01:54,160
+For the most part,
+you'll want to name
+
+40
+00:01:54,160 --> 00:01:56,610
+your variables
+something concise,
+
+41
+00:01:56,610 --> 00:01:59,420
+but detailed enough that
+someone reading your code
+
+42
+00:01:59,420 --> 00:02:02,890
+would be able to understand
+what you're trying to do.
+
+43
+00:02:02,890 --> 00:02:05,510
+For instance, we could
+have named our variable
+
+44
+00:02:05,510 --> 00:02:07,670
+<i>swallow_carrying_limit</i>.
+
+45
+00:02:07,670 --> 00:02:10,380
+But instead, to be
+concise we named
+
+46
+00:02:10,380 --> 00:02:13,240
+our variable swallow_limit.
+
+47
+00:02:13,240 --> 00:02:17,850
+Pep 8 is a Python style guide
+that recommends using lowercase
+
+48
+00:02:17,850 --> 00:02:20,490
+with underscores for spaces.
+
+49
+00:02:20,490 --> 00:02:22,660
+So if you want to
+be Python stylish,
+
+50
+00:02:22,660 --> 00:02:25,110
+we recommend following
+that suggestion.
+
+51
+00:02:25,110 --> 00:02:27,360
+Some people prefer
+camel case which
+
+52
+00:02:27,360 --> 00:02:30,960
+is using capital letters
+to separate words instead
+
+53
+00:02:30,960 --> 00:02:35,430
+of underscores, which works
+fine, but following Pep 8
+
+54
+00:02:35,430 --> 00:02:36,180
+is more pythonic.
+
+55
+00:02:40,330 --> 00:02:43,370
+Let's apply what we learned
+with the swallow problem
+
+56
+00:02:43,370 --> 00:02:47,560
+and see how many macaws it
+would take to carry a coconut.
+
+57
+00:02:47,560 --> 00:02:50,350
+First, we'll declare
+variables to store
+
+58
+00:02:50,350 --> 00:02:53,720
+all of our assumptions:  the
+percentage of the weight they
+
+59
+00:02:53,720 --> 00:02:59,360
+can carry, the coconut's
+weight and the macaw's weight.
+
+60
+00:02:59,360 --> 00:03:03,470
+Then we calculate the macaw's
+carrying-limit as 300 grams.
+
+61
+00:03:08,710 --> 00:03:12,340
+We can then create a variable
+for number of macaws required
+
+62
+00:03:12,340 --> 00:03:14,930
+and calculate the
+coconut's weight divided
+
+63
+00:03:14,930 --> 00:03:20,100
+by the macaw's carrying
+limit, and we get 4.8 macaws.
+
+64
+00:03:20,100 --> 00:03:25,000
+However, 4.8 means we
+have part of a macaw.
+
+65
+00:03:25,000 --> 00:03:27,680
+It would be great if we
+could round this number up
+
+66
+00:03:27,680 --> 00:03:31,530
+to 5 so that we know
+we have 5 whole birds.
+
+67
+00:03:34,950 --> 00:03:37,590
+Often, we will want to
+use functions not built
+
+68
+00:03:37,590 --> 00:03:39,680
+into the Python language.
+
+69
+00:03:39,680 --> 00:03:44,740
+Right now is a perfect time to
+use the math library or module.
+
+70
+00:03:44,740 --> 00:03:48,030
+To use this module,
+we just import it
+
+71
+00:03:48,030 --> 00:03:50,516
+by typing <i>import math</i>.
+
+72
+00:03:50,516 --> 00:03:54,220
+Math has a function called
+<i>ceil</i>, short for ceiling.
+
+73
+00:03:54,220 --> 00:03:58,180
+And it just rounds up a number
+to the nearest whole number.
+
+74
+00:03:58,180 --> 00:04:02,800
+Then we can write <i>math.seal</i>
+and put the num_macaws variable
+
+75
+00:04:02,800 --> 00:04:05,100
+inside the parentheses.
+
+76
+00:04:05,100 --> 00:04:07,590
+And we get the result of 5.
+
+77
+00:04:07,590 --> 00:04:10,940
+<i>math</i> is part of the
+Python standard library,
+
+78
+00:04:10,940 --> 00:04:13,800
+so it comes already
+installed with Python.
+
+79
+00:04:13,800 --> 00:04:16,230
+To see other modules
+installed with Python,
+
+80
+00:04:16,230 --> 00:04:20,709
+you can visit the Python
+docs at the link below.
+
+81
+00:04:20,709 --> 00:04:23,880
+Putting this all together,
+we get our final program
+
+82
+00:04:23,880 --> 00:04:28,960
+where we <i>import math</i> at the top,
+and use the <i>math.ceil</i> function
+
+83
+00:04:28,960 --> 00:04:29,726
+at the bottom.
+
+84
+00:04:33,360 --> 00:04:35,950
+So now it's your turn to
+practice some more Python
+
+85
+00:04:35,950 --> 00:04:37,890
+with variables in
+the challenges.
+
+86
+00:04:37,890 --> 00:04:39,509
+Good luck.
+
