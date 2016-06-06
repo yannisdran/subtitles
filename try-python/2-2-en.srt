@@ -1,0 +1,506 @@
+﻿1
+00:00:01,990 --> 00:00:03,200
+Welcome back.
+
+2
+00:00:03,200 --> 00:00:05,700
+Behind the scenes,
+strings are a list
+
+3
+00:00:05,700 --> 00:00:08,650
+of characters where
+each character has
+
+4
+00:00:08,650 --> 00:00:13,980
+an index or a position
+numbered starting from 0.
+
+5
+00:00:13,980 --> 00:00:19,280
+Here we see the string greeting
+is 'HELLO WORLD!'
+
+6
+00:00:19,280 --> 00:00:22,620
+We can get the
+character at index 0
+
+7
+00:00:22,620 --> 00:00:26,410
+by writing the variable name
+greeting[0]
+
+8
+00:00:26,410 --> 00:00:31,270
+which gives us the character H.
+
+9
+00:00:31,270 --> 00:00:33,720
+Since this string
+has 12 characters
+
+10
+00:00:33,720 --> 00:00:36,720
+and the first character
+is at index 0,
+
+11
+00:00:36,720 --> 00:00:40,760
+the last character is index 11.
+
+12
+00:00:40,760 --> 00:00:45,790
+So greeting[11] gives us the character
+
+13
+00:00:45,790 --> 00:00:47,790
+exclamation point.
+
+14
+00:00:47,790 --> 00:00:50,050
+And greeting[12] gives us
+
+15
+00:00:50,050 --> 00:00:53,930
+an error, because there isn't
+a character at position 12.
+
+16
+00:00:53,930 --> 00:00:58,282
+We can only look up characters
+at indexes 0 through 11.
+
+17
+00:01:00,940 --> 00:01:04,129
+There are a few built in string
+functions we'll want to use.
+
+18
+00:01:04,129 --> 00:01:07,560
+len, l-e-n, returns the
+length of the string
+
+19
+00:01:07,560 --> 00:01:09,660
+inside of the parentheses.
+
+20
+00:01:09,660 --> 00:01:13,750
+So if we have the greeting
+variable storing 'HELLO WORLD!',
+
+21
+00:01:13,750 --> 00:01:18,100
+len(greeting)
+will return 12.
+
+22
+00:01:18,100 --> 00:01:19,580
+And then we can
+print the result.
+
+23
+00:01:19,580 --> 00:01:21,780
+So this will print
+12 to the screen.
+
+24
+00:01:24,600 --> 00:01:28,630
+Let's use this new knowledge
+of strings to solve a problem.
+
+25
+00:01:28,630 --> 00:01:32,270
+We know a man that can
+only say the ends of words.
+
+26
+00:01:32,270 --> 00:01:36,870
+He goes to say Good Evening,
+and what comes out is od ning.
+
+27
+00:01:36,870 --> 00:01:39,900
+And we want to predict
+what he's going to say.
+
+28
+00:01:39,900 --> 00:01:42,360
+If we look at the
+first word Good,
+
+29
+00:01:42,360 --> 00:01:44,470
+we can get the last
+half of the word
+
+30
+00:01:44,470 --> 00:01:49,070
+by concatenating the
+characters at indexes 2 and 3,
+
+31
+00:01:49,070 --> 00:01:52,870
+storing this into
+the variable end1.
+
+32
+00:01:52,870 --> 00:01:58,720
+And then we get the result
+od, which is what we wanted.
+
+33
+00:01:58,720 --> 00:02:01,300
+Instead of looking up
+individual characters
+
+34
+00:02:01,300 --> 00:02:03,970
+and concatenating them,
+we can use a slice
+
+35
+00:02:03,970 --> 00:02:06,390
+to return part of the string.
+
+36
+00:02:06,390 --> 00:02:09,440
+For example, here we've
+got the word Python.
+
+37
+00:02:09,440 --> 00:02:13,090
+Let's say we just want to
+return the letters t-h-o
+
+38
+00:02:13,090 --> 00:02:15,580
+in the middle with one slice.
+
+39
+00:02:15,580 --> 00:02:18,040
+You can imagine this
+slice having boundaries
+
+40
+00:02:18,040 --> 00:02:20,180
+surrounding these letters.
+
+41
+00:02:20,180 --> 00:02:23,940
+Notice this boundary comes
+before the second index
+
+42
+00:02:23,940 --> 00:02:26,750
+and before the fifth index.
+
+43
+00:02:26,750 --> 00:02:29,390
+So the way we write
+this slice in code
+
+44
+00:02:29,390 --> 00:02:33,260
+is the variable name,
+word, square brackets,
+
+45
+00:02:33,260 --> 00:02:36,780
+our start boundary
+index 2, colon,
+
+46
+00:02:36,780 --> 00:02:39,800
+our end boundary index 5.
+
+47
+00:02:39,800 --> 00:02:43,550
+Notice the boundary is
+actually between indexes.
+
+48
+00:02:43,550 --> 00:02:47,090
+The first boundary goes
+between the indexes 1 and 2,
+
+49
+00:02:47,090 --> 00:02:50,630
+and the last boundary
+goes between 4 and 5.
+
+50
+00:02:50,630 --> 00:02:54,890
+That means the characters
+that indexes 2, 3, and 4
+
+51
+00:02:54,890 --> 00:02:56,840
+are returned by the slice.
+
+52
+00:02:56,840 --> 00:03:02,380
+And here, that's the
+letters t, h and o.
+
+53
+00:03:02,380 --> 00:03:05,940
+Looking at some more
+examples, given the word Good,
+
+54
+00:03:05,940 --> 00:03:11,640
+the slice from index 0 to
+2 returns the string G-o.
+
+55
+00:03:11,640 --> 00:03:15,250
+You can think of this as
+putting a marker before the 0
+
+56
+00:03:15,250 --> 00:03:18,940
+index and a marker
+before the 2 index,
+
+57
+00:03:18,940 --> 00:03:22,450
+and that will return the string
+between the two markers, which
+
+58
+00:03:22,450 --> 00:03:23,590
+is Go.
+
+59
+00:03:23,590 --> 00:03:27,700
+We can also do a string slice
+from index 2 to index 4,
+
+60
+00:03:27,700 --> 00:03:31,410
+and that will return
+the string o-d.
+
+61
+00:03:31,410 --> 00:03:34,000
+There are some shortcuts
+we can use here.
+
+62
+00:03:34,000 --> 00:03:37,750
+We can leave the beginning,
+0, out altogether,
+
+63
+00:03:37,750 --> 00:03:40,180
+and that means start
+at the beginning.
+
+64
+00:03:40,180 --> 00:03:42,480
+And we can leave the
+end out altogether,
+
+65
+00:03:42,480 --> 00:03:45,950
+and that means go to the end.
+
+66
+00:03:45,950 --> 00:03:48,560
+There's a formula you can
+use to figure out what
+
+67
+00:03:48,560 --> 00:03:51,610
+numbers to put into your slice.
+
+68
+00:03:51,610 --> 00:03:53,620
+The index of the
+first character you
+
+69
+00:03:53,620 --> 00:03:59,130
+want colon the index of the
+last character you want plus 1.
+
+70
+00:03:59,130 --> 00:04:01,940
+If you use that formula, you'll
+always get a perfect slice.
+
+71
+00:04:04,980 --> 00:04:08,690
+Let's incorporate string
+slices into our solution.
+
+72
+00:04:08,690 --> 00:04:13,690
+Instead of concatenating the
+characters at index 2 and 3,
+
+73
+00:04:13,690 --> 00:04:18,399
+we'll use a slice
+from index 2 to 4.
+
+74
+00:04:18,399 --> 00:04:21,295
+This will return the last
+half of our word Good.
+
+75
+00:04:24,620 --> 00:04:26,470
+Let's also try our shortcut.
+
+76
+00:04:26,470 --> 00:04:30,410
+We can leave out the
+end index, and the slice
+
+77
+00:04:30,410 --> 00:04:32,680
+will go to the
+end of our string.
+
+78
+00:04:32,680 --> 00:04:35,980
+And we'll also add the
+second word Evening.
+
+79
+00:04:35,980 --> 00:04:38,240
+We can print both
+of our slices out,
+
+80
+00:04:38,240 --> 00:04:42,260
+and we get the result od
+ning, which is what we wanted.
+
+81
+00:04:42,260 --> 00:04:44,050
+But wouldn't it be
+great if we didn't
+
+82
+00:04:44,050 --> 00:04:47,710
+have to just know the
+halfway points of our strings
+
+83
+00:04:47,710 --> 00:04:52,050
+were at indexes 2 and 3?
+
+84
+00:04:52,050 --> 00:04:55,250
+We're going to make our program
+work better for all words
+
+85
+00:04:55,250 --> 00:04:59,370
+instead of hard coding the
+halfway points of our strings.
+
+86
+00:04:59,370 --> 00:05:02,040
+We can calculate the
+halfway index of our string
+
+87
+00:05:02,040 --> 00:05:05,870
+by using the len
+function divided by 2.
+
+88
+00:05:05,870 --> 00:05:08,930
+However, division
+returns a float.
+
+89
+00:05:08,930 --> 00:05:15,660
+So 4 divided by 2 is 2.0,
+and 7 divided by 2 is 3.5.
+
+90
+00:05:15,660 --> 00:05:17,670
+And this is a problem,
+because we can only
+
+91
+00:05:17,670 --> 00:05:20,300
+have an int or a whole
+number as an index.
+
+92
+00:05:23,030 --> 00:05:25,880
+To solve this problem, we
+can use integer division,
+
+93
+00:05:25,880 --> 00:05:28,030
+which is two division signs.
+
+94
+00:05:28,030 --> 00:05:31,600
+This will round down to the
+nearest whole number or int.
+
+95
+00:05:31,600 --> 00:05:35,580
+So using integer division,
+4 divided by 2 is 2,
+
+96
+00:05:35,580 --> 00:05:38,610
+and 7 divided by 2 is 3.
+
+97
+00:05:38,610 --> 00:05:40,530
+This is different
+in Python 2, where
+
+98
+00:05:40,530 --> 00:05:44,235
+single division and integer
+division are the same thing.
+
+99
+00:05:47,660 --> 00:05:52,310
+For end1, we replace the index
+2 with our calculated halfway
+
+100
+00:05:52,310 --> 00:05:55,860
+value, and the same for end2.
+
+101
+00:05:55,860 --> 00:05:56,490
+Perfect.
+
+102
+00:05:56,490 --> 00:05:59,530
+We still get what
+we wanted: od ning.
+
+103
+00:05:59,530 --> 00:06:02,821
+And our program will work
+for strings of any length.
+
+104
+00:06:06,100 --> 00:06:08,610
+Now it's time for you to
+practice string slices
+
+105
+00:06:08,610 --> 00:06:09,820
+in the challenges.
+
+106
+00:06:09,820 --> 00:06:11,490
+Good luck.
+
