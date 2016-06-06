@@ -1,0 +1,387 @@
+﻿1
+00:00:01,610 --> 00:00:04,280
+[SINGING] It's time to learn
+some Python, the language
+
+2
+00:00:04,280 --> 00:00:05,556
+to rely on.
+
+3
+00:00:05,556 --> 00:00:07,180
+From printing strings
+to math routines.
+
+4
+00:00:07,180 --> 00:00:09,340
+Variables on the horizon.
+
+5
+00:00:09,340 --> 00:00:12,570
+Start using True/False
+and conditionals
+
+6
+00:00:12,570 --> 00:00:17,210
+as you Try Python's
+basic principles.
+
+7
+00:00:17,210 --> 00:00:18,880
+Welcome back to Try Python.
+
+8
+00:00:18,880 --> 00:00:20,150
+I'm Sarah Buchanan.
+
+9
+00:00:20,150 --> 00:00:23,870
+And this is Level 3,
+Conditional Rules of Engagement,
+
+10
+00:00:23,870 --> 00:00:28,000
+covering conditionals and input.
+
+11
+00:00:28,000 --> 00:00:30,330
+We've been hired by
+King Arthur to help
+
+12
+00:00:30,330 --> 00:00:35,060
+with his rules of engagement
+in order to reduce casualties.
+
+13
+00:00:35,060 --> 00:00:39,700
+If there's less than 3
+knights, we'll retreat.
+
+14
+00:00:39,700 --> 00:00:42,810
+If there's more than 10
+knights, we have enough
+
+15
+00:00:42,810 --> 00:00:45,010
+to queue the Trojan Rabbit.
+
+16
+00:00:45,010 --> 00:00:47,500
+And otherwise, we'll
+try to sign a truce.
+
+17
+00:00:50,200 --> 00:00:52,440
+Making these decisions
+in Python starts
+
+18
+00:00:52,440 --> 00:00:54,660
+with comparison operators.
+
+19
+00:00:54,660 --> 00:00:57,890
+There are six of these
+comparators in Python:
+
+20
+00:00:57,890 --> 00:01:02,190
+less than (<), less than
+equal to (<=), equal to (==),
+
+21
+00:01:02,190 --> 00:01:06,090
+greater than equal to (>=),
+greater than (>), and one
+
+22
+00:01:06,090 --> 00:01:09,680
+you may have not seen
+before, not equal to (!=).
+
+23
+00:01:09,680 --> 00:01:12,040
+These comparison statements
+act as if they're
+
+24
+00:01:12,040 --> 00:01:16,510
+asking a question,
+like is 5 less than 10,
+
+25
+00:01:16,510 --> 00:01:18,630
+and then give you a
+True or False answer.
+
+26
+00:01:18,630 --> 00:01:20,470
+Here it's True.
+
+27
+00:01:20,470 --> 00:01:22,530
+Is 5 equal to 10?
+
+28
+00:01:22,530 --> 00:01:23,820
+False.
+
+29
+00:01:23,820 --> 00:01:27,680
+We can also compare things other
+than numbers, like strings.
+
+30
+00:01:27,680 --> 00:01:31,080
+We assign our name
+variable equal to 'Pam'
+
+31
+00:01:31,080 --> 00:01:36,520
+and then check is name equal
+to 'Jim', which is False.
+
+32
+00:01:36,520 --> 00:01:39,200
+Is name not equal to 'Jim'?
+
+33
+00:01:39,200 --> 00:01:42,580
+That's True.
+
+34
+00:01:42,580 --> 00:01:45,900
+If we look at using all six
+comparators on our values
+
+35
+00:01:45,900 --> 00:01:50,040
+5 and 10, we get a
+mix of True and False.
+
+36
+00:01:50,040 --> 00:01:57,430
+For instance, 5 less than 10 is
+True, 5 equal to 10 is False,
+
+37
+00:01:57,430 --> 00:02:03,270
+5 greater than 10 is False,
+5 less than or equal to 10
+
+38
+00:02:03,270 --> 00:02:07,720
+is True, 5 not
+equal to 10 is True,
+
+39
+00:02:07,720 --> 00:02:11,965
+and finally, 5 greater than
+or equal to 10 is False.
+
+40
+00:02:14,660 --> 00:02:18,050
+These True and False
+values are called Booleans.
+
+41
+00:02:18,050 --> 00:02:21,100
+Booleans are built in
+types like the ones we've
+
+42
+00:02:21,100 --> 00:02:24,480
+seen before -- int,
+float and string --
+
+43
+00:02:24,480 --> 00:02:27,110
+and can only be True or False.
+
+44
+00:02:27,110 --> 00:02:28,600
+No maybes.
+
+45
+00:02:28,600 --> 00:02:31,600
+We can also create a
+variable to store a Boolean.
+
+46
+00:02:31,600 --> 00:02:35,140
+Here is_raining
+stores the value True.
+
+47
+00:02:37,770 --> 00:02:41,740
+The place where we use Booleans
+the most is in an if statement.
+
+48
+00:02:41,740 --> 00:02:45,860
+They allow us to decide whether
+to run a certain piece of code
+
+49
+00:02:45,860 --> 00:02:49,940
+depending on whether the
+statement is True or False.
+
+50
+00:02:49,940 --> 00:02:53,420
+Here num_knights is equal to 2.
+
+51
+00:02:53,420 --> 00:02:57,140
+So the conditional
+num_knights is less than 3
+
+52
+00:02:57,140 --> 00:02:59,440
+evaluates to True.
+
+53
+00:02:59,440 --> 00:03:02,710
+So we run whatever is in
+the indented code block
+
+54
+00:03:02,710 --> 00:03:06,370
+below, which, in this case,
+prints the strings 'Retreat!'
+
+55
+00:03:06,370 --> 00:03:07,800
+and 'Raise the white flag!'
+
+56
+00:03:10,450 --> 00:03:13,000
+Here num_knights is 4.
+
+57
+00:03:13,000 --> 00:03:15,660
+So the if statement
+evaluates to False,
+
+58
+00:03:15,660 --> 00:03:18,570
+and the indented
+code block isn't run.
+
+59
+00:03:18,570 --> 00:03:22,430
+So nothing happens here.
+
+60
+00:03:22,430 --> 00:03:25,000
+It's important to know
+that the program keeps
+
+61
+00:03:25,000 --> 00:03:29,560
+running after the conditional
+as normal line by line.
+
+62
+00:03:29,560 --> 00:03:32,920
+So here,
+print('Knights of the Round Table!')
+
+63
+00:03:32,920 --> 00:03:34,925
+gets run after the
+conditional block.
+
+64
+00:03:38,710 --> 00:03:42,150
+Python whitespace is
+also super particular.
+
+65
+00:03:42,150 --> 00:03:44,290
+If you use two
+spaces on one line
+
+66
+00:03:44,290 --> 00:03:48,280
+and four spaces on the next,
+your program will not run.
+
+67
+00:03:48,280 --> 00:03:50,520
+You must be very consistent.
+
+68
+00:03:50,520 --> 00:03:53,240
+PEP 8, the Python
+style guide, recommends
+
+69
+00:03:53,240 --> 00:03:55,260
+four spaces for an indent.
+
+70
+00:03:55,260 --> 00:03:57,860
+Many text editors
+will do this for you
+
+71
+00:03:57,860 --> 00:04:03,530
+when you tab so you don't have
+to worry about counting spaces.
+
+72
+00:04:03,530 --> 00:04:05,540
+In order to continue
+implementing
+
+73
+00:04:05,540 --> 00:04:08,760
+our rules of engagement,
+we'll need something that
+
+74
+00:04:08,760 --> 00:04:11,400
+handles an otherwise condition.
+
+75
+00:04:11,400 --> 00:04:14,120
+In Python, that's
+an else statement.
+
+76
+00:04:14,120 --> 00:04:16,730
+An else statement provides
+an alternative thing
+
+77
+00:04:16,730 --> 00:04:19,379
+to do if the if
+statement is False.
+
+78
+00:04:22,580 --> 00:04:27,000
+Here if num_knights is
+less than 3, print('Retreat!')
+
+79
+00:04:27,000 --> 00:04:30,890
+If it's not less
+than 3, print('Truce?')
+
+80
+00:04:30,890 --> 00:04:34,535
+Here num_knights is equal
+to 4, so we print('Truce?')
+
+81
+00:04:37,390 --> 00:04:40,730
+It's time for you to do some
+conditionals in the challenges.
+
+82
+00:04:40,730 --> 00:04:42,630
+Have fun.
+

@@ -19,8 +19,7 @@ variables on the horizon.
 
 5
 00:00:09,340 --> 00:00:12,570
-Start using true,
-false and conditionals
+Start using True/False and conditionals
 
 6
 00:00:12,570 --> 00:00:17,160

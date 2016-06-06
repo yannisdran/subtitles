@@ -19,7 +19,7 @@ on the horizon.
 
 5
 00:00:09,340 --> 00:00:12,570
-Start using true/false
+Start using True/False
 and conditionals,
 
 6
