@@ -88,18 +88,18 @@ comparators in Python:
 
 20
 00:00:57,890 --> 00:01:02,190
-less than (<), less than
-equal to (<=), equal to (==),
+less than, less than
+equal to, equal to,
 
 21
 00:01:02,190 --> 00:01:06,090
-greater than equal to (>=),
-greater than (>), and one
+greater than equal to,
+greater than, and one
 
 22
 00:01:06,090 --> 00:01:09,680
 you may have not seen
-before, not equal to (!=).
+before, not equal to.
 
 23
 00:01:09,680 --> 00:01:12,040
