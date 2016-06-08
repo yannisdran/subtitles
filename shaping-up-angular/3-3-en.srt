@@ -1,4 +1,439 @@
 ﻿1
-00:00:00,196 --> 00:00:01,820
-[no subtitles yet. Sorry!
-working on it]
+00:00:02,200 --> 00:00:02,930
+Welcome back.
+
+2
+00:00:02,930 --> 00:00:06,370
+In this section, we're going
+to be going over validations
+
+3
+00:00:06,370 --> 00:00:09,040
+because every form
+needs good validations,
+
+4
+00:00:09,040 --> 00:00:12,030
+and Angular comes with some
+great built-in ones that you're
+
+5
+00:00:12,030 --> 00:00:14,390
+going to want to use.
+
+6
+00:00:14,390 --> 00:00:16,480
+To add validations
+to our view form,
+
+7
+00:00:16,480 --> 00:00:19,000
+the first thing we need
+to do is to turn off
+
+8
+00:00:19,000 --> 00:00:21,980
+default HTML validations.
+
+9
+00:00:21,980 --> 00:00:24,190
+Browsers sometimes
+have this built-in,
+
+10
+00:00:24,190 --> 00:00:25,620
+and we don't want to do it.
+
+11
+00:00:25,620 --> 00:00:27,210
+We want to be more consistent.
+
+12
+00:00:27,210 --> 00:00:31,960
+So let's run novalidate in
+our form tag as an attribute.
+
+13
+00:00:31,960 --> 00:00:35,710
+Next, let's mark the fields
+that are required for our form
+
+14
+00:00:35,710 --> 00:00:39,720
+by simply adding the required
+attribute, like you see here.
+
+15
+00:00:39,720 --> 00:00:42,530
+Lastly, to see if our form
+is validating properly,
+
+16
+00:00:42,530 --> 00:00:44,790
+let's simply add some
+debugging code here.
+
+17
+00:00:44,790 --> 00:00:49,710
+We'll say reviewForm
+is reviewForm.$valid,
+
+18
+00:00:49,710 --> 00:00:51,730
+which will be true or false.
+
+19
+00:00:51,730 --> 00:00:53,980
+There's some Angular
+magic going on here.
+
+20
+00:00:53,980 --> 00:00:58,140
+First, notice that our form
+has a name -- attribute --
+
+21
+00:00:58,140 --> 00:01:00,350
+and the name is reviewForm.
+
+22
+00:01:00,350 --> 00:01:03,670
+That's where we get that
+first part of that expression.
+
+23
+00:01:03,670 --> 00:01:10,640
+And then when .$valid, $ means
+we're referencing a property
+
+24
+00:01:10,640 --> 00:01:14,660
+on the form, and that's a
+built-in property from Angular.
+
+25
+00:01:14,660 --> 00:01:17,340
+We're not having to
+define valid anywhere.
+
+26
+00:01:17,340 --> 00:01:20,500
+It comes with Angular.
+
+27
+00:01:20,500 --> 00:01:22,230
+Now if we jump
+back into our form,
+
+28
+00:01:22,230 --> 00:01:24,470
+and we fill out all
+the fields, you'll
+
+29
+00:01:24,470 --> 00:01:27,760
+see that valid turns
+from false to true,
+
+30
+00:01:27,760 --> 00:01:29,610
+as you might expect it to.
+
+31
+00:01:29,610 --> 00:01:31,540
+There's another cool
+thing here going on
+
+32
+00:01:31,540 --> 00:01:34,487
+where, if we play around
+with the email address,
+
+33
+00:01:34,487 --> 00:01:36,320
+you'll notice that it's
+validating that it's
+
+34
+00:01:36,320 --> 00:01:38,650
+a proper email address.
+
+35
+00:01:38,650 --> 00:01:39,990
+Kind of neat.
+
+36
+00:01:39,990 --> 00:01:43,640
+Now, if we have this
+invalid email address,
+
+37
+00:01:43,640 --> 00:01:48,940
+and the form is invalid,
+can we submit the form?
+
+38
+00:01:48,940 --> 00:01:49,560
+Yeah.
+
+39
+00:01:49,560 --> 00:01:51,570
+We can still submit the form.
+
+40
+00:01:51,570 --> 00:01:53,300
+We don't want that.
+
+41
+00:01:53,300 --> 00:01:56,050
+We'll need to prevent that
+from getting submitted.
+
+42
+00:01:56,050 --> 00:01:58,310
+Really, we only
+one that addReview
+
+43
+00:01:58,310 --> 00:02:01,830
+function to be called
+if the form is valid.
+
+44
+00:02:01,830 --> 00:02:06,370
+So using our knowledge of the
+reviewForm valid property,
+
+45
+00:02:06,370 --> 00:02:08,860
+we can put that
+inside ng-submit.
+
+46
+00:02:08,860 --> 00:02:11,750
+So when this form is
+submitted, if valid is false,
+
+47
+00:02:11,750 --> 00:02:14,390
+then addReview will
+never get called.
+
+48
+00:02:17,290 --> 00:02:20,570
+Only if valid is true will the
+second part of the expression
+
+49
+00:02:20,570 --> 00:02:23,490
+be evaluated and
+addReview get called.
+
+50
+00:02:23,490 --> 00:02:27,780
+Now, if we have an invalid form,
+and we attempt to submit it,
+
+51
+00:02:27,780 --> 00:02:29,770
+nothing happens.
+
+52
+00:02:29,770 --> 00:02:31,910
+Well, that's good,
+but we still need
+
+53
+00:02:31,910 --> 00:02:34,490
+to give the user
+some sort of hint
+
+54
+00:02:34,490 --> 00:02:36,890
+of why their form is invalid.
+
+55
+00:02:36,890 --> 00:02:38,640
+Well, if we looked
+at the HTML that
+
+56
+00:02:38,640 --> 00:02:41,060
+gets rendered on our
+page -- in particular,
+
+57
+00:02:41,060 --> 00:02:45,040
+the form elements -- we would see
+that the input value before we
+
+58
+00:02:45,040 --> 00:02:50,840
+started typing email has a
+class of ng-pristine -- which
+
+59
+00:02:50,840 --> 00:02:54,510
+means it hasn't been
+touched -- and ng-invalid,
+
+60
+00:02:54,510 --> 00:02:57,820
+which means the
+email is not valid.
+
+61
+00:02:57,820 --> 00:03:02,430
+As we start typing inside
+that field, the class changes.
+
+62
+00:03:02,430 --> 00:03:05,980
+The class gets
+updated to ng-dirty,
+
+63
+00:03:05,980 --> 00:03:07,420
+but it's still invalid.
+
+64
+00:03:07,420 --> 00:03:10,030
+So it still has ng-invalid.
+
+65
+00:03:10,030 --> 00:03:13,602
+Then, after we
+have a valid email,
+
+66
+00:03:13,602 --> 00:03:18,460
+that ng-invalid
+turns into ng-valid.
+
+67
+00:03:18,460 --> 00:03:22,130
+All this is default magic
+that Angular adds for you.
+
+68
+00:03:22,130 --> 00:03:25,880
+So with this in mind, let's
+highlight these form fields
+
+69
+00:03:25,880 --> 00:03:28,500
+using classes after
+we start typing to see
+
+70
+00:03:28,500 --> 00:03:31,990
+if a field is valid or invalid.
+
+71
+00:03:31,990 --> 00:03:34,470
+So let's jump in
+and write some CSS.
+
+72
+00:03:34,470 --> 00:03:36,770
+We can check to see if
+it's invalid and dirty,
+
+73
+00:03:36,770 --> 00:03:40,030
+then we'll use one border
+color:  this is red.
+
+74
+00:03:40,030 --> 00:03:44,090
+And if it's valid and dirty,
+we'll change it to green.
+
+75
+00:03:44,090 --> 00:03:47,850
+You might be wondering why
+we use ng-dirty at all.
+
+76
+00:03:47,850 --> 00:03:50,490
+That's because we don't want
+these borders to show up
+
+77
+00:03:50,490 --> 00:03:52,670
+until they've started typing.
+
+78
+00:03:52,670 --> 00:03:54,160
+Now if we jump
+back into our form,
+
+79
+00:03:54,160 --> 00:03:56,510
+you can see as we start
+typing an email address,
+
+80
+00:03:56,510 --> 00:04:00,570
+it turns red until it's valid,
+and then it turns green.
+
+81
+00:04:00,570 --> 00:04:03,350
+You might also notice the
+live preview doesn't render
+
+82
+00:04:03,350 --> 00:04:05,670
+this value until it's valid.
+
+83
+00:04:05,670 --> 00:04:07,900
+It's kind of neat.
+
+84
+00:04:07,900 --> 00:04:12,610
+As you see, Angular has
+built-in email validation, a lot
+
+85
+00:04:12,610 --> 00:04:16,630
+like HTML5 form validation.
+
+86
+00:04:16,630 --> 00:04:20,444
+It also can validate
+URLs or even numbers.
+
+87
+00:04:20,444 --> 00:04:22,110
+And when you have a
+number, you can even
+
+88
+00:04:22,110 --> 00:04:24,730
+specify a minimum and maximum.
+
+89
+00:04:27,390 --> 00:04:29,430
+Time for you to
+try out validation.
+
+90
+00:04:29,430 --> 00:04:32,330
+And I'll see you in level four.
+
+91
+00:04:32,330 --> 00:04:34,890
+You're watching Warming
+Up with Angular.
+
+92
+00:04:34,890 --> 00:04:36,380
+Welcome to Warming
+Up With Angular.
+
+93
+00:04:36,380 --> 00:04:37,930
+[LAUGHTER]
+
