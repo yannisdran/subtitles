@@ -1,0 +1,857 @@
+﻿1
+00:00:01,960 --> 00:00:02,460
+Hey guys.
+
+2
+00:00:02,460 --> 00:00:03,290
+Welcome back.
+
+3
+00:00:03,290 --> 00:00:06,560
+This is section four of
+the pendant of performance.
+
+4
+00:00:06,560 --> 00:00:08,180
+In this section,
+we'll be examining
+
+5
+00:00:08,180 --> 00:00:12,480
+how to test the
+speed of your code.
+
+6
+00:00:12,480 --> 00:00:15,060
+Very often, it's
+very valuable to test
+
+7
+00:00:15,060 --> 00:00:18,610
+your current implementation with
+other potential implementations
+
+8
+00:00:18,610 --> 00:00:21,280
+in order to see which
+provides the best
+
+9
+00:00:21,280 --> 00:00:25,500
+performance, and therefore,
+the best user experience.
+
+10
+00:00:25,500 --> 00:00:28,520
+So let's build a little code
+and then test its speed.
+
+11
+00:00:28,520 --> 00:00:29,510
+Here we go.
+
+12
+00:00:29,510 --> 00:00:31,250
+So remember that
+Knight constructor
+
+13
+00:00:31,250 --> 00:00:32,690
+that we used in level one?
+
+14
+00:00:32,690 --> 00:00:34,190
+Well, we're going
+to use that again.
+
+15
+00:00:34,190 --> 00:00:35,700
+So let's get it
+up here and we're
+
+16
+00:00:35,700 --> 00:00:38,130
+going to move it
+down to the side.
+
+17
+00:00:38,130 --> 00:00:41,340
+We're going to examine a very
+simple console method that
+
+18
+00:00:41,340 --> 00:00:45,320
+will assess the time any code
+we build is going to run.
+
+19
+00:00:45,320 --> 00:00:46,760
+Let's see how it works.
+
+20
+00:00:46,760 --> 00:00:50,710
+So we've got a variable here
+called firstRegimentNewbs.
+
+21
+00:00:50,710 --> 00:00:53,490
+And that's an array
+of all these guys
+
+22
+00:00:53,490 --> 00:00:55,220
+that are about to
+become knights,
+
+23
+00:00:55,220 --> 00:00:58,770
+but they're newbies--
+Grimble, Jark, and Bunder.
+
+24
+00:00:58,770 --> 00:01:00,620
+And in the very next
+variable we have
+
+25
+00:01:00,620 --> 00:01:04,470
+is the master list of all of
+the firstRegimentKnight objects,
+
+26
+00:01:04,470 --> 00:01:07,250
+in which there are
+tons of Knight objects.
+
+27
+00:01:07,250 --> 00:01:11,150
+Next, we got a loop that
+loops over all of the newbies,
+
+28
+00:01:11,150 --> 00:01:14,200
+creates a new Knight
+object with that newbie
+
+29
+00:01:14,200 --> 00:01:18,600
+and the regiment number, and
+pushes the new knight object
+
+30
+00:01:18,600 --> 00:01:20,940
+to the list of existing knights.
+
+31
+00:01:20,940 --> 00:01:24,504
+This is the code we're
+going to test for time.
+
+32
+00:01:24,504 --> 00:01:26,170
+We're going to scoot
+down our loop here.
+
+33
+00:01:26,170 --> 00:01:29,440
+And right before our loop,
+we're going to put console.time.
+
+34
+00:01:29,440 --> 00:01:32,520
+Yes, the console.time
+method will take any string
+
+35
+00:01:32,520 --> 00:01:34,580
+and start a timer with it.
+
+36
+00:01:34,580 --> 00:01:36,080
+You can see here
+that we've got time
+
+37
+00:01:36,080 --> 00:01:39,890
+to add, and then a certain
+amount, and then Knights.
+
+38
+00:01:39,890 --> 00:01:41,650
+So it's going to
+say time to add,
+
+39
+00:01:41,650 --> 00:01:44,250
+three Knights, in this case,
+because firstRegimentNewbs
+
+40
+00:01:44,250 --> 00:01:46,650
+has three Knights in it.
+
+41
+00:01:46,650 --> 00:01:50,210
+Following the loop, we're
+going to use console.timeEnd,
+
+42
+00:01:50,210 --> 00:01:55,270
+passing in the exact same
+string, which is key, in order
+
+43
+00:01:55,270 --> 00:01:59,240
+to cause the timer
+to stop and close up.
+
+44
+00:01:59,240 --> 00:02:00,920
+If we were to run
+this code now--
+
+45
+00:02:00,920 --> 00:02:03,730
+which we did on our
+browser-- we got the time
+
+46
+00:02:03,730 --> 00:02:09,720
+to add the three Knights
+was 0.036 milliseconds.
+
+47
+00:02:09,720 --> 00:02:11,540
+Not very much time, right?
+
+48
+00:02:11,540 --> 00:02:14,740
+console.time will automatically
+preface the time measurement
+
+49
+00:02:14,740 --> 00:02:18,710
+that it finds with the
+string that you passed in
+
+50
+00:02:18,710 --> 00:02:19,817
+as a parameter.
+
+51
+00:02:19,817 --> 00:02:21,650
+And it will follow that
+string automatically
+
+52
+00:02:21,650 --> 00:02:23,960
+with a colon to separate
+the numerical portion
+
+53
+00:02:23,960 --> 00:02:25,700
+from your label.
+
+54
+00:02:25,700 --> 00:02:28,550
+Just to show that it would take
+a little bit longer time if we
+
+55
+00:02:28,550 --> 00:02:31,380
+added a newbie to the
+firstRegimentNewbs array,
+
+56
+00:02:31,380 --> 00:02:33,660
+we're going to add Ernst
+Breadbaker over here
+
+57
+00:02:33,660 --> 00:02:35,550
+on the back end of that array.
+
+58
+00:02:35,550 --> 00:02:39,160
+And now when we run this
+code, you're going to see that
+
+59
+00:02:39,160 --> 00:02:45,260
+the time to add four Knights
+is now 0.040 milliseconds,
+
+60
+00:02:45,260 --> 00:02:48,210
+just a little bit worse
+in terms of performance.
+
+61
+00:02:48,210 --> 00:02:49,380
+One thing to notice.
+
+62
+00:02:49,380 --> 00:02:53,190
+The string was automatically
+changed to four Knights instead
+
+63
+00:02:53,190 --> 00:02:55,940
+of three because we used
+a concatenated length
+
+64
+00:02:55,940 --> 00:03:01,379
+inside of our time and
+timeEnd label parameters.
+
+65
+00:03:01,379 --> 00:03:02,920
+As you can see,
+console.time is going
+
+66
+00:03:02,920 --> 00:03:05,340
+to let us compare
+implementations.
+
+67
+00:03:05,340 --> 00:03:08,640
+And that timing feature's
+going to help determine which
+
+68
+00:03:08,640 --> 00:03:11,210
+code produces the best
+experience for either you
+
+69
+00:03:11,210 --> 00:03:12,435
+or your users.
+
+70
+00:03:12,435 --> 00:03:15,010
+To demonstrate
+console.time's usefulness
+
+71
+00:03:15,010 --> 00:03:16,785
+in comparing
+implementations, we're
+
+72
+00:03:16,785 --> 00:03:19,340
+going to get rid of
+this new guy variable
+
+73
+00:03:19,340 --> 00:03:21,910
+that we declare each
+time in the loop.
+
+74
+00:03:21,910 --> 00:03:24,747
+Remember that extra declaration
+kind of sucks a little bit.
+
+75
+00:03:24,747 --> 00:03:26,330
+So we're going to
+get rid of that guy.
+
+76
+00:03:26,330 --> 00:03:27,996
+We're going to scoot
+over our new Knight
+
+77
+00:03:27,996 --> 00:03:29,360
+call on the constructor.
+
+78
+00:03:29,360 --> 00:03:34,220
+Then we're going to push that
+down into our push method.
+
+79
+00:03:34,220 --> 00:03:36,920
+So now firstRegimentNewbs
+is pushing directly
+
+80
+00:03:36,920 --> 00:03:40,060
+on the result of a call to
+the Knights constructors
+
+81
+00:03:40,060 --> 00:03:43,249
+with no intermediate
+variable necessary.
+
+82
+00:03:43,249 --> 00:03:43,790
+Kind of cool.
+
+83
+00:03:43,790 --> 00:03:45,440
+Let's see what happens.
+
+84
+00:03:45,440 --> 00:03:47,800
+When we run
+console.time, we find
+
+85
+00:03:47,800 --> 00:03:50,120
+that we get the time
+to add four Knights now
+
+86
+00:03:50,120 --> 00:03:53,220
+is 0.029 milliseconds.
+
+87
+00:03:53,220 --> 00:03:57,140
+Slightly better than that
+0.040 that we got before.
+
+88
+00:03:57,140 --> 00:03:59,880
+Now, times are going to
+vary, of course, by browser,
+
+89
+00:03:59,880 --> 00:04:01,440
+but ours was just
+slightly better
+
+90
+00:04:01,440 --> 00:04:05,010
+when not using that extra
+variable declaration.
+
+91
+00:04:05,010 --> 00:04:07,910
+If this process was
+replicated 10,000,
+
+92
+00:04:07,910 --> 00:04:10,580
+100,000 times, you can see
+that there would be probably
+
+93
+00:04:10,580 --> 00:04:12,870
+a significant time
+difference that
+
+94
+00:04:12,870 --> 00:04:14,940
+would make it very
+useful for your website.
+
+95
+00:04:17,860 --> 00:04:20,269
+One important and useful
+feature of console.time
+
+96
+00:04:20,269 --> 00:04:23,860
+is that you can have multiple
+of them run at the same time.
+
+97
+00:04:23,860 --> 00:04:28,250
+Since timers are created
+and labeled by that string
+
+98
+00:04:28,250 --> 00:04:30,010
+that you pass into
+the parameter,
+
+99
+00:04:30,010 --> 00:04:31,890
+you can stack a whole
+bunch to produce
+
+100
+00:04:31,890 --> 00:04:34,050
+layers and layers of time data.
+
+101
+00:04:34,050 --> 00:04:35,330
+So let's take a look at that.
+
+102
+00:04:35,330 --> 00:04:36,860
+We'll scoot our stuff
+out here to give us
+
+103
+00:04:36,860 --> 00:04:37,859
+a little bit more space.
+
+104
+00:04:37,859 --> 00:04:41,370
+And now we're going to add
+a second regiment of newbs.
+
+105
+00:04:41,370 --> 00:04:45,440
+Yeah, there they are-- Jenner,
+Tar, Cromer, Stim, Vorn,
+
+106
+00:04:45,440 --> 00:04:48,340
+Rack, Brock, and
+Arden are the new guys
+
+107
+00:04:48,340 --> 00:04:49,920
+for the second regiment.
+
+108
+00:04:49,920 --> 00:04:52,030
+And they're going to be
+added to this variable,
+
+109
+00:04:52,030 --> 00:04:54,830
+the secondRegimentKnights, which
+holds a whole bunch of Knight
+
+110
+00:04:54,830 --> 00:04:56,635
+objects for the second regiment.
+
+111
+00:04:56,635 --> 00:04:58,820
+What we're going to
+do first is we're
+
+112
+00:04:58,820 --> 00:05:01,560
+going to start a
+brand new timer that's
+
+113
+00:05:01,560 --> 00:05:03,330
+called Total completion time.
+
+114
+00:05:03,330 --> 00:05:07,070
+That's going to help us find
+out the entire amount of time
+
+115
+00:05:07,070 --> 00:05:09,640
+for all of the operations
+we're about to produce
+
+116
+00:05:09,640 --> 00:05:11,070
+inside this code.
+
+117
+00:05:11,070 --> 00:05:13,850
+Both parts of our existing
+timer for the first regiment
+
+118
+00:05:13,850 --> 00:05:15,790
+additions are just
+going to stay in place
+
+119
+00:05:15,790 --> 00:05:17,410
+like we had them before.
+
+120
+00:05:17,410 --> 00:05:19,450
+Then we're going to
+recreate that process,
+
+121
+00:05:19,450 --> 00:05:22,980
+but this time for just
+secondRegimentNewbs instead
+
+122
+00:05:22,980 --> 00:05:24,400
+of firstRegimentNewbs.
+
+123
+00:05:24,400 --> 00:05:25,910
+The loop is nearly the same.
+
+124
+00:05:25,910 --> 00:05:27,310
+The process is the same.
+
+125
+00:05:27,310 --> 00:05:31,360
+It's just that the labels are
+going to be slightly different.
+
+126
+00:05:31,360 --> 00:05:32,850
+And once those
+additions are done,
+
+127
+00:05:32,850 --> 00:05:36,810
+we're going to stop that
+second regiment time.
+
+128
+00:05:36,810 --> 00:05:40,810
+Finally, at the very end, we'll
+just wrap up the master time
+
+129
+00:05:40,810 --> 00:05:45,110
+with that total completion time
+label and a console.timeEnd.
+
+130
+00:05:45,110 --> 00:05:49,490
+That's going to wrap up the
+timing of the entire operation.
+
+131
+00:05:49,490 --> 00:05:52,980
+When we run all of this code,
+we get three different lines.
+
+132
+00:05:52,980 --> 00:05:57,330
+The first one we get is when the
+very first console.timEnd shows
+
+133
+00:05:57,330 --> 00:06:00,010
+up, which says the time
+to add four Knights
+
+134
+00:06:00,010 --> 00:06:02,870
+was 0.031 milliseconds.
+
+135
+00:06:02,870 --> 00:06:05,290
+Then later, we will
+get the time to add
+
+136
+00:06:05,290 --> 00:06:08,920
+eight Knights is
+0.063 milliseconds.
+
+137
+00:06:08,920 --> 00:06:11,290
+Finally, we will get
+a total completion
+
+138
+00:06:11,290 --> 00:06:15,010
+time of 0.324 milliseconds.
+
+139
+00:06:15,010 --> 00:06:16,130
+That seems kind of weird.
+
+140
+00:06:16,130 --> 00:06:17,090
+What happened?
+
+141
+00:06:17,090 --> 00:06:22,530
+Because the 0.031 and 0.063
+don't add up to the 0.324.
+
+142
+00:06:22,530 --> 00:06:24,470
+Hm, what's going on?
+
+143
+00:06:24,470 --> 00:06:28,200
+We got to remember that setting
+up those timers, when it's
+
+144
+00:06:28,200 --> 00:06:30,840
+a layered, will
+also take time too.
+
+145
+00:06:30,840 --> 00:06:33,410
+So the production
+of the timer itself
+
+146
+00:06:33,410 --> 00:06:37,080
+is often included in
+layered timing data.
+
+147
+00:06:37,080 --> 00:06:39,690
+Be aware of that.
+
+148
+00:06:39,690 --> 00:06:43,060
+Not only will all of those
+extra layers of time measurement
+
+149
+00:06:43,060 --> 00:06:47,510
+create a little bit of overhead
+in your master time data,
+
+150
+00:06:47,510 --> 00:06:51,630
+but even running the same
+test over and over again
+
+151
+00:06:51,630 --> 00:06:53,960
+will not always produce
+the same values.
+
+152
+00:06:53,960 --> 00:06:56,244
+So what we're going to do
+here is start at the top
+
+153
+00:06:56,244 --> 00:06:57,660
+and end at the
+bottom and take out
+
+154
+00:06:57,660 --> 00:06:59,650
+all of those
+internal measurements
+
+155
+00:06:59,650 --> 00:07:01,430
+for the first and
+second regiment.
+
+156
+00:07:01,430 --> 00:07:03,950
+And we're going to run
+that test multiple times.
+
+157
+00:07:03,950 --> 00:07:05,640
+The first time that
+we run it, we're
+
+158
+00:07:05,640 --> 00:07:07,015
+going to get the
+total completion
+
+159
+00:07:07,015 --> 00:07:10,510
+time of 0.069 milliseconds.
+
+160
+00:07:10,510 --> 00:07:12,270
+But then if we run
+it again, you can
+
+161
+00:07:12,270 --> 00:07:14,530
+see that that time
+drops a little bit.
+
+162
+00:07:14,530 --> 00:07:17,150
+Third time, drops even more.
+
+163
+00:07:17,150 --> 00:07:19,120
+But then on the
+fourth time, we're
+
+164
+00:07:19,120 --> 00:07:21,660
+going to get more
+than the first time.
+
+165
+00:07:21,660 --> 00:07:24,680
+The point here is that
+if we want more accuracy
+
+166
+00:07:24,680 --> 00:07:26,180
+in our estimate,
+we're going to need
+
+167
+00:07:26,180 --> 00:07:29,060
+to use the average
+of multiple tests.
+
+168
+00:07:29,060 --> 00:07:32,110
+Now, console.time is a
+good quick and dirty way
+
+169
+00:07:32,110 --> 00:07:35,840
+to just figure out how much time
+generally your code is taking
+
+170
+00:07:35,840 --> 00:07:37,920
+just to get kind of
+a basic estimate.
+
+171
+00:07:37,920 --> 00:07:40,040
+But it's not going
+to let us have access
+
+172
+00:07:40,040 --> 00:07:44,130
+to the numerical data that it
+returns in a way that would let
+
+173
+00:07:44,130 --> 00:07:46,020
+us manipulate it mathematically.
+
+174
+00:07:46,020 --> 00:07:50,370
+So if we want a vastly
+improved accuracy in our times,
+
+175
+00:07:50,370 --> 00:07:53,520
+and therefore our comparisons
+of potentially our user
+
+176
+00:07:53,520 --> 00:07:56,710
+experience, we're going to need
+to take a more advanced track.
+
+177
+00:07:56,710 --> 00:07:58,280
+And that happens in
+the next section.
+
+178
+00:07:58,280 --> 00:08:01,150
+But for now, some
+console.time challenges.
+
+179
+00:08:01,150 --> 00:08:04,030
+And we'll see you
+back real soon.
+

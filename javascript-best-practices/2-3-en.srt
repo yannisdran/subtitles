@@ -1,0 +1,1219 @@
+﻿1
+00:00:01,860 --> 00:00:02,360
+Hey, guys.
+
+2
+00:00:02,360 --> 00:00:02,940
+Welcome back.
+
+3
+00:00:02,940 --> 00:00:06,850
+This is section three of
+"The Pendant of Performance."
+
+4
+00:00:06,850 --> 00:00:08,920
+This section is called
+"Short Performance Tips,"
+
+5
+00:00:08,920 --> 00:00:10,794
+which means that we're
+going to be giving you
+
+6
+00:00:10,794 --> 00:00:12,900
+a few easy implementation
+switches that
+
+7
+00:00:12,900 --> 00:00:15,920
+will affect your
+performance positively.
+
+8
+00:00:15,920 --> 00:00:17,102
+Let's take a look.
+
+9
+00:00:17,102 --> 00:00:18,560
+The first thing we
+want to give you
+
+10
+00:00:18,560 --> 00:00:20,330
+is this idea that
+inheritance can
+
+11
+00:00:20,330 --> 00:00:23,140
+help your memory efficiency.
+
+12
+00:00:23,140 --> 00:00:25,460
+You want to beware of
+taking single objects
+
+13
+00:00:25,460 --> 00:00:27,820
+and loading them
+up with repetitive
+
+14
+00:00:27,820 --> 00:00:31,420
+code that could be sourced
+and held somewhere else,
+
+15
+00:00:31,420 --> 00:00:33,320
+ideally a prototype.
+
+16
+00:00:33,320 --> 00:00:35,899
+Taking a look here, we've got
+the signal fire constructor.
+
+17
+00:00:35,899 --> 00:00:36,440
+That's right.
+
+18
+00:00:36,440 --> 00:00:38,790
+We're going to be building
+some signal fires.
+
+19
+00:00:38,790 --> 00:00:41,290
+You can see that it takes
+an ID for the signal fire,
+
+20
+00:00:41,290 --> 00:00:43,600
+as well as a certain
+amount of starting
+
+21
+00:00:43,600 --> 00:00:45,650
+logs that the fire gets.
+
+22
+00:00:45,650 --> 00:00:48,230
+Additionally, you can see there
+are three other methods that
+
+23
+00:00:48,230 --> 00:00:52,610
+are added in here-- add logs,
+light fire, and smoke signal,
+
+24
+00:00:52,610 --> 00:00:56,760
+which have all sorts of unique
+functionality for the signal
+
+25
+00:00:56,760 --> 00:00:57,660
+fire.
+
+26
+00:00:57,660 --> 00:01:00,250
+Now, the thing about
+those three functions
+
+27
+00:01:00,250 --> 00:01:02,480
+is that we don't need to
+build all of those methods
+
+28
+00:01:02,480 --> 00:01:06,030
+within every single
+signal fire object
+
+29
+00:01:06,030 --> 00:01:08,090
+because it would use
+extra memory to store
+
+30
+00:01:08,090 --> 00:01:10,630
+that functionality
+within every object,
+
+31
+00:01:10,630 --> 00:01:12,810
+and it would also
+take longer to create
+
+32
+00:01:12,810 --> 00:01:15,130
+when we're calling
+the constructor.
+
+33
+00:01:15,130 --> 00:01:17,900
+So, if we have this
+world-spanning signal fire
+
+34
+00:01:17,900 --> 00:01:20,520
+system with multiple
+fire objects,
+
+35
+00:01:20,520 --> 00:01:23,260
+we'd have to replicate
+all of that functionality
+
+36
+00:01:23,260 --> 00:01:25,900
+within each one of
+those signal fire
+
+37
+00:01:25,900 --> 00:01:28,390
+data structures,
+which would suck.
+
+38
+00:01:28,390 --> 00:01:31,310
+So, let's take a look at a
+way we can prove that memory
+
+39
+00:01:31,310 --> 00:01:33,990
+efficiency using inheritance.
+
+40
+00:01:33,990 --> 00:01:37,090
+The way that we can avoid all
+of that repetitive memory usage
+
+41
+00:01:37,090 --> 00:01:41,270
+is by using a prototype for
+all of our shared stuff.
+
+42
+00:01:41,270 --> 00:01:43,194
+We want to give
+the common methods
+
+43
+00:01:43,194 --> 00:01:44,985
+that each one of these
+objects will share--
+
+44
+00:01:44,985 --> 00:01:46,694
+we want to give
+that to a prototype,
+
+45
+00:01:46,694 --> 00:01:48,110
+and then just have
+all the objects
+
+46
+00:01:48,110 --> 00:01:49,640
+inherit from the prototype.
+
+47
+00:01:49,640 --> 00:01:50,900
+Let's check that out.
+
+48
+00:01:50,900 --> 00:01:53,420
+So, we'll scoot down our
+smoke signal function here,
+
+49
+00:01:53,420 --> 00:01:56,760
+and then we'll scoot over
+our add logs and light fire
+
+50
+00:01:56,760 --> 00:01:57,780
+methods.
+
+51
+00:01:57,780 --> 00:01:59,540
+Then, we'll get rid
+of these equal signs
+
+52
+00:01:59,540 --> 00:02:01,930
+and replace them with colons.
+
+53
+00:02:01,930 --> 00:02:04,140
+And then, we'll
+wrap the whole deal
+
+54
+00:02:04,140 --> 00:02:06,610
+in the signal fire prototype.
+
+55
+00:02:06,610 --> 00:02:09,620
+And now, all of
+these methods can
+
+56
+00:02:09,620 --> 00:02:14,360
+be inherited by every
+signal fire object.
+
+57
+00:02:14,360 --> 00:02:18,410
+So now, if we have fireOne, and
+fireTwo, and fireThree created
+
+58
+00:02:18,410 --> 00:02:20,760
+through new constructions
+of signal fires,
+
+59
+00:02:20,760 --> 00:02:22,750
+you can see they all
+start with an ID,
+
+60
+00:02:22,750 --> 00:02:26,000
+as well as as many starting
+logs as they have each.
+
+61
+00:02:26,000 --> 00:02:29,270
+And then, if we were to
+call add logs on each one
+
+62
+00:02:29,270 --> 00:02:32,900
+of those signal fire objects,
+each of those signal fires
+
+63
+00:02:32,900 --> 00:02:35,940
+would be accessing the
+method contained only
+
+64
+00:02:35,940 --> 00:02:39,900
+in the prototype object
+for the signal fire.
+
+65
+00:02:39,900 --> 00:02:43,390
+Additionally, if fireThree
+saw some goblins and needed
+
+66
+00:02:43,390 --> 00:02:46,340
+to alert their nearest neighbor,
+we could send a smoke signal
+
+67
+00:02:46,340 --> 00:02:48,720
+on goblins, and we would
+get G-O-B-L-I-N-S-!
+
+68
+00:02:56,730 --> 00:02:59,140
+because goblins are serious.
+
+69
+00:02:59,140 --> 00:03:01,410
+Moral of this short
+story-- make sure that you
+
+70
+00:03:01,410 --> 00:03:04,130
+add all common
+functionality to prototypes
+
+71
+00:03:04,130 --> 00:03:06,450
+so that every single data
+structure that's inside
+
+72
+00:03:06,450 --> 00:03:08,650
+of a class of objects
+doesn't contain
+
+73
+00:03:08,650 --> 00:03:11,680
+that shared
+functionality itself.
+
+74
+00:03:11,680 --> 00:03:13,930
+The next sure performance
+tip that we want to give you
+
+75
+00:03:13,930 --> 00:03:17,180
+is that adding individual
+DOM elements to the DOM
+
+76
+00:03:17,180 --> 00:03:21,370
+is not always your
+safest, fastest friend.
+
+77
+00:03:21,370 --> 00:03:23,210
+We want to make
+sure that you know
+
+78
+00:03:23,210 --> 00:03:24,910
+that each new
+addition to the DOM
+
+79
+00:03:24,910 --> 00:03:27,890
+is going to cause
+a document reflow.
+
+80
+00:03:27,890 --> 00:03:32,790
+Ew, that's terrible and can very
+often hinder user experience.
+
+81
+00:03:32,790 --> 00:03:35,480
+Take a look at this website
+over here on the right.
+
+82
+00:03:35,480 --> 00:03:37,670
+It's a knights of the
+week site, apparently.
+
+83
+00:03:37,670 --> 00:03:40,130
+And we have an unordered
+list element there
+
+84
+00:03:40,130 --> 00:03:42,860
+with an ID of kotwlist.
+
+85
+00:03:42,860 --> 00:03:44,900
+Later on, there's
+a script tag that
+
+86
+00:03:44,900 --> 00:03:49,339
+calls the kotw.js
+file to be loaded.
+
+87
+00:03:49,339 --> 00:03:50,630
+Let's take a look at that file.
+
+88
+00:03:50,630 --> 00:03:55,370
+Inside there, we grab that
+unordered list element
+
+89
+00:03:55,370 --> 00:03:56,817
+and assign it to
+a variable list,
+
+90
+00:03:56,817 --> 00:03:59,150
+and then we've got this list
+of the knights of the week.
+
+91
+00:03:59,150 --> 00:04:01,320
+There they are Jenna
+Rangespike, Neric Farthing,
+
+92
+00:04:01,320 --> 00:04:02,770
+and Darkin Stonefield.
+
+93
+00:04:02,770 --> 00:04:04,740
+Next, we've got a FOR
+loop the loops over all
+
+94
+00:04:04,740 --> 00:04:07,510
+of the knights of the week,
+and first, for each element,
+
+95
+00:04:07,510 --> 00:04:10,880
+creates a list item element
+and then adds a text node
+
+96
+00:04:10,880 --> 00:04:14,110
+with that particular knight's
+name to that element,
+
+97
+00:04:14,110 --> 00:04:18,519
+and then adds the element
+itself to the unordered list
+
+98
+00:04:18,519 --> 00:04:21,070
+element inside the HTML page.
+
+99
+00:04:21,070 --> 00:04:22,840
+Now, each time that
+list is appended,
+
+100
+00:04:22,840 --> 00:04:24,590
+you're going to access
+the DOM, and you're
+
+101
+00:04:24,590 --> 00:04:26,699
+going to cause an
+entire document reflow.
+
+102
+00:04:26,699 --> 00:04:28,490
+That's not as speedy
+as we'd like it to be,
+
+103
+00:04:28,490 --> 00:04:32,450
+especially if our list
+was 4,000 knights assigned
+
+104
+00:04:32,450 --> 00:04:33,960
+to this regiment for printout.
+
+105
+00:04:33,960 --> 00:04:37,250
+That would suck, so we don't
+really want that to happen.
+
+106
+00:04:37,250 --> 00:04:39,610
+Let's take a look at a
+way to speed that up.
+
+107
+00:04:39,610 --> 00:04:42,292
+Cool thing about HTML is
+the document fragment,
+
+108
+00:04:42,292 --> 00:04:44,000
+which can be used to
+insert a whole bunch
+
+109
+00:04:44,000 --> 00:04:49,460
+of conjoined additions all at
+once, instead of in pieces.
+
+110
+00:04:49,460 --> 00:04:52,170
+Fragments are like
+invisible containers
+
+111
+00:04:52,170 --> 00:04:56,930
+that hold multiple DOM elements
+without actually being a node
+
+112
+00:04:56,930 --> 00:04:57,670
+itself.
+
+113
+00:04:57,670 --> 00:04:58,420
+They're very cool.
+
+114
+00:04:58,420 --> 00:05:00,020
+Let's take a look
+how to use them.
+
+115
+00:05:00,020 --> 00:05:01,740
+So what we're going to do is
+we're going to create an extra
+
+116
+00:05:01,740 --> 00:05:04,170
+variable here called fragment,
+and then we're going to use
+
+117
+00:05:04,170 --> 00:05:09,105
+the .createDocumentFragment
+method to assign a new fragment
+
+118
+00:05:09,105 --> 00:05:10,430
+to that variable.
+
+119
+00:05:10,430 --> 00:05:13,340
+What that fragment is going to
+be is sort of a staging area.
+
+120
+00:05:13,340 --> 00:05:18,890
+It's going to hold all of our
+new LI elements for our page.
+
+121
+00:05:18,890 --> 00:05:22,330
+Now, on the inside of our loop,
+instead of adding our created
+
+122
+00:05:22,330 --> 00:05:24,930
+element with the knight's
+name as a text node
+
+123
+00:05:24,930 --> 00:05:27,872
+to the actual unordered
+list element--
+
+124
+00:05:27,872 --> 00:05:29,330
+we're not going to
+do that anymore.
+
+125
+00:05:29,330 --> 00:05:30,870
+We're going to now
+put that element
+
+126
+00:05:30,870 --> 00:05:35,300
+inside the fragment
+as a staging area.
+
+127
+00:05:35,300 --> 00:05:38,720
+Now we'll need to add another
+line right after our loop that
+
+128
+00:05:38,720 --> 00:05:42,050
+will finally add the
+fragment that contains all
+
+129
+00:05:42,050 --> 00:05:45,030
+of our elements to the document.
+
+130
+00:05:45,030 --> 00:05:47,080
+Notice that this is
+happening in one fell swoop.
+
+131
+00:05:47,080 --> 00:05:49,570
+We're only touching the
+DOM one time in order
+
+132
+00:05:49,570 --> 00:05:53,886
+to add all of those elements
+to the unordered list.
+
+133
+00:05:53,886 --> 00:05:56,260
+Now, we're going to give you
+a little bit of a side bonus
+
+134
+00:05:56,260 --> 00:05:57,090
+best practice here.
+
+135
+00:05:57,090 --> 00:06:00,750
+We want to make sure that you
+declare variables as few times
+
+136
+00:06:00,750 --> 00:06:01,710
+as possible.
+
+137
+00:06:01,710 --> 00:06:04,630
+That's because every time you
+use one of those VAR keywords,
+
+138
+00:06:04,630 --> 00:06:06,890
+it's going to add an extra
+look up for the JavaScript
+
+139
+00:06:06,890 --> 00:06:09,410
+to parse there, and that can
+be avoided with those comma
+
+140
+00:06:09,410 --> 00:06:12,230
+extensions that we saw in the
+first section of this level.
+
+141
+00:06:12,230 --> 00:06:13,260
+Let's take a look.
+
+142
+00:06:13,260 --> 00:06:13,760
+All right.
+
+143
+00:06:13,760 --> 00:06:18,020
+So we've got already VARs
+on list kotw and fragment.
+
+144
+00:06:18,020 --> 00:06:22,130
+And if we take the VARs
+off of kotw and fragment,
+
+145
+00:06:22,130 --> 00:06:25,210
+we can put commas-- comma
+behind the list variable,
+
+146
+00:06:25,210 --> 00:06:28,250
+as well as behind
+the kotw variable.
+
+147
+00:06:28,250 --> 00:06:30,640
+That will show that we're
+declaring multiple variables
+
+148
+00:06:30,640 --> 00:06:34,970
+in a row, just as we did in that
+looped optimization segment.
+
+149
+00:06:34,970 --> 00:06:37,660
+Now, using these commas is
+really great for legibility
+
+150
+00:06:37,660 --> 00:06:40,130
+for when other developers are
+looking through your code.
+
+151
+00:06:40,130 --> 00:06:42,550
+They can see that you've
+got a nice list of variables
+
+152
+00:06:42,550 --> 00:06:45,540
+stacked using commas.
+
+153
+00:06:45,540 --> 00:06:47,160
+Now, because of that
+processor burden,
+
+154
+00:06:47,160 --> 00:06:49,880
+you want to avoid
+declaring IN loops.
+
+155
+00:06:49,880 --> 00:06:52,850
+You want to try to anticipate
+your variable needs so
+
+156
+00:06:52,850 --> 00:06:54,770
+that you're not
+causing the parser
+
+157
+00:06:54,770 --> 00:06:58,500
+to look that variable keyword
+up over and over again, right?
+
+158
+00:06:58,500 --> 00:06:59,660
+Let's take a look at that.
+
+159
+00:06:59,660 --> 00:07:02,262
+Here, you can see
+our VAR element,
+
+160
+00:07:02,262 --> 00:07:03,970
+and that variable is
+going to be declared
+
+161
+00:07:03,970 --> 00:07:06,572
+every single time
+our loop executes.
+
+162
+00:07:06,572 --> 00:07:08,280
+That means we're going
+to need to look up
+
+163
+00:07:08,280 --> 00:07:11,000
+what the VAR keyword
+means every time we
+
+164
+00:07:11,000 --> 00:07:12,935
+want to declare that element.
+
+165
+00:07:12,935 --> 00:07:15,540
+Now, some will argue that
+declaring variables right
+
+166
+00:07:15,540 --> 00:07:18,560
+when they're needed is very
+useful because it tightens
+
+167
+00:07:18,560 --> 00:07:20,800
+the understanding of
+your code so that people
+
+168
+00:07:20,800 --> 00:07:23,290
+can see that you've declared
+this variable right where
+
+169
+00:07:23,290 --> 00:07:24,730
+you have needed it.
+
+170
+00:07:24,730 --> 00:07:26,200
+But you want to
+kind of weigh that
+
+171
+00:07:26,200 --> 00:07:28,390
+with the trade-off of
+the processor burden.
+
+172
+00:07:28,390 --> 00:07:32,260
+Now, since our script here
+is sort of very small,
+
+173
+00:07:32,260 --> 00:07:34,270
+we're going to go ahead
+and declare that element
+
+174
+00:07:34,270 --> 00:07:37,396
+outside of our loop and then
+use the element inside the loop.
+
+175
+00:07:37,396 --> 00:07:39,520
+So first thing we'll do is
+we'll get rid of the VAR
+
+176
+00:07:39,520 --> 00:07:41,635
+on that element inside
+the loop, and then we
+
+177
+00:07:41,635 --> 00:07:44,540
+will add the element to
+the list of the variables
+
+178
+00:07:44,540 --> 00:07:46,220
+outside the loops.
+
+179
+00:07:46,220 --> 00:07:47,280
+That's a great trade-off.
+
+180
+00:07:47,280 --> 00:07:49,020
+Because we've got
+such a short script,
+
+181
+00:07:49,020 --> 00:07:52,400
+we've opted to avoid
+processor burden instead
+
+182
+00:07:52,400 --> 00:07:55,964
+of having the element declared
+exactly where it is used.
+
+183
+00:07:55,964 --> 00:07:57,380
+Now, the goal here
+is to make sure
+
+184
+00:07:57,380 --> 00:08:00,010
+that you anticipate which
+variables you'll need ahead
+
+185
+00:08:00,010 --> 00:08:01,670
+of time so that when
+you encounter loop
+
+186
+00:08:01,670 --> 00:08:04,590
+environments in your code,
+you won't need to re-declare
+
+187
+00:08:04,590 --> 00:08:07,454
+those variables over and over.
+
+188
+00:08:07,454 --> 00:08:08,870
+The last little
+performance tip we
+
+189
+00:08:08,870 --> 00:08:11,245
+want to give you in this
+section is that we should always
+
+190
+00:08:11,245 --> 00:08:12,800
+make efficient
+choices when we're
+
+191
+00:08:12,800 --> 00:08:16,140
+trying to figure out how to
+concatenate a set of strings
+
+192
+00:08:16,140 --> 00:08:17,467
+that we have.
+
+193
+00:08:17,467 --> 00:08:19,800
+In building strings, there
+are several different methods
+
+194
+00:08:19,800 --> 00:08:23,360
+that will yield uniquely
+different results in terms
+
+195
+00:08:23,360 --> 00:08:25,940
+of execution speed, so
+let's take a look at that.
+
+196
+00:08:25,940 --> 00:08:28,590
+Here, we've got three new
+variables-- knight, action,
+
+197
+00:08:28,590 --> 00:08:33,030
+and weapon-- each with
+a string inside it.
+
+198
+00:08:33,030 --> 00:08:34,990
+Next, we'll have a
+variable called turn,
+
+199
+00:08:34,990 --> 00:08:38,450
+and what we're going to do
+is concatenate all three
+
+200
+00:08:38,450 --> 00:08:42,646
+of those variables together to
+create Jenna Rangespike's turn.
+
+201
+00:08:42,646 --> 00:08:44,520
+Now here, the standard
+concatenation operator
+
+202
+00:08:44,520 --> 00:08:47,490
+has been optimized in
+most browser versions.
+
+203
+00:08:47,490 --> 00:08:50,430
+That's an ideal
+choice if you are
+
+204
+00:08:50,430 --> 00:08:53,810
+using a small number of
+string concatenations.
+
+205
+00:08:53,810 --> 00:08:57,090
+One more time, the
+concatenation operator
+
+206
+00:08:57,090 --> 00:08:59,070
+will probably be
+your best bet if you
+
+207
+00:08:59,070 --> 00:09:01,810
+have just a small amount
+of strings to concatenate.
+
+208
+00:09:01,810 --> 00:09:04,290
+However, if we had
+a variable that
+
+209
+00:09:04,290 --> 00:09:08,600
+consisted of an array of
+multiple hundreds of HTML
+
+210
+00:09:08,600 --> 00:09:10,880
+elements-- for example,
+if we were pooling
+
+211
+00:09:10,880 --> 00:09:14,550
+HTML elements together
+to build a new page--
+
+212
+00:09:14,550 --> 00:09:17,380
+we may want to loop
+over that array
+
+213
+00:09:17,380 --> 00:09:20,340
+in order to put all of
+those elements together.
+
+214
+00:09:20,340 --> 00:09:23,565
+So here, you can see we've got
+a page variable starting out
+
+215
+00:09:23,565 --> 00:09:25,240
+at the empty string.
+
+216
+00:09:25,240 --> 00:09:29,770
+And then, we loop over all
+of those array elements
+
+217
+00:09:29,770 --> 00:09:32,490
+forever, concatenating.
+
+218
+00:09:32,490 --> 00:09:34,290
+And that's going to
+get the job done,
+
+219
+00:09:34,290 --> 00:09:38,500
+but there is another method that
+will enjoy a performance boost,
+
+220
+00:09:38,500 --> 00:09:43,490
+specifically when your strings
+are inside of an array.
+
+221
+00:09:43,490 --> 00:09:45,950
+You always want to decide
+what's better before reaching
+
+222
+00:09:45,950 --> 00:09:48,880
+specifically for that
+concatenation operator.
+
+223
+00:09:48,880 --> 00:09:51,325
+When you are trying to
+concatenate the strings that
+
+224
+00:09:51,325 --> 00:09:54,090
+are inside an array's
+content, instead,
+
+225
+00:09:54,090 --> 00:09:57,500
+use the native join
+method on arrays.
+
+226
+00:09:57,500 --> 00:10:00,420
+That's going to be inherited
+from the array prototype.
+
+227
+00:10:00,420 --> 00:10:03,310
+Here, you can see us use the
+join method on the new page
+
+228
+00:10:03,310 --> 00:10:04,030
+build variable.
+
+229
+00:10:04,030 --> 00:10:07,300
+And what that's going to do
+is concatenate each index
+
+230
+00:10:07,300 --> 00:10:10,780
+of our new page build
+array, and those indices
+
+231
+00:10:10,780 --> 00:10:12,930
+are going to be
+joined by any string
+
+232
+00:10:12,930 --> 00:10:14,770
+that you pass into
+the join method.
+
+233
+00:10:14,770 --> 00:10:17,830
+Here, you can see we've got
+the new line going in there,
+
+234
+00:10:17,830 --> 00:10:21,410
+so as to put a new line between
+each element of our new page
+
+235
+00:10:21,410 --> 00:10:23,350
+build long string.
+
+236
+00:10:23,350 --> 00:10:24,980
+When your strings
+are in an array,
+
+237
+00:10:24,980 --> 00:10:28,280
+this method is going to be
+extremely faster than using
+
+238
+00:10:28,280 --> 00:10:30,730
+that concatenation operator
+over and over again,
+
+239
+00:10:30,730 --> 00:10:33,340
+in most of the tests that
+we've designed for it.
+
+240
+00:10:33,340 --> 00:10:36,080
+Also, it's a little bit easier
+to read because a developer can
+
+241
+00:10:36,080 --> 00:10:38,630
+understand exactly what you're
+doing, rather than trying
+
+242
+00:10:38,630 --> 00:10:41,970
+to figure out what your loop
+is trying to accomplish.
+
+243
+00:10:41,970 --> 00:10:45,140
+Now that we have joined all
+the elements of our array using
+
+244
+00:10:45,140 --> 00:10:48,570
+new lines and put that
+into our page variable,
+
+245
+00:10:48,570 --> 00:10:50,580
+if we were to log
+that page out now,
+
+246
+00:10:50,580 --> 00:10:53,000
+you can see that our
+HTML page is grouped
+
+247
+00:10:53,000 --> 00:10:56,010
+very nicely with new
+lines in between as one
+
+248
+00:10:56,010 --> 00:10:59,210
+long string-- super cool.
+
+249
+00:10:59,210 --> 00:11:03,012
+And that's the end of this
+short performance tips section.
+
+250
+00:11:03,012 --> 00:11:04,970
+We're going to give you
+a few challenges so you
+
+251
+00:11:04,970 --> 00:11:08,040
+can illustrate your learning
+with these magical things,
+
+252
+00:11:08,040 --> 00:11:11,390
+and then we will see you
+back in the next section.
+

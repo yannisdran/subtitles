@@ -1,0 +1,1316 @@
+﻿1
+00:00:02,040 --> 00:00:04,910
+Welcome back to the Sword
+of Syntax, JavaScript Best
+
+2
+00:00:04,910 --> 00:00:05,410
+Practices.
+
+3
+00:00:05,410 --> 00:00:06,243
+I'm Jason Millhouse.
+
+4
+00:00:06,243 --> 00:00:09,170
+You are extraordinary
+JavaScript developers
+
+5
+00:00:09,170 --> 00:00:11,225
+getting more extraordinary
+as the days go by.
+
+6
+00:00:11,225 --> 00:00:12,600
+In this section,
+we'll be talking
+
+7
+00:00:12,600 --> 00:00:16,670
+about logical assignment, a
+very valuable and often used
+
+8
+00:00:16,670 --> 00:00:18,230
+tool in JavaScript.
+
+9
+00:00:18,230 --> 00:00:19,540
+Let's take a look.
+
+10
+00:00:19,540 --> 00:00:21,710
+So all those logical
+operators that we
+
+11
+00:00:21,710 --> 00:00:23,670
+use in standard
+conditional blocks
+
+12
+00:00:23,670 --> 00:00:25,710
+and ternary
+conditionals, in fact
+
+13
+00:00:25,710 --> 00:00:28,640
+can make assignments much
+shorter, even shorter
+
+14
+00:00:28,640 --> 00:00:29,720
+than ternaries can.
+
+15
+00:00:29,720 --> 00:00:30,220
+All right.
+
+16
+00:00:30,220 --> 00:00:33,930
+I'm going to establish
+an armory variable here.
+
+17
+00:00:33,930 --> 00:00:36,230
+And we're going to add a
+property called addSword.
+
+18
+00:00:36,230 --> 00:00:38,990
+That addSword property
+is going to be a function
+
+19
+00:00:38,990 --> 00:00:42,060
+and it will take in a
+sword parameter, obviously.
+
+20
+00:00:42,060 --> 00:00:45,850
+Now take a look at
+this first cool line
+
+21
+00:00:45,850 --> 00:00:48,930
+of the addSword function.
+
+22
+00:00:48,930 --> 00:00:50,077
+What is this doing?
+
+23
+00:00:50,077 --> 00:00:50,910
+It's kind of spooky.
+
+24
+00:00:50,910 --> 00:00:53,150
+I see this.swords three times.
+
+25
+00:00:53,150 --> 00:00:57,600
+Well, what it's doing is
+examining the armory object
+
+26
+00:00:57,600 --> 00:01:02,130
+and seeing if a swords
+property actually exists.
+
+27
+00:01:02,130 --> 00:01:04,370
+And if it does, then
+what it's going to do
+
+28
+00:01:04,370 --> 00:01:06,950
+is just return that
+exact same contents
+
+29
+00:01:06,950 --> 00:01:09,050
+of that property to
+the property itself.
+
+30
+00:01:09,050 --> 00:01:10,980
+That may sound kind
+of weird, but here's
+
+31
+00:01:10,980 --> 00:01:13,140
+what's cool about this
+ternary conditional.
+
+32
+00:01:13,140 --> 00:01:15,220
+On the right hand
+side of the colon--
+
+33
+00:01:15,220 --> 00:01:18,590
+meaning if the swords
+property does not exist--
+
+34
+00:01:18,590 --> 00:01:22,580
+we're going to create
+a brand new empty array
+
+35
+00:01:22,580 --> 00:01:25,470
+and pass it back to
+the swords property,
+
+36
+00:01:25,470 --> 00:01:30,390
+thereby creating a new property
+if it did not exist before.
+
+37
+00:01:30,390 --> 00:01:33,950
+So in other words, this
+first line is saying,
+
+38
+00:01:33,950 --> 00:01:35,960
+does the swords property exist?
+
+39
+00:01:35,960 --> 00:01:37,910
+If so, just go with that.
+
+40
+00:01:37,910 --> 00:01:40,930
+If it doesn't, create
+a new empty array.
+
+41
+00:01:40,930 --> 00:01:42,430
+That's what this
+ternary conditional
+
+42
+00:01:42,430 --> 00:01:45,340
+is accomplishing for us.
+
+43
+00:01:45,340 --> 00:01:47,915
+Now your question might be, how
+does the ternary conditional
+
+44
+00:01:47,915 --> 00:01:51,020
+know, looking at
+this.swords, whether that
+
+45
+00:01:51,020 --> 00:01:53,830
+means there's a
+property there or not?
+
+46
+00:01:53,830 --> 00:01:55,850
+Well, remember that
+the ternary conditional
+
+47
+00:01:55,850 --> 00:01:57,680
+is just looking
+for a truthy value.
+
+48
+00:01:57,680 --> 00:02:00,390
+And if something is there
+that's not undefined
+
+49
+00:02:00,390 --> 00:02:02,670
+or not a number or all
+those falsy values,
+
+50
+00:02:02,670 --> 00:02:04,890
+it will think that there's
+something true there
+
+51
+00:02:04,890 --> 00:02:07,190
+and go with the true option.
+
+52
+00:02:07,190 --> 00:02:08,140
+Very useful.
+
+53
+00:02:08,140 --> 00:02:10,880
+Now here's where the money
+is in this actual function.
+
+54
+00:02:10,880 --> 00:02:13,320
+Now that we've built a swords
+property-- whether it's
+
+55
+00:02:13,320 --> 00:02:15,560
+the old one or a new
+empty one-- we're
+
+56
+00:02:15,560 --> 00:02:17,130
+just going to push
+the sword that's
+
+57
+00:02:17,130 --> 00:02:20,940
+the parameter into that list
+of swords that we have built
+
+58
+00:02:20,940 --> 00:02:22,865
+or the one that we had.
+
+59
+00:02:22,865 --> 00:02:25,097
+Now this section is about
+logical assignments,
+
+60
+00:02:25,097 --> 00:02:26,680
+so what we're going
+to do is transform
+
+61
+00:02:26,680 --> 00:02:30,790
+this ternary statement
+into a logical assignment.
+
+62
+00:02:30,790 --> 00:02:33,280
+Now this ternary
+conditional works just fine.
+
+63
+00:02:33,280 --> 00:02:35,800
+It will evaluate whether
+a property exists
+
+64
+00:02:35,800 --> 00:02:38,310
+and either assign
+an empty array or go
+
+65
+00:02:38,310 --> 00:02:40,130
+with the pre-existing property.
+
+66
+00:02:40,130 --> 00:02:44,770
+But we can eliminate a
+read of the sword property
+
+67
+00:02:44,770 --> 00:02:46,580
+through a logical assignment.
+
+68
+00:02:46,580 --> 00:02:48,090
+Let's take a look.
+
+69
+00:02:48,090 --> 00:02:51,360
+So first, we will get rid of
+the question mark, the condition
+
+70
+00:02:51,360 --> 00:02:53,505
+to check, as well as the colon.
+
+71
+00:02:53,505 --> 00:02:55,860
+And we'll scoot some
+stuff over here.
+
+72
+00:02:55,860 --> 00:02:59,420
+Now in between the
+second this.swords
+
+73
+00:02:59,420 --> 00:03:04,040
+and the empty array, we'll
+stick a logical OR operator.
+
+74
+00:03:04,040 --> 00:03:06,750
+Now, when used in
+assignment, the OR operator
+
+75
+00:03:06,750 --> 00:03:10,090
+is going to select
+the very first truthy
+
+76
+00:03:10,090 --> 00:03:12,690
+value that it finds.
+
+77
+00:03:12,690 --> 00:03:14,820
+Can you see how that works?
+
+78
+00:03:14,820 --> 00:03:17,310
+Now when used in
+assignment, that OR operator
+
+79
+00:03:17,310 --> 00:03:19,320
+that you've seen
+before will actually
+
+80
+00:03:19,320 --> 00:03:21,340
+try to select the
+very first value
+
+81
+00:03:21,340 --> 00:03:23,650
+it finds that's not falsy.
+
+82
+00:03:23,650 --> 00:03:27,440
+In other words, it's looking
+for the very first truthy value
+
+83
+00:03:27,440 --> 00:03:31,340
+that it can grab onto for
+the purposes of assignment.
+
+84
+00:03:31,340 --> 00:03:33,010
+So this may be
+new for you, let's
+
+85
+00:03:33,010 --> 00:03:35,880
+take a look at what happens if
+the swords property is empty
+
+86
+00:03:35,880 --> 00:03:38,020
+and does not exist.
+
+87
+00:03:38,020 --> 00:03:42,110
+If I got this.swords is set
+equal to either the existing
+
+88
+00:03:42,110 --> 00:03:44,230
+property or the
+empty array, what
+
+89
+00:03:44,230 --> 00:03:46,720
+will happen when we
+get to this.swords?
+
+90
+00:03:46,720 --> 00:03:48,430
+It will be undefined.
+
+91
+00:03:48,430 --> 00:03:49,740
+That is falsy.
+
+92
+00:03:49,740 --> 00:03:53,470
+The OR operator will ignore
+it and instead select
+
+93
+00:03:53,470 --> 00:03:56,644
+the empty array
+which is not falsy.
+
+94
+00:03:56,644 --> 00:03:57,810
+So what happens as a result?
+
+95
+00:03:57,810 --> 00:04:01,220
+The empty array gets
+assigned to this.swords.
+
+96
+00:04:01,220 --> 00:04:04,180
+Now your question might be,
+well isn't the empty arrays kind
+
+97
+00:04:04,180 --> 00:04:04,680
+of falsy?
+
+98
+00:04:04,680 --> 00:04:05,930
+I mean, there's nothing in it.
+
+99
+00:04:05,930 --> 00:04:08,470
+No, it doesn't care that
+the array itself is empty
+
+100
+00:04:08,470 --> 00:04:12,260
+because the array is just a data
+structure which is not false
+
+101
+00:04:12,260 --> 00:04:13,400
+at all.
+
+102
+00:04:13,400 --> 00:04:15,670
+So what happens if the
+swords property actually
+
+103
+00:04:15,670 --> 00:04:17,870
+has something, it's
+actually got some contents?
+
+104
+00:04:17,870 --> 00:04:19,140
+Let's take a look.
+
+105
+00:04:19,140 --> 00:04:22,280
+So now when I set up
+my logical assignment,
+
+106
+00:04:22,280 --> 00:04:26,530
+I will get some array that's
+got some swords in it,
+
+107
+00:04:26,530 --> 00:04:27,890
+or the empty array.
+
+108
+00:04:27,890 --> 00:04:30,490
+And since the array
+with some swords in it
+
+109
+00:04:30,490 --> 00:04:33,250
+is truthy instantly
+to the OR operator,
+
+110
+00:04:33,250 --> 00:04:35,690
+it's going to take that
+and assign it directly back
+
+111
+00:04:35,690 --> 00:04:37,780
+to this.swords.
+
+112
+00:04:37,780 --> 00:04:40,154
+A mistake often made with
+OR logical assignment
+
+113
+00:04:40,154 --> 00:04:41,570
+is that developers
+sometimes think
+
+114
+00:04:41,570 --> 00:04:45,300
+that both of the contents
+of the logical assignment
+
+115
+00:04:45,300 --> 00:04:46,720
+get examined.
+
+116
+00:04:46,720 --> 00:04:47,740
+That's not true.
+
+117
+00:04:47,740 --> 00:04:52,630
+Because in this case, as soon
+as it finds a truthy value,
+
+118
+00:04:52,630 --> 00:04:54,320
+it will instantly
+make the assignment.
+
+119
+00:04:54,320 --> 00:04:56,470
+That process is called
+short circuiting.
+
+120
+00:04:56,470 --> 00:04:57,550
+What does that mean?
+
+121
+00:04:57,550 --> 00:04:59,670
+It means that the empty
+array in this case
+
+122
+00:04:59,670 --> 00:05:02,335
+will never even get looked at.
+
+123
+00:05:02,335 --> 00:05:03,710
+So now we're going
+to take a look
+
+124
+00:05:03,710 --> 00:05:07,940
+and see what happens when we
+try to use our addSword function
+
+125
+00:05:07,940 --> 00:05:10,450
+with its logical assignment.
+
+126
+00:05:10,450 --> 00:05:13,100
+So we'll scoot our little
+armory object in here.
+
+127
+00:05:13,100 --> 00:05:15,750
+It's got our addSword
+function at the bottom, right.
+
+128
+00:05:15,750 --> 00:05:17,300
+No swords property yet.
+
+129
+00:05:17,300 --> 00:05:21,760
+So now we call the addSword
+method using the Broadsword,
+
+130
+00:05:21,760 --> 00:05:24,520
+trying to pass the Broadsword
+sword into the list.
+
+131
+00:05:24,520 --> 00:05:26,740
+So our logical
+assignment triggers.
+
+132
+00:05:26,740 --> 00:05:29,230
+It looks to see if
+this.swords is there.
+
+133
+00:05:29,230 --> 00:05:30,640
+And it is not.
+
+134
+00:05:30,640 --> 00:05:33,440
+And since it's not,
+we'll take a brand
+
+135
+00:05:33,440 --> 00:05:36,620
+new, fresh, clean,
+empty array and pass it
+
+136
+00:05:36,620 --> 00:05:39,060
+to the this.swords
+property which
+
+137
+00:05:39,060 --> 00:05:42,190
+will be created on the fly.
+
+138
+00:05:42,190 --> 00:05:44,740
+Following that, we'll just
+push the Broadsword to it.
+
+139
+00:05:44,740 --> 00:05:48,800
+And you can see that Broadsword
+gets added to the empty array.
+
+140
+00:05:48,800 --> 00:05:51,520
+Next, to further
+populate our swords list,
+
+141
+00:05:51,520 --> 00:05:55,330
+we'll try to add the
+Katana to our swords array.
+
+142
+00:05:55,330 --> 00:05:56,400
+Function gets called.
+
+143
+00:05:56,400 --> 00:05:58,200
+Katana gets passed in.
+
+144
+00:05:58,200 --> 00:06:03,250
+In the logical assignment
+line, now this.swords exists.
+
+145
+00:06:03,250 --> 00:06:06,170
+That means that the OR operator
+sees this.swords and says, oh,
+
+146
+00:06:06,170 --> 00:06:07,920
+got something that's
+true, so I'm go ahead
+
+147
+00:06:07,920 --> 00:06:12,920
+and assign that back to
+the this.swords property.
+
+148
+00:06:12,920 --> 00:06:17,830
+You can see that the Katana
+gets added to the array.
+
+149
+00:06:17,830 --> 00:06:20,120
+And now if we add the
+Claymore, the same process
+
+150
+00:06:20,120 --> 00:06:21,890
+that occurred for
+Katana will repeat
+
+151
+00:06:21,890 --> 00:06:24,120
+and we will get the
+Claymore added to the array.
+
+152
+00:06:24,120 --> 00:06:28,500
+Same thing with a Scimitar
+because this.swords
+
+153
+00:06:28,500 --> 00:06:31,500
+exists for each one
+of those additions.
+
+154
+00:06:31,500 --> 00:06:36,030
+And now if we were to log out
+our armory.swords property,
+
+155
+00:06:36,030 --> 00:06:39,200
+we can see we've got the full
+array with every last sword
+
+156
+00:06:39,200 --> 00:06:40,820
+that we have added.
+
+157
+00:06:40,820 --> 00:06:42,960
+Something to note
+here is that the order
+
+158
+00:06:42,960 --> 00:06:46,390
+that we have placed our
+choices definitely matters.
+
+159
+00:06:46,390 --> 00:06:49,490
+We want to make sure that
+the empty list is only
+
+160
+00:06:49,490 --> 00:06:51,810
+chosen as the very last resort.
+
+161
+00:06:51,810 --> 00:06:53,880
+We always want to go
+with the existing swords
+
+162
+00:06:53,880 --> 00:06:55,520
+property in this case.
+
+163
+00:06:55,520 --> 00:06:58,832
+So order definitely matters
+in your logical assignment.
+
+164
+00:06:58,832 --> 00:07:01,040
+Now to really see that the
+order does in fact matter,
+
+165
+00:07:01,040 --> 00:07:03,580
+let's take a closer look
+at that OR assignment.
+
+166
+00:07:03,580 --> 00:07:06,270
+The OR's going take that left
+most truthy value every time.
+
+167
+00:07:06,270 --> 00:07:07,920
+And if none exists,
+it's always going
+
+168
+00:07:07,920 --> 00:07:09,340
+to be that last falsy value.
+
+169
+00:07:09,340 --> 00:07:11,850
+So let's see what would
+happen if we switched up
+
+170
+00:07:11,850 --> 00:07:13,620
+the order of the assignment.
+
+171
+00:07:13,620 --> 00:07:16,180
+So we'll switcharoo here,
+put our empty array first
+
+172
+00:07:16,180 --> 00:07:18,190
+and this.swords last.
+
+173
+00:07:18,190 --> 00:07:21,030
+So what happens now that
+the empty list is first?
+
+174
+00:07:21,030 --> 00:07:23,270
+Well, when used in
+assignment, the OR operator
+
+175
+00:07:23,270 --> 00:07:25,330
+is going to try to take
+the very first truthy
+
+176
+00:07:25,330 --> 00:07:26,450
+value that it finds.
+
+177
+00:07:26,450 --> 00:07:31,070
+And what is an empty array
+all day every day forever?
+
+178
+00:07:31,070 --> 00:07:33,010
+It is a truthy value.
+
+179
+00:07:33,010 --> 00:07:35,580
+And so every single time
+that this logical assignment
+
+180
+00:07:35,580 --> 00:07:38,470
+takes place, we're just going
+to get that empty array over
+
+181
+00:07:38,470 --> 00:07:39,350
+and over again.
+
+182
+00:07:39,350 --> 00:07:40,860
+Let's see what happens.
+
+183
+00:07:40,860 --> 00:07:43,330
+Well, when we try to add
+the Broadsword this time
+
+184
+00:07:43,330 --> 00:07:45,516
+using the addSword
+property, yup, we're
+
+185
+00:07:45,516 --> 00:07:46,640
+going to get an empty list.
+
+186
+00:07:46,640 --> 00:07:47,180
+No problem.
+
+187
+00:07:47,180 --> 00:07:50,080
+We're going to get that return
+to the this.swords property.
+
+188
+00:07:50,080 --> 00:07:52,470
+And there's our
+nice empty array.
+
+189
+00:07:52,470 --> 00:07:54,870
+Then Broadsword gets pushed
+into that empty array.
+
+190
+00:07:54,870 --> 00:07:57,360
+So everything appears
+to be working right.
+
+191
+00:07:57,360 --> 00:07:58,599
+Hm, what's going on?
+
+192
+00:07:58,599 --> 00:08:00,390
+So now what happens
+when we add the Katana?
+
+193
+00:08:00,390 --> 00:08:02,670
+Well, this logical
+assignment's always
+
+194
+00:08:02,670 --> 00:08:05,990
+going to short circuit on
+that truthy empty array
+
+195
+00:08:05,990 --> 00:08:07,330
+because it's not falsy.
+
+196
+00:08:07,330 --> 00:08:10,800
+So we try to add that
+Katana and-- wah-wah.
+
+197
+00:08:10,800 --> 00:08:14,180
+We get an empty list,
+brand new and fresh inside
+
+198
+00:08:14,180 --> 00:08:16,590
+of our swords property.
+
+199
+00:08:16,590 --> 00:08:18,340
+We have lost our Broadsword man.
+
+200
+00:08:18,340 --> 00:08:20,400
+It's like it never happened.
+
+201
+00:08:20,400 --> 00:08:23,670
+Then we push our Katana into
+that empty array and trudge
+
+202
+00:08:23,670 --> 00:08:25,940
+on to further data destruction.
+
+203
+00:08:25,940 --> 00:08:29,551
+Because when we continue to add
+the Claymore and the Scimitar,
+
+204
+00:08:29,551 --> 00:08:30,300
+what would happen?
+
+205
+00:08:30,300 --> 00:08:34,659
+Well, we'd get that empty array
+destroying our existing sword
+
+206
+00:08:34,659 --> 00:08:39,059
+collection every single time,
+all because that empty array is
+
+207
+00:08:39,059 --> 00:08:43,360
+truthy and short
+circuits the check.
+
+208
+00:08:43,360 --> 00:08:46,900
+Then, of course, we log
+out our armory.swords
+
+209
+00:08:46,900 --> 00:08:47,790
+and what do we see?
+
+210
+00:08:47,790 --> 00:08:52,380
+Well, one piddly little
+Scimitar for the entire armory.
+
+211
+00:08:52,380 --> 00:08:54,775
+That is bad news
+for master armorer
+
+212
+00:08:54,775 --> 00:08:59,190
+who now has lost all of
+his swords, which probably
+
+213
+00:08:59,190 --> 00:09:00,750
+sucks if you're the armorer.
+
+214
+00:09:00,750 --> 00:09:04,770
+So make sure that you
+put your default cases
+
+215
+00:09:04,770 --> 00:09:07,770
+at the end of your
+logical assignments
+
+216
+00:09:07,770 --> 00:09:12,060
+and be very careful to
+construct them well.
+
+217
+00:09:12,060 --> 00:09:14,790
+To further refine our
+understanding of this OR
+
+218
+00:09:14,790 --> 00:09:17,950
+operation, we're going to
+look at some other arrangement
+
+219
+00:09:17,950 --> 00:09:21,610
+of truthy and falsy values
+just to see what they produce.
+
+220
+00:09:21,610 --> 00:09:26,000
+So here in our first box we've
+got the variable, result1,
+
+221
+00:09:26,000 --> 00:09:28,860
+getting the result of the
+logical assignment between 42
+
+222
+00:09:28,860 --> 00:09:30,610
+and undefined.
+
+223
+00:09:30,610 --> 00:09:33,690
+Well, 42 will cause that OR
+operation to short circuit.
+
+224
+00:09:33,690 --> 00:09:36,360
+And if we logged it
+out, we would get 42.
+
+225
+00:09:36,360 --> 00:09:39,520
+Undefined is never examined.
+
+226
+00:09:39,520 --> 00:09:42,810
+Next, in result2, we're
+looking at an array
+
+227
+00:09:42,810 --> 00:09:46,590
+with some strings in it, as well
+as zero on the right hand side.
+
+228
+00:09:46,590 --> 00:09:49,110
+Well, the array full of strings,
+totally truthfully, we're
+
+229
+00:09:49,110 --> 00:09:50,740
+going to go ahead and take that.
+
+230
+00:09:50,740 --> 00:09:52,880
+And the zero is never
+examined, again,
+
+231
+00:09:52,880 --> 00:09:55,760
+because of the short circuit.
+
+232
+00:09:55,760 --> 00:09:58,370
+Finally, we got result3
+which has an object in it.
+
+233
+00:09:58,370 --> 00:10:00,290
+Object is definitely truthy.
+
+234
+00:10:00,290 --> 00:10:01,977
+On the other side
+is the empty string.
+
+235
+00:10:01,977 --> 00:10:04,310
+That empty string is never
+examined for the same reason,
+
+236
+00:10:04,310 --> 00:10:06,110
+because of the short circuiting.
+
+237
+00:10:06,110 --> 00:10:09,860
+So when we log out result3,
+we're going to get the object.
+
+238
+00:10:09,860 --> 00:10:11,660
+What happens when
+we switch it up?
+
+239
+00:10:11,660 --> 00:10:14,380
+So in the first
+one, when undefined
+
+240
+00:10:14,380 --> 00:10:17,177
+is on the left of the OR, the OR
+sort of ignores the undefined.
+
+241
+00:10:17,177 --> 00:10:18,260
+Can't find a truthy value.
+
+242
+00:10:18,260 --> 00:10:20,140
+Let's see what we got
+on the other side.
+
+243
+00:10:20,140 --> 00:10:21,140
+We've got a 42.
+
+244
+00:10:21,140 --> 00:10:24,530
+And so 42 is truthy, we'll
+pass that back to result1.
+
+245
+00:10:24,530 --> 00:10:28,630
+When we log it out, we
+see we still get 42.
+
+246
+00:10:28,630 --> 00:10:31,480
+In result2, the array is
+on the right hand side now.
+
+247
+00:10:31,480 --> 00:10:35,460
+And since zero is falsy,
+the OR will take the array
+
+248
+00:10:35,460 --> 00:10:37,910
+and pass it back to result2.
+
+249
+00:10:37,910 --> 00:10:39,777
+Lastly, the empty
+string is falsy.
+
+250
+00:10:39,777 --> 00:10:42,110
+And so we're going to take
+that object on the right hand
+
+251
+00:10:42,110 --> 00:10:44,510
+side of the OR which
+gets logged out.
+
+252
+00:10:44,510 --> 00:10:46,600
+Important thing to remember
+about OR operations
+
+253
+00:10:46,600 --> 00:10:51,410
+is that the very first non-falsy
+value will be accepted.
+
+254
+00:10:51,410 --> 00:10:52,880
+So your next question
+may be, well,
+
+255
+00:10:52,880 --> 00:10:54,882
+what happens when
+they're all truthy?
+
+256
+00:10:54,882 --> 00:10:56,340
+When all elements
+are truthy, we'll
+
+257
+00:10:56,340 --> 00:10:58,660
+get the very first
+truthy value found.
+
+258
+00:10:58,660 --> 00:11:02,160
+For example, if we've
+got both King and Arthur
+
+259
+00:11:02,160 --> 00:11:04,950
+in our logical assignment, we're
+going to go ahead and take King
+
+260
+00:11:04,950 --> 00:11:08,020
+because that is the first
+thing, the first truthy
+
+261
+00:11:08,020 --> 00:11:09,680
+value that we find.
+
+262
+00:11:09,680 --> 00:11:13,150
+In result2, if we had Arthur
+first and King second,
+
+263
+00:11:13,150 --> 00:11:15,560
+we would take Arthur because
+it's the first truthy
+
+264
+00:11:15,560 --> 00:11:16,930
+value that we find.
+
+265
+00:11:16,930 --> 00:11:19,250
+The moral of the story
+is that short circuiting
+
+266
+00:11:19,250 --> 00:11:24,790
+will occur even if both
+of the values are true.
+
+267
+00:11:24,790 --> 00:11:27,480
+Now, the OR logical assignment
+has an interesting behavior
+
+268
+00:11:27,480 --> 00:11:29,150
+when all elements are false.
+
+269
+00:11:29,150 --> 00:11:32,380
+It will examine
+every possible entry
+
+270
+00:11:32,380 --> 00:11:38,070
+and then take the very last
+one if nothing is true.
+
+271
+00:11:38,070 --> 00:11:41,150
+So in this case, you
+see we log out result1.
+
+272
+00:11:41,150 --> 00:11:44,310
+And this logical assignment's
+way of returning a false value
+
+273
+00:11:44,310 --> 00:11:47,160
+was taking the very
+last available entry
+
+274
+00:11:47,160 --> 00:11:49,620
+since nothing else was true.
+
+275
+00:11:49,620 --> 00:11:52,790
+In result2, we put the empty
+string first and undefined
+
+276
+00:11:52,790 --> 00:11:53,530
+last.
+
+277
+00:11:53,530 --> 00:11:56,640
+You can see result2,
+however, becomes undefined
+
+278
+00:11:56,640 --> 00:11:59,770
+because that was the last
+thing, the last resort that it
+
+279
+00:11:59,770 --> 00:12:02,180
+had to attend to.
+

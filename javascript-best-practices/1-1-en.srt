@@ -1,0 +1,1593 @@
+﻿1
+00:00:02,330 --> 00:00:05,510
+Hi, friends and welcome to
+JavaScript Best Practices.
+
+2
+00:00:05,510 --> 00:00:07,230
+This short collection
+of tips and tricks,
+
+3
+00:00:07,230 --> 00:00:10,560
+do's and don'ts, is intended to
+accomplish two things for you,
+
+4
+00:00:10,560 --> 00:00:12,420
+the JavaScript developer.
+
+5
+00:00:12,420 --> 00:00:15,750
+First is to help you become
+fluent in and cognizant
+
+6
+00:00:15,750 --> 00:00:18,590
+of the available constructs
+within the JavaScript language
+
+7
+00:00:18,590 --> 00:00:21,160
+and to help you use
+good judgment when
+
+8
+00:00:21,160 --> 00:00:23,250
+you engage with those tools.
+
+9
+00:00:23,250 --> 00:00:24,670
+The second thing
+is to, of course,
+
+10
+00:00:24,670 --> 00:00:27,830
+help you build the safety, the
+performance, and the quality
+
+11
+00:00:27,830 --> 00:00:30,420
+of your applications
+in large and small ways
+
+12
+00:00:30,420 --> 00:00:34,350
+not just for your users, but
+also for you as the developer.
+
+13
+00:00:34,350 --> 00:00:37,450
+Now, this course requires
+a very firm foundation
+
+14
+00:00:37,450 --> 00:00:39,590
+in the basics of the
+JavaScript language.
+
+15
+00:00:39,590 --> 00:00:41,750
+And if you lack that,
+make sure you head over
+
+16
+00:00:41,750 --> 00:00:44,440
+to the JavaScript road trip
+course which will help give you
+
+17
+00:00:44,440 --> 00:00:47,160
+a firm foundation in
+those basics for use
+
+18
+00:00:47,160 --> 00:00:49,080
+with the concepts
+of this course.
+
+19
+00:00:49,080 --> 00:00:52,320
+And with that, it's time to
+move forward with your journey.
+
+20
+00:00:52,320 --> 00:00:55,614
+Welcome to the land
+of best practices.
+
+21
+00:00:55,614 --> 00:00:58,030
+[SINGING] Find the sword syntax
+first for the useful tools
+
+22
+00:00:58,030 --> 00:00:58,860
+that you may need.
+
+23
+00:00:58,860 --> 00:01:01,547
+Wear the pendant of performance
+for efficiency and speed.
+
+24
+00:01:01,547 --> 00:01:04,130
+Cautions crystal clears the sky
+with triple equals try/catch
+
+25
+00:01:04,130 --> 00:01:04,400
+cache.
+
+26
+00:01:04,400 --> 00:01:06,620
+Avoiding stuff that sucks and
+parsing better numbers
+
+27
+00:01:06,620 --> 00:01:07,244
+out of stretch.
+
+28
+00:01:07,244 --> 00:01:10,030
+Alas, the golden shining
+mail of modularity,
+
+29
+00:01:10,030 --> 00:01:12,884
+where namespace close or
+imports long defend integrity.
+
+30
+00:01:12,884 --> 00:01:14,300
+For polished jewels
+in JavaScript,
+
+31
+00:01:14,300 --> 00:01:15,449
+the treasure trove this is.
+
+32
+00:01:15,449 --> 00:01:17,240
+Now raise your sword
+and strike your shield
+
+33
+00:01:17,240 --> 00:01:18,360
+with these best practices.
+
+34
+00:01:23,050 --> 00:01:25,480
+Hello travelers and welcome
+to this, the first portion
+
+35
+00:01:25,480 --> 00:01:29,290
+of your journey to the land
+of JavaScript best practices.
+
+36
+00:01:29,290 --> 00:01:31,870
+In this first level, we'll be
+examining alternate methods
+
+37
+00:01:31,870 --> 00:01:34,380
+of syntax that will help
+you organize lengthier
+
+38
+00:01:34,380 --> 00:01:38,490
+bits of conditional code into
+more concise, informative,
+
+39
+00:01:38,490 --> 00:01:41,030
+and legible blocks
+of functionality.
+
+40
+00:01:41,030 --> 00:01:42,530
+At code school, we
+know that staying
+
+41
+00:01:42,530 --> 00:01:46,840
+fluent and aware of what's
+even possible within a language
+
+42
+00:01:46,840 --> 00:01:49,380
+is a best practice itself.
+
+43
+00:01:49,380 --> 00:01:52,930
+Cultivating a thorough knowledge
+of what's even available to you
+
+44
+00:01:52,930 --> 00:01:55,070
+within the JavaScript
+language helps you become
+
+45
+00:01:55,070 --> 00:01:58,940
+a more versatile, a well-rounded
+developer, especially when
+
+46
+00:01:58,940 --> 00:02:02,710
+you might see these constructs
+out there in the wilds
+
+47
+00:02:02,710 --> 00:02:05,930
+or even just in code that
+you were hired to maintain,
+
+48
+00:02:05,930 --> 00:02:08,340
+but that you didn't
+build yourself.
+
+49
+00:02:08,340 --> 00:02:12,625
+Now, as with any tool, there are
+good uses and not so good uses.
+
+50
+00:02:12,625 --> 00:02:16,090
+And we'll do our best to
+provide you with your best bets
+
+51
+00:02:16,090 --> 00:02:18,010
+while we bring you up to speed.
+
+52
+00:02:18,010 --> 00:02:21,480
+And with that, it is time to
+tackle the ternary conditional
+
+53
+00:02:21,480 --> 00:02:24,610
+logical assignment
+and the switch block.
+
+54
+00:02:24,610 --> 00:02:28,000
+Good luck finding
+the sword of syntax.
+
+55
+00:02:31,620 --> 00:02:32,430
+Hey everybody.
+
+56
+00:02:32,430 --> 00:02:34,780
+Welcome to JavaScript
+best practices.
+
+57
+00:02:34,780 --> 00:02:37,910
+This is the first level,
+the sword of syntax.
+
+58
+00:02:37,910 --> 00:02:38,922
+I'm Jason Millhouse.
+
+59
+00:02:38,922 --> 00:02:40,380
+And in this first
+section, we'll be
+
+60
+00:02:40,380 --> 00:02:43,120
+examining the
+ternary conditional.
+
+61
+00:02:43,120 --> 00:02:45,770
+In order to do that, we're
+going to take first a look
+
+62
+00:02:45,770 --> 00:02:48,119
+at the standard
+conditional block.
+
+63
+00:02:48,119 --> 00:02:50,660
+The first thing we'll do here
+to set up our conditional block
+
+64
+00:02:50,660 --> 00:02:53,250
+is to declare a variable
+called, isArthur.
+
+65
+00:02:53,250 --> 00:02:55,450
+And we're going to set
+that equal to false.
+
+66
+00:02:55,450 --> 00:02:58,850
+Next, we'll declare
+a weapon variable.
+
+67
+00:02:58,850 --> 00:03:02,195
+Then, in our conditional
+block, we'll say if isArthur.
+
+68
+00:03:02,195 --> 00:03:03,570
+We're going to
+assign that weapon
+
+69
+00:03:03,570 --> 00:03:06,150
+variable to be Excalibur.
+
+70
+00:03:06,150 --> 00:03:08,730
+Otherwise, if it's
+not Arthur, then we're
+
+71
+00:03:08,730 --> 00:03:11,634
+going to assign Longsword
+to that weapon variable.
+
+72
+00:03:11,634 --> 00:03:13,050
+Now what you should
+notice here is
+
+73
+00:03:13,050 --> 00:03:15,420
+that this sort of takes
+two blocks of code just
+
+74
+00:03:15,420 --> 00:03:18,270
+to get one assignment finished.
+
+75
+00:03:18,270 --> 00:03:21,100
+That's sort of a little long
+in terms of code length.
+
+76
+00:03:21,100 --> 00:03:24,130
+So let's see what we can do
+about using a syntax trick that
+
+77
+00:03:24,130 --> 00:03:26,000
+will make this
+significantly more concise.
+
+78
+00:03:29,060 --> 00:03:32,090
+To build a ternary conditional,
+the first thing you'll do
+
+79
+00:03:32,090 --> 00:03:35,320
+is place a condition down
+at the front of your ternary
+
+80
+00:03:35,320 --> 00:03:36,960
+conditional build.
+
+81
+00:03:36,960 --> 00:03:38,550
+Following that
+condition is going
+
+82
+00:03:38,550 --> 00:03:40,884
+to be a question mark operator.
+
+83
+00:03:40,884 --> 00:03:42,300
+That's going to
+divide the ternary
+
+84
+00:03:42,300 --> 00:03:48,030
+conditional into the condition
+and the actions to take.
+
+85
+00:03:48,030 --> 00:03:50,450
+Next up, you're going to
+have a pair of expressions
+
+86
+00:03:50,450 --> 00:03:52,000
+that follow that question mark.
+
+87
+00:03:52,000 --> 00:03:54,520
+These are going to be
+separated by a colon.
+
+88
+00:03:54,520 --> 00:03:59,210
+One of these will be picked
+as the conditionals result.
+
+89
+00:03:59,210 --> 00:04:01,350
+As you can see, if
+the condition is true,
+
+90
+00:04:01,350 --> 00:04:04,962
+then we will get this left
+side of the colon as a result,
+
+91
+00:04:04,962 --> 00:04:06,420
+and if the condition's
+false, we're
+
+92
+00:04:06,420 --> 00:04:10,270
+going to go ahead and
+get the right side.
+
+93
+00:04:10,270 --> 00:04:12,990
+So let's see how our current
+conditional block can translate
+
+94
+00:04:12,990 --> 00:04:15,292
+into the ternary
+conditional format.
+
+95
+00:04:15,292 --> 00:04:17,750
+You can see here, we're going
+to stick our condition, which
+
+96
+00:04:17,750 --> 00:04:21,899
+is isArthur, single variable
+with a Boolean value.
+
+97
+00:04:21,899 --> 00:04:23,930
+And then on the left
+hand side of the colon,
+
+98
+00:04:23,930 --> 00:04:26,280
+we're going to put
+Excalibur because that
+
+99
+00:04:26,280 --> 00:04:29,850
+is what we want to be the
+weapon if isArthur is true.
+
+100
+00:04:29,850 --> 00:04:32,660
+On the right hand side,
+we're going to put Longsword.
+
+101
+00:04:32,660 --> 00:04:35,870
+That's what should happen
+if isArthur is false.
+
+102
+00:04:35,870 --> 00:04:37,930
+Now if we were to enter
+this on the console,
+
+103
+00:04:37,930 --> 00:04:39,510
+since isArthur's
+currently false,
+
+104
+00:04:39,510 --> 00:04:41,890
+we're going to go ahead and
+get the right side returned
+
+105
+00:04:41,890 --> 00:04:46,150
+from this ternary
+conditional, the Longsword.
+
+106
+00:04:46,150 --> 00:04:48,490
+Now by itself, this ternary
+conditional expression
+
+107
+00:04:48,490 --> 00:04:50,290
+will return the right answer.
+
+108
+00:04:50,290 --> 00:04:52,450
+But what happened to
+storing it in weapon
+
+109
+00:04:52,450 --> 00:04:54,829
+which is what happens in our
+original conditional block?
+
+110
+00:04:54,829 --> 00:04:55,870
+Well, we can do that too.
+
+111
+00:04:55,870 --> 00:04:56,661
+Let's check it out.
+
+112
+00:04:59,570 --> 00:05:02,195
+So what we've got now is we've
+got that var weapon declared.
+
+113
+00:05:02,195 --> 00:05:04,530
+And we're going to go ahead
+and assign it immediately
+
+114
+00:05:04,530 --> 00:05:09,030
+upon declaration to the result
+of the ternary conditional.
+
+115
+00:05:09,030 --> 00:05:11,997
+So after choosing the
+appropriate sword here,
+
+116
+00:05:11,997 --> 00:05:13,830
+the compiler is going
+to go ahead and assign
+
+117
+00:05:13,830 --> 00:05:17,460
+that choice
+immediately to weapon.
+
+118
+00:05:17,460 --> 00:05:20,570
+And if we were to console log
+out what the current weapon is,
+
+119
+00:05:20,570 --> 00:05:22,820
+we could see that the current
+weapon is the Longsword.
+
+120
+00:05:27,429 --> 00:05:28,970
+Cool thing about
+ternary conditionals
+
+121
+00:05:28,970 --> 00:05:32,370
+is that we can also use them
+together in concatenation.
+
+122
+00:05:32,370 --> 00:05:34,750
+Let's check it out.
+
+123
+00:05:34,750 --> 00:05:37,470
+If we kind of scoot our
+stuff over here, get rid
+
+124
+00:05:37,470 --> 00:05:39,450
+of that weapon
+variable, and just place
+
+125
+00:05:39,450 --> 00:05:42,310
+the ternary conditional down
+in the place of that weapon
+
+126
+00:05:42,310 --> 00:05:45,620
+variable, we can
+see that-- uh-oh.
+
+127
+00:05:45,620 --> 00:05:46,510
+What the heck man?
+
+128
+00:05:46,510 --> 00:05:47,720
+We got Excalibur out of this.
+
+129
+00:05:47,720 --> 00:05:48,850
+What happened?
+
+130
+00:05:48,850 --> 00:05:50,250
+Hm, let's see.
+
+131
+00:05:50,250 --> 00:05:53,320
+Problem here is that that
+cool question mark operator
+
+132
+00:05:53,320 --> 00:05:57,480
+has a lower precedence than the
+plus concatenation operator.
+
+133
+00:05:57,480 --> 00:05:59,450
+Hm, that's interesting.
+
+134
+00:05:59,450 --> 00:06:00,930
+What does that mean?
+
+135
+00:06:00,930 --> 00:06:03,500
+Well, what happens
+here is the plus sort
+
+136
+00:06:03,500 --> 00:06:05,370
+of only knows how to
+evaluate a variable
+
+137
+00:06:05,370 --> 00:06:06,717
+and add it to a string.
+
+138
+00:06:06,717 --> 00:06:08,800
+And that's all going to
+happen before the question
+
+139
+00:06:08,800 --> 00:06:12,610
+mark actually gets to
+check any condition at all.
+
+140
+00:06:12,610 --> 00:06:15,930
+So what we got here is current
+weapon as a string being
+
+141
+00:06:15,930 --> 00:06:18,950
+concatenated with
+isArthur the Boolean
+
+142
+00:06:18,950 --> 00:06:21,440
+before any kind
+of check happens.
+
+143
+00:06:21,440 --> 00:06:24,340
+And that current weapon
+false is just a string.
+
+144
+00:06:28,650 --> 00:06:31,620
+So now that question mark
+is looking for a Boolean,
+
+145
+00:06:31,620 --> 00:06:33,290
+but it finds a string.
+
+146
+00:06:33,290 --> 00:06:34,420
+So what does it do?
+
+147
+00:06:34,420 --> 00:06:38,110
+Well, it turns out that
+in JavaScript, any value
+
+148
+00:06:38,110 --> 00:06:42,315
+will evaluate to truthiness
+if it is not the falsy values.
+
+149
+00:06:42,315 --> 00:06:47,570
+The falsy values are false,
+zero, undefined, not a number,
+
+150
+00:06:47,570 --> 00:06:50,290
+the empty string, or null.
+
+151
+00:06:50,290 --> 00:06:53,530
+So in this case, the question
+mark looks at that string
+
+152
+00:06:53,530 --> 00:06:55,470
+and says, hm,
+truthy value, so I'm
+
+153
+00:06:55,470 --> 00:07:01,240
+going to take the left hand
+side of our ternary conditional.
+
+154
+00:07:01,240 --> 00:07:03,580
+Well, how the heck
+can we fix that?
+
+155
+00:07:03,580 --> 00:07:05,120
+Well, since the
+ternary conditional
+
+156
+00:07:05,120 --> 00:07:06,850
+can be evaluated
+as an expression,
+
+157
+00:07:06,850 --> 00:07:08,850
+we can also group
+it as an expression.
+
+158
+00:07:08,850 --> 00:07:12,960
+So let's throw some
+parentheses around this guy.
+
+159
+00:07:12,960 --> 00:07:14,810
+And you can see now
+that when we log it out,
+
+160
+00:07:14,810 --> 00:07:16,570
+we get exactly what
+we wanted which
+
+161
+00:07:16,570 --> 00:07:20,040
+is an evaluation of the
+variable only for the ternary
+
+162
+00:07:20,040 --> 00:07:22,300
+conditional check, and
+we get current weapon
+
+163
+00:07:22,300 --> 00:07:23,790
+is the Longsword.
+
+164
+00:07:23,790 --> 00:07:25,400
+So what happens if
+the King shows up?
+
+165
+00:07:25,400 --> 00:07:27,950
+Well, let's change
+isArthur to true,
+
+166
+00:07:27,950 --> 00:07:30,110
+which means that we got
+King Arthur on hand.
+
+167
+00:07:30,110 --> 00:07:31,790
+And when we evaluate
+it, you can see
+
+168
+00:07:31,790 --> 00:07:35,040
+we get the current weapon is
+now Excalibur just as we wanted.
+
+169
+00:07:38,140 --> 00:07:41,380
+Turns out that we can make
+compound ternary conditions
+
+170
+00:07:41,380 --> 00:07:42,040
+as well.
+
+171
+00:07:42,040 --> 00:07:44,720
+We can use any compound
+Boolean expression
+
+172
+00:07:44,720 --> 00:07:48,110
+as the condition to check
+for our ternary conditional.
+
+173
+00:07:48,110 --> 00:07:49,130
+So let's do that.
+
+174
+00:07:49,130 --> 00:07:51,630
+What we've got here is
+a variable called isKing
+
+175
+00:07:51,630 --> 00:07:54,740
+and we've set that
+equal to false.
+
+176
+00:07:54,740 --> 00:07:57,220
+So what that means is
+we've got some dude named
+
+177
+00:07:57,220 --> 00:07:59,194
+Arthur but doesn't
+happen to be the King.
+
+178
+00:07:59,194 --> 00:08:00,610
+Maybe he was named
+after the king,
+
+179
+00:08:00,610 --> 00:08:02,930
+but he's not the king so he
+shouldn't get Excalibur, right?
+
+180
+00:08:02,930 --> 00:08:04,513
+So let's see what
+we can do with that.
+
+181
+00:08:04,513 --> 00:08:07,430
+You can see we've put a
+double ampersand, the double
+
+182
+00:08:07,430 --> 00:08:10,320
+and, right down there
+next to isArthur.
+
+183
+00:08:10,320 --> 00:08:13,060
+And we've put isKing
+next to it to make sure
+
+184
+00:08:13,060 --> 00:08:15,840
+that both of those
+things are true before we
+
+185
+00:08:15,840 --> 00:08:18,040
+select a condition.
+
+186
+00:08:18,040 --> 00:08:20,310
+Once we've done that,
+the question mark
+
+187
+00:08:20,310 --> 00:08:23,580
+takes a look at isArthur, finds
+true, takes a look at isKing,
+
+188
+00:08:23,580 --> 00:08:27,040
+finds false though, and so
+that whole compound conditional
+
+189
+00:08:27,040 --> 00:08:29,650
+evaluates to false and
+we'll choose the right hand
+
+190
+00:08:29,650 --> 00:08:32,440
+side of the colon,
+or the Longsword.
+
+191
+00:08:37,020 --> 00:08:39,419
+Now if we set
+isKing to true just
+
+192
+00:08:39,419 --> 00:08:41,860
+to kind of show the other
+possible result here,
+
+193
+00:08:41,860 --> 00:08:43,760
+we'll get the compound
+logic evaluating
+
+194
+00:08:43,760 --> 00:08:46,280
+to true on the left hand side
+of the question mark, which
+
+195
+00:08:46,280 --> 00:08:48,380
+means that the
+ternary conditional
+
+196
+00:08:48,380 --> 00:08:50,970
+will return just what we
+expect for the king, which
+
+197
+00:08:50,970 --> 00:08:54,564
+is the sword, Excalibur.
+
+198
+00:08:54,564 --> 00:08:55,980
+Something you might
+see very often
+
+199
+00:08:55,980 --> 00:08:58,030
+out there in the
+JavaScript wilds
+
+200
+00:08:58,030 --> 00:09:02,560
+is that ternaries can also
+take action in their results.
+
+201
+00:09:02,560 --> 00:09:05,020
+That means that any
+executable statement
+
+202
+00:09:05,020 --> 00:09:08,030
+can fall in the left hand
+side or the right hand side.
+
+203
+00:09:08,030 --> 00:09:09,660
+Meaning when we
+check the condition,
+
+204
+00:09:09,660 --> 00:09:13,740
+we can actually take action,
+not just return some value.
+
+205
+00:09:13,740 --> 00:09:14,947
+So let's take a look.
+
+206
+00:09:14,947 --> 00:09:16,780
+So we're going to scoot
+our stuff over here.
+
+207
+00:09:16,780 --> 00:09:18,530
+We've got isArthur
+and isKing moving
+
+208
+00:09:18,530 --> 00:09:21,790
+to the left as our
+compound conditional check.
+
+209
+00:09:21,790 --> 00:09:24,520
+And now on the right hand
+side of our question mark,
+
+210
+00:09:24,520 --> 00:09:28,250
+we're going to alert "Hail
+Arthur, King of the Britons!"
+
+211
+00:09:28,250 --> 00:09:31,840
+if both of those things on the
+left hand side of the question
+
+212
+00:09:31,840 --> 00:09:34,500
+mark are true.
+
+213
+00:09:34,500 --> 00:09:36,690
+And if not, they will say,
+"Charge on, ye Knight,
+
+214
+00:09:36,690 --> 00:09:38,175
+for the glory the King."
+
+215
+00:09:38,175 --> 00:09:42,320
+And you can see, since both of
+our variables are now true--
+
+216
+00:09:42,320 --> 00:09:44,550
+apparently we've got
+the King in the house--
+
+217
+00:09:44,550 --> 00:09:46,240
+we get an alert that
+comes out and says,
+
+218
+00:09:46,240 --> 00:09:49,500
+"Hail Arthur, King
+of the Britons."
+
+219
+00:09:49,500 --> 00:09:52,580
+If we change isKing to false--
+we've got that dude Arthur
+
+220
+00:09:52,580 --> 00:09:54,340
+again, not the king,
+just some random--
+
+221
+00:09:54,340 --> 00:09:56,740
+and we execute the
+ternary conditional,
+
+222
+00:09:56,740 --> 00:09:59,360
+you can see that we
+get the correct alert
+
+223
+00:09:59,360 --> 00:10:00,290
+for that situation.
+
+224
+00:10:02,820 --> 00:10:05,300
+Ternaries can
+offer a concise way
+
+225
+00:10:05,300 --> 00:10:08,220
+of deciding which function
+to choose on the fly.
+
+226
+00:10:08,220 --> 00:10:09,890
+They provide a slightly
+different format
+
+227
+00:10:09,890 --> 00:10:12,800
+for picking immediately
+invoked functions
+
+228
+00:10:12,800 --> 00:10:14,160
+based on some conditions.
+
+229
+00:10:14,160 --> 00:10:15,510
+Let's check that out.
+
+230
+00:10:15,510 --> 00:10:17,110
+So we'll scoot
+our stuff up here.
+
+231
+00:10:17,110 --> 00:10:19,900
+And you can see now on the right
+hand side of our question mark,
+
+232
+00:10:19,900 --> 00:10:22,174
+we're going to put an
+immediately invoked function.
+
+233
+00:10:22,174 --> 00:10:23,090
+What's it going to do?
+
+234
+00:10:23,090 --> 00:10:25,460
+It's going to alert,
+Hail to the King.
+
+235
+00:10:25,460 --> 00:10:29,081
+And it's also going to
+log out the King's weapon.
+
+236
+00:10:29,081 --> 00:10:30,580
+Following the colon
+now, we're going
+
+237
+00:10:30,580 --> 00:10:32,790
+to put another immediately
+invoked function that's
+
+238
+00:10:32,790 --> 00:10:35,670
+going to alert for
+the regular knight,
+
+239
+00:10:35,670 --> 00:10:38,810
+as well log out that their
+weapon is the Longsword.
+
+240
+00:10:38,810 --> 00:10:42,420
+Remember that if you want to get
+an immediately invoked function
+
+241
+00:10:42,420 --> 00:10:45,410
+expression, you'll need
+to add the parentheses
+
+242
+00:10:45,410 --> 00:10:49,090
+behind the expression
+to call that expression.
+
+243
+00:10:49,090 --> 00:10:50,840
+If we were to evaluate
+the situation,
+
+244
+00:10:50,840 --> 00:10:52,820
+you can see that we
+would get, "Charge on,
+
+245
+00:10:52,820 --> 00:10:56,650
+ye Knight, for the glory the
+King," since isKing is false.
+
+246
+00:10:56,650 --> 00:10:58,220
+We'll also get a
+console log-out that
+
+247
+00:10:58,220 --> 00:11:00,030
+says the current
+weapon is Longsword.
+
+248
+00:11:02,570 --> 00:11:05,009
+Now, ternaries can also
+take multiple actions.
+
+249
+00:11:05,009 --> 00:11:06,550
+We want to show you
+that, but we also
+
+250
+00:11:06,550 --> 00:11:09,580
+want to caution you that
+that can get very dense.
+
+251
+00:11:09,580 --> 00:11:11,300
+So sometimes a
+conditional block is
+
+252
+00:11:11,300 --> 00:11:13,040
+better for this
+particular situation,
+
+253
+00:11:13,040 --> 00:11:16,550
+but you should know to be very
+fluent that multiple actions
+
+254
+00:11:16,550 --> 00:11:19,920
+can be taken inside of
+each result in a ternary
+
+255
+00:11:19,920 --> 00:11:21,280
+conditional.
+
+256
+00:11:21,280 --> 00:11:23,400
+So here you can see
+after the question mark,
+
+257
+00:11:23,400 --> 00:11:25,810
+we've got a
+parenthetical expression
+
+258
+00:11:25,810 --> 00:11:29,220
+that has two executables
+statements in it separated
+
+259
+00:11:29,220 --> 00:11:30,910
+by a comma.
+
+260
+00:11:30,910 --> 00:11:32,840
+So if it's Arthur
+and it's the King,
+
+261
+00:11:32,840 --> 00:11:36,360
+we want to assign Excalibur
+as that individual's weapon
+
+262
+00:11:36,360 --> 00:11:40,150
+and Goosewhite as that
+individual's helmet.
+
+263
+00:11:40,150 --> 00:11:43,310
+On the other side of the colon,
+we've got the same format.
+
+264
+00:11:43,310 --> 00:11:46,030
+And we're going to
+give the regular knight
+
+265
+00:11:46,030 --> 00:11:47,710
+the weapon of the
+Longsword as well
+
+266
+00:11:47,710 --> 00:11:49,960
+as an Iron Helm for his helmet.
+
+267
+00:11:57,390 --> 00:11:59,580
+So if we were to check
+out isArthur and isKing,
+
+268
+00:11:59,580 --> 00:12:01,650
+you can see one is
+true and one is false.
+
+269
+00:12:01,650 --> 00:12:03,460
+So if we were to
+log out the weapon
+
+270
+00:12:03,460 --> 00:12:05,465
+and the helmet
+situation, we would
+
+271
+00:12:05,465 --> 00:12:07,840
+see that we would get the
+current weapon is the Longsword
+
+272
+00:12:07,840 --> 00:12:09,670
+and the current helmet
+is the Iron Home.
+
+273
+00:12:09,670 --> 00:12:12,510
+That's because both of
+our executable statements
+
+274
+00:12:12,510 --> 00:12:16,920
+in the false part of our
+conditional executed.
+
+275
+00:12:16,920 --> 00:12:19,510
+One more thing you
+might see associated
+
+276
+00:12:19,510 --> 00:12:22,340
+with ternary conditionals,
+especially under the hood
+
+277
+00:12:22,340 --> 00:12:24,470
+of some JavaScript
+frameworks, is
+
+278
+00:12:24,470 --> 00:12:26,750
+the nested ternary conditional.
+
+279
+00:12:26,750 --> 00:12:29,680
+A ternary can actually
+hold other ternaries
+
+280
+00:12:29,680 --> 00:12:32,185
+within each one of the
+possible responses.
+
+281
+00:12:32,185 --> 00:12:34,060
+You don't want to do
+this too much because it
+
+282
+00:12:34,060 --> 00:12:36,565
+can get very dense and
+slightly challenging to read.
+
+283
+00:12:36,565 --> 00:12:38,940
+And we always want to be
+worried about legibility, right?
+
+284
+00:12:38,940 --> 00:12:40,773
+But we want to make
+sure, again, that you're
+
+285
+00:12:40,773 --> 00:12:43,370
+fluent with this type of code.
+
+286
+00:12:43,370 --> 00:12:45,180
+So we're going to
+scoot our stuff down.
+
+287
+00:12:45,180 --> 00:12:48,180
+And you can see that we have
+added a variable, isArcher.
+
+288
+00:12:48,180 --> 00:12:50,050
+And we're going to set
+that equal to true.
+
+289
+00:12:50,050 --> 00:12:56,110
+Now, in the false portion of our
+outermost ternary conditional,
+
+290
+00:12:56,110 --> 00:12:59,300
+we're going to slap down
+that isArcher variable
+
+291
+00:12:59,300 --> 00:13:03,430
+as the condition for a new
+ternary conditional to check.
+
+292
+00:13:03,430 --> 00:13:04,260
+That's right.
+
+293
+00:13:04,260 --> 00:13:06,051
+We're trying to keep
+this organized, right?
+
+294
+00:13:06,051 --> 00:13:08,310
+And you should too, so you
+want to use indentation
+
+295
+00:13:08,310 --> 00:13:10,530
+as your friend for legibility.
+
+296
+00:13:10,530 --> 00:13:12,550
+Following that
+isArcher variable,
+
+297
+00:13:12,550 --> 00:13:15,280
+we're going to place
+another question mark.
+
+298
+00:13:15,280 --> 00:13:17,320
+That means that question
+mark is looking only
+
+299
+00:13:17,320 --> 00:13:19,930
+at isArcher for a truth value.
+
+300
+00:13:19,930 --> 00:13:23,860
+And then we'll build a second
+nested ternary conditional
+
+301
+00:13:23,860 --> 00:13:25,510
+after that question mark.
+
+302
+00:13:25,510 --> 00:13:27,940
+You can see that if
+we have an archer,
+
+303
+00:13:27,940 --> 00:13:30,970
+we want to instead
+assign the weapon
+
+304
+00:13:30,970 --> 00:13:34,562
+to be the Longbow and its
+helmet to be a Mail Helm.
+
+305
+00:13:34,562 --> 00:13:37,020
+And if it's false, that means
+where you don't have the king
+
+306
+00:13:37,020 --> 00:13:38,644
+and we also don't
+have an archer, which
+
+307
+00:13:38,644 --> 00:13:40,570
+means that we have
+just a regular knight,
+
+308
+00:13:40,570 --> 00:13:43,560
+and they should get the
+Longsword and the Iron Helm.
+
+309
+00:13:43,560 --> 00:13:46,120
+Taking a look at our
+existing Boolean variables,
+
+310
+00:13:46,120 --> 00:13:48,450
+we've got isArthur's
+true, so apparently it's
+
+311
+00:13:48,450 --> 00:13:50,000
+a guy named Arthur.
+
+312
+00:13:50,000 --> 00:13:52,300
+But he's not the king
+because that's false.
+
+313
+00:13:52,300 --> 00:13:54,235
+He is, however, an archer.
+
+314
+00:13:54,235 --> 00:13:57,183
+So he is Arthur the Archer.
+
+315
+00:13:57,183 --> 00:13:58,570
+Yeah, cool.
+
+316
+00:13:58,570 --> 00:14:00,660
+So anyway, since we've
+got Arthur the Archer,
+
+317
+00:14:00,660 --> 00:14:02,200
+we're going to go
+ahead and log out
+
+318
+00:14:02,200 --> 00:14:03,660
+what his weapon
+and his helmet is.
+
+319
+00:14:03,660 --> 00:14:05,549
+And you can see
+that what happens
+
+320
+00:14:05,549 --> 00:14:07,090
+is since isKing is
+false, we're going
+
+321
+00:14:07,090 --> 00:14:10,950
+to go ahead and check the second
+nested ternary conditional.
+
+322
+00:14:10,950 --> 00:14:13,530
+We find that the isArcher
+variable is actually true.
+
+323
+00:14:13,530 --> 00:14:16,610
+And so we assign
+Longbow as the weapon,
+
+324
+00:14:16,610 --> 00:14:18,320
+Mail Helm as the helmet.
+
+325
+00:14:18,320 --> 00:14:21,430
+And if we were to log
+out his current weapon
+
+326
+00:14:21,430 --> 00:14:24,740
+and his current helmet, we
+get Longbow and Mail Helm
+
+327
+00:14:24,740 --> 00:14:26,180
+for Arthur the Archer.
+
+328
+00:14:30,160 --> 00:14:32,920
+Yeah, so welcome to the end
+of ternary conditionals.
+
+329
+00:14:32,920 --> 00:14:34,650
+Have some fun with
+these challenges,
+
+330
+00:14:34,650 --> 00:14:37,450
+and we'll see you back
+in the next section.
+

@@ -1,0 +1,1359 @@
+﻿1
+00:00:02,060 --> 00:00:05,580
+So now that we've done kind of
+a deep dive on the "OR" logical
+
+2
+00:00:05,580 --> 00:00:07,040
+assignment, what about "AND"?
+
+3
+00:00:07,040 --> 00:00:09,530
+What about a double
+"AND" logical assignment?
+
+4
+00:00:09,530 --> 00:00:10,290
+Totally possible.
+
+5
+00:00:10,290 --> 00:00:11,330
+Let's check it out.
+
+6
+00:00:11,330 --> 00:00:15,060
+The "AND" operators' going to
+find the rightmost "truthy"
+
+7
+00:00:15,060 --> 00:00:18,660
+value or the very
+first "falsy" value.
+
+8
+00:00:18,660 --> 00:00:21,970
+Sort of the opposite
+that the "OR" does.
+
+9
+00:00:21,970 --> 00:00:24,270
+If you look at this
+"AND" logical assignment,
+
+10
+00:00:24,270 --> 00:00:26,890
+for result1, you'll
+see that it takes
+
+11
+00:00:26,890 --> 00:00:29,720
+"undefined" as an
+answer, because as soon
+
+12
+00:00:29,720 --> 00:00:33,810
+as it has found a faulty
+value, it short circuits.
+
+13
+00:00:33,810 --> 00:00:37,641
+Knowing that there is no need
+to check any further values,
+
+14
+00:00:37,641 --> 00:00:39,140
+because it's already
+found something
+
+15
+00:00:39,140 --> 00:00:42,950
+that's going to cause the
+whole compound to be false.
+
+16
+00:00:42,950 --> 00:00:46,130
+In other words, 42 is
+never even examined.
+
+17
+00:00:46,130 --> 00:00:49,890
+In result2, you can see that
+the 0 is the first "falsy"
+
+18
+00:00:49,890 --> 00:00:53,470
+value obtained, and since now
+we can't make a truth value out
+
+19
+00:00:53,470 --> 00:00:56,240
+of that compound, we're
+just going to take that 0
+
+20
+00:00:56,240 --> 00:00:58,782
+and assign it back to result2.
+
+21
+00:00:58,782 --> 00:01:01,030
+In result3, we got the
+empty string first.
+
+22
+00:01:01,030 --> 00:01:02,820
+No matter that there's
+an object next.
+
+23
+00:01:02,820 --> 00:01:05,069
+We're just going to take
+that empty string, because we
+
+24
+00:01:05,069 --> 00:01:07,010
+obviously can't
+complete the true value.
+
+25
+00:01:09,860 --> 00:01:14,000
+If we switch it up, we find that
+we get the same exact results,
+
+26
+00:01:14,000 --> 00:01:18,210
+because a compiler is seeking
+to find only "truthy" values.
+
+27
+00:01:18,210 --> 00:01:21,400
+And when it finds that
+something is false at any point,
+
+28
+00:01:21,400 --> 00:01:24,860
+it will assign that false value
+right back to the variable.
+
+29
+00:01:27,690 --> 00:01:29,670
+When all of the
+elements are "truthy",
+
+30
+00:01:29,670 --> 00:01:32,390
+"AND" will return the
+very last "truthy"
+
+31
+00:01:32,390 --> 00:01:34,650
+value found for
+assignment, which
+
+32
+00:01:34,650 --> 00:01:37,290
+is what makes it often very
+useful, and very functional,
+
+33
+00:01:37,290 --> 00:01:37,835
+in code.
+
+34
+00:01:37,835 --> 00:01:39,710
+So let's take a look at
+this first one, here.
+
+35
+00:01:39,710 --> 00:01:42,885
+On result1, since "King"
+is "truthy", and "Arthur"
+
+36
+00:01:42,885 --> 00:01:45,780
+is "truthy", what the
+variable will receive
+
+37
+00:01:45,780 --> 00:01:47,050
+is actually Arthur.
+
+38
+00:01:47,050 --> 00:01:49,500
+We've examined the "King",
+found that it's cool.
+
+39
+00:01:49,500 --> 00:01:50,590
+We move over to "Arthur".
+
+40
+00:01:50,590 --> 00:01:53,660
+It's also cool, let's pass
+that back to the variable
+
+41
+00:01:53,660 --> 00:01:55,300
+Notice if I switch
+them up in result2,
+
+42
+00:01:55,300 --> 00:01:57,910
+and I've got "Arthur"
+first and "King" second,
+
+43
+00:01:57,910 --> 00:02:00,200
+King gets returned after
+a full examination.
+
+44
+00:02:03,864 --> 00:02:05,530
+Just to kind of compare
+that with "OR"--
+
+45
+00:02:05,530 --> 00:02:07,280
+we had this little bit earlier.
+
+46
+00:02:07,280 --> 00:02:09,949
+You can see that, in
+the "OR" situation,
+
+47
+00:02:09,949 --> 00:02:12,440
+with "King" and
+"Arthur", we get King
+
+48
+00:02:12,440 --> 00:02:14,661
+because it is the
+first "truthy" value.
+
+49
+00:02:14,661 --> 00:02:16,160
+I didn't need to
+look at everything,
+
+50
+00:02:16,160 --> 00:02:18,610
+so I just took the
+first one I could get.
+
+51
+00:02:18,610 --> 00:02:24,524
+In result2, I've take Arthur
+for the same exact reason.
+
+52
+00:02:24,524 --> 00:02:25,940
+What happens when
+they're "falsy"?
+
+53
+00:02:25,940 --> 00:02:29,000
+What happens when both
+elements of an "AND" operation
+
+54
+00:02:29,000 --> 00:02:30,270
+are "falsy"?
+
+55
+00:02:30,270 --> 00:02:32,700
+You can see in
+result1 and result2,
+
+56
+00:02:32,700 --> 00:02:35,030
+that we've short-circuited
+on undefined,
+
+57
+00:02:35,030 --> 00:02:37,230
+and the empty
+string, respectively,
+
+58
+00:02:37,230 --> 00:02:40,020
+because there's no need to check
+for any further truth values
+
+59
+00:02:40,020 --> 00:02:42,500
+when we've already
+found a false.
+
+60
+00:02:42,500 --> 00:02:44,830
+Let's contrast that
+with the "OR" situation,
+
+61
+00:02:44,830 --> 00:02:47,050
+which needs to look
+through all of its entries
+
+62
+00:02:47,050 --> 00:02:49,190
+before finally
+returning a false value,
+
+63
+00:02:49,190 --> 00:02:51,130
+if that's all that was there.
+
+64
+00:02:51,130 --> 00:02:53,850
+So inside result1
+and result2, we
+
+65
+00:02:53,850 --> 00:02:56,060
+get the empty
+string for result1,
+
+66
+00:02:56,060 --> 00:02:59,970
+and undefined for result2.
+
+67
+00:02:59,970 --> 00:03:03,610
+Now where might you use
+this "AND" logical operator?
+
+68
+00:03:03,610 --> 00:03:06,340
+It's very useful in
+contingent assignments, where
+
+69
+00:03:06,340 --> 00:03:09,310
+one thing's got to be true
+before this next thing can
+
+70
+00:03:09,310 --> 00:03:09,955
+happen.
+
+71
+00:03:09,955 --> 00:03:11,330
+The "AND" operator's
+going to let
+
+72
+00:03:11,330 --> 00:03:14,380
+you check, as well, multiple
+conditions before we actually
+
+73
+00:03:14,380 --> 00:03:15,740
+allow that assignment.
+
+74
+00:03:15,740 --> 00:03:16,980
+So let's take a look.
+
+75
+00:03:16,980 --> 00:03:19,560
+Here we're going to add some
+functionality to our armory
+
+76
+00:03:19,560 --> 00:03:20,130
+object.
+
+77
+00:03:20,130 --> 00:03:23,520
+Namely, it's going to be called
+a retrieveSword property, that
+
+78
+00:03:23,520 --> 00:03:26,130
+will hold a function.
+
+79
+00:03:26,130 --> 00:03:28,299
+The parameter for that
+function will be a request.
+
+80
+00:03:28,299 --> 00:03:29,840
+That means, which
+sword we would like
+
+81
+00:03:29,840 --> 00:03:32,620
+to get or check
+out of the armory.
+
+82
+00:03:32,620 --> 00:03:34,510
+We've got an interesting
+expression, here.
+
+83
+00:03:34,510 --> 00:03:38,410
+We're going to return the
+result of a ternary conditional.
+
+84
+00:03:38,410 --> 00:03:39,970
+Let's check out how
+we're generating
+
+85
+00:03:39,970 --> 00:03:42,495
+the condition for this
+ternary conditional.
+
+86
+00:03:42,495 --> 00:03:43,870
+What we're doing
+here is actually
+
+87
+00:03:43,870 --> 00:03:47,230
+checking to see, first, whether
+the sword's array actually
+
+88
+00:03:47,230 --> 00:03:49,955
+holds the sword that we want.
+
+89
+00:03:49,955 --> 00:03:50,830
+So how do we do that?
+
+90
+00:03:50,830 --> 00:03:54,060
+We use the index of method,
+which is a method of the array
+
+91
+00:03:54,060 --> 00:03:57,450
+prototype that will
+examine an entire array
+
+92
+00:03:57,450 --> 00:04:02,850
+and return the very first found
+index for any matching value.
+
+93
+00:04:02,850 --> 00:04:06,020
+And if it doesn't find anything
+throughout the entire array,
+
+94
+00:04:06,020 --> 00:04:09,110
+it will return a
+negative 1, which
+
+95
+00:04:09,110 --> 00:04:11,640
+may now be very
+clear to you why we
+
+96
+00:04:11,640 --> 00:04:16,769
+use a greater than or equal
+to 0 inside of our check.
+
+97
+00:04:16,769 --> 00:04:21,010
+If the index of method returns
+a value that's positive,
+
+98
+00:04:21,010 --> 00:04:23,070
+that means that our
+sword that we want
+
+99
+00:04:23,070 --> 00:04:27,104
+is somewhere inside of our
+big, long swords array, right.
+
+100
+00:04:27,104 --> 00:04:28,520
+But if we get a
+negative one, that
+
+101
+00:04:28,520 --> 00:04:30,980
+means a sword is
+nowhere to be found,
+
+102
+00:04:30,980 --> 00:04:35,500
+and our ternary conditional
+should return the false value.
+
+103
+00:04:35,500 --> 00:04:38,290
+Just to illustrate the power
+of this index of method
+
+104
+00:04:38,290 --> 00:04:40,340
+for a moment, let's
+pass "Claymore"
+
+105
+00:04:40,340 --> 00:04:42,712
+into the index of method
+on the swords array.
+
+106
+00:04:42,712 --> 00:04:45,170
+What it's going to do is look
+through that array over there
+
+107
+00:04:45,170 --> 00:04:46,270
+in the armory.
+
+108
+00:04:46,270 --> 00:04:50,270
+You can see that the
+"Claymore" exists in index2.
+
+109
+00:04:50,270 --> 00:04:52,780
+Remember that
+arrays are 0-based.
+
+110
+00:04:52,780 --> 00:04:54,770
+And it will return
+that 2, so we know
+
+111
+00:04:54,770 --> 00:04:57,360
+the Claymore is
+exactly in index2.
+
+112
+00:04:57,360 --> 00:05:01,394
+However, if we go hunting in
+the swords list for a doughnut,
+
+113
+00:05:01,394 --> 00:05:02,810
+that's going to
+return negative 1,
+
+114
+00:05:02,810 --> 00:05:06,105
+because hopefully there is
+no donut in the swords array.
+
+115
+00:05:06,105 --> 00:05:08,680
+(JOKINGLY) Fight with doughnuts!
+
+116
+00:05:08,680 --> 00:05:11,430
+Now that you can kind of see
+how that index of method works,
+
+117
+00:05:11,430 --> 00:05:14,040
+notice that our check in
+our ternary conditional
+
+118
+00:05:14,040 --> 00:05:18,140
+is looking for a number that
+is greater or equal to 0.
+
+119
+00:05:18,140 --> 00:05:20,930
+That means we want to
+verify something actually
+
+120
+00:05:20,930 --> 00:05:22,740
+exists in the swords array.
+
+121
+00:05:22,740 --> 00:05:26,250
+If it doesn't, it should
+be a negative number.
+
+122
+00:05:26,250 --> 00:05:29,130
+Now, on the left side of our
+ternary conditional colon,
+
+123
+00:05:29,130 --> 00:05:31,850
+if in fact the sword
+does exist, we're
+
+124
+00:05:31,850 --> 00:05:34,130
+going to use some index
+cleverness to remove
+
+125
+00:05:34,130 --> 00:05:36,720
+the sword from the swords array.
+
+126
+00:05:36,720 --> 00:05:38,330
+Let's see how we can do that.
+
+127
+00:05:38,330 --> 00:05:40,000
+We'll use the splice method.
+
+128
+00:05:40,000 --> 00:05:43,150
+That's going to remove elements
+anywhere inside an array
+
+129
+00:05:43,150 --> 00:05:46,600
+by first passing in the index
+that you want to start at,
+
+130
+00:05:46,600 --> 00:05:48,730
+and following that
+with how many items
+
+131
+00:05:48,730 --> 00:05:51,590
+you want to remove
+at that index.
+
+132
+00:05:51,590 --> 00:05:53,190
+Let's just take a
+look, for a second.
+
+133
+00:05:53,190 --> 00:05:56,440
+If we create a soldiers array--
+we got knights, we got pikemn,
+
+134
+00:05:56,440 --> 00:06:00,720
+we got archers-- and we
+splice that array at index1
+
+135
+00:06:00,720 --> 00:06:02,255
+for 2 units.
+
+136
+00:06:05,310 --> 00:06:07,220
+Now what does the
+splice method do, here?
+
+137
+00:06:07,220 --> 00:06:10,460
+Well, it's going to go into
+index1, which is pikemen.
+
+138
+00:06:10,460 --> 00:06:12,830
+It's going to take out
+two entries, including
+
+139
+00:06:12,830 --> 00:06:15,340
+pikemen and archers.
+
+140
+00:06:15,340 --> 00:06:16,990
+And what does the
+splice method return?
+
+141
+00:06:16,990 --> 00:06:20,810
+It returns those values
+that it spliced out, inside
+
+142
+00:06:20,810 --> 00:06:23,660
+of their own brand-new array.
+
+143
+00:06:23,660 --> 00:06:25,650
+So how can we use this
+cool splice method
+
+144
+00:06:25,650 --> 00:06:30,300
+to help us remove, gently, our
+sword from the swords array?
+
+145
+00:06:30,300 --> 00:06:32,210
+Well, you can see,
+inside the splice method,
+
+146
+00:06:32,210 --> 00:06:35,780
+that we pass in the index
+of our requested sword,
+
+147
+00:06:35,780 --> 00:06:39,050
+using the index of method.
+
+148
+00:06:39,050 --> 00:06:40,930
+Following that, you
+see that 1 right there?
+
+149
+00:06:40,930 --> 00:06:44,260
+That's saying, go to the index
+where the sword is, and just
+
+150
+00:06:44,260 --> 00:06:45,560
+take out one sword.
+
+151
+00:06:45,560 --> 00:06:47,780
+That's all we
+want, is one sword.
+
+152
+00:06:47,780 --> 00:06:50,540
+Now since the splice
+method returns an array,
+
+153
+00:06:50,540 --> 00:06:53,210
+but we only want the
+string of the sword,
+
+154
+00:06:53,210 --> 00:06:57,320
+we will need to access the
+0-th index of the array that
+
+155
+00:06:57,320 --> 00:06:59,791
+gets returned that's what that
+little bracketed 0 is doing
+
+156
+00:06:59,791 --> 00:07:00,290
+there.
+
+157
+00:07:00,290 --> 00:07:03,040
+It's going to return
+us the single string
+
+158
+00:07:03,040 --> 00:07:07,090
+from inside the returned
+array of the splice method.
+
+159
+00:07:07,090 --> 00:07:09,770
+Yay for code.
+
+160
+00:07:09,770 --> 00:07:12,901
+And then after the colon,
+if we never found that sword
+
+161
+00:07:12,901 --> 00:07:15,400
+originally when we went to check
+for it, we need to go ahead
+
+162
+00:07:15,400 --> 00:07:18,840
+and say, yo, man,
+that sword ain't here.
+
+163
+00:07:18,840 --> 00:07:20,810
+That's going to be
+useful when we actually
+
+164
+00:07:20,810 --> 00:07:23,190
+employ our double
+"AND" assignment.
+
+165
+00:07:25,830 --> 00:07:29,170
+Now let's go ahead and try to
+use our retrieve sword method
+
+166
+00:07:29,170 --> 00:07:30,520
+that we've added to the armory.
+
+167
+00:07:30,520 --> 00:07:33,017
+We're going to set up a
+variable called, is knight here.
+
+168
+00:07:33,017 --> 00:07:34,600
+We're going to set
+it equal to "true".
+
+169
+00:07:34,600 --> 00:07:37,817
+We only want knights to
+be able to get swords out
+
+170
+00:07:37,817 --> 00:07:38,400
+of the armory.
+
+171
+00:07:38,400 --> 00:07:40,520
+We don't want serial
+killers running around
+
+172
+00:07:40,520 --> 00:07:42,260
+with weapons from the armory.
+
+173
+00:07:42,260 --> 00:07:45,300
+That could reflect poorly,
+and suck moderately, so let's
+
+174
+00:07:45,300 --> 00:07:46,180
+not do that.
+
+175
+00:07:46,180 --> 00:07:49,580
+The next thing we'll do is have
+a variable called "weapon",
+
+176
+00:07:49,580 --> 00:07:54,640
+and we're going to set up
+our very cool "AND" logical
+
+177
+00:07:54,640 --> 00:07:55,900
+assignment.
+
+178
+00:07:55,900 --> 00:07:58,400
+The very first thing that
+that "AND" will check
+
+179
+00:07:58,400 --> 00:08:03,390
+is whether the person that's
+asking for a sword is a knight.
+
+180
+00:08:03,390 --> 00:08:05,200
+Well, "isKnight"
+is currently true,
+
+181
+00:08:05,200 --> 00:08:08,040
+so "AND" here is going
+to keep checking.
+
+182
+00:08:08,040 --> 00:08:11,430
+And what is it checking on
+the other side of the "AND"?
+
+183
+00:08:11,430 --> 00:08:14,440
+It's a call to a function.
+
+184
+00:08:14,440 --> 00:08:16,330
+OK, so let's see
+what happens here.
+
+185
+00:08:16,330 --> 00:08:19,600
+If the result of our
+retrieve sword function
+
+186
+00:08:19,600 --> 00:08:22,550
+happens to be a string, well,
+a string is "truthy", right?
+
+187
+00:08:22,550 --> 00:08:25,590
+So we'll get precisely the
+sword we're looking for,
+
+188
+00:08:25,590 --> 00:08:27,760
+because remember
+that "AND" returns
+
+189
+00:08:27,760 --> 00:08:31,159
+the final "truthy" value
+that it encounters.
+
+190
+00:08:31,159 --> 00:08:32,659
+Cool, so let's see
+what happens when
+
+191
+00:08:32,659 --> 00:08:35,780
+we try to get this katana
+assigned to the "weapon"
+
+192
+00:08:35,780 --> 00:08:36,780
+variable.
+
+193
+00:08:36,780 --> 00:08:39,990
+First, is there even a
+Katana in the swords array?
+
+194
+00:08:39,990 --> 00:08:43,780
+Our index of method goes over
+to the swords property, checks
+
+195
+00:08:43,780 --> 00:08:48,310
+the array, finds a katana,
+ding, returns index1.
+
+196
+00:08:48,310 --> 00:08:50,140
+And since that is
+greater than 0,
+
+197
+00:08:50,140 --> 00:08:51,730
+we get a truth value
+in our condition,
+
+198
+00:08:51,730 --> 00:08:55,330
+and the ternary will
+execute the splice method
+
+199
+00:08:55,330 --> 00:08:58,540
+on the left-hand
+side of our colon.
+
+200
+00:08:58,540 --> 00:09:01,250
+Now let's see what happens when
+we try to get the katana out
+
+201
+00:09:01,250 --> 00:09:05,520
+of the swords array and pass
+it into the weapon variable.
+
+202
+00:09:05,520 --> 00:09:09,460
+So we're going to splice that
+swords array exactly at katana,
+
+203
+00:09:09,460 --> 00:09:12,750
+and that's going to hand
+us back another array.
+
+204
+00:09:12,750 --> 00:09:15,350
+And from that array, we're
+going to take the string
+
+205
+00:09:15,350 --> 00:09:17,430
+at the 0-th index.
+
+206
+00:09:17,430 --> 00:09:22,070
+This will also remove
+the katana from swords.
+
+207
+00:09:22,070 --> 00:09:24,670
+So now that retrieve
+sword has passed back
+
+208
+00:09:24,670 --> 00:09:27,040
+a string katana,
+which is "truthy",
+
+209
+00:09:27,040 --> 00:09:29,807
+and also "isKnight" has
+a "truthy" value-- both
+
+210
+00:09:29,807 --> 00:09:31,390
+of those things are
+"truthy", so we'll
+
+211
+00:09:31,390 --> 00:09:35,560
+take the last, the right-hand
+side of the "AND" logical
+
+212
+00:09:35,560 --> 00:09:38,290
+statement, and put that
+inside the weapon variable.
+
+213
+00:09:43,249 --> 00:09:43,790
+Check it out.
+
+214
+00:09:43,790 --> 00:09:46,290
+When we log out that
+weapon, we see katana.
+
+215
+00:09:46,290 --> 00:09:47,240
+Woo hoo.
+
+216
+00:09:47,240 --> 00:09:48,540
+Cool, so we got the katana out.
+
+217
+00:09:48,540 --> 00:09:52,130
+What happens if we try to get a
+rapier out of the swords array?
+
+218
+00:09:52,130 --> 00:09:54,040
+Well, we pass "inRapier"
+into the function,
+
+219
+00:09:54,040 --> 00:09:55,770
+and the index of goes
+over to the array,
+
+220
+00:09:55,770 --> 00:09:58,580
+and checks and sees--
+wah, wah-- there
+
+221
+00:09:58,580 --> 00:09:59,667
+is no rapier in the array.
+
+222
+00:09:59,667 --> 00:10:02,000
+We need to make a purchase
+order, I guess, or something.
+
+223
+00:10:02,000 --> 00:10:03,410
+But it's not there now.
+
+224
+00:10:03,410 --> 00:10:06,870
+So what's going to happen is,
+that condition will be false.
+
+225
+00:10:06,870 --> 00:10:08,850
+And on the right-hand
+side of the colon,
+
+226
+00:10:08,850 --> 00:10:11,770
+we will choose the alert method.
+
+227
+00:10:11,770 --> 00:10:14,180
+And once that alert
+message is called,
+
+228
+00:10:14,180 --> 00:10:15,930
+you can see we get
+our pop-up box.
+
+229
+00:10:15,930 --> 00:10:18,800
+But what happens
+to retrieve sword?
+
+230
+00:10:18,800 --> 00:10:21,510
+What happens when the very
+last thing it has done
+
+231
+00:10:21,510 --> 00:10:23,100
+is call an alert method?
+
+232
+00:10:23,100 --> 00:10:28,190
+Well, it happens to be that
+it returns an undefined value.
+
+233
+00:10:28,190 --> 00:10:32,120
+Since that undefined value
+is the very last thing
+
+234
+00:10:32,120 --> 00:10:34,760
+our "AND" value finds,
+and it's "falsy",
+
+235
+00:10:34,760 --> 00:10:37,430
+it's going to toss that
+undefined value over
+
+236
+00:10:37,430 --> 00:10:38,210
+into weapon.
+
+237
+00:10:38,210 --> 00:10:39,760
+And weapon will be undefined.
+
+238
+00:10:39,760 --> 00:10:42,840
+There will be no
+weapon inside it.
+
+239
+00:10:42,840 --> 00:10:45,690
+Now you might ask what happens
+when "isKnight" is false.
+
+240
+00:10:45,690 --> 00:10:47,690
+I mean, we don't want
+some random dude coming up
+
+241
+00:10:47,690 --> 00:10:50,030
+to the armory and
+requesting a weapon, right.
+
+242
+00:10:50,030 --> 00:10:54,060
+So if it's false, turns out
+retrieve sword will never even
+
+243
+00:10:54,060 --> 00:10:57,300
+get called, remember, because
+"AND" logical assignment will
+
+244
+00:10:57,300 --> 00:11:00,360
+take the very first "falsy"
+value it ever finds.
+
+245
+00:11:00,360 --> 00:11:02,200
+So since "isKnight"
+is false, that false
+
+246
+00:11:02,200 --> 00:11:05,940
+is going to get tossed over
+into the weapon variable.
+
+247
+00:11:05,940 --> 00:11:07,870
+If we log out the
+weapon variable,
+
+248
+00:11:07,870 --> 00:11:09,560
+we can see that
+this becomes false.
+
+249
+00:11:12,910 --> 00:11:13,660
+An extra bit here.
+
+250
+00:11:13,660 --> 00:11:15,840
+Logical assignments are
+actually extendable.
+
+251
+00:11:15,840 --> 00:11:17,820
+You can string together
+as many operators
+
+252
+00:11:17,820 --> 00:11:21,080
+as is necessary to choose
+whatever right assignment you
+
+253
+00:11:21,080 --> 00:11:22,380
+would like to.
+
+254
+00:11:22,380 --> 00:11:24,050
+So let's get our
+stuff down, here,
+
+255
+00:11:24,050 --> 00:11:26,390
+and you can see that we've
+got a new variable called
+
+256
+00:11:26,390 --> 00:11:27,560
+"armoryIsOpen".
+
+257
+00:11:27,560 --> 00:11:29,530
+And we're going to set
+that equal to true.
+
+258
+00:11:29,530 --> 00:11:31,950
+Inside of our "AND"
+logical assignment,
+
+259
+00:11:31,950 --> 00:11:34,130
+we're going to add
+that "armoryIsOpen"
+
+260
+00:11:34,130 --> 00:11:36,140
+variable as a new condition.
+
+261
+00:11:36,140 --> 00:11:38,770
+This is an extended
+logical assignment.
+
+262
+00:11:38,770 --> 00:11:43,100
+So now, if the armory is open,
+which it is, and the person is
+
+263
+00:11:43,100 --> 00:11:45,890
+a knight, which
+they currently are,
+
+264
+00:11:45,890 --> 00:11:50,650
+and if there's a "Claymore"
+in the array for the swords,
+
+265
+00:11:50,650 --> 00:11:53,720
+and that gets returned,
+then we'll take that sort
+
+266
+00:11:53,720 --> 00:11:56,161
+and assign it to
+the weapon variable.
+
+267
+00:11:56,161 --> 00:11:56,910
+That happens here.
+
+268
+00:11:56,910 --> 00:12:00,870
+So you can see, when we log out
+the weapon we get the Claymore.
+
+269
+00:12:00,870 --> 00:12:04,567
+So what happens when the armory
+is closed, it's not open?
+
+270
+00:12:04,567 --> 00:12:06,400
+Well, we don't want to
+be passing swords out
+
+271
+00:12:06,400 --> 00:12:07,770
+after hours, right.
+
+272
+00:12:07,770 --> 00:12:10,390
+So the double "AND",
+that first double "AND",
+
+273
+00:12:10,390 --> 00:12:12,550
+will see that
+"armoryIsOpen" false.
+
+274
+00:12:12,550 --> 00:12:14,500
+And that will
+instantly get assigned
+
+275
+00:12:14,500 --> 00:12:17,160
+to the variable weapon
+with a short circuit,
+
+276
+00:12:17,160 --> 00:12:19,910
+not looking at and the
+other stuff that's present
+
+277
+00:12:19,910 --> 00:12:21,780
+in our extended assignment.
+
+278
+00:12:21,780 --> 00:12:24,020
+You can see that when we
+log out the weapon this time
+
+279
+00:12:24,020 --> 00:12:27,690
+we get false, because
+the armory was not open.
+
+280
+00:12:27,690 --> 00:12:29,800
+Come back when the
+shop's open, man.
+
+281
+00:12:29,800 --> 00:12:31,700
+And you come back
+after these challenges.
+
+282
+00:12:31,700 --> 00:12:33,910
+See you in the next section.
+
+283
+00:12:33,910 --> 00:12:34,531
+
+end
+

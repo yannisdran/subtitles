@@ -1,0 +1,614 @@
+﻿1
+00:00:01,900 --> 00:00:02,400
+Hey, guys.
+
+2
+00:00:02,400 --> 00:00:03,040
+Welcome back.
+
+3
+00:00:03,040 --> 00:00:06,120
+This is section two of The
+Pendant of Performance.
+
+4
+00:00:06,120 --> 00:00:10,030
+In this section, we'll be
+talking about script execution.
+
+5
+00:00:10,030 --> 00:00:12,520
+Script placement inside
+of your HTML files
+
+6
+00:00:12,520 --> 00:00:14,380
+very much impacts performance.
+
+7
+00:00:14,380 --> 00:00:16,610
+So let's take a closer look
+at how a browser actually
+
+8
+00:00:16,610 --> 00:00:18,560
+retrieves and acts
+on the scripts
+
+9
+00:00:18,560 --> 00:00:21,650
+that you place inside your HTML.
+
+10
+00:00:21,650 --> 00:00:23,244
+When a browser tries
+to access a page,
+
+11
+00:00:23,244 --> 00:00:24,660
+it's first going
+to send a request
+
+12
+00:00:24,660 --> 00:00:28,270
+to the server for the document
+contained at whatever URL
+
+13
+00:00:28,270 --> 00:00:29,390
+you're trying to get to.
+
+14
+00:00:29,390 --> 00:00:31,681
+The server, of course, is
+going to find that document--
+
+15
+00:00:31,681 --> 00:00:34,350
+hopefully-- and pass
+it back to the browser.
+
+16
+00:00:34,350 --> 00:00:36,810
+Then, the browser begins
+to parse the document.
+
+17
+00:00:36,810 --> 00:00:38,850
+And that's where things
+can get a little bit
+
+18
+00:00:38,850 --> 00:00:41,480
+crazy on the performance side.
+
+19
+00:00:41,480 --> 00:00:44,100
+The document could need any
+variety of important things
+
+20
+00:00:44,100 --> 00:00:47,800
+that make a website
+awesome, such as CSS style
+
+21
+00:00:47,800 --> 00:00:51,050
+sheets, images-- tons
+of images, actually--
+
+22
+00:00:51,050 --> 00:00:53,220
+and of course, scripts.
+
+23
+00:00:53,220 --> 00:00:55,590
+Under normal circumstances,
+a modern browser's
+
+24
+00:00:55,590 --> 00:00:57,570
+going to be able to
+download up to six
+
+25
+00:00:57,570 --> 00:00:59,690
+components at the
+same time, in what's
+
+26
+00:00:59,690 --> 00:01:02,010
+called a parallel download.
+
+27
+00:01:02,010 --> 00:01:04,099
+But when the browser
+finds a script
+
+28
+00:01:04,099 --> 00:01:05,840
+to download in the
+page's code, all
+
+29
+00:01:05,840 --> 00:01:08,920
+that parallel downloading
+halts-- that's right,
+
+30
+00:01:08,920 --> 00:01:12,940
+stops-- until the script
+is finished loading.
+
+31
+00:01:12,940 --> 00:01:18,880
+This can mean super slow load
+times for your site, sometimes.
+
+32
+00:01:18,880 --> 00:01:21,450
+Now, where would we find
+such troubling scripts
+
+33
+00:01:21,450 --> 00:01:24,870
+that have some sort of adverse
+impact on our performance?
+
+34
+00:01:24,870 --> 00:01:27,670
+Any scripts that are high
+in the head or the body
+
+35
+00:01:27,670 --> 00:01:31,090
+tags of your HTML
+page can potentially
+
+36
+00:01:31,090 --> 00:01:33,620
+have a performance
+impact, if they are not
+
+37
+00:01:33,620 --> 00:01:35,180
+absolutely necessary.
+
+38
+00:01:35,180 --> 00:01:37,680
+And even if they are
+absolutely necessary.
+
+39
+00:01:37,680 --> 00:01:40,490
+Let's take a look at
+this website, here.
+
+40
+00:01:40,490 --> 00:01:43,122
+We've got The Third
+Regiment's page.
+
+41
+00:01:43,122 --> 00:01:44,580
+Right after that
+first heading, you
+
+42
+00:01:44,580 --> 00:01:50,020
+can see that script tag that
+looks for sparring.js inside
+
+43
+00:01:50,020 --> 00:01:52,210
+of The Third Regiment's website.
+
+44
+00:01:52,210 --> 00:01:53,940
+That seems harmless
+enough, right?
+
+45
+00:01:53,940 --> 00:01:55,760
+We'll just get a
+quick download of it,
+
+46
+00:01:55,760 --> 00:01:57,710
+and then we'll just
+get on with our lives.
+
+47
+00:01:57,710 --> 00:01:58,970
+It'll be great.
+
+48
+00:01:58,970 --> 00:02:02,840
+But what happens if
+that sparring.js file
+
+49
+00:02:02,840 --> 00:02:06,860
+is processing tons of really
+time-consuming, data-intensive
+
+50
+00:02:06,860 --> 00:02:07,830
+problems.
+
+51
+00:02:07,830 --> 00:02:09,820
+In order, perhaps, to
+make use of a bunch
+
+52
+00:02:09,820 --> 00:02:11,320
+of data that's on the website.
+
+53
+00:02:11,320 --> 00:02:13,280
+For example, it could
+be building a huge array
+
+54
+00:02:13,280 --> 00:02:15,190
+of soldiers from
+some separate file.
+
+55
+00:02:15,190 --> 00:02:17,960
+It could be calculating all
+of the possible unique groups
+
+56
+00:02:17,960 --> 00:02:20,630
+for sparring groups of
+2, sparring groups of 3,
+
+57
+00:02:20,630 --> 00:02:22,730
+sparring groups of 4,
+out of all the knights.
+
+58
+00:02:22,730 --> 00:02:23,930
+Whoo, that's forever.
+
+59
+00:02:23,930 --> 00:02:26,260
+Randomizes the order of
+those sparring groups,
+
+60
+00:02:26,260 --> 00:02:28,440
+if they're having
+some sparring day.
+
+61
+00:02:28,440 --> 00:02:31,437
+Collects groups in pairs, in
+order to have larger matches,
+
+62
+00:02:31,437 --> 00:02:32,270
+for whatever reason.
+
+63
+00:02:32,270 --> 00:02:34,540
+And more processes, more
+processes, more processes.
+
+64
+00:02:34,540 --> 00:02:35,910
+It goes on forever, right.
+
+65
+00:02:35,910 --> 00:02:37,790
+And while that script
+file is handling
+
+66
+00:02:37,790 --> 00:02:40,080
+all of those
+data-intensive processes,
+
+67
+00:02:40,080 --> 00:02:41,690
+everything after
+that script file,
+
+68
+00:02:41,690 --> 00:02:46,320
+namely the rest of your HTML
+page, is going to stare at you.
+
+69
+00:02:46,320 --> 00:02:48,110
+It's going to hang,
+and it's going
+
+70
+00:02:48,110 --> 00:02:50,320
+to wait for all of
+that to be done.
+
+71
+00:02:50,320 --> 00:02:53,860
+The result, of course, is
+poor load time, and probably,
+
+72
+00:02:53,860 --> 00:02:54,984
+poor user experience.
+
+73
+00:02:54,984 --> 00:02:56,650
+So we want to avoid
+that, and figure out
+
+74
+00:02:56,650 --> 00:02:58,010
+some ways that we can avoid it.
+
+75
+00:02:58,010 --> 00:02:59,930
+Let's check it out.
+
+76
+00:02:59,930 --> 00:03:01,880
+One great solution
+is to relocate
+
+77
+00:03:01,880 --> 00:03:05,730
+all of those
+work-intensive scripts.
+
+78
+00:03:05,730 --> 00:03:07,530
+Any script that's
+not really essential
+
+79
+00:03:07,530 --> 00:03:11,530
+to the immediate loading and
+presentation of your web page
+
+80
+00:03:11,530 --> 00:03:13,510
+should be moved
+as low as possible
+
+81
+00:03:13,510 --> 00:03:16,160
+in your parsing
+of your HTML page,
+
+82
+00:03:16,160 --> 00:03:19,160
+so that that page can be present
+for the user immediately.
+
+83
+00:03:19,160 --> 00:03:20,440
+Let's check it out.
+
+84
+00:03:20,440 --> 00:03:23,641
+So what we'll do is, we'll
+push up that paragraph
+
+85
+00:03:23,641 --> 00:03:25,140
+to be right after
+the first heading.
+
+86
+00:03:25,140 --> 00:03:26,639
+And we'll move the
+script down right
+
+87
+00:03:26,639 --> 00:03:29,710
+before the end of
+the body tag, which
+
+88
+00:03:29,710 --> 00:03:32,430
+is a great place for
+work-intensive scripts.
+
+89
+00:03:32,430 --> 00:03:35,200
+Now, most of the
+visual information,
+
+90
+00:03:35,200 --> 00:03:37,307
+all the other components
+of the site, that's
+
+91
+00:03:37,307 --> 00:03:38,890
+going to become
+available for the user
+
+92
+00:03:38,890 --> 00:03:43,260
+to check out while the
+data is being processed.
+
+93
+00:03:43,260 --> 00:03:44,970
+Very valuable.
+
+94
+00:03:44,970 --> 00:03:48,940
+A second, short solution
+for this kind of problem
+
+95
+00:03:48,940 --> 00:03:53,350
+is to use the HTML5 async
+attribute inside of your script
+
+96
+00:03:53,350 --> 00:03:56,270
+tag, which will allow
+the rest of the page
+
+97
+00:03:56,270 --> 00:03:59,120
+to load before the
+script actually runs.
+
+98
+00:03:59,120 --> 00:04:01,190
+So let's examine that one, too.
+
+99
+00:04:01,190 --> 00:04:02,730
+We'll push our
+paragraph back down,
+
+100
+00:04:02,730 --> 00:04:05,243
+and we'll move our script
+back to its original location.
+
+101
+00:04:05,243 --> 00:04:06,743
+Now what we're going
+to do is, we're
+
+102
+00:04:06,743 --> 00:04:10,520
+going to add an async
+attribute inside that tag.
+
+103
+00:04:10,520 --> 00:04:14,630
+And that's going to prevent the
+script from blocking the page's
+
+104
+00:04:14,630 --> 00:04:17,110
+load for the rest of the page.
+
+105
+00:04:17,110 --> 00:04:19,110
+We've got that async
+attribute dropped in there,
+
+106
+00:04:19,110 --> 00:04:20,693
+but even though it's
+in the back here,
+
+107
+00:04:20,693 --> 00:04:23,550
+you can put that async attribute
+as an attribute any place
+
+108
+00:04:23,550 --> 00:04:26,090
+that you want inside
+your script tag.
+
+109
+00:04:26,090 --> 00:04:27,340
+So what's going to happen now?
+
+110
+00:04:27,340 --> 00:04:30,307
+Well, the browser's going to
+parse all of that initial HTML.
+
+111
+00:04:30,307 --> 00:04:32,140
+And then it's going to
+reach the script tag,
+
+112
+00:04:32,140 --> 00:04:35,524
+and it's going to say, oh,
+let's go get that script file.
+
+113
+00:04:35,524 --> 00:04:37,190
+And then it runs to
+get the script file,
+
+114
+00:04:37,190 --> 00:04:39,440
+but then sees the
+async tag and says,
+
+115
+00:04:39,440 --> 00:04:43,490
+well, we need to load the
+script file at the same time
+
+116
+00:04:43,490 --> 00:04:47,150
+as the rest of the HTML
+to be parsed on this page.
+
+117
+00:04:47,150 --> 00:04:48,650
+This allows the
+rest of the document
+
+118
+00:04:48,650 --> 00:04:51,970
+to get parsed, loaded,
+and ready for the user,
+
+119
+00:04:51,970 --> 00:04:53,710
+while any contents
+of the script file
+
+120
+00:04:53,710 --> 00:04:55,500
+are being processed
+in the background.
+
+121
+00:04:55,500 --> 00:04:59,200
+So async will give us much less
+of a processing time delay hit,
+
+122
+00:04:59,200 --> 00:05:02,080
+and can allow scripts that
+need to be high in the page
+
+123
+00:05:02,080 --> 00:05:04,550
+to avoid hurting initial
+load time too much.
+
+124
+00:05:07,731 --> 00:05:08,230
+Cool.
+
+125
+00:05:08,230 --> 00:05:10,880
+So that's the end of
+this very short section
+
+126
+00:05:10,880 --> 00:05:12,262
+on script execution.
+
+127
+00:05:12,262 --> 00:05:14,220
+We're going to hand you
+off to some challenges,
+
+128
+00:05:14,220 --> 00:05:17,451
+and then we'll see you
+back in the next section.
+

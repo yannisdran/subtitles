@@ -1,0 +1,1289 @@
+﻿1
+00:00:00,000 --> 00:00:01,915
+[SINGING] Find the Sword of Syntax first
+
+
+2
+00:00:01,915 --> 00:00:03,540
+for the useful tools
+that you may need.
+
+3
+00:00:03,540 --> 00:00:06,202
+Wear the pendant of performance
+for efficiency and speed.
+
+4
+00:00:06,202 --> 00:00:08,660
+Cautions crystal clears this
+sky with triple equals try/catch
+
+5
+00:00:08,660 --> 00:00:08,970
+cache.
+
+6
+00:00:08,970 --> 00:00:11,320
+Avoiding stuff that sucks and
+parsing badder numbers
+
+7
+00:00:11,320 --> 00:00:12,130
+out of stretch.
+
+8
+00:00:12,130 --> 00:00:14,720
+Alas, the golden shining
+mail of modularity.
+
+9
+00:00:14,720 --> 00:00:17,295
+When [INAUDIBLE] your import's
+long, defend integrity.
+
+10
+00:00:17,295 --> 00:00:19,080
+For polished jewels
+in Javascript,
+
+11
+00:00:19,080 --> 00:00:20,390
+the treasure trove this is.
+
+12
+00:00:20,390 --> 00:00:21,570
+Now raise your sword
+and strike your shield
+
+13
+00:00:21,570 --> 00:00:23,050
+with these best practices.
+
+14
+00:00:26,200 --> 00:00:30,020
+In this level, we'll be looking
+at speed-- how to improve it
+
+15
+00:00:30,020 --> 00:00:31,710
+and how to measure it.
+
+16
+00:00:31,710 --> 00:00:33,960
+Many new developers
+think that the only way
+
+17
+00:00:33,960 --> 00:00:37,100
+to improve performance is
+through complex algorithms that
+
+18
+00:00:37,100 --> 00:00:39,960
+manage data more efficiently
+on the server side,
+
+19
+00:00:39,960 --> 00:00:42,800
+or through a generalized
+improvement to the bandwidth
+
+20
+00:00:42,800 --> 00:00:45,000
+of a user's internet connection.
+
+21
+00:00:45,000 --> 00:00:48,290
+But there are subtle and
+often overlooked methods
+
+22
+00:00:48,290 --> 00:00:49,870
+in the JavaScript
+language that you
+
+23
+00:00:49,870 --> 00:00:51,880
+can begin to
+incorporate immediately,
+
+24
+00:00:51,880 --> 00:00:54,900
+and that on a broader level
+will have a noticeable impact
+
+25
+00:00:54,900 --> 00:00:58,080
+to the speed of your
+web applications.
+
+26
+00:00:58,080 --> 00:01:00,370
+Additionally, often
+it's very important,
+
+27
+00:01:00,370 --> 00:01:02,470
+especially in this
+day and age, to test
+
+28
+00:01:02,470 --> 00:01:06,820
+multiple implementations
+that produce the same result
+
+29
+00:01:06,820 --> 00:01:09,590
+in order to make the
+best decision about which
+
+30
+00:01:09,590 --> 00:01:14,650
+implementation provides the best
+user and developer experience.
+
+31
+00:01:14,650 --> 00:01:18,220
+To that end, we'll examine
+ways to illustrate that speed
+
+32
+00:01:18,220 --> 00:01:20,840
+and time data so that
+you can make the best
+
+33
+00:01:20,840 --> 00:01:23,290
+choice about which
+implementation
+
+34
+00:01:23,290 --> 00:01:25,830
+is best for the task at hand.
+
+35
+00:01:25,830 --> 00:01:28,950
+And with that, I hope
+you enjoy and hold
+
+36
+00:01:28,950 --> 00:01:32,729
+carefully to the
+pendant of performance.
+
+37
+00:01:32,729 --> 00:01:33,270
+Welcome back.
+
+38
+00:01:33,270 --> 00:01:35,730
+This is level two of
+JavaScript Best Practices.
+
+39
+00:01:35,730 --> 00:01:37,570
+I'm Jason Millhouse,
+and this section
+
+40
+00:01:37,570 --> 00:01:39,810
+is about loop optimization.
+
+41
+00:01:39,810 --> 00:01:42,100
+Let's take a look at a
+common for-loop scenario
+
+42
+00:01:42,100 --> 00:01:45,717
+where memory access may
+not necessarily be ideal.
+
+43
+00:01:45,717 --> 00:01:47,550
+The first thing we'll
+have here on the right
+
+44
+00:01:47,550 --> 00:01:49,100
+is a treasure chest object.
+
+45
+00:01:49,100 --> 00:01:52,340
+Inside that object, we'll
+have 10,000 gold coins.
+
+46
+00:01:52,340 --> 00:01:54,490
+We'll have the crown of
+speed as a magical item.
+
+47
+00:01:54,490 --> 00:01:56,790
+We'll have an
+array of necklaces.
+
+48
+00:01:56,790 --> 00:02:00,180
+And we'll also have a
+function called openLid.
+
+49
+00:02:00,180 --> 00:02:03,280
+Now, if we wanted to log out
+all of the necklaces found
+
+50
+00:02:03,280 --> 00:02:06,110
+in our treasure chest, we
+would have a little log here
+
+51
+00:02:06,110 --> 00:02:08,490
+that says you've found
+the following necklaces.
+
+52
+00:02:08,490 --> 00:02:10,250
+Following that, we
+could do a loop.
+
+53
+00:02:10,250 --> 00:02:11,920
+Now we've set up
+our loop parameters
+
+54
+00:02:11,920 --> 00:02:14,240
+in a normal fashion
+where we loop over
+
+55
+00:02:14,240 --> 00:02:16,820
+the entire length of
+the necklaces array
+
+56
+00:02:16,820 --> 00:02:19,090
+and log out each
+one of the necklaces
+
+57
+00:02:19,090 --> 00:02:20,760
+in that array in turn.
+
+58
+00:02:20,760 --> 00:02:23,760
+That would produce, you've found
+the following necklaces-- ruby,
+
+59
+00:02:23,760 --> 00:02:26,400
+pearl, sapphire, and diamond.
+
+60
+00:02:26,400 --> 00:02:30,960
+Now, this is not the best way
+to execute loop control because
+
+61
+00:02:30,960 --> 00:02:33,860
+at the start of each
+potential loop cycle,
+
+62
+00:02:33,860 --> 00:02:36,750
+the program is going to
+need to find and retrieve
+
+63
+00:02:36,750 --> 00:02:37,780
+several things.
+
+64
+00:02:37,780 --> 00:02:40,030
+First, it will need to
+find the value of i.
+
+65
+00:02:40,030 --> 00:02:43,300
+Then it will need to locate
+the treasure chest object,
+
+66
+00:02:43,300 --> 00:02:47,000
+within which it will need to
+find the necklaces property.
+
+67
+00:02:47,000 --> 00:02:48,520
+After finding the
+property, it will
+
+68
+00:02:48,520 --> 00:02:51,820
+need to reference the array
+pointed to by the property,
+
+69
+00:02:51,820 --> 00:02:56,330
+and then finally, the length
+because that's what we need.
+
+70
+00:02:56,330 --> 00:02:57,950
+So out of all those
+steps, which ones
+
+71
+00:02:57,950 --> 00:03:00,170
+can we actually
+eliminate safely?
+
+72
+00:03:00,170 --> 00:03:03,780
+Because any intermediary
+step to finding what we want
+
+73
+00:03:03,780 --> 00:03:07,610
+is just lengthier,
+processor death time, right?
+
+74
+00:03:07,610 --> 00:03:11,380
+So we want to make sure that
+we can get rid of as much steps
+
+75
+00:03:11,380 --> 00:03:12,740
+as we can.
+
+76
+00:03:12,740 --> 00:03:15,040
+All we're interested in,
+here in the loop control,
+
+77
+00:03:15,040 --> 00:03:18,380
+is that single length
+value and the loop counter.
+
+78
+00:03:18,380 --> 00:03:21,770
+So we don't really need all
+of these other little steps
+
+79
+00:03:21,770 --> 00:03:25,400
+that we take to find
+that length value.
+
+80
+00:03:25,400 --> 00:03:28,330
+If we use cached
+values to curtail
+
+81
+00:03:28,330 --> 00:03:30,820
+all of that lengthy
+repetitive access,
+
+82
+00:03:30,820 --> 00:03:34,050
+you'll find that your
+applications improve in speed.
+
+83
+00:03:34,050 --> 00:03:36,280
+What we'll do is we'll
+scoot our stuff down here.
+
+84
+00:03:36,280 --> 00:03:40,560
+And we will assign the
+length of the necklaces array
+
+85
+00:03:40,560 --> 00:03:43,970
+to this new variable called x.
+
+86
+00:03:43,970 --> 00:03:46,870
+This will use all of the
+accesses that we had before,
+
+87
+00:03:46,870 --> 00:03:50,870
+all of those steps, but it's
+only going to happen once.
+
+88
+00:03:50,870 --> 00:03:52,910
+Now, inside of our
+loop, we'll use
+
+89
+00:03:52,910 --> 00:03:57,500
+that x variable as the
+controlling parameter.
+
+90
+00:03:57,500 --> 00:04:00,350
+As a result, the majority of
+all of those extraneous steps
+
+91
+00:04:00,350 --> 00:04:01,445
+have now been eliminated.
+
+92
+00:04:04,430 --> 00:04:06,320
+Every time you
+help your processor
+
+93
+00:04:06,320 --> 00:04:08,970
+out with some savings, that's
+going to mean more speed.
+
+94
+00:04:08,970 --> 00:04:11,360
+And so let's check out and
+see what we've actually
+
+95
+00:04:11,360 --> 00:04:14,480
+saved on our moderately
+simple example.
+
+96
+00:04:14,480 --> 00:04:16,579
+So now during loop
+control, memory access
+
+97
+00:04:16,579 --> 00:04:18,860
+only needs to retrieve
+the value of i
+
+98
+00:04:18,860 --> 00:04:22,250
+and then retrieve
+the value of x.
+
+99
+00:04:22,250 --> 00:04:24,860
+Then, we do need to add
+in our one-time cost
+
+100
+00:04:24,860 --> 00:04:26,727
+in creating our new x variable.
+
+101
+00:04:26,727 --> 00:04:27,560
+What does that mean?
+
+102
+00:04:27,560 --> 00:04:29,768
+That means well, we created
+the variable x in memory.
+
+103
+00:04:29,768 --> 00:04:30,390
+That's a step.
+
+104
+00:04:30,390 --> 00:04:32,550
+And then there are
+also the four steps
+
+105
+00:04:32,550 --> 00:04:35,790
+that we saw before in
+actually retrieving the length
+
+106
+00:04:35,790 --> 00:04:39,450
+value from the array
+inside the object.
+
+107
+00:04:39,450 --> 00:04:41,890
+Now if you can tolerate
+a little math here,
+
+108
+00:04:41,890 --> 00:04:44,990
+we've got two steps
+for every loop.
+
+109
+00:04:44,990 --> 00:04:48,060
+That means that we're going to
+do four executed loops and then
+
+110
+00:04:48,060 --> 00:04:49,820
+a single check to
+stop, so that's
+
+111
+00:04:49,820 --> 00:04:53,110
+five total starts of
+the loop parameter.
+
+112
+00:04:53,110 --> 00:04:55,450
+So 2 times 5 is 10
+steps for the processor
+
+113
+00:04:55,450 --> 00:04:57,820
+just in memory access.
+
+114
+00:04:57,820 --> 00:05:00,430
+Then we'll add in
+those five extra steps
+
+115
+00:05:00,430 --> 00:05:02,580
+in the creation of
+that extra x variable,
+
+116
+00:05:02,580 --> 00:05:06,200
+so a total of 15 steps
+of strictly memory access
+
+117
+00:05:06,200 --> 00:05:08,220
+to execute just one loop.
+
+118
+00:05:08,220 --> 00:05:09,260
+Seems pretty good.
+
+119
+00:05:09,260 --> 00:05:11,900
+Let's check out the difference.
+
+120
+00:05:11,900 --> 00:05:16,260
+In our previous version, we took
+25 steps to figure that out.
+
+121
+00:05:16,260 --> 00:05:20,010
+So the difference, of course,
+is 10 steps of savings.
+
+122
+00:05:20,010 --> 00:05:21,399
+Now that may not
+seem like a lot,
+
+123
+00:05:21,399 --> 00:05:22,940
+but let's check out
+what happens when
+
+124
+00:05:22,940 --> 00:05:25,065
+we grow our data considerably.
+
+125
+00:05:28,500 --> 00:05:30,662
+What if we had 10,000 necklaces?
+
+126
+00:05:30,662 --> 00:05:32,370
+With large data amounts,
+this improvement
+
+127
+00:05:32,370 --> 00:05:35,700
+is really going to
+improve results.
+
+128
+00:05:35,700 --> 00:05:38,860
+You can see that when we
+have five steps times 10,000
+
+129
+00:05:38,860 --> 00:05:40,720
+executed loops
+plus 1 check stop,
+
+130
+00:05:40,720 --> 00:05:44,110
+we get 50,000
+memory access steps.
+
+131
+00:05:44,110 --> 00:05:45,390
+Oh my god.
+
+132
+00:05:45,390 --> 00:05:49,140
+But when we have two steps times
+10,000 executed loops and 1
+
+133
+00:05:49,140 --> 00:05:51,430
+check stop, we only have 20,000.
+
+134
+00:05:51,430 --> 00:05:54,820
+Then we add in our
+paltry five extra steps
+
+135
+00:05:54,820 --> 00:05:56,000
+to create that x variable.
+
+136
+00:05:56,000 --> 00:05:57,730
+See how that doesn't
+matter very much?
+
+137
+00:05:57,730 --> 00:06:02,060
+And we get 20,007
+memory access steps.
+
+138
+00:06:02,060 --> 00:06:04,630
+Now, what's the
+difference there?
+
+139
+00:06:04,630 --> 00:06:07,570
+30,000 steps of savings.
+
+140
+00:06:07,570 --> 00:06:10,760
+You can see how you're
+assisting the processor
+
+141
+00:06:10,760 --> 00:06:12,655
+quite a bit by caching values.
+
+142
+00:06:15,270 --> 00:06:17,290
+So we've saved all
+of those steps.
+
+143
+00:06:17,290 --> 00:06:18,050
+Really cool.
+
+144
+00:06:18,050 --> 00:06:20,560
+But we can be even
+better organized
+
+145
+00:06:20,560 --> 00:06:23,220
+if we place that control
+variable that we've
+
+146
+00:06:23,220 --> 00:06:26,110
+created inside the
+parameters of the loop.
+
+147
+00:06:26,110 --> 00:06:27,510
+Let's take a look.
+
+148
+00:06:27,510 --> 00:06:30,169
+First, we'll scoot our
+treasure chest down here.
+
+149
+00:06:30,169 --> 00:06:32,460
+And we'll give ourselves a
+little bit more space inside
+
+150
+00:06:32,460 --> 00:06:33,530
+of our loop parameters.
+
+151
+00:06:33,530 --> 00:06:35,050
+And surprise!
+
+152
+00:06:35,050 --> 00:06:39,080
+A comma is going to allow us
+to execute multiple statements
+
+153
+00:06:39,080 --> 00:06:43,170
+within that very first
+parameter of our loop.
+
+154
+00:06:43,170 --> 00:06:45,980
+Now what we can do is scoot our
+variable over and bring it down
+
+155
+00:06:45,980 --> 00:06:48,830
+into the first
+parameter of the loop.
+
+156
+00:06:48,830 --> 00:06:50,330
+A cool thing here
+is that we can now
+
+157
+00:06:50,330 --> 00:06:54,270
+get rid of this var that's
+on the outside of the x.
+
+158
+00:06:54,270 --> 00:06:56,490
+It's now unnecessary
+because that comma
+
+159
+00:06:56,490 --> 00:06:59,510
+is going to tell the compiler
+that more variables are
+
+160
+00:06:59,510 --> 00:07:04,000
+about to be declared,
+and maybe even assigned.
+
+161
+00:07:04,000 --> 00:07:06,180
+By creating both of these
+variables in the loop
+
+162
+00:07:06,180 --> 00:07:08,840
+parameter, we now have
+signaled that they're actually
+
+163
+00:07:08,840 --> 00:07:11,770
+only intended for
+use inside this loop.
+
+164
+00:07:11,770 --> 00:07:14,530
+We've also limited
+the processor burden
+
+165
+00:07:14,530 --> 00:07:18,520
+of declaring multiple variables
+with that var keyword.
+
+166
+00:07:18,520 --> 00:07:20,080
+Now something to
+take note here is
+
+167
+00:07:20,080 --> 00:07:23,980
+that JavaScript doesn't have
+any natural garbage collection.
+
+168
+00:07:23,980 --> 00:07:24,670
+That's right.
+
+169
+00:07:24,670 --> 00:07:28,070
+If we were to-- check
+this out-- log out
+
+170
+00:07:28,070 --> 00:07:32,130
+the x variable after
+our loop, we get a 4.
+
+171
+00:07:32,130 --> 00:07:35,800
+And that's because JavaScript
+does not scope to block.
+
+172
+00:07:35,800 --> 00:07:38,360
+So any of the variables that
+you declare inside your loops,
+
+173
+00:07:38,360 --> 00:07:40,410
+they're going to be
+available after the loop.
+
+174
+00:07:40,410 --> 00:07:41,450
+Mm-mm.
+
+175
+00:07:41,450 --> 00:07:42,270
+Weird.
+
+176
+00:07:42,270 --> 00:07:45,150
+And they may actually
+override preexisting globals,
+
+177
+00:07:45,150 --> 00:07:50,082
+so you have to name your
+variables very carefully.
+
+178
+00:07:50,082 --> 00:07:52,290
+Now you may have noticed
+that a good approach to take
+
+179
+00:07:52,290 --> 00:07:57,730
+when dealing with this kind of
+repetitive data access at depth
+
+180
+00:07:57,730 --> 00:08:02,310
+is to store in a local variable
+any property or object or array
+
+181
+00:08:02,310 --> 00:08:05,300
+item that is used more than
+once inside of a function.
+
+182
+00:08:05,300 --> 00:08:07,920
+So the moral of
+this story is, try
+
+183
+00:08:07,920 --> 00:08:12,170
+to avoid that repetitive,
+repetitive, repetitive access
+
+184
+00:08:12,170 --> 00:08:13,500
+at depth.
+
+185
+00:08:13,500 --> 00:08:16,850
+And in our current code, we
+can even find a new place
+
+186
+00:08:16,850 --> 00:08:18,720
+to further streamline
+this process.
+
+187
+00:08:18,720 --> 00:08:19,980
+Let's take a look.
+
+188
+00:08:19,980 --> 00:08:23,050
+See that console log in there
+with treasureChest.necklaces?
+
+189
+00:08:23,050 --> 00:08:26,135
+That's another access of a
+property within an object.
+
+190
+00:08:26,135 --> 00:08:28,510
+And we're going to do that
+every single time, looks like,
+
+191
+00:08:28,510 --> 00:08:29,810
+in the loop, right?
+
+192
+00:08:29,810 --> 00:08:32,590
+So we want to try to avoid
+that repetitive access.
+
+193
+00:08:32,590 --> 00:08:34,929
+Let's see what we can do.
+
+194
+00:08:34,929 --> 00:08:37,390
+So we'll make a new variable
+and we'll call it list.
+
+195
+00:08:37,390 --> 00:08:40,559
+And it's going to be
+the array of necklaces.
+
+196
+00:08:40,559 --> 00:08:42,669
+And we'll just assume
+that this list variable's
+
+197
+00:08:42,669 --> 00:08:44,990
+going to get used some
+place later in our code
+
+198
+00:08:44,990 --> 00:08:46,830
+that we don't see yet.
+
+199
+00:08:46,830 --> 00:08:49,040
+But by creating
+that list variable,
+
+200
+00:08:49,040 --> 00:08:51,630
+we now can use it
+inside of our log
+
+201
+00:08:51,630 --> 00:08:54,795
+without accessing the
+treasure chest object.
+
+202
+00:08:54,795 --> 00:08:57,420
+Now you can see if we drop that
+list variable down and scoot it
+
+203
+00:08:57,420 --> 00:09:02,610
+over, we will be logging out the
+ith index of the list variable.
+
+204
+00:09:02,610 --> 00:09:04,260
+And we've avoided
+that extra step
+
+205
+00:09:04,260 --> 00:09:06,500
+of accessing the
+treasure chest each time.
+
+206
+00:09:09,080 --> 00:09:11,440
+On a broader level,
+there are other ways
+
+207
+00:09:11,440 --> 00:09:13,586
+to optimize the loops
+that are inside your code.
+
+208
+00:09:13,586 --> 00:09:15,210
+And one way is to
+make sure that you're
+
+209
+00:09:15,210 --> 00:09:19,400
+choosing the best kind
+of loop for arrays.
+
+210
+00:09:19,400 --> 00:09:23,370
+If you want to just deal with
+each index inside the array,
+
+211
+00:09:23,370 --> 00:09:25,760
+your best bet is to
+stick with for-loops
+
+212
+00:09:25,760 --> 00:09:28,180
+instead of for/in loops.
+
+213
+00:09:28,180 --> 00:09:30,630
+Now, to see why the
+regular for-loop is
+
+214
+00:09:30,630 --> 00:09:32,800
+often better for
+performance, let's
+
+215
+00:09:32,800 --> 00:09:36,400
+go ahead and add a few methods
+to the array prototype.
+
+216
+00:09:36,400 --> 00:09:37,570
+Here we go.
+
+217
+00:09:37,570 --> 00:09:40,180
+Here we have a new
+method on the array
+
+218
+00:09:40,180 --> 00:09:42,157
+prototype called countType.
+
+219
+00:09:42,157 --> 00:09:43,740
+And you don't really
+care what it does
+
+220
+00:09:43,740 --> 00:09:45,750
+or what the code is
+inside this function.
+
+221
+00:09:45,750 --> 00:09:47,420
+You just need to know
+that it would now
+
+222
+00:09:47,420 --> 00:09:50,600
+be available to all arrays
+inside of our program,
+
+223
+00:09:50,600 --> 00:09:54,414
+including that necklace array
+over inside the treasure chest.
+
+224
+00:09:54,414 --> 00:09:55,330
+We'll scoot that down.
+
+225
+00:09:55,330 --> 00:09:57,750
+And we'll also add
+another prototype method
+
+226
+00:09:57,750 --> 00:09:59,222
+called removeAll.
+
+227
+00:09:59,222 --> 00:10:01,430
+You don't care what it does,
+but you can check it out
+
+228
+00:10:01,430 --> 00:10:02,480
+later if you'd like.
+
+229
+00:10:02,480 --> 00:10:05,310
+Just know that it's
+another array method
+
+230
+00:10:05,310 --> 00:10:07,930
+that we have added to
+the array prototype.
+
+231
+00:10:07,930 --> 00:10:10,760
+So now that we have added a
+couple methods to our array
+
+232
+00:10:10,760 --> 00:10:12,900
+prototype, let's
+see what happens
+
+233
+00:10:12,900 --> 00:10:15,490
+when we change this
+existing loop structure that
+
+234
+00:10:15,490 --> 00:10:16,980
+lists all the
+necklaces to one that
+
+235
+00:10:16,980 --> 00:10:19,980
+uses instead a for/in approach.
+
+236
+00:10:19,980 --> 00:10:22,500
+You will see in a moment why
+this kind of sucks and it's
+
+237
+00:10:22,500 --> 00:10:25,410
+going to impact the
+performance of your code.
+
+238
+00:10:25,410 --> 00:10:28,210
+So we get rid of all of
+our loop parameters here.
+
+239
+00:10:28,210 --> 00:10:31,960
+And in their place,
+we put for p in list.
+
+240
+00:10:31,960 --> 00:10:35,590
+That means for every
+property inside the list.
+
+241
+00:10:35,590 --> 00:10:39,060
+And that is going to come
+in very key in a second.
+
+242
+00:10:39,060 --> 00:10:42,939
+If we were to now
+run this code, and we
+
+243
+00:10:42,939 --> 00:10:45,230
+would see the results of our
+console log, we would see,
+
+244
+00:10:45,230 --> 00:10:46,900
+you found the
+following necklaces--
+
+245
+00:10:46,900 --> 00:10:51,012
+ruby, pearl, sapphire,
+diamond, removeAll, countType.
+
+246
+00:10:51,012 --> 00:10:52,720
+Well, I don't want
+the removeAll necklace
+
+247
+00:10:52,720 --> 00:10:55,290
+and I also don't want to
+wear a countType necklace.
+
+248
+00:10:55,290 --> 00:10:57,310
+But the reason this
+is happening is
+
+249
+00:10:57,310 --> 00:11:00,700
+because using a property
+approach to access indices
+
+250
+00:11:00,700 --> 00:11:05,160
+is going to result in
+adding in all the methods
+
+251
+00:11:05,160 --> 00:11:07,670
+that have been added
+to the array prototype.
+
+252
+00:11:07,670 --> 00:11:09,920
+So if there's ever any
+additional methods on the array
+
+253
+00:11:09,920 --> 00:11:11,340
+prototype, those are going
+to be included inside
+
+254
+00:11:11,340 --> 00:11:12,460
+of your properties.
+
+255
+00:11:12,460 --> 00:11:14,290
+Very strange if you
+only were concerned
+
+256
+00:11:14,290 --> 00:11:17,980
+about the indices of
+your array, right?
+
+257
+00:11:17,980 --> 00:11:19,540
+The reason that
+is, because methods
+
+258
+00:11:19,540 --> 00:11:21,560
+that you're going to
+add to the prototype--
+
+259
+00:11:21,560 --> 00:11:23,990
+not the existing methods,
+but the ones that you add
+
+260
+00:11:23,990 --> 00:11:27,920
+to the prototype-- are going
+to become innumerable just
+
+261
+00:11:27,920 --> 00:11:31,010
+like the indices in the array.
+
+262
+00:11:31,010 --> 00:11:33,700
+Now, the moral of the story
+is that you really should only
+
+263
+00:11:33,700 --> 00:11:36,070
+use a property approach
+when you really
+
+264
+00:11:36,070 --> 00:11:39,950
+want to get to every single
+property of that array.
+
+265
+00:11:39,950 --> 00:11:42,740
+Otherwise, stick with
+a for-loop and you
+
+266
+00:11:42,740 --> 00:11:45,861
+will have exactly the
+functionality that you desire.
+
+267
+00:11:45,861 --> 00:11:47,860
+We're going to give you
+a few challenges on loop
+
+268
+00:11:47,860 --> 00:11:51,660
+optimization, and we'll see
+you back in the next section.
+
