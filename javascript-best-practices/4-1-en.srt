@@ -1,0 +1,990 @@
+﻿1
+00:00:00,000 --> 00:00:01,915
+[SINGING] Find the Sword of Syntax first
+
+2
+00:00:01,915 --> 00:00:03,540
+for the useful tools
+that you may need.
+
+3
+00:00:03,540 --> 00:00:06,202
+Wear the pendant of performance
+for efficiency and speed.
+
+4
+00:00:06,202 --> 00:00:08,970
+Caution's Crystal clears the
+sky with triple equals and try/catch
+
+5
+00:00:08,970 --> 00:00:11,320
+Avoiding stuff that sucks and
+parsing badder numbers
+
+6
+00:00:11,320 --> 00:00:12,130
+out of stretch.
+
+7
+00:00:12,130 --> 00:00:14,720
+Alas, the golden shining
+mail of modularity.
+
+8
+00:00:14,720 --> 00:00:17,295
+When namespace closure imports
+long, defend integrity.
+
+9
+00:00:17,295 --> 00:00:19,080
+For polished jewels
+and JavaScript,
+
+10
+00:00:19,080 --> 00:00:20,390
+the treasure trove this is.
+
+11
+00:00:20,390 --> 00:00:21,570
+Now raise your sword
+and strike your shield
+
+12
+00:00:21,570 --> 00:00:23,050
+with these Best Practices.
+
+13
+00:00:26,770 --> 00:00:29,880
+Well friends, your journey
+here is almost complete.
+
+14
+00:00:29,880 --> 00:00:32,100
+In this last level,
+we'll be taking a look
+
+15
+00:00:32,100 --> 00:00:34,980
+at the module design
+pattern in JavaScript.
+
+16
+00:00:34,980 --> 00:00:38,900
+First, we'll look closely at the
+basics of a simulated namespace
+
+17
+00:00:38,900 --> 00:00:41,970
+in JavaScript, which is the
+foundation for any module.
+
+18
+00:00:41,970 --> 00:00:45,160
+Thereafter, we'll look at how to
+create public and private state
+
+19
+00:00:45,160 --> 00:00:47,930
+data through the use of
+anonymous closure, which
+
+20
+00:00:47,930 --> 00:00:50,750
+can sometimes be
+very hard to grasp.
+
+21
+00:00:50,750 --> 00:00:54,630
+Next, in keeping with our best
+practices of clarity and data
+
+22
+00:00:54,630 --> 00:00:58,010
+protection, we'll examine
+the use of global imports
+
+23
+00:00:58,010 --> 00:01:01,270
+which will allow us to
+carefully and clearly use
+
+24
+00:01:01,270 --> 00:01:04,410
+external data inside
+of our modules.
+
+25
+00:01:04,410 --> 00:01:06,650
+Lastly, augmentation
+will wrap things
+
+26
+00:01:06,650 --> 00:01:09,940
+up so that you can add
+functionality and properties
+
+27
+00:01:09,940 --> 00:01:11,990
+to your modules,
+even after they've
+
+28
+00:01:11,990 --> 00:01:14,550
+been built inside other files.
+
+29
+00:01:14,550 --> 00:01:16,270
+So you've got your sword.
+
+30
+00:01:16,270 --> 00:01:18,050
+You've got your pendant.
+
+31
+00:01:18,050 --> 00:01:19,620
+You've got your crystal.
+
+32
+00:01:19,620 --> 00:01:24,340
+Now it's time to don
+the mail of modularity.
+
+33
+00:01:24,340 --> 00:01:26,190
+Hey guys, welcome
+back to level four,
+
+34
+00:01:26,190 --> 00:01:29,360
+the final level of
+JavaScript Best Practices,
+
+35
+00:01:29,360 --> 00:01:31,590
+The Mail of Modularity.
+
+36
+00:01:31,590 --> 00:01:33,400
+In this first section,
+we'll take a look
+
+37
+00:01:33,400 --> 00:01:35,970
+at the basics of a namespace.
+
+38
+00:01:35,970 --> 00:01:38,500
+You write a JavaScript file,
+I write a JavaScript file,
+
+39
+00:01:38,500 --> 00:01:40,160
+everybody writes
+a JavaScript file.
+
+40
+00:01:40,160 --> 00:01:43,030
+And conflicting code
+within those files
+
+41
+00:01:43,030 --> 00:01:45,510
+can cause overwrites.
+
+42
+00:01:45,510 --> 00:01:49,590
+JavaScript files often have
+conflicting global elements
+
+43
+00:01:49,590 --> 00:01:51,940
+if they're not built well.
+
+44
+00:01:51,940 --> 00:01:54,990
+And that can overwrite
+existing very important data.
+
+45
+00:01:54,990 --> 00:01:56,260
+Let's take a look at that.
+
+46
+00:01:56,260 --> 00:02:01,770
+So say we had a Hall of
+Fame website document here.
+
+47
+00:02:01,770 --> 00:02:03,940
+You can see various HTML
+elements, as well as
+
+48
+00:02:03,940 --> 00:02:06,750
+some unordered lists
+and some script
+
+49
+00:02:06,750 --> 00:02:10,889
+files that we call just before
+the end of the body tag.
+
+50
+00:02:10,889 --> 00:02:13,220
+Let's say that this
+first script was
+
+51
+00:02:13,220 --> 00:02:16,920
+built by the same author
+who built the entire HTML
+
+52
+00:02:16,920 --> 00:02:18,070
+structure.
+
+53
+00:02:18,070 --> 00:02:20,430
+And that's going to
+report the current members
+
+54
+00:02:20,430 --> 00:02:21,760
+of the Hall of Fame.
+
+55
+00:02:21,760 --> 00:02:24,180
+Later, she asks a
+colleague to please
+
+56
+00:02:24,180 --> 00:02:26,060
+build a short file
+that's going to list
+
+57
+00:02:26,060 --> 00:02:30,580
+just the requirements for
+Hall of Fame selection.
+
+58
+00:02:30,580 --> 00:02:33,900
+So in the first file,
+the HALLOFFAME.JS file,
+
+59
+00:02:33,900 --> 00:02:37,370
+we've got a list of all the guys
+that are in the Hall of Fame
+
+60
+00:02:37,370 --> 00:02:38,500
+currently.
+
+61
+00:02:38,500 --> 00:02:41,720
+To add those guys to the
+unordered list in the HTML
+
+62
+00:02:41,720 --> 00:02:45,390
+document that has the
+id <i>hof</i>, h-o-f, we'll
+
+63
+00:02:45,390 --> 00:02:47,660
+get that element
+by id and store it
+
+64
+00:02:47,660 --> 00:02:49,835
+in a variable called h-o-f, hof.
+
+65
+00:02:49,835 --> 00:02:51,210
+Next, we've got
+a fragment, which
+
+66
+00:02:51,210 --> 00:02:54,070
+will help our best practice of
+touching the DOM as little as
+
+67
+00:02:54,070 --> 00:02:56,330
+possible and then
+an element that we
+
+68
+00:02:56,330 --> 00:02:58,546
+will use to add a list item.
+
+69
+00:02:58,546 --> 00:03:01,170
+But then her friend comes along,
+and we get the REQUIREMENTS.JS
+
+70
+00:03:01,170 --> 00:03:01,902
+file.
+
+71
+00:03:01,902 --> 00:03:06,100
+And inside that, you can
+see the reqs list there,
+
+72
+00:03:06,100 --> 00:03:07,590
+an array of stuff
+that a knight has
+
+73
+00:03:07,590 --> 00:03:09,048
+to do to get into
+the Hall of Fame.
+
+74
+00:03:09,048 --> 00:03:10,610
+That's be a cool kid.
+
+75
+00:03:10,610 --> 00:03:11,670
+Slay the dragon.
+
+76
+00:03:11,670 --> 00:03:12,940
+Good at Swording.
+
+77
+00:03:12,940 --> 00:03:13,640
+Right?
+
+78
+00:03:13,640 --> 00:03:16,090
+Stuff knights should
+be able to do for sure.
+
+79
+00:03:16,090 --> 00:03:21,070
+And then, though, we have a new
+list variable being declared
+
+80
+00:03:21,070 --> 00:03:23,930
+and assigned that's going to
+pick up that unordered list
+
+81
+00:03:23,930 --> 00:03:29,260
+under selection requirements
+with the id of reqs, r-e-q-s.
+
+82
+00:03:29,260 --> 00:03:33,800
+Now, the existing list that
+was in the previous file gets
+
+83
+00:03:33,800 --> 00:03:37,910
+overwritten due to hoisting:
+both of those variables would
+
+84
+00:03:37,910 --> 00:03:40,740
+be global, and since one was
+declared after the other,
+
+85
+00:03:40,740 --> 00:03:43,320
+the second overrides the first.
+
+86
+00:03:43,320 --> 00:03:44,900
+Now, is that big deal here?
+
+87
+00:03:44,900 --> 00:03:48,490
+Well maybe not in this
+case because the first list
+
+88
+00:03:48,490 --> 00:03:50,090
+is already done being used.
+
+89
+00:03:50,090 --> 00:03:53,630
+Everything that had happened
+inside the HALLOFFAME file
+
+90
+00:03:53,630 --> 00:03:55,440
+is already done
+and ready to roll.
+
+91
+00:03:55,440 --> 00:03:57,700
+And so declaring that
+new list variable
+
+92
+00:03:57,700 --> 00:04:01,840
+inside of the REQUIREMENTS.JS
+file is not such a huge deal.
+
+93
+00:04:01,840 --> 00:04:06,240
+But there are ways in which
+this could become a huge deal.
+
+94
+00:04:06,240 --> 00:04:07,875
+So let's take a look at those.
+
+95
+00:04:10,680 --> 00:04:15,980
+What if HALLOFFAME.JS only
+really provided a global method
+
+96
+00:04:15,980 --> 00:04:19,980
+for displaying the h-o-f members
+instead of just displaying them
+
+97
+00:04:19,980 --> 00:04:23,490
+immediately as soon as the
+script file was loaded and run?
+
+98
+00:04:23,490 --> 00:04:26,230
+Instead what it does is
+creates a global function
+
+99
+00:04:26,230 --> 00:04:29,450
+called displayHOF,
+display Hall of Fame.
+
+100
+00:04:29,450 --> 00:04:31,850
+So we scoot our
+reqs list down here.
+
+101
+00:04:31,850 --> 00:04:34,150
+And now we're going to put
+a button under the Honorable
+
+102
+00:04:34,150 --> 00:04:35,780
+Members header.
+
+103
+00:04:35,780 --> 00:04:37,520
+And on the click of
+that button, we're
+
+104
+00:04:37,520 --> 00:04:41,490
+going to actually call using
+inline JavaScript
+
+105
+00:04:41,490 --> 00:04:44,399
+displayHOF. So when the
+button is clicked,
+
+106
+00:04:44,399 --> 00:04:46,190
+that's when the members
+of the Hall of Fame
+
+107
+00:04:46,190 --> 00:04:48,370
+actually get displayed.
+
+108
+00:04:48,370 --> 00:04:51,320
+Now what kind of problems
+might this cause?
+
+109
+00:04:51,320 --> 00:04:55,390
+Well, by the time that
+both of those script files
+
+110
+00:04:55,390 --> 00:05:00,820
+have been retrieved, loaded,
+and run, displayHOF,
+
+111
+00:05:00,820 --> 00:05:04,720
+the new function, the global
+function, is going to be in memory
+
+112
+00:05:04,720 --> 00:05:08,370
+and ready to be used upon
+the click of that button.
+
+113
+00:05:08,370 --> 00:05:11,430
+But now that that
+second REQUIREMENTS file
+
+114
+00:05:11,430 --> 00:05:15,300
+has created that second
+list global variable,
+
+115
+00:05:15,300 --> 00:05:17,420
+it overwrote the first.
+
+116
+00:05:17,420 --> 00:05:21,360
+And so displayHOF
+would no longer
+
+117
+00:05:21,360 --> 00:05:27,140
+find the exactly correct list
+of knights in the Hall of Fame.
+
+118
+00:05:27,140 --> 00:05:29,160
+Instead, it finds
+that other global
+
+119
+00:05:29,160 --> 00:05:32,430
+created in requirements.js.
+
+120
+00:05:32,430 --> 00:05:33,830
+Well, what can we do about that?
+
+121
+00:05:33,830 --> 00:05:37,790
+Well, enter the simulated
+JavaScript namespace?
+
+122
+00:05:37,790 --> 00:05:40,925
+Though a namespace is
+not really native so
+
+123
+00:05:40,925 --> 00:05:44,120
+to speak to JavaScript,
+the namespace concept
+
+124
+00:05:44,120 --> 00:05:46,220
+that is found
+throughout programming
+
+125
+00:05:46,220 --> 00:05:49,080
+can limit global impact
+and also provide us
+
+126
+00:05:49,080 --> 00:05:51,070
+with some data protection.
+
+127
+00:05:51,070 --> 00:05:53,410
+So to build that
+namespace, we're
+
+128
+00:05:53,410 --> 00:05:57,390
+going to rewrite our
+HALLOFFAME.JS file.
+
+129
+00:05:57,390 --> 00:05:59,240
+And the first thing
+that we do, the key
+
+130
+00:05:59,240 --> 00:06:02,990
+to creating a namespace,
+is a single global object
+
+131
+00:06:02,990 --> 00:06:06,870
+and that's commonly called
+the wrapper for the space,
+
+132
+00:06:06,870 --> 00:06:08,090
+for the namespace.
+
+133
+00:06:08,090 --> 00:06:09,780
+By convention, you
+will very often
+
+134
+00:06:09,780 --> 00:06:14,540
+see a namespace
+capitalized entirely.
+
+135
+00:06:14,540 --> 00:06:17,380
+Now, all the variables
+that were formerly
+
+136
+00:06:17,380 --> 00:06:19,230
+declared in the global
+scope will now just
+
+137
+00:06:19,230 --> 00:06:23,870
+be properties of the
+HOFMASTER namespace.
+
+138
+00:06:23,870 --> 00:06:26,690
+Additionally, the
+displayHOF function
+
+139
+00:06:26,690 --> 00:06:30,270
+will also belong to the
+HOFMASTER namespace, which
+
+140
+00:06:30,270 --> 00:06:33,800
+means we'll need to reference
+the calling object on all
+
+141
+00:06:33,800 --> 00:06:35,880
+the needed variables using <i>this</i>.
+
+142
+00:06:39,390 --> 00:06:41,900
+Now that that function and
+all of the necessary variables
+
+143
+00:06:41,900 --> 00:06:45,680
+are actually encapsulated
+within the hof master namespace,
+
+144
+00:06:45,680 --> 00:06:49,300
+we're going to need that
+HOFMASTER name as a header syntax
+
+145
+00:06:49,300 --> 00:06:52,030
+in order call that
+displayHOF method.
+
+146
+00:06:52,030 --> 00:06:52,940
+What does that mean?
+
+147
+00:06:52,940 --> 00:06:55,220
+It means that the
+name of the namespace
+
+148
+00:06:55,220 --> 00:06:59,310
+will act as this shield,
+this armor around your data.
+
+149
+00:06:59,310 --> 00:07:03,290
+By using that mini-environment,
+sort of a data container,
+
+150
+00:07:03,290 --> 00:07:05,630
+it's going to add a
+layer of protection
+
+151
+00:07:05,630 --> 00:07:08,500
+that we don't always get if
+we just incorporate everything
+
+152
+00:07:08,500 --> 00:07:09,950
+as a global variable.
+
+153
+00:07:09,950 --> 00:07:12,930
+So now, if our globally
+unfriendly file
+
+154
+00:07:12,930 --> 00:07:16,250
+tries to make an impact
+on that document scope,
+
+155
+00:07:16,250 --> 00:07:18,070
+the master
+information, the one we
+
+156
+00:07:18,070 --> 00:07:21,580
+cared the most about, the data
+that we enjoyed the most, we
+
+157
+00:07:21,580 --> 00:07:24,190
+wanted that to stay very
+protected, that doesn't get
+
+158
+00:07:24,190 --> 00:07:25,040
+impacted at all.
+
+159
+00:07:28,270 --> 00:07:30,950
+Now, ideally, all of
+your JavaScript files
+
+160
+00:07:30,950 --> 00:07:34,130
+will incorporate a
+namespace of some sort
+
+161
+00:07:34,130 --> 00:07:35,850
+because a namespace
+is really going
+
+162
+00:07:35,850 --> 00:07:39,500
+to reduce your global footprint
+on the entire application.
+
+163
+00:07:39,500 --> 00:07:43,510
+This is very useful for
+very large web applications.
+
+164
+00:07:43,510 --> 00:07:46,660
+It's also going to keep your
+data grouped very carefully
+
+165
+00:07:46,660 --> 00:07:48,730
+around their intended
+functionality.
+
+166
+00:07:48,730 --> 00:07:50,190
+That's really important.
+
+167
+00:07:50,190 --> 00:07:53,710
+So here you can see, to rewrite
+that REQUIREMENTS.JS file,
+
+168
+00:07:53,710 --> 00:07:57,130
+we've given it a REQUIREMENTS
+namespace, notice all caps.
+
+169
+00:07:57,130 --> 00:07:59,410
+And inside there, of
+course, are the bunch
+
+170
+00:07:59,410 --> 00:08:03,250
+of properties and methods
+that the requirements, things,
+
+171
+00:08:03,250 --> 00:08:06,830
+need in order to be
+produced in our HTML.
+
+172
+00:08:06,830 --> 00:08:07,830
+What do you notice here?
+
+173
+00:08:07,830 --> 00:08:12,810
+Well, namespaces tend to
+remain agnostic of each other,
+
+174
+00:08:12,810 --> 00:08:16,680
+right, unless the file builders
+are building those namespaces
+
+175
+00:08:16,680 --> 00:08:19,500
+specifically to work
+with each other.
+
+176
+00:08:19,500 --> 00:08:23,440
+And that's very useful
+for data protection.
+
+177
+00:08:23,440 --> 00:08:25,810
+Another thing to note about
+namespaces that's cool
+
+178
+00:08:25,810 --> 00:08:29,140
+is that nested namespacing is
+very frequent in JavaScript
+
+179
+00:08:29,140 --> 00:08:31,320
+and especially in
+a module pattern,
+
+180
+00:08:31,320 --> 00:08:34,070
+more of which we'll be
+discussing as the sessions move
+
+181
+00:08:34,070 --> 00:08:35,309
+forward in this level.
+
+182
+00:08:35,309 --> 00:08:39,539
+Now, nesting namespaces provides
+even further organization, even
+
+183
+00:08:39,539 --> 00:08:42,600
+further grouping and
+protection, as well as
+
+184
+00:08:42,600 --> 00:08:44,900
+keeping the variable
+names very intuitive
+
+185
+00:08:44,900 --> 00:08:47,190
+if you need them to be.
+
+186
+00:08:47,190 --> 00:08:50,760
+This means that you could have
+multiple list variables inside
+
+187
+00:08:50,760 --> 00:08:55,160
+of multiple namespaces without
+each impacting the other.
+
+188
+00:08:55,160 --> 00:08:57,660
+For example, here, we've
+got a new BIOGRAPHIES
+
+189
+00:08:57,660 --> 00:09:00,790
+namespace as a property
+of the HOFMASTER
+
+190
+00:09:00,790 --> 00:09:05,020
+namespace, a new layer of scope
+groups all that related data,
+
+191
+00:09:05,020 --> 00:09:07,690
+but it shields it
+by requiring all
+
+192
+00:09:07,690 --> 00:09:10,220
+of the namespace references.
+
+193
+00:09:10,220 --> 00:09:14,870
+You can see here in my call to,
+HOFMASTER.BIOGRAPHIES.unfoldBio,
+
+194
+00:09:14,870 --> 00:09:19,490
+I can pass-in a list
+variable that incorporates
+
+195
+00:09:19,490 --> 00:09:21,300
+the knights who are
+in the Hall of Fame,
+
+196
+00:09:21,300 --> 00:09:24,210
+but I need to use that
+HOFMASTER reference in order
+
+197
+00:09:24,210 --> 00:09:25,090
+to make it happen.
+
+198
+00:09:25,090 --> 00:09:27,970
+That's going to distinguish it
+from the HOFMASTER list which
+
+199
+00:09:27,970 --> 00:09:30,570
+you can see holds the
+knights, and the list
+
+200
+00:09:30,570 --> 00:09:32,560
+inside the biographies
+namespace which
+
+201
+00:09:32,560 --> 00:09:36,370
+holds only some useful list
+of biography data about each
+
+202
+00:09:36,370 --> 00:09:38,670
+of the knights that are
+in the Hall of Fame.
+
+203
+00:09:38,670 --> 00:09:40,930
+So that is a quick
+and dirty exposure
+
+204
+00:09:40,930 --> 00:09:45,490
+to the idea of the namespace
+concept inside of JavaScript.
+
+205
+00:09:45,490 --> 00:09:48,010
+Now, we're going to send you
+to do some challenges to work
+
+206
+00:09:48,010 --> 00:09:49,070
+with some namespaces.
+
+207
+00:09:49,070 --> 00:09:52,660
+And we'll see you back for
+the rest of the level soon.
+
