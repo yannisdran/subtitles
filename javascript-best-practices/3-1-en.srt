@@ -1,4 +1,1495 @@
 ﻿1
-00:00:00,000 --> 00:00:03,000
-[ Sorry, no subtitles yet.
-  Working on it, and there will be soon! ]
+00:00:00,000 --> 00:00:02,730
+[SINGING] Final Sword of Syntax
+force for the useful tools
+
+2
+00:00:02,730 --> 00:00:03,540
+that you may need.
+
+3
+00:00:03,540 --> 00:00:06,387
+Wear the Pendant of Performance
+for efficiency and speed.
+
+4
+00:00:06,387 --> 00:00:08,970
+Cautions Crystal clears the sky
+with triple-equals and try/catch.
+
+
+5
+00:00:08,970 --> 00:00:10,657
+avoiding stuff that
+sucks and parsing
+
+6
+00:00:10,657 --> 00:00:11,865
+badder numbers out of stretch.
+
+
+7
+00:00:11,865 --> 00:00:14,720
+I lost the golden shining
+Mail of Modularity.
+
+8
+00:00:14,720 --> 00:00:17,295
+When namespace closure imports
+long, defend integrity.
+
+
+9
+00:00:17,295 --> 00:00:18,755
+For polished skills
+and JavaScript
+
+10
+00:00:18,755 --> 00:00:20,169
+the treasure trove this is.
+
+11
+00:00:20,169 --> 00:00:21,960
+Now raise your sword
+and strike your shield
+
+12
+00:00:21,960 --> 00:00:23,050
+with these best practices.
+
+13
+00:00:26,150 --> 00:00:27,890
+No best practices
+course would be
+
+14
+00:00:27,890 --> 00:00:30,000
+complete without a
+section that warns you
+
+15
+00:00:30,000 --> 00:00:32,670
+of the dangers that lurk
+within the seemingly
+
+16
+00:00:32,670 --> 00:00:34,830
+harmless aspects of a language.
+
+17
+00:00:34,830 --> 00:00:36,920
+So in this level,
+we'll first examine
+
+18
+00:00:36,920 --> 00:00:40,350
+how to craft the most careful
+comparisons between our data
+
+19
+00:00:40,350 --> 00:00:43,770
+values so that we get the
+results that we expect,
+
+20
+00:00:43,770 --> 00:00:47,610
+as well as how to provide
+our programs with the most
+
+21
+00:00:47,610 --> 00:00:51,260
+effective response to the
+errors that can and will
+
+22
+00:00:51,260 --> 00:00:53,140
+rear their ugly heads.
+
+23
+00:00:53,140 --> 00:00:56,230
+Next, we'll look at some
+badly misused methods
+
+24
+00:00:56,230 --> 00:00:59,970
+within JavaScript, as well as
+some alternate methods for how
+
+25
+00:00:59,970 --> 00:01:03,880
+to avoid the negative
+consequences of that misuse.
+
+26
+00:01:03,880 --> 00:01:07,140
+Lastly, we'll turn to numbers,
+within which JavaScript
+
+27
+00:01:07,140 --> 00:01:10,510
+sometimes has some
+unexpected results.
+
+28
+00:01:10,510 --> 00:01:13,250
+And we'll outline ways
+to improve our experience
+
+29
+00:01:13,250 --> 00:01:15,880
+with that numerical data.
+
+30
+00:01:15,880 --> 00:01:18,000
+So if you're ready,
+it's time to look
+
+31
+00:01:18,000 --> 00:01:22,501
+within the Crystal of Caution.
+
+32
+00:01:22,501 --> 00:01:23,000
+Hey, guys.
+
+33
+00:01:23,000 --> 00:01:24,770
+Welcome back to
+JavaScript Best Practices.
+
+34
+00:01:24,770 --> 00:01:27,632
+This is level three--
+the Crystal of Caution.
+
+35
+00:01:27,632 --> 00:01:29,090
+In this section,
+we'll be examining
+
+36
+00:01:29,090 --> 00:01:32,050
+how to make careful comparisons.
+
+37
+00:01:32,050 --> 00:01:34,780
+Now, you might be aware,
+but not all equality quality
+
+38
+00:01:34,780 --> 00:01:36,990
+comparisons are equal.
+
+39
+00:01:36,990 --> 00:01:39,050
+The triple equals
+comparator in particular
+
+40
+00:01:39,050 --> 00:01:43,080
+is going to compare both
+type and contents for us.
+
+41
+00:01:43,080 --> 00:01:45,890
+So take a look at
+these two comparisons.
+
+42
+00:01:45,890 --> 00:01:48,130
+In this first comparison,
+we've got the string four
+
+43
+00:01:48,130 --> 00:01:52,820
+being compared against 4, the
+number 4, with a double-equals.
+
+44
+00:01:52,820 --> 00:01:55,340
+And that returns a true,
+which is kind of weird.
+
+45
+00:01:55,340 --> 00:01:58,580
+Double-equals tries to help
+us out with some type cores.
+
+46
+00:01:58,580 --> 00:02:02,220
+Any it thinks you want to
+know whether four is 4.
+
+47
+00:02:02,220 --> 00:02:04,600
+But that's not always
+the help we want.
+
+48
+00:02:04,600 --> 00:02:06,760
+Over here on the
+other comparison,
+
+49
+00:02:06,760 --> 00:02:09,229
+we've got the string four being
+compared with triple-equals
+
+50
+00:02:09,229 --> 00:02:11,600
+against 4, and we
+get false, which
+
+51
+00:02:11,600 --> 00:02:16,340
+is exactly what we wanted if we
+wanted to know whether we have
+
+52
+00:02:16,340 --> 00:02:20,360
+both similar type,
+as well as contents.
+
+53
+00:02:20,360 --> 00:02:22,260
+Looking at a few
+more of those, you
+
+54
+00:02:22,260 --> 00:02:24,470
+can see the true and
+false comparisons
+
+55
+00:02:24,470 --> 00:02:27,060
+with double- and
+triple-equals here.
+
+56
+00:02:27,060 --> 00:02:29,070
+And double-equals
+thinks true and false
+
+57
+00:02:29,070 --> 00:02:32,890
+are both 1 and 0, whereas
+triple-equals does not.
+
+58
+00:02:32,890 --> 00:02:36,180
+That's because by historical
+convention within computer
+
+59
+00:02:36,180 --> 00:02:38,740
+science fields, true and
+false have traditionally
+
+60
+00:02:38,740 --> 00:02:42,010
+represented 1 and
+0 respectively.
+
+61
+00:02:42,010 --> 00:02:43,850
+Triple-equals, however,
+it doesn't care.
+
+62
+00:02:43,850 --> 00:02:46,950
+It first sees a Boolean
+and then a number
+
+63
+00:02:46,950 --> 00:02:49,545
+and it says, yo, those
+things ain't the same, sorry.
+
+64
+00:02:49,545 --> 00:02:51,260
+If you want to see
+something really weird
+
+65
+00:02:51,260 --> 00:02:53,140
+about type coercion,
+check out the string
+
+66
+00:02:53,140 --> 00:02:56,810
+that only has escaped
+characters in it.
+
+67
+00:02:56,810 --> 00:02:59,080
+Well, the JavaScript
+interpreter thinks
+
+68
+00:02:59,080 --> 00:03:01,850
+that you want to know
+whether that string that
+
+69
+00:03:01,850 --> 00:03:05,370
+has really no contents
+in it is equal to 0,
+
+70
+00:03:05,370 --> 00:03:08,960
+and so that's going to return a
+true, which is slightly weird.
+
+71
+00:03:08,960 --> 00:03:10,800
+So the triple-equals
+in that case
+
+72
+00:03:10,800 --> 00:03:13,660
+would help us out and return
+that those two things are not
+
+73
+00:03:13,660 --> 00:03:15,094
+at all the same.
+
+74
+00:03:15,094 --> 00:03:17,010
+The important thing here
+is that triple-equals
+
+75
+00:03:17,010 --> 00:03:21,744
+seeks a very "strict" equality,
+ensures comparison reliability
+
+76
+00:03:21,744 --> 00:03:24,160
+in all of these environments
+where the data types that you
+
+77
+00:03:24,160 --> 00:03:27,920
+get back or receive from
+places may be unknown, right?
+
+78
+00:03:27,920 --> 00:03:29,070
+It's very helpful.
+
+79
+00:03:29,070 --> 00:03:31,800
+Let's say we had a website
+with some fields in it.
+
+80
+00:03:31,800 --> 00:03:33,680
+It was a new
+registration website
+
+81
+00:03:33,680 --> 00:03:36,617
+for knights that are about
+to become nights, but have
+
+82
+00:03:36,617 --> 00:03:38,450
+to complete a certain
+amount of requirements
+
+83
+00:03:38,450 --> 00:03:40,960
+in order to become a knight.
+
+84
+00:03:40,960 --> 00:03:44,350
+Take a look at this function
+called count entries,
+
+85
+00:03:44,350 --> 00:03:47,610
+it's going to take in
+an array of responses
+
+86
+00:03:47,610 --> 00:03:50,550
+from those fields
+called knight responses.
+
+87
+00:03:50,550 --> 00:03:54,110
+It's also going to take in a
+value that we're looking for.
+
+88
+00:03:54,110 --> 00:03:55,930
+We're trying to count
+with count entries
+
+89
+00:03:55,930 --> 00:04:00,400
+how many of the responses
+are the value in question.
+
+90
+00:04:00,400 --> 00:04:02,420
+Inside, we establish
+a count variable
+
+91
+00:04:02,420 --> 00:04:06,060
+and we also cache the length
+of our knight responses away,
+
+92
+00:04:06,060 --> 00:04:09,510
+and then we loop over that
+array to count exactly how
+
+93
+00:04:09,510 --> 00:04:12,280
+many responses are the
+value that we seek.
+
+94
+00:04:12,280 --> 00:04:14,980
+Finally, we return
+the count variable.
+
+95
+00:04:14,980 --> 00:04:17,930
+Cool, so our knights need to
+have all these knightly tasks
+
+96
+00:04:17,930 --> 00:04:21,579
+completed in order to be able to
+participate in their induction
+
+97
+00:04:21,579 --> 00:04:24,750
+in order to be
+inducted as a knight.
+
+98
+00:04:24,750 --> 00:04:26,190
+So I'll fill in my stuff here.
+
+99
+00:04:26,190 --> 00:04:28,360
+And I am Jason Millhouse.
+
+100
+00:04:28,360 --> 00:04:33,540
+And my regiment is 1
+and my squad is 12.
+
+101
+00:04:33,540 --> 00:04:36,255
+And I have a squire--
+my squire has already
+
+102
+00:04:36,255 --> 00:04:37,400
+been assigned to me.
+
+103
+00:04:37,400 --> 00:04:40,110
+And I also have a weapon issue.
+
+104
+00:04:40,110 --> 00:04:44,660
+However, I have not completed
+my captain's interview yet.
+
+105
+00:04:44,660 --> 00:04:46,170
+So as these fields
+gets submitted
+
+106
+00:04:46,170 --> 00:04:47,670
+through the behavior
+of the website,
+
+107
+00:04:47,670 --> 00:04:49,330
+we're going to get
+an array compiled
+
+108
+00:04:49,330 --> 00:04:51,840
+that has all of my
+responses in it.
+
+109
+00:04:51,840 --> 00:04:53,740
+We've got Jason
+Millhouse as the name.
+
+110
+00:04:53,740 --> 00:04:58,240
+1 as my regiment, 12 as my
+squad, and true, true, false
+
+111
+00:04:58,240 --> 00:05:00,270
+for the yes/no answers.
+
+112
+00:05:00,270 --> 00:05:03,700
+Now, if I wanted to know
+how many completed tasks
+
+113
+00:05:03,700 --> 00:05:07,650
+I had actually performed, then
+I could call count entries
+
+114
+00:05:07,650 --> 00:05:11,090
+on my fields' responses and
+tell the count entries function
+
+115
+00:05:11,090 --> 00:05:13,350
+that I wanted to know how
+many of my completed tasks
+
+116
+00:05:13,350 --> 00:05:14,930
+were true.
+
+117
+00:05:14,930 --> 00:05:18,760
+Then if I were to log out,
+my non-completed tasks I get?
+
+118
+00:05:18,760 --> 00:05:19,852
+Three?
+
+119
+00:05:19,852 --> 00:05:20,810
+Well, that's not right.
+
+120
+00:05:20,810 --> 00:05:22,281
+I've got two yeses and one no.
+
+121
+00:05:22,281 --> 00:05:23,030
+It shouldn't be 3.
+
+122
+00:05:23,030 --> 00:05:24,780
+So what happened?
+
+123
+00:05:24,780 --> 00:05:27,700
+You probably can tell.
+
+124
+00:05:27,700 --> 00:05:30,860
+Over here in our function, we've
+got a double-equals comparison
+
+125
+00:05:30,860 --> 00:05:34,450
+of a knight responses
+entry with a value.
+
+126
+00:05:34,450 --> 00:05:36,740
+But guess what happens
+as a result of that?
+
+127
+00:05:36,740 --> 00:05:40,920
+When I get to that number
+1 for my regiment value,
+
+128
+00:05:40,920 --> 00:05:43,290
+my count variable is
+going to be incremented,
+
+129
+00:05:43,290 --> 00:05:46,010
+because the double-equals
+type course is
+
+130
+00:05:46,010 --> 00:05:48,480
+my 1 to be a true value.
+
+131
+00:05:48,480 --> 00:05:54,270
+And when that actually gets
+compared, it returns true.
+
+132
+00:05:54,270 --> 00:05:56,540
+So let's go ahead and
+fix that situation.
+
+133
+00:05:56,540 --> 00:05:59,830
+If we throw out
+the double-equals,
+
+134
+00:05:59,830 --> 00:06:01,840
+insert a triple-equals,
+now we get
+
+135
+00:06:01,840 --> 00:06:03,840
+exactly what we're looking for.
+
+136
+00:06:03,840 --> 00:06:06,290
+A 2 comes back from
+our console log.
+
+137
+00:06:06,290 --> 00:06:09,940
+That's because the string
+"1" is not, in fact,
+
+138
+00:06:09,940 --> 00:06:11,860
+the same thing as
+the Boolean true,
+
+139
+00:06:11,860 --> 00:06:14,660
+and we get a false
+through that comparison.
+
+140
+00:06:14,660 --> 00:06:16,790
+The moral of this
+story, my friends,
+
+141
+00:06:16,790 --> 00:06:19,060
+is that you should
+always be very careful
+
+142
+00:06:19,060 --> 00:06:21,650
+when you are checking
+in your comparisons
+
+143
+00:06:21,650 --> 00:06:26,530
+and that very often the triple
+equals comparator is the best
+
+144
+00:06:26,530 --> 00:06:30,590
+practice in most unknown data
+type environments and even
+
+145
+00:06:30,590 --> 00:06:33,754
+in known data type environments.
+
+146
+00:06:33,754 --> 00:06:35,420
+The next comparison
+we want to check out
+
+147
+00:06:35,420 --> 00:06:39,190
+is what happens when we need
+to verify an object's class?
+
+148
+00:06:39,190 --> 00:06:42,320
+What if we want to
+execute operations
+
+149
+00:06:42,320 --> 00:06:45,900
+only if an object has
+been built by some kind
+
+150
+00:06:45,900 --> 00:06:48,410
+of specific constructor, right?
+
+151
+00:06:48,410 --> 00:06:50,990
+Or whether it has a
+specific prototype.
+
+152
+00:06:50,990 --> 00:06:52,160
+Let's take a look at that.
+
+153
+00:06:52,160 --> 00:06:53,910
+Let's say, we had two
+types of armor here.
+
+154
+00:06:53,910 --> 00:06:58,240
+We got leather armor
+and we got chain mail.
+
+155
+00:06:58,240 --> 00:07:00,990
+Leather armor's got
+body style, num buckles,
+
+156
+00:07:00,990 --> 00:07:04,390
+num [? spalders. ?] Chain
+mail's got what type of metal
+
+157
+00:07:04,390 --> 00:07:07,490
+is, the link diameter,
+whether it's got a hood on it,
+
+158
+00:07:07,490 --> 00:07:09,450
+how long the skirt is.
+
+159
+00:07:09,450 --> 00:07:11,052
+Now, where are all
+of the objects that
+
+160
+00:07:11,052 --> 00:07:12,260
+come from these constructors?
+
+161
+00:07:12,260 --> 00:07:14,060
+Well, they're in a
+variable called armor
+
+162
+00:07:14,060 --> 00:07:16,890
+list, which is a mixed
+up list of the kingdom's
+
+163
+00:07:16,890 --> 00:07:20,790
+armories available
+armor objects.
+
+164
+00:07:20,790 --> 00:07:23,150
+And underneath that,
+we've got our newbs array,
+
+165
+00:07:23,150 --> 00:07:25,080
+which is a list of
+knight's objects.
+
+166
+00:07:25,080 --> 00:07:27,820
+And these guys ostensibly
+need some armor
+
+167
+00:07:27,820 --> 00:07:28,890
+in order to be a knight.
+
+168
+00:07:28,890 --> 00:07:32,350
+But, well, knights only
+get chain mail, right?
+
+169
+00:07:32,350 --> 00:07:35,660
+So how can we find which
+armor objects actually
+
+170
+00:07:35,660 --> 00:07:39,050
+are chain mail
+using comparisons?
+
+171
+00:07:39,050 --> 00:07:42,190
+Well, if we just loop over
+the entire armory's list,
+
+172
+00:07:42,190 --> 00:07:44,340
+passing out armor to
+knight's nilly-willy,
+
+173
+00:07:44,340 --> 00:07:46,330
+some might end up
+with leather armor,
+
+174
+00:07:46,330 --> 00:07:47,830
+or even worse, what
+if they ended up
+
+175
+00:07:47,830 --> 00:07:49,760
+with a helmet for
+their body armor?
+
+176
+00:07:49,760 --> 00:07:54,180
+That would be really
+challenging and problematic.
+
+177
+00:07:54,180 --> 00:07:56,370
+So enter the
+instanceof operator.
+
+178
+00:07:56,370 --> 00:07:58,580
+It's going to help
+you precisely identify
+
+179
+00:07:58,580 --> 00:08:00,880
+your objects in all cases.
+
+180
+00:08:00,880 --> 00:08:03,580
+You want to use this operator
+to ensure that you're examining
+
+181
+00:08:03,580 --> 00:08:08,720
+precisely which object
+your code should expect.
+
+182
+00:08:08,720 --> 00:08:13,480
+So let's build a function here
+called assign knight's armor.
+
+183
+00:08:13,480 --> 00:08:15,420
+And we're going to pass
+in a list of nights
+
+184
+00:08:15,420 --> 00:08:18,670
+and we're going to also pass in
+the list of all the armor that
+
+185
+00:08:18,670 --> 00:08:20,300
+is available.
+
+186
+00:08:20,300 --> 00:08:22,520
+We're going to go ahead
+and cache our array links
+
+187
+00:08:22,520 --> 00:08:23,880
+for efficiency ahead of time.
+
+188
+00:08:23,880 --> 00:08:26,267
+You can see we've got x
+getting knights.length and a y
+
+189
+00:08:26,267 --> 00:08:27,350
+getting armoravail.length.
+
+190
+00:08:30,220 --> 00:08:32,750
+Now we'll loop over every
+knight that needs some armor.
+
+191
+00:08:36,799 --> 00:08:38,200
+We've got a nested loop here.
+
+192
+00:08:38,200 --> 00:08:40,110
+And for you one
+of those knights,
+
+193
+00:08:40,110 --> 00:08:42,260
+we'll then check
+through the armor array
+
+194
+00:08:42,260 --> 00:08:43,610
+to find some chain mail.
+
+195
+00:08:46,387 --> 00:08:47,970
+Inside that loop,
+we're going to check
+
+196
+00:08:47,970 --> 00:08:53,480
+if the armoravail on a bracket
+j for whichever loop index we've
+
+197
+00:08:53,480 --> 00:08:57,360
+arrived at is an
+instance of a chain mail,
+
+198
+00:08:57,360 --> 00:09:00,000
+if it's an instance of
+the chain mail object.
+
+199
+00:09:00,000 --> 00:09:03,470
+Then we will assign a new armor
+property to whichever knight
+
+200
+00:09:03,470 --> 00:09:04,260
+we're looking at.
+
+201
+00:09:04,260 --> 00:09:07,670
+Notice the i-th index there,
+which signals the outer loop
+
+202
+00:09:07,670 --> 00:09:09,190
+or which knight
+we're looking at.
+
+203
+00:09:09,190 --> 00:09:13,120
+Then we will splice that armor
+right out of the armor list.
+
+204
+00:09:13,120 --> 00:09:15,545
+And we will return an
+object from the array
+
+205
+00:09:15,545 --> 00:09:17,720
+that gets returned from splice.
+
+206
+00:09:17,720 --> 00:09:20,450
+And then we will pass that
+chain mail object straight
+
+207
+00:09:20,450 --> 00:09:23,120
+into the armor property
+of whichever knight
+
+208
+00:09:23,120 --> 00:09:24,260
+we're looking at.
+
+209
+00:09:24,260 --> 00:09:26,960
+Notice that the i-th
+index signals which
+
+210
+00:09:26,960 --> 00:09:29,530
+knight we're looking at.
+
+211
+00:09:29,530 --> 00:09:32,310
+Now, since we've taken an
+object out of our armor area,
+
+212
+00:09:32,310 --> 00:09:34,700
+we need to go ahead and
+modify our cached link
+
+213
+00:09:34,700 --> 00:09:38,550
+so that every time we get to
+that innermost nested loop we
+
+214
+00:09:38,550 --> 00:09:42,360
+don't go out of bounds
+on our array of armor.
+
+215
+00:09:42,360 --> 00:09:44,370
+And since the current
+knight has some armor now,
+
+216
+00:09:44,370 --> 00:09:49,120
+we can go ahead and break out
+of the innermost for-loop.
+
+217
+00:09:49,120 --> 00:09:51,630
+Cool, we got a function time
+to give some of these newbies
+
+218
+00:09:51,630 --> 00:09:53,410
+some chain mail, man.
+
+219
+00:09:53,410 --> 00:09:56,110
+So let's fill the list with
+a little short example.
+
+220
+00:09:56,110 --> 00:09:58,850
+And we'll check out the results
+of our armor identification
+
+221
+00:09:58,850 --> 00:10:00,180
+process.
+
+222
+00:10:00,180 --> 00:10:03,260
+So let's build a couple sample
+arrays for our instance of test
+
+223
+00:10:03,260 --> 00:10:03,760
+here.
+
+224
+00:10:03,760 --> 00:10:05,120
+We're going to have
+our armor list.
+
+225
+00:10:05,120 --> 00:10:07,475
+It's going to have a leather
+armor, a chain mail, a leather
+
+226
+00:10:07,475 --> 00:10:08,820
+armor, and another chain mail.
+
+227
+00:10:08,820 --> 00:10:10,990
+And then we have a
+newbs array, which
+
+228
+00:10:10,990 --> 00:10:13,310
+got two new knights in it.
+
+229
+00:10:13,310 --> 00:10:14,240
+Cool.
+
+230
+00:10:14,240 --> 00:10:17,600
+Now we will begin our assignment
+knight's armor function.
+
+231
+00:10:17,600 --> 00:10:21,160
+We will pass in our newbs array,
+as well as our armor list.
+
+232
+00:10:21,160 --> 00:10:24,500
+So the first thing that happens
+is for that first knight,
+
+233
+00:10:24,500 --> 00:10:29,590
+we look for the very first armor
+object in his leather armor.
+
+234
+00:10:29,590 --> 00:10:32,770
+So what happens, when
+we get to if armor avail
+
+235
+00:10:32,770 --> 00:10:36,450
+instance of chain mail, that's
+going to return a false.
+
+236
+00:10:36,450 --> 00:10:38,920
+And so we will skip
+that object entirely.
+
+237
+00:10:38,920 --> 00:10:42,230
+And the loop will move
+to the very next object,
+
+238
+00:10:42,230 --> 00:10:43,720
+which is a chain mail.
+
+239
+00:10:43,720 --> 00:10:45,970
+And that's exactly what
+we want for our knight.
+
+240
+00:10:45,970 --> 00:10:49,380
+And so that chain
+mail gets assigned
+
+241
+00:10:49,380 --> 00:10:52,520
+to our very first knight object.
+
+242
+00:10:52,520 --> 00:10:57,510
+You can see now that the chain
+mail pieces out of that array.
+
+243
+00:10:57,510 --> 00:11:00,740
+So the next thing that happens
+is we break out of our loop,
+
+244
+00:11:00,740 --> 00:11:02,830
+so that we can move
+towards the next knight,
+
+245
+00:11:02,830 --> 00:11:05,500
+because our first night
+already has his armor.
+
+246
+00:11:05,500 --> 00:11:08,900
+And then we look again
+throughout the armor list
+
+247
+00:11:08,900 --> 00:11:11,800
+to find a new chain
+mail for our new knight.
+
+248
+00:11:11,800 --> 00:11:14,150
+Well, the first thing we
+get to is a leather armor.
+
+249
+00:11:14,150 --> 00:11:15,550
+That's no good.
+
+250
+00:11:15,550 --> 00:11:17,520
+Then we get to a
+leather armor again.
+
+251
+00:11:17,520 --> 00:11:19,950
+And that's because the
+previous chain mail has already
+
+252
+00:11:19,950 --> 00:11:22,740
+been given to the first knight.
+
+253
+00:11:22,740 --> 00:11:25,130
+Finally, we get to chain mail.
+
+254
+00:11:25,130 --> 00:11:27,830
+And that means that
+our armoravail instance
+
+255
+00:11:27,830 --> 00:11:31,270
+of chain mail will
+now return true.
+
+256
+00:11:31,270 --> 00:11:33,740
+And so that knight
+gets a chain mail.
+
+257
+00:11:33,740 --> 00:11:36,690
+And we are good to go.
+
+258
+00:11:36,690 --> 00:11:39,190
+That chain mail gets
+deleted from the array.
+
+259
+00:11:39,190 --> 00:11:41,800
+And if we were to log
+out our new armor list,
+
+260
+00:11:41,800 --> 00:11:44,400
+we can see we've only got two
+leather armors in there now.
+
+261
+00:11:44,400 --> 00:11:46,490
+No more chain mail objects.
+
+262
+00:11:46,490 --> 00:11:48,972
+Thank you very much instanceof.
+
+263
+00:11:48,972 --> 00:11:49,680
+Cool other thing.
+
+264
+00:11:49,680 --> 00:11:51,055
+If we were to log
+out, let's say,
+
+265
+00:11:51,055 --> 00:11:53,196
+our first night,
+which would be newbs0,
+
+266
+00:11:53,196 --> 00:11:55,070
+we'd probably see a
+bunch of other properties
+
+267
+00:11:55,070 --> 00:11:58,930
+inside that object and also
+in armor property with a chain
+
+268
+00:11:58,930 --> 00:11:59,545
+mail object.
+
+269
+00:12:02,870 --> 00:12:04,530
+Cool thing about
+instanceof as well
+
+270
+00:12:04,530 --> 00:12:08,060
+is that you can check the entire
+inheritance chain with it.
+
+271
+00:12:08,060 --> 00:12:12,250
+An object happens to be an
+instance of all the prototypes
+
+272
+00:12:12,250 --> 00:12:14,540
+from which it
+inherits properties,
+
+273
+00:12:14,540 --> 00:12:16,049
+which is very useful.
+
+274
+00:12:16,049 --> 00:12:17,840
+If you need to make
+sure an object actually
+
+275
+00:12:17,840 --> 00:12:21,060
+has access to
+properties before trying
+
+276
+00:12:21,060 --> 00:12:25,060
+to call those properties, as
+it happens very frequently.
+
+277
+00:12:25,060 --> 00:12:29,310
+So if we built a
+armor constructor,
+
+278
+00:12:29,310 --> 00:12:31,320
+and it had a
+location, and we just
+
+279
+00:12:31,320 --> 00:12:32,890
+give it a location property.
+
+280
+00:12:32,890 --> 00:12:34,690
+And we also built
+an armor prototype,
+
+281
+00:12:34,690 --> 00:12:37,930
+that had, apparently,
+the put-on function.
+
+282
+00:12:37,930 --> 00:12:42,034
+So that any armor anywhere
+could call the put-on method.
+
+283
+00:12:42,034 --> 00:12:43,700
+Now, we've got a
+prototype for our armor
+
+284
+00:12:43,700 --> 00:12:45,240
+and a constructor for it.
+
+285
+00:12:45,240 --> 00:12:47,240
+And then we build
+prototype objects
+
+286
+00:12:47,240 --> 00:12:49,910
+for the leather armor and
+chain mail constructors.
+
+287
+00:12:49,910 --> 00:12:53,750
+And these new prototypes have
+as their prototype the armor
+
+288
+00:12:53,750 --> 00:12:54,780
+prototype.
+
+289
+00:12:54,780 --> 00:12:57,910
+We do that using the
+object.create method, which,
+
+290
+00:12:57,910 --> 00:13:00,040
+as you may know, takes
+in a prototype upon which
+
+291
+00:13:00,040 --> 00:13:04,840
+to base the newly created object
+that comes back from the call
+
+292
+00:13:04,840 --> 00:13:07,040
+to object dot create.
+
+293
+00:13:07,040 --> 00:13:10,360
+This makes the armor
+prototype the parent prototype
+
+294
+00:13:10,360 --> 00:13:13,960
+for both leather armor and chain
+mail, which makes sense, right?
+
+295
+00:13:13,960 --> 00:13:15,950
+And then over, if we had
+a King's mail variable
+
+296
+00:13:15,950 --> 00:13:18,804
+and we assigned to it a
+new chain mail object--
+
+297
+00:13:18,804 --> 00:13:21,470
+and we're going to pass in gold,
+because the King's mail should,
+
+298
+00:13:21,470 --> 00:13:22,560
+of course be gold.
+
+299
+00:13:22,560 --> 00:13:25,640
+He's got a 2-inch link
+diameter, as well as
+
+300
+00:13:25,640 --> 00:13:28,150
+a hood on that chain mail and.
+
+301
+00:13:28,150 --> 00:13:32,350
+His screw length is 36
+inches for full protection.
+
+302
+00:13:32,350 --> 00:13:34,630
+This particular
+usage of instanceof
+
+303
+00:13:34,630 --> 00:13:37,850
+can be very useful if you have
+to make sure an object actually
+
+304
+00:13:37,850 --> 00:13:42,720
+has access to some properties
+before you try to call them.
+
+305
+00:13:42,720 --> 00:13:46,720
+Then if we were to log out,
+whether the King's mail is
+
+306
+00:13:46,720 --> 00:13:50,390
+an instance of
+armor, we get true.
+
+307
+00:13:50,390 --> 00:13:53,760
+And that's because every chain
+mail everywhere will always
+
+308
+00:13:53,760 --> 00:13:55,375
+be a child of the
+armor.prototype.
+
+309
+00:14:00,622 --> 00:14:02,580
+So now that you have a
+little bit of experience
+
+310
+00:14:02,580 --> 00:14:04,480
+with some comparison
+best practices,
+
+311
+00:14:04,480 --> 00:14:06,890
+we will send you over
+to the challenges
+
+312
+00:14:06,890 --> 00:14:09,310
+and see you back real soon.
+

@@ -1,4 +1,2030 @@
-﻿1
-00:00:00,000 --> 00:00:03,000
-[ Sorry, no subtitles yet.
-  Working on it, and there will be soon! ]
+1
+00:00:00,000 --> 00:00:02,020
+
+
+2
+00:00:02,020 --> 00:00:03,950
+Welcome back, friends
+at home, to level three,
+
+3
+00:00:03,950 --> 00:00:05,490
+The Crystal of Caution.
+
+4
+00:00:05,490 --> 00:00:08,780
+In this section we'll be
+examining exception handling.
+
+5
+00:00:08,780 --> 00:00:10,090
+Well, what is an exception?
+
+6
+00:00:10,090 --> 00:00:12,350
+Exception is a run-time error.
+
+7
+00:00:12,350 --> 00:00:15,330
+And we need to distinguish
+a run-time error
+
+8
+00:00:15,330 --> 00:00:16,620
+from a syntax error.
+
+9
+00:00:16,620 --> 00:00:18,590
+So let's take a look at that.
+
+10
+00:00:18,590 --> 00:00:21,080
+Here on the left we've
+got some broken JavaScript
+
+11
+00:00:21,080 --> 00:00:23,030
+in our alarm.js file.
+
+12
+00:00:23,030 --> 00:00:26,212
+You can see we've got an
+alarm declared nicely,
+
+13
+00:00:26,212 --> 00:00:28,170
+with a nice string and
+a semicolon, we're good.
+
+14
+00:00:28,170 --> 00:00:29,544
+But then we got
+this alert that's
+
+15
+00:00:29,544 --> 00:00:32,350
+missing a right parentheses.
+
+16
+00:00:32,350 --> 00:00:34,550
+This sort of syntax
+error will not even
+
+17
+00:00:34,550 --> 00:00:37,200
+make it past the
+interpreter for the console.
+
+18
+00:00:37,200 --> 00:00:39,190
+It will be marked as
+invalid JavaScript
+
+19
+00:00:39,190 --> 00:00:40,620
+and we'll get a
+little report back
+
+20
+00:00:40,620 --> 00:00:42,330
+in the console to
+tell us that we
+
+21
+00:00:42,330 --> 00:00:44,500
+did something sort of screwy.
+
+22
+00:00:44,500 --> 00:00:46,940
+Over here though,
+in alarm2.js we
+
+23
+00:00:46,940 --> 00:00:49,960
+have an alert call
+on an alarm variable
+
+24
+00:00:49,960 --> 00:00:51,960
+with the closed up
+parentheses and a semicolon,
+
+25
+00:00:51,960 --> 00:00:53,156
+we're all good there.
+
+26
+00:00:53,156 --> 00:00:54,530
+The interpreter
+is going to think
+
+27
+00:00:54,530 --> 00:00:57,090
+this is completely
+acceptable JavaScript.
+
+28
+00:00:57,090 --> 00:00:58,610
+But then it's going
+to run and find
+
+29
+00:00:58,610 --> 00:01:01,930
+that alarm has had no
+declaration by the time
+
+30
+00:01:01,930 --> 00:01:04,129
+that that alert is reached.
+
+31
+00:01:04,129 --> 00:01:05,390
+That is a run-time error.
+
+32
+00:01:05,390 --> 00:01:08,350
+And it's the sort we
+want to catch in our code
+
+33
+00:01:08,350 --> 00:01:10,992
+and then control
+once we have it.
+
+34
+00:01:10,992 --> 00:01:13,200
+So we're going to scoot our
+run-time error over here.
+
+35
+00:01:13,200 --> 00:01:16,620
+And we need to start thinking
+about what we can do about it.
+
+36
+00:01:16,620 --> 00:01:19,920
+Well, we want to be thoughtful
+at all times about controlling
+
+37
+00:01:19,920 --> 00:01:24,230
+program flow after
+run-time errors occur.
+
+38
+00:01:24,230 --> 00:01:25,980
+And like other
+languages, JavaScript
+
+39
+00:01:25,980 --> 00:01:29,530
+has a very unique mechanism
+for being able to find, catch,
+
+40
+00:01:29,530 --> 00:01:32,900
+and recover from those
+errors as they occur.
+
+41
+00:01:32,900 --> 00:01:34,850
+To start looking for
+errors in our code,
+
+42
+00:01:34,850 --> 00:01:37,260
+the first thing we'll
+uses a try block.
+
+43
+00:01:37,260 --> 00:01:38,420
+What's a try block?
+
+44
+00:01:38,420 --> 00:01:40,970
+It's like a test
+zone for your code.
+
+45
+00:01:40,970 --> 00:01:43,660
+It's like a stage that you can
+start running your code on,
+
+46
+00:01:43,660 --> 00:01:44,920
+and it gets examined.
+
+47
+00:01:44,920 --> 00:01:47,310
+And if errors come back
+then we can catch those
+
+48
+00:01:47,310 --> 00:01:48,990
+and do something about them.
+
+49
+00:01:48,990 --> 00:01:52,390
+And if all goes smoothly
+here, inside of our try block,
+
+50
+00:01:52,390 --> 00:01:56,310
+and the global alarm variable
+happens to exist when it runs,
+
+51
+00:01:56,310 --> 00:01:58,250
+then we're good to go.
+
+52
+00:01:58,250 --> 00:02:00,190
+If something goes wrong
+in that try block,
+
+53
+00:02:00,190 --> 00:02:04,450
+however, the try block
+will throw an error message
+
+54
+00:02:04,450 --> 00:02:08,560
+containing details over to it's
+a very close buddy, the catch
+
+55
+00:02:08,560 --> 00:02:09,610
+block.
+
+56
+00:02:09,610 --> 00:02:12,690
+You see, the catch block
+has an error parameter.
+
+57
+00:02:12,690 --> 00:02:15,090
+And as a parameter object
+within the catch block
+
+58
+00:02:15,090 --> 00:02:18,390
+that error can be used
+in any sort of messaging,
+
+59
+00:02:18,390 --> 00:02:21,660
+or even in conditions to
+take specific actions.
+
+60
+00:02:21,660 --> 00:02:24,470
+What does this allow us
+to do as programmers?
+
+61
+00:02:24,470 --> 00:02:28,020
+It allows us to have broken
+code exit more gracefully,
+
+62
+00:02:28,020 --> 00:02:31,710
+or take better action in
+the event of some error.
+
+63
+00:02:31,710 --> 00:02:34,940
+Here you can see that
+if alarm did not exist,
+
+64
+00:02:34,940 --> 00:02:37,400
+then we'll get a pop
+up that says, uh oh.
+
+65
+00:02:37,400 --> 00:02:39,790
+And then it reveals that
+there was a reference error
+
+66
+00:02:39,790 --> 00:02:44,010
+because alarm is not defined.
+
+67
+00:02:44,010 --> 00:02:45,850
+The cool thing about
+errors is that there
+
+68
+00:02:45,850 --> 00:02:47,820
+are multiple types
+of errors which
+
+69
+00:02:47,820 --> 00:02:51,340
+can allow us to take very
+specific, informed action based
+
+70
+00:02:51,340 --> 00:02:53,930
+on which type of error occurs.
+
+71
+00:02:53,930 --> 00:02:57,290
+You want to use Javascript's
+multiple error types in order
+
+72
+00:02:57,290 --> 00:03:00,632
+to handle errors as
+gracefully as possible.
+
+73
+00:03:00,632 --> 00:03:02,840
+Let's take a look at using
+some different error types
+
+74
+00:03:02,840 --> 00:03:05,426
+by scooting down our code here.
+
+75
+00:03:05,426 --> 00:03:07,050
+And inside of our
+try block, now, we're
+
+76
+00:03:07,050 --> 00:03:11,140
+going to establish a new
+Hall of Fame variable.
+
+77
+00:03:11,140 --> 00:03:14,350
+And inside there are going
+to be two new guys who
+
+78
+00:03:14,350 --> 00:03:17,660
+are going to be added to
+the Knights Hall of Fame.
+
+79
+00:03:17,660 --> 00:03:21,120
+We've got Dask Frostring
+and Render Tallborn.
+
+80
+00:03:21,120 --> 00:03:24,360
+Now let's say we wanted to add
+those new Hall of Fame guys
+
+81
+00:03:24,360 --> 00:03:27,902
+to an existing list
+of Hall of Fame guys.
+
+82
+00:03:27,902 --> 00:03:30,110
+Well we would use the concat
+method, which would just
+
+83
+00:03:30,110 --> 00:03:33,180
+put this array onto
+an existing array.
+
+84
+00:03:33,180 --> 00:03:36,320
+Well, we hope that that
+array exists, right?
+
+85
+00:03:36,320 --> 00:03:39,940
+What error types might we expect
+if this was our JavaScript
+
+86
+00:03:39,940 --> 00:03:40,440
+file?
+
+87
+00:03:40,440 --> 00:03:41,670
+Let's take a look.
+
+88
+00:03:41,670 --> 00:03:45,440
+So let's say, for some reason,
+that list had not actually
+
+89
+00:03:45,440 --> 00:03:46,910
+ever been defined yet.
+
+90
+00:03:46,910 --> 00:03:49,340
+Or that the master
+Hall of Fame had
+
+91
+00:03:49,340 --> 00:03:52,240
+been redefined as something
+else in some other file.
+
+92
+00:03:52,240 --> 00:03:54,940
+And if that's the case,
+when we try to access list
+
+93
+00:03:54,940 --> 00:03:57,100
+to call a concat
+property on it, we're
+
+94
+00:03:57,100 --> 00:03:59,770
+going to get a reference error.
+
+95
+00:03:59,770 --> 00:04:03,230
+Additionally, if the list is
+not even an array or string,
+
+96
+00:04:03,230 --> 00:04:06,590
+because maybe it had been
+overridden by something, whomp
+
+97
+00:04:06,590 --> 00:04:09,480
+whomp, then there won't
+be a concat method
+
+98
+00:04:09,480 --> 00:04:12,147
+to actually call on the list.
+
+99
+00:04:12,147 --> 00:04:13,980
+And so we will get a
+different kind of error
+
+100
+00:04:13,980 --> 00:04:15,980
+called a type error.
+
+101
+00:04:15,980 --> 00:04:18,050
+So say one of those
+errors actually occurred.
+
+102
+00:04:18,050 --> 00:04:21,170
+Well we need to plan for
+inside of our catch block,
+
+103
+00:04:21,170 --> 00:04:23,290
+which will get the
+error after the try
+
+104
+00:04:23,290 --> 00:04:26,550
+block has thrown
+the error to it.
+
+105
+00:04:26,550 --> 00:04:28,810
+So if the error that
+got thrown happens
+
+106
+00:04:28,810 --> 00:04:30,900
+to be an instance
+of a reference error
+
+107
+00:04:30,900 --> 00:04:34,310
+then we'll alert a message
+that says, first the error.
+
+108
+00:04:34,310 --> 00:04:36,620
+And then we'll say the
+Hall of Fame roster
+
+109
+00:04:36,620 --> 00:04:38,420
+does not exist as list.
+
+110
+00:04:38,420 --> 00:04:41,450
+Check for a relocation
+in the master document.
+
+111
+00:04:41,450 --> 00:04:45,010
+That's giving us important
+information about what to do.
+
+112
+00:04:45,010 --> 00:04:47,830
+It's giving us action
+to take, directing us
+
+113
+00:04:47,830 --> 00:04:50,720
+as a developer, if
+an error happens.
+
+114
+00:04:50,720 --> 00:04:54,600
+But if the error happens
+to be a type error,
+
+115
+00:04:54,600 --> 00:04:56,797
+right, then we'll
+alert that error again.
+
+116
+00:04:56,797 --> 00:04:58,880
+And this time we'll put a
+more informative message
+
+117
+00:04:58,880 --> 00:05:01,350
+for the type error, which
+says, alas, the Halls list
+
+118
+00:05:01,350 --> 00:05:03,530
+has no concat method.
+
+119
+00:05:03,530 --> 00:05:05,997
+So please check for a
+disastrous overwrite.
+
+120
+00:05:05,997 --> 00:05:08,580
+Since we know it's a type error,
+we know we probably don't got
+
+121
+00:05:08,580 --> 00:05:12,130
+a concat there, which means
+that our list is very likely
+
+122
+00:05:12,130 --> 00:05:14,040
+overwritten.
+
+123
+00:05:14,040 --> 00:05:16,850
+So let's take a look at what
+happens in the first case, when
+
+124
+00:05:16,850 --> 00:05:18,800
+we would try to get
+a reference error.
+
+125
+00:05:18,800 --> 00:05:20,760
+Well, we wouldn't try to
+get a reference error,
+
+126
+00:05:20,760 --> 00:05:22,110
+but say it happened.
+
+127
+00:05:22,110 --> 00:05:26,450
+We would redefine our list
+variable as being Hall.
+
+128
+00:05:26,450 --> 00:05:28,530
+Let's say somewhere,
+globally, our list variable
+
+129
+00:05:28,530 --> 00:05:31,040
+got redefined to be Hall.
+
+130
+00:05:31,040 --> 00:05:33,490
+Woop, there's all of our
+Hall of Fame existing
+
+131
+00:05:33,490 --> 00:05:34,790
+inside of our Hall variable.
+
+132
+00:05:34,790 --> 00:05:38,130
+Well, when that happens we
+go to call list-- not there.
+
+133
+00:05:38,130 --> 00:05:39,500
+We get a reference error.
+
+134
+00:05:39,500 --> 00:05:42,580
+And we get our pop up back that
+says the Hall of Fame roster
+
+135
+00:05:42,580 --> 00:05:43,980
+does not exist as list.
+
+136
+00:05:43,980 --> 00:05:47,560
+Please check for a relocation
+in the master document.
+
+137
+00:05:47,560 --> 00:05:49,440
+So that's the first
+kind, which is cool.
+
+138
+00:05:49,440 --> 00:05:52,000
+We caught that error and
+we exited gracefully.
+
+139
+00:05:52,000 --> 00:05:53,850
+Next, what happens if
+list is still there,
+
+140
+00:05:53,850 --> 00:05:56,140
+but now it's a stupid number?
+
+141
+00:05:56,140 --> 00:05:57,210
+It's 12.
+
+142
+00:05:57,210 --> 00:06:00,680
+There are 12, list
+is 12, 12 is list.
+
+143
+00:06:00,680 --> 00:06:04,000
+Well, when we get through that
+catch we'll get a type error.
+
+144
+00:06:04,000 --> 00:06:06,890
+And we'll get the exact
+right pop up message back,
+
+145
+00:06:06,890 --> 00:06:09,060
+object 12 has no method concat.
+
+146
+00:06:09,060 --> 00:06:11,120
+Well yes, no, it
+certainly doesn't.
+
+147
+00:06:11,120 --> 00:06:13,460
+Alas, the Halls list
+has no concat method,
+
+148
+00:06:13,460 --> 00:06:16,620
+check for a
+disastrous overwrite.
+
+149
+00:06:16,620 --> 00:06:18,800
+This particular
+error message sort of
+
+150
+00:06:18,800 --> 00:06:21,580
+directs us exactly
+where to take action
+
+151
+00:06:21,580 --> 00:06:23,970
+so that we're not left fumbling
+in the dark about where
+
+152
+00:06:23,970 --> 00:06:25,660
+to start debugging.
+
+153
+00:06:25,660 --> 00:06:27,520
+Now we kind of hinted
+earlier at something
+
+154
+00:06:27,520 --> 00:06:28,830
+that might happen here.
+
+155
+00:06:28,830 --> 00:06:32,370
+What happens if list got
+rewritten to be a string?
+
+156
+00:06:32,370 --> 00:06:35,690
+This code would run
+just fine because list
+
+157
+00:06:35,690 --> 00:06:39,520
+as a string definitely has
+a concat method to call.
+
+158
+00:06:39,520 --> 00:06:41,020
+The code would run
+just fine, and it
+
+159
+00:06:41,020 --> 00:06:42,420
+would avoid the catch block.
+
+160
+00:06:42,420 --> 00:06:45,050
+But likely, it wouldn't
+do it as expected.
+
+161
+00:06:45,050 --> 00:06:47,570
+So let's check out what
+happens in that case.
+
+162
+00:06:47,570 --> 00:06:51,940
+Down here we have three guys
+inside the Hall of Fame list
+
+163
+00:06:51,940 --> 00:06:53,520
+that is now a
+string, notice it's
+
+164
+00:06:53,520 --> 00:06:56,045
+been formatted with some
+new line characters.
+
+165
+00:06:56,045 --> 00:07:00,080
+And what we're trying to do
+that now with the concat method
+
+166
+00:07:00,080 --> 00:07:03,160
+is to put an array on the
+back end of that string.
+
+167
+00:07:03,160 --> 00:07:04,360
+Let's see what happens.
+
+168
+00:07:04,360 --> 00:07:07,410
+Well the elements of the
+array get separated by comma,
+
+169
+00:07:07,410 --> 00:07:11,260
+and get instantly added to the
+string, no space, no new line,
+
+170
+00:07:11,260 --> 00:07:11,760
+nothing.
+
+171
+00:07:11,760 --> 00:07:14,020
+Just some weird-y
+addition of two guys
+
+172
+00:07:14,020 --> 00:07:17,500
+to the back end of
+our list string, yuck.
+
+173
+00:07:17,500 --> 00:07:19,880
+So we probably need to do
+something about that in order
+
+174
+00:07:19,880 --> 00:07:22,100
+to make sure that we
+don't have a string,
+
+175
+00:07:22,100 --> 00:07:24,890
+and in fact that
+we have an array.
+
+176
+00:07:24,890 --> 00:07:27,750
+Here we go.
+
+177
+00:07:27,750 --> 00:07:29,710
+The thing you want
+to take note of,
+
+178
+00:07:29,710 --> 00:07:31,810
+as a result of that
+string possibility,
+
+179
+00:07:31,810 --> 00:07:35,802
+is that JavaScript will not
+pinpoint every single error
+
+180
+00:07:35,802 --> 00:07:39,640
+that could ever happen,
+right, inside your code.
+
+181
+00:07:39,640 --> 00:07:41,490
+Instead, you want
+to use conditionals
+
+182
+00:07:41,490 --> 00:07:46,090
+and the throw keyword in order
+to craft the right exception
+
+183
+00:07:46,090 --> 00:07:50,067
+scenario based on what you
+think your code should do,
+
+184
+00:07:50,067 --> 00:07:52,650
+which means you need to have a
+real intuitive knowledge of all
+
+185
+00:07:52,650 --> 00:07:55,060
+the places that
+errors might occur
+
+186
+00:07:55,060 --> 00:07:57,490
+in your environment of data.
+
+187
+00:07:57,490 --> 00:08:00,750
+To illustrate how to use these
+throw keywords, let's go ahead
+
+188
+00:08:00,750 --> 00:08:04,170
+and scoot our catch block down
+here, and reformat our try
+
+189
+00:08:04,170 --> 00:08:09,851
+block to really pinpoint
+errors on a better basis.
+
+190
+00:08:09,851 --> 00:08:11,350
+The first conditional
+we've got here
+
+191
+00:08:11,350 --> 00:08:13,904
+is just our standard, if the
+list happens to be undefined,
+
+192
+00:08:13,904 --> 00:08:16,070
+then we'll go ahead and
+throw a new reference error.
+
+193
+00:08:16,070 --> 00:08:17,340
+That means the
+list doesn't exist
+
+194
+00:08:17,340 --> 00:08:19,230
+but we're trying to
+concatenate on it later.
+
+195
+00:08:19,230 --> 00:08:20,900
+So instead, we
+throw a reference,
+
+196
+00:08:20,900 --> 00:08:23,980
+error as we did before.
+
+197
+00:08:23,980 --> 00:08:26,300
+That's just the same
+thing that the try block
+
+198
+00:08:26,300 --> 00:08:29,550
+did in our first instance.
+
+199
+00:08:29,550 --> 00:08:31,550
+Next we've got
+another conditional
+
+200
+00:08:31,550 --> 00:08:36,940
+that first checks to see if the
+list is an instance of array.
+
+201
+00:08:36,940 --> 00:08:39,570
+And if that's not true,
+meaning if it is false,
+
+202
+00:08:39,570 --> 00:08:44,930
+then we will throw a new type
+error to the catch block.
+
+203
+00:08:44,930 --> 00:08:47,500
+Now it's important to note
+that as soon as the try
+
+204
+00:08:47,500 --> 00:08:51,420
+block reaches any throw
+keyword, anywhere,
+
+205
+00:08:51,420 --> 00:08:53,600
+it will instantly
+stop what it's doing,
+
+206
+00:08:53,600 --> 00:08:56,010
+take that error that it
+found, or that it's supposed
+
+207
+00:08:56,010 --> 00:08:59,380
+to be throwing, and throw
+it to the catch block.
+
+208
+00:08:59,380 --> 00:09:02,630
+And then the catch block will
+retain control of execution
+
+209
+00:09:02,630 --> 00:09:05,456
+throughout the rest
+of the process.
+
+210
+00:09:05,456 --> 00:09:06,830
+Something else we
+should do here,
+
+211
+00:09:06,830 --> 00:09:09,130
+now we've got our errors a
+little bit more pinpointed
+
+212
+00:09:09,130 --> 00:09:10,700
+and correct.
+
+213
+00:09:10,700 --> 00:09:14,810
+We should modify this
+final error message down
+
+214
+00:09:14,810 --> 00:09:16,970
+at the bottom, where it
+says, alas, the Halls
+
+215
+00:09:16,970 --> 00:09:19,130
+list has no concat method.
+
+216
+00:09:19,130 --> 00:09:20,320
+We should modify that.
+
+217
+00:09:20,320 --> 00:09:22,340
+Let's try to make
+that more accurate.
+
+218
+00:09:22,340 --> 00:09:24,799
+Since we got a more clearly
+defined problem up here,
+
+219
+00:09:24,799 --> 00:09:27,340
+our program should be able to
+provide more accurate debugging
+
+220
+00:09:27,340 --> 00:09:30,600
+information for all cases
+that we could expect.
+
+221
+00:09:30,600 --> 00:09:33,600
+So now, if our Hall of Fame
+list was in fact a string,
+
+222
+00:09:33,600 --> 00:09:36,400
+for whatever reason, then we
+would get an error message that
+
+223
+00:09:36,400 --> 00:09:38,940
+says, alas, list exists,
+but, you know what?
+
+224
+00:09:38,940 --> 00:09:40,110
+It's no longer an array.
+
+225
+00:09:40,110 --> 00:09:42,680
+So please go and check
+to see in your debugging
+
+226
+00:09:42,680 --> 00:09:45,350
+if somehow it got
+overwritten somewhere.
+
+227
+00:09:45,350 --> 00:09:49,330
+It's important to note that
+it is our more clearly defined
+
+228
+00:09:49,330 --> 00:09:52,280
+problem that has
+allowed us to have
+
+229
+00:09:52,280 --> 00:09:54,910
+more accurate debugging
+instruction for all
+
+230
+00:09:54,910 --> 00:09:57,260
+of the cases that we
+could conceivably expect,
+
+231
+00:09:57,260 --> 00:09:57,845
+in this case.
+
+232
+00:09:57,845 --> 00:10:00,390
+
+
+233
+00:10:00,390 --> 00:10:03,450
+So now, if we had a list
+that was a string instead
+
+234
+00:10:03,450 --> 00:10:06,290
+of an array, we would get
+the error message exactly
+
+235
+00:10:06,290 --> 00:10:07,670
+like we want it.
+
+236
+00:10:07,670 --> 00:10:10,055
+And now, as we went back to
+correct our program somewhere
+
+237
+00:10:10,055 --> 00:10:11,430
+in our JavaScript
+files, we would
+
+238
+00:10:11,430 --> 00:10:14,300
+go to make sure that our
+list had not become suddenly
+
+239
+00:10:14,300 --> 00:10:17,290
+a string, or modify
+this code to match
+
+240
+00:10:17,290 --> 00:10:20,240
+the fact that is a string.
+
+241
+00:10:20,240 --> 00:10:22,680
+A cool extra thing about
+the try/catch block
+
+242
+00:10:22,680 --> 00:10:26,730
+is that it has a secret friend
+called the finally block, which
+
+243
+00:10:26,730 --> 00:10:30,000
+will allow us to take action
+regardless of any error that
+
+244
+00:10:30,000 --> 00:10:32,630
+may have occurred
+inside the try block.
+
+245
+00:10:32,630 --> 00:10:34,420
+If the try block
+executes smoothly
+
+246
+00:10:34,420 --> 00:10:35,690
+we'll go to the finally block.
+
+247
+00:10:35,690 --> 00:10:37,770
+If the try block does
+not execute smoothly
+
+248
+00:10:37,770 --> 00:10:40,380
+and we go to catch block,
+after the catch block
+
+249
+00:10:40,380 --> 00:10:41,654
+we'll go to finally block.
+
+250
+00:10:41,654 --> 00:10:43,070
+The finally block
+just says, we're
+
+251
+00:10:43,070 --> 00:10:45,680
+going to do whatever
+is inside this block,
+
+252
+00:10:45,680 --> 00:10:48,530
+regardless of what
+happened before.
+
+253
+00:10:48,530 --> 00:10:50,530
+So here you can see
+our finally block,
+
+254
+00:10:50,530 --> 00:10:54,440
+which has got a console.log
+on the list in it.
+
+255
+00:10:54,440 --> 00:10:56,480
+And that's going to
+execute whether try
+
+256
+00:10:56,480 --> 00:10:59,160
+meets with success or failure.
+
+257
+00:10:59,160 --> 00:11:03,250
+This is important because now
+we will know what list contained
+
+258
+00:11:03,250 --> 00:11:05,220
+at the end of this execution.
+
+259
+00:11:05,220 --> 00:11:08,270
+It may have been that we
+get all of the new guys
+
+260
+00:11:08,270 --> 00:11:09,980
+added to the list, no problem.
+
+261
+00:11:09,980 --> 00:11:13,140
+And this log will log
+out every last member
+
+262
+00:11:13,140 --> 00:11:14,350
+of the Hall of Fame.
+
+263
+00:11:14,350 --> 00:11:16,547
+Or we could get undefined
+if there is an error.
+
+264
+00:11:16,547 --> 00:11:18,380
+Or we could get a string
+if it was a string.
+
+265
+00:11:18,380 --> 00:11:20,430
+Or we could get that
+crazy number 12.
+
+266
+00:11:20,430 --> 00:11:22,770
+But the point is that
+we are able to see
+
+267
+00:11:22,770 --> 00:11:27,410
+what happened to the list
+variable, if anything.
+
+268
+00:11:27,410 --> 00:11:31,670
+What if we wanted to
+try more than one option
+
+269
+00:11:31,670 --> 00:11:33,900
+within our try/catch system?
+
+270
+00:11:33,900 --> 00:11:37,150
+Well, nested try blocks,
+which are totally allowable,
+
+271
+00:11:37,150 --> 00:11:40,750
+can be found within
+outer catch blocks
+
+272
+00:11:40,750 --> 00:11:42,750
+so that if your first
+choice doesn't work,
+
+273
+00:11:42,750 --> 00:11:44,970
+you may be able to
+try something else
+
+274
+00:11:44,970 --> 00:11:47,420
+before you just gracefully
+exit on some error.
+
+275
+00:11:47,420 --> 00:11:48,630
+Let's take a look at that.
+
+276
+00:11:48,630 --> 00:11:50,713
+So we're going to build a
+new function here called
+
+277
+00:11:50,713 --> 00:11:54,800
+change inner HTML by ID or
+existing, which is the longest
+
+278
+00:11:54,800 --> 00:11:56,836
+function name known to man.
+
+279
+00:11:56,836 --> 00:11:58,710
+And with that function
+what we're going to do
+
+280
+00:11:58,710 --> 00:12:03,260
+is look up some text element
+either by its current ID,
+
+281
+00:12:03,260 --> 00:12:06,080
+or by its existing inner HTML.
+
+282
+00:12:06,080 --> 00:12:10,350
+And then we will
+update the inner HTML.
+
+283
+00:12:10,350 --> 00:12:13,142
+Now here our existing parameter
+is going to be optional.
+
+284
+00:12:13,142 --> 00:12:15,600
+That's going to be just an
+extra search possibility in case
+
+285
+00:12:15,600 --> 00:12:19,370
+the ID for the element we're
+looking for is not found.
+
+286
+00:12:19,370 --> 00:12:21,880
+So now we've got our
+try block here, inside.
+
+287
+00:12:21,880 --> 00:12:24,890
+And in that we have a
+variable called new element.
+
+288
+00:12:24,890 --> 00:12:26,860
+And we're going to set
+that equal to undefined.
+
+289
+00:12:26,860 --> 00:12:31,510
+We're going to use that later if
+we need to make a new element.
+
+290
+00:12:31,510 --> 00:12:33,030
+Following that,
+we're going to try
+
+291
+00:12:33,030 --> 00:12:37,410
+to set the inner
+HTML of the element
+
+292
+00:12:37,410 --> 00:12:42,924
+that we find with the ID
+to whatever the update is.
+
+293
+00:12:42,924 --> 00:12:44,590
+In other words, if
+the element is found,
+
+294
+00:12:44,590 --> 00:12:47,000
+we'll just update
+its inner HTML.
+
+295
+00:12:47,000 --> 00:12:47,940
+Now for the errors.
+
+296
+00:12:47,940 --> 00:12:50,950
+What happens if we catch
+an error from this?
+
+297
+00:12:50,950 --> 00:12:54,267
+Well the first thing we want
+to do is not exit the program
+
+298
+00:12:54,267 --> 00:12:55,600
+or return a message or anything.
+
+299
+00:12:55,600 --> 00:12:57,420
+We want to try something else.
+
+300
+00:12:57,420 --> 00:13:00,200
+So we've got a try block
+that happens immediately
+
+301
+00:13:00,200 --> 00:13:04,370
+after some error in our first
+try block has been caught.
+
+302
+00:13:04,370 --> 00:13:08,790
+In this case, we may know
+the existing inner HTML
+
+303
+00:13:08,790 --> 00:13:10,980
+instead of the nodes ID.
+
+304
+00:13:10,980 --> 00:13:13,340
+And it may have been passed
+in as an optional parameter.
+
+305
+00:13:13,340 --> 00:13:15,130
+So we want to try
+searching based
+
+306
+00:13:15,130 --> 00:13:17,810
+on the existing inner HTML.
+
+307
+00:13:17,810 --> 00:13:21,350
+First thing we're going to do
+inside of our nested try block
+
+308
+00:13:21,350 --> 00:13:24,410
+is we're going to get every last
+element of the document using
+
+309
+00:13:24,410 --> 00:13:27,310
+that star inside, get
+element by tag name.
+
+310
+00:13:27,310 --> 00:13:29,520
+We'll pass all those
+to an elements array.
+
+311
+00:13:29,520 --> 00:13:31,450
+And then we'll search
+each of those elements
+
+312
+00:13:31,450 --> 00:13:33,660
+for a matching inner HTML.
+
+313
+00:13:33,660 --> 00:13:37,600
+And if we find a match
+we'll change it and exit.
+
+314
+00:13:37,600 --> 00:13:40,110
+
+
+315
+00:13:40,110 --> 00:13:43,680
+Another cool thing we'll do is
+that since we don't have the ID
+
+316
+00:13:43,680 --> 00:13:45,980
+variable, right, we
+couldn't find it,
+
+317
+00:13:45,980 --> 00:13:48,000
+then what we're going
+to do is record whatever
+
+318
+00:13:48,000 --> 00:13:51,790
+ID is at that text
+element inside our ID
+
+319
+00:13:51,790 --> 00:13:53,940
+variable for later use.
+
+320
+00:13:53,940 --> 00:13:55,660
+But inside of our
+loop, if we ever
+
+321
+00:13:55,660 --> 00:13:58,990
+reach the end of that list,
+then the element location
+
+322
+00:13:58,990 --> 00:14:01,950
+has failed, and we
+need to do something.
+
+323
+00:14:01,950 --> 00:14:06,439
+And what we'll do is we will
+throw a new custom error.
+
+324
+00:14:06,439 --> 00:14:06,980
+That's right.
+
+325
+00:14:06,980 --> 00:14:11,020
+In addition to all of those
+native JavaScript error types,
+
+326
+00:14:11,020 --> 00:14:14,750
+we can create custom errors
+with all these custom message
+
+327
+00:14:14,750 --> 00:14:15,600
+properties.
+
+328
+00:14:15,600 --> 00:14:19,000
+And we're going to use that
+custom message property
+
+329
+00:14:19,000 --> 00:14:22,660
+inside of our nested
+catch, which is upcoming.
+
+330
+00:14:22,660 --> 00:14:25,280
+Now in our new
+nested to catch block
+
+331
+00:14:25,280 --> 00:14:28,880
+you can see that our error
+parameter is called error2.
+
+332
+00:14:28,880 --> 00:14:30,790
+That's because we
+want to distinguish it
+
+333
+00:14:30,790 --> 00:14:32,300
+from the previous error.
+
+334
+00:14:32,300 --> 00:14:35,240
+We need to give those two
+parameters, those two errors,
+
+335
+00:14:35,240 --> 00:14:38,230
+different names for
+use in their blocks.
+
+336
+00:14:38,230 --> 00:14:41,950
+What we'll do is we'll alert the
+message associated with error2.
+
+337
+00:14:41,950 --> 00:14:45,360
+And we'll also tell the user
+that we are creating a new text
+
+338
+00:14:45,360 --> 00:14:45,860
+node.
+
+339
+00:14:45,860 --> 00:14:49,950
+That's because if no element
+was found with our existing
+
+340
+00:14:49,950 --> 00:14:51,819
+inner HTML, or the
+ID in this case,
+
+341
+00:14:51,819 --> 00:14:54,360
+then what we're going to do is
+we're going to make a new text
+
+342
+00:14:54,360 --> 00:14:57,220
+node for used somewhere
+outside the function.
+
+343
+00:14:57,220 --> 00:15:00,040
+And we're eventually going
+to return that value.
+
+344
+00:15:00,040 --> 00:15:02,226
+Lastly, we will get
+to a finally block.
+
+345
+00:15:02,226 --> 00:15:03,600
+And remember, the
+finally block's
+
+346
+00:15:03,600 --> 00:15:06,820
+going to execute regardless
+of what happens in the try
+
+347
+00:15:06,820 --> 00:15:08,940
+and catch nested blocks.
+
+348
+00:15:08,940 --> 00:15:11,140
+Here you can see in
+our finally block
+
+349
+00:15:11,140 --> 00:15:16,455
+that we check to see if the new
+element is no longer undefined.
+
+350
+00:15:16,455 --> 00:15:18,790
+And if it's no longer
+undefined, what do we know?
+
+351
+00:15:18,790 --> 00:15:22,850
+We know that we
+made a text node.
+
+352
+00:15:22,850 --> 00:15:26,280
+But if that new
+element was undefined,
+
+353
+00:15:26,280 --> 00:15:29,370
+it means we did not create a
+new text node because it already
+
+354
+00:15:29,370 --> 00:15:31,490
+existed, the one we
+were looking for.
+
+355
+00:15:31,490 --> 00:15:34,980
+So what we do is we
+log out a notification
+
+356
+00:15:34,980 --> 00:15:37,300
+that the requested
+element was updated.
+
+357
+00:15:37,300 --> 00:15:41,350
+And what we'll do is we'll use
+either the ID, if it exists,
+
+358
+00:15:41,350 --> 00:15:46,610
+or the existing HTML that
+we found the element with.
+
+359
+00:15:46,610 --> 00:15:49,410
+Notice our cool best practice
+of using default assignment
+
+360
+00:15:49,410 --> 00:15:53,800
+to the existing if the
+ID was never found.
+
+361
+00:15:53,800 --> 00:15:56,950
+
+
+362
+00:15:56,950 --> 00:15:58,610
+So let's say in some
+website we called
+
+363
+00:15:58,610 --> 00:16:01,350
+change inner HTML
+by ID or existing.
+
+364
+00:16:01,350 --> 00:16:05,120
+And we called it
+with an ID of age.
+
+365
+00:16:05,120 --> 00:16:09,270
+And let's say that that
+age ID did, in fact, exist.
+
+366
+00:16:09,270 --> 00:16:12,100
+We also passed in
+and update, meaning
+
+367
+00:16:12,100 --> 00:16:15,410
+we want the new inner
+HTML to be age is 35,
+
+368
+00:16:15,410 --> 00:16:19,160
+and the old one,
+which was age is 34.
+
+369
+00:16:19,160 --> 00:16:22,615
+What will happen in this case
+if age did in fact exist?
+
+370
+00:16:22,615 --> 00:16:23,990
+First thing the
+function would do
+
+371
+00:16:23,990 --> 00:16:26,080
+is go to its first try block.
+
+372
+00:16:26,080 --> 00:16:28,580
+And it would find the
+element, no problem,
+
+373
+00:16:28,580 --> 00:16:33,170
+and set the updated inner
+HTML to be age is 35.
+
+374
+00:16:33,170 --> 00:16:34,400
+And we get that logged out.
+
+375
+00:16:34,400 --> 00:16:38,230
+
+
+376
+00:16:38,230 --> 00:16:40,874
+But what happens if
+age does not exist?
+
+377
+00:16:40,874 --> 00:16:42,290
+Well, the first
+thing that happens
+
+378
+00:16:42,290 --> 00:16:44,760
+is we go to the try block.
+
+379
+00:16:44,760 --> 00:16:46,670
+And it doesn't work
+out because it never
+
+380
+00:16:46,670 --> 00:16:51,401
+finds the element
+with that exact ID.
+
+381
+00:16:51,401 --> 00:16:52,400
+So it'll throw an error.
+
+382
+00:16:52,400 --> 00:16:54,810
+And it goes to the
+next catch block.
+
+383
+00:16:54,810 --> 00:16:59,430
+Inside that catch block we
+first go to a nested try.
+
+384
+00:16:59,430 --> 00:17:02,970
+So it searches through all
+of the existing elements
+
+385
+00:17:02,970 --> 00:17:06,000
+but does, in fact,
+find an element
+
+386
+00:17:06,000 --> 00:17:09,264
+that has an existing
+HTML of age 34.
+
+387
+00:17:09,264 --> 00:17:09,930
+So what happens?
+
+388
+00:17:09,930 --> 00:17:12,990
+We get a check and we roll
+all the way to the finally,
+
+389
+00:17:12,990 --> 00:17:15,030
+because we break out
+of the loop and don't
+
+390
+00:17:15,030 --> 00:17:19,400
+need to go to the next
+nested catch block.
+
+391
+00:17:19,400 --> 00:17:21,089
+Once we're in the
+finally block we
+
+392
+00:17:21,089 --> 00:17:24,510
+log out that we
+modified the element age
+
+393
+00:17:24,510 --> 00:17:28,130
+34, meaning we
+chose the existing
+
+394
+00:17:28,130 --> 00:17:34,710
+label in our logical assignment,
+with inner HTML age 35.
+
+395
+00:17:34,710 --> 00:17:39,170
+So before we chose the ID to log
+out, because it was available.
+
+396
+00:17:39,170 --> 00:17:41,200
+But in this case,
+we're going to default
+
+397
+00:17:41,200 --> 00:17:46,140
+to the existing inner HTML
+because the ID was not in fact
+
+398
+00:17:46,140 --> 00:17:46,640
+available.
+
+399
+00:17:46,640 --> 00:17:49,850
+
+
+400
+00:17:49,850 --> 00:17:51,570
+And lastly, we look
+at the situation
+
+401
+00:17:51,570 --> 00:17:54,890
+where age does not
+exist as an ID anywhere,
+
+402
+00:17:54,890 --> 00:18:01,092
+nor does age 34 exist
+as some existing HTML.
+
+403
+00:18:01,092 --> 00:18:02,550
+So now let's check
+out what happens
+
+404
+00:18:02,550 --> 00:18:04,954
+on this run in this situation.
+
+405
+00:18:04,954 --> 00:18:07,120
+The first thing we do is
+we hit the first try block.
+
+406
+00:18:07,120 --> 00:18:10,460
+But there is no age ID anywhere.
+
+407
+00:18:10,460 --> 00:18:12,800
+So we go to the catch block.
+
+408
+00:18:12,800 --> 00:18:15,710
+And we assemble all the
+elements, check them all out
+
+409
+00:18:15,710 --> 00:18:20,340
+to see if there is an
+existing HTML that has age 34,
+
+410
+00:18:20,340 --> 00:18:22,070
+there is not.
+
+411
+00:18:22,070 --> 00:18:26,380
+And so when we don't find any
+element with that existing HTML
+
+412
+00:18:26,380 --> 00:18:30,450
+our new custom error's going to
+get thrown to the nested catch
+
+413
+00:18:30,450 --> 00:18:31,270
+block.
+
+414
+00:18:31,270 --> 00:18:34,220
+Then we will get a new
+message alerted that says,
+
+415
+00:18:34,220 --> 00:18:37,160
+yo, an existing
+element was not found
+
+416
+00:18:37,160 --> 00:18:40,640
+and we're creating
+a new text node.
+
+417
+00:18:40,640 --> 00:18:44,010
+Then we will pass control
+to the finally block where
+
+418
+00:18:44,010 --> 00:18:47,820
+when we discover that new
+element is no longer undefined
+
+419
+00:18:47,820 --> 00:18:51,395
+we will just log out that we
+are returning a new text node.
+
+420
+00:18:51,395 --> 00:18:54,230
+
+
+421
+00:18:54,230 --> 00:18:58,190
+And now you are so dangerous
+with, or maybe less dangerous,
+
+422
+00:18:58,190 --> 00:19:01,240
+with try/catch and
+error generation.
+
+423
+00:19:01,240 --> 00:19:02,850
+So we will send you
+to some challenges
+
+424
+00:19:02,850 --> 00:19:06,860
+where you get some work on
+protection in error generation.
+
+425
+00:19:06,860 --> 00:19:09,201

@@ -1,4 +1,1581 @@
-﻿1
-00:00:00,000 --> 00:00:03,000
-[ Sorry, no subtitles yet.
-  Working on it, and there will be soon! ]
+1
+00:00:00,000 --> 00:00:01,930
+
+
+2
+00:00:01,930 --> 00:00:02,430
+Hey, guys.
+
+3
+00:00:02,430 --> 00:00:05,400
+Welcome back to level three
+of JavaScript best practices.
+
+4
+00:00:05,400 --> 00:00:07,380
+This section, the final
+section of level three,
+
+5
+00:00:07,380 --> 00:00:09,080
+is about Number Nonsense.
+
+6
+00:00:09,080 --> 00:00:12,520
+
+
+7
+00:00:12,520 --> 00:00:15,150
+So in JavaScript,
+decimals are actually
+
+8
+00:00:15,150 --> 00:00:19,460
+kind of crazy because JavaScript
+uses binary floating point
+
+9
+00:00:19,460 --> 00:00:23,370
+values to handle all of its
+decimal based operations.
+
+10
+00:00:23,370 --> 00:00:25,270
+If we pull up a
+little console.log
+
+11
+00:00:25,270 --> 00:00:29,300
+here, of a simple
+addition, 0.1 plus 0.2,
+
+12
+00:00:29,300 --> 00:00:33,430
+well that's just
+0.3-- oh, uh, what?
+
+13
+00:00:33,430 --> 00:00:34,850
+There's a 4.
+
+14
+00:00:34,850 --> 00:00:36,110
+There is a 4.
+
+15
+00:00:36,110 --> 00:00:39,137
+There was no 4,
+there is a 4 now.
+
+16
+00:00:39,137 --> 00:00:40,470
+I don't know where it came from.
+
+17
+00:00:40,470 --> 00:00:41,370
+Well, I kind of do.
+
+18
+00:00:41,370 --> 00:00:44,600
+It's binary floating
+point values, right,
+
+19
+00:00:44,600 --> 00:00:47,130
+which are used primarily
+for performance because they
+
+20
+00:00:47,130 --> 00:00:48,990
+do enhance performance
+in a lot of ways.
+
+21
+00:00:48,990 --> 00:00:50,406
+But there's
+definitely a trade off
+
+22
+00:00:50,406 --> 00:00:53,600
+between performance and
+accuracy in this case.
+
+23
+00:00:53,600 --> 00:00:55,320
+Taking a look at a
+couple other examples,
+
+24
+00:00:55,320 --> 00:01:01,770
+if we did 0.1 plus 0.2 plus 0.3
+we get 0.6-- oh, there's a 1
+
+25
+00:01:01,770 --> 00:01:02,270
+there.
+
+26
+00:01:02,270 --> 00:01:03,060
+There's a 1.
+
+27
+00:01:03,060 --> 00:01:04,140
+There was not a 1.
+
+28
+00:01:04,140 --> 00:01:07,080
+Now there's a 1 in that spot.
+
+29
+00:01:07,080 --> 00:01:07,800
+Crazy.
+
+30
+00:01:07,800 --> 00:01:10,040
+One of the crazy things
+about binary floating point
+
+31
+00:01:10,040 --> 00:01:12,340
+is that they're not even
+associative in this case.
+
+32
+00:01:12,340 --> 00:01:17,040
+If I tried to add 0.1 and
+0.2 over here in parentheses
+
+33
+00:01:17,040 --> 00:01:20,750
+and then add 0.3 well, I
+get the same exact thing
+
+34
+00:01:20,750 --> 00:01:22,500
+that I got before
+without the parentheses.
+
+35
+00:01:22,500 --> 00:01:31,130
+But if I try to add 0.1 to
+the grouping of 0.2 plus 0.3,
+
+36
+00:01:31,130 --> 00:01:34,550
+magically I get what
+I'm expecting, 0.6.
+
+37
+00:01:34,550 --> 00:01:36,130
+Fine, I'll just
+jump off a bridge.
+
+38
+00:01:36,130 --> 00:01:37,950
+Everything will be just fine.
+
+39
+00:01:37,950 --> 00:01:41,610
+Now, floating point arithmetic
+using binary numbers
+
+40
+00:01:41,610 --> 00:01:45,710
+inside of a computer's
+arithmetic logical unit, that's
+
+41
+00:01:45,710 --> 00:01:48,870
+slightly outside the scope
+of JavaScript best practice.
+
+42
+00:01:48,870 --> 00:01:49,770
+Wouldn't you agree?
+
+43
+00:01:49,770 --> 00:01:50,860
+So what we're going
+to do is give you
+
+44
+00:01:50,860 --> 00:01:53,520
+a little bit of resources at
+the end of the course for you
+
+45
+00:01:53,520 --> 00:01:56,240
+to go research floating
+point arithmetic,
+
+46
+00:01:56,240 --> 00:01:57,720
+because all
+developers should have
+
+47
+00:01:57,720 --> 00:02:00,110
+a passing familiarity with it.
+
+48
+00:02:00,110 --> 00:02:01,710
+Instead, here in
+this course, we're
+
+49
+00:02:01,710 --> 00:02:05,890
+going to give you some ways to
+kind of constrain JavaScript's
+
+50
+00:02:05,890 --> 00:02:10,340
+occasional number nonsense, as
+well as get consistent results
+
+51
+00:02:10,340 --> 00:02:13,884
+regardless of the
+internal operations.
+
+52
+00:02:13,884 --> 00:02:15,550
+So first, we'll talk
+about a few methods
+
+53
+00:02:15,550 --> 00:02:17,820
+that help improve your
+decimal visualization.
+
+54
+00:02:17,820 --> 00:02:20,410
+First there is
+the toFixed method
+
+55
+00:02:20,410 --> 00:02:23,370
+that's going to allow
+us to select precisely
+
+56
+00:02:23,370 --> 00:02:26,650
+the amount of decimal
+places we want to display.
+
+57
+00:02:26,650 --> 00:02:28,440
+Over here you can
+see we're storing
+
+58
+00:02:28,440 --> 00:02:31,690
+the result of our crazy
+0.1 plus 0.2 addition
+
+59
+00:02:31,690 --> 00:02:33,890
+in a variable called a number.
+
+60
+00:02:33,890 --> 00:02:36,170
+And then we're going to
+log out, num.toFixed1.
+
+61
+00:02:36,170 --> 00:02:39,250
+
+
+62
+00:02:39,250 --> 00:02:41,730
+That means we want
+exactly one decimal place
+
+63
+00:02:41,730 --> 00:02:44,200
+to be shown on our number.
+
+64
+00:02:44,200 --> 00:02:48,310
+And we get 0.3, exactly
+what we would like.
+
+65
+00:02:48,310 --> 00:02:50,360
+You can stick any
+amount of decimal places
+
+66
+00:02:50,360 --> 00:02:51,820
+in there that you prefer.
+
+67
+00:02:51,820 --> 00:02:54,850
+If we pass a 4 in
+to num after we
+
+68
+00:02:54,850 --> 00:02:58,280
+have created a new addition
+on 0.1, 0.2 and 0.3.
+
+69
+00:02:58,280 --> 00:03:03,710
+We can see we get 0.6000,
+for four total fixed decimal
+
+70
+00:03:03,710 --> 00:03:04,810
+places.
+
+71
+00:03:04,810 --> 00:03:06,300
+Important to know
+about toFixed is
+
+72
+00:03:06,300 --> 00:03:09,190
+that it's going to round to the
+very last indicated positions
+
+73
+00:03:09,190 --> 00:03:11,030
+that you have provided.
+
+74
+00:03:11,030 --> 00:03:12,910
+So, if you're
+dealing, for example,
+
+75
+00:03:12,910 --> 00:03:16,020
+with percentages of
+money, then toFixed
+
+76
+00:03:16,020 --> 00:03:19,810
+can handle that hundreds
+rounding for you at any time.
+
+77
+00:03:19,810 --> 00:03:21,660
+Here we've going to
+function called tax.
+
+78
+00:03:21,660 --> 00:03:25,220
+It's going to take in any
+price of some object as well
+
+79
+00:03:25,220 --> 00:03:28,950
+as the tax percent that
+that object is subject to.
+
+80
+00:03:28,950 --> 00:03:32,210
+On the inside, you can see
+that we return the price times
+
+81
+00:03:32,210 --> 00:03:34,400
+percent divided by 100,
+which will give you
+
+82
+00:03:34,400 --> 00:03:36,070
+exactly the tax that you need.
+
+83
+00:03:36,070 --> 00:03:39,170
+But we're going to return it to
+a fixed decimal place of two.
+
+84
+00:03:39,170 --> 00:03:42,910
+That way it is in money terms,
+with two decimal places.
+
+85
+00:03:42,910 --> 00:03:46,930
+You can see here, if we
+call the tax method on $9.85
+
+86
+00:03:46,930 --> 00:03:51,830
+as well as with a 7.5% tax
+rate, what happens on the inside
+
+87
+00:03:51,830 --> 00:03:57,270
+as we get 9.85 times
+7.5 divided by 100.
+
+88
+00:03:57,270 --> 00:04:01,440
+But that's going
+to give us 0.73875.
+
+89
+00:04:01,440 --> 00:04:04,410
+Now, our toFixed
+with two in it, is
+
+90
+00:04:04,410 --> 00:04:06,940
+going to look at the
+third place to ensure
+
+91
+00:04:06,940 --> 00:04:08,850
+two places will be
+correctly rounded.
+
+92
+00:04:08,850 --> 00:04:14,680
+And since 8 is greater than
+5 the 3 will increase to 4.
+
+93
+00:04:14,680 --> 00:04:17,260
+And we'll get 0.74.
+
+94
+00:04:17,260 --> 00:04:19,750
+But, look, that's a string.
+
+95
+00:04:19,750 --> 00:04:21,149
+Hm, what can we do about that?
+
+96
+00:04:21,149 --> 00:04:23,650
+How are we going to use
+a string numerically
+
+97
+00:04:23,650 --> 00:04:26,580
+if we wanted to do
+other operations?
+
+98
+00:04:26,580 --> 00:04:30,540
+Because if we had a mailed
+glove that cost $9.95
+
+99
+00:04:30,540 --> 00:04:34,480
+as well as some armor
+tax that was 7.5%
+
+100
+00:04:34,480 --> 00:04:37,850
+and we wanted to know the total
+price of this mailed glove
+
+101
+00:04:37,850 --> 00:04:42,690
+in this shop, we would add
+the mailed glove variable
+
+102
+00:04:42,690 --> 00:04:46,350
+to the results of
+our tax method,
+
+103
+00:04:46,350 --> 00:04:49,310
+thinking that we would get some
+number out of the tax method.
+
+104
+00:04:49,310 --> 00:04:51,770
+But what that would
+actually do-- ooh,
+
+105
+00:04:51,770 --> 00:04:57,320
+that escalated quickly--
+it would give us 9.850.74.
+
+106
+00:04:57,320 --> 00:04:57,820
+What?
+
+107
+00:04:57,820 --> 00:04:58,720
+Weird.
+
+108
+00:04:58,720 --> 00:05:00,730
+That's because it
+tried to concatenate
+
+109
+00:05:00,730 --> 00:05:02,650
+a string to a number.
+
+110
+00:05:02,650 --> 00:05:05,340
+Thus we will need a new
+method to help use the rounded
+
+111
+00:05:05,340 --> 00:05:08,696
+value in further
+math operations.
+
+112
+00:05:08,696 --> 00:05:10,570
+A cool method that will
+help us out with that
+
+113
+00:05:10,570 --> 00:05:11,495
+is called parsefloat.
+
+114
+00:05:11,495 --> 00:05:14,320
+It's going to turn
+strings that have decimals
+
+115
+00:05:14,320 --> 00:05:17,150
+into numbers to be used.
+
+116
+00:05:17,150 --> 00:05:20,350
+A combination of
+toFixed and parsefloat
+
+117
+00:05:20,350 --> 00:05:24,720
+will let us use values of
+exact length in all of our math
+
+118
+00:05:24,720 --> 00:05:27,260
+operations that we might desire.
+
+119
+00:05:27,260 --> 00:05:29,740
+So you can see I've
+added a parsefloat
+
+120
+00:05:29,740 --> 00:05:33,302
+around my mathematics
+as well as my toFixed.
+
+121
+00:05:33,302 --> 00:05:34,760
+And what that's
+going to do is it's
+
+122
+00:05:34,760 --> 00:05:38,310
+going to return an
+actual decimal value back
+
+123
+00:05:38,310 --> 00:05:39,690
+from the tax function.
+
+124
+00:05:39,690 --> 00:05:43,040
+So now when I pass
+in 9.85 and 7.5
+
+125
+00:05:43,040 --> 00:05:47,720
+I'm going to get 0.74 the
+number, 0.74 the number,
+
+126
+00:05:47,720 --> 00:05:50,640
+instead of 0.74 the string.
+
+127
+00:05:50,640 --> 00:05:54,020
+That makes it very usable
+in the addition math
+
+128
+00:05:54,020 --> 00:05:56,310
+that I've got doing
+with mailed glove.
+
+129
+00:05:56,310 --> 00:05:58,050
+So you can see when
+I log that out I'm
+
+130
+00:05:58,050 --> 00:06:01,500
+going to get 10.59 in money.
+
+131
+00:06:01,500 --> 00:06:04,340
+And now we're good for
+display or other usage
+
+132
+00:06:04,340 --> 00:06:06,550
+inside of totals.
+
+133
+00:06:06,550 --> 00:06:08,750
+Parseint is also a
+very valuable method
+
+134
+00:06:08,750 --> 00:06:11,110
+that will convert
+numerical strings.
+
+135
+00:06:11,110 --> 00:06:13,530
+But instead of looking for
+a floating point number,
+
+136
+00:06:13,530 --> 00:06:16,380
+parseint is going to seek the
+very first available integer
+
+137
+00:06:16,380 --> 00:06:19,000
+on the front of any string.
+
+138
+00:06:19,000 --> 00:06:22,160
+So here you can see, if I've
+got parseint on a string 88
+
+139
+00:06:22,160 --> 00:06:24,610
+it's going to return
+a very nice 88 to me.
+
+140
+00:06:24,610 --> 00:06:28,340
+But if I pass in
+a string that has
+
+141
+00:06:28,340 --> 00:06:31,880
+an integer on the front parseint
+is going to try to help out.
+
+142
+00:06:31,880 --> 00:06:35,100
+It's going to try to
+provide any integer that
+
+143
+00:06:35,100 --> 00:06:37,650
+begins a string of
+other characters.
+
+144
+00:06:37,650 --> 00:06:41,410
+That's slightly weird,
+very often dangerous.
+
+145
+00:06:41,410 --> 00:06:43,910
+Same thing with parsefloat, too.
+
+146
+00:06:43,910 --> 00:06:48,200
+If I pass in a sentence
+here 3.28084 meters
+
+147
+00:06:48,200 --> 00:06:51,890
+in a foot parsefloat is going to
+look for the termination of all
+
+148
+00:06:51,890 --> 00:06:55,990
+of the numbers after any
+decimal point is encountered.
+
+149
+00:06:55,990 --> 00:06:57,880
+Something to note,
+if a string does not
+
+150
+00:06:57,880 --> 00:07:00,220
+begin with an acceptable
+value for either method,
+
+151
+00:07:00,220 --> 00:07:04,140
+however, you'll get that
+JS value not a number.
+
+152
+00:07:04,140 --> 00:07:06,050
+More on this in a little bit.
+
+153
+00:07:06,050 --> 00:07:07,890
+One thing we want you
+to know about parseint
+
+154
+00:07:07,890 --> 00:07:09,705
+is that it will trim
+off any decimals
+
+155
+00:07:09,705 --> 00:07:11,540
+it encounters without rounding.
+
+156
+00:07:11,540 --> 00:07:13,040
+So if I were to
+pass in this string,
+
+157
+00:07:13,040 --> 00:07:16,220
+9.85, I'm going to get 9 back.
+
+158
+00:07:16,220 --> 00:07:18,140
+That may not be what
+you were expecting
+
+159
+00:07:18,140 --> 00:07:20,760
+if you thought 9.85
+should become a 10.
+
+160
+00:07:20,760 --> 00:07:22,480
+So watch out if
+you're using parseint
+
+161
+00:07:22,480 --> 00:07:24,640
+in a rounding situation.
+
+162
+00:07:24,640 --> 00:07:26,670
+Now although parseint
+is often super valuable,
+
+163
+00:07:26,670 --> 00:07:29,220
+it can cause some
+unexpected value errors
+
+164
+00:07:29,220 --> 00:07:30,680
+that we want to
+make you aware of.
+
+165
+00:07:30,680 --> 00:07:34,300
+That's because parseint will
+accept octal, or hexadecimal,
+
+166
+00:07:34,300 --> 00:07:35,720
+or decimal values.
+
+167
+00:07:35,720 --> 00:07:38,700
+Thus we want to use this with
+a little bit of caution here.
+
+168
+00:07:38,700 --> 00:07:39,760
+Check this out.
+
+169
+00:07:39,760 --> 00:07:43,560
+Say that we've got a user age
+variable that takes some data
+
+170
+00:07:43,560 --> 00:07:47,180
+from a user, but that
+the user, for their age,
+
+171
+00:07:47,180 --> 00:07:52,170
+actually made an error in typing
+and put in 021 instead of 21.
+
+172
+00:07:52,170 --> 00:07:56,755
+If we use parseint on user age
+in modern ECMAScript 5 systems,
+
+173
+00:07:56,755 --> 00:07:58,630
+it's going to give you
+exactly what you want.
+
+174
+00:07:58,630 --> 00:08:02,140
+It's going to trim that 0 off
+the front and make it a 21.
+
+175
+00:08:02,140 --> 00:08:02,640
+Pretty cool.
+
+176
+00:08:02,640 --> 00:08:06,050
+But if we use
+parseint on user age,
+
+177
+00:08:06,050 --> 00:08:08,390
+and we're in an
+older system, it may
+
+178
+00:08:08,390 --> 00:08:09,990
+think that you
+are trying to pass
+
+179
+00:08:09,990 --> 00:08:12,239
+an octal value, which is base 8.
+
+180
+00:08:12,239 --> 00:08:13,780
+And it's going to
+try to help you out
+
+181
+00:08:13,780 --> 00:08:16,490
+with a conversion back
+to the decimal value.
+
+182
+00:08:16,490 --> 00:08:17,390
+Whomp, whomp.
+
+183
+00:08:17,390 --> 00:08:18,964
+And it's going to give you a 17.
+
+184
+00:08:18,964 --> 00:08:21,130
+Now if this was a dude
+registering on a cruise ship,
+
+185
+00:08:21,130 --> 00:08:24,510
+and he put in 21, but
+the system thinks he's 17
+
+186
+00:08:24,510 --> 00:08:29,260
+he's going to have a uniquely
+different experience there.
+
+187
+00:08:29,260 --> 00:08:30,760
+Now this situation
+very much points
+
+188
+00:08:30,760 --> 00:08:33,380
+to the idea of
+progressive enhancement
+
+189
+00:08:33,380 --> 00:08:34,990
+in internet
+technology, which means
+
+190
+00:08:34,990 --> 00:08:37,840
+we need to keep all of
+our user's possible errors
+
+191
+00:08:37,840 --> 00:08:40,490
+in mind at all times.
+
+192
+00:08:40,490 --> 00:08:43,760
+When dealing with our string
+to number conversions,
+
+193
+00:08:43,760 --> 00:08:47,580
+it's going to be very prudent,
+very helpful, cautious,
+
+194
+00:08:47,580 --> 00:08:51,240
+to make sure that we pass
+in a defining radix value.
+
+195
+00:08:51,240 --> 00:08:55,050
+The radix value is going
+to tell parseint exactly
+
+196
+00:08:55,050 --> 00:09:00,020
+which base in which you want
+your value to be treated.
+
+197
+00:09:00,020 --> 00:09:03,230
+So here you can see we've got
+a parseint method on that 021
+
+198
+00:09:03,230 --> 00:09:03,730
+string.
+
+199
+00:09:03,730 --> 00:09:05,382
+But now we're going
+to pass in 10.
+
+200
+00:09:05,382 --> 00:09:06,840
+And that's going
+to say, yo, I want
+
+201
+00:09:06,840 --> 00:09:09,506
+this to be a decimal value,
+whatever you get out of it.
+
+202
+00:09:09,506 --> 00:09:11,880
+So parseint's going to take
+that radix value, look at it,
+
+203
+00:09:11,880 --> 00:09:15,160
+say OK, decimal value,
+got it, and send it back.
+
+204
+00:09:15,160 --> 00:09:17,450
+And we get 21.
+
+205
+00:09:17,450 --> 00:09:21,080
+Always do this when you cannot
+be assured of a browser version
+
+206
+00:09:21,080 --> 00:09:22,690
+or a user's input.
+
+207
+00:09:22,690 --> 00:09:25,940
+In other words, forever.
+
+208
+00:09:25,940 --> 00:09:29,650
+Another cautionary tale we want
+to tell here in this section
+
+209
+00:09:29,650 --> 00:09:31,950
+is that of testing
+for number presence
+
+210
+00:09:31,950 --> 00:09:35,370
+before you try to do an
+operation with that number.
+
+211
+00:09:35,370 --> 00:09:39,880
+Now, using not a number to
+check if values actually exist,
+
+212
+00:09:39,880 --> 00:09:41,210
+that seems like a good idea.
+
+213
+00:09:41,210 --> 00:09:44,180
+Not a number, If I can use not a
+number that should work, right?
+
+214
+00:09:44,180 --> 00:09:47,017
+Usually tries to kill you.
+
+215
+00:09:47,017 --> 00:09:47,850
+Take a look at this.
+
+216
+00:09:47,850 --> 00:09:53,480
+If I do typeof not a
+number that's a number.
+
+217
+00:09:53,480 --> 00:09:59,320
+The typeof not a
+number is a number.
+
+218
+00:09:59,320 --> 00:10:03,000
+OK, so if I got
+console.log not a number,
+
+219
+00:10:03,000 --> 00:10:04,740
+triple equals not a
+number, I'm trying
+
+220
+00:10:04,740 --> 00:10:07,276
+to see if not a number
+is, in fact, not a number.
+
+221
+00:10:07,276 --> 00:10:07,900
+And guess what?
+
+222
+00:10:07,900 --> 00:10:13,060
+That's false, not a
+number is not a number,
+
+223
+00:10:13,060 --> 00:10:15,980
+is not not a number, something.
+
+224
+00:10:15,980 --> 00:10:17,050
+Right, crazy.
+
+225
+00:10:17,050 --> 00:10:20,590
+And then if I use that is
+not a number method, which
+
+226
+00:10:20,590 --> 00:10:25,980
+a lot of people turn to, on
+the string 42, that's false.
+
+227
+00:10:25,980 --> 00:10:28,860
+Because this is a string.
+
+228
+00:10:28,860 --> 00:10:29,890
+This is a string.
+
+229
+00:10:29,890 --> 00:10:31,950
+And it's not a number.
+
+230
+00:10:31,950 --> 00:10:34,830
+It's not a number
+because it's a string.
+
+231
+00:10:34,830 --> 00:10:36,055
+I don't know.
+
+232
+00:10:36,055 --> 00:10:38,180
+Yeah, it's kind of crazy
+in the number environment,
+
+233
+00:10:38,180 --> 00:10:39,388
+especially with not a number.
+
+234
+00:10:39,388 --> 00:10:42,620
+And it turns out this is not
+a number method is actually
+
+235
+00:10:42,620 --> 00:10:48,720
+looking strictly for the
+value not a number itself.
+
+236
+00:10:48,720 --> 00:10:49,980
+Fun.
+
+237
+00:10:49,980 --> 00:10:53,240
+What we want to give you here
+in terms of best practice
+
+238
+00:10:53,240 --> 00:10:57,450
+is please, for your own
+sake, do a double check
+
+239
+00:10:57,450 --> 00:10:59,710
+to avoid insanity.
+
+240
+00:10:59,710 --> 00:11:02,360
+If you're unsure
+about the data type,
+
+241
+00:11:02,360 --> 00:11:04,980
+but you're very highly
+reliant on the fact
+
+242
+00:11:04,980 --> 00:11:08,060
+that it is a number,
+you got to use typeof
+
+243
+00:11:08,060 --> 00:11:11,345
+and is not a number
+as a best practice.
+
+244
+00:11:11,345 --> 00:11:12,220
+Let's check that out.
+
+245
+00:11:12,220 --> 00:11:14,053
+So if I build, over
+here, is a function that
+
+246
+00:11:14,053 --> 00:11:17,890
+says is this actually
+a number, don't lie,
+
+247
+00:11:17,890 --> 00:11:20,514
+and I pass in some
+data, right, what
+
+248
+00:11:20,514 --> 00:11:22,180
+it's going to do is
+it's going to return
+
+249
+00:11:22,180 --> 00:11:24,990
+the Boolean result of this
+compound conditional in here.
+
+250
+00:11:24,990 --> 00:11:28,110
+First thing it does is it checks
+to see if the type of data
+
+251
+00:11:28,110 --> 00:11:32,310
+is in fact a JavaScript
+number value, right?
+
+252
+00:11:32,310 --> 00:11:34,240
+Not only does that
+have to be true,
+
+253
+00:11:34,240 --> 00:11:39,250
+but we also have to make sure
+that the data is not, in fact,
+
+254
+00:11:39,250 --> 00:11:42,410
+not a number, the
+value, NaN, right?
+
+255
+00:11:42,410 --> 00:11:43,680
+Because look up at the top.
+
+256
+00:11:43,680 --> 00:11:46,340
+type of not a number,
+that's a number.
+
+257
+00:11:46,340 --> 00:11:50,900
+So if I just check to see
+if the data is a number,
+
+258
+00:11:50,900 --> 00:11:55,210
+I could be screwed if my
+value is actually NaN, right?
+
+259
+00:11:55,210 --> 00:11:57,060
+So we want to do
+both of those checks
+
+260
+00:11:57,060 --> 00:11:59,140
+to actually make
+sure that we have
+
+261
+00:11:59,140 --> 00:12:01,190
+the number that
+we're looking for.
+
+262
+00:12:01,190 --> 00:12:04,250
+Checking that out over here, if
+I call is this actually number,
+
+263
+00:12:04,250 --> 00:12:07,550
+don't lie on 640, I get a true
+because, cool, that's a number
+
+264
+00:12:07,550 --> 00:12:10,930
+and it's also not NaN.
+
+265
+00:12:10,930 --> 00:12:14,420
+If I call that method
+on the string 640,
+
+266
+00:12:14,420 --> 00:12:17,980
+well the first part of
+my condition, my compound
+
+267
+00:12:17,980 --> 00:12:21,542
+conditional, breaks
+because typeof data is not
+
+268
+00:12:21,542 --> 00:12:22,250
+in fact a number.
+
+269
+00:12:22,250 --> 00:12:23,840
+And so I get false.
+
+270
+00:12:23,840 --> 00:12:25,260
+And now here's
+where the money is.
+
+271
+00:12:25,260 --> 00:12:30,260
+This is where you have avoided
+getting any wrong answers back.
+
+272
+00:12:30,260 --> 00:12:32,210
+Is this actually a
+number, don't lie
+
+273
+00:12:32,210 --> 00:12:35,370
+on not a number, that's
+going to be false,
+
+274
+00:12:35,370 --> 00:12:38,080
+because the second part of
+our compound conditional
+
+275
+00:12:38,080 --> 00:12:42,304
+will not be correct.
+
+276
+00:12:42,304 --> 00:12:43,720
+Now if you want a
+little leniency,
+
+277
+00:12:43,720 --> 00:12:46,560
+especially for form data, which
+we know can come back crazy
+
+278
+00:12:46,560 --> 00:12:50,220
+all the time, then you
+want to use parse methods.
+
+279
+00:12:50,220 --> 00:12:53,670
+If numerical data may show
+up some time as a string then
+
+280
+00:12:53,670 --> 00:12:57,390
+you want to parse your data
+before you do your check,
+
+281
+00:12:57,390 --> 00:12:59,910
+and also add additional checks.
+
+282
+00:12:59,910 --> 00:13:01,200
+So let's check it out.
+
+283
+00:13:01,200 --> 00:13:04,240
+We're going to build a function
+here called check valid zip.
+
+284
+00:13:04,240 --> 00:13:07,780
+We're going to check on a
+valid zip code in some field.
+
+285
+00:13:07,780 --> 00:13:10,610
+First, we'll actually
+get the entered zip code
+
+286
+00:13:10,610 --> 00:13:14,730
+from the value of
+the zip ID element.
+
+287
+00:13:14,730 --> 00:13:17,340
+Next, we will try to
+parseint on that entry
+
+288
+00:13:17,340 --> 00:13:19,850
+and pass it to the
+user zip variable.
+
+289
+00:13:19,850 --> 00:13:21,850
+Then, we'll get a
+try/catch block going.
+
+290
+00:13:21,850 --> 00:13:24,060
+Oh, we're back to those, huh?
+
+291
+00:13:24,060 --> 00:13:29,070
+If is this actually a number,
+don't lie on user's zip,
+
+292
+00:13:29,070 --> 00:13:31,281
+meaning we do actually
+have a number here,
+
+293
+00:13:31,281 --> 00:13:32,780
+then what we're
+going to do is check
+
+294
+00:13:32,780 --> 00:13:37,950
+to make sure the length of
+that zip code is only five.
+
+295
+00:13:37,950 --> 00:13:39,760
+So we've taken the
+user's zip, we've
+
+296
+00:13:39,760 --> 00:13:42,280
+fixed it to a zero
+decimal length.
+
+297
+00:13:42,280 --> 00:13:45,590
+And if that length happens
+to be five of that number,
+
+298
+00:13:45,590 --> 00:13:47,690
+then we will actually
+get the number five out.
+
+299
+00:13:47,690 --> 00:13:51,810
+And we will return true,
+our valid zip is cool.
+
+300
+00:13:51,810 --> 00:13:54,350
+Otherwise we're going to
+throw an error that says nope,
+
+301
+00:13:54,350 --> 00:13:55,860
+it ain't good.
+
+302
+00:13:55,860 --> 00:13:58,420
+And then, in that
+second else block,
+
+303
+00:13:58,420 --> 00:14:01,780
+we're going to throw an error if
+our is this actually a number,
+
+304
+00:14:01,780 --> 00:14:05,960
+don't lie method found out that
+our user's zip was not in fact
+
+305
+00:14:05,960 --> 00:14:07,000
+a number.
+
+306
+00:14:07,000 --> 00:14:08,770
+And then in our
+catch block we'll
+
+307
+00:14:08,770 --> 00:14:10,550
+just handle the
+error gracefully,
+
+308
+00:14:10,550 --> 00:14:13,220
+telling the user to
+please enter a valid zip,
+
+309
+00:14:13,220 --> 00:14:16,540
+do it, and return false
+from check valid zip.
+
+310
+00:14:16,540 --> 00:14:19,390
+We could put a bunch of other
+error responses there as well.
+
+311
+00:14:19,390 --> 00:14:21,940
+So now, over here, if
+we got a zip code field
+
+312
+00:14:21,940 --> 00:14:26,580
+and we enter 32803, then
+we get a true value back
+
+313
+00:14:26,580 --> 00:14:29,020
+because we have a length
+five on our zip code
+
+314
+00:14:29,020 --> 00:14:31,170
+and it's actually a number.
+
+315
+00:14:31,170 --> 00:14:33,740
+But, if when we were
+entering that zip code
+
+316
+00:14:33,740 --> 00:14:38,210
+we hit 3280 and our finger was
+actually hitting this Shift
+
+317
+00:14:38,210 --> 00:14:40,490
+key, and we put 3 down
+and it gave us a number,
+
+318
+00:14:40,490 --> 00:14:42,880
+and we entered that, we
+would get a false back
+
+319
+00:14:42,880 --> 00:14:45,490
+from our check valid
+zip because we do not
+
+320
+00:14:45,490 --> 00:14:47,870
+have an actual number going on.
+
+321
+00:14:47,870 --> 00:14:50,146
+Yeah.
+
+322
+00:14:50,146 --> 00:14:52,950
+So that is the end of
+the Nonsense of Numbers,
+
+323
+00:14:52,950 --> 00:14:56,480
+and also the end of
+the Crystal of Caution.
+
+324
+00:14:56,480 --> 00:14:59,960
+We will give you some challenges
+on crazy number stuff.
+
+325
+00:14:59,960 --> 00:15:04,010
+And we'll see you back
+in the next level.
+
+326
+00:15:04,010 --> 00:15:05,650
+[BEEPING]
+
+327
+00:15:05,650 --> 00:15:07,710
+Just kill me now.
+
+328
+00:15:07,710 --> 00:15:08,210
+[BEEPING]
+
+329
+00:15:08,210 --> 00:15:10,620
+T-shirt objects,
+or something nuts.
+
+330
+00:15:10,620 --> 00:15:15,630
+[LAUGHING] Why would there be
+t-shirt objects in the armory?
+
+331
+00:15:15,630 --> 00:15:16,931
+[LAUGHING]
+
+332
+00:15:16,931 --> 00:15:17,430
+[BEEPING]
+
+333
+00:15:17,430 --> 00:15:20,480
+I D or-- [COUGHING]
+
+334
+00:15:20,480 --> 00:15:21,088
