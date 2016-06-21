@@ -1,0 +1,1130 @@
+1
+00:00:03,060 --> 00:00:05,284
+Welcome back to App
+Evolution with Swift.
+
+2
+00:00:05,284 --> 00:00:06,700
+In this level,
+we're going to look
+
+3
+00:00:06,700 --> 00:00:09,320
+at how we can link views
+and buttons up to code.
+
+4
+00:00:13,130 --> 00:00:15,560
+We've already got a
+label displaying text,
+
+5
+00:00:15,560 --> 00:00:18,620
+and an image view displaying
+an image in our storyboard.
+
+6
+00:00:18,620 --> 00:00:21,970
+But we want to be able to
+set those values in code.
+
+7
+00:00:21,970 --> 00:00:25,344
+We also want to make the
+button respond to being tapped.
+
+8
+00:00:25,344 --> 00:00:27,010
+The place we're going
+to write that code
+
+9
+00:00:27,010 --> 00:00:29,784
+is in a view controller.
+
+10
+00:00:29,784 --> 00:00:31,450
+You might have noticed
+in the storyboard
+
+11
+00:00:31,450 --> 00:00:35,400
+that the main view is embedded
+inside of a view controller.
+
+12
+00:00:35,400 --> 00:00:37,190
+The reason for having
+a controller object
+
+13
+00:00:37,190 --> 00:00:40,360
+separate from a view object is
+that you can separate program
+
+14
+00:00:40,360 --> 00:00:42,790
+logic from the display of data.
+
+15
+00:00:42,790 --> 00:00:47,890
+This is commonly referred to
+as MVC, model view controller.
+
+16
+00:00:47,890 --> 00:00:49,960
+Separating these two
+out makes code easier
+
+17
+00:00:49,960 --> 00:00:53,940
+to understand than just having
+all of it in one big file.
+
+18
+00:00:53,940 --> 00:00:57,220
+View controllers can tell
+a view what to display,
+
+19
+00:00:57,220 --> 00:00:59,010
+and then views can
+tell controllers
+
+20
+00:00:59,010 --> 00:01:01,629
+when the user is
+interacting with them.
+
+21
+00:01:01,629 --> 00:01:03,170
+We've got to do a
+little bit of setup
+
+22
+00:01:03,170 --> 00:01:06,450
+in the storyboard to connect the
+view controller to Swift code,
+
+23
+00:01:06,450 --> 00:01:10,870
+so let's jump back into
+Xcode and get that set up.
+
+24
+00:01:10,870 --> 00:01:12,320
+Let's create our
+first Swift file
+
+25
+00:01:12,320 --> 00:01:14,180
+so we can write code
+to change the label
+
+26
+00:01:14,180 --> 00:01:17,150
+text, the image
+displayed, and that we
+
+27
+00:01:17,150 --> 00:01:20,160
+can use to respond to
+taps on the button.
+
+28
+00:01:20,160 --> 00:01:24,210
+To start, click on the folder
+name in the project navigator.
+
+29
+00:01:24,210 --> 00:01:28,990
+Right click on it,
+and choose New File.
+
+30
+00:01:28,990 --> 00:01:31,130
+In this list of file
+templates that come up,
+
+31
+00:01:31,130 --> 00:01:33,970
+we'll want to make sure we're
+looking at the iOS source
+
+32
+00:01:33,970 --> 00:01:35,530
+section.
+
+33
+00:01:35,530 --> 00:01:38,510
+And you might think we want
+the Swift file template,
+
+34
+00:01:38,510 --> 00:01:42,830
+but we actually want
+Cocoa Touch Class.
+
+35
+00:01:42,830 --> 00:01:44,990
+Then we hit Next and
+we're asked what name
+
+36
+00:01:44,990 --> 00:01:47,750
+we want for this class.
+
+37
+00:01:47,750 --> 00:01:53,312
+We'll delete what's there and
+type ProductViewController,
+
+38
+00:01:53,312 --> 00:01:55,353
+and for the subclass we'll
+type UIViewController.
+
+39
+00:01:59,740 --> 00:02:01,887
+We don't need to
+create a XIB file,
+
+40
+00:02:01,887 --> 00:02:04,220
+but we do want to make sure
+the language for the project
+
+41
+00:02:04,220 --> 00:02:06,610
+is set to Swift.
+
+42
+00:02:06,610 --> 00:02:08,490
+Then when we hit Next,
+we're asked where
+
+43
+00:02:08,490 --> 00:02:10,380
+we want to save this file.
+
+44
+00:02:10,380 --> 00:02:12,950
+In our default save location
+is the project folder,
+
+45
+00:02:12,950 --> 00:02:14,890
+which is a good
+place to save it.
+
+46
+00:02:14,890 --> 00:02:17,650
+When we hit Create, we'll get
+our ProductViewController dot
+
+47
+00:02:17,650 --> 00:02:19,820
+Swift file.
+
+48
+00:02:19,820 --> 00:02:21,680
+You'll notice there's
+some starter code.
+
+49
+00:02:21,680 --> 00:02:23,760
+We won't need all of that.
+
+50
+00:02:23,760 --> 00:02:25,890
+We don't need the
+didReceiveMemoryWarning
+
+51
+00:02:25,890 --> 00:02:29,470
+function or the whole navigation
+section at the bottom.
+
+52
+00:02:29,470 --> 00:02:32,590
+Notice that we are leaving one
+curly bracket after the stuff
+
+53
+00:02:32,590 --> 00:02:33,590
+we're deleting.
+
+54
+00:02:33,590 --> 00:02:35,960
+This is the closing curly
+bracket for that class
+
+55
+00:02:35,960 --> 00:02:39,480
+that's opened on line 11,
+so that one needs to stay.
+
+56
+00:02:39,480 --> 00:02:43,119
+So we'll highlight both
+of those and hit Delete.
+
+57
+00:02:43,119 --> 00:02:45,410
+When we delete that code,
+we've got a really nice start
+
+58
+00:02:45,410 --> 00:02:46,830
+to the Swift file.
+
+59
+00:02:46,830 --> 00:02:48,650
+There's one more
+step, though-- we
+
+60
+00:02:48,650 --> 00:02:50,880
+need to associate this
+ViewController Swift
+
+61
+00:02:50,880 --> 00:02:53,070
+file with the view
+controller object that's
+
+62
+00:02:53,070 --> 00:02:55,330
+in the storyboard.
+
+63
+00:02:55,330 --> 00:02:58,350
+So we'll go back into
+the storyboard file,
+
+64
+00:02:58,350 --> 00:03:04,720
+click on the View Controller
+in the scene navigator,
+
+65
+00:03:04,720 --> 00:03:08,520
+and click on the third page
+of the Inspector panel.
+
+66
+00:03:08,520 --> 00:03:10,830
+In that panel, we'll click
+into the class setting
+
+67
+00:03:10,830 --> 00:03:14,470
+at the top for the custom
+class section and type
+
+68
+00:03:14,470 --> 00:03:18,670
+ProductViewController
+and hit Enter.
+
+69
+00:03:18,670 --> 00:03:21,310
+We can check that it worked
+because the scene navigator now
+
+70
+00:03:21,310 --> 00:03:24,360
+updates to show that the name
+changed from ViewController
+
+71
+00:03:24,360 --> 00:03:26,674
+to ProductViewController.
+
+72
+00:03:26,674 --> 00:03:28,340
+Now our storyboard
+ProductViewController
+
+73
+00:03:28,340 --> 00:03:31,620
+is linked up with our
+ProductViewController dot Swift
+
+74
+00:03:31,620 --> 00:03:32,120
+file.
+
+75
+00:03:35,310 --> 00:03:38,320
+To be able to change a subview
+in a storyboard with code,
+
+76
+00:03:38,320 --> 00:03:40,387
+we need to create an outlet.
+
+77
+00:03:40,387 --> 00:03:41,970
+Outlets are a way
+to make a connection
+
+78
+00:03:41,970 --> 00:03:46,594
+between a storyboard object
+and a variable in a Swift file.
+
+79
+00:03:46,594 --> 00:03:48,260
+Although the main
+view was automatically
+
+80
+00:03:48,260 --> 00:03:49,810
+connected when we
+linked our Swift
+
+81
+00:03:49,810 --> 00:03:52,420
+file to the ViewController
+in the storyboard,
+
+82
+00:03:52,420 --> 00:03:56,090
+all the subviews still need
+to be manually connected.
+
+83
+00:03:56,090 --> 00:03:57,990
+These connections
+are called outlets,
+
+84
+00:03:57,990 --> 00:04:00,650
+and we need to create one
+between our ViewController
+
+85
+00:04:00,650 --> 00:04:03,520
+and label subview so that
+the controller can tell
+
+86
+00:04:03,520 --> 00:04:05,930
+the label what text to show.
+
+87
+00:04:05,930 --> 00:04:08,520
+Then in the Swift file,
+you can create a variable
+
+88
+00:04:08,520 --> 00:04:11,550
+and mark it as an
+outlet there, too.
+
+89
+00:04:11,550 --> 00:04:14,470
+Remember the controller Swift
+file and the storyboard view
+
+90
+00:04:14,470 --> 00:04:16,560
+controller are
+already connected,
+
+91
+00:04:16,560 --> 00:04:18,870
+but that outlet makes a
+connection with the subviews,
+
+92
+00:04:18,870 --> 00:04:20,560
+as well.
+
+93
+00:04:20,560 --> 00:04:26,110
+Let's jump back into Xcode to
+see how to create an outlet.
+
+94
+00:04:26,110 --> 00:04:28,070
+To create an outlet
+between the Swift file
+
+95
+00:04:28,070 --> 00:04:30,240
+and storyboard, the
+easiest thing to do
+
+96
+00:04:30,240 --> 00:04:32,586
+is open up the assistant editor.
+
+97
+00:04:32,586 --> 00:04:35,430
+The icon looks like two
+interlocking circles up
+
+98
+00:04:35,430 --> 00:04:36,940
+in the toolbar.
+
+99
+00:04:36,940 --> 00:04:38,590
+When we click that
+icon, it's kind of
+
+100
+00:04:38,590 --> 00:04:40,980
+hard to read what's
+on the screen.
+
+101
+00:04:40,980 --> 00:04:43,020
+The default layout is
+to have the storyboard
+
+102
+00:04:43,020 --> 00:04:46,882
+on the left and the associated
+Swift file on the right.
+
+103
+00:04:46,882 --> 00:04:48,340
+We're going to
+change that, though,
+
+104
+00:04:48,340 --> 00:04:51,120
+by clicking on the
+tiny drop down arrow
+
+105
+00:04:51,120 --> 00:04:56,280
+and setting the assistant
+editor to appear on the bottom.
+
+106
+00:04:56,280 --> 00:04:58,130
+Now it's easier to see
+the storyboard scene
+
+107
+00:04:58,130 --> 00:05:02,790
+navigator and editor, and
+the Swift file down below.
+
+108
+00:05:02,790 --> 00:05:05,950
+Next we'll click on the label in
+the scene navigator and control
+
+109
+00:05:05,950 --> 00:05:09,540
+click from that label
+down to the Swift file,
+
+110
+00:05:09,540 --> 00:05:14,530
+right in between the class line
+and the viewDidLoad function.
+
+111
+00:05:14,530 --> 00:05:16,270
+When we let go of
+the mouse button,
+
+112
+00:05:16,270 --> 00:05:19,160
+another little helper pops up.
+
+113
+00:05:19,160 --> 00:05:23,330
+We want to create an outlet, so
+the first default is correct.
+
+114
+00:05:23,330 --> 00:05:26,660
+It's happening on the Product
+View Controller object,
+
+115
+00:05:26,660 --> 00:05:29,280
+and we need a name that will
+become a variable in the Swift
+
+116
+00:05:29,280 --> 00:05:33,710
+file that we can use to access
+the label in the storyboard.
+
+117
+00:05:33,710 --> 00:05:35,760
+This name could be anything,
+but it's a good idea
+
+118
+00:05:35,760 --> 00:05:37,640
+to name it something obvious.
+
+119
+00:05:37,640 --> 00:05:40,960
+So here we'll use the
+name productNameLabel.
+
+120
+00:05:40,960 --> 00:05:43,330
+The type is a
+UILabel-- that just
+
+121
+00:05:43,330 --> 00:05:47,240
+has to match the type of the
+object in the storyboard--
+
+122
+00:05:47,240 --> 00:05:49,060
+and the storage should
+be left as Weak.
+
+123
+00:05:51,730 --> 00:05:53,890
+Then when you hit
+Connect the outlet code
+
+124
+00:05:53,890 --> 00:05:56,030
+gets automatically
+generated for you,
+
+125
+00:05:56,030 --> 00:05:58,800
+and you see a darkened in
+circle to the left of the line
+
+126
+00:05:58,800 --> 00:05:59,730
+numbers.
+
+127
+00:05:59,730 --> 00:06:02,630
+That means the
+outlet is connected.
+
+128
+00:06:02,630 --> 00:06:05,200
+We're going to make one
+more change here, though.
+
+129
+00:06:05,200 --> 00:06:06,990
+Instead of putting
+the name of this phone
+
+130
+00:06:06,990 --> 00:06:09,570
+inside of the label
+in the storyboard,
+
+131
+00:06:09,570 --> 00:06:11,740
+we're going to go back
+into the Attributes panel
+
+132
+00:06:11,740 --> 00:06:14,025
+and we're going to change
+the text to Phone Name.
+
+133
+00:06:16,707 --> 00:06:19,290
+That way, we'll know for sure
+if setting the name of the phone
+
+134
+00:06:19,290 --> 00:06:22,090
+and code works because if
+the text when we're done
+
+135
+00:06:22,090 --> 00:06:24,070
+is different from
+phone and name,
+
+136
+00:06:24,070 --> 00:06:28,640
+we know we successfully
+changed the text from code.
+
+137
+00:06:28,640 --> 00:06:30,080
+Here's what
+ProductViewController
+
+138
+00:06:30,080 --> 00:06:34,330
+dot Swift looks like after
+we create that outlet.
+
+139
+00:06:34,330 --> 00:06:36,390
+Now we can access
+our storyboard label
+
+140
+00:06:36,390 --> 00:06:39,990
+in the controller with
+the name productNameLabel.
+
+141
+00:06:39,990 --> 00:06:43,840
+But where do we write code that
+will change the label's text?
+
+142
+00:06:43,840 --> 00:06:48,816
+To answer that, let's look at
+what happens when an app runs.
+
+143
+00:06:48,816 --> 00:06:50,690
+You might have noticed
+a file in your project
+
+144
+00:06:50,690 --> 00:06:54,520
+that was automatically created
+called AppDelegate dot swift.
+
+145
+00:06:54,520 --> 00:06:56,920
+That runs a function
+called UIApplicationMain
+
+146
+00:06:56,920 --> 00:06:59,290
+that actually starts your app.
+
+147
+00:06:59,290 --> 00:07:01,620
+Once the app starts, it
+looks for a file called
+
+148
+00:07:01,620 --> 00:07:05,410
+Info dot plist, which is also
+automatically created for you,
+
+149
+00:07:05,410 --> 00:07:07,200
+and that Info dot
+plist file is where
+
+150
+00:07:07,200 --> 00:07:10,590
+the name of the
+storyboard file is set.
+
+151
+00:07:10,590 --> 00:07:12,890
+Next, the storyboard loads
+the view controller that's
+
+152
+00:07:12,890 --> 00:07:15,640
+set as the initial
+ViewController,
+
+153
+00:07:15,640 --> 00:07:18,920
+then that View Controller
+loads its view,
+
+154
+00:07:18,920 --> 00:07:20,570
+and loading that
+view automatically
+
+155
+00:07:20,570 --> 00:07:23,460
+runs the viewDidLoad function.
+
+156
+00:07:23,460 --> 00:07:25,560
+And we'll set the text
+for the label inside
+
+157
+00:07:25,560 --> 00:07:27,560
+of that viewDidLoad function.
+
+158
+00:07:27,560 --> 00:07:30,630
+We can do it like this-- by
+writing productNameLabel dot
+
+159
+00:07:30,630 --> 00:07:33,810
+text and setting it
+equal to a string, which
+
+160
+00:07:33,810 --> 00:07:37,320
+is just some characters
+or numbers in quotes.
+
+161
+00:07:37,320 --> 00:07:39,650
+We can do this because the
+type of the label variable
+
+162
+00:07:39,650 --> 00:07:43,920
+is UI label, and UI labels
+have a property called text
+
+163
+00:07:43,920 --> 00:07:47,050
+that we can set to change
+the text of the label.
+
+164
+00:07:47,050 --> 00:07:50,707
+But how did we know that UI
+labels have this property?
+
+165
+00:07:50,707 --> 00:07:52,540
+If you want to check
+out what properties you
+
+166
+00:07:52,540 --> 00:07:54,300
+can set for each
+type of object, you
+
+167
+00:07:54,300 --> 00:07:57,480
+can check out Apple's
+official documentation.
+
+168
+00:07:57,480 --> 00:08:01,300
+Here's one item from the Swift
+documentation for UI label.
+
+169
+00:08:01,300 --> 00:08:04,660
+Docs show properties and
+functions for each class.
+
+170
+00:08:04,660 --> 00:08:07,920
+The colon string here means that
+the text property is expecting
+
+171
+00:08:07,920 --> 00:08:11,320
+us to assign a string to it.
+
+172
+00:08:11,320 --> 00:08:14,310
+It's impossible to remember
+every property of every class
+
+173
+00:08:14,310 --> 00:08:16,430
+in UI Kit, so you
+end up referencing
+
+174
+00:08:16,430 --> 00:08:20,700
+the documentation a lot
+when you're building an app.
+
+175
+00:08:20,700 --> 00:08:22,210
+When we build and
+run our app, we
+
+176
+00:08:22,210 --> 00:08:25,000
+see that our text
+did, in fact, change.
+
+177
+00:08:25,000 --> 00:08:28,230
+Remember in our storyboard, we
+just set some placeholder text,
+
+178
+00:08:28,230 --> 00:08:31,440
+but our Swift file
+code overwrote that.
+
+179
+00:08:31,440 --> 00:08:33,792
+Now let's jump back into
+Xcode and do the same thing
+
+180
+00:08:33,792 --> 00:08:34,375
+with an image.
+
+181
+00:08:37,260 --> 00:08:38,900
+Still in our
+assistant editor view
+
+182
+00:08:38,900 --> 00:08:40,620
+where the storyboard
+is at the top
+
+183
+00:08:40,620 --> 00:08:42,830
+and the code is at the
+bottom, let's click
+
+184
+00:08:42,830 --> 00:08:45,570
+on the Image View in
+the scene navigator,
+
+185
+00:08:45,570 --> 00:08:47,870
+and control click and
+drag from the image view
+
+186
+00:08:47,870 --> 00:08:52,600
+object down to the Swift file
+in between the first outlet
+
+187
+00:08:52,600 --> 00:08:55,020
+and the viewDidLoad function.
+
+188
+00:08:55,020 --> 00:08:57,500
+We get a little helper
+like we did before.
+
+189
+00:08:57,500 --> 00:09:01,000
+This is, again, an outlet on
+the Product View Controller.
+
+190
+00:09:01,000 --> 00:09:05,200
+For the name this time,
+we'll use productImageView,
+
+191
+00:09:05,200 --> 00:09:11,130
+the type is a UIImageView, and
+the storage will be Weak again.
+
+192
+00:09:11,130 --> 00:09:13,800
+Now we've got another outlet,
+this time connecting the Image
+
+193
+00:09:13,800 --> 00:09:17,090
+View to a variable in code.
+
+194
+00:09:17,090 --> 00:09:19,680
+Like before, when we wanted
+to test if this was working,
+
+195
+00:09:19,680 --> 00:09:21,640
+we deleted the label text.
+
+196
+00:09:21,640 --> 00:09:24,870
+So we'll go into the Inspector
+panel for the image view,
+
+197
+00:09:24,870 --> 00:09:30,630
+highlight the image name,
+delete it, and hit Return.
+
+198
+00:09:30,630 --> 00:09:32,640
+Now there's no image
+set in this view
+
+199
+00:09:32,640 --> 00:09:34,580
+controller in the storyboard.
+
+200
+00:09:34,580 --> 00:09:37,680
+So we're going to have to
+be able to set it in code.
+
+201
+00:09:37,680 --> 00:09:42,100
+Let's jump back into slides
+to see how to do that.
+
+202
+00:09:42,100 --> 00:09:44,550
+Just like before, our
+controller Swift file now
+
+203
+00:09:44,550 --> 00:09:47,230
+has a property for
+accessing the Image View,
+
+204
+00:09:47,230 --> 00:09:50,000
+and we can set the image
+property of that Image View
+
+205
+00:09:50,000 --> 00:09:52,780
+to a new UIImage
+object, and we'll
+
+206
+00:09:52,780 --> 00:09:55,890
+pass in the string phone
+dash full screen 3
+
+207
+00:09:55,890 --> 00:09:59,550
+for the name of that image.
+
+208
+00:09:59,550 --> 00:10:01,640
+Let's look at how the
+UIImage class works.
+
+209
+00:10:04,860 --> 00:10:06,900
+Writing the name of a
+class with parentheses
+
+210
+00:10:06,900 --> 00:10:10,680
+after it, like we did here,
+runs an initializer function,
+
+211
+00:10:10,680 --> 00:10:14,980
+and that initializer function
+returns a UIImage object.
+
+212
+00:10:14,980 --> 00:10:17,310
+Here in the documentation
+for UIImage,
+
+213
+00:10:17,310 --> 00:10:19,510
+you can see there's
+an init function.
+
+214
+00:10:19,510 --> 00:10:21,130
+That init function
+is expecting you
+
+215
+00:10:21,130 --> 00:10:23,360
+to put a string with
+the named parameter
+
+216
+00:10:23,360 --> 00:10:25,830
+inside the parentheses.
+
+217
+00:10:25,830 --> 00:10:27,790
+This initializer might
+look a little confusing
+
+218
+00:10:27,790 --> 00:10:32,020
+because it looks like it has
+two parameters-- named and name.
+
+219
+00:10:32,020 --> 00:10:34,020
+But you don't actually
+have to worry about that.
+
+220
+00:10:34,020 --> 00:10:37,212
+You just have to know that the
+first word, named, is the one
+
+221
+00:10:37,212 --> 00:10:39,170
+that you'll use when
+you're passing a parameter
+
+222
+00:10:39,170 --> 00:10:42,600
+into the initializer.
+
+223
+00:10:42,600 --> 00:10:45,240
+When we were sending a label,
+we set the text property
+
+224
+00:10:45,240 --> 00:10:46,820
+equal to a string.
+
+225
+00:10:46,820 --> 00:10:49,820
+But here we're setting an
+Image View's image property
+
+226
+00:10:49,820 --> 00:10:53,640
+equal to a UIImage object,
+and this initializer
+
+227
+00:10:53,640 --> 00:10:56,440
+returns a UIImage object
+that the Image View wants.
+
+228
+00:10:59,009 --> 00:11:00,800
+And now you can see
+that the image is still
+
+229
+00:11:00,800 --> 00:11:03,870
+appearing even though we turned
+it off in the storyboard.
+
+230
+00:11:03,870 --> 00:11:07,670
+That's because it's
+set by our code.
+
+231
+00:11:07,670 --> 00:11:10,194
+Now you try setting some
+text and images in code,
+
+232
+00:11:10,194 --> 00:11:11,610
+and take some
+challenges, and I'll
+
+233
+00:11:11,610 --> 00:11:13,806
+see you in the next section.
+
