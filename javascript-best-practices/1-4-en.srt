@@ -1,4 +1,1443 @@
 ﻿1
-00:00:00,000 --> 00:00:03,000
-[ Sorry, no subtitles yet.
-  Working on it, and there will be soon! ]
+00:00:01,951 --> 00:00:02,450
+Hey, guys.
+
+2
+00:00:02,450 --> 00:00:03,250
+Welcome back.
+
+3
+00:00:03,250 --> 00:00:05,110
+I hope you enjoyed
+that set of challenges
+
+4
+00:00:05,110 --> 00:00:06,380
+on logical assignment.
+
+5
+00:00:06,380 --> 00:00:09,300
+And now we'll be moving
+into the switch block.
+
+6
+00:00:09,300 --> 00:00:10,776
+Let's take a look.
+
+7
+00:00:10,776 --> 00:00:12,150
+You can think of
+the switch block
+
+8
+00:00:12,150 --> 00:00:15,490
+as a conditional for
+multiple possibilities.
+
+9
+00:00:15,490 --> 00:00:18,940
+JavaScript has an alternate
+way of taking action
+
+10
+00:00:18,940 --> 00:00:23,190
+based on values instead
+of just Booleans.
+
+11
+00:00:23,190 --> 00:00:26,370
+So here we have eight
+different regiments.
+
+12
+00:00:26,370 --> 00:00:28,000
+And each of those
+regiments is supposed
+
+13
+00:00:28,000 --> 00:00:29,630
+to get a different weapon.
+
+14
+00:00:29,630 --> 00:00:31,380
+Each of the knights
+in those regiments
+
+15
+00:00:31,380 --> 00:00:36,060
+needs to hold on to some
+different killing device.
+
+16
+00:00:36,060 --> 00:00:38,760
+Let's say we had a
+knight constructor,
+
+17
+00:00:38,760 --> 00:00:40,600
+and inside that
+knight constructor
+
+18
+00:00:40,600 --> 00:00:43,780
+we were passed a
+name and a regiment
+
+19
+00:00:43,780 --> 00:00:47,500
+in order to assign that new
+knight to a specific regiment
+
+20
+00:00:47,500 --> 00:00:48,720
+and give them a name.
+
+21
+00:00:48,720 --> 00:00:52,740
+Then we have this
+extra long series
+
+22
+00:00:52,740 --> 00:00:56,580
+of conditional statements to
+check and see what the regiment
+
+23
+00:00:56,580 --> 00:01:02,050
+value is in order to assign
+that knight the correct weapon.
+
+24
+00:01:02,050 --> 00:01:04,190
+So if we made a new
+soldier variable,
+
+25
+00:01:04,190 --> 00:01:07,020
+and we assigned it a knight
+from the constructor,
+
+26
+00:01:07,020 --> 00:01:08,880
+we would pass in,
+let's say Timothy,
+
+27
+00:01:08,880 --> 00:01:11,760
+and he should be
+assigned to regiment 2.
+
+28
+00:01:11,760 --> 00:01:13,820
+When we logged out
+this soldier's weapon,
+
+29
+00:01:13,820 --> 00:01:16,180
+you can see that we
+would get the Claymore.
+
+30
+00:01:16,180 --> 00:01:20,720
+But in this code, it's
+tedious to type all of this
+
+31
+00:01:20,720 --> 00:01:23,600
+out, where you are
+repeatedly using if and else.
+
+32
+00:01:23,600 --> 00:01:25,690
+And the processor has
+to repeatedly check
+
+33
+00:01:25,690 --> 00:01:28,710
+the regiment value
+over and over again.
+
+34
+00:01:28,710 --> 00:01:30,990
+We can use instead
+a cool JavaScript
+
+35
+00:01:30,990 --> 00:01:36,240
+keyword that will jump directly
+to the right action to take.
+
+36
+00:01:36,240 --> 00:01:38,090
+The switch key
+word will allow us
+
+37
+00:01:38,090 --> 00:01:41,010
+to assign a weapon
+based on a value itself,
+
+38
+00:01:41,010 --> 00:01:43,390
+but without the Boolean check.
+
+39
+00:01:43,390 --> 00:01:45,190
+First thing you do is
+place down the switch
+
+40
+00:01:45,190 --> 00:01:48,240
+keyword, and then a
+set of parentheses
+
+41
+00:01:48,240 --> 00:01:51,580
+which contain the value
+you want to switch upon.
+
+42
+00:01:51,580 --> 00:01:55,820
+It signals to the compiler to
+take some specific action based
+
+43
+00:01:55,820 --> 00:02:00,050
+on the value here, of regiment.
+
+44
+00:02:00,050 --> 00:02:02,580
+Now the switch block is going
+to contain multiple cases.
+
+45
+00:02:02,580 --> 00:02:04,080
+And each one of
+those cases is going
+
+46
+00:02:04,080 --> 00:02:06,030
+to be followed by
+one of the possible
+
+47
+00:02:06,030 --> 00:02:10,810
+or desired values of
+the switched upon value,
+
+48
+00:02:10,810 --> 00:02:13,100
+in this case, regiment.
+
+49
+00:02:13,100 --> 00:02:15,310
+Following that value,
+you see a colon.
+
+50
+00:02:15,310 --> 00:02:20,520
+That separates the case and its
+value from the action to take.
+
+51
+00:02:20,520 --> 00:02:22,780
+We're going to go ahead and
+fill in every single case
+
+52
+00:02:22,780 --> 00:02:24,540
+here for our knight constructor.
+
+53
+00:02:24,540 --> 00:02:26,220
+You can see each
+weapon is associated
+
+54
+00:02:26,220 --> 00:02:29,110
+with a different regiment value.
+
+55
+00:02:29,110 --> 00:02:31,510
+So now we feel pretty good
+about our switch block, right?
+
+56
+00:02:31,510 --> 00:02:33,176
+So let's see what
+happens when we create
+
+57
+00:02:33,176 --> 00:02:36,510
+a new soldier2 variable, and
+assign to it a new knight
+
+58
+00:02:36,510 --> 00:02:37,580
+from the constructor.
+
+59
+00:02:37,580 --> 00:02:40,870
+It's going to be Richard, and
+his regiment is going to be 4.
+
+60
+00:02:40,870 --> 00:02:43,600
+Now let's log out
+his weapon, and we
+
+61
+00:02:43,600 --> 00:02:45,740
+get-- oh, man, a Morning Star.
+
+62
+00:02:45,740 --> 00:02:46,640
+What happened?
+
+63
+00:02:46,640 --> 00:02:49,210
+What is wrong with
+our switch block?
+
+64
+00:02:49,210 --> 00:02:52,360
+Something that happens quite
+frequently-- let's take a look.
+
+65
+00:02:52,360 --> 00:02:56,400
+You can see in case 4, Richard
+should've got a Mace, right?
+
+66
+00:02:56,400 --> 00:02:59,910
+But he actually got the Morning
+Star, which is in case 8.
+
+67
+00:02:59,910 --> 00:03:04,410
+Something unique happened
+inside of our switch block.
+
+68
+00:03:04,410 --> 00:03:06,820
+The thing about JavaScript
+cases inside of a switch block
+
+69
+00:03:06,820 --> 00:03:10,510
+is that they allow
+fall-through to other cases.
+
+70
+00:03:10,510 --> 00:03:13,370
+You have to think of the
+case keyword and its value
+
+71
+00:03:13,370 --> 00:03:17,490
+as this label that
+identifies the starting point
+
+72
+00:03:17,490 --> 00:03:21,020
+for execution for the
+rest of the block.
+
+73
+00:03:21,020 --> 00:03:24,150
+Now that fall-through is a
+vestige from the very common C
+
+74
+00:03:24,150 --> 00:03:27,830
+language, around which
+JavaScript is loosely based
+
+75
+00:03:27,830 --> 00:03:29,180
+and has a relationship.
+
+76
+00:03:29,180 --> 00:03:32,070
+It came about for
+two primary reasons,
+
+77
+00:03:32,070 --> 00:03:36,360
+one people wanted to be able
+to execute more than one case
+
+78
+00:03:36,360 --> 00:03:40,520
+at a time within a single switch
+block, as well as the fact
+
+79
+00:03:40,520 --> 00:03:44,350
+that they wanted to be able to
+have multiple case values take
+
+80
+00:03:44,350 --> 00:03:46,290
+the same action.
+
+81
+00:03:46,290 --> 00:03:48,910
+So we'll look at all those
+useful situations in a bit.
+
+82
+00:03:48,910 --> 00:03:51,920
+But for right now, let's
+take a look at this block
+
+83
+00:03:51,920 --> 00:03:54,630
+and see what we
+can do to fix it.
+
+84
+00:03:54,630 --> 00:03:57,880
+Now as we said once a case label
+has been selected by the switch
+
+85
+00:03:57,880 --> 00:04:01,370
+block, all of the other
+labels that are inside
+
+86
+00:04:01,370 --> 00:04:03,990
+that switch block are
+completely ignored,
+
+87
+00:04:03,990 --> 00:04:08,230
+because the switch jump on the
+value has already occurred.
+
+88
+00:04:08,230 --> 00:04:11,140
+What that means for Richard, is
+when his number 4 gets passed
+
+89
+00:04:11,140 --> 00:04:14,170
+in right now, the switch
+block jumps to case 4
+
+90
+00:04:14,170 --> 00:04:16,660
+and assigns him
+the weapon, Mace.
+
+91
+00:04:16,660 --> 00:04:20,610
+But then the case 5 label
+is completely ignored.
+
+92
+00:04:20,610 --> 00:04:22,740
+And so he gets
+assigned War Hammer.
+
+93
+00:04:22,740 --> 00:04:27,160
+Then he falls through to case
+6, and gets assigned the Battle
+
+94
+00:04:27,160 --> 00:04:30,890
+Axe, then to 7, gets
+the Halberd, then to 8,
+
+95
+00:04:30,890 --> 00:04:33,480
+and finally, gets
+the Morning Star.
+
+96
+00:04:33,480 --> 00:04:35,700
+So fall-through can
+be a little dangerous.
+
+97
+00:04:35,700 --> 00:04:39,010
+And we need a way to fix it.
+
+98
+00:04:39,010 --> 00:04:40,170
+And what will fix it?
+
+99
+00:04:40,170 --> 00:04:42,540
+The break keyword-- the
+JavaScript break keyword
+
+100
+00:04:42,540 --> 00:04:46,150
+provides a very quick exit
+from the switch block,
+
+101
+00:04:46,150 --> 00:04:47,540
+and any block.
+
+102
+00:04:47,540 --> 00:04:50,850
+Break will allow us to leave
+an entire block of code that
+
+103
+00:04:50,850 --> 00:04:51,400
+contains it.
+
+104
+00:04:51,400 --> 00:04:54,270
+In this case, we're going
+to use for the switch.
+
+105
+00:04:54,270 --> 00:04:56,162
+So let's space out
+our constructor here.
+
+106
+00:04:56,162 --> 00:04:58,370
+We're going to shift things
+around and give ourselves
+
+107
+00:04:58,370 --> 00:05:00,170
+a little bit more space.
+
+108
+00:05:00,170 --> 00:05:06,510
+And inside each case, we're
+going to place a break keyword.
+
+109
+00:05:06,510 --> 00:05:09,420
+Now when we try to build our
+knight object for Richard
+
+110
+00:05:09,420 --> 00:05:11,630
+and we pass in his
+regiment 4, we're
+
+111
+00:05:11,630 --> 00:05:14,620
+going to jump all the way down
+to case 4, give him a Mace,
+
+112
+00:05:14,620 --> 00:05:17,810
+and break instantly out
+of the switch block,
+
+113
+00:05:17,810 --> 00:05:19,820
+since that was the only
+case that was taken.
+
+114
+00:05:19,820 --> 00:05:21,920
+When we log out
+Richard's weapon,
+
+115
+00:05:21,920 --> 00:05:26,155
+we get the Mace, as we
+expected-- woo, hoo.
+
+116
+00:05:26,155 --> 00:05:28,530
+Now we want to back up for a
+second, because fall-through
+
+117
+00:05:28,530 --> 00:05:32,230
+gets a bad rap a little
+bit out there in the wild.
+
+118
+00:05:32,230 --> 00:05:33,860
+But it can be very
+useful, and we
+
+119
+00:05:33,860 --> 00:05:38,110
+want to educate you on
+the uses of fall-through.
+
+120
+00:05:38,110 --> 00:05:40,250
+What if multiple
+cases, for example,
+
+121
+00:05:40,250 --> 00:05:42,250
+take exactly the same action?
+
+122
+00:05:42,250 --> 00:05:44,470
+We can creatively
+use fall-through
+
+123
+00:05:44,470 --> 00:05:46,700
+to make that happen and
+tighten up our code,
+
+124
+00:05:46,700 --> 00:05:48,550
+and make it more legible.
+
+125
+00:05:48,550 --> 00:05:50,040
+Let's take a look at regiment 7.
+
+126
+00:05:50,040 --> 00:05:53,260
+What if we didn't want regiment
+7 to use the Halberd anymore--
+
+127
+00:05:53,260 --> 00:05:55,600
+we wanted them to
+use the Morning Star?
+
+128
+00:05:55,600 --> 00:05:58,000
+Well, what we could
+do is completely
+
+129
+00:05:58,000 --> 00:06:00,300
+remove all of the
+contents for case 7,
+
+130
+00:06:00,300 --> 00:06:03,280
+including the break
+key word, and stack it,
+
+131
+00:06:03,280 --> 00:06:08,390
+that case label, on top of
+the case label for case 8.
+
+132
+00:06:08,390 --> 00:06:12,410
+By doing this, we've associated
+all of the subsequent actions
+
+133
+00:06:12,410 --> 00:06:14,784
+with each of those cases.
+
+134
+00:06:14,784 --> 00:06:16,200
+Now you might ask,
+well, what if I
+
+135
+00:06:16,200 --> 00:06:18,050
+wanted to move one of
+those earlier cases
+
+136
+00:06:18,050 --> 00:06:21,070
+say, a regiment 4, who
+currently is the Mace?
+
+137
+00:06:21,070 --> 00:06:23,020
+What if I wanted to
+make a regiment 4
+
+138
+00:06:23,020 --> 00:06:24,620
+use a Morning Star as well?
+
+139
+00:06:24,620 --> 00:06:27,370
+Well, JavaScript doesn't
+care about your case order.
+
+140
+00:06:27,370 --> 00:06:29,490
+So you can move around
+your numerical cases
+
+141
+00:06:29,490 --> 00:06:30,980
+and place them
+wherever you'd like.
+
+142
+00:06:39,960 --> 00:06:42,380
+Additionally, you can
+stack as many cases
+
+143
+00:06:42,380 --> 00:06:46,490
+as you'd like on any
+particular set of actions.
+
+144
+00:06:46,490 --> 00:06:49,417
+Fall-through can often be
+useful if organized well.
+
+145
+00:06:49,417 --> 00:06:50,750
+So how does that affect Richard?
+
+146
+00:06:50,750 --> 00:06:53,120
+Well, if we made our
+new knight object
+
+147
+00:06:53,120 --> 00:06:55,470
+using Richard and his
+regiment number 4, now
+
+148
+00:06:55,470 --> 00:06:58,960
+you can see that he does in
+fact get the Morning Star,
+
+149
+00:06:58,960 --> 00:07:00,910
+because of that
+useful fall-through
+
+150
+00:07:00,910 --> 00:07:04,635
+we placed in our switch block.
+
+151
+00:07:04,635 --> 00:07:06,510
+Earlier, you may have
+been asking yourselves,
+
+152
+00:07:06,510 --> 00:07:10,290
+what happens when the switch
+block gets a value that's
+
+153
+00:07:10,290 --> 00:07:14,660
+not actually present as a case
+inside of the block there?
+
+154
+00:07:14,660 --> 00:07:17,090
+Well, we have a unique
+situation for that.
+
+155
+00:07:17,090 --> 00:07:19,470
+If a case value doesn't
+happen to be there
+
+156
+00:07:19,470 --> 00:07:24,080
+in the switch block, no
+action at all will trigger.
+
+157
+00:07:24,080 --> 00:07:27,870
+So if suddenly we passed in
+Arthur, and he's the King,
+
+158
+00:07:27,870 --> 00:07:29,760
+well there is no
+King regiment, right?
+
+159
+00:07:29,760 --> 00:07:33,600
+So his weapon at the end
+of that object build,
+
+160
+00:07:33,600 --> 00:07:35,410
+would be undefined.
+
+161
+00:07:35,410 --> 00:07:37,310
+That's because the
+weapon property is never
+
+162
+00:07:37,310 --> 00:07:39,130
+actually set to a value.
+
+163
+00:07:39,130 --> 00:07:44,610
+So we can fix that by
+adding another case.
+
+164
+00:07:44,610 --> 00:07:48,660
+Notice here that this case
+for the King uses a string.
+
+165
+00:07:48,660 --> 00:07:51,120
+And that's because a string
+is a perfectly acceptable case
+
+166
+00:07:51,120 --> 00:07:51,620
+label.
+
+167
+00:07:51,620 --> 00:07:54,400
+In fact, JavaScript
+will accept any value
+
+168
+00:07:54,400 --> 00:07:57,390
+that happens to be
+matchable with what's
+
+169
+00:07:57,390 --> 00:07:59,270
+passed into its parameter.
+
+170
+00:07:59,270 --> 00:08:01,950
+Now when we call our
+new knight constructor,
+
+171
+00:08:01,950 --> 00:08:04,700
+and it happens to be
+Arthur, and he's the King,
+
+172
+00:08:04,700 --> 00:08:06,890
+we assign that result
+to the King variable.
+
+173
+00:08:06,890 --> 00:08:08,610
+And we log out
+the King's weapon.
+
+174
+00:08:08,610 --> 00:08:12,400
+We get Excalibur,
+as we would expect.
+
+175
+00:08:12,400 --> 00:08:13,920
+What happens if
+we've got a knight,
+
+176
+00:08:13,920 --> 00:08:16,780
+but he gets assigned
+some regiment number that
+
+177
+00:08:16,780 --> 00:08:17,910
+doesn't exist?
+
+178
+00:08:17,910 --> 00:08:19,743
+Well, he's not going
+to get a weapon, right?
+
+179
+00:08:19,743 --> 00:08:22,650
+And a knight that has no
+weapon sure sucks a lot.
+
+180
+00:08:22,650 --> 00:08:24,750
+So let's see what we
+can do about that.
+
+181
+00:08:24,750 --> 00:08:28,290
+JavaScript offers
+this default case
+
+182
+00:08:28,290 --> 00:08:30,740
+to help us watch for
+unavailable values,
+
+183
+00:08:30,740 --> 00:08:33,799
+and do something specific
+when an unavailable
+
+184
+00:08:33,799 --> 00:08:35,980
+value is encountered.
+
+185
+00:08:35,980 --> 00:08:38,780
+We label a case with
+default. And inside
+
+186
+00:08:38,780 --> 00:08:40,530
+there what we're going
+to do is just alert
+
+187
+00:08:40,530 --> 00:08:42,559
+the armourer that
+this dude we're
+
+188
+00:08:42,559 --> 00:08:44,470
+trying to make a
+knight object for,
+
+189
+00:08:44,470 --> 00:08:47,240
+has apparently an
+incorrect regiment.
+
+190
+00:08:47,240 --> 00:08:49,424
+And we will not
+assign him a weapon,
+
+191
+00:08:49,424 --> 00:08:50,840
+so that the armourer
+can make sure
+
+192
+00:08:50,840 --> 00:08:53,980
+that we get him into a regiment
+where the right regiment
+
+193
+00:08:53,980 --> 00:08:55,630
+number exists.
+
+194
+00:08:55,630 --> 00:08:57,830
+So now if we try to
+make a new knight
+
+195
+00:08:57,830 --> 00:08:59,930
+object for this
+guy, Jerome, and we
+
+196
+00:08:59,930 --> 00:09:04,720
+try to pass in regiment
+12, which there is none,
+
+197
+00:09:04,720 --> 00:09:07,670
+the default case is going to
+be taken by the switch block.
+
+198
+00:09:07,670 --> 00:09:09,890
+And the armourer will
+get a nice alert that
+
+199
+00:09:09,890 --> 00:09:12,080
+says, yo man I fixed Jerome.
+
+200
+00:09:12,080 --> 00:09:14,810
+Because that guy ain't
+got a regiment yet.
+
+201
+00:09:14,810 --> 00:09:16,570
+You may notice on
+our default case
+
+202
+00:09:16,570 --> 00:09:17,945
+that there is no
+break statement.
+
+203
+00:09:17,945 --> 00:09:19,528
+What about that final
+break statement?
+
+204
+00:09:19,528 --> 00:09:23,690
+Well, since no other case
+exists after our last one,
+
+205
+00:09:23,690 --> 00:09:25,440
+there will be no
+other executable code
+
+206
+00:09:25,440 --> 00:09:27,060
+inside of the switch block.
+
+207
+00:09:27,060 --> 00:09:29,940
+So that last break
+statement is optional.
+
+208
+00:09:33,390 --> 00:09:36,900
+A second usage of
+JavaScript fall-through
+
+209
+00:09:36,900 --> 00:09:40,460
+that must be tightly controlled,
+but can still be very useful,
+
+210
+00:09:40,460 --> 00:09:43,600
+is that of hierarchical
+code execution.
+
+211
+00:09:43,600 --> 00:09:46,120
+If you have a very
+carefully organized block,
+
+212
+00:09:46,120 --> 00:09:49,540
+you can make all of least common
+properties be added first,
+
+213
+00:09:49,540 --> 00:09:52,700
+and all the most common
+properties be added last,
+
+214
+00:09:52,700 --> 00:09:54,080
+through the switch block.
+
+215
+00:09:54,080 --> 00:09:55,600
+Let's take a look.
+
+216
+00:09:55,600 --> 00:09:58,552
+Here we have a ceremonial
+dagger constructor.
+
+217
+00:09:58,552 --> 00:10:00,010
+And that ceremonial
+dagger is going
+
+218
+00:10:00,010 --> 00:10:04,710
+to be passed to each knight
+upon their knighthood,
+
+219
+00:10:04,710 --> 00:10:07,550
+depending on their
+particular rank.
+
+220
+00:10:07,550 --> 00:10:10,940
+Here you can see that the length
+of the dagger is set to 8,
+
+221
+00:10:10,940 --> 00:10:12,620
+and the owner is set
+to whichever knight
+
+222
+00:10:12,620 --> 00:10:15,300
+is passed into the constructor.
+
+223
+00:10:15,300 --> 00:10:18,090
+Now the quality of
+the ceremonial dagger
+
+224
+00:10:18,090 --> 00:10:21,630
+will be built based on
+the rank of the knight.
+
+225
+00:10:21,630 --> 00:10:24,210
+So if you could look at the
+bottom of our switch block
+
+226
+00:10:24,210 --> 00:10:27,450
+here, you can see that we're
+giving the lowest level, which
+
+227
+00:10:27,450 --> 00:10:28,820
+is just a regular knight.
+
+228
+00:10:28,820 --> 00:10:31,340
+We're giving that
+knight 6 rubies
+
+229
+00:10:31,340 --> 00:10:33,590
+on their ceremonial dagger.
+
+230
+00:10:33,590 --> 00:10:38,642
+Now the next rank up is going
+to be the Captain of a regiment.
+
+231
+00:10:38,642 --> 00:10:41,100
+Now the Captain of a regiment
+should have something special
+
+232
+00:10:41,100 --> 00:10:42,480
+on their ceremonial dagger.
+
+233
+00:10:42,480 --> 00:10:46,160
+You can see that our Captain
+gets exactly 1 emerald.
+
+234
+00:10:46,160 --> 00:10:48,300
+Now notice, there's
+a fall-through
+
+235
+00:10:48,300 --> 00:10:51,180
+here, meaning that the
+Captain will not only
+
+236
+00:10:51,180 --> 00:10:55,190
+receive 1 emerald, but since
+there is no break statement,
+
+237
+00:10:55,190 --> 00:10:59,170
+they will also receive all of
+the rubies that a knight gets,
+
+238
+00:10:59,170 --> 00:11:02,350
+because of the hierarchy
+we've arranged our code in.
+
+239
+00:11:02,350 --> 00:11:05,120
+The next highest level
+is the Field Marshal.
+
+240
+00:11:05,120 --> 00:11:06,930
+This guy's going
+to get 4 sapphires.
+
+241
+00:11:06,930 --> 00:11:09,420
+If you're a Field Marshal,
+you are sitting pretty.
+
+242
+00:11:09,420 --> 00:11:12,030
+Not only do you get 4
+sapphires, but you also
+
+243
+00:11:12,030 --> 00:11:16,560
+get the 1 emerald of the captain
+and the 6 rubies of the knight.
+
+244
+00:11:16,560 --> 00:11:20,240
+Above all of the Field Marshals
+is the single High Constable.
+
+245
+00:11:20,240 --> 00:11:23,960
+And this guy gets 2 amethysts
+on his ceremonial dagger
+
+246
+00:11:23,960 --> 00:11:26,940
+in addition to the 4 sapphires
+of the Field Marshal,
+
+247
+00:11:26,940 --> 00:11:29,850
+the 1 emerald of the
+captain, and the 6
+
+248
+00:11:29,850 --> 00:11:32,300
+rubies of the standard knight.
+
+249
+00:11:32,300 --> 00:11:35,440
+And if you are the King, the
+man, the myth, the legend,
+
+250
+00:11:35,440 --> 00:11:37,360
+King Arthur
+yourself, then you're
+
+251
+00:11:37,360 --> 00:11:40,900
+going to get 1 diamond
+exactly in the pommel
+
+252
+00:11:40,900 --> 00:11:42,570
+of your ceremonial dagger.
+
+253
+00:11:42,570 --> 00:11:44,500
+Not only will you get
+that diamond brooch,
+
+254
+00:11:44,500 --> 00:11:48,530
+you will get every other gem
+assigned to every other level
+
+255
+00:11:48,530 --> 00:11:50,860
+of military officer.
+
+256
+00:11:50,860 --> 00:11:53,960
+So now let's make a new
+ceremonial dagger for Jerome,
+
+257
+00:11:53,960 --> 00:11:55,890
+who is just a standard knight.
+
+258
+00:11:55,890 --> 00:11:58,360
+Now what happens when we
+call this constructor?
+
+259
+00:11:58,360 --> 00:12:00,320
+It's going to jump straight
+to the correct case
+
+260
+00:12:00,320 --> 00:12:03,110
+with no fall-through at
+all, before or after.
+
+261
+00:12:03,110 --> 00:12:05,680
+Thus, all we're going
+to get is 6 rubies,
+
+262
+00:12:05,680 --> 00:12:07,480
+and no other gemstones.
+
+263
+00:12:07,480 --> 00:12:09,880
+If we log out that
+knight's dagger object,
+
+264
+00:12:09,880 --> 00:12:12,780
+now we can see that the length
+is 8, the owner is Jerome,
+
+265
+00:12:12,780 --> 00:12:16,550
+and he has only 6 rubies.
+
+266
+00:12:16,550 --> 00:12:18,910
+If I make a ceremonial
+dagger for Timothy,
+
+267
+00:12:18,910 --> 00:12:21,150
+who happens to be
+a Field Marshal,
+
+268
+00:12:21,150 --> 00:12:24,630
+and we assign that to the
+variable Marshal's Dagger,
+
+269
+00:12:24,630 --> 00:12:26,730
+then what happens
+is the constructor
+
+270
+00:12:26,730 --> 00:12:30,170
+gets the 4 sapphires
+for the Field Marshal,
+
+271
+00:12:30,170 --> 00:12:32,770
+the 1 emerald for the
+captain, and the 6
+
+272
+00:12:32,770 --> 00:12:34,772
+rubies for the knight.
+
+273
+00:12:34,772 --> 00:12:36,730
+And if we were to log
+out the Marshal's Dagger,
+
+274
+00:12:36,730 --> 00:12:39,900
+you can see that we would have
+a length of 8, the owner's
+
+275
+00:12:39,900 --> 00:12:45,090
+Timothy, and we got 4 sapphires,
+1 emerald, and 6 rubies.
+
+276
+00:12:45,090 --> 00:12:48,480
+Fall-through allows that Field
+Marshal to acquire the lower
+
+277
+00:12:48,480 --> 00:12:50,780
+ranked gems.
+
+278
+00:12:50,780 --> 00:12:52,230
+Last, but certainly
+not least, you
+
+279
+00:12:52,230 --> 00:12:54,070
+can see that if we
+made the King's Dagger
+
+280
+00:12:54,070 --> 00:12:57,930
+for the man, the myth, we will
+get a diamond, 2 amethysts, 4
+
+281
+00:12:57,930 --> 00:13:02,280
+sapphires, 1 emerald, and
+6 rubies for his majesty.
+
+282
+00:13:06,970 --> 00:13:10,450
+Used in careful,
+controlled, hierarchy,
+
+283
+00:13:10,450 --> 00:13:11,984
+fall-through can
+be very valuable.
+
+284
+00:13:11,984 --> 00:13:13,650
+But you have to keep
+a close watch on it
+
+285
+00:13:13,650 --> 00:13:15,750
+to make sure that
+the hierarchy stays
+
+286
+00:13:15,750 --> 00:13:20,010
+stable during the maintenance
+period of your code.
+
+287
+00:13:20,010 --> 00:13:23,250
+That is the end of the
+entire Sword of Syntax level.
+
+288
+00:13:23,250 --> 00:13:24,790
+We hope you enjoy
+these challenges.
+
+289
+00:13:24,790 --> 00:13:27,600
+And we'll see you back
+in the next level.
+
+290
+00:13:27,600 --> 00:13:29,960
+See you soon.
+
+291
+00:13:29,960 --> 00:13:30,641
+Take 1 billion.
+
+292
+00:13:30,641 --> 00:13:31,140
+[LAUGHTER]
+
+293
+00:13:31,140 --> 00:13:31,639
+[BEEPING]
+
+294
+00:13:31,639 --> 00:13:36,190
+Index 2 of the swords away--
+away-- does swords a way?
+
+295
+00:13:36,190 --> 00:13:36,740
+[BEEPING]
+
+296
+00:13:36,740 --> 00:13:40,560
+Especially in-- a-- ergh.
+
+297
+00:13:40,560 --> 00:13:42,285
+Don't put that in there.
+
+298
+00:13:42,285 --> 00:13:42,784
+[LAUGHS]
+
+299
+00:13:42,784 --> 00:13:43,810
+That's the first clip.
+
+300
+00:13:43,810 --> 00:13:44,310
+Yeah.
+
+301
+00:13:44,310 --> 00:13:45,860
+[LAUGHS]
+

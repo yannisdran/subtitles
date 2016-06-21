@@ -1,0 +1,515 @@
+1
+00:00:00,000 --> 00:00:02,050
+
+
+2
+00:00:02,050 --> 00:00:02,630
+Welcome back.
+
+3
+00:00:02,630 --> 00:00:04,870
+Hope you enjoyed working
+with anonymous closures.
+
+4
+00:00:04,870 --> 00:00:06,830
+And now we're on
+to section three,
+
+5
+00:00:06,830 --> 00:00:09,720
+discussing global imports.
+
+6
+00:00:09,720 --> 00:00:13,570
+So our current module seems
+only need local variables.
+
+7
+00:00:13,570 --> 00:00:14,120
+Right?
+
+8
+00:00:14,120 --> 00:00:17,500
+But if we look a little closer
+in one of these methods,
+
+9
+00:00:17,500 --> 00:00:19,490
+we might find that
+a global variable
+
+10
+00:00:19,490 --> 00:00:21,860
+is involved in one of them.
+
+11
+00:00:21,860 --> 00:00:25,377
+Let's say that there was some
+global variable called wartime,
+
+12
+00:00:25,377 --> 00:00:26,960
+and it currently is
+set to true, which
+
+13
+00:00:26,960 --> 00:00:30,190
+means the kingdom is at war.
+
+14
+00:00:30,190 --> 00:00:34,970
+Turns out, inside of our
+make weapon request function,
+
+15
+00:00:34,970 --> 00:00:38,830
+if it's wartime, we want to
+let civilians have weaponry
+
+16
+00:00:38,830 --> 00:00:40,902
+to protect themselves.
+
+17
+00:00:40,902 --> 00:00:42,360
+So our Make Weapon
+Request function
+
+18
+00:00:42,360 --> 00:00:44,010
+checks to see if war exists.
+
+19
+00:00:44,010 --> 00:00:47,140
+And if so, we'll let both
+knights and civilians
+
+20
+00:00:47,140 --> 00:00:47,740
+have weaponry.
+
+21
+00:00:47,740 --> 00:00:50,184
+
+
+22
+00:00:50,184 --> 00:00:52,100
+First thing that happens
+is at the local scope
+
+23
+00:00:52,100 --> 00:00:53,690
+of the namespace
+would be checked
+
+24
+00:00:53,690 --> 00:00:56,220
+to see of wartime
+existed anywhere
+
+25
+00:00:56,220 --> 00:00:57,900
+inside of that namespace.
+
+26
+00:00:57,900 --> 00:01:00,450
+And then if that namespace
+happened to be nested,
+
+27
+00:01:00,450 --> 00:01:02,930
+we would go into that
+scope and check that scope
+
+28
+00:01:02,930 --> 00:01:07,100
+to see if it's there, all the
+way up to the global scope.
+
+29
+00:01:07,100 --> 00:01:09,810
+Now, standard global
+use in a module pattern
+
+30
+00:01:09,810 --> 00:01:11,270
+can cause two problems.
+
+31
+00:01:11,270 --> 00:01:14,850
+The first is that when non-local
+variables are referenced inside
+
+32
+00:01:14,850 --> 00:01:18,880
+of a module, the entire
+length of the scope chain
+
+33
+00:01:18,880 --> 00:01:21,730
+is checked for that variable.
+
+34
+00:01:21,730 --> 00:01:24,834
+First, in this case for
+wartime, the local scope
+
+35
+00:01:24,834 --> 00:01:26,250
+of the namespace
+would be checked.
+
+36
+00:01:26,250 --> 00:01:28,541
+They'd look around the armory,
+see is wartime is there.
+
+37
+00:01:28,541 --> 00:01:29,440
+It's not.
+
+38
+00:01:29,440 --> 00:01:32,830
+And then if that namespace
+happened to be nested,
+
+39
+00:01:32,830 --> 00:01:35,270
+then the outer namespace
+would be checked too,
+
+40
+00:01:35,270 --> 00:01:37,920
+and so on and so on
+and so on until we've
+
+41
+00:01:37,920 --> 00:01:39,880
+reached the global scope.
+
+42
+00:01:39,880 --> 00:01:42,790
+Now, that search is going to
+happen every time wartime is
+
+43
+00:01:42,790 --> 00:01:45,120
+encountered throughout
+the entire module.
+
+44
+00:01:45,120 --> 00:01:47,130
+That's a very expensive
+process if there
+
+45
+00:01:47,130 --> 00:01:50,100
+is any sort of namespace
+depth or multiple
+
+46
+00:01:50,100 --> 00:01:52,580
+references across the module.
+
+47
+00:01:52,580 --> 00:01:56,010
+Problem number two is
+that lengthy namespaces
+
+48
+00:01:56,010 --> 00:01:58,110
+mean that global
+variables can possibly
+
+49
+00:01:58,110 --> 00:02:00,890
+have unclear scope
+leading to code
+
+50
+00:02:00,890 --> 00:02:02,820
+that is really tough to manage.
+
+51
+00:02:02,820 --> 00:02:04,590
+Developer gets
+into your file here
+
+52
+00:02:04,590 --> 00:02:07,590
+to maintain your
+armory module, sees
+
+53
+00:02:07,590 --> 00:02:10,360
+wartime, this file is very
+long by the way, so is
+
+54
+00:02:10,360 --> 00:02:11,510
+the global file.
+
+55
+00:02:11,510 --> 00:02:13,910
+Doesn't know where
+wartime is coming form
+
+56
+00:02:13,910 --> 00:02:17,640
+or what changes he can make
+to this particular file.
+
+57
+00:02:17,640 --> 00:02:19,140
+It's really important
+for developers
+
+58
+00:02:19,140 --> 00:02:21,050
+who are maintaining
+your code to be
+
+59
+00:02:21,050 --> 00:02:24,049
+able to place the source
+of your variables data.
+
+60
+00:02:24,049 --> 00:02:26,590
+You don't want them to have to
+look through tons of code just
+
+61
+00:02:26,590 --> 00:02:28,990
+to figure out where
+the data came from.
+
+62
+00:02:28,990 --> 00:02:32,610
+Or what's worse, they may
+actually make terrible changes
+
+63
+00:02:32,610 --> 00:02:35,140
+to data they think is local.
+
+64
+00:02:35,140 --> 00:02:38,550
+So for clearer, faster
+globals in your modules,
+
+65
+00:02:38,550 --> 00:02:41,350
+we want you to use
+a global import.
+
+66
+00:02:41,350 --> 00:02:44,380
+Now while devs may still
+need to review code--
+
+67
+00:02:44,380 --> 00:02:47,020
+and who doesn't, we all need
+to review code constantly--
+
+68
+00:02:47,020 --> 00:02:48,860
+importing globals,
+though, creates
+
+69
+00:02:48,860 --> 00:02:54,440
+much faster local variables that
+are also more clear insource.
+
+70
+00:02:54,440 --> 00:02:58,140
+The first way we want to
+incorporate a global import
+
+71
+00:02:58,140 --> 00:03:02,390
+is to add a parameter to the
+wrapper immediately invoked
+
+72
+00:03:02,390 --> 00:03:03,260
+function.
+
+73
+00:03:03,260 --> 00:03:06,804
+Here you can see we're
+passing in the war parameter.
+
+74
+00:03:06,804 --> 00:03:08,220
+Now, we've got one
+parameter here,
+
+75
+00:03:08,220 --> 00:03:10,010
+but you can create
+just as many parameters
+
+76
+00:03:10,010 --> 00:03:12,380
+as globals there are
+that you're importing.
+
+77
+00:03:12,380 --> 00:03:14,531
+So since we're importing
+this parameter war,
+
+78
+00:03:14,531 --> 00:03:16,780
+we're going to need every
+place that we make reference
+
+79
+00:03:16,780 --> 00:03:19,170
+to that global to change
+its name to the parameter.
+
+80
+00:03:19,170 --> 00:03:21,420
+Here you can see in
+our IF statement,
+
+81
+00:03:21,420 --> 00:03:23,690
+we've replaced wartime with war.
+
+82
+00:03:23,690 --> 00:03:26,480
+And here's where the magic
+happens for global imports.
+
+83
+00:03:26,480 --> 00:03:31,290
+We're going to use our calling
+parentheses on are immediately
+
+84
+00:03:31,290 --> 00:03:34,590
+invoked function expression
+to actually pass-in
+
+85
+00:03:34,590 --> 00:03:37,320
+the global that we
+want to become war.
+
+86
+00:03:37,320 --> 00:03:38,400
+And which one is that?
+
+87
+00:03:38,400 --> 00:03:40,480
+Of course, it is wartime.
+
+88
+00:03:40,480 --> 00:03:44,030
+So now we have passed wartime
+in to our immediately invoked
+
+89
+00:03:44,030 --> 00:03:45,120
+function expression.
+
+90
+00:03:45,120 --> 00:03:47,880
+Wartime becomes
+war as a parameter.
+
+91
+00:03:47,880 --> 00:03:51,100
+And war gets used
+throughout the entire scope.
+
+92
+00:03:51,100 --> 00:03:52,890
+Yeah, imports!
+
+93
+00:03:52,890 --> 00:03:54,950
+As a result of importing
+two, the variable
+
+94
+00:03:54,950 --> 00:03:57,040
+that you need from the
+external scope gets
+
+95
+00:03:57,040 --> 00:03:59,910
+closed up as a local value.
+
+96
+00:03:59,910 --> 00:04:04,400
+It's just another piece of
+data boxed up in the closure.
+
+97
+00:04:04,400 --> 00:04:07,390
+Cool little bonus about that is
+that the function's parameter
+
+98
+00:04:07,390 --> 00:04:12,220
+creates this modifiable
+value inside the local scope
+
+99
+00:04:12,220 --> 00:04:13,550
+of your namespace.
+
+100
+00:04:13,550 --> 00:04:14,890
+That's pretty cool.
+
+101
+00:04:14,890 --> 00:04:17,690
+And the global value
+that you passed-in stays
+
+102
+00:04:17,690 --> 00:04:20,370
+protected if it needs to be.
+
+103
+00:04:20,370 --> 00:04:20,950
+Great.
+
+104
+00:04:20,950 --> 00:04:23,376
+So now you've got anonymous
+closures for module patterns,
+
+105
+00:04:23,376 --> 00:04:25,750
+as well as how to get your
+globals in there through using
+
+106
+00:04:25,750 --> 00:04:27,060
+global imports.
+
+107
+00:04:27,060 --> 00:04:29,310
+We're going to give you some
+challenges on that topic.
+
+108
+00:04:29,310 --> 00:04:32,730
+And we'll see you back
+for the very last section.
+
+109
+00:04:32,730 --> 00:04:34,580
+See you soon.
+
+110
+00:04:34,580 --> 00:04:35,643
