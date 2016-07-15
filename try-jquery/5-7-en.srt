@@ -10,7 +10,7 @@ some animations.
 
 3
 00:00:07,600 --> 00:00:10,270
-How might we use an animations
+How might we use some animations
 on this page?
 
 4
