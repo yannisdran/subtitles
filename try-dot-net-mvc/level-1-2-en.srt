@@ -1,0 +1,159 @@
+﻿1
+00:00:02,029 --> 00:00:02,940
+Welcome back.
+
+2
+00:00:02,940 --> 00:00:06,920
+In this section, we're
+going to learn about routes.
+
+3
+00:00:06,920 --> 00:00:10,800
+Routes are how our application
+uses the URL to determine what
+
+4
+00:00:10,800 --> 00:00:14,370
+controller and controller
+action it wants to access.
+
+5
+00:00:14,370 --> 00:00:17,175
+In our last section, the
+action we were accessing
+
+6
+00:00:17,175 --> 00:00:18,300
+would have been Home/Index.
+
+7
+00:00:23,490 --> 00:00:26,520
+How exactly do our routes
+map up with our controllers
+
+8
+00:00:26,520 --> 00:00:27,740
+and actions?
+
+9
+00:00:27,740 --> 00:00:34,230
+When you look at our URL--
+www.example.com/Home/index--
+
+10
+00:00:34,230 --> 00:00:37,760
+the first directory you'll
+see typically maps up with
+
+11
+00:00:37,760 --> 00:00:39,210
+the controller.
+
+12
+00:00:39,210 --> 00:00:42,600
+So in this case, Home would
+map up to the Home Controller.
+
+13
+00:00:42,600 --> 00:00:45,730
+While the second
+part, Index, would
+
+14
+00:00:45,730 --> 00:00:48,575
+typically map up to the
+action, in this case, Index.
+
+15
+00:00:51,960 --> 00:00:56,660
+The controller also maps to
+the views in the same manner.
+
+16
+00:00:56,660 --> 00:00:58,650
+You'll notice our
+home controller,
+
+17
+00:00:58,650 --> 00:01:02,030
+with its index action,
+maps up to our home
+
+18
+00:01:02,030 --> 00:01:04,940
+directory in our Views
+folder and our Index
+
+19
+00:01:04,940 --> 00:01:07,020
+view inside that directory.
+
+20
+00:01:07,020 --> 00:01:10,480
+In this case,
+returning View will
+
+21
+00:01:10,480 --> 00:01:16,750
+return the view in the Home
+folder with the Index action.
+
+22
+00:01:16,750 --> 00:01:18,970
+Normally, when we
+go to a website,
+
+23
+00:01:18,970 --> 00:01:22,600
+we don't go to
+whatever.com/Home/Index.
+
+24
+00:01:22,600 --> 00:01:24,746
+We would just type
+in whatever.com.
+
+25
+00:01:24,746 --> 00:01:26,970
+You'll notice, when
+we access our website,
+
+26
+00:01:26,970 --> 00:01:30,660
+even if we don't enter
+Home/Index, we still get there.
+
+27
+00:01:30,660 --> 00:01:33,530
+This is because of a concept
+known as default routes.
+
+28
+00:01:33,530 --> 00:01:35,510
+With default routes,
+anytime you omit
+
+29
+00:01:35,510 --> 00:01:38,470
+the controller or the
+action from the URL,
+
+30
+00:01:38,470 --> 00:01:41,700
+it's going to default a
+controller and action.
+
+31
+00:01:41,700 --> 00:01:43,985
+Normally, it will default
+these to Home/index.
+
+32
+00:01:48,330 --> 00:01:51,250
+Why don't you try identifying
+some routes in the challenges,
+
+33
+00:01:51,250 --> 00:01:53,780
+and I'll see you in
+the next section.

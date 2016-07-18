@@ -1,0 +1,392 @@
+﻿1
+00:00:00,000 --> 00:00:02,420
+[SINGING] The time has
+come for a .NET quest,
+
+2
+00:00:02,420 --> 00:00:04,377
+the MVC pattern
+ensures your success.
+
+3
+00:00:04,377 --> 00:00:06,210
+Building with models,
+views, and controllers
+
+4
+00:00:06,210 --> 00:00:09,085
+is better than jousting
+with oversized ogres.
+
+5
+00:00:09,085 --> 00:00:14,373
+You'll be fetching data and
+routing requests with C sharp carved
+
+6
+00:00:14,373 --> 00:00:17,410
+on your family crest.
+
+7
+00:00:17,410 --> 00:00:23,770
+Rescue your web apps and let them be
+free by writing and trying .NET
+
+8
+00:00:23,770 --> 00:00:25,770
+MVC.
+
+9
+00:00:25,770 --> 00:00:28,168
+By writing and trying .NET MVC.
+
+10
+00:00:30,970 --> 00:00:33,170
+Welcome back to Try .NET MVC.
+
+11
+00:00:33,170 --> 00:00:35,020
+My name is Eric Fisher.
+
+12
+00:00:35,020 --> 00:00:39,785
+In this level, we're going to
+go over getting user input.
+
+13
+00:00:39,785 --> 00:00:43,530
+In the last level, we set up a
+review to use data dynamically.
+
+14
+00:00:43,530 --> 00:00:45,740
+Unfortunately, we
+were still hard coding
+
+15
+00:00:45,740 --> 00:00:47,400
+that data in the controller.
+
+16
+00:00:47,400 --> 00:00:48,905
+So we need to set
+up our application
+
+17
+00:00:48,905 --> 00:00:51,520
+to be able to accept user input.
+
+18
+00:00:51,520 --> 00:00:53,640
+To accomplish this,
+we're going to need
+
+19
+00:00:53,640 --> 00:00:55,570
+to create a form in our view.
+
+20
+00:00:55,570 --> 00:00:58,140
+We're going to need
+to add a Create method
+
+21
+00:00:58,140 --> 00:00:59,430
+to our controller.
+
+22
+00:00:59,430 --> 00:01:02,660
+And we'll need to move our
+existing logic from our Index
+
+23
+00:01:02,660 --> 00:01:04,915
+action to our Create action.
+
+24
+00:01:07,530 --> 00:01:11,690
+We'll start by adding a basic
+form to our Index.cshtml view,
+
+25
+00:01:11,690 --> 00:01:12,820
+as you can see here.
+
+26
+00:01:16,560 --> 00:01:18,730
+When we add our
+Create method, it's
+
+27
+00:01:18,730 --> 00:01:21,290
+going to look a lot
+like our Index method.
+
+28
+00:01:21,290 --> 00:01:24,460
+The big difference here is we're
+going to be accepting a string
+
+29
+00:01:24,460 --> 00:01:25,416
+parameter.
+
+30
+00:01:25,416 --> 00:01:27,290
+Now, you'll notice the
+name of this parameter
+
+31
+00:01:27,290 --> 00:01:28,970
+is character name.
+
+32
+00:01:28,970 --> 00:01:33,820
+You'll also notice that
+the input field on our form
+
+33
+00:01:33,820 --> 00:01:35,940
+is also named character name.
+
+34
+00:01:35,940 --> 00:01:38,710
+Because the name
+of our input field
+
+35
+00:01:38,710 --> 00:01:41,240
+and the name of our
+parameter are the same,
+
+36
+00:01:41,240 --> 00:01:43,420
+these will automatically map up.
+
+37
+00:01:43,420 --> 00:01:45,370
+When we hit the submit
+button, whatever
+
+38
+00:01:45,370 --> 00:01:47,610
+we enter into that text
+box is automatically
+
+39
+00:01:47,610 --> 00:01:49,368
+going to be populated
+into our parameter.
+
+40
+00:01:53,360 --> 00:01:55,459
+So let's take that
+Create method and move it
+
+41
+00:01:55,459 --> 00:01:56,500
+into our home controller.
+
+42
+00:01:56,500 --> 00:02:00,380
+We'll put it right
+after our Index method.
+
+43
+00:02:00,380 --> 00:02:04,220
+Now currently, our Index method
+is creating our character,
+
+44
+00:02:04,220 --> 00:02:05,650
+setting its fields.
+
+45
+00:02:05,650 --> 00:02:07,780
+And that's really the
+purpose of our Create method.
+
+46
+00:02:07,780 --> 00:02:10,238
+So we're going to go ahead and
+take the code from our Index
+
+47
+00:02:10,238 --> 00:02:14,170
+method and move it down
+to our Create method.
+
+48
+00:02:14,170 --> 00:02:16,350
+And then we'll set our
+index back to just returning
+
+49
+00:02:16,350 --> 00:02:17,241
+a simple view.
+
+50
+00:02:20,010 --> 00:02:22,580
+We were hard coding our
+character's name field,
+
+51
+00:02:22,580 --> 00:02:24,426
+but let's go ahead
+and use that character
+
+52
+00:02:24,426 --> 00:02:26,550
+name we've been passing
+into our parameter instead.
+
+53
+00:02:29,710 --> 00:02:33,080
+Before, we didn't have to
+specify the name of the view
+
+54
+00:02:33,080 --> 00:02:35,380
+because our actions' name
+matched the name of the view
+
+55
+00:02:35,380 --> 00:02:36,490
+it was returning.
+
+56
+00:02:36,490 --> 00:02:40,210
+Instead, we're going to specify
+the view in our Create method
+
+57
+00:02:40,210 --> 00:02:44,550
+by adding Index as the
+first parameter for our view
+
+58
+00:02:44,550 --> 00:02:45,750
+we are returning.
+
+59
+00:02:45,750 --> 00:02:47,750
+This'll have the effect
+of returning our index
+
+60
+00:02:47,750 --> 00:02:52,920
+view with the data when our
+Create method is called.
+
+61
+00:02:52,920 --> 00:02:56,650
+The last thing we're going
+to do is go to our view
+
+62
+00:02:56,650 --> 00:03:00,480
+and tell our form what
+action we want to access.
+
+63
+00:03:00,480 --> 00:03:03,790
+We do this by using what's
+called a tag helper.
+
+64
+00:03:03,790 --> 00:03:08,220
+In this case, we're
+going to use asp-action,
+
+65
+00:03:08,220 --> 00:03:10,050
+and we're going to
+set that to Create
+
+66
+00:03:10,050 --> 00:03:14,210
+to access our Create method.
+
+67
+00:03:14,210 --> 00:03:18,480
+Because our index view happens
+to be in the home folder
+
+68
+00:03:18,480 --> 00:03:20,960
+and accessing the
+home controller,
+
+69
+00:03:20,960 --> 00:03:22,970
+we wouldn't need to
+specify what controller,
+
+70
+00:03:22,970 --> 00:03:25,010
+because the automatic
+mapping would help.
+
+71
+00:03:25,010 --> 00:03:27,780
+But in the event I needed to
+reach into a controller that
+
+72
+00:03:27,780 --> 00:03:30,640
+didn't automatically
+have that mapping,
+
+73
+00:03:30,640 --> 00:03:33,770
+I could use
+asp-controller, and then
+
+74
+00:03:33,770 --> 00:03:36,185
+specify the controller
+I want to access.
+
+75
+00:03:39,370 --> 00:03:43,470
+At this point, our view is
+now able to accept user input
+
+76
+00:03:43,470 --> 00:03:47,540
+and render that input
+in the list below.
+
+77
+00:03:47,540 --> 00:03:49,700
+Now it's your turn to
+create a view that accepts
+
+78
+00:03:49,700 --> 00:03:52,115
+user input in the challenges.
+
+79
+00:03:52,115 --> 00:03:54,390
+Have fun.
+
+80
+00:03:54,390 --> 00:03:57,665
+The structure of an ASP.NET
+MVC project-- ah, that's
+
+81
+00:03:57,665 --> 00:03:58,790
+a terrible way to start it.
+
+82
+00:03:58,790 --> 00:04:03,017
+[INAUDIBLE]
+
+83
+00:04:03,017 --> 00:04:04,450
+You could pick it up from--
+
+84
+00:04:04,450 --> 00:04:07,800
+Applications-- the-- [INAUDIBLE]

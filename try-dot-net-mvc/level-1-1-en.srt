@@ -1,0 +1,562 @@
+1
+00:00:00,540 --> 00:00:02,710
+[SINGING] The time has
+come for a .NET quest,
+
+2
+00:00:02,710 --> 00:00:04,480
+the MVC pattern
+ensures your success.
+
+3
+00:00:04,480 --> 00:00:06,650
+Building with models,
+views, and controllers
+
+4
+00:00:06,650 --> 00:00:08,700
+is better than jousting
+with oversized ogres.
+
+5
+00:00:08,700 --> 00:00:15,070
+You'll be fetching data and
+routing requests with C sharp carved
+
+6
+00:00:15,070 --> 00:00:17,410
+on your family crest.
+
+7
+00:00:17,410 --> 00:00:19,455
+Rescue your web
+apps and let them
+
+8
+00:00:19,455 --> 00:00:26,000
+be free by writing and
+trying .NET MVC,
+
+9
+00:00:26,000 --> 00:00:28,340
+by writing and
+trying .NET MVC.
+
+10
+00:00:30,920 --> 00:00:33,240
+Welcome to "Try .NET MVC."
+
+11
+00:00:33,240 --> 00:00:35,117
+My name is Eric Fisher.
+
+12
+00:00:35,117 --> 00:00:37,700
+In this course, we're going to
+learn to make a web application
+
+13
+00:00:37,700 --> 00:00:40,060
+using a .NET Framework.
+
+14
+00:00:40,060 --> 00:00:43,290
+In our first level, we're going
+to learn about the Model View
+
+15
+00:00:43,290 --> 00:00:46,030
+Controller structure.
+
+16
+00:00:46,030 --> 00:00:48,700
+So what is ASP.NET MVC?
+
+17
+00:00:48,700 --> 00:00:50,620
+It is a framework for
+the rapid development
+
+18
+00:00:50,620 --> 00:00:52,280
+of web applications.
+
+19
+00:00:52,280 --> 00:00:56,340
+It handles everything
+from the UI to the server.
+
+20
+00:00:56,340 --> 00:00:57,920
+And while being a
+Microsoft product,
+
+21
+00:00:57,920 --> 00:00:59,780
+you'd think it'd
+only run in Windows.
+
+22
+00:00:59,780 --> 00:01:02,860
+It actually can also
+run on Linux and OS 10.
+
+23
+00:01:07,060 --> 00:01:08,910
+So imagine we're
+playing a tabletop game,
+
+24
+00:01:08,910 --> 00:01:11,980
+and we're keeping all of
+our stuff on notebook paper.
+
+25
+00:01:11,980 --> 00:01:14,520
+Now, we've got a lot of
+papers to keep track of.
+
+26
+00:01:14,520 --> 00:01:17,310
+You can't really search through
+them in an organized way.
+
+27
+00:01:17,310 --> 00:01:21,490
+And any time we update or erase
+anything, it gets really messy.
+
+28
+00:01:21,490 --> 00:01:24,840
+To solve that problem, we're
+going to make a .NET MVC
+
+29
+00:01:24,840 --> 00:01:26,120
+application.
+
+30
+00:01:26,120 --> 00:01:28,040
+This application is
+going to allow our users
+
+31
+00:01:28,040 --> 00:01:30,410
+to add their own
+characters, and we'll
+
+32
+00:01:30,410 --> 00:01:35,220
+provide the full list of
+characters back to the user.
+
+33
+00:01:35,220 --> 00:01:37,300
+Before we write any
+code, let's look
+
+34
+00:01:37,300 --> 00:01:40,240
+at how data moves through
+our MVC application.
+
+35
+00:01:40,240 --> 00:01:42,990
+The user enters a
+URL into the browser.
+
+36
+00:01:42,990 --> 00:01:45,040
+This makes a request.
+
+37
+00:01:45,040 --> 00:01:47,040
+The controller
+takes this request,
+
+38
+00:01:47,040 --> 00:01:51,310
+accesses the data in the model,
+and then passes that model data
+
+39
+00:01:51,310 --> 00:01:53,010
+on to the view.
+
+40
+00:01:53,010 --> 00:01:55,340
+The view is then presented
+back to the user.
+
+41
+00:01:58,230 --> 00:02:00,690
+When you create a
+new MVC project,
+
+42
+00:02:00,690 --> 00:02:03,060
+we're going to get a number
+of folders to start with.
+
+43
+00:02:03,060 --> 00:02:04,685
+We'll have a root
+folder that will have
+
+44
+00:02:04,685 --> 00:02:06,720
+the same name as our project.
+
+45
+00:02:06,720 --> 00:02:10,789
+We'll also have folders
+Models, Views, and Controllers
+
+46
+00:02:10,789 --> 00:02:12,250
+contained in that folder.
+
+47
+00:02:12,250 --> 00:02:14,480
+These three folders
+represent the parts
+
+48
+00:02:14,480 --> 00:02:18,190
+of MVC-- Models,
+Views, Controllers.
+
+49
+00:02:18,190 --> 00:02:21,060
+We'll be doing most of our
+work in these three folders.
+
+50
+00:02:21,060 --> 00:02:22,860
+You'll notice these
+three shield icons
+
+51
+00:02:22,860 --> 00:02:24,599
+we have next to the folders.
+
+52
+00:02:24,599 --> 00:02:26,140
+When you see these
+icons, you'll know
+
+53
+00:02:26,140 --> 00:02:30,890
+what part of the application
+you're actually working in.
+
+54
+00:02:30,890 --> 00:02:34,690
+The names of files and folders
+are very important in MVC.
+
+55
+00:02:34,690 --> 00:02:38,270
+As you can see, we have
+a HomeController.cs file
+
+56
+00:02:38,270 --> 00:02:42,720
+in the Controllers folder,
+a Home.cs file in the Models
+
+57
+00:02:42,720 --> 00:02:48,350
+folder, and an Index.cshtml file
+in the Home folder in the Views
+
+58
+00:02:48,350 --> 00:02:49,710
+folder.
+
+59
+00:02:49,710 --> 00:02:52,300
+Now, you'll notice all
+three of these have Home.
+
+60
+00:02:52,300 --> 00:02:55,490
+Because our Home controller
+has the same name as our Home
+
+61
+00:02:55,490 --> 00:02:58,700
+Directory inside
+our Views folder,
+
+62
+00:02:58,700 --> 00:03:00,370
+these will automatically map up.
+
+63
+00:03:04,040 --> 00:03:08,080
+At this point, we're going to
+create an Index.cshtml file
+
+64
+00:03:08,080 --> 00:03:09,860
+in our Home folder.
+
+65
+00:03:09,860 --> 00:03:12,120
+Now, how you actually
+create this file is
+
+66
+00:03:12,120 --> 00:03:15,340
+going to depend on what tool
+you're using to make it.
+
+67
+00:03:15,340 --> 00:03:18,650
+A cs.html file is
+a template file.
+
+68
+00:03:18,650 --> 00:03:22,581
+It allows us to use both HTML
+and C#-like code to generate
+
+69
+00:03:22,581 --> 00:03:23,080
+our pages.
+
+70
+00:03:25,720 --> 00:03:30,710
+In our Index.cshtml file,
+we've entered some raw HTML.
+
+71
+00:03:30,710 --> 00:03:35,390
+As you see here, this HTML will
+present our list of characters.
+
+72
+00:03:35,390 --> 00:03:38,450
+The problem is, we can't update
+this list without directly
+
+73
+00:03:38,450 --> 00:03:41,680
+updating this file.
+
+74
+00:03:41,680 --> 00:03:43,300
+Our names need to
+be dynamic, but how
+
+75
+00:03:43,300 --> 00:03:44,860
+are we going to do that?
+
+76
+00:03:44,860 --> 00:03:48,350
+To update the name dynamically,
+we need to do two things.
+
+77
+00:03:48,350 --> 00:03:51,950
+We need to update our view to
+be able to accept incoming data.
+
+78
+00:03:51,950 --> 00:03:55,510
+We also need to update our
+controller to send that data.
+
+79
+00:03:55,510 --> 00:03:59,430
+We're going to deal
+with the view first.
+
+80
+00:03:59,430 --> 00:04:01,650
+We'll add @model String.
+
+81
+00:04:01,650 --> 00:04:03,540
+This lets our view know
+that we're expecting
+
+82
+00:04:03,540 --> 00:04:05,590
+a single string for our data.
+
+83
+00:04:05,590 --> 00:04:08,220
+When you start
+mixing HTML and C#,
+
+84
+00:04:08,220 --> 00:04:12,520
+you're using a built-in
+engine called Razor.
+
+85
+00:04:12,520 --> 00:04:16,100
+To access that string we're
+passing into our view,
+
+86
+00:04:16,100 --> 00:04:18,730
+we're going to use @Model.
+
+87
+00:04:18,730 --> 00:04:21,880
+Notice though that this @Model
+is an uppercase as opposed
+
+88
+00:04:21,880 --> 00:04:25,090
+to lowercase.
+
+89
+00:04:25,090 --> 00:04:29,020
+We'll need to pay attention to
+the capitalization of @model.
+
+90
+00:04:29,020 --> 00:04:31,580
+Lowercase @model
+defines the data
+
+91
+00:04:31,580 --> 00:04:33,730
+we're going to
+send into our view.
+
+92
+00:04:33,730 --> 00:04:37,440
+Uppercase @Model gives
+us access to the data
+
+93
+00:04:37,440 --> 00:04:40,830
+we send to our view.
+
+94
+00:04:40,830 --> 00:04:42,780
+Now that our view is
+ready to accept data,
+
+95
+00:04:42,780 --> 00:04:45,620
+we need to set up our
+controller to send data.
+
+96
+00:04:45,620 --> 00:04:48,480
+We have a Home Controller that
+comes when we made our project.
+
+97
+00:04:48,480 --> 00:04:52,490
+We're going to go look at the
+code that's already there.
+
+98
+00:04:52,490 --> 00:04:54,610
+Looking inside our
+Home Controller,
+
+99
+00:04:54,610 --> 00:04:56,290
+our Home Controller
+class is broken up
+
+100
+00:04:56,290 --> 00:04:58,230
+into three separate parts.
+
+101
+00:04:58,230 --> 00:05:03,590
+We have the Index, which
+is a method, the class,
+
+102
+00:05:03,590 --> 00:05:06,900
+which is the Home Controller,
+and the namespace,
+
+103
+00:05:06,900 --> 00:05:10,160
+which is the name of our
+application, .controllers.
+
+104
+00:05:10,160 --> 00:05:13,870
+You'll notice our Index method
+returns an IAction result.
+
+105
+00:05:13,870 --> 00:05:16,400
+Any method that returns
+an IAction result is also
+
+106
+00:05:16,400 --> 00:05:18,810
+known as an action method.
+
+107
+00:05:18,810 --> 00:05:21,922
+IAction result provides
+responses usable by browsers.
+
+108
+00:05:24,880 --> 00:05:27,090
+We're going to go
+into our Index method,
+
+109
+00:05:27,090 --> 00:05:29,610
+and we're going to
+create a string, name.
+
+110
+00:05:29,610 --> 00:05:32,830
+We're going to set this
+name string to Hux, which
+
+111
+00:05:32,830 --> 00:05:34,670
+is one of our character names.
+
+112
+00:05:34,670 --> 00:05:40,480
+Then we'll pass name
+in as a parameter view.
+
+113
+00:05:40,480 --> 00:05:43,650
+As you can see here, our
+Index action is now working.
+
+114
+00:05:43,650 --> 00:05:45,780
+We're now getting data
+from our controller
+
+115
+00:05:45,780 --> 00:05:46,854
+to our view dynamically.
+
+116
+00:05:49,520 --> 00:05:51,980
+Now it's your turn to set
+up a view and a controller
+
+117
+00:05:51,980 --> 00:05:53,260
+in the challenges.
+
+118
+00:05:53,260 --> 00:05:55,019
+Have fun.
+
+119
+00:05:55,019 --> 00:05:55,519

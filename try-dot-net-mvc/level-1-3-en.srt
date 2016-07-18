@@ -1,0 +1,373 @@
+﻿1
+00:00:02,060 --> 00:00:02,800
+Welcome back.
+
+2
+00:00:02,800 --> 00:00:04,357
+In this section,
+we're going to learn
+
+3
+00:00:04,357 --> 00:00:06,440
+how to use models to give
+our data some structure.
+
+4
+00:00:09,150 --> 00:00:11,900
+Where we left off, we were
+only showing a character name.
+
+5
+00:00:11,900 --> 00:00:14,460
+But being that we're making
+this for a tabletop game,
+
+6
+00:00:14,460 --> 00:00:16,571
+we know we're going to
+need stats down the road.
+
+7
+00:00:16,571 --> 00:00:19,112
+So we're going to need more than
+a string to accomplish this.
+
+8
+00:00:21,830 --> 00:00:23,750
+Instead of just
+using a string, we're
+
+9
+00:00:23,750 --> 00:00:27,399
+going to create a model
+class Character.cs.
+
+10
+00:00:27,399 --> 00:00:28,940
+And we're going to
+put this character
+
+11
+00:00:28,940 --> 00:00:32,500
+class inside our Models folder.
+
+12
+00:00:32,500 --> 00:00:34,040
+When we access our
+Character class,
+
+13
+00:00:34,040 --> 00:00:36,000
+there's already going
+to be some code there.
+
+14
+00:00:36,000 --> 00:00:39,430
+We're going to need to add
+a field name to our class.
+
+15
+00:00:39,430 --> 00:00:43,180
+We can do this by adding
+public string Name.
+
+16
+00:00:43,180 --> 00:00:46,630
+You'll notice our Name
+field we've capitalized.
+
+17
+00:00:46,630 --> 00:00:49,820
+This is because whenever we
+have a public field, variable,
+
+18
+00:00:49,820 --> 00:00:53,190
+or property, we want to do
+those in Pascal case, which
+
+19
+00:00:53,190 --> 00:00:55,140
+means the first
+letter is capitalized
+
+20
+00:00:55,140 --> 00:00:57,150
+and every word within
+that name is capitalized.
+
+21
+00:01:01,050 --> 00:01:02,720
+At this point, we're
+going to go back
+
+22
+00:01:02,720 --> 00:01:05,150
+to our index action,
+our home controller,
+
+23
+00:01:05,150 --> 00:01:07,930
+and we're going to change it
+from using a string to using
+
+24
+00:01:07,930 --> 00:01:09,670
+our Character model.
+
+25
+00:01:09,670 --> 00:01:12,280
+Before, we were
+setting our string
+
+26
+00:01:12,280 --> 00:01:14,610
+to Hux, which is our
+character's name.
+
+27
+00:01:14,610 --> 00:01:20,280
+Instead, we want to set our
+model's Name field to Hux.
+
+28
+00:01:20,280 --> 00:01:23,280
+We'll then pass our
+entire model into our view
+
+29
+00:01:23,280 --> 00:01:24,940
+instead of just a string.
+
+30
+00:01:24,940 --> 00:01:26,930
+If we were to run
+this now, we would
+
+31
+00:01:26,930 --> 00:01:30,510
+get an error-- the
+type or namespace name
+
+32
+00:01:30,510 --> 00:01:32,395
+"Character" could not be found.
+
+33
+00:01:35,250 --> 00:01:39,240
+We're getting this error
+because our character
+
+34
+00:01:39,240 --> 00:01:42,300
+isn't in the same namespace
+as our controller.
+
+35
+00:01:42,300 --> 00:01:45,890
+In .NET, we keep a number
+of name spaces to help with
+
+36
+00:01:45,890 --> 00:01:47,800
+the division of concerns.
+
+37
+00:01:47,800 --> 00:01:51,610
+For example, each one of our
+directories, models, views,
+
+38
+00:01:51,610 --> 00:01:54,930
+and controllers will be
+within their own namespaces.
+
+39
+00:01:54,930 --> 00:01:56,980
+This is to help prevent
+us from accessing
+
+40
+00:01:56,980 --> 00:01:58,300
+code we don't intend to.
+
+41
+00:02:00,870 --> 00:02:02,710
+Back in our home
+controller, instead
+
+42
+00:02:02,710 --> 00:02:04,920
+of using just
+Character, we're going
+
+43
+00:02:04,920 --> 00:02:07,170
+to go ahead and
+add the namespace
+
+44
+00:02:07,170 --> 00:02:08,919
+in front of Character.
+
+45
+00:02:08,919 --> 00:02:13,020
+We get this namespace by looking
+at our actual Character class
+
+46
+00:02:13,020 --> 00:02:15,550
+in our Models folder and
+seeing that it's the name
+
+47
+00:02:15,550 --> 00:02:17,285
+of our application .models.
+
+48
+00:02:20,540 --> 00:02:22,060
+Because we've changed
+the data we're
+
+49
+00:02:22,060 --> 00:02:24,550
+passing from our
+controller to our view,
+
+50
+00:02:24,550 --> 00:02:27,470
+We also need to go into our
+view and change the type of data
+
+51
+00:02:27,470 --> 00:02:29,010
+it's expecting.
+
+52
+00:02:29,010 --> 00:02:32,630
+We're going to use the full
+namespace for Character here.
+
+53
+00:02:32,630 --> 00:02:35,580
+At this point, though,
+we were using @Model.
+
+54
+00:02:35,580 --> 00:02:38,900
+Unfortunately, now @Model
+corresponds with the character
+
+55
+00:02:38,900 --> 00:02:40,990
+object and won't
+give us the name.
+
+56
+00:02:40,990 --> 00:02:44,340
+So we're going to change it
+@Model.Name to get the Name
+
+57
+00:02:44,340 --> 00:02:45,670
+field from our character.
+
+58
+00:02:50,880 --> 00:02:54,520
+At this point, we have
+a complete, simple MVC
+
+59
+00:02:54,520 --> 00:02:56,150
+application.
+
+60
+00:02:56,150 --> 00:02:59,470
+The browser would make a
+request to our controller.
+
+61
+00:02:59,470 --> 00:03:02,950
+Our controller would
+then set the model data
+
+62
+00:03:02,950 --> 00:03:05,210
+and then pass that
+on to the view.
+
+63
+00:03:05,210 --> 00:03:07,626
+And then our view would
+render that data dynamically.
+
+64
+00:03:11,360 --> 00:03:13,300
+Now it's your turn to
+set up your own model
+
+65
+00:03:13,300 --> 00:03:14,730
+in the challenges.
+
+66
+00:03:14,730 --> 00:03:18,174
+I'll see you in the next level.
+
+67
+00:03:18,174 --> 00:03:20,090
+To solve this problem,
+we're going to make a--
+
+68
+00:03:20,090 --> 00:03:20,810
+[BEEPING]
+
+69
+00:03:20,810 --> 00:03:22,660
+To solve this
+problem, we're going--
+
+70
+00:03:22,660 --> 00:03:23,320
+[BEEPING]
+
+71
+00:03:23,320 --> 00:03:27,110
+To solve that problem--
+that was way too much.
+
+72
+00:03:27,110 --> 00:03:27,910
+[BEEPING]
+
+73
+00:03:27,910 --> 00:03:29,795
+To solve that
+problem-- problem--
+
+74
+00:03:29,795 --> 00:03:31,280
+[BEEPING]
+
+75
+00:03:31,280 --> 00:03:33,670
+To solve that problem--
+
+76
+00:03:33,670 --> 00:03:34,340
+That was good.
+
+77
+00:03:34,340 --> 00:03:35,200
+Yeah.
+
+78
+00:03:35,200 --> 00:03:37,300
+And I even paused, like,
+to sanity check it,
+
+79
+00:03:37,300 --> 00:03:40,280
+which was the problem--
+was I pause to sanity--

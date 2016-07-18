@@ -1,0 +1,867 @@
+﻿1
+00:00:00,000 --> 00:00:02,730
+[SINGING] The time has
+come for a .NET quest,
+
+2
+00:00:02,730 --> 00:00:03,677
+the MVC pattern
+
+3
+00:00:03,677 --> 00:00:04,510
+ensures your success.
+
+4
+00:00:04,510 --> 00:00:06,343
+Building with models,
+views, and controllers
+
+5
+00:00:06,343 --> 00:00:08,602
+is better than jousting
+with oversized ogres.
+
+6
+00:00:08,602 --> 00:00:14,518
+You'll be fetching data and
+routing requests with C sharp carved
+
+7
+00:00:14,518 --> 00:00:17,490
+on your family crest.
+
+8
+00:00:17,490 --> 00:00:21,440
+Rescue your web apps and
+let them be free by writing
+
+9
+00:00:21,440 --> 00:00:27,950
+and trying .NET MVC-- by
+writing and trying .NET MVC.
+
+10
+00:00:30,870 --> 00:00:32,910
+Welcome back to Try .NET MVC.
+
+11
+00:00:32,910 --> 00:00:34,550
+My name is Eric Fisher.
+
+12
+00:00:34,550 --> 00:00:39,910
+In this level, we're going to
+work on retaining user data.
+
+13
+00:00:39,910 --> 00:00:42,930
+At the end of our last level,
+we were accepting user input
+
+14
+00:00:42,930 --> 00:00:45,170
+and we were rendering
+that back on the screen.
+
+15
+00:00:45,170 --> 00:00:47,980
+The problem is every time
+you had entered the username
+
+16
+00:00:47,980 --> 00:00:49,430
+and hit that Add
+Character button,
+
+17
+00:00:49,430 --> 00:00:51,471
+it would wipe out whatever
+we had before and just
+
+18
+00:00:51,471 --> 00:00:52,890
+put the new name down.
+
+19
+00:00:52,890 --> 00:00:55,760
+It's really not what we want
+for actually maintaining
+
+20
+00:00:55,760 --> 00:00:56,670
+a list of characters.
+
+21
+00:00:56,670 --> 00:01:00,850
+We need a way to
+persist that data.
+
+22
+00:01:00,850 --> 00:01:03,360
+So we could use arrays
+to accomplish this,
+
+23
+00:01:03,360 --> 00:01:05,970
+but there's a better
+option called lists.
+
+24
+00:01:05,970 --> 00:01:08,870
+See, arrays, while
+you can resize them,
+
+25
+00:01:08,870 --> 00:01:12,540
+it's not very elegant or
+easy to do-- versus a list
+
+26
+00:01:12,540 --> 00:01:14,540
+is just a single line of code.
+
+27
+00:01:14,540 --> 00:01:16,260
+Generally you'll
+want to use arrays
+
+28
+00:01:16,260 --> 00:01:19,530
+when you have groups of
+objects of a fixed size.
+
+29
+00:01:19,530 --> 00:01:21,800
+When you don't know what
+the size is, or the size is
+
+30
+00:01:21,800 --> 00:01:24,120
+going to change, you probably
+should stick to a list.
+
+31
+00:01:26,800 --> 00:01:31,110
+Back in our index view, we were
+accepting our character object,
+
+32
+00:01:31,110 --> 00:01:34,320
+but now we want to have a
+list of character objects.
+
+33
+00:01:34,320 --> 00:01:39,060
+We can do this by having the
+word "list", angle bracket,
+
+34
+00:01:39,060 --> 00:01:41,970
+our character object,
+angle bracket.
+
+35
+00:01:41,970 --> 00:01:44,290
+This means instead of
+sending one character object,
+
+36
+00:01:44,290 --> 00:01:46,415
+we'll be able to send a
+list of character objects.
+
+37
+00:01:50,220 --> 00:01:54,430
+We were accessing one
+character's name field before.
+
+38
+00:01:54,430 --> 00:01:57,197
+At this point, though, we
+have a list of characters.
+
+39
+00:01:57,197 --> 00:01:59,030
+So we're going to need
+to be able to iterate
+
+40
+00:01:59,030 --> 00:02:03,400
+through the individual
+characters to list their names.
+
+41
+00:02:03,400 --> 00:02:06,440
+So one way we could accomplish
+this is with the C# foreach
+
+42
+00:02:06,440 --> 00:02:07,370
+loop.
+
+43
+00:02:07,370 --> 00:02:10,449
+The way we can use that
+in our cs.html page
+
+44
+00:02:10,449 --> 00:02:15,360
+is to go @foreach
+var item in Model,
+
+45
+00:02:15,360 --> 00:02:17,810
+then for each item
+in our list, this
+
+46
+00:02:17,810 --> 00:02:20,790
+would allow us to add
+another list item.
+
+47
+00:02:20,790 --> 00:02:25,650
+The @ symbol allows us to use
+C# code inside an HTML page.
+
+48
+00:02:28,834 --> 00:02:31,000
+You may be wondering why
+we don't have the @ symbol
+
+49
+00:02:31,000 --> 00:02:33,130
+in front of our curly braces.
+
+50
+00:02:33,130 --> 00:02:35,480
+Razor does a really good job
+at knowing when we intend
+
+51
+00:02:35,480 --> 00:02:38,260
+to jumping in and out
+of C# very fluidly.
+
+52
+00:02:38,260 --> 00:02:42,215
+Here you can see the parts of
+this code that are C# and HTML.
+
+53
+00:02:46,394 --> 00:02:47,810
+So the next thing
+we need to do is
+
+54
+00:02:47,810 --> 00:02:51,440
+create a place to actually
+store our list of characters.
+
+55
+00:02:51,440 --> 00:02:54,380
+Now normally you'd want to
+use something like a database,
+
+56
+00:02:54,380 --> 00:02:56,794
+but that's beyond the
+scope of this course.
+
+57
+00:02:56,794 --> 00:02:58,210
+So what we're going
+to do is we're
+
+58
+00:02:58,210 --> 00:03:00,510
+going to use what's known
+as a global variable.
+
+59
+00:03:00,510 --> 00:03:02,570
+Now one thing I am going
+to caution you is you do
+
+60
+00:03:02,570 --> 00:03:05,210
+want to use global
+variables sparingly,
+
+61
+00:03:05,210 --> 00:03:07,395
+as they can cause lots
+of problems if misused.
+
+62
+00:03:10,200 --> 00:03:13,830
+So just like before, when we
+create our character model,
+
+63
+00:03:13,830 --> 00:03:16,310
+we're going to have
+some existing code.
+
+64
+00:03:16,310 --> 00:03:19,400
+So we're going to add a
+characters variable of type
+
+65
+00:03:19,400 --> 00:03:21,060
+list character.
+
+66
+00:03:21,060 --> 00:03:24,550
+We do want to make sure we have
+only one list of characters.
+
+67
+00:03:24,550 --> 00:03:27,500
+That way every one of our users
+doesn't have their own list.
+
+68
+00:03:27,500 --> 00:03:30,850
+But how would we
+accomplish that?
+
+69
+00:03:30,850 --> 00:03:33,830
+We can ensure we have only
+one list of characters
+
+70
+00:03:33,830 --> 00:03:36,880
+by making our characters
+variable static.
+
+71
+00:03:36,880 --> 00:03:40,060
+What static does is it makes
+sure I can only ever have
+
+72
+00:03:40,060 --> 00:03:42,290
+one instance of an object.
+
+73
+00:03:42,290 --> 00:03:45,650
+We're also going to have to make
+sure that our global variables
+
+74
+00:03:45,650 --> 00:03:48,890
+class is static as well.
+
+75
+00:03:48,890 --> 00:03:51,740
+If we were to run this,
+we'll get a namespace error
+
+76
+00:03:51,740 --> 00:03:53,350
+like we did earlier.
+
+77
+00:03:53,350 --> 00:03:57,550
+In this case, though, it's
+unhappy about us having list.
+
+78
+00:03:57,550 --> 00:04:00,830
+Now, we could put the entire
+namespace in front of list
+
+79
+00:04:00,830 --> 00:04:03,120
+like we did before
+with characters.
+
+80
+00:04:03,120 --> 00:04:06,770
+For the list, that would be
+System.Collections.Generic.
+
+81
+00:04:06,770 --> 00:04:09,970
+And this works, but if we
+plan on using multiple lists,
+
+82
+00:04:09,970 --> 00:04:11,470
+this could get messy
+and repetitive.
+
+83
+00:04:14,200 --> 00:04:16,070
+Instead, we're going
+to try using what's
+
+84
+00:04:16,070 --> 00:04:17,910
+called a using directive.
+
+85
+00:04:17,910 --> 00:04:22,590
+We do this by adding using
+System.Collections.Generic
+
+86
+00:04:22,590 --> 00:04:24,150
+to the top of our file.
+
+87
+00:04:24,150 --> 00:04:28,050
+This is a way for us to be
+able to access classes outside
+
+88
+00:04:28,050 --> 00:04:32,540
+of our current namespace
+throughout our file.
+
+89
+00:04:32,540 --> 00:04:35,210
+So now that we have a
+place to store our data,
+
+90
+00:04:35,210 --> 00:04:38,220
+we need to go ahead and set
+up being able to actually
+
+91
+00:04:38,220 --> 00:04:40,310
+set and retrieve that data.
+
+92
+00:04:40,310 --> 00:04:42,910
+We're going to go into
+our character model
+
+93
+00:04:42,910 --> 00:04:45,660
+and add those methods
+after our name field.
+
+94
+00:04:48,660 --> 00:04:51,230
+The first method we're
+going to add to our model
+
+95
+00:04:51,230 --> 00:04:53,130
+will be a create method.
+
+96
+00:04:53,130 --> 00:04:55,130
+It's going to be a lot
+like the create method we
+
+97
+00:04:55,130 --> 00:04:56,710
+had in our controller.
+
+98
+00:04:56,710 --> 00:04:59,450
+It's going to accept a
+character name parameter,
+
+99
+00:04:59,450 --> 00:05:02,950
+create a new character
+object, set the name
+
+100
+00:05:02,950 --> 00:05:05,790
+field of that character
+to the parameter,
+
+101
+00:05:05,790 --> 00:05:08,550
+but instead of returning a
+view like in our controller,
+
+102
+00:05:08,550 --> 00:05:11,890
+we're going to add our character
+object to our global variables
+
+103
+00:05:11,890 --> 00:05:13,120
+characters list.
+
+104
+00:05:13,120 --> 00:05:15,335
+We can do this by using .Add.
+
+105
+00:05:18,790 --> 00:05:20,460
+One thing we do need
+to be careful about
+
+106
+00:05:20,460 --> 00:05:23,870
+is making sure our
+characters list isn't null.
+
+107
+00:05:23,870 --> 00:05:26,010
+If we had tried to add a
+character and it's null,
+
+108
+00:05:26,010 --> 00:05:27,370
+we're going to get an error.
+
+109
+00:05:27,370 --> 00:05:30,490
+The way we can accomplish this
+is add a simple conditional
+
+110
+00:05:30,490 --> 00:05:33,230
+that checks to see if our
+characters list is null,
+
+111
+00:05:33,230 --> 00:05:35,350
+and if it is null,
+we will set it
+
+112
+00:05:35,350 --> 00:05:39,210
+to be a new list of characters.
+
+113
+00:05:39,210 --> 00:05:42,130
+We're also going to
+make this method static.
+
+114
+00:05:42,130 --> 00:05:44,250
+What a static method
+allows us to do
+
+115
+00:05:44,250 --> 00:05:47,170
+is it allows us to access that
+method without instantiating
+
+116
+00:05:47,170 --> 00:05:48,640
+the class it lives in.
+
+117
+00:05:48,640 --> 00:05:52,710
+We can call this by using
+Models.Character.Create
+
+118
+00:05:52,710 --> 00:05:53,870
+then passing in the string.
+
+119
+00:05:56,570 --> 00:05:59,670
+So let's add that to our home
+controller's create method.
+
+120
+00:05:59,670 --> 00:06:01,506
+Since our create
+method is static,
+
+121
+00:06:01,506 --> 00:06:05,505
+we can call it without
+instantiating it first.
+
+122
+00:06:05,505 --> 00:06:07,880
+We're going to make one more
+change to our create method,
+
+123
+00:06:07,880 --> 00:06:10,890
+and that's going to be
+returning a redirect to action.
+
+124
+00:06:10,890 --> 00:06:13,820
+What that's going to do is
+instead of returning the view,
+
+125
+00:06:13,820 --> 00:06:17,250
+it's going to actually take us
+to the index action in our home
+
+126
+00:06:17,250 --> 00:06:18,070
+controller.
+
+127
+00:06:18,070 --> 00:06:21,150
+We're doing this to help prevent
+the user from accidentally
+
+128
+00:06:21,150 --> 00:06:26,230
+saving the same character
+twice by refreshing the page.
+
+129
+00:06:26,230 --> 00:06:28,600
+Now we have everything we
+need to create a new character
+
+130
+00:06:28,600 --> 00:06:30,205
+in our model and controller.
+
+131
+00:06:30,205 --> 00:06:33,142
+But we need a way to actually
+get that data, to view it.
+
+132
+00:06:33,142 --> 00:06:35,100
+The way we're going to
+accomplish this is we're
+
+133
+00:06:35,100 --> 00:06:37,600
+going to go back into
+our character model
+
+134
+00:06:37,600 --> 00:06:40,170
+and create a Get All method.
+
+135
+00:06:40,170 --> 00:06:42,440
+This Get All method
+is just going
+
+136
+00:06:42,440 --> 00:06:45,960
+to return a list of characters
+from the global variables
+
+137
+00:06:45,960 --> 00:06:47,080
+characters list.
+
+138
+00:06:49,910 --> 00:06:51,740
+Now just like we had
+to worry about nulls
+
+139
+00:06:51,740 --> 00:06:54,560
+in our create method, we've
+got to make sure to handle them
+
+140
+00:06:54,560 --> 00:06:56,080
+in our Get All method as well.
+
+141
+00:06:59,090 --> 00:07:01,150
+Now our home
+controller's index method
+
+142
+00:07:01,150 --> 00:07:04,230
+becomes as simple
+as taking the view
+
+143
+00:07:04,230 --> 00:07:08,590
+and just passing in our
+Models.Character.GetAll method.
+
+144
+00:07:08,590 --> 00:07:12,290
+So as you can see here, when
+we go ahead and type in a name
+
+145
+00:07:12,290 --> 00:07:17,050
+into our input field, hit
+Submit, it'll add to the list.
+
+146
+00:07:17,050 --> 00:07:19,800
+And if we enter a different
+character, hit the Submit
+
+147
+00:07:19,800 --> 00:07:24,050
+button, it'll add that
+name to the list as well.
+
+148
+00:07:24,050 --> 00:07:26,450
+One thing we can do to
+improve our application
+
+149
+00:07:26,450 --> 00:07:28,450
+is right now every
+time we go to access
+
+150
+00:07:28,450 --> 00:07:30,875
+GlobalVariables.Characters,
+we're
+
+151
+00:07:30,875 --> 00:07:33,000
+having to check it
+for null manually.
+
+152
+00:07:33,000 --> 00:07:36,720
+And while this works, that can
+create a lot of duplicate code.
+
+153
+00:07:36,720 --> 00:07:39,890
+What we're effectively
+doing is any time it's null,
+
+154
+00:07:39,890 --> 00:07:42,970
+we're defaulting it to a
+new list of characters.
+
+155
+00:07:42,970 --> 00:07:45,210
+But we can do this
+exact functionality
+
+156
+00:07:45,210 --> 00:07:50,240
+by changing our characters
+list into a property.
+
+157
+00:07:50,240 --> 00:07:54,780
+The way we can change a field
+or a variable into a property
+
+158
+00:07:54,780 --> 00:08:00,180
+is by adding curly brace, "get",
+semicolon, "set", semicolon,
+
+159
+00:08:00,180 --> 00:08:01,300
+curly brace.
+
+160
+00:08:01,300 --> 00:08:05,460
+This is what's known
+as a get setter.
+
+161
+00:08:05,460 --> 00:08:08,940
+And now all we have to do to
+give our property a default
+
+162
+00:08:08,940 --> 00:08:13,800
+value is to add equals and then
+our new list of characters.
+
+163
+00:08:13,800 --> 00:08:16,420
+Now in the event our
+characters property is null,
+
+164
+00:08:16,420 --> 00:08:18,570
+it will use this new
+list of characters
+
+165
+00:08:18,570 --> 00:08:22,100
+as the default value.
+
+166
+00:08:22,100 --> 00:08:23,560
+So when we started
+this course, we
+
+167
+00:08:23,560 --> 00:08:26,020
+set ourselves two
+goals to accomplish.
+
+168
+00:08:26,020 --> 00:08:29,260
+The first goal was to be able
+to add characters to a list.
+
+169
+00:08:29,260 --> 00:08:32,470
+The second goal was to be
+able to display that list.
+
+170
+00:08:32,470 --> 00:08:36,409
+We've accomplished both of
+those goals using an ASP.NET MVC
+
+171
+00:08:36,409 --> 00:08:39,010
+application.
+
+172
+00:08:39,010 --> 00:08:42,020
+It's your turn to retain user
+data in a global variables
+
+173
+00:08:42,020 --> 00:08:42,990
+class.
+
+174
+00:08:42,990 --> 00:08:46,745
+I'll see you in
+the wrap-up video.
+
+175
+00:08:46,745 --> 00:08:48,560
+Why don't you
+practice identifying
+
+176
+00:08:48,560 --> 00:08:50,020
+some routes and the challenges?
+
+177
+00:08:50,020 --> 00:08:51,395
+I'll see you in
+the next section.
+
+178
+00:08:54,990 --> 00:09:00,547
+Why don't you-- [LAUGHTER]
+Little too much.
+
+179
+00:09:00,547 --> 00:09:02,380
+I'm going to need you
+to come in on Saturday
+
+180
+00:09:02,380 --> 00:09:04,400
+and do some challenges.
+
+181
+00:09:04,400 --> 00:09:05,714
+.
