@@ -1,0 +1,488 @@
+﻿1
+00:00:00,710 --> 00:00:02,390
+[SINGING] Cheerio, pip pip.
+
+2
+00:00:02,390 --> 00:00:04,510
+Let's code some Python files.
+
+3
+00:00:04,510 --> 00:00:08,430
+We'll use quick lists and
+loop with fors and whiles.
+
+4
+00:00:08,430 --> 00:00:12,390
+Use modules we can with
+functions write them on.
+
+5
+00:00:12,390 --> 00:00:18,050
+Come join the Spam Van
+and fly through Python.
+
+6
+00:00:21,480 --> 00:00:23,520
+Welcome back to
+Flying through Python.
+
+7
+00:00:23,520 --> 00:00:27,710
+This is level 3
+covering functions.
+
+8
+00:00:27,710 --> 00:00:30,540
+If you remember from
+level 2, we wrote code
+
+9
+00:00:30,540 --> 00:00:34,630
+to calculate the
+average of a price list.
+
+10
+00:00:34,630 --> 00:00:37,210
+And let's say we also
+want to write code
+
+11
+00:00:37,210 --> 00:00:41,460
+to calculate the average
+daily customers in a week.
+
+12
+00:00:41,460 --> 00:00:44,440
+And we also want to
+write code to calculate
+
+13
+00:00:44,440 --> 00:00:47,080
+the average daily sales.
+
+14
+00:00:47,080 --> 00:00:49,520
+We are essentially
+copying and pasting
+
+15
+00:00:49,520 --> 00:00:53,900
+almost identical code to average
+a different list of numbers.
+
+16
+00:00:53,900 --> 00:00:55,750
+Wouldn't it be great
+if we could have
+
+17
+00:00:55,750 --> 00:00:59,740
+just one piece of code that can
+average anything we ask it to?
+
+18
+00:01:02,450 --> 00:01:04,790
+We could do this
+with a function.
+
+19
+00:01:04,790 --> 00:01:10,270
+Functions are like mini-programs
+that perform a specific task.
+
+20
+00:01:10,270 --> 00:01:14,520
+And we want a function that
+will average a list of numbers.
+
+21
+00:01:14,520 --> 00:01:18,380
+If we had that, we could
+write that code once and then
+
+22
+00:01:18,380 --> 00:01:22,440
+input our prices list and get
+out the average of our prices
+
+23
+00:01:22,440 --> 00:01:26,180
+list, input our number
+of daily customers list
+
+24
+00:01:26,180 --> 00:01:29,160
+and get out the average
+daily customers.
+
+25
+00:01:29,160 --> 00:01:32,060
+And we could give it
+any list of numbers,
+
+26
+00:01:32,060 --> 00:01:33,695
+and it would output the average.
+
+27
+00:01:36,650 --> 00:01:39,560
+We've actually been using
+functions all along,
+
+28
+00:01:39,560 --> 00:01:43,000
+like print, which takes
+in a string or value
+
+29
+00:01:43,000 --> 00:01:45,330
+and outputs it to the console.
+
+30
+00:01:45,330 --> 00:01:49,190
+And range, which here,
+takes in the number 10
+
+31
+00:01:49,190 --> 00:01:53,980
+and returns a list
+from zero to nine.
+
+32
+00:01:53,980 --> 00:01:56,180
+But how can we make
+our own function?
+
+33
+00:01:56,180 --> 00:01:59,090
+First we want to
+define three things.
+
+34
+00:01:59,090 --> 00:02:02,030
+One, what is the
+name of the function?
+
+35
+00:02:02,030 --> 00:02:06,160
+Two, what data do we
+send into the function?
+
+36
+00:02:06,160 --> 00:02:09,314
+And three, what data
+comes out of the function?
+
+37
+00:02:11,960 --> 00:02:14,960
+The name of the function we
+want to create is average.
+
+38
+00:02:14,960 --> 00:02:17,740
+And this is how
+we'll call it later.
+
+39
+00:02:17,740 --> 00:02:22,090
+Every function starts with
+def, then the function name,
+
+40
+00:02:22,090 --> 00:02:25,260
+parentheses, and a colon
+marks the beginning
+
+41
+00:02:25,260 --> 00:02:26,410
+of the function's code.
+
+42
+00:02:29,360 --> 00:02:31,820
+Then inside the
+parentheses, we want
+
+43
+00:02:31,820 --> 00:02:34,030
+to give the function
+any variables
+
+44
+00:02:34,030 --> 00:02:38,340
+or values it needs to work with,
+which are called parameters.
+
+45
+00:02:38,340 --> 00:02:40,285
+For our average
+function, we will
+
+46
+00:02:40,285 --> 00:02:42,720
+want to give it a list
+of numbers to average.
+
+47
+00:02:45,900 --> 00:02:49,960
+Functions can also return a
+value, but that's optional.
+
+48
+00:02:49,960 --> 00:02:54,330
+We want our average function to
+return the average of the list.
+
+49
+00:02:54,330 --> 00:02:58,650
+So we're going to return the
+variable "avg," short for average
+
+50
+00:02:58,650 --> 00:03:00,740
+at the end of our function.
+
+51
+00:03:00,740 --> 00:03:04,280
+Also note that, just like
+conditionals and loops,
+
+52
+00:03:04,280 --> 00:03:06,940
+all of the code inside
+the function is indented.
+
+53
+00:03:10,710 --> 00:03:13,050
+Now let's take our
+previously written code
+
+54
+00:03:13,050 --> 00:03:17,300
+from level 2 that calculates
+the average of our prices list
+
+55
+00:03:17,300 --> 00:03:19,790
+and put it inside our function.
+
+56
+00:03:19,790 --> 00:03:22,200
+We don't have to
+create our prices list,
+
+57
+00:03:22,200 --> 00:03:26,090
+because it's been passed to
+the function as a parameter.
+
+58
+00:03:26,090 --> 00:03:27,980
+And we're not going
+to print the average,
+
+59
+00:03:27,980 --> 00:03:31,260
+instead we're going to return
+that average we calculated.
+
+60
+00:03:33,980 --> 00:03:37,310
+Now that we've created our
+function, how do we use it?
+
+61
+00:03:37,310 --> 00:03:40,700
+Functions don't run
+until you call them.
+
+62
+00:03:40,700 --> 00:03:43,710
+So outside of our
+function, in our script,
+
+63
+00:03:43,710 --> 00:03:47,160
+we can create a numbers list
+that we want to average.
+
+64
+00:03:47,160 --> 00:03:49,200
+Then we'll call our
+average function
+
+65
+00:03:49,200 --> 00:03:51,510
+and pass it our numbers list.
+
+66
+00:03:51,510 --> 00:03:54,270
+And then we'll create
+a variable my_average
+
+67
+00:03:54,270 --> 00:03:58,980
+and assign the value that our
+average function returns to it.
+
+68
+00:03:58,980 --> 00:04:01,960
+If we print my_average,
+we get the value three,
+
+69
+00:04:01,960 --> 00:04:05,300
+which was the result our
+function gave back to us.
+
+70
+00:04:05,300 --> 00:04:05,990
+Awesome.
+
+71
+00:04:05,990 --> 00:04:06,510
+It worked.
+
+72
+00:04:09,500 --> 00:04:13,390
+Since we want our function to
+work on other lists of numbers
+
+73
+00:04:13,390 --> 00:04:17,339
+other than prices, we can
+change the name of our parameter
+
+74
+00:04:17,339 --> 00:04:19,160
+to be more general.
+
+75
+00:04:19,160 --> 00:04:21,970
+So we'll change
+prices to numbers.
+
+76
+00:04:21,970 --> 00:04:25,790
+And in our for loop,
+we'll change price to "num."
+
+77
+00:04:25,790 --> 00:04:28,170
+So our function
+still works the same,
+
+78
+00:04:28,170 --> 00:04:31,190
+but the variable names are more
+general to reflect that we can
+
+79
+00:04:31,190 --> 00:04:33,640
+pass in any list of numbers.
+
+80
+00:04:33,640 --> 00:04:38,390
+For example, we could use it to
+pass in a list of daily sales.
+
+81
+00:04:38,390 --> 00:04:40,610
+And daily sales
+doesn't have to match
+
+82
+00:04:40,610 --> 00:04:42,890
+what it's called
+it in the function,
+
+83
+00:04:42,890 --> 00:04:45,000
+as long as it's a
+list of numbers.
+
+84
+00:04:48,660 --> 00:04:51,980
+Now let's look at our
+entire program in action.
+
+85
+00:04:51,980 --> 00:04:55,440
+Since a function doesn't
+get run until it's called,
+
+86
+00:04:55,440 --> 00:04:58,880
+in this example, the first
+line of code that would run
+
+87
+00:04:58,880 --> 00:05:01,220
+is defining our price list.
+
+88
+00:05:01,220 --> 00:05:04,310
+Then we call our function
+to get the average.
+
+89
+00:05:04,310 --> 00:05:07,420
+We do this by typing
+the name of the function
+
+90
+00:05:07,420 --> 00:05:10,890
+and we put the parameter
+prices in parentheses.
+
+91
+00:05:10,890 --> 00:05:14,580
+This is basically passing
+the value to the function
+
+92
+00:05:14,580 --> 00:05:16,060
+so it can use it.
+
+93
+00:05:16,060 --> 00:05:18,040
+Then the program
+goes to the function
+
+94
+00:05:18,040 --> 00:05:20,910
+that we just called and
+goes through each line
+
+95
+00:05:20,910 --> 00:05:23,980
+of the function until
+it returns a value.
+
+96
+00:05:23,980 --> 00:05:27,120
+The value average is
+returned and stored
+
+97
+00:05:27,120 --> 00:05:29,300
+in our result variable.
+
+98
+00:05:29,300 --> 00:05:34,570
+And finally, we
+print out the result.
+
+99
+00:05:34,570 --> 00:05:37,320
+Now that we know how to
+create and run functions,
+
+100
+00:05:37,320 --> 00:05:40,520
+it's time for you to give
+it a try in the challenges.
+
+101
+00:05:40,520 --> 00:05:42,200
+Good luck.
+

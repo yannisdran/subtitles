@@ -1,0 +1,459 @@
+﻿1
+00:00:02,080 --> 00:00:04,390
+Welcome back to Flying
+Through Python. This
+
+2
+00:00:04,390 --> 00:00:08,460
+is Section 3 covering while
+loops. For our Spam Van,
+
+3
+00:00:08,460 --> 00:00:11,070
+we want to create an
+ordering interface that
+
+4
+00:00:11,070 --> 00:00:15,830
+allows customers to order as
+many menu items as they want.
+
+5
+00:00:15,830 --> 00:00:18,190
+A for loop wouldn't
+really be good for this,
+
+6
+00:00:18,190 --> 00:00:22,440
+because we don't know how
+many times we want to loop.
+
+7
+00:00:22,440 --> 00:00:26,720
+If we see the program we're
+going to make in action,
+
+8
+00:00:26,720 --> 00:00:28,970
+we keep asking the
+customer if they
+
+9
+00:00:28,970 --> 00:00:34,090
+want to order anything else
+until they type q for quit.
+
+10
+00:00:34,090 --> 00:00:36,915
+This would be a good
+situation for a while loop.
+
+11
+00:00:39,420 --> 00:00:43,340
+For loops allow you to loop
+a certain number of times,
+
+12
+00:00:43,340 --> 00:00:46,900
+whereas while loops
+continue looping
+
+13
+00:00:46,900 --> 00:00:49,620
+while a condition is true.
+
+14
+00:00:49,620 --> 00:00:52,950
+Let's look at a simple
+example of a while loop.
+
+15
+00:00:52,950 --> 00:00:55,550
+We'll create a
+program that increases
+
+16
+00:00:55,550 --> 00:00:59,630
+x while it's not equal to three.
+
+17
+00:00:59,630 --> 00:01:05,269
+So it will stop when
+x is equal to three.
+
+18
+00:01:05,269 --> 00:01:08,720
+When we run this, x starts as one.
+
+19
+00:01:08,720 --> 00:01:13,060
+We print x as one and
+increase it to two.
+
+20
+00:01:13,060 --> 00:01:16,670
+X is still not equal to
+three, so we go in the loop
+
+21
+00:01:16,670 --> 00:01:22,370
+again, print x as two,
+and increase x to three.
+
+22
+00:01:22,370 --> 00:01:27,570
+Then x not equal to three returns
+false, so we exit the loop.
+
+23
+00:01:30,690 --> 00:01:32,950
+Now that we know how
+while loops work,
+
+24
+00:01:32,950 --> 00:01:37,070
+let's use them to create
+our ordering interface.
+
+25
+00:01:37,070 --> 00:01:40,830
+We'll create an orders
+list to save the orders.
+
+26
+00:01:40,830 --> 00:01:45,770
+And ask the users what they
+want to order using input.
+
+27
+00:01:45,770 --> 00:01:50,640
+And while their order is
+not equal to q for quit,
+
+28
+00:01:50,640 --> 00:01:52,380
+we'll keep looping.
+
+29
+00:01:52,380 --> 00:01:54,670
+Inside this loop,
+we'll write code
+
+30
+00:01:54,670 --> 00:01:59,260
+to add their order to a list,
+if it's on the menu of course,
+
+31
+00:01:59,260 --> 00:02:01,730
+and to keep asking
+the customer if they
+
+32
+00:02:01,730 --> 00:02:05,560
+want to order anything else.
+
+33
+00:02:05,560 --> 00:02:08,259
+First, we'll try to find
+their order on the menu
+
+34
+00:02:08,259 --> 00:02:10,596
+by using menu.get.
+
+35
+00:02:10,596 --> 00:02:13,800
+If it's in the dictionary,
+we'll add the order
+
+36
+00:02:13,800 --> 00:02:16,640
+to the orders list.
+
+37
+00:02:16,640 --> 00:02:21,480
+Otherwise, we'll print that
+the menu item doesn't exist.
+
+38
+00:02:21,480 --> 00:02:25,170
+If we don't ever change the
+customer's order in the loop,
+
+39
+00:02:25,170 --> 00:02:30,080
+it will never be q for quit,
+and we'll have an infinite loop.
+
+40
+00:02:30,080 --> 00:02:32,620
+So we better ask the customer
+for their order again.
+
+41
+00:02:37,170 --> 00:02:41,310
+We'll use input again. This
+time inside the loop task,
+
+42
+00:02:41,310 --> 00:02:44,710
+to as the customer if they
+want to order anything else.
+
+43
+00:02:44,710 --> 00:02:46,800
+And we'll also print
+the orders list
+
+44
+00:02:46,800 --> 00:02:49,630
+as soon as we're done with
+the loop with print orders.
+
+45
+00:02:52,380 --> 00:02:55,610
+If we look at our program
+in action, it works great.
+
+46
+00:02:55,610 --> 00:02:57,980
+We can even have the
+customer enter something
+
+47
+00:02:57,980 --> 00:03:00,900
+not on the menu, and we will
+let them know it's not there.
+
+48
+00:03:04,980 --> 00:03:07,950
+Even though our program's
+working perfectly,
+
+49
+00:03:07,950 --> 00:03:11,850
+we could write it differently
+to express more clearly that we
+
+50
+00:03:11,850 --> 00:03:16,100
+want the loop to run forever
+until the customer enters
+
+51
+00:03:16,100 --> 00:03:17,870
+q for quit.
+
+52
+00:03:17,870 --> 00:03:21,680
+If we use while true
+instead of checking for
+
+53
+00:03:21,680 --> 00:03:24,690
+quit in our while
+statement, this
+
+54
+00:03:24,690 --> 00:03:27,800
+will create a loop
+that runs forever.
+
+55
+00:03:27,800 --> 00:03:31,970
+And then we can still check
+if the user enters q below.
+
+56
+00:03:31,970 --> 00:03:34,750
+And if so, we'll
+break out of the loop
+
+57
+00:03:34,750 --> 00:03:37,050
+by using a break statement.
+
+58
+00:03:37,050 --> 00:03:40,970
+A break statement exits the
+loop immediately, but still
+
+59
+00:03:40,970 --> 00:03:45,720
+continues running the program
+normally outside of the loop.
+
+60
+00:03:45,720 --> 00:03:49,420
+This program works exactly
+the same as it did before,
+
+61
+00:03:49,420 --> 00:03:51,750
+but it's just an alternative
+way of doing things.
+
+62
+00:03:56,470 --> 00:03:57,820
+We have another problem.
+
+63
+00:03:57,820 --> 00:04:00,030
+We ran out of cheeky spam.
+
+64
+00:04:00,030 --> 00:04:03,600
+And we want a way to check if
+the customer orders that, so we
+
+65
+00:04:03,600 --> 00:04:06,280
+can let them know
+that we're out.
+
+66
+00:04:06,280 --> 00:04:11,020
+We can add if order equals
+cheeky spam print "Sorry,
+
+67
+00:04:11,020 --> 00:04:12,490
+we're all out of that!"
+
+68
+00:04:12,490 --> 00:04:15,920
+And then we can use
+a continue statement.
+
+69
+00:04:15,920 --> 00:04:20,019
+Like break, a continue
+statement stops the loop,
+
+70
+00:04:20,019 --> 00:04:23,520
+but instead of exiting
+the loop forever,
+
+71
+00:04:23,520 --> 00:04:26,710
+a continue statement jumps
+back to the top of the loop
+
+72
+00:04:26,710 --> 00:04:28,540
+and continues running.
+
+73
+00:04:28,540 --> 00:04:30,230
+Let's look at our
+program in action.
+
+74
+00:04:33,090 --> 00:04:37,275
+So we run our program, and the
+customer enters Cheeky Spam.
+
+75
+00:04:37,275 --> 00:04:40,840
+And whoops, we see we've
+created an infinite loop.
+
+76
+00:04:40,840 --> 00:04:42,890
+If this happens to
+you, don't panic,
+
+77
+00:04:42,890 --> 00:04:45,515
+just press Control-C
+to exit your program.
+
+78
+00:04:48,220 --> 00:04:51,860
+The problem was we didn't
+give the user an opportunity
+
+79
+00:04:51,860 --> 00:04:54,680
+to change their
+order, so it was set
+
+80
+00:04:54,680 --> 00:04:57,490
+to Cheeky Spam for eternity.
+
+81
+00:04:57,490 --> 00:05:00,000
+What we can do is
+move the line of code
+
+82
+00:05:00,000 --> 00:05:03,410
+that asks for their order
+to the top of the loop,
+
+83
+00:05:03,410 --> 00:05:05,550
+then check if it's Cheeky Spam.
+
+84
+00:05:05,550 --> 00:05:08,280
+And then we'll also
+check if they quit.
+
+85
+00:05:08,280 --> 00:05:10,440
+And the rest of our code
+for finding their order
+
+86
+00:05:10,440 --> 00:05:12,390
+and adding it remains the same.
+
+87
+00:05:15,310 --> 00:05:17,610
+Looking at our final
+working program,
+
+88
+00:05:17,610 --> 00:05:20,600
+we see if the customer
+order Cheeky Spam,
+
+89
+00:05:20,600 --> 00:05:22,450
+we let them know it's out.
+
+90
+00:05:22,450 --> 00:05:25,810
+We can also let them know if
+something's not on the menu.
+
+91
+00:05:25,810 --> 00:05:28,290
+And then when we quit, we
+tell them what they ordered.
+
+92
+00:05:31,170 --> 00:05:33,510
+That's it for Level 2: Loops.
+
+93
+00:05:33,510 --> 00:05:36,000
+Now it's time for you
+to practice while loops
+
+94
+00:05:36,000 --> 00:05:37,380
+in the challenges.
+
+95
+00:05:37,380 --> 00:05:39,160
+Break a leg.
+
+96
+00:05:39,160 --> 00:05:41,910
+[LAUGHTER]
+

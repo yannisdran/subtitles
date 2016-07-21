@@ -1,0 +1,359 @@
+﻿1
+00:00:01,980 --> 00:00:05,580
+Welcome back to section three
+of Flying Through Python.
+
+2
+00:00:05,580 --> 00:00:08,930
+Now let's get back to our
+Spam Van ordering system.
+
+3
+00:00:08,930 --> 00:00:11,960
+We said before that we
+want to create functions
+
+4
+00:00:11,960 --> 00:00:15,590
+for any code that serves
+a specific purpose.
+
+5
+00:00:15,590 --> 00:00:17,230
+So let's think of
+all the things we
+
+6
+00:00:17,230 --> 00:00:20,120
+want to do with our
+Spam Van system,
+
+7
+00:00:20,120 --> 00:00:22,050
+and create a function for them.
+
+8
+00:00:22,050 --> 00:00:25,580
+First, we want to print
+or display the menu.
+
+9
+00:00:25,580 --> 00:00:28,250
+Second, we want
+to take an order.
+
+10
+00:00:28,250 --> 00:00:31,410
+And third, we'll
+calculate the total bill.
+
+11
+00:00:31,410 --> 00:00:34,620
+Of course we could do more
+things, like collect payment
+
+12
+00:00:34,620 --> 00:00:38,470
+and add tips and so on,
+but this will do for now.
+
+13
+00:00:38,470 --> 00:00:41,420
+So let's get started
+implementing our functions
+
+14
+00:00:41,420 --> 00:00:43,385
+for each one of
+these three actions.
+
+15
+00:00:46,240 --> 00:00:49,330
+We'll start with printing
+our menu, which we wrote code
+
+16
+00:00:49,330 --> 00:00:51,280
+for in level 2.
+
+17
+00:00:51,280 --> 00:00:55,600
+We'll take that code, and put
+it inside its own function.
+
+18
+00:00:55,600 --> 00:00:59,740
+We'll type def print menu,
+as the function name,
+
+19
+00:00:59,740 --> 00:01:01,970
+and we'll need the
+menu as a parameter
+
+20
+00:01:01,970 --> 00:01:04,180
+so that we can print it.
+
+21
+00:01:04,180 --> 00:01:07,540
+Notice the contents of
+the function are indented,
+
+22
+00:01:07,540 --> 00:01:09,480
+and we don't need
+to return anything
+
+23
+00:01:09,480 --> 00:01:10,860
+because we're just printing.
+
+24
+00:01:13,660 --> 00:01:16,620
+Second, we'll want to take
+the ordering interface
+
+25
+00:01:16,620 --> 00:01:21,570
+that we created in level 2, and
+put it inside its own function.
+
+26
+00:01:21,570 --> 00:01:23,650
+We'll call it "get order."
+
+27
+00:01:23,650 --> 00:01:26,390
+And it will also need
+the menu as a parameter
+
+28
+00:01:26,390 --> 00:01:29,840
+so that we can check that the
+customer's order is actually
+
+29
+00:01:29,840 --> 00:01:31,390
+on the menu.
+
+30
+00:01:31,390 --> 00:01:34,910
+And we'll return what the
+customer ordered, which will
+
+31
+00:01:34,910 --> 00:01:36,992
+be stored in the orders list.
+
+32
+00:01:39,830 --> 00:01:43,520
+Let's look at our Spam
+Van sales program so far.
+
+33
+00:01:43,520 --> 00:01:46,070
+We've left out the
+contents of our functions
+
+34
+00:01:46,070 --> 00:01:49,830
+so that it's easier to
+see the overall program.
+
+35
+00:01:49,830 --> 00:01:52,280
+In main, we start with our menu.
+
+36
+00:01:52,280 --> 00:01:56,190
+We call print menu and
+pass it the menu printer.
+
+37
+00:01:56,190 --> 00:01:59,120
+Now our customers
+can view the menu.
+
+38
+00:01:59,120 --> 00:02:01,860
+Then we call the
+get order function.
+
+39
+00:02:01,860 --> 00:02:04,840
+Also passing it the
+menu as a parameter,
+
+40
+00:02:04,840 --> 00:02:09,360
+and saving the resulting order
+list to the order variable.
+
+41
+00:02:09,360 --> 00:02:10,670
+Then we print out their order.
+
+42
+00:02:13,950 --> 00:02:17,130
+Finally, we want to calculate
+the customer's total bill,
+
+43
+00:02:17,130 --> 00:02:19,630
+which we haven't
+written code for yet.
+
+44
+00:02:19,630 --> 00:02:23,360
+In order to do that, we'll need
+the orders list, and the menu
+
+45
+00:02:23,360 --> 00:02:26,180
+to look up each item's price.
+
+46
+00:02:26,180 --> 00:02:30,370
+We haven't sent two parameters
+into a function before.
+
+47
+00:02:30,370 --> 00:02:33,420
+All we need to do is
+separate them with a comma.
+
+48
+00:02:33,420 --> 00:02:37,330
+We'll also need a total
+variable to sum up the total.
+
+49
+00:02:37,330 --> 00:02:40,540
+And we'll loop over each
+order in the orders list
+
+50
+00:02:40,540 --> 00:02:45,190
+and look up the items price,
+and add it to the total.
+
+51
+00:02:45,190 --> 00:02:47,922
+Finally, we'll return
+the total bill.
+
+52
+00:02:52,080 --> 00:02:55,330
+Let's look at running this
+function with an example.
+
+53
+00:02:55,330 --> 00:02:59,040
+The customer's order is
+cheeky spam, pip pip spam,
+
+54
+00:02:59,040 --> 00:03:00,800
+and knackered spam.
+
+55
+00:03:00,800 --> 00:03:03,670
+And we have a menu with prices.
+
+56
+00:03:03,670 --> 00:03:05,660
+The first time through
+the loop, order
+
+57
+00:03:05,660 --> 00:03:08,600
+will be the first
+order: cheeky spam.
+
+58
+00:03:08,600 --> 00:03:13,510
+We'll find it in the menu
+and get its price as $1,
+
+59
+00:03:13,510 --> 00:03:17,230
+and add it to the total.
+
+60
+00:03:17,230 --> 00:03:19,190
+The second time
+through the loop, order
+
+61
+00:03:19,190 --> 00:03:21,010
+will be pip pip spam.
+
+62
+00:03:21,010 --> 00:03:24,460
+We'll find it in the menu,
+and get its price as $3,
+
+63
+00:03:24,460 --> 00:03:28,160
+and add it to the total.
+
+64
+00:03:28,160 --> 00:03:30,280
+And the third time
+through the loop, order
+
+65
+00:03:30,280 --> 00:03:33,380
+will be knackered spam,
+we'll find it in the menu,
+
+66
+00:03:33,380 --> 00:03:37,910
+and get its price as $4,
+and add that to the total.
+
+67
+00:03:37,910 --> 00:03:41,415
+And finally we would
+return $8 as the total.
+
+68
+00:03:44,030 --> 00:03:48,240
+If we look at our final
+program, we print out the menu,
+
+69
+00:03:48,240 --> 00:03:51,280
+get the customer's
+order, and then print out
+
+70
+00:03:51,280 --> 00:03:53,692
+what they ordered
+and the total bill.
+
+71
+00:03:56,650 --> 00:04:01,490
+Now let's look at our Spam
+Van ordering system in action.
+
+72
+00:04:01,490 --> 00:04:06,580
+The custom orders smashing spam,
+cheerio spam, and yonks spam.
+
+73
+00:04:06,580 --> 00:04:10,340
+Then their order is printed
+out, and the total of $8.
+
+74
+00:04:14,280 --> 00:04:16,000
+That's it for level 3.
+
+75
+00:04:16,000 --> 00:04:20,030
+Now it's time for you to master
+functions in the challenges.
+

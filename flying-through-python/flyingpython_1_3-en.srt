@@ -1,0 +1,293 @@
+1
+00:00:00,000 --> 00:00:02,029
+
+
+2
+00:00:02,029 --> 00:00:04,350
+Welcome back to
+Flying Through Python.
+
+3
+00:00:04,350 --> 00:00:08,200
+In this section, we'll be
+comparing and combining
+
+4
+00:00:08,200 --> 00:00:11,310
+lists and dictionaries.
+
+5
+00:00:11,310 --> 00:00:15,720
+Just like we can compare strings
+and numbers for equality,
+
+6
+00:00:15,720 --> 00:00:19,640
+we can also check if
+two lists are equal.
+
+7
+00:00:19,640 --> 00:00:22,220
+For two lists to
+be equal, they have
+
+8
+00:00:22,220 --> 00:00:26,790
+to have exactly the same items
+in exactly the same order.
+
+9
+00:00:26,790 --> 00:00:31,320
+So if my list has one,
+two, three, four, in order.
+
+10
+00:00:31,320 --> 00:00:35,350
+And your list is reversed,
+checking if the two
+
+11
+00:00:35,350 --> 00:00:38,260
+lists are equal returns false.
+
+12
+00:00:38,260 --> 00:00:41,630
+If we add another list,
+his list, with the same
+
+13
+00:00:41,630 --> 00:00:45,820
+ordered one, two, three, four,
+and then check for equality
+
+14
+00:00:45,820 --> 00:00:48,470
+with my list, we get true.
+
+15
+00:00:48,470 --> 00:00:52,540
+
+
+16
+00:00:52,540 --> 00:00:55,800
+But how does this work for
+comparing dictionaries?
+
+17
+00:00:55,800 --> 00:00:59,490
+We created a simple dictionary
+here with the key and value
+
+18
+00:00:59,490 --> 00:01:02,590
+as the same numbers for
+numbers one through four.
+
+19
+00:01:02,590 --> 00:01:06,450
+Then we created the same
+dictionary in reverse order.
+
+20
+00:01:06,450 --> 00:01:09,110
+Since order doesn't
+matter in dictionaries,
+
+21
+00:01:09,110 --> 00:01:11,950
+the dictionaries
+are actually equal.
+
+22
+00:01:11,950 --> 00:01:16,100
+If this bothers you, think
+about looking up the key one.
+
+23
+00:01:16,100 --> 00:01:17,630
+Would you get the same value?
+
+24
+00:01:17,630 --> 00:01:18,500
+Yes, you would.
+
+25
+00:01:18,500 --> 00:01:21,750
+You'd still get the value one.
+
+26
+00:01:21,750 --> 00:01:25,030
+Let's say we have three
+different menu lists,
+
+27
+00:01:25,030 --> 00:01:27,110
+breakfast, lunch, and dinner.
+
+28
+00:01:27,110 --> 00:01:30,140
+How would we combine
+these into one list?
+
+29
+00:01:30,140 --> 00:01:33,420
+
+
+30
+00:01:33,420 --> 00:01:36,350
+A list is a container
+of anything you want,
+
+31
+00:01:36,350 --> 00:01:40,330
+so you can even have
+a list of lists.
+
+32
+00:01:40,330 --> 00:01:42,500
+Let's say for our
+food truck, we want
+
+33
+00:01:42,500 --> 00:01:46,570
+a list of menus, the breakfast,
+lunch, and dinner menus.
+
+34
+00:01:46,570 --> 00:01:50,530
+And each menu stores
+a list of food items.
+
+35
+00:01:50,530 --> 00:01:53,450
+Then, if we print the
+menu at index zero,
+
+36
+00:01:53,450 --> 00:01:55,550
+we get the breakfast menu.
+
+37
+00:01:55,550 --> 00:01:58,270
+Index one returns
+the lunch menu.
+
+38
+00:01:58,270 --> 00:02:01,530
+And index two returns
+the dinner menu.
+
+39
+00:02:01,530 --> 00:02:06,410
+A list of lists is sometimes
+called a two dimensional list.
+
+40
+00:02:06,410 --> 00:02:11,220
+So how would we get an element
+from one of these inner lists?
+
+41
+00:02:11,220 --> 00:02:13,410
+Like spam and jam.
+
+42
+00:02:13,410 --> 00:02:16,750
+First, we need to access
+the inner list which
+
+43
+00:02:16,750 --> 00:02:21,010
+we can do by writing menus,
+square bracket, zero.
+
+44
+00:02:21,010 --> 00:02:23,680
+So now that we have
+that list, we just
+
+45
+00:02:23,680 --> 00:02:27,000
+need to get that second
+item, spam and jam.
+
+46
+00:02:27,000 --> 00:02:31,270
+And we do that by using
+index one in the inner list.
+
+47
+00:02:31,270 --> 00:02:36,460
+So menus, zero, one,
+gives us spam and jam.
+
+48
+00:02:36,460 --> 00:02:38,440
+We could make this
+code even better
+
+49
+00:02:38,440 --> 00:02:42,290
+if we didn't have to just know
+that the breakfast menu was
+
+50
+00:02:42,290 --> 00:02:46,300
+at index zero, the lunch
+menu was at index one,
+
+51
+00:02:46,300 --> 00:02:50,820
+and the dinner menu
+was at index two.
+
+52
+00:02:50,820 --> 00:02:54,630
+We could use a dictionary
+where the key breakfast has
+
+53
+00:02:54,630 --> 00:02:57,770
+the value of the list
+of breakfast items,
+
+54
+00:02:57,770 --> 00:03:01,720
+the key lunch has the value
+of the list of lunch items,
+
+55
+00:03:01,720 --> 00:03:05,850
+and the key dinner has the value
+of the list of dinner items.
+
+56
+00:03:05,850 --> 00:03:08,840
+That makes it much
+easier to find each menu.
+
+57
+00:03:08,840 --> 00:03:13,620
+
+
+58
+00:03:13,620 --> 00:03:16,150
+Now that you've seen
+comparing and combining
+
+59
+00:03:16,150 --> 00:03:18,300
+lists and dictionaries,
+it's time for you
+
+60
+00:03:18,300 --> 00:03:20,830
+to give it a try
+in the challenges.
+
+61
+00:03:20,830 --> 00:03:22,500
+Good luck.
+
+62
+00:03:22,500 --> 00:03:23,824

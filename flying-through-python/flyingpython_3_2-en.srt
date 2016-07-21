@@ -1,0 +1,272 @@
+﻿1
+00:00:02,020 --> 00:00:05,940
+Welcome back to section two
+of Flying Through Python.
+
+2
+00:00:05,940 --> 00:00:10,080
+Looking at our program again,
+it might be a little confusing
+
+3
+00:00:10,080 --> 00:00:12,440
+that the first piece
+of code that gets run
+
+4
+00:00:12,440 --> 00:00:15,090
+is at the bottom of our script.
+
+5
+00:00:15,090 --> 00:00:18,390
+That's because the function
+definition is at the top
+
+6
+00:00:18,390 --> 00:00:21,090
+and doesn't get run
+until it's called.
+
+7
+00:00:21,090 --> 00:00:24,030
+If it helps, we can think
+of the code at the bottom
+
+8
+00:00:24,030 --> 00:00:27,650
+as the main part of our
+program and the code at the top
+
+9
+00:00:27,650 --> 00:00:31,110
+just as functions that
+get used in the main part.
+
+10
+00:00:31,110 --> 00:00:33,150
+This allows us to
+be sloppy though.
+
+11
+00:00:33,150 --> 00:00:36,440
+We could scatter these lines of
+code all throughout our script.
+
+12
+00:00:36,440 --> 00:00:40,990
+To be more organized, we can
+take our main program code
+
+13
+00:00:40,990 --> 00:00:44,720
+and put it in a
+function called main.
+
+14
+00:00:44,720 --> 00:00:46,640
+Then the only piece
+of code that's
+
+15
+00:00:46,640 --> 00:00:50,540
+not in a function in our
+file will be one single call
+
+16
+00:00:50,540 --> 00:00:53,860
+to main to kick
+off our program.
+
+17
+00:00:53,860 --> 00:00:57,539
+This is not required, but is
+the best practice in Python
+
+18
+00:00:57,539 --> 00:00:59,205
+and what we'll do
+throughout the course.
+
+19
+00:01:02,920 --> 00:01:05,190
+Let's look at our
+order of execution
+
+20
+00:01:05,190 --> 00:01:07,740
+now that we've created main.
+
+21
+00:01:07,740 --> 00:01:10,600
+Since functions don't
+run until they're called,
+
+22
+00:01:10,600 --> 00:01:14,990
+all of the execution kicks off
+with the first call to main
+
+23
+00:01:14,990 --> 00:01:20,850
+then runs the lines of code in
+main until average gets called.
+
+24
+00:01:20,850 --> 00:01:25,255
+Then average runs and returns
+a value to main and main
+
+25
+00:01:25,255 --> 00:01:25,755
+continues.
+
+26
+00:01:28,892 --> 00:01:30,350
+When you're working
+with functions,
+
+27
+00:01:30,350 --> 00:01:32,370
+you need to be aware of scope.
+
+28
+00:01:32,370 --> 00:01:35,590
+Scope determines what
+parts of your program
+
+29
+00:01:35,590 --> 00:01:38,770
+can access certain variables.
+
+30
+00:01:38,770 --> 00:01:42,610
+So if you declare a
+variable inside a function,
+
+31
+00:01:42,610 --> 00:01:47,770
+it only exists within that
+function or it has local scope.
+
+32
+00:01:47,770 --> 00:01:50,630
+For example, the
+variable total is created
+
+33
+00:01:50,630 --> 00:01:52,800
+within the average function.
+
+34
+00:01:52,800 --> 00:01:55,760
+If we try to access total
+in our main function,
+
+35
+00:01:55,760 --> 00:02:00,280
+we get "Name error:
+'total' is not defined."
+
+36
+00:02:00,280 --> 00:02:04,360
+We would get the same error
+if we tried to access numbers.
+
+37
+00:02:04,360 --> 00:02:07,210
+This is because total
+and numbers don't
+
+38
+00:02:07,210 --> 00:02:09,690
+exist inside the main function.
+
+39
+00:02:09,690 --> 00:02:12,480
+They only exist inside
+the average function,
+
+40
+00:02:12,480 --> 00:02:16,705
+or you could say their scope is
+local to the average function.
+
+41
+00:02:20,230 --> 00:02:23,110
+Variables that are declared
+outside of a function
+
+42
+00:02:23,110 --> 00:02:24,850
+have global scope.
+
+43
+00:02:24,850 --> 00:02:28,770
+Global scope means that they
+can be accessed anywhere inside
+
+44
+00:02:28,770 --> 00:02:30,000
+of the script.
+
+45
+00:02:30,000 --> 00:02:33,890
+For example, order
+goal has global scope.
+
+46
+00:02:33,890 --> 00:02:38,080
+So if we try to access it in our
+main, we don't get any errors
+
+47
+00:02:38,080 --> 00:02:40,570
+and are able to print its value.
+
+48
+00:02:40,570 --> 00:02:44,340
+Our functions also
+have global scope.
+
+49
+00:02:44,340 --> 00:02:48,510
+But variables still can't be
+used until they're declared.
+
+50
+00:02:48,510 --> 00:02:54,330
+So if we instead declared order
+goal after we called main,
+
+51
+00:02:54,330 --> 00:02:59,060
+main will be run before
+order goal is created.
+
+52
+00:02:59,060 --> 00:03:01,480
+Then we main tries
+to print order goal,
+
+53
+00:03:01,480 --> 00:03:03,090
+we'll get the same name error.
+
+54
+00:03:06,490 --> 00:03:09,440
+Now it's time for you create
+your own main function
+
+55
+00:03:09,440 --> 00:03:11,340
+and see what
+trouble you get into
+
+56
+00:03:11,340 --> 00:03:13,380
+with local and global scope.
+
+57
+00:03:13,380 --> 00:03:15,340
+Have fun.
+

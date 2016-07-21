@@ -1,0 +1,275 @@
+﻿1
+00:00:02,020 --> 00:00:03,310
+Welcome back.
+
+2
+00:00:03,310 --> 00:00:05,920
+Now that we have for
+loops in our tool belt,
+
+3
+00:00:05,920 --> 00:00:10,230
+let's create a fun British-themed
+ menu for our Spam Van.
+
+4
+00:00:13,600 --> 00:00:16,470
+Since our menu
+features a lot of spam,
+
+5
+00:00:16,470 --> 00:00:19,450
+let's take our
+British slang list,
+
+6
+00:00:19,450 --> 00:00:24,280
+and then append spam to
+each word inside of it.
+
+7
+00:00:24,280 --> 00:00:27,910
+To do this we'll start
+with an empty menu list.
+
+8
+00:00:27,910 --> 00:00:32,020
+Then we'll loop over every
+slang word and concatenate spam
+
+9
+00:00:32,020 --> 00:00:33,410
+to each word.
+
+10
+00:00:33,410 --> 00:00:36,810
+And then append the
+result to our menu list.
+
+11
+00:00:36,810 --> 00:00:40,160
+And we end up with the
+resulting menu items.
+
+12
+00:00:40,160 --> 00:00:43,990
+Knackered spam, Pip
+pip spam, Squidgy spam,
+
+13
+00:00:43,990 --> 00:00:45,290
+and Smashing spam.
+
+14
+00:00:48,860 --> 00:00:52,760
+For each of our menu items
+let's also assign a price.
+
+15
+00:00:52,760 --> 00:00:57,480
+We'll start with $0.50 and
+each item will be $1 more than
+
+16
+00:00:57,480 --> 00:00:58,810
+the next.
+
+17
+00:00:58,810 --> 00:01:03,430
+To do this we'll use a
+dictionary called menu prices.
+
+18
+00:01:03,430 --> 00:01:06,030
+The keys will be the
+item name and the values
+
+19
+00:01:06,030 --> 00:01:07,650
+will be the price.
+
+20
+00:01:07,650 --> 00:01:10,330
+We'll start by creating
+an empty dictionary.
+
+21
+00:01:10,330 --> 00:01:15,810
+And we'll also create a variable
+price that starts at $0.50.
+
+22
+00:01:15,810 --> 00:01:19,660
+Then we'll loop over each
+item in our menu list.
+
+23
+00:01:19,660 --> 00:01:23,710
+Next, we'll assign the
+dictionary with the key item
+
+24
+00:01:23,710 --> 00:01:25,540
+to the price.
+
+25
+00:01:25,540 --> 00:01:30,580
+And lastly, we'll increase
+the price by $1 each loop.
+
+26
+00:01:30,580 --> 00:01:34,320
+If we print out our final
+dictionary menu prices
+
+27
+00:01:34,320 --> 00:01:36,665
+we have all of our items assigned a price.
+
+28
+00:01:42,570 --> 00:01:45,740
+Now, we want to print these
+items out on separate lines
+
+29
+00:01:45,740 --> 00:01:48,100
+to display our menu.
+
+30
+00:01:48,100 --> 00:01:51,850
+But if we just use the
+same four loop format
+
+31
+00:01:51,850 --> 00:01:56,310
+as we did with a list, this
+defaults to just printing
+
+32
+00:01:56,310 --> 00:01:58,830
+the keys in the dictionary.
+
+33
+00:01:58,830 --> 00:02:00,703
+But we also want the prices.
+
+34
+00:02:05,190 --> 00:02:10,090
+In the for loop we can
+use menu prices.items
+
+35
+00:02:10,090 --> 00:02:13,820
+to get a list of our
+dictionaries key value pairs.
+
+36
+00:02:13,820 --> 00:02:17,240
+And then we can access
+both in our loop.
+
+37
+00:02:17,240 --> 00:02:20,750
+We use the temporary
+variable names, name and price,
+
+38
+00:02:20,750 --> 00:02:27,340
+for each key and value
+in menu_prices.items.
+
+39
+00:02:27,340 --> 00:02:29,300
+If we look at our
+result, the menu
+
+40
+00:02:29,300 --> 00:02:31,970
+has all the
+information it needs.
+
+41
+00:02:31,970 --> 00:02:34,530
+But we'd like to
+format it better.
+
+42
+00:02:34,530 --> 00:02:38,070
+The print function defaults
+to separating each argument
+
+43
+00:02:38,070 --> 00:02:39,580
+with a space.
+
+44
+00:02:39,580 --> 00:02:42,720
+Which makes things
+look a little weird.
+
+45
+00:02:42,720 --> 00:02:44,710
+We can get rid of
+those extra spaces.
+
+46
+00:02:53,680 --> 00:02:59,640
+In print, we can set sep
+equal to an empty string which
+
+47
+00:02:59,640 --> 00:03:02,440
+removes that space separator.
+
+48
+00:03:02,440 --> 00:03:04,410
+Now, the spacing
+is looking better.
+
+49
+00:03:04,410 --> 00:03:07,410
+But we need to round
+to two decimal places.
+
+50
+00:03:07,410 --> 00:03:15,150
+Instead of printing out 0.5
+we want to print out $0.50.
+
+51
+00:03:15,150 --> 00:03:19,360
+We can format our price by using
+the built-in format function.
+
+52
+00:03:19,360 --> 00:03:29,320
+And we write format ( price, .2f -
+which means f for float and two
+
+53
+00:03:29,320 --> 00:03:31,560
+decimal places.
+
+54
+00:03:31,560 --> 00:03:34,090
+Now, our menu is printed
+out with numbers that
+
+55
+00:03:34,090 --> 00:03:37,090
+look more like actual prices.
+
+56
+00:03:37,090 --> 00:03:39,520
+And it's time for
+you to practice more
+
+57
+00:03:39,520 --> 00:03:41,660
+with for loops
+in the challenges.
+
+58
+00:03:41,660 --> 00:03:43,510
+Good luck.
+

@@ -1,0 +1,250 @@
+﻿1
+00:00:02,050 --> 00:00:03,240
+Welcome back.
+
+2
+00:00:03,240 --> 00:00:06,830
+In this section, we'll be
+creating our own module.
+
+3
+00:00:06,830 --> 00:00:10,690
+As our spam van script
+continues to grow,
+
+4
+00:00:10,690 --> 00:00:14,060
+it's going to get really
+hard to read and maintain.
+
+5
+00:00:14,060 --> 00:00:17,980
+Right now this one script
+is responsible for printing
+
+6
+00:00:17,980 --> 00:00:20,990
+the menu, taking
+orders, sales reports,
+
+7
+00:00:20,990 --> 00:00:24,040
+and now accessing the
+menu from the network.
+
+8
+00:00:24,040 --> 00:00:26,630
+As our programs
+get longer, we may
+
+9
+00:00:26,630 --> 00:00:29,280
+want to organize them
+into several files
+
+10
+00:00:29,280 --> 00:00:32,120
+or separate modules
+for easier maintenance.
+
+11
+00:00:34,950 --> 00:00:37,090
+We can organize
+our program better
+
+12
+00:00:37,090 --> 00:00:39,860
+by separating getting
+customer orders,
+
+13
+00:00:39,860 --> 00:00:41,930
+accessing the menu
+from the network,
+
+14
+00:00:41,930 --> 00:00:45,060
+and sales reports in
+the separate modules.
+
+15
+00:00:45,060 --> 00:00:48,050
+A script containing
+definitions is a module
+
+16
+00:00:48,050 --> 00:00:52,020
+and can be imported by another
+script or another module.
+
+17
+00:00:52,020 --> 00:00:54,970
+And as long as these files
+are in the same directory,
+
+18
+00:00:54,970 --> 00:00:58,780
+we can import them into
+the spam van script
+
+19
+00:00:58,780 --> 00:01:02,720
+just by writing import
+and the module name.
+
+20
+00:01:02,720 --> 00:01:05,209
+We'll start with creating
+the orders module now.
+
+21
+00:01:08,860 --> 00:01:12,140
+First, we'll take all of
+our definitions pertaining
+
+22
+00:01:12,140 --> 00:01:15,350
+to ordering and put them
+in our orders module.
+
+23
+00:01:15,350 --> 00:01:19,400
+Then the spam van script will
+call the orders functions
+
+24
+00:01:19,400 --> 00:01:23,300
+from that module and
+hold our main function.
+
+25
+00:01:27,920 --> 00:01:32,880
+Now we have our separate files:
+orders.py and spam_van.py,
+
+26
+00:01:32,880 --> 00:01:34,530
+but there's a little problem.
+
+27
+00:01:34,530 --> 00:01:38,630
+When we run spam van,
+we get this error.
+
+28
+00:01:38,630 --> 00:01:41,740
+The reason is we forgot to
+import the orders module.
+
+29
+00:01:44,640 --> 00:01:48,410
+Import orders will be able
+to find our orders model.
+
+30
+00:01:48,410 --> 00:01:51,760
+But even still, if we run
+this, it doesn't work.
+
+31
+00:01:55,750 --> 00:01:57,670
+We need to add orders dot
+
+32
+00:01:57,670 --> 00:01:59,460
+before each of
+the functions that
+
+33
+00:01:59,460 --> 00:02:00,930
+are part of the orders module.
+
+34
+00:02:04,140 --> 00:02:06,410
+Now our program can
+find the functions
+
+35
+00:02:06,410 --> 00:02:10,680
+within the orders module and
+will run just as it did before.
+
+36
+00:02:10,680 --> 00:02:14,100
+It prints out the menu,
+gets the customer's order,
+
+37
+00:02:14,100 --> 00:02:15,640
+and prints out the bill total.
+
+38
+00:02:21,040 --> 00:02:23,010
+That's it for Flying
+through Python.
+
+39
+00:02:23,010 --> 00:02:24,860
+Good luck in the rest
+of the challenges,
+
+40
+00:02:24,860 --> 00:02:26,930
+and I'll see you in
+the wrap-up video.
+
+41
+00:02:28,800 --> 00:02:30,420
+Sorry.
+
+42
+00:02:30,420 --> 00:02:33,310
+I couldn't remember
+how to segue.
+
+43
+00:02:33,310 --> 00:02:34,550
+Dictionary-o.
+
+44
+00:02:34,550 --> 00:02:37,300
+Dictionary-o?
+
+45
+00:02:37,300 --> 00:02:39,280
+Comparing.
+
+46
+00:02:39,280 --> 00:02:42,460
+Creating from the--
+
+47
+00:02:43,080 --> 00:02:44,670
+We then put--
+
+48
+00:02:44,670 --> 00:02:46,128
+You're not going
+to read your joke?
+
+49
+00:02:46,128 --> 00:02:48,410
+No.
+
+50
+00:02:48,410 --> 00:02:49,740
+Like, I tried.
+
+51
+00:02:49,740 --> 00:02:51,390
+It's not a good joke.
+
+52
+00:02:51,390 --> 00:02:54,480
+I, like, tried to come up with
+stuff, and it was terrible.
+
+53
+00:02:54,480 --> 00:02:57,220
+Break a leg.
+

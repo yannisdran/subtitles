@@ -1,0 +1,451 @@
+﻿1
+00:00:02,029 --> 00:00:04,250
+Welcome back to
+Flying through Python.
+
+2
+00:00:04,250 --> 00:00:06,626
+In this section, we'll
+be covering dictionaries.
+
+3
+00:00:09,490 --> 00:00:12,040
+What if we wanted
+another list to keep
+
+4
+00:00:12,040 --> 00:00:14,540
+track of the
+American definitions
+
+5
+00:00:14,540 --> 00:00:16,580
+of our British slang list?
+
+6
+00:00:16,580 --> 00:00:19,720
+Then we would have
+two lists to maintain.
+
+7
+00:00:19,720 --> 00:00:23,440
+If we do anything to one of
+our lists, like delete an item
+
+8
+00:00:23,440 --> 00:00:25,790
+or add an item,
+we'd have to also
+
+9
+00:00:25,790 --> 00:00:29,790
+delete or add the matching
+item from the other list.
+
+10
+00:00:29,790 --> 00:00:32,659
+So that the slang
+words still match up
+
+11
+00:00:32,659 --> 00:00:34,580
+with their definitions.
+
+12
+00:00:34,580 --> 00:00:38,630
+Maintaining two lists can 
+be tiring and error-prone.
+
+13
+00:00:38,630 --> 00:00:40,830
+We can see how we can improve upon this
+
+14
+00:00:40,830 --> 00:00:41,816
+by using dictionaries.
+
+15
+00:00:44,980 --> 00:00:47,370
+Dictionaries are
+similar to lists.
+
+16
+00:00:47,370 --> 00:00:50,510
+But instead of looking
+up an item by its index,
+
+17
+00:00:50,510 --> 00:00:53,150
+you look up an
+item with its key.
+
+18
+00:00:53,150 --> 00:00:55,990
+So we'll make our keys
+the British slang words,
+
+19
+00:00:55,990 --> 00:01:00,170
+and the values will be
+their American definitions.
+
+20
+00:01:00,170 --> 00:01:03,030
+So we can look up the
+definition of our slang word
+
+21
+00:01:03,030 --> 00:01:06,990
+by using the word like
+an actual dictionary.
+
+22
+00:01:06,990 --> 00:01:08,770
+When we create
+our dictionary, we
+
+23
+00:01:08,770 --> 00:01:12,240
+use curly brackets, instead
+of square brackets.
+
+24
+00:01:12,240 --> 00:01:14,950
+And we specify the
+key and the value
+
+25
+00:01:14,950 --> 00:01:17,170
+it's assigned to with a colon.
+
+26
+00:01:17,170 --> 00:01:20,200
+For example, we
+have the key cheerio
+
+27
+00:01:20,200 --> 00:01:22,710
+assigned to the value, goodbye.
+
+28
+00:01:22,710 --> 00:01:27,240
+Each item in the dictionary
+is called a key-value pair.
+
+29
+00:01:27,240 --> 00:01:31,180
+And we separate all of our
+key value pairs with commas.
+
+30
+00:01:31,180 --> 00:01:33,210
+We can then look up
+an entry by putting
+
+31
+00:01:33,210 --> 00:01:35,430
+a key in square brackets.
+
+32
+00:01:35,430 --> 00:01:38,120
+Here we look up
+the key cheerio
+
+33
+00:01:38,120 --> 00:01:39,445
+and get the value goodbye.
+
+34
+00:01:42,750 --> 00:01:44,750
+Like lists, we
+can store anything
+
+35
+00:01:44,750 --> 00:01:46,550
+in a Python dictionary.
+
+36
+00:01:46,550 --> 00:01:49,900
+We can use strings as
+both the key and value,
+
+37
+00:01:49,900 --> 00:01:52,620
+as we're doing with
+our slang dictionary.
+
+38
+00:01:52,620 --> 00:01:56,580
+We can use a string as the
+key and a number as the value.
+
+39
+00:01:56,580 --> 00:02:00,470
+For instance, here we have a
+menu item's name as the key,
+
+40
+00:02:00,470 --> 00:02:02,660
+and its price as the value.
+
+41
+00:02:02,660 --> 00:02:05,770
+We can actually use any
+combination of types,
+
+42
+00:02:05,770 --> 00:02:07,730
+such as a number
+mapped to a string,
+
+43
+00:02:07,730 --> 00:02:11,430
+and a number mapped to a number.
+
+44
+00:02:11,430 --> 00:02:13,500
+We can create an
+empty dictionary
+
+45
+00:02:13,500 --> 00:02:18,720
+with empty curly braces, and
+then add items as we need to.
+
+46
+00:02:18,720 --> 00:02:22,320
+We add items by using
+square brackets key, which
+
+47
+00:02:22,320 --> 00:02:25,080
+is the same way we
+would look up the value,
+
+48
+00:02:25,080 --> 00:02:29,920
+and then using an equal sign
+to assign the desired value.
+
+49
+00:02:29,920 --> 00:02:32,640
+This will also work
+for updating a value
+
+50
+00:02:32,640 --> 00:02:35,600
+for a key that already exists.
+
+51
+00:02:35,600 --> 00:02:37,480
+If we print out
+our dictionary, we
+
+52
+00:02:37,480 --> 00:02:40,640
+see that we have
+three key value pairs.
+
+53
+00:02:40,640 --> 00:02:44,420
+Let's say we want to update
+the value of smashing to be
+
+54
+00:02:44,420 --> 00:02:47,500
+awesome instead of terrific.
+
+55
+00:02:47,500 --> 00:02:51,260
+We just look up the smashing
+key with the square brackets,
+
+56
+00:02:51,260 --> 00:02:55,200
+and assign it the value
+awesome with an equal sign.
+
+57
+00:02:55,200 --> 00:02:58,850
+Then if we look up in print
+smashing, we get awesome.
+
+58
+00:02:58,850 --> 00:03:03,160
+So updating our
+dictionary worked.
+
+59
+00:03:03,160 --> 00:03:06,600
+Like with lists, you can
+use del -- short for delete --
+
+60
+00:03:06,600 --> 00:03:09,680
+to delete an item by
+looking up its key.
+
+61
+00:03:09,680 --> 00:03:12,150
+Here we have three
+items in our dictionary,
+
+62
+00:03:12,150 --> 00:03:15,600
+and we want to delete the
+cheerio key value pair.
+
+63
+00:03:15,600 --> 00:03:19,450
+We type del and then
+look up the key cheerio.
+
+64
+00:03:19,450 --> 00:03:22,730
+Then, if we print out
+the resulting dictionary,
+
+65
+00:03:22,730 --> 00:03:28,480
+the key cheerio and
+its value was deleted.
+
+66
+00:03:28,480 --> 00:03:31,150
+If you try to access a key
+in the dictionary that's
+
+67
+00:03:31,150 --> 00:03:33,810
+not there, you'll
+get a key error,
+
+68
+00:03:33,810 --> 00:03:35,570
+and your program will quit.
+
+69
+00:03:35,570 --> 00:03:38,660
+To avoid this, you can
+use the GET method.
+
+70
+00:03:38,660 --> 00:03:42,100
+If the key exists, the
+value will be returned.
+
+71
+00:03:42,100 --> 00:03:46,160
+If the key doesn't exist,
+"none" will be returned.
+
+72
+00:03:46,160 --> 00:03:48,810
+"None" is a special type
+of value in Python
+
+73
+00:03:48,810 --> 00:03:51,190
+that actually means
+that absence of a value.
+
+74
+00:03:55,360 --> 00:03:59,860
+Since "none" represents the
+absence of a value in Python,
+
+75
+00:03:59,860 --> 00:04:03,590
+"none" evaluates to
+false in a conditional.
+
+76
+00:04:03,590 --> 00:04:07,390
+And if a value exists,
+it evaluates to true.
+
+77
+00:04:07,390 --> 00:04:11,280
+So we can try to get the
+value of the key, bloody,
+
+78
+00:04:11,280 --> 00:04:14,670
+and then check if it was found
+by checking if the result was
+
+79
+00:04:14,670 --> 00:04:17,470
+a value, like the word darn.
+
+80
+00:04:17,470 --> 00:04:23,270
+Otherwise, if result was none,
+we'll print key doesn't exist.
+
+81
+00:04:23,270 --> 00:04:26,060
+In this case, we would
+print key doesn't exist,
+
+82
+00:04:26,060 --> 00:04:28,220
+because bloody is not
+in our dictionary.
+
+83
+00:04:30,980 --> 00:04:34,630
+Let's use our slang dictionary
+to translate a sentence.
+
+84
+00:04:34,630 --> 00:04:37,830
+We've concatenated each of
+the British slang words,
+
+85
+00:04:37,830 --> 00:04:42,780
+mate and cheeky, separately, to
+make it easier to look them up.
+
+86
+00:04:42,780 --> 00:04:47,010
+We can then replace each slang
+word with its translation
+
+87
+00:04:47,010 --> 00:04:49,720
+by getting it from
+the dictionary.
+
+88
+00:04:49,720 --> 00:04:53,350
+We can then print out the
+slang version of the sentence,
+
+89
+00:04:53,350 --> 00:04:55,970
+and the translated
+version of the sentence.
+
+90
+00:04:59,190 --> 00:05:01,440
+Now it's time for you
+to practice dictionaries
+
+91
+00:05:01,440 --> 00:05:02,790
+and the challenges.
+
+92
+00:05:02,790 --> 00:05:05,050
+The key is to add value.
+
+93
+00:05:05,050 --> 00:05:05,690
+Get it?
+
+94
+00:05:05,690 --> 00:05:08,070
+Key, value, dictionaries?
+

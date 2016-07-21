@@ -1,0 +1,212 @@
+﻿1
+00:00:02,060 --> 00:00:03,030
+Welcome back.
+
+2
+00:00:03,030 --> 00:00:05,355
+In this section, we'll
+be reading from files.
+
+3
+00:00:07,940 --> 00:00:12,700
+Every day, our boss sends us
+a file of dollar menu items.
+
+4
+00:00:12,700 --> 00:00:15,780
+We'd like to read
+this file into a list.
+
+5
+00:00:19,000 --> 00:00:22,560
+To read from a file, the
+steps are similar to writing.
+
+6
+00:00:22,560 --> 00:00:25,400
+First, we'll open the file.
+
+7
+00:00:25,400 --> 00:00:29,300
+We use the open function with
+the file name and the mode.
+
+8
+00:00:29,300 --> 00:00:31,740
+Here it's R for read.
+
+9
+00:00:31,740 --> 00:00:34,340
+Second, we read from the file.
+
+10
+00:00:34,340 --> 00:00:41,040
+The dollar spam.read will read
+the entire file's contents.
+
+11
+00:00:41,040 --> 00:00:44,020
+Finally, we close the file
+with dollar spam.close.
+
+12
+00:00:48,640 --> 00:00:51,510
+There's a few other ways
+to read from a file instead
+
+13
+00:00:51,510 --> 00:00:55,430
+of reading the entire
+file's contents at once.
+
+14
+00:00:55,430 --> 00:00:58,680
+Read line will allow you
+to read one line at a time
+
+15
+00:00:58,680 --> 00:01:01,180
+by looking for a
+new line character,
+
+16
+00:01:01,180 --> 00:01:06,020
+and it will keep track
+of what line we're on.
+
+17
+00:01:06,020 --> 00:01:08,080
+You can also read
+all of the lines
+
+18
+00:01:08,080 --> 00:01:12,130
+individually in a loop, which
+will be convenient for reading
+
+19
+00:01:12,130 --> 00:01:14,860
+all of the lines into our list.
+
+20
+00:01:14,860 --> 00:01:17,450
+But before we do
+this, let's write code
+
+21
+00:01:17,450 --> 00:01:20,080
+to print out each
+line of our file.
+
+22
+00:01:20,080 --> 00:01:22,510
+We'll do this by
+using a for loop
+
+23
+00:01:22,510 --> 00:01:26,050
+and write for line
+in dollar spam
+
+24
+00:01:26,050 --> 00:01:28,370
+and then print out the line.
+
+25
+00:01:28,370 --> 00:01:28,870
+Great.
+
+26
+00:01:28,870 --> 00:01:30,080
+Printing works.
+
+27
+00:01:30,080 --> 00:01:32,650
+Now let's try reading
+each of these lines
+
+28
+00:01:32,650 --> 00:01:36,520
+into a list called dollar menu.
+
+29
+00:01:36,520 --> 00:01:40,710
+So we create our variable
+dollar menu as an empty list.
+
+30
+00:01:40,710 --> 00:01:45,390
+And then inside our for loop,
+we append each line of our file
+
+31
+00:01:45,390 --> 00:01:47,670
+to our dollar menu list.
+
+32
+00:01:47,670 --> 00:01:51,200
+And then after the loop,
+we print our dollar menu
+
+33
+00:01:51,200 --> 00:01:55,260
+and finally close
+our dollar spam file.
+
+34
+00:01:55,260 --> 00:01:59,010
+This was perfect for reading
+each line into a list.
+
+35
+00:01:59,010 --> 00:02:02,990
+The only problem is we also
+read in the new line characters.
+
+36
+00:02:02,990 --> 00:02:06,415
+We'll want to fix this by
+getting rid of the new lines.
+
+37
+00:02:10,020 --> 00:02:12,510
+If we use the
+string method strip,
+
+38
+00:02:12,510 --> 00:02:14,630
+this will return
+a string with all
+
+39
+00:02:14,630 --> 00:02:18,170
+of the leading and trailing
+white space removed,
+
+40
+00:02:18,170 --> 00:02:23,160
+and white space includes
+new line characters.
+
+41
+00:02:23,160 --> 00:02:24,330
+And there you have it.
+
+42
+00:02:24,330 --> 00:02:29,030
+We've successfully read in our
+dollar menu file into a list.
+
+43
+00:02:29,030 --> 00:02:30,940
+Now it's time for you
+to practice reading
+
+44
+00:02:30,940 --> 00:02:32,870
+from files and the challenges.
+
+45
+00:02:32,870 --> 00:02:34,538
+Good luck.
+

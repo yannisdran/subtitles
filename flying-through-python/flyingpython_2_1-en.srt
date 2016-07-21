@@ -1,0 +1,488 @@
+﻿1
+00:00:00,000 --> 00:00:04,520
+[SINGING] Cheerio pip pip,
+let's code some Python files.
+
+2
+00:00:04,520 --> 00:00:08,742
+We'll use quick lists, and
+loops with fors and whiles.
+
+3
+00:00:08,742 --> 00:00:11,790
+Use modules we can, with
+functions write them on.
+
+4
+00:00:11,790 --> 00:00:18,030
+Come join the Spam Van
+and fly through Python.
+
+5
+00:00:21,360 --> 00:00:23,450
+Welcome back to
+Flying through Python.
+
+6
+00:00:23,450 --> 00:00:29,280
+I'm Sarah Buchanan, and this
+is level two, Loopty Loops.
+
+7
+00:00:29,280 --> 00:00:30,890
+Remember our goal.
+
+8
+00:00:30,890 --> 00:00:32,580
+At the end of this
+course, we want
+
+9
+00:00:32,580 --> 00:00:35,760
+to create a basic sales
+system for our circus food
+
+10
+00:00:35,760 --> 00:00:37,870
+truck, the Spam Van.
+
+11
+00:00:37,870 --> 00:00:40,270
+But in order to do
+that, we'll want a way
+
+12
+00:00:40,270 --> 00:00:42,500
+to easily repeat behavior.
+
+13
+00:00:42,500 --> 00:00:45,610
+And loops will allow
+us to do just that.
+
+14
+00:00:45,610 --> 00:00:48,160
+We're going to use a
+for loop to calculate
+
+15
+00:00:48,160 --> 00:00:50,750
+the average price of
+our menu so that we
+
+16
+00:00:50,750 --> 00:00:53,430
+can prove we deserve
+a single dollar sign
+
+17
+00:00:53,430 --> 00:00:55,700
+rating on sites like Yelp.
+
+18
+00:00:55,700 --> 00:00:59,450
+To do this, we'll use a loop to look at each price in our price
+
+19
+00:00:59,450 --> 00:01:02,180
+list.
+
+20
+00:01:02,180 --> 00:01:05,530
+We want to sum all of the
+prices in a price list
+
+21
+00:01:05,530 --> 00:01:07,730
+to figure out the average.
+
+22
+00:01:07,730 --> 00:01:12,340
+But first, let's just print out
+each price in our price list.
+
+23
+00:01:12,340 --> 00:01:20,440
+The format of our for loop
+is, for price in prices.
+
+24
+00:01:20,440 --> 00:01:23,030
+And then the code
+we want to repeat.
+
+25
+00:01:23,030 --> 00:01:26,040
+Which is, printing
+price is price.
+
+26
+00:01:26,040 --> 00:01:28,460
+This for statement
+is like saying,
+
+27
+00:01:28,460 --> 00:01:33,060
+do this for each individual
+price in our list.
+
+28
+00:01:33,060 --> 00:01:36,850
+And price, here, is
+a temporary variable
+
+29
+00:01:36,850 --> 00:01:40,470
+we create that holds one
+of the prices in the list
+
+30
+00:01:40,470 --> 00:01:42,800
+for each run of the loop.
+
+31
+00:01:42,800 --> 00:01:45,320
+Let's see this loop in action.
+
+32
+00:01:45,320 --> 00:01:47,240
+The first time through
+the loop, price
+
+33
+00:01:47,240 --> 00:01:50,500
+is the first number
+in prices, 2.5.
+
+34
+00:01:50,500 --> 00:01:53,520
+So we print price is 2.5.
+
+35
+00:01:53,520 --> 00:01:57,230
+Then price is the second
+number in prices, 3.5,
+
+36
+00:01:57,230 --> 00:01:59,890
+and we print price is 3.5.
+
+37
+00:01:59,890 --> 00:02:08,060
+And finally, prices 4.5,
+and we print price is 4.5.
+
+38
+00:02:08,060 --> 00:02:11,500
+Now let's add in our code
+for summing our prices
+
+39
+00:02:11,500 --> 00:02:16,110
+into the variable total, and
+also print out total each time
+
+40
+00:02:16,110 --> 00:02:17,470
+through the loop.
+
+41
+00:02:17,470 --> 00:02:20,700
+If we look at what's
+happening behind the scenes,
+
+42
+00:02:20,700 --> 00:02:22,890
+the first time
+through the loop price
+
+43
+00:02:22,890 --> 00:02:26,540
+is the first element
+in the list, 2.5.
+
+44
+00:02:26,540 --> 00:02:31,570
+Then total is set
+equal to 0 plus 2.5,
+
+45
+00:02:31,570 --> 00:02:34,660
+and we print total is 2.5.
+
+46
+00:02:34,660 --> 00:02:39,080
+The second time through
+the loop, price is 3.5,
+
+47
+00:02:39,080 --> 00:02:45,380
+and total is now assigned
+its old value, 2.5, plus 3.5,
+
+48
+00:02:45,380 --> 00:02:46,480
+which is 6.
+
+49
+00:02:46,480 --> 00:02:49,120
+So we print total is 6.
+
+50
+00:02:49,120 --> 00:02:52,890
+And we continue this pattern
+for each number in the list.
+
+51
+00:02:52,890 --> 00:02:59,410
+And the final total is 10.5.
+
+52
+00:02:59,410 --> 00:03:03,270
+Finally, outside of the loop,
+we calculate that average
+
+53
+00:03:03,270 --> 00:03:06,690
+by dividing the total
+by the number of prices.
+
+54
+00:03:06,690 --> 00:03:09,890
+The length function of
+prices will give us that.
+
+55
+00:03:09,890 --> 00:03:16,580
+And then we print out the
+final result: average is 3.5.
+
+56
+00:03:16,580 --> 00:03:19,650
+We also want to do something
+fun for our customers,
+
+57
+00:03:19,650 --> 00:03:23,390
+so with each purchase a
+customer gets a raffle ticket.
+
+58
+00:03:23,390 --> 00:03:26,920
+And at the end of the day, we
+draw 10 random raffle tickets
+
+59
+00:03:26,920 --> 00:03:28,690
+and hand out prizes.
+
+60
+00:03:28,690 --> 00:03:32,030
+To do this, we'll
+need to first generate
+
+61
+00:03:32,030 --> 00:03:36,630
+a random ticket number, and second repeat that 10 times.
+
+62
+00:03:36,630 --> 00:03:38,340
+We can use a loop to repeat.
+
+63
+00:03:41,200 --> 00:03:44,920
+First, let's take a
+slight detour from loops
+
+64
+00:03:44,920 --> 00:03:48,230
+and figure out how to
+generate a random number.
+
+65
+00:03:48,230 --> 00:03:53,140
+First, we type import random to
+import the random module, which
+
+66
+00:03:53,140 --> 00:03:56,890
+allows us to pick random
+numbers in a few different ways.
+
+67
+00:03:56,890 --> 00:04:01,510
+Random.random gives us a
+random number from 0 to 1,
+
+68
+00:04:01,510 --> 00:04:06,670
+random.choice lets us select
+a random number from a list,
+
+69
+00:04:06,670 --> 00:04:12,520
+and random.randint gives us
+a random number in a range.
+
+70
+00:04:12,520 --> 00:04:17,170
+We'll assume our raffle tickets
+have numbers one through 1000.
+
+71
+00:04:17,170 --> 00:04:19,370
+And we'll use randint.
+
+72
+00:04:19,370 --> 00:04:23,155
+Now we just need to repeat that 10 times with a loop.
+
+73
+00:04:25,980 --> 00:04:28,420
+Now we know what we
+want inside our loop,
+
+74
+00:04:28,420 --> 00:04:31,370
+to pick a random number
+and print it out.
+
+75
+00:04:31,370 --> 00:04:34,670
+But we don't have a list
+for our loop, so how will
+
+76
+00:04:34,670 --> 00:04:36,920
+we loop 10 times?
+
+77
+00:04:36,920 --> 00:04:39,840
+We can use the built-in
+ function range.
+
+78
+00:04:39,840 --> 00:04:45,320
+Range of 10 will create
+a list of 10 numbers, zero
+
+79
+00:04:45,320 --> 00:04:48,020
+through nine for us
+behind the scenes.
+
+80
+00:04:50,840 --> 00:04:54,520
+So now we will look at
+our for loop using range.
+
+81
+00:04:54,520 --> 00:04:59,050
+We have, for i -- where i is
+our temporary variable name --
+
+82
+00:04:59,050 --> 00:05:01,070
+in range of 10.
+
+83
+00:05:01,070 --> 00:05:05,140
+And this will repeat the
+indented code 10 times.
+
+84
+00:05:05,140 --> 00:05:09,620
+Here we see our 10 random raffle
+ticket numbers printed out.
+
+85
+00:05:09,620 --> 00:05:12,130
+And we have our lucky winners.
+
+86
+00:05:12,130 --> 00:05:17,120
+Notice that we didn't use the
+variable i in the for loop
+
+87
+00:05:17,120 --> 00:05:19,350
+because we didn't need to.
+
+88
+00:05:19,350 --> 00:05:22,620
+But there are some situations
+where we will need to.
+
+89
+00:05:22,620 --> 00:05:26,210
+For example, now we
+want to print now
+
+90
+00:05:26,210 --> 00:05:30,370
+all of the years we've held
+our circus in Orlando, Florida.
+
+91
+00:05:30,370 --> 00:05:36,010
+From 2005, every
+other year until now.
+
+92
+00:05:36,010 --> 00:05:39,550
+The list in our for loop is
+generated by range again,
+
+93
+00:05:39,550 --> 00:05:42,890
+but here we'll use an
+alternative format of range
+
+94
+00:05:42,890 --> 00:05:47,500
+where we can set the start,
+stop, and step values.
+
+95
+00:05:47,500 --> 00:05:51,920
+We would use range by putting
+in the start year as 2005,
+
+96
+00:05:51,920 --> 00:05:55,490
+the current year, 2016,
+as the stop value,
+
+97
+00:05:55,490 --> 00:05:58,400
+and the step value
+as every two years.
+
+98
+00:05:58,400 --> 00:06:02,870
+This would print 2005,
+add the step of two,
+
+99
+00:06:02,870 --> 00:06:08,190
+print 2007, and so
+on, and stop at 2015
+
+100
+00:06:08,190 --> 00:06:13,810
+before the stop value of 2016.
+
+101
+00:06:13,810 --> 00:06:15,780
+Now it's time for
+you to practice
+
+102
+00:06:15,780 --> 00:06:20,480
+with for loops, random numbers,
+and range in the challenges.
+
+103
+00:06:20,480 --> 00:06:22,180
+Good luck.
+

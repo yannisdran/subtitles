@@ -1,0 +1,187 @@
+﻿1
+00:00:01,980 --> 00:00:02,950
+Welcome back.
+
+2
+00:00:02,950 --> 00:00:05,190
+In this section, we'll
+be covering exceptions.
+
+3
+00:00:07,910 --> 00:00:10,730
+If we try to open a
+file that doesn't exist,
+
+4
+00:00:10,730 --> 00:00:13,150
+we get a File Not Found Error.
+
+5
+00:00:13,150 --> 00:00:16,960
+It would be great if we could
+recover from this type of error
+
+6
+00:00:16,960 --> 00:00:19,160
+and continue with our program.
+
+7
+00:00:19,160 --> 00:00:24,030
+Try, except allows
+us to do just that.
+
+8
+00:00:24,030 --> 00:00:27,840
+Anything we put in the try
+block is potentially error prone
+
+9
+00:00:27,840 --> 00:00:30,730
+code, like opening a file.
+
+10
+00:00:30,730 --> 00:00:33,240
+It's like we're
+saying, try this.
+
+11
+00:00:33,240 --> 00:00:36,210
+And if you get an error,
+print the error message
+
+12
+00:00:36,210 --> 00:00:38,030
+in the except block.
+
+13
+00:00:38,030 --> 00:00:40,965
+And then continue with
+the program as usual.
+
+14
+00:00:44,150 --> 00:00:47,610
+Python has over 60
+types of exceptions.
+
+15
+00:00:47,610 --> 00:00:50,490
+Here's some of the
+ones we've seen before.
+
+16
+00:00:50,490 --> 00:00:57,180
+Exceptions like file not found
+error, index error, key error,
+
+17
+00:00:57,180 --> 00:01:01,140
+name error, and value error.
+
+18
+00:01:01,140 --> 00:01:05,055
+Let's look specifically at
+handling this value error next.
+
+19
+00:01:08,420 --> 00:01:10,790
+A value error can
+occur when we try
+
+20
+00:01:10,790 --> 00:01:15,050
+to convert a string to a
+number and the string actually
+
+21
+00:01:15,050 --> 00:01:18,160
+contains a word
+instead of a number.
+
+22
+00:01:18,160 --> 00:01:21,830
+Like here we're asking the
+user to enter the price.
+
+23
+00:01:21,830 --> 00:01:25,210
+Since we know the specific
+situation can cause a value
+
+24
+00:01:25,210 --> 00:01:29,080
+error, we're specifically
+checking for a value error.
+
+25
+00:01:29,080 --> 00:01:31,540
+If the user enters
+a number, the price
+
+26
+00:01:31,540 --> 00:01:35,240
+is printed out as expected.
+
+27
+00:01:35,240 --> 00:01:37,360
+If the user doesn't
+enter a number,
+
+28
+00:01:37,360 --> 00:01:40,780
+like here, the word
+oops, our error message,
+
+29
+00:01:40,780 --> 00:01:42,210
+not a number is printed.
+
+30
+00:01:44,910 --> 00:01:48,090
+Instead of creating a
+custom error message,
+
+31
+00:01:48,090 --> 00:01:51,320
+we can capture the
+error as a variable
+
+32
+00:01:51,320 --> 00:01:54,460
+and print it inside
+the except block.
+
+33
+00:01:54,460 --> 00:01:57,920
+So here, the user enters yo.
+
+34
+00:01:57,920 --> 00:02:01,890
+And we get the error could not
+convert string to float yo.
+
+35
+00:02:05,030 --> 00:02:06,570
+That's it for Level 4.
+
+36
+00:02:06,570 --> 00:02:08,970
+Now it's trime
+for-- time for you--
+
+37
+00:02:08,970 --> 00:02:11,630
+OK, that's it for level 4.
+
+38
+00:02:11,630 --> 00:02:13,390
+Now it's time for
+you to practice
+
+39
+00:02:13,390 --> 00:02:15,780
+try except in the challenges.
+
+40
+00:02:15,780 --> 00:02:17,590
+Have fun.
+

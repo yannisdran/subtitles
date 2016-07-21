@@ -1,0 +1,408 @@
+﻿1
+00:00:00,560 --> 00:00:04,510
+(SINGING) Cheerio, pip pip,
+let's code some Python files.
+
+2
+00:00:04,510 --> 00:00:08,109
+We'll use quick lists, and
+loop with fors and whiles.
+
+3
+00:00:08,109 --> 00:00:12,250
+Use modules we can, with
+functions write them on.
+
+4
+00:00:12,250 --> 00:00:18,040
+Come join the Spam Van,
+fly through Python.
+
+5
+00:00:21,600 --> 00:00:23,630
+Welcome back to
+Flying through Python.
+
+6
+00:00:23,630 --> 00:00:29,890
+This is level four, covering
+reading and writing to files.
+
+7
+00:00:29,890 --> 00:00:33,470
+The Spam Van has become
+wildly successful,
+
+8
+00:00:33,470 --> 00:00:36,940
+and is trying to improve its
+business with daily sales
+
+9
+00:00:36,940 --> 00:00:38,220
+reports.
+
+10
+00:00:38,220 --> 00:00:42,510
+But to do this, we'll need
+more permanent storage.
+
+11
+00:00:42,510 --> 00:00:47,080
+You see, if we add each
+individual sale to a list,
+
+12
+00:00:47,080 --> 00:00:50,080
+the lifetime of that
+list is only while we
+
+13
+00:00:50,080 --> 00:00:52,280
+are running the program.
+
+14
+00:00:52,280 --> 00:00:57,750
+If we quit the program and run
+it again, our list isn't saved.
+
+15
+00:00:57,750 --> 00:01:00,090
+So at the end of
+the day, we want
+
+16
+00:01:00,090 --> 00:01:03,360
+to be able to store these
+sales more permanently.
+
+17
+00:01:03,360 --> 00:01:07,780
+We can do that in several ways--
+with more complex applications
+
+18
+00:01:07,780 --> 00:01:10,570
+you can use a database,
+but here we'll
+
+19
+00:01:10,570 --> 00:01:13,870
+look at writing data to a
+file, and reading from a file.
+
+20
+00:01:16,830 --> 00:01:21,430
+To write to a file,
+first we open the file.
+
+21
+00:01:21,430 --> 00:01:25,170
+We use the open function with
+the file name and the mode.
+
+22
+00:01:25,170 --> 00:01:28,360
+Here it's W for write.
+
+23
+00:01:28,360 --> 00:01:31,840
+After we open the file, we
+went to save the open file
+
+24
+00:01:31,840 --> 00:01:33,300
+to a variable.
+
+25
+00:01:33,300 --> 00:01:35,380
+Here it's sales log.
+
+26
+00:01:35,380 --> 00:01:37,810
+Second we'll write to the file.
+
+27
+00:01:37,810 --> 00:01:41,210
+Using saleslog.write,
+we'll write
+
+28
+00:01:41,210 --> 00:01:44,040
+the string in parentheses.
+
+29
+00:01:44,040 --> 00:01:49,010
+Finally, we'll close the
+file with saleslog.close.
+
+30
+00:01:49,010 --> 00:01:51,100
+Here we would have
+our resulting file
+
+31
+00:01:51,100 --> 00:01:53,320
+with our strings written to it.
+
+32
+00:01:53,320 --> 00:01:56,660
+If the file doesn't exist
+for a right or an append,
+
+33
+00:01:56,660 --> 00:01:58,980
+Python will create it for us.
+
+34
+00:01:58,980 --> 00:02:02,590
+And also notice that
+unlike print, we'll
+
+35
+00:02:02,590 --> 00:02:04,770
+need to add our own
+new line characters.
+
+36
+00:02:08,460 --> 00:02:10,759
+If we add the new line
+character at the end
+
+37
+00:02:10,759 --> 00:02:13,560
+of our first write
+statement, then our strings
+
+38
+00:02:13,560 --> 00:02:15,255
+are written to separate lines.
+
+39
+00:02:18,510 --> 00:02:20,810
+After we get a
+customer's order, it
+
+40
+00:02:20,810 --> 00:02:25,090
+would be great if we could
+write it to a sales.txt file,
+
+41
+00:02:25,090 --> 00:02:27,410
+like the one shown here.
+
+42
+00:02:27,410 --> 00:02:29,750
+Let's assume each
+customer's order
+
+43
+00:02:29,750 --> 00:02:34,470
+is stored as a dictionary of
+menu items and their prices.
+
+44
+00:02:34,470 --> 00:02:36,530
+So we're going to
+write each item
+
+45
+00:02:36,530 --> 00:02:40,250
+and price on a separate line,
+and then the order's total.
+
+46
+00:02:45,080 --> 00:02:48,330
+We'll write our own
+function, write sales
+
+47
+00:02:48,330 --> 00:02:51,700
+log, that takes in
+the orders dictionary.
+
+48
+00:02:51,700 --> 00:02:57,330
+In this function we'll open
+the file in mode W for write,
+
+49
+00:02:57,330 --> 00:03:01,810
+then we'll write the order and
+the order's total to the file,
+
+50
+00:03:01,810 --> 00:03:04,195
+and after we're done writing,
+we'll close the file.
+
+51
+00:03:07,810 --> 00:03:10,830
+To write out each
+order, we'll loop over
+
+52
+00:03:10,830 --> 00:03:13,570
+each menu item in
+the order dictionary,
+
+53
+00:03:13,570 --> 00:03:16,180
+and write that item to the file.
+
+54
+00:03:16,180 --> 00:03:19,710
+If we look at the result we
+only have the menu item name,
+
+55
+00:03:19,710 --> 00:03:21,890
+but we also need the price.
+
+56
+00:03:21,890 --> 00:03:26,650
+So we actually have to loop over
+order.items to get the key end
+
+57
+00:03:26,650 --> 00:03:30,840
+value from the dictionary,
+which here is the menu item
+
+58
+00:03:30,840 --> 00:03:32,140
+name and the price.
+
+59
+00:03:35,930 --> 00:03:41,540
+We'll do for item
+price in order.items,
+
+60
+00:03:41,540 --> 00:03:45,640
+so that we can access the
+menu item and its price.
+
+61
+00:03:45,640 --> 00:03:52,280
+And inside the for loop, we'll
+write the item with its price.
+
+62
+00:03:52,280 --> 00:03:56,380
+And our resulting sales
+log file is coming along,
+
+63
+00:03:56,380 --> 00:03:59,010
+but we'll also want
+the total in there.
+
+64
+00:04:02,840 --> 00:04:06,480
+So we'll create a variable
+to add the total to,
+
+65
+00:04:06,480 --> 00:04:09,960
+and for each order we'll
+add the item's price
+
+66
+00:04:09,960 --> 00:04:13,050
+to the total inside
+of the for loop.
+
+67
+00:04:13,050 --> 00:04:16,260
+Then after we've written
+each individual order,
+
+68
+00:04:16,260 --> 00:04:18,240
+we can write the total.
+
+69
+00:04:18,240 --> 00:04:19,230
+That looks good.
+
+70
+00:04:19,230 --> 00:04:20,890
+Now let's see what
+happens when we
+
+71
+00:04:20,890 --> 00:04:24,600
+call this function twice for
+two different customer orders.
+
+72
+00:04:28,700 --> 00:04:31,760
+When we do that, we
+actually overwrite the file
+
+73
+00:04:31,760 --> 00:04:36,360
+with the new customer's order,
+which is not what we wanted.
+
+74
+00:04:36,360 --> 00:04:39,880
+This is because we had the
+mode set to W for write,
+
+75
+00:04:39,880 --> 00:04:42,010
+which overrides the file.
+
+76
+00:04:42,010 --> 00:04:44,370
+Instead we can
+change the mode to A
+
+77
+00:04:44,370 --> 00:04:47,660
+for append, which
+will add the new order
+
+78
+00:04:47,660 --> 00:04:48,920
+to the end of the file.
+
+79
+00:04:53,240 --> 00:04:55,300
+Now that our new
+order is appended
+
+80
+00:04:55,300 --> 00:04:59,110
+to the end of the file, we
+can also add another new line
+
+81
+00:04:59,110 --> 00:05:01,830
+to separate the orders better.
+
+82
+00:05:01,830 --> 00:05:02,400
+Great.
+
+83
+00:05:02,400 --> 00:05:06,020
+Now our sales log is
+looking and working right,
+
+84
+00:05:06,020 --> 00:05:08,070
+and it's time for you
+to practice writing
+
+85
+00:05:08,070 --> 00:05:10,110
+to files in the challenges.
+
+86
+00:05:10,110 --> 00:05:11,960
+Good luck.
+

@@ -1,0 +1,468 @@
+﻿1
+00:00:00,000 --> 00:00:02,360
+[SINGING] Cheerio, pip pip,
+
+2
+00:00:02,360 --> 00:00:04,520
+let's code some Python Files.
+
+3
+00:00:04,520 --> 00:00:07,754
+We'll use quick lists, and
+loop with fors and whiles.
+
+4
+00:00:07,754 --> 00:00:11,790
+Use modules we can,
+with functions write them on.
+
+5
+00:00:11,790 --> 00:00:18,521
+Come join the Spam Van
+and Fly Through Python.
+
+6
+00:00:21,470 --> 00:00:23,590
+Welcome back to
+Flying Through Python.
+
+7
+00:00:23,590 --> 00:00:24,950
+I'm Sarah Buchanan.
+
+8
+00:00:24,950 --> 00:00:27,431
+And this is level
+5, covering modules.
+
+9
+00:00:30,020 --> 00:00:32,580
+The Spam Van is now a franchise,
+
+10
+00:00:32,580 --> 00:00:36,580
+and each one of the vans needs
+to download the daily menu
+
+11
+00:00:36,580 --> 00:00:39,010
+from the headquarters website.
+
+12
+00:00:39,010 --> 00:00:44,440
+To do this, we can use
+the Python request module.
+
+13
+00:00:44,440 --> 00:00:48,150
+Modules are libraries
+that contain functions.
+
+14
+00:00:48,150 --> 00:00:51,320
+We've seen them before when we
+used the random module to get
+
+15
+00:00:51,320 --> 00:00:55,170
+a random number, and
+importing the math module
+
+16
+00:00:55,170 --> 00:00:57,510
+for more math functions.
+
+17
+00:00:57,510 --> 00:01:00,510
+Instead of rewriting
+the complicated code
+
+18
+00:01:00,510 --> 00:01:04,110
+to do these tasks, we
+can import a module
+
+19
+00:01:04,110 --> 00:01:07,575
+that does them so we don't
+have to reinvent the wheel.
+
+20
+00:01:10,220 --> 00:01:12,780
+Unlike the math
+and random modules,
+
+21
+00:01:12,780 --> 00:01:16,170
+the request module does not
+come pre-installed with Python,
+
+22
+00:01:16,170 --> 00:01:18,050
+so we'll have to install it.
+
+23
+00:01:18,050 --> 00:01:20,590
+Pip install is a
+convenient command
+
+24
+00:01:20,590 --> 00:01:23,010
+for installing Python modules.
+
+25
+00:01:23,010 --> 00:01:25,920
+It downloads the necessary
+files and installs
+
+26
+00:01:25,920 --> 00:01:27,530
+the package for you.
+
+27
+00:01:27,530 --> 00:01:30,940
+Just type pip install and
+the name of the module.
+
+28
+00:01:30,940 --> 00:01:35,150
+And when you hit enter, you'll
+see the status of the download
+
+29
+00:01:35,150 --> 00:01:38,230
+and when it's
+successfully installed.
+
+30
+00:01:38,230 --> 00:01:41,090
+To check out all of the
+available Python packages,
+
+31
+00:01:41,090 --> 00:01:44,780
+you can visit the link below.
+
+32
+00:01:44,780 --> 00:01:46,850
+Before we use our
+request module,
+
+33
+00:01:46,850 --> 00:01:50,420
+let's talk about what
+a request actually is.
+
+34
+00:01:50,420 --> 00:01:55,510
+An HTTP request happens when
+you ask a server for data.
+
+35
+00:01:55,510 --> 00:01:59,060
+Our server will send
+back data in JSON format,
+
+36
+00:01:59,060 --> 00:02:01,210
+making it easy to build a menu.
+
+37
+00:02:03,950 --> 00:02:07,910
+JSON is a standard way
+to format and share data
+
+38
+00:02:07,910 --> 00:02:10,570
+and is often used
+to exchange data
+
+39
+00:02:10,570 --> 00:02:13,120
+between a client and a server.
+
+40
+00:02:13,120 --> 00:02:16,560
+It uses a combination of
+lists and dictionaries
+
+41
+00:02:16,560 --> 00:02:19,040
+where the keys and
+values are all strings.
+
+42
+00:02:22,800 --> 00:02:25,400
+When we get our
+menu in JSON format,
+
+43
+00:02:25,400 --> 00:02:28,710
+it will look identical to
+a list of dictionaries,
+
+44
+00:02:28,710 --> 00:02:33,728
+where each dictionary is a menu
+item contained within a list.
+
+45
+00:02:36,720 --> 00:02:39,010
+Now let's figure
+out, specifically,
+
+46
+00:02:39,010 --> 00:02:42,080
+how JSON will be used
+to store our menu.
+
+47
+00:02:42,080 --> 00:02:44,920
+If we wanted to store more
+information about a menu
+
+48
+00:02:44,920 --> 00:02:48,070
+item, its name,
+description, and price,
+
+49
+00:02:48,070 --> 00:02:52,550
+we could do this with a
+dictionary that has three keys.
+
+50
+00:02:52,550 --> 00:02:54,780
+Name, description and price.
+
+51
+00:02:54,780 --> 00:02:58,820
+And then the values are the
+items actual name, description,
+
+52
+00:02:58,820 --> 00:02:59,930
+and price.
+
+53
+00:02:59,930 --> 00:03:02,360
+For instance, for
+the first item,
+
+54
+00:03:02,360 --> 00:03:05,300
+the name is spam n eggs.
+
+55
+00:03:05,300 --> 00:03:08,420
+The description is,
+two eggs with spam.
+
+56
+00:03:08,420 --> 00:03:10,830
+And the price is $2.50.
+
+57
+00:03:10,830 --> 00:03:14,080
+Then to print the name
+followed by the price,
+
+58
+00:03:14,080 --> 00:03:18,890
+we just use the key name
+and use the key price
+
+59
+00:03:18,890 --> 00:03:23,080
+for the first item, and the
+same for the second item.
+
+60
+00:03:27,660 --> 00:03:30,700
+Since we're going to have
+a lot of these menu items,
+
+61
+00:03:30,700 --> 00:03:33,560
+it makes sense to
+store them in a list.
+
+62
+00:03:33,560 --> 00:03:36,700
+And we'll call this
+list, menu items.
+
+63
+00:03:36,700 --> 00:03:41,770
+Then to get the first item, we
+would use menu items index 0.
+
+64
+00:03:41,770 --> 00:03:44,490
+Then to print that
+item's name, we
+
+65
+00:03:44,490 --> 00:03:50,630
+would look up menu items index
+0, and then use the key name.
+
+66
+00:03:50,630 --> 00:03:54,580
+To get its price, we
+would use the key price.
+
+67
+00:03:54,580 --> 00:03:59,200
+And its description, we
+can use the key d-e-s-c.
+
+68
+00:03:59,200 --> 00:04:02,990
+And we can do the same thing
+for the item at index 1,
+
+69
+00:04:02,990 --> 00:04:05,836
+and now we have a fully
+descriptive menu printed.
+
+70
+00:04:09,600 --> 00:04:12,220
+We can also put these
+dictionaries directly
+
+71
+00:04:12,220 --> 00:04:15,280
+into our list instead of
+creating variables for them
+
+72
+00:04:15,280 --> 00:04:16,750
+first.
+
+73
+00:04:16,750 --> 00:04:19,510
+Now our data is
+formatted exactly how
+
+74
+00:04:19,510 --> 00:04:22,340
+we'll get it as
+JSON, which is great,
+
+75
+00:04:22,340 --> 00:04:25,600
+because this is how we'll
+get it from our web server.
+
+76
+00:04:25,600 --> 00:04:28,000
+Now, instead of hard
+coding this list,
+
+77
+00:04:28,000 --> 00:04:29,840
+let's get it from
+our HTTP request.
+
+78
+00:04:33,310 --> 00:04:38,670
+To create our request, we first
+import the request module.
+
+79
+00:04:38,670 --> 00:04:44,420
+Then we call request.get
+with our URL as a parameter.
+
+80
+00:04:44,420 --> 00:04:47,300
+Next, we'll call the
+JSON method to get
+
+81
+00:04:47,300 --> 00:04:50,010
+the response in JSON format.
+
+82
+00:04:50,010 --> 00:04:52,610
+If we print this out,
+we'll have a list
+
+83
+00:04:52,610 --> 00:04:54,720
+of dictionaries,
+which we'll want
+
+84
+00:04:54,720 --> 00:04:57,545
+to parse into a prettier
+format for a menu.
+
+85
+00:05:01,040 --> 00:05:04,430
+To print today's menu,
+we'll loop over our list
+
+86
+00:05:04,430 --> 00:05:08,720
+and get each item's name,
+description, and price.
+
+87
+00:05:08,720 --> 00:05:11,820
+Great, now we just need to
+format this a little better.
+
+88
+00:05:11,820 --> 00:05:13,230
+So we'll add in
+some punctuation.
+
+89
+00:05:17,340 --> 00:05:21,600
+As we've done before, we'll set
+sep equal to the empty string,
+
+90
+00:05:21,600 --> 00:05:26,330
+and use a colon and dollar
+sign just to make it look nice.
+
+91
+00:05:26,330 --> 00:05:29,070
+Now we have our daily
+menu downloaded straight
+
+92
+00:05:29,070 --> 00:05:32,750
+from the headquarters website.
+
+93
+00:05:32,750 --> 00:05:35,320
+And we look at our
+program in action,
+
+94
+00:05:35,320 --> 00:05:40,940
+it downloads the menu from
+the server and prints it out.
+
+95
+00:05:40,940 --> 00:05:43,180
+Now it's time for
+you to practice using
+
+96
+00:05:43,180 --> 00:05:45,420
+a module in the challenges.
+
+97
+00:05:45,420 --> 00:05:46,917
+Good luck.
+
+98
+00:05:46,917 --> 00:05:47,416
+.
+
