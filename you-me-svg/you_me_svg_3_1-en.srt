@@ -1,0 +1,405 @@
+﻿1
+00:00:00,000 --> 00:00:03,190
+[SINGING] With a viewbox or port
+you have nothing to lose.
+
+2
+00:00:03,190 --> 00:00:06,210
+Draw yourself in any shape
+or vector you choose.
+
+3
+00:00:06,210 --> 00:00:08,900
+From circles to rects,
+polygons to ellipses,
+
+4
+00:00:08,900 --> 00:00:12,400
+groups will connect, then
+transform and rotate these.
+
+5
+00:00:12,400 --> 00:00:15,065
+Soon you'll see
+where you can be,
+
+6
+00:00:15,065 --> 00:00:17,665
+creating scalable
+graphics with glee.
+
+7
+00:00:17,665 --> 00:00:20,140
+Just you, me, and SVG.
+
+8
+00:00:24,600 --> 00:00:26,970
+You're watching
+"You, Me, and SVG."
+
+9
+00:00:26,970 --> 00:00:31,980
+This is level three, where
+we will be covering groups.
+
+10
+00:00:31,980 --> 00:00:33,710
+As a little refresher,
+here's where
+
+11
+00:00:33,710 --> 00:00:38,410
+we left off with our badge
+in the index.html file.
+
+12
+00:00:38,410 --> 00:00:41,130
+Our badge is still looking
+a little plain, however, so
+
+13
+00:00:41,130 --> 00:00:45,270
+how could we add some more
+detail or pizzazz to our badge,
+
+14
+00:00:45,270 --> 00:00:47,920
+with perhaps some groups
+of triangles here or there?
+
+15
+00:00:47,920 --> 00:00:50,590
+How could we do this?
+
+16
+00:00:50,590 --> 00:00:52,940
+We'd start off by
+drawing and positioning
+
+17
+00:00:52,940 --> 00:00:54,590
+three of the triangles.
+
+18
+00:00:54,590 --> 00:00:57,600
+We'd give them points so
+that we'd have one on top
+
+19
+00:00:57,600 --> 00:00:59,030
+and two on bottom.
+
+20
+00:00:59,030 --> 00:01:02,020
+We'd give them the fill
+of the greenish blue color
+
+21
+00:01:02,020 --> 00:01:03,690
+and a stroke of one pixel.
+
+22
+00:01:06,800 --> 00:01:10,910
+If we go ahead of the polygon
+is inside of our index.html
+
+23
+00:01:10,910 --> 00:01:13,370
+and open up our
+browser, we'll see
+
+24
+00:01:13,370 --> 00:01:16,180
+that we do have the
+group of three triangles,
+
+25
+00:01:16,180 --> 00:01:18,230
+but it's not a
+part of the badge.
+
+26
+00:01:18,230 --> 00:01:21,690
+So how are we going to move
+this over and down so that it's
+
+27
+00:01:21,690 --> 00:01:23,015
+a part of our beautiful badge.
+
+28
+00:01:26,240 --> 00:01:31,110
+We could add 45 pixels
+to each x element and 67
+
+29
+00:01:31,110 --> 00:01:33,950
+to each y in order to
+get all of the triangles
+
+30
+00:01:33,950 --> 00:01:36,950
+to move over and down and
+be a part of the badge.
+
+31
+00:01:36,950 --> 00:01:38,830
+This is getting a bit
+tedious, and there
+
+32
+00:01:38,830 --> 00:01:41,490
+has to be a better way though.
+
+33
+00:01:41,490 --> 00:01:46,250
+Well, this is where
+groups come to the rescue.
+
+34
+00:01:46,250 --> 00:01:50,680
+We can add a g tag, or
+group, around the polygons.
+
+35
+00:01:50,680 --> 00:01:53,620
+And by doing so, we
+can now transform them.
+
+36
+00:01:53,620 --> 00:01:56,380
+We can move them over
+and down as a whole.
+
+37
+00:01:59,230 --> 00:02:02,800
+We'll use a transform
+attribute inside the g tag.
+
+38
+00:02:02,800 --> 00:02:05,110
+This will allow us to do
+things like translate,
+
+39
+00:02:05,110 --> 00:02:08,970
+or scale and rotate, to
+the group as a whole.
+
+40
+00:02:08,970 --> 00:02:13,070
+So inside the g tag, we'll
+say transform, translate,
+
+41
+00:02:13,070 --> 00:02:15,570
+and we'll give it
+the 45, 67, that it
+
+42
+00:02:15,570 --> 00:02:19,020
+needs to move for its x and y.
+
+43
+00:02:19,020 --> 00:02:20,875
+Remember, translate is
+kind of a weird word.
+
+44
+00:02:20,875 --> 00:02:23,190
+So if you're ever wondering,
+what was translate again?
+
+45
+00:02:23,190 --> 00:02:24,810
+It's just to move.
+
+46
+00:02:24,810 --> 00:02:26,710
+Translate to move.
+
+47
+00:02:26,710 --> 00:02:29,080
+We'll load the badge
+back up in the browser.
+
+48
+00:02:29,080 --> 00:02:32,056
+And we'll see now that
+the group of polygons
+
+49
+00:02:32,056 --> 00:02:34,210
+is inside the badge,
+as we expected.
+
+50
+00:02:37,160 --> 00:02:39,540
+Effectively, by
+grouping these polygons,
+
+51
+00:02:39,540 --> 00:02:43,200
+we've given them a new
+0,0, a new origin point.
+
+52
+00:02:43,200 --> 00:02:45,690
+And then when we
+transform translate,
+
+53
+00:02:45,690 --> 00:02:49,490
+we're moving that origin
+point over by 45 and 67.
+
+54
+00:02:52,650 --> 00:02:54,410
+For the next group
+of triangles we
+
+55
+00:02:54,410 --> 00:02:56,960
+can simply copy paste
+that group of polygons
+
+56
+00:02:56,960 --> 00:02:58,520
+that we used before.
+
+57
+00:02:58,520 --> 00:03:01,490
+We do need to change the
+translation, however.
+
+58
+00:03:01,490 --> 00:03:06,470
+It needs to be 198 from the
+left edge, and 67 from the top.
+
+59
+00:03:06,470 --> 00:03:10,600
+So we'll say, transform
+translate 198, 67.
+
+60
+00:03:10,600 --> 00:03:12,420
+If you load the badge
+up, you'll see now
+
+61
+00:03:12,420 --> 00:03:16,460
+that we have those two
+groups of triangles.
+
+62
+00:03:16,460 --> 00:03:18,950
+For a third one, we
+do it all over again.
+
+63
+00:03:18,950 --> 00:03:21,500
+Copy paste that group,
+and, this time, we'll
+
+64
+00:03:21,500 --> 00:03:23,340
+give it a translation
+so that it's
+
+65
+00:03:23,340 --> 00:03:25,890
+at the bottom
+center of the badge.
+
+66
+00:03:25,890 --> 00:03:29,990
+Notice that we said
+121.5 for the x.
+
+67
+00:03:29,990 --> 00:03:32,265
+SVG coordinates
+can use decimals.
+
+68
+00:03:35,500 --> 00:03:38,480
+A lot of these styles
+are duplicated, however.
+
+69
+00:03:38,480 --> 00:03:41,970
+And this is something that
+group takes care of yet again.
+
+70
+00:03:41,970 --> 00:03:44,960
+We can give each group a
+class of triangle group.
+
+71
+00:03:49,080 --> 00:03:51,380
+Then, inside our
+style sheet, we'll
+
+72
+00:03:51,380 --> 00:03:53,840
+call out the class
+of triangle group
+
+73
+00:03:53,840 --> 00:03:58,320
+and give each of these polygons
+a stroke width of one pixel.
+
+74
+00:03:58,320 --> 00:04:01,610
+Remember before, when we
+gave the blueish-green fill
+
+75
+00:04:01,610 --> 00:04:03,160
+to all polygons?
+
+76
+00:04:03,160 --> 00:04:05,090
+We actually don't
+have to say that again
+
+77
+00:04:05,090 --> 00:04:06,420
+inside the triangle group.
+
+78
+00:04:06,420 --> 00:04:08,000
+They'll still
+inherit that style.
+
+79
+00:04:10,770 --> 00:04:15,530
+Groups have allowed us to
+translate, or to move, elements
+
+80
+00:04:15,530 --> 00:04:17,620
+as a whole on the page.
+
+81
+00:04:17,620 --> 00:04:20,670
+And they've also allowed
+us to clean up our styles.
+
+82
+00:04:20,670 --> 00:04:22,115
+Groups are the best.
+
+83
+00:04:24,865 --> 00:04:26,990
+Why don't you go give them
+a try in the challenges,
+
+84
+00:04:26,990 --> 00:04:29,780
+and I'll see you back
+in the next section.
+

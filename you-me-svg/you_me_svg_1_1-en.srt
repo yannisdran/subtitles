@@ -1,0 +1,693 @@
+﻿1
+00:00:00,000 --> 00:00:03,190
+[SINGING] With a viewbox or port,
+you have nothing to lose.
+
+2
+00:00:03,190 --> 00:00:06,200
+Draw yourself in any shape
+or vector you choose.
+
+3
+00:00:06,200 --> 00:00:09,175
+From circles to rects,
+polygons to ellipses.
+
+4
+00:00:09,175 --> 00:00:10,447
+Groups will connect,
+
+5
+00:00:10,447 --> 00:00:11,780
+then transform and rotate these.
+
+6
+00:00:11,780 --> 00:00:14,530
+Soon you'll see
+where you can be.
+
+7
+00:00:14,530 --> 00:00:17,191
+Creating scalable
+graphics with glee.
+
+8
+00:00:17,191 --> 00:00:20,077
+Just You, Me & SVG!
+
+9
+00:00:22,970 --> 00:00:24,850
+Welcome, my name is
+Alyssa Nicholl
+
+10
+00:00:24,850 --> 00:00:27,490
+and you're watching
+You, Me and SVG!
+
+11
+00:00:27,490 --> 00:00:30,180
+In this course, we're going to
+cover some things like--what
+
+12
+00:00:30,180 --> 00:00:31,560
+are SVGs?
+
+13
+00:00:31,560 --> 00:00:35,290
+When should you use an
+SVG over a raster image?
+
+14
+00:00:35,290 --> 00:00:37,380
+How do you build SVGs?
+
+15
+00:00:37,380 --> 00:00:40,300
+And how to use SVG
+elements together
+
+16
+00:00:40,300 --> 00:00:43,760
+to create things like
+icons or other images?
+
+17
+00:00:43,760 --> 00:00:46,430
+Prereqs for this course do
+include a working knowledge
+
+18
+00:00:46,430 --> 00:00:48,090
+of HTML and CSS.
+
+19
+00:00:50,920 --> 00:00:52,170
+Welcome to level one.
+
+20
+00:00:52,170 --> 00:00:57,380
+In this level, we'll be building
+our first SVG image together.
+
+21
+00:00:57,380 --> 00:00:59,270
+As you can tell by
+the name of our course
+
+22
+00:00:59,270 --> 00:01:02,400
+we're in a Seussical land
+called Schmuffle Land
+
+23
+00:01:02,400 --> 00:01:05,360
+and the Schmuffles are super
+excited to release their all
+
+24
+00:01:05,360 --> 00:01:08,100
+new X59 Retina Screen.
+
+25
+00:01:08,100 --> 00:01:11,800
+This screen has an insane
+resolution of 90,000 pixels
+
+26
+00:01:11,800 --> 00:01:13,900
+by 60,000 pixels.
+
+27
+00:01:13,900 --> 00:01:16,005
+However, when you
+pull up the old icon
+
+28
+00:01:16,005 --> 00:01:19,000
+that the Schmuffles
+are used to using,
+
+29
+00:01:19,000 --> 00:01:22,060
+you can see that they're
+super blurry when you zoom in.
+
+30
+00:01:22,060 --> 00:01:24,070
+It's kind of gross.
+
+31
+00:01:24,070 --> 00:01:25,670
+It's probably
+blurry because it's
+
+32
+00:01:25,670 --> 00:01:30,040
+a raster image,
+dot JPEG or J-P-G.
+
+33
+00:01:30,040 --> 00:01:33,120
+Raster images don't work
+for every screen size.
+
+34
+00:01:33,120 --> 00:01:35,470
+So in order to future
+proof your assets,
+
+35
+00:01:35,470 --> 00:01:40,450
+you need to use SVG--that's
+scalable vector graphics.
+
+36
+00:01:40,450 --> 00:01:42,150
+Scalable vector
+graphics will work
+
+37
+00:01:42,150 --> 00:01:45,670
+on things like the old Schmuffle
+phone, the new X59 Retina
+
+38
+00:01:45,670 --> 00:01:48,820
+Screen, and anything else
+our Schmuffles can dream of.
+
+39
+00:01:52,200 --> 00:01:54,690
+How do we build SVGs though?
+
+40
+00:01:54,690 --> 00:01:58,280
+Well our first step is to
+get it in the application
+
+41
+00:01:58,280 --> 00:02:00,680
+or showing up on screen somehow.
+
+42
+00:02:00,680 --> 00:02:04,720
+A common way that people do this
+is by including it just like
+
+43
+00:02:04,720 --> 00:02:08,850
+any other file type--inside
+of an image tag.
+
+44
+00:02:08,850 --> 00:02:10,789
+Here you can see
+we have an image
+
+45
+00:02:10,789 --> 00:02:13,970
+tag inside our
+index.html, and we're
+
+46
+00:02:13,970 --> 00:02:19,540
+using source with our
+first dot SVG inside it.
+
+47
+00:02:19,540 --> 00:02:21,900
+How do we create
+this SVG though?
+
+48
+00:02:21,900 --> 00:02:25,870
+Well open up our first dot
+SVG, get into that file,
+
+49
+00:02:25,870 --> 00:02:29,850
+and we can start by
+using the SVG tag.
+
+50
+00:02:29,850 --> 00:02:32,410
+This should look
+super similar to HTML
+
+51
+00:02:32,410 --> 00:02:34,380
+tags that you have
+used in the past.
+
+52
+00:02:34,380 --> 00:02:36,940
+This is because they
+both come from XML.
+
+53
+00:02:36,940 --> 00:02:38,680
+They're both types of XML.
+
+54
+00:02:41,470 --> 00:02:45,680
+Next up we'll set the height
+and width on the SVG tag.
+
+55
+00:02:45,680 --> 00:02:49,610
+We'll give it a height of
+300 and a width of 400.
+
+56
+00:02:49,610 --> 00:02:54,030
+This is actually setting the
+viewport, the canvas or window
+
+57
+00:02:54,030 --> 00:02:57,142
+that our SVG asset's
+going to sit inside of.
+
+58
+00:03:00,520 --> 00:03:02,410
+Now we need to let
+the browser know
+
+59
+00:03:02,410 --> 00:03:05,520
+that we're going to use
+something else other than HTML.
+
+60
+00:03:05,520 --> 00:03:07,350
+We're going to use SVG.
+
+61
+00:03:07,350 --> 00:03:12,840
+So we give it an XML name-space
+attribute--XMLNS and then give
+
+62
+00:03:12,840 --> 00:03:16,160
+it this HTTP, W3 line.
+
+63
+00:03:16,160 --> 00:03:19,550
+We also need to specify the
+version that we're using.
+
+64
+00:03:19,550 --> 00:03:22,340
+We're going to use the
+latest which is 1.1.
+
+65
+00:03:22,340 --> 00:03:24,750
+These lines are kind
+of long and scary.
+
+66
+00:03:24,750 --> 00:03:26,240
+You don't need to memorize them.
+
+67
+00:03:26,240 --> 00:03:29,240
+Just know that we're letting
+the browser know, hey,
+
+68
+00:03:29,240 --> 00:03:32,475
+inside these SVG tags we're
+going to draw some SVG.
+
+69
+00:03:35,980 --> 00:03:39,870
+If we open up the SVG file
+in our chrome browser,
+
+70
+00:03:39,870 --> 00:03:43,190
+you'll see that we have
+absolutely nothing there.
+
+71
+00:03:43,190 --> 00:03:46,040
+Woo, but this isn't quite true.
+
+72
+00:03:46,040 --> 00:03:49,540
+In Chrome you have the option
+to right click with your mouse,
+
+73
+00:03:49,540 --> 00:03:52,960
+scroll down to Inspect
+Element, and this will bring up
+
+74
+00:03:52,960 --> 00:03:54,870
+the Chrome Dev Tools.
+
+75
+00:03:54,870 --> 00:03:56,300
+Lots of browsers have them.
+
+76
+00:03:56,300 --> 00:03:59,230
+You might have to get to
+them in a different way.
+
+77
+00:03:59,230 --> 00:04:01,225
+Once we're in the Dev
+Tools, you can see there
+
+78
+00:04:01,225 --> 00:04:03,170
+that we have an SVG element.
+
+79
+00:04:03,170 --> 00:04:05,210
+That's the tag that
+we just created.
+
+80
+00:04:05,210 --> 00:04:08,000
+When we hover over
+it, Chrome Dev Tool
+
+81
+00:04:08,000 --> 00:04:10,790
+shows you the height and
+width of the element.
+
+82
+00:04:10,790 --> 00:04:14,720
+Even though, there's no color
+or any elements inside of it,
+
+83
+00:04:14,720 --> 00:04:18,230
+you can still see how much space
+that invisible element takes
+
+84
+00:04:18,230 --> 00:04:21,040
+up.
+
+85
+00:04:21,040 --> 00:04:23,830
+Now we're actually
+ready to draw something.
+
+86
+00:04:23,830 --> 00:04:28,130
+So let's build our
+X59 Retina Screen.
+
+87
+00:04:28,130 --> 00:04:29,900
+It's a little complex though.
+
+88
+00:04:29,900 --> 00:04:33,720
+Let's start off with a
+simpler icon version of it.
+
+89
+00:04:33,720 --> 00:04:38,210
+Inside our SVG tag now, we'll
+go ahead and use a rect element
+
+90
+00:04:38,210 --> 00:04:40,150
+that stands for rectangle.
+
+91
+00:04:40,150 --> 00:04:42,040
+Kind of semantic, woo.
+
+92
+00:04:42,040 --> 00:04:45,510
+We'll give it a height
+of 80 and a width of 100.
+
+93
+00:04:45,510 --> 00:04:48,300
+If you go ahead and pull up
+our Chrome browser again,
+
+94
+00:04:48,300 --> 00:04:52,220
+you'll see that we do, in fact,
+have a black rectangle that's
+
+95
+00:04:52,220 --> 00:04:56,092
+80 by 100.
+
+96
+00:04:56,092 --> 00:04:59,720
+For the second step
+of our X59 icon,
+
+97
+00:04:59,720 --> 00:05:02,250
+we'll need to create
+another rectangle.
+
+98
+00:05:02,250 --> 00:05:05,640
+However, this one needs to
+have a white background.
+
+99
+00:05:05,640 --> 00:05:09,680
+So below our first one we'll
+say rect, height of 50,
+
+100
+00:05:09,680 --> 00:05:14,020
+and width of 80, and we'll
+give it a fill of white.
+
+101
+00:05:14,020 --> 00:05:15,600
+If we open our
+browser, we'll see
+
+102
+00:05:15,600 --> 00:05:18,520
+that we do, in fact, have
+our white rectangle sitting
+
+103
+00:05:18,520 --> 00:05:20,880
+on top of our black rectangle.
+
+104
+00:05:20,880 --> 00:05:22,530
+How do we move it over though?
+
+105
+00:05:22,530 --> 00:05:24,790
+It's on the top left corner.
+
+106
+00:05:24,790 --> 00:05:29,600
+We want it to be centered
+inside of the black rectangle.
+
+107
+00:05:29,600 --> 00:05:31,520
+Before we move it,
+we need to understand
+
+108
+00:05:31,520 --> 00:05:33,610
+why this is happening.
+
+109
+00:05:33,610 --> 00:05:37,300
+This is because we're inside
+our viewport coordinate system.
+
+110
+00:05:37,300 --> 00:05:38,850
+This is the default
+coordinate system
+
+111
+00:05:38,850 --> 00:05:41,660
+that we created with
+the height and width.
+
+112
+00:05:41,660 --> 00:05:45,770
+Right now both rectangles
+are drawn at 0,0.
+
+113
+00:05:45,770 --> 00:05:47,300
+That's the top left.
+
+114
+00:05:47,300 --> 00:05:51,900
+There's also the top right,
+400,0, bottom left 0,300,
+
+115
+00:05:51,900 --> 00:05:53,710
+and bottom right 400,300.
+
+116
+00:05:53,710 --> 00:05:56,200
+This is the coordinate
+system that all our elements
+
+117
+00:05:56,200 --> 00:05:58,160
+are going to work within.
+
+118
+00:05:58,160 --> 00:06:01,100
+So in order to move that
+white rectangle over,
+
+119
+00:06:01,100 --> 00:06:05,430
+we need to simply specify
+a different x and y.
+
+120
+00:06:05,430 --> 00:06:08,970
+We'll give it an x
+of 10 and a y of 10.
+
+121
+00:06:08,970 --> 00:06:10,930
+If you refresh the
+browser, now you
+
+122
+00:06:10,930 --> 00:06:13,620
+can see that the white
+rectangle's anchor point
+
+123
+00:06:13,620 --> 00:06:18,600
+is at 10,10, instead of 0,0
+like the black rectangles.
+
+124
+00:06:18,600 --> 00:06:21,090
+We did it.
+
+125
+00:06:21,090 --> 00:06:23,890
+We're going to create one
+last rectangle to finish off
+
+126
+00:06:23,890 --> 00:06:25,270
+our icon.
+
+127
+00:06:25,270 --> 00:06:29,130
+Below this one we'll say rect
+and give it a height of 10
+
+128
+00:06:29,130 --> 00:06:30,830
+and a width of 40.
+
+129
+00:06:30,830 --> 00:06:34,510
+An x of 30 and a y of 90.
+
+130
+00:06:34,510 --> 00:06:37,400
+When you load the icon now
+you'll see that we did it.
+
+131
+00:06:37,400 --> 00:06:41,200
+We have this simplified version
+of our X59 Retina Screen.
+
+132
+00:06:44,070 --> 00:06:46,070
+There's one last
+bit of clean up that
+
+133
+00:06:46,070 --> 00:06:48,910
+needs to be done before
+we can ship this icon off
+
+134
+00:06:48,910 --> 00:06:50,120
+into the world.
+
+135
+00:06:50,120 --> 00:06:52,130
+We should really
+modify our viewport
+
+136
+00:06:52,130 --> 00:06:55,910
+to be the exact height
+and width of the icon.
+
+137
+00:06:55,910 --> 00:07:01,130
+So in the SVG we'll change
+it to height, 100, width,100.
+
+138
+00:07:01,130 --> 00:07:04,780
+And when you hover over the
+SVG element inside Dev Tools,
+
+139
+00:07:04,780 --> 00:07:10,220
+like we did earlier, you'll see
+now that our SVG is 100 by 100.
+
+140
+00:07:10,220 --> 00:07:13,200
+Snugging up to the
+exact size of the icon.
+
+141
+00:07:13,200 --> 00:07:14,490
+Great job!
+
+142
+00:07:14,490 --> 00:07:17,850
+Go have fun practicing
+building your first SVG
+
+143
+00:07:17,850 --> 00:07:19,740
+using some rect
+elements, and I'll
+
+144
+00:07:19,740 --> 00:07:23,780
+see you back in the next level.
+
+145
+00:07:23,780 --> 00:07:27,080
+So in order to future proof.
+
+146
+00:07:27,080 --> 00:07:29,780
+Get rect!
+
+147
+00:07:29,780 --> 00:07:31,030
+100
+

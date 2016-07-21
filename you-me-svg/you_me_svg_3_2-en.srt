@@ -1,0 +1,277 @@
+﻿1
+00:00:02,100 --> 00:00:03,200
+Welcome back.
+
+2
+00:00:03,200 --> 00:00:07,300
+This is You, Me, and SVG,
+level three, section two.
+
+3
+00:00:07,300 --> 00:00:10,360
+In this section we're talking
+about transforms a little bit
+
+4
+00:00:10,360 --> 00:00:12,170
+more.
+
+5
+00:00:12,170 --> 00:00:14,810
+In the last section
+we used transform
+
+6
+00:00:14,810 --> 00:00:18,600
+to translate or to move
+things around on the page.
+
+7
+00:00:18,600 --> 00:00:22,750
+But as we mentioned, you can
+also rotate or scale things
+
+8
+00:00:22,750 --> 00:00:25,830
+with the transform attribute.
+
+9
+00:00:25,830 --> 00:00:28,070
+Let's see if we can
+modify our badge
+
+10
+00:00:28,070 --> 00:00:30,630
+by rotating the top
+two triangle groups
+
+11
+00:00:30,630 --> 00:00:32,800
+and scaling the bottom one.
+
+12
+00:00:32,800 --> 00:00:35,650
+To rotate this top
+left group of polygons,
+
+13
+00:00:35,650 --> 00:00:38,660
+we'll use transform's
+rotate property.
+
+14
+00:00:38,660 --> 00:00:41,680
+Right next to translate,
+we'll say rotate.
+
+15
+00:00:41,680 --> 00:00:44,030
+And rotate takes three values.
+
+16
+00:00:44,030 --> 00:00:46,560
+The first is the
+degrees to rotate.
+
+17
+00:00:46,560 --> 00:00:50,800
+And the second are the x
+and y to rotate around.
+
+18
+00:00:50,800 --> 00:00:54,250
+If you just specify the
+first value of the degrees
+
+19
+00:00:54,250 --> 00:00:57,110
+the x and y will
+default to 0,0.
+
+20
+00:00:57,110 --> 00:01:00,900
+However, in our example, we want
+to rotate around the center,
+
+21
+00:01:00,900 --> 00:01:04,900
+so 12.5 12.5.
+
+22
+00:01:04,900 --> 00:01:07,680
+As you would imagine,
+rotating the second group
+
+23
+00:01:07,680 --> 00:01:09,130
+is just as easy.
+
+24
+00:01:09,130 --> 00:01:11,870
+We'll say rotate, but
+instead of 10 we'll
+
+25
+00:01:11,870 --> 00:01:13,880
+say negative 10 degrees.
+
+26
+00:01:13,880 --> 00:01:17,760
+We'll also give it the center
+x and y to rotate around.
+
+27
+00:01:17,760 --> 00:01:20,900
+Static rotations like
+this will use numbers
+
+28
+00:01:20,900 --> 00:01:26,780
+between 360 and negative 360.
+
+29
+00:01:26,780 --> 00:01:29,990
+For our last group, in
+order to shrink it down,
+
+30
+00:01:29,990 --> 00:01:34,480
+make it smaller, we're going to
+use transforms scale property.
+
+31
+00:01:34,480 --> 00:01:36,800
+Next to translate
+will say scale,
+
+32
+00:01:36,800 --> 00:01:39,060
+and scale takes one value.
+
+33
+00:01:39,060 --> 00:01:42,460
+And this is a modifier
+that your scaling with.
+
+34
+00:01:42,460 --> 00:01:46,590
+So if I said scale 1, nothing
+would change about the group.
+
+35
+00:01:46,590 --> 00:01:48,220
+They would stay
+exactly the same.
+
+36
+00:01:48,220 --> 00:01:51,490
+If I say scale 2, they
+would be twice the size.
+
+37
+00:01:51,490 --> 00:01:53,020
+So on and so forth.
+
+38
+00:01:53,020 --> 00:01:56,410
+So in order to get the
+desired effect of a smaller
+
+39
+00:01:56,410 --> 00:02:00,740
+bottom group, we're
+going to say scale 0.6.
+
+40
+00:02:00,740 --> 00:02:05,070
+When we load it up now you'll
+see that it is scaling,
+
+41
+00:02:05,070 --> 00:02:10,020
+however it looks a bit
+off center, just a smidge.
+
+42
+00:02:10,020 --> 00:02:13,880
+This is because the group
+is scaling from 0,0.
+
+43
+00:02:13,880 --> 00:02:17,050
+If you remember, with
+most things, not text,
+
+44
+00:02:17,050 --> 00:02:20,970
+but with most things,
+that 0,0 is the top left.
+
+45
+00:02:20,970 --> 00:02:24,220
+So when the triangle group
+scales from the top left
+
+46
+00:02:24,220 --> 00:02:26,680
+it probably looks
+like it's moving over
+
+47
+00:02:26,680 --> 00:02:29,660
+to the left a little bit.
+
+48
+00:02:29,660 --> 00:02:32,110
+The only way that
+you can adjust this
+
+49
+00:02:32,110 --> 00:02:35,450
+is by chaining on
+another translation.
+
+50
+00:02:35,450 --> 00:02:39,600
+For this example, we need to go
+ahead and translate it 8 by 8.
+
+51
+00:02:39,600 --> 00:02:42,400
+For other examples
+based on your scaling
+
+52
+00:02:42,400 --> 00:02:44,450
+those numbers will be different.
+
+53
+00:02:44,450 --> 00:02:47,250
+Our triangle groups are
+now rotating and scaling
+
+54
+00:02:47,250 --> 00:02:50,190
+as expected, and
+we're looking good.
+
+55
+00:02:50,190 --> 00:02:52,590
+You've learned not
+only how to translate,
+
+56
+00:02:52,590 --> 00:02:55,950
+but how to rotate and
+scale with transform.
+
+57
+00:02:55,950 --> 00:02:57,550
+Go practice that
+in the challenges
+
+58
+00:02:57,550 --> 00:03:01,040
+and I'll see you back for
+this levels last section.
+

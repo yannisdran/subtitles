@@ -1,0 +1,593 @@
+﻿1
+00:00:02,090 --> 00:00:05,960
+Welcome back to the
+second section of level 2.
+
+2
+00:00:05,960 --> 00:00:09,250
+Remember that badge that
+we showed back in level 1?
+
+3
+00:00:09,250 --> 00:00:13,190
+Well, in order to create
+an asset like this in SVG,
+
+4
+00:00:13,190 --> 00:00:17,140
+we would need to know a few
+more shapes like text, polygon,
+
+5
+00:00:17,140 --> 00:00:18,870
+and line in order
+to build something
+
+6
+00:00:18,870 --> 00:00:21,940
+as fancy as this badge.
+
+7
+00:00:21,940 --> 00:00:25,010
+To get started, inside our
+HTML, because we're not
+
+8
+00:00:25,010 --> 00:00:26,830
+using the image
+tag anymore, we'll
+
+9
+00:00:26,830 --> 00:00:29,380
+go ahead and start our SVG tag.
+
+10
+00:00:29,380 --> 00:00:32,299
+We'll give it a height
+and width of 268.
+
+11
+00:00:32,299 --> 00:00:36,170
+We'll also specify the version
+and the XML namespace here.
+
+12
+00:00:38,970 --> 00:00:41,770
+Now we're ready to build
+the circle element.
+
+13
+00:00:41,770 --> 00:00:43,990
+Inside the SVG,
+we'll say circle.
+
+14
+00:00:43,990 --> 00:00:48,330
+We'll give it a radius,
+a center x and y point.
+
+15
+00:00:48,330 --> 00:00:51,580
+And if you'll notice with
+our badge, it has no fill.
+
+16
+00:00:51,580 --> 00:00:53,740
+So we'll say fill of none.
+
+17
+00:00:53,740 --> 00:00:56,890
+We'll give it this green
+hexadecimal stroke.
+
+18
+00:00:56,890 --> 00:00:59,115
+And a stroke width
+of seven pixels.
+
+19
+00:01:03,330 --> 00:01:06,270
+So far, we've only
+done our styles inline,
+
+20
+00:01:06,270 --> 00:01:08,030
+inside the tags themselves.
+
+21
+00:01:08,030 --> 00:01:10,040
+However, there is another way.
+
+22
+00:01:10,040 --> 00:01:14,060
+With our link tag, we can
+include a CSS stylesheet
+
+23
+00:01:14,060 --> 00:01:18,360
+and go ahead and move the
+fill, stroke, and stroke width
+
+24
+00:01:18,360 --> 00:01:20,160
+into our CSS.
+
+25
+00:01:20,160 --> 00:01:24,140
+It's really important to note
+that when you do styles inside
+
+26
+00:01:24,140 --> 00:01:29,080
+of an SVG tag, unit identifiers
+like pixels, percentages, EMS,
+
+27
+00:01:29,080 --> 00:01:31,380
+those aren't required at all.
+
+28
+00:01:31,380 --> 00:01:34,870
+But when you move them into
+CSS, they are required.
+
+29
+00:01:34,870 --> 00:01:38,770
+So as you'll see,
+7 changed to 7px.
+
+30
+00:01:38,770 --> 00:01:41,890
+Just keep that in
+mind for future use.
+
+31
+00:01:41,890 --> 00:01:45,600
+If you'll notice though,
+our radius, cx and cy,
+
+32
+00:01:45,600 --> 00:01:48,430
+are all inside of our tag still.
+
+33
+00:01:48,430 --> 00:01:51,300
+This is because anything
+that sets a coordinate
+
+34
+00:01:51,300 --> 00:01:53,026
+should stay inline.
+
+35
+00:01:53,026 --> 00:01:53,650
+Very important.
+
+36
+00:01:57,100 --> 00:01:58,170
+We have our circle.
+
+37
+00:01:58,170 --> 00:01:59,680
+So we're ready to
+go ahead and build
+
+38
+00:01:59,680 --> 00:02:02,105
+the line that's below the
+triangle in the badge.
+
+39
+00:02:04,850 --> 00:02:10,669
+So inside our SVG tag, below the
+circle, we can use a line tag.
+
+40
+00:02:10,669 --> 00:02:14,450
+To draw a line, you need to
+specify 2 x and y points.
+
+41
+00:02:14,450 --> 00:02:16,250
+One for the start
+of the line and one
+
+42
+00:02:16,250 --> 00:02:17,930
+for the end of the line.
+
+43
+00:02:17,930 --> 00:02:23,540
+For our example, we'll have
+an x1 of 47, y1 of 198,
+
+44
+00:02:23,540 --> 00:02:28,390
+an x2 of 221, and a y2 of 198.
+
+45
+00:02:28,390 --> 00:02:30,190
+So it's a straight line.
+
+46
+00:02:30,190 --> 00:02:33,310
+Inside our stylesheet,
+we'll call out the line tag.
+
+47
+00:02:33,310 --> 00:02:35,690
+We'll give it a stroke
+of black and a stroke
+
+48
+00:02:35,690 --> 00:02:37,175
+width of five pixels.
+
+49
+00:02:40,180 --> 00:02:43,330
+Now when we load it up, we
+have our circle and our line.
+
+50
+00:02:43,330 --> 00:02:44,570
+We're getting there.
+
+51
+00:02:44,570 --> 00:02:47,860
+Next step though, we'll need
+to add some text and a polygon
+
+52
+00:02:47,860 --> 00:02:50,960
+to our badge.
+
+53
+00:02:50,960 --> 00:02:53,590
+Next step, we'll
+use the text element
+
+54
+00:02:53,590 --> 00:02:55,970
+to add SVG to our badge.
+
+55
+00:02:55,970 --> 00:02:58,990
+We'll say text,
+give it an x and y
+
+56
+00:02:58,990 --> 00:03:02,430
+so it's centered on
+our screen, and the SVG
+
+57
+00:03:02,430 --> 00:03:05,700
+in the middle of the opening
+and closing text tags.
+
+58
+00:03:05,700 --> 00:03:11,050
+Inside our stylesheet, we'll
+say text font-size 60 pixels.
+
+59
+00:03:11,050 --> 00:03:13,180
+If we load the badge
+up in the browser,
+
+60
+00:03:13,180 --> 00:03:17,470
+you'll see that we do have
+the SVG text in the badge.
+
+61
+00:03:17,470 --> 00:03:19,220
+However, it's not centered.
+
+62
+00:03:19,220 --> 00:03:21,100
+What is going on here?
+
+63
+00:03:21,100 --> 00:03:23,550
+Well, unlike everything
+else that we've
+
+64
+00:03:23,550 --> 00:03:28,050
+learned so far in SVG, the
+default anchor point for text
+
+65
+00:03:28,050 --> 00:03:30,070
+is in the bottom left.
+
+66
+00:03:30,070 --> 00:03:31,800
+This can simply
+be adjusted though
+
+67
+00:03:31,800 --> 00:03:37,230
+by saying text-anchor
+middle inside your CSS.
+
+68
+00:03:37,230 --> 00:03:39,330
+Refresh and you'll
+see now that the text
+
+69
+00:03:39,330 --> 00:03:40,470
+is centered as expected.
+
+70
+00:03:44,020 --> 00:03:46,570
+Our text could use some
+sprucing up, however.
+
+71
+00:03:46,570 --> 00:03:48,594
+So inside the stylesheet,
+we'll say
+
+72
+00:03:48,594 --> 00:03:51,300
+font-family 'FilmotypeMajor'.
+
+73
+00:03:51,820 --> 00:03:56,500
+Stroke of black, stroke-width
+of three pixels, and a fill
+
+74
+00:03:56,500 --> 00:03:58,790
+of this white cream color.
+
+75
+00:03:58,790 --> 00:04:01,880
+This font family isn't one
+that all browsers will have
+
+76
+00:04:01,880 --> 00:04:06,910
+by default. So we'll probably
+want to use @font-face when we
+
+77
+00:04:06,910 --> 00:04:08,680
+put this into production.
+
+78
+00:04:08,680 --> 00:04:11,110
+We have a course,
+Front-end Formations,
+
+79
+00:04:11,110 --> 00:04:13,560
+that covers @font-face in detail.
+
+80
+00:04:13,560 --> 00:04:15,760
+So head on over there if
+you have any questions.
+
+81
+00:04:18,870 --> 00:04:21,870
+If we look at our
+index.html as a whole now,
+
+82
+00:04:21,870 --> 00:04:25,680
+you'll see that the
+circle, line, and text all
+
+83
+00:04:25,680 --> 00:04:28,240
+have coordinate
+setting attributes
+
+84
+00:04:28,240 --> 00:04:30,160
+that are still inline.
+
+85
+00:04:30,160 --> 00:04:33,140
+Again, it's so important that
+I'm reiterating it twice.
+
+86
+00:04:33,140 --> 00:04:35,770
+Please leave any coordinate
+setting attributes
+
+87
+00:04:35,770 --> 00:04:39,640
+inline and not in your CSS.
+
+88
+00:04:39,640 --> 00:04:41,230
+We're so close to being done.
+
+89
+00:04:41,230 --> 00:04:43,720
+We have one last shape we
+need to add for our badge
+
+90
+00:04:43,720 --> 00:04:45,540
+to be complete, and
+that's the polygon.
+
+91
+00:04:48,828 --> 00:04:52,030
+Inside our HTML, below
+all the other elements,
+
+92
+00:04:52,030 --> 00:04:54,000
+we can say polygon.
+
+93
+00:04:54,000 --> 00:04:56,460
+And a polygon, unlike
+the other elements,
+
+94
+00:04:56,460 --> 00:04:58,320
+takes multiple points.
+
+95
+00:04:58,320 --> 00:04:59,920
+So we'll say points.
+
+96
+00:04:59,920 --> 00:05:03,890
+And we'll give it three
+different sets of points.
+
+97
+00:05:03,890 --> 00:05:07,820
+This is for the starting,
+the top, and the endpoint
+
+98
+00:05:07,820 --> 00:05:09,060
+that make up the triangle.
+
+99
+00:05:12,990 --> 00:05:15,160
+Inside our stylesheet,
+we'll go ahead and give it
+
+100
+00:05:15,160 --> 00:05:19,530
+a blue-green fill, a black
+stroke, and a stroke-width
+
+101
+00:05:19,530 --> 00:05:21,170
+of two pixels.
+
+102
+00:05:21,170 --> 00:05:24,240
+This is what the triangle look
+like with these styles applied.
+
+103
+00:05:27,030 --> 00:05:29,170
+When we load our entire
+badge in the browser,
+
+104
+00:05:29,170 --> 00:05:31,620
+however, we'll see that
+something not so awesome
+
+105
+00:05:31,620 --> 00:05:33,240
+is happening.
+
+106
+00:05:33,240 --> 00:05:37,300
+The triangle is smack
+right on top of the text.
+
+107
+00:05:37,300 --> 00:05:39,910
+We can't see our
+SVG text anymore.
+
+108
+00:05:39,910 --> 00:05:42,820
+This is because just
+like HTML elements,
+
+109
+00:05:42,820 --> 00:05:45,859
+SVG elements stack on top
+of each other in the order
+
+110
+00:05:45,859 --> 00:05:46,900
+that they were specified.
+
+111
+00:05:49,540 --> 00:05:51,130
+Super simple fix.
+
+112
+00:05:51,130 --> 00:05:54,400
+Put the polygon line
+above the text line
+
+113
+00:05:54,400 --> 00:05:56,940
+so that your polygon
+is drawn in first
+
+114
+00:05:56,940 --> 00:05:59,200
+and then your text is
+drawn on top of it.
+
+115
+00:06:01,730 --> 00:06:03,870
+Now when we refresh,
+we have the badge
+
+116
+00:06:03,870 --> 00:06:07,470
+that we set out to create using
+not only circle, but text,
+
+117
+00:06:07,470 --> 00:06:11,790
+polygon, and line as well.
+
+118
+00:06:11,790 --> 00:06:13,990
+Go have fun practicing
+all these new elements
+
+119
+00:06:13,990 --> 00:06:15,050
+that you just learned.
+
+120
+00:06:15,050 --> 00:06:16,920
+And I'll see you back
+in the next level.
+
+121
+00:06:19,760 --> 00:06:21,331
+--work on that line.
+
+122
+00:06:21,331 --> 00:06:21,830
+Ugh.
+
+123
+00:06:24,420 --> 00:06:25,820
+Our text be ugly, though.
+
+124
+00:06:25,820 --> 00:06:28,290
+So let's get it some style.
+
+125
+00:06:28,290 --> 00:06:29,380
+Sheet will say--
+
+126
+00:06:32,660 --> 00:06:33,436
+Is it?
+
+127
+00:06:33,436 --> 00:06:34,210
+OK.
+
+128
+00:06:34,210 --> 00:06:35,760
+Whoops.
+

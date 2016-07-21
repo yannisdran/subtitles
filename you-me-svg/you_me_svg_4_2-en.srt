@@ -1,0 +1,492 @@
+﻿1
+00:00:02,040 --> 00:00:04,330
+You're watching You, Me and SVG.
+
+2
+00:00:04,330 --> 00:00:06,770
+This is level four,
+section two, and we'll
+
+3
+00:00:06,770 --> 00:00:09,760
+be talking about symbols.
+
+4
+00:00:09,760 --> 00:00:14,066
+So far we've been creating
+icons and assets in isolation.
+
+5
+00:00:14,066 --> 00:00:15,440
+But most of the
+time you're going
+
+6
+00:00:15,440 --> 00:00:19,060
+to include them on a web page
+with a bunch of other HTML
+
+7
+00:00:19,060 --> 00:00:20,630
+elements going on.
+
+8
+00:00:20,630 --> 00:00:24,170
+Here you can see we're
+using this phone icon twice.
+
+9
+00:00:24,170 --> 00:00:26,820
+One time up in the header,
+and the second time
+
+10
+00:00:26,820 --> 00:00:29,050
+below the paragraph.
+
+11
+00:00:29,050 --> 00:00:32,080
+This is what it would
+look like inside the HTML.
+
+12
+00:00:32,080 --> 00:00:34,650
+You've got your body tag,
+you've got your SVG up
+
+13
+00:00:34,650 --> 00:00:38,010
+at the top, the header,
+and then a paragraph,
+
+14
+00:00:38,010 --> 00:00:39,750
+and your second SVG.
+
+15
+00:00:39,750 --> 00:00:43,960
+If you need to use icons or
+elements in multiple places,
+
+16
+00:00:43,960 --> 00:00:45,930
+there is something
+magical called symbol.
+
+17
+00:00:48,440 --> 00:00:51,470
+Symbol is what people
+use, very commonly,
+
+18
+00:00:51,470 --> 00:00:55,200
+to wrap around icons, and
+reuse them over and over again.
+
+19
+00:00:55,200 --> 00:00:59,390
+To define a symbol that we can
+use multiple times on a page,
+
+20
+00:00:59,390 --> 00:01:02,940
+the first step is to
+make the symbol tag.
+
+21
+00:01:02,940 --> 00:01:06,920
+We give it an ID of phone,
+and inside the symbol tag
+
+22
+00:01:06,920 --> 00:01:11,500
+is all of the code that's used
+to draw that phone, or icon.
+
+23
+00:01:11,500 --> 00:01:14,590
+Since we're just defining
+an icon for later use,
+
+24
+00:01:14,590 --> 00:01:16,830
+we don't actually want
+to see it up here.
+
+25
+00:01:16,830 --> 00:01:19,740
+So inside our style
+sheet, we'll call out
+
+26
+00:01:19,740 --> 00:01:23,700
+the defined-icon, which
+is a class on our SVG,
+
+27
+00:01:23,700 --> 00:01:25,460
+and we'll give it
+a display of none.
+
+28
+00:01:28,380 --> 00:01:30,880
+Throughout the course,
+we refactored our styles
+
+29
+00:01:30,880 --> 00:01:33,150
+from inline into
+the style sheet.
+
+30
+00:01:33,150 --> 00:01:36,140
+So the same with
+this phone icon.
+
+31
+00:01:36,140 --> 00:01:39,130
+The styles are coming from
+inside our style sheet.
+
+32
+00:01:41,950 --> 00:01:42,770
+So now.
+
+33
+00:01:42,770 --> 00:01:45,690
+to use the symbol
+that we defined above,
+
+34
+00:01:45,690 --> 00:01:47,990
+we'll create a new SVG.
+
+35
+00:01:47,990 --> 00:01:50,510
+We'll give it things like
+the name space and version
+
+36
+00:01:50,510 --> 00:01:51,800
+that it needs.
+
+37
+00:01:51,800 --> 00:01:54,430
+And then we'll also
+give it a viewbox.
+
+38
+00:01:54,430 --> 00:01:57,810
+This viewbox goes on the
+second SVG, the SVG that's
+
+39
+00:01:57,810 --> 00:02:00,560
+actually displaying the icon.
+
+40
+00:02:00,560 --> 00:02:06,340
+Inside this SVG, we'll use
+something called the use tag.
+
+41
+00:02:06,340 --> 00:02:10,199
+The use tag takes an
+xlink href attribute.
+
+42
+00:02:10,199 --> 00:02:14,400
+That attribute points to
+whatever icon or element
+
+43
+00:02:14,400 --> 00:02:15,810
+needs to be pulled in.
+
+44
+00:02:15,810 --> 00:02:19,580
+So in this case, it's
+pointing to the ID of phone.
+
+45
+00:02:19,580 --> 00:02:20,710
+This is really important.
+
+46
+00:02:20,710 --> 00:02:25,150
+You can't point to a class,
+you have to point to an ID.
+
+47
+00:02:25,150 --> 00:02:28,090
+Just like we gave the
+browser a heads up that hey,
+
+48
+00:02:28,090 --> 00:02:30,630
+we need to use a
+different type of XML,
+
+49
+00:02:30,630 --> 00:02:32,800
+when we use the XML namespace.
+
+50
+00:02:32,800 --> 00:02:34,700
+Now we need to give it
+a heads up that we're
+
+51
+00:02:34,700 --> 00:02:36,940
+going to use an xlink.
+
+52
+00:02:36,940 --> 00:02:40,150
+So on the SVG that
+has the used tag,
+
+53
+00:02:40,150 --> 00:02:44,090
+we're going to say
+xmlns colon xlink,
+
+54
+00:02:44,090 --> 00:02:45,995
+and give it a link
+to those docs.
+
+55
+00:02:49,610 --> 00:02:53,370
+The use tags xlink points
+to a named anchor--
+
+56
+00:02:53,370 --> 00:02:55,370
+the ID of phone, in our case.
+
+57
+00:02:55,370 --> 00:02:59,000
+This can also be an outside
+source, like a file.
+
+58
+00:02:59,000 --> 00:03:05,200
+However, IE 10 and below don't
+support that just a heads up.
+
+59
+00:03:05,200 --> 00:03:07,330
+As we did in the last
+level, let's go ahead
+
+60
+00:03:07,330 --> 00:03:11,680
+and give this phone icon, that
+were reusing multiple times,
+
+61
+00:03:11,680 --> 00:03:13,850
+a responsive width and height.
+
+62
+00:03:13,850 --> 00:03:17,710
+We've already given the
+viewbox the static 80 by 110.
+
+63
+00:03:17,710 --> 00:03:21,930
+Now inside the stylesheet, we'll
+call out the displayed icon,
+
+64
+00:03:21,930 --> 00:03:24,821
+and give it a height of
+auto and a width of 30%.
+
+65
+00:03:28,530 --> 00:03:32,460
+So in real life, if we opened
+up the site inside our editor,
+
+66
+00:03:32,460 --> 00:03:36,470
+we would see an index that
+has all of these elements.
+
+67
+00:03:36,470 --> 00:03:40,990
+With the SVG defined at
+the top, and then below,
+
+68
+00:03:40,990 --> 00:03:44,340
+we're using the
+element multiple times.
+
+69
+00:03:44,340 --> 00:03:48,220
+We also have our
+styles for the top
+
+70
+00:03:48,220 --> 00:03:52,740
+displayed-icon, the defined-icon,
+ and the displayed-icon
+
+71
+00:03:52,740 --> 00:03:53,780
+here.
+
+72
+00:03:53,780 --> 00:03:56,610
+That are making the
+top icon smaller
+
+73
+00:03:56,610 --> 00:03:59,020
+than the bottom larger icon.
+
+74
+00:03:59,020 --> 00:04:01,310
+You can style them
+differently with use,
+
+75
+00:04:01,310 --> 00:04:02,960
+and it cleans up your
+code quite a bit.
+
+76
+00:04:14,580 --> 00:04:18,950
+Now for my personal favorite
+part, accessibility.
+
+77
+00:04:18,950 --> 00:04:24,500
+SVG has two elements that make
+accessibility possible, title
+
+78
+00:04:24,500 --> 00:04:26,390
+and description.
+
+79
+00:04:26,390 --> 00:04:30,140
+So inside our SVG, we can give
+it a title of schmuffle phone
+
+80
+00:04:30,140 --> 00:04:31,080
+icon.
+
+81
+00:04:31,080 --> 00:04:33,290
+We can also give a
+description like,
+
+82
+00:04:33,290 --> 00:04:36,560
+a phone with a large red
+border with rounded corners,
+
+83
+00:04:36,560 --> 00:04:39,740
+so on and so forth.
+
+84
+00:04:39,740 --> 00:04:42,030
+Now to most people,
+these two tags
+
+85
+00:04:42,030 --> 00:04:43,810
+don't really mean that much.
+
+86
+00:04:43,810 --> 00:04:47,610
+But to a blind person, now
+when they're on your site,
+
+87
+00:04:47,610 --> 00:04:50,600
+they can see or imagine
+in their head based
+
+88
+00:04:50,600 --> 00:04:53,070
+on the description and
+the title that you just
+
+89
+00:04:53,070 --> 00:04:54,710
+provided for your asset.
+
+90
+00:04:54,710 --> 00:04:56,280
+Let's go ahead and
+look and listen in
+
+91
+00:04:56,280 --> 00:05:00,780
+on what a screen reader would
+do for our small example site.
+
+92
+00:05:00,780 --> 00:05:05,720
+SVG symbols, Schmuffle
+Phone, Schmuffle Phone Specs.
+
+93
+00:05:05,720 --> 00:05:09,150
+Easy to use yet
+schmuffle phone icon.
+
+94
+00:05:09,150 --> 00:05:12,200
+A phone with a large red
+border with rounded corners.
+
+95
+00:05:12,200 --> 00:05:14,560
+A white screen, and
+a white round button
+
+96
+00:05:14,560 --> 00:05:18,080
+centered below the screen.
+
+97
+00:05:18,080 --> 00:05:22,030
+It has been so much fun doing
+this SVG course with you.
+
+98
+00:05:22,030 --> 00:05:24,670
+I hope you rock those
+last few challenges,
+
+99
+00:05:24,670 --> 00:05:26,891
+where you go over
+symbol, and also
+
+100
+00:05:26,891 --> 00:05:28,140
+a little bit of accessibility.
+
+101
+00:05:31,870 --> 00:05:34,385
+For the future, and beyond.
+
+102
+00:05:39,200 --> 00:05:41,390
+Gregg!
+
+103
+00:05:41,390 --> 00:05:45,940
+Pav-- Out of the room.
+
+104
+00:05:45,940 --> 00:05:48,320
+Styled or animated.
+
