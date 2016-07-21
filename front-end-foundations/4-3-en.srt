@@ -1,5 +1,241 @@
-1
-00:00:00,196 --> 00:00:01,820
-[no subtitles yet. Sorry!
-working on it]
-Status API Training Shop Blog About
+﻿1
+00:00:02,060 --> 00:00:03,790
+There's another
+pretty common case,
+
+2
+00:00:03,790 --> 00:00:05,540
+when you're working
+with images and that's
+
+3
+00:00:05,540 --> 00:00:07,520
+when you need to
+have an image sitting
+
+4
+00:00:07,520 --> 00:00:09,930
+to the left of some text.
+
+5
+00:00:09,930 --> 00:00:12,540
+Now an image is an
+inline-level tag
+
+6
+00:00:12,540 --> 00:00:15,050
+but text is a block-level tag.
+
+7
+00:00:15,050 --> 00:00:17,100
+So how can we make this work?
+
+8
+00:00:17,100 --> 00:00:21,300
+How can we make two
+block-level tags sit aside
+
+9
+00:00:21,300 --> 00:00:25,410
+from an inline-level tag?
+
+10
+00:00:25,410 --> 00:00:27,100
+So we might try
+something like this.
+
+11
+00:00:27,100 --> 00:00:30,980
+We might create to divs that
+contain all of this content
+
+12
+00:00:30,980 --> 00:00:33,330
+and set their display to inline.
+
+13
+00:00:33,330 --> 00:00:34,840
+Seems like it would work, right?
+
+14
+00:00:34,840 --> 00:00:37,180
+Two inline tags sitting
+next to each other.
+
+15
+00:00:37,180 --> 00:00:40,460
+That's how our previous images
+and previous navigation menus
+
+16
+00:00:40,460 --> 00:00:41,180
+worked.
+
+17
+00:00:41,180 --> 00:00:42,724
+This approach will
+actually not work.
+
+18
+00:00:42,724 --> 00:00:44,390
+And it's going to
+look pretty nasty when
+
+19
+00:00:44,390 --> 00:00:45,774
+you view it in the browser.
+
+20
+00:00:45,774 --> 00:00:48,190
+It's still going to put those
+things on top of each other,
+
+21
+00:00:48,190 --> 00:00:52,000
+even though the display
+is set to inline.
+
+22
+00:00:52,000 --> 00:00:54,190
+So instead, we need
+to use a special CSS
+
+23
+00:00:54,190 --> 00:00:56,230
+property called float.
+
+24
+00:00:56,230 --> 00:00:59,490
+Float is going to grant
+these temporary powers
+
+25
+00:00:59,490 --> 00:01:02,650
+to an inline-level tag
+to allow them to take up
+
+26
+00:01:02,650 --> 00:01:06,140
+some of that space that a
+block-level tag is normally
+
+27
+00:01:06,140 --> 00:01:09,390
+going to try to fight for.
+
+28
+00:01:09,390 --> 00:01:13,780
+So here I've got an image,
+an h3, and a paragraph tag
+
+29
+00:01:13,780 --> 00:01:15,580
+inside of this li.
+
+30
+00:01:15,580 --> 00:01:18,520
+If I target all of the
+images that are inside
+
+31
+00:01:18,520 --> 00:01:22,790
+of this recipe's list
+and float them left,
+
+32
+00:01:22,790 --> 00:01:25,015
+it's going to take each
+one of those images that
+
+33
+00:01:25,015 --> 00:01:29,710
+is floated left and allow it
+to occupy the left space where
+
+34
+00:01:29,710 --> 00:01:32,290
+a block level tag would
+normally try to push it down
+
+35
+00:01:32,290 --> 00:01:35,460
+to the next line.
+
+36
+00:01:35,460 --> 00:01:37,020
+As you can see
+here, the image has
+
+37
+00:01:37,020 --> 00:01:39,630
+floated to the left
+of the two text tags.
+
+38
+00:01:39,630 --> 00:01:41,550
+And we've even added a
+little bit of padding
+
+39
+00:01:41,550 --> 00:01:43,580
+to the right of the
+image so it doesn't touch
+
+40
+00:01:43,580 --> 00:01:45,566
+right up against the text.
+
+41
+00:01:45,566 --> 00:01:47,940
+Now there's a lot more that
+goes into working with floats
+
+42
+00:01:47,940 --> 00:01:49,680
+that I'm showing you here.
+
+43
+00:01:49,680 --> 00:01:51,310
+But code school
+has a course called
+
+44
+00:01:51,310 --> 00:01:54,640
+CSS cross country, which goes
+into a lot of different float
+
+45
+00:01:54,640 --> 00:01:57,660
+use cases in much
+greater detail.
+
+46
+00:01:57,660 --> 00:02:00,010
+But now, something
+simple like putting
+
+47
+00:02:00,010 --> 00:02:04,170
+an image to the left of two
+block level text tags so
+
+48
+00:02:04,170 --> 00:02:06,400
+that they appear the way
+we want them in our layout,
+
+49
+00:02:06,400 --> 00:02:11,009
+is going to be as easy as
+using the float property.
+
+50
+00:02:11,009 --> 00:02:12,660
+And now it's your
+turn to try floating
+
+51
+00:02:12,660 --> 00:02:16,700
+some images against some
+text in the challenges.
+
