@@ -1,716 +1,865 @@
-﻿1
-00:00:01,230 --> 00:00:03,775
-Your online application's
-starting to fail.
+1
+00:00:00,806 --> 00:00:02,560
+[SINGING] Your
+online application's
 
 2
-00:00:03,775 --> 00:00:07,330
+00:00:02,560 --> 00:00:03,810
+starting to fail.
+
+3
+00:00:03,810 --> 00:00:07,530
 It's crawling on the network
 just as fast as a snail.
 
-3
-00:00:07,330 --> 00:00:10,760
+4
+00:00:07,530 --> 00:00:10,700
 We need evented programming
 starting from the top.
 
-4
-00:00:10,760 --> 00:00:15,770
+5
+00:00:10,700 --> 00:00:12,820
 Better write some code so
 the world doesn't stop.
 
-5
-00:00:15,770 --> 00:00:19,750
+6
+00:00:15,652 --> 00:00:20,200
 With a non-blocking model,
 we will be just fine.
 
-6
-00:00:19,750 --> 00:00:22,370
-Build some Google Chrome's
-V8 runtime.
-
 7
-00:00:22,370 --> 00:00:25,970
-And all you need to do is write
-some JavaScript code and
+00:00:20,200 --> 00:00:22,320
+Built on Google
+Chrome's V8 runtime.
 
 8
-00:00:25,970 --> 00:00:28,130
-use the Real Time
-Web with Node.
+00:00:22,320 --> 00:00:25,720
+And all you need to do is
+write some JavaScript code,
 
 9
-00:00:34,190 --> 00:00:36,726
-You're watching Real Time
-Web with Node.js.
+00:00:25,720 --> 00:00:28,145
+and use the Real
+Time Web with Node.
 
 10
-00:00:36,726 --> 00:00:40,130
-In this level, we're going to be
-covering Socket.IO to build
+00:00:32,344 --> 00:00:34,010
+You're watching Real
+Time Web with node.
 
 11
-00:00:40,130 --> 00:00:42,730
-a chat application.
+00:00:34,010 --> 00:00:35,843
+And this is level 6,
+where we're going to be
 
 12
-00:00:42,730 --> 00:00:45,010
-So because we're building a chat
-application, we're going
+00:00:35,843 --> 00:00:38,200
+taking a look at Socket.IO.
 
 13
-00:00:45,010 --> 00:00:48,430
-to have a bunch of different
-clients that need to receive
+00:00:38,200 --> 00:00:40,330
+Obviously, this is
+called Real Time.
 
 14
-00:00:48,430 --> 00:00:50,310
-messages right away.
+00:00:40,330 --> 00:00:42,510
+Node is really good
+at real time apps.
 
 15
-00:00:50,310 --> 00:00:53,090
-Let's say someone sends
-a message to the chat.
+00:00:42,510 --> 00:00:45,110
+So let's start building
+a real time app.
 
 16
-00:00:53,090 --> 00:00:56,440
-We want to push that message
-from the server to all the
+00:00:45,110 --> 00:00:49,120
+We're going to be building a
+chat application in the browser
 
 17
-00:00:56,440 --> 00:00:58,250
-clients at the same time.
+00:00:49,120 --> 00:00:51,650
+using WebSockets.
 
 18
-00:00:58,250 --> 00:01:02,540
-But in traditional HTTP, this
-isn't really how it works, as
+00:00:51,650 --> 00:00:54,680
+Traditionally, a browser's
+request and response cycle
 
 19
-00:01:02,540 --> 00:01:05,200
-you can see here.
+00:00:54,680 --> 00:00:58,040
+looks something like this, where
+the browser sends a request
 
 20
-00:01:05,200 --> 00:01:08,510
-What we want to be able to do
-is send and receive messages
+00:00:58,040 --> 00:01:00,730
+to the server,
+waits around for it
 
 21
-00:01:08,510 --> 00:01:11,360
-from the client to the server
-and from the server to the
+00:01:00,730 --> 00:01:04,060
+to get back, and then,
+whatever, whenever it gets back,
 
 22
-00:01:11,360 --> 00:01:13,500
-client at the same time.
+00:01:04,060 --> 00:01:05,670
+it then renders onto the page.
 
 23
-00:01:13,500 --> 00:01:16,580
-And this is exactly what
-websockets do.
+00:01:09,140 --> 00:01:11,900
+These days, modern
+browsers have WebSockets.
 
 24
-00:01:16,580 --> 00:01:19,700
-Unfortunately, websockets is a
-pretty new technology on the
+00:01:11,900 --> 00:01:14,740
+WebSockets allow us to
+create a connection with each
 
 25
-00:01:19,700 --> 00:01:22,940
-client side, so we need
-something to abstract
+00:01:14,740 --> 00:01:17,520
+of our clients to the server.
 
 26
-00:01:22,940 --> 00:01:26,430
-websockets and give us a good
-API to use on newer browsers
+00:01:17,520 --> 00:01:20,100
+Over this connection,
+we can send and receive
 
 27
-00:01:26,430 --> 00:01:27,660
-and older browsers.
+00:01:20,100 --> 00:01:25,250
+data from the server back
+and forth in real time.
 
 28
-00:01:27,660 --> 00:01:29,490
-And that's where Socket.IO
-comes in.
+00:01:25,250 --> 00:01:27,600
+However, we can't rely
+on every browser working
 
 29
-00:01:29,490 --> 00:01:32,820
-So let's start using Socket.IO
-to build this chat
+00:01:27,600 --> 00:01:30,360
+with WebSockets, so we
+need to use a library,
 
 30
-00:01:32,820 --> 00:01:33,810
-application.
+00:01:30,360 --> 00:01:34,050
+or a module, that has
+intelligent fallbacks in case
 
 31
-00:01:33,810 --> 00:01:37,060
-All we have to do is first
-install it using NPM.
+00:01:34,050 --> 00:01:35,760
+the WebSocket doesn't work.
 
 32
-00:01:37,060 --> 00:01:40,590
-Inside our app, we can
-require socket.io,
+00:01:35,760 --> 00:01:39,200
+In this case, we're going to
+be using the Socket.IO library.
 
 33
-00:01:40,590 --> 00:01:44,230
-and then after we create our
-express server, we can pass in
+00:01:39,200 --> 00:01:40,200
+Let's install Socket.IO.
 
 34
-00:01:44,230 --> 00:01:47,400
-the application created
-by express to the
+00:01:40,200 --> 00:01:44,240
+We'll just do npm install
+Socket.IO dash dash save,
 
 35
-00:01:47,400 --> 00:01:49,340
-socket listen function.
+00:01:44,240 --> 00:01:48,220
+so it will install it and also
+add it to our package.json.
 
 36
-00:01:49,340 --> 00:01:53,480
-This will return an object that
-we can use to listen for
+00:01:48,220 --> 00:01:50,110
+And inside of our
+application, we'll
 
 37
-00:01:53,480 --> 00:01:56,070
-connections coming from
-the client side.
+00:01:50,110 --> 00:01:52,230
+require the express module.
 
 38
-00:01:56,070 --> 00:01:59,490
-Here, all we're doing is when
-a new client connects to our
+00:01:52,230 --> 00:01:54,620
+We'll initialize an
+express application.
 
 39
-00:01:59,490 --> 00:02:02,490
-server, we're just going to
-log out client connected.
+00:01:54,620 --> 00:01:58,790
+Then we'll create an HTTP server
+and have it dispatch requests
 
 40
-00:02:02,490 --> 00:02:06,190
-We need a client, which in this
-case is just our browser.
+00:01:58,790 --> 00:02:00,380
+to express.
 
 41
-00:02:06,190 --> 00:02:08,810
-On the client side, we
-also need to load
+00:02:00,380 --> 00:02:03,270
+Also we'll require
+the Socket.IO module
 
 42
-00:02:08,810 --> 00:02:10,860
-the Socket.IO library.
+00:02:03,270 --> 00:02:06,130
+and also allow it
+to use the HTTP
 
 43
-00:02:10,860 --> 00:02:14,100
-Then we can connect to the
-server from the client passing
+00:02:06,130 --> 00:02:08,520
+server to listen for requests.
 
 44
-00:02:14,100 --> 00:02:16,120
-in our server's URL.
+00:02:08,520 --> 00:02:13,000
+So now, Socket.IO and express
+are sharing the same HTTP
 
 45
-00:02:16,120 --> 00:02:20,440
-Now on our server, we're
-actually really easily able to
+00:02:13,000 --> 00:02:13,960
+server.
 
 46
-00:02:20,440 --> 00:02:23,000
-send messages to the client.
+00:02:13,960 --> 00:02:15,750
+We'll then need to
+listen for connection
 
 47
-00:02:23,000 --> 00:02:26,560
-Now this isn't possible with
-just regular HTTP.
+00:02:15,750 --> 00:02:17,774
+events inside Socket.IO.
 
 48
-00:02:26,560 --> 00:02:30,520
-When our client connects, we can
-start emitting events on
+00:02:17,774 --> 00:02:19,190
+And, when a client
+connects, we're
 
 49
-00:02:30,520 --> 00:02:33,950
-that client, such as submitting
-a messages event
+00:02:19,190 --> 00:02:23,390
+simply going to log out client
+connected to the console.
 
 50
-00:02:33,950 --> 00:02:36,120
-and passing in this data.
+00:02:23,390 --> 00:02:26,820
+Full server index.html
+file, using the send file
 
 51
-00:02:36,120 --> 00:02:39,950
-To receive this event on the
-client side, all we have to do
+00:02:26,820 --> 00:02:28,540
+function we've seen earlier.
 
 52
-00:02:39,950 --> 00:02:44,490
-is listen on the messages event
-and pass in a callback.
+00:02:28,540 --> 00:02:34,680
+And lastly, we'll have our
+server listen on port 8080.
 
 53
-00:02:44,490 --> 00:02:46,250
-And that callback will
-have the data
+00:02:34,680 --> 00:02:37,870
+Now in the HTML that we're going
+to be sending through express,
 
 54
-00:02:46,250 --> 00:02:48,170
-emitted from the server.
+00:02:37,870 --> 00:02:40,460
+we need to include the
+Socket.IO library--
 
 55
-00:02:48,170 --> 00:02:49,880
-Here, all we're doing
-is alerting
+00:02:40,460 --> 00:02:42,990
+this will get loaded in
+our client's browsers--
 
 56
-00:02:49,880 --> 00:02:53,500
-that data to the browser.
+00:02:42,990 --> 00:02:46,180
+and connect to our
+Socket.IO server.
 
 57
-00:02:53,500 --> 00:02:55,420
-So let's see this in action.
+00:02:49,330 --> 00:02:51,910
+Let's add one more thing
+to our connection event.
 
 58
-00:02:55,420 --> 00:02:59,700
-Let's fire up our Node app and
-go over to the browser and
+00:02:51,910 --> 00:02:57,090
+Here, we're going to call client
+emit messages, hello world.
 
 59
-00:02:59,700 --> 00:03:02,950
-load up our site.
+00:02:57,090 --> 00:03:00,180
+So this is emitting
+the messages event
 
 60
-00:03:02,950 --> 00:03:06,360
-So you see when the client
-connects to the server, it's
+00:03:00,180 --> 00:03:04,080
+on our client, which, in
+this case, is our browser.
 
 61
-00:03:06,360 --> 00:03:09,880
-going to alert the data that
-came back from the server.
+00:03:04,080 --> 00:03:08,720
+And we're going to send
+the object, hello world.
 
 62
-00:03:09,880 --> 00:03:12,140
-And we're also going
-to see in the log
+00:03:08,720 --> 00:03:10,780
+Then, inside of
+our browser, we're
 
 63
-00:03:12,140 --> 00:03:13,800
-that our client connected.
+00:03:10,780 --> 00:03:13,070
+going to listen for
+that messages event.
 
 64
-00:03:13,800 --> 00:03:16,980
-Just like we sent a message from
-the server to the client,
+00:03:13,070 --> 00:03:16,320
+When it gets called,
+we'll call alert.
 
 65
-00:03:16,980 --> 00:03:21,110
-we can also do the same thing
-from the client to the server.
+00:03:16,320 --> 00:03:18,640
+And then we'll have
+an alert with the data
 
 66
-00:03:21,110 --> 00:03:24,960
-First, on our server, let's
-set up a listener on the
+00:03:18,640 --> 00:03:21,970
+that it received, looking
+up the hello property, which
 
 67
-00:03:24,960 --> 00:03:29,380
-messages event to log data
-whenever the client sends the
+00:03:21,970 --> 00:03:23,280
+has a value of world.
 
 68
-00:03:29,380 --> 00:03:31,660
-messages event.
+00:03:25,784 --> 00:03:26,700
+So let's run our code.
 
 69
-00:03:31,660 --> 00:03:35,540
-Over on our client, we're going
-to use jQuery to hook
-
-70
-00:03:35,540 --> 00:03:37,470
-into our chat form.
-
-71
-00:03:37,470 --> 00:03:40,600
-And whenever that's submitted,
-we're going to take the value
-
-72
-00:03:40,600 --> 00:03:43,720
-out of the chat input, which
-is our text box, and we're
-
-73
-00:03:43,720 --> 00:03:48,100
-going to emit that messages
-event on the server.
-
-74
-00:03:48,100 --> 00:03:50,130
-Let's see that in action.
-
-75
-00:03:50,130 --> 00:03:53,880
-Again, let's fire up
-our Node app and
-
-76
-00:03:53,880 --> 00:03:55,130
-go over to the browser.
-
-77
-00:03:55,130 --> 00:03:57,440
-Connect to localhost:8080.
-
-78
-00:03:57,440 --> 00:04:00,600
-As you can see, the client
-connected successfully.
-
-79
-00:04:00,600 --> 00:04:05,700
-And when we type a message and
-submit the form, it will emit
-
-80
-00:04:05,700 --> 00:04:07,370
-the messages event
-on the server.
-
-81
-00:04:07,370 --> 00:04:08,980
-As you can see here,
-the data is being
-
-82
-00:04:08,980 --> 00:04:10,760
-printed out to the console.
-
-83
-00:04:10,760 --> 00:04:12,190
-Pretty cool.
-
-84
-00:04:12,190 --> 00:04:15,530
-The really powerful thing about
-Socket.IO, as opposed to
-
-85
-00:04:15,530 --> 00:04:20,000
-just regular websockets, is that
-makes it really easy to
-
-86
-00:04:20,000 --> 00:04:23,020
-do something else other than
-one-to-one communication.
-
-87
-00:04:23,020 --> 00:04:25,770
-Let's say you have a client
-sends a message to the server,
-
-88
-00:04:25,770 --> 00:04:27,970
-and you want to broadcast
-that message out to
-
-89
-00:04:27,970 --> 00:04:29,150
-all the other clients.
-
-90
-00:04:29,150 --> 00:04:32,860
-Well, Socket.IO gives us the
-broadcast flag for that.
-
-91
-00:04:32,860 --> 00:04:36,140
-Let's use the broadcast
-functionality in our chat app
-
-92
-00:04:36,140 --> 00:04:39,830
-to, instead of just logging
-the message to the server,
-
-93
-00:04:39,830 --> 00:04:44,100
-let's broadcast that message out
-to all the other clients.
-
-94
-00:04:44,100 --> 00:04:47,120
-The only thing that we need to
-do on our client now is listen
-
-95
-00:04:47,120 --> 00:04:49,320
-for messages events.
-
-96
-00:04:49,320 --> 00:04:52,540
-And when we get one of those
-events, we insert the message
-
-97
-00:04:52,540 --> 00:04:55,980
-into our chat app.
-
-98
-00:04:55,980 --> 00:04:58,170
-Once again, we're over in the
-terminal and we're going to
-
-99
-00:04:58,170 --> 00:05:00,230
-fire up our Node app.
-
-100
-00:05:00,230 --> 00:05:02,780
-And now we're going to connect
-with two different clients so
-
-101
-00:05:02,780 --> 00:05:06,140
-we can see this broadcast
-functionality at work.
-
-102
-00:05:06,140 --> 00:05:09,340
-So we connect with our first
-client, and we see that it has
-
-103
-00:05:09,340 --> 00:05:10,800
-connected successfully.
-
-104
-00:05:10,800 --> 00:05:13,370
-Then we open up another browser
-and connect with that
-
-105
-00:05:13,370 --> 00:05:15,240
-client, and we can
-see that now we
-
-106
-00:05:15,240 --> 00:05:17,140
-have two clients connected.
-
-107
-00:05:17,140 --> 00:05:20,490
-So when one of those clients
-types in a message and hits
-
-108
-00:05:20,490 --> 00:05:23,060
-enter, it's going to broadcast
-out that message
-
-109
-00:05:23,060 --> 00:05:24,090
-to the other client.
-
-110
-00:05:24,090 --> 00:05:25,890
-Pretty fantastic.
-
-111
-00:05:25,890 --> 00:05:28,640
-As we saw in that last screen
-cast, now that we're
-
-112
-00:05:28,640 --> 00:05:32,010
-broadcasting messages around
-between clients, we may
-
-113
-00:05:32,010 --> 00:05:35,350
-actually want to attach a name
-to that message so we know
-
-114
-00:05:35,350 --> 00:05:36,470
-who's sending it.
-
-115
-00:05:36,470 --> 00:05:38,510
-So how do we do that
-in Socket.IO?
-
-116
-00:05:38,510 --> 00:05:40,370
-Let's go back to our server.
-
-117
-00:05:40,370 --> 00:05:43,470
-And we're going to listen on
-a custom event called join.
-
-118
-00:05:43,470 --> 00:05:46,630
-Now when our client emits that
-event, it's going to pass in
-
-119
-00:05:46,630 --> 00:05:48,700
-the name of the user.
-
-120
-00:05:48,700 --> 00:05:51,440
-So we have our name
-in the callback.
-
-121
-00:05:51,440 --> 00:05:55,650
-All we need to do is call set
-on the client to define that
-
-122
-00:05:55,650 --> 00:05:56,950
-client's nickname.
-
-123
-00:05:56,950 --> 00:05:58,920
-We'll see how to use
-that later when
-
-124
-00:05:58,920 --> 00:06:00,810
-broadcasting messages.
-
-125
-00:06:00,810 --> 00:06:02,760
-But for now, let's check
-out the client.
-
-126
-00:06:02,760 --> 00:06:05,910
-We're going to add code to
-listen for the connect event.
-
-127
-00:06:05,910 --> 00:06:10,360
-And when that happens, we're
-going to prompt the user for
-
-128
-00:06:10,360 --> 00:06:11,530
-their nickname.
-
-129
-00:06:11,530 --> 00:06:14,360
-After they enter their nickname,
-we're going to then
-
-130
-00:06:14,360 --> 00:06:18,980
-emit the join event on the
-server, passing it in.
-
-131
-00:06:18,980 --> 00:06:23,700
-Back on our server, now before
-we send out a new message to
-
-132
-00:06:23,700 --> 00:06:27,700
-all the other clients, we
-have to use client.get.
-
-133
-00:06:27,700 --> 00:06:31,110
-We pass in the property
-that we want to get.
-
-134
-00:06:31,110 --> 00:06:34,900
-And we give it a callback, which
-will include the name
-
-135
-00:06:34,900 --> 00:06:37,450
-that we previously set
-on the client.
-
-136
-00:06:37,450 --> 00:06:40,820
-So now when we broadcast out
-that message to all the other
-
-137
-00:06:40,820 --> 00:06:45,440
-clients, we can pass the name
-and the message to identify
-
-138
-00:06:45,440 --> 00:06:46,690
-the client.
-
-139
-00:06:46,690 --> 00:06:48,730
-Let's see it in action.
-
-140
-00:06:48,730 --> 00:06:51,650
-Just like before, we fire
+00:03:26,700 --> 00:03:30,420
+First, we'll start
 up our Node server.
 
+70
+00:03:30,420 --> 00:03:39,020
+Then, if we jump into our
+browser, go to the right port,
+
+71
+00:03:39,020 --> 00:03:40,780
+it will connect
+using Socket.IO,
+
+72
+00:03:40,780 --> 00:03:43,310
+send a message back
+into our browser,
+
+73
+00:03:43,310 --> 00:03:47,850
+and we'll get an alert pop up.
+
+74
+00:03:47,850 --> 00:03:50,350
+We even get the log
+message that a client
+
+75
+00:03:50,350 --> 00:03:52,560
+successfully connected.
+
+76
+00:03:52,560 --> 00:03:54,885
+And every time we refresh,
+it's going to reconnect.
+
+77
+00:03:57,490 --> 00:03:59,780
+So our browser is
+listening for messages.
+
+78
+00:03:59,780 --> 00:04:02,920
+But we're going to want to
+send messages from our browser
+
+79
+00:04:02,920 --> 00:04:05,530
+when somebody types
+something into the chat room
+
+80
+00:04:05,530 --> 00:04:08,190
+back to our server.
+
+81
+00:04:08,190 --> 00:04:13,810
+So we also want our server to
+listen for the messages event
+
+82
+00:04:13,810 --> 00:04:17,670
+and, when it does, we'll log
+it out to our console, for now.
+
+83
+00:04:17,670 --> 00:04:19,860
+We then need to write
+some JavaScript code that
+
+84
+00:04:19,860 --> 00:04:23,850
+will run inside the browser
+so that, when somebody submits
+
+85
+00:04:23,850 --> 00:04:26,130
+new code into the chat
+room-- in this case,
+
+86
+00:04:26,130 --> 00:04:27,910
+we're going to just
+use some jQuery.
+
+87
+00:04:27,910 --> 00:04:31,500
+We'll hook onto the
+chat form Submit button.
+
+88
+00:04:31,500 --> 00:04:33,780
+So when somebody
+hit Submit, we'll
+
+89
+00:04:33,780 --> 00:04:38,350
+grab the message out of
+the chat input text field,
+
+90
+00:04:38,350 --> 00:04:40,710
+grab the value from there,
+set that equal to the message
+
+91
+00:04:40,710 --> 00:04:42,110
+variable.
+
+92
+00:04:42,110 --> 00:04:46,310
+Then we'll emit that
+messages event on the server,
+
+93
+00:04:46,310 --> 00:04:51,060
+by calling socket.emit messages
+and simply send in the message
+
+94
+00:04:51,060 --> 00:04:55,190
+that they typed into
+that form field.
+
+95
+00:04:55,190 --> 00:04:58,900
+Now we'll start up
+our Node server again.
+
+96
+00:04:58,900 --> 00:05:00,810
+And if we go into our
+browser, reconnect.
+
+97
+00:05:07,420 --> 00:05:09,760
+Now, if we jump back into
+our browser, type in,
+
+98
+00:05:09,760 --> 00:05:13,230
+hello, this is dog-- and
+we can see that hello, this
+
+99
+00:05:13,230 --> 00:05:15,830
+is dog, got printed out
+back on the console,
+
+100
+00:05:15,830 --> 00:05:17,430
+and we can go back and forth.
+
+101
+00:05:17,430 --> 00:05:19,650
+And it works pretty well.
+
+102
+00:05:19,650 --> 00:05:22,430
+So we know how to send messages
+from the server to the client,
+
+103
+00:05:22,430 --> 00:05:23,940
+and the client to the server.
+
+104
+00:05:23,940 --> 00:05:25,290
+But this is a chat room.
+
+105
+00:05:25,290 --> 00:05:27,130
+So we're going to be
+having multiple clients
+
+106
+00:05:27,130 --> 00:05:28,650
+connecting to our server.
+
+107
+00:05:28,650 --> 00:05:32,180
+And we're going to
+need to broadcast
+
+108
+00:05:32,180 --> 00:05:37,110
+somebody's text that they send
+to the chat room to everybody.
+
+109
+00:05:37,110 --> 00:05:40,710
+Luckily, Socket.IO has
+a broadcast property.
+
+110
+00:05:40,710 --> 00:05:43,490
+And when you call emit on
+that broadcast property
+
+111
+00:05:43,490 --> 00:05:45,870
+with messages, it's
+going to send them
+
+112
+00:05:45,870 --> 00:05:49,400
+to all the other
+connected sockets--
+
+113
+00:05:49,400 --> 00:05:53,090
+in this case, all the other
+clients in the chat room.
+
+114
+00:05:53,090 --> 00:05:56,520
+So now, back on our server, when
+our server receives the message
+
+115
+00:05:56,520 --> 00:05:58,690
+event, this time
+around, it's going
+
+116
+00:05:58,690 --> 00:06:03,980
+to call client.broadcast.emit
+messages, data.
+
+117
+00:06:03,980 --> 00:06:05,710
+That's going to
+broadcast the message
+
+118
+00:06:05,710 --> 00:06:09,500
+to all the other clients
+aside from this one that
+
+119
+00:06:09,500 --> 00:06:10,940
+sent the message.
+
+120
+00:06:10,940 --> 00:06:12,440
+Back on the client
+side, we're going
+
+121
+00:06:12,440 --> 00:06:14,970
+to revise the messages listener.
+
+122
+00:06:14,970 --> 00:06:17,940
+In this case, when we
+get a messages event,
+
+123
+00:06:17,940 --> 00:06:21,965
+we simply want to insert
+the message onto the screen.
+
+124
+00:06:21,965 --> 00:06:24,990
+I'm not going to show you
+that insert message function,
+
+125
+00:06:24,990 --> 00:06:27,790
+but you can imagine it
+just uses some jQuery
+
+126
+00:06:27,790 --> 00:06:31,890
+to insert that text
+onto the screen.
+
+127
+00:06:31,890 --> 00:06:38,722
+So let's run our server
+again, go to local host, 8080.
+
+128
+00:06:38,722 --> 00:06:40,680
+We're going to actually
+call up another browser
+
+129
+00:06:40,680 --> 00:06:41,740
+and go to the same port.
+
+130
+00:06:41,740 --> 00:06:43,770
+So we have two
+clients connected.
+
+131
+00:06:43,770 --> 00:06:47,290
+So now, when we
+type in a message,
+
+132
+00:06:47,290 --> 00:06:48,930
+we say, hello, this is dog.
+
+133
+00:06:48,930 --> 00:06:54,810
+We can see that it broadcasted
+it to the other client.
+
+134
+00:06:54,810 --> 00:06:58,910
+Then we can say, hello,
+no this is Spider.
+
+135
+00:06:58,910 --> 00:07:02,170
+And we can see that it
+broadcast that message
+
+136
+00:07:02,170 --> 00:07:05,700
+to our other client and also
+logged it out to the console.
+
+137
+00:07:05,700 --> 00:07:07,510
+But you might notice,
+we have no idea
+
+138
+00:07:07,510 --> 00:07:09,420
+who's saying what
+on this chat server.
+
+139
+00:07:09,420 --> 00:07:13,320
+We probably need
+some user names.
+
+140
+00:07:13,320 --> 00:07:16,070
+So how might we implement that?
+
 141
-00:06:51,650 --> 00:06:53,770
-We connect with our
-first client.
+00:07:16,070 --> 00:07:18,580
+Well, maybe what we'll
+do, on the server side,
 
 142
-00:06:53,770 --> 00:06:57,430
-And now we're actually going
-to ask the user for their
+00:07:18,580 --> 00:07:22,420
+is we'll create a join event.
 
 143
-00:06:57,430 --> 00:07:00,030
-nickname when they first
-connect, as you can see here.
+00:07:22,420 --> 00:07:24,690
+When somebody calls
+join, we'll assume
 
 144
-00:07:00,030 --> 00:07:02,710
-So Dog is the first user.
+00:07:24,690 --> 00:07:27,720
+they're going to send
+in a name, a variable,
 
 145
-00:07:02,710 --> 00:07:04,270
-Our second client
-is named Spider.
+00:07:27,720 --> 00:07:32,050
+and then we'll set a value on
+the client-- client.nickname
 
 146
-00:07:14,290 --> 00:07:18,360
-So now, when Spider sends a
-message to the dog, the dog
+00:07:32,050 --> 00:07:34,120
+equals name.
 
 147
-00:07:18,360 --> 00:07:22,850
-sees that Spider is the one
-sending the message, as you
+00:07:34,120 --> 00:07:37,200
+Setting values this way means
+that the value is available,
 
 148
-00:07:22,850 --> 00:07:25,560
-can see here.
+00:07:37,200 --> 00:07:40,760
+both on the server
+and the client.
 
 149
-00:07:25,560 --> 00:07:28,170
-So we're done with Level Six,
-but we're going to continue on
+00:07:40,760 --> 00:07:44,300
+Then, back in our client,
+when we connect to the server,
 
 150
-00:07:28,170 --> 00:07:30,900
-in Level Seven on building
-this chat application.
+00:07:44,300 --> 00:07:46,050
+we're going to print
+out a little status
 
 151
-00:07:30,900 --> 00:07:33,380
-But for now, go into
-the challenges and
+00:07:46,050 --> 00:07:49,650
+so we know that we're connected,
+then we'll prompt the user,
 
 152
-00:07:33,380 --> 00:07:34,630
-practice using Socket.IO.
+00:07:49,650 --> 00:07:52,450
+call that simple
+JavaScript function prompt,
+
+153
+00:07:52,450 --> 00:07:55,630
+what is your nickname,
+then we'll take that value
+
+154
+00:07:55,630 --> 00:07:59,780
+and emit the join event,
+sending in the nickname back
+
+155
+00:07:59,780 --> 00:08:02,050
+to the server.
+
+156
+00:08:02,050 --> 00:08:05,720
+Now, back in our server, we need
+to change our messages listener
+
+157
+00:08:05,720 --> 00:08:08,260
+so that, before we
+broadcast the message,
+
+158
+00:08:08,260 --> 00:08:11,820
+we get the nickname
+of the client
+
+159
+00:08:11,820 --> 00:08:15,820
+and then, once we've retrieved
+the nickname, we'll have a call
+
+160
+00:08:15,820 --> 00:08:19,350
+back here which
+will then broadcast
+
+161
+00:08:19,350 --> 00:08:22,630
+our message with our username.
+
+162
+00:08:22,630 --> 00:08:24,310
+Lastly, if you're
+in a chat room,
+
+163
+00:08:24,310 --> 00:08:26,780
+you still get to see
+what you type in.
+
+164
+00:08:26,780 --> 00:08:30,930
+So why don't we just go ahead
+and emit the chat message
+
+165
+00:08:30,930 --> 00:08:33,030
+on the current client,
+you know, the one that
+
+166
+00:08:33,030 --> 00:08:37,030
+invoked the message event, so
+that, when we type in some code
+
+167
+00:08:37,030 --> 00:08:40,935
+and hit Return, we'll see what
+we typed back in the browser.
+
+168
+00:08:45,030 --> 00:08:47,870
+Let's go ahead and
+try out this new code.
+
+169
+00:08:47,870 --> 00:08:49,400
+One browser will go.
+
+170
+00:08:49,400 --> 00:08:52,660
+It should prompt us
+for our username.
+
+171
+00:08:52,660 --> 00:08:53,650
+This one's Dog.
+
+172
+00:08:53,650 --> 00:08:56,120
+Let's start up another browser.
+
+173
+00:08:56,120 --> 00:08:58,140
+And this person's
+nickname is Spider.
+
+174
+00:08:58,140 --> 00:08:59,670
+And we can see, Dog
+joined the chat.
+
+175
+00:08:59,670 --> 00:09:01,650
+Spider joined the chat.
+
+176
+00:09:01,650 --> 00:09:05,737
+Now, if we type in a message,
+it shows us who's typing what.
+
+177
+00:09:16,260 --> 00:09:19,350
+Can you feel the Real Time?
+
+178
+00:09:19,350 --> 00:09:20,950
+With Socket.IO, I bet you can.
+
+179
+00:09:20,950 --> 00:09:23,494
+You know, like communication
+going back and forth.
+
+180
+00:09:23,494 --> 00:09:24,910
+Have some fun with
+the challenges.
+
+181
+00:09:24,910 --> 00:09:27,040
+I'll see you in the next level.
+
