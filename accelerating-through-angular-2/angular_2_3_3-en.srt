@@ -1,0 +1,373 @@
+﻿1
+00:00:02,090 --> 00:00:02,780
+Welcome back.
+
+2
+00:00:02,780 --> 00:00:04,970
+This is section 3
+where we'll be creating
+
+3
+00:00:04,970 --> 00:00:09,070
+a model and a mocks file.
+
+4
+00:00:09,070 --> 00:00:11,710
+We're coding in TypeScript
+and TypeScript gives us
+
+5
+00:00:11,710 --> 00:00:15,860
+the ability to be more object
+oriented with our data.
+
+6
+00:00:15,860 --> 00:00:20,700
+So let's create a model for
+our data, which will basically
+
+7
+00:00:20,700 --> 00:00:21,770
+be a class.
+
+8
+00:00:21,770 --> 00:00:26,900
+We'll create car-parts.ts, and
+inside of it we'll export class
+
+9
+00:00:26,900 --> 00:00:31,070
+CarPart, and specify each of our
+properties and what type they
+
+10
+00:00:31,070 --> 00:00:31,870
+are.
+
+11
+00:00:31,870 --> 00:00:34,200
+This is TypeScript and it
+will allow our compiler
+
+12
+00:00:34,200 --> 00:00:38,860
+to ensure that we are using
+the data properly, using
+
+13
+00:00:38,860 --> 00:00:41,960
+the right names for the
+properties when we're setting
+
+14
+00:00:41,960 --> 00:00:43,134
+and getting the values.
+
+15
+00:00:45,980 --> 00:00:47,600
+So how do we use this new model?
+
+16
+00:00:47,600 --> 00:00:52,070
+Well, let's dive back into
+our carParts component.
+
+17
+00:00:52,070 --> 00:00:56,040
+Inside here we need to
+import our new model
+
+18
+00:00:56,040 --> 00:00:59,650
+and then we'll use a
+TypeScript code to tell it
+
+19
+00:00:59,650 --> 00:01:03,070
+that this array of
+objects, it should treat
+
+20
+00:01:03,070 --> 00:01:05,330
+like an array of carParts.
+
+21
+00:01:05,330 --> 00:01:09,180
+So now when we go to transpile
+our TypeScript into JavaScript,
+
+22
+00:01:09,180 --> 00:01:13,350
+if we accidentally wrote
+carPart.title instead
+
+23
+00:01:13,350 --> 00:01:16,650
+of carPart.name, our compiler
+would throw an error.
+
+24
+00:01:16,650 --> 00:01:19,280
+It would say, hey, there's
+no title in carPart.
+
+25
+00:01:23,510 --> 00:01:25,680
+Nothing else needs to
+change in our code.
+
+26
+00:01:25,680 --> 00:01:29,630
+Even in our template we're
+accessing the values,
+
+27
+00:01:29,630 --> 00:01:31,060
+just like we're supposed to be.
+
+28
+00:01:31,060 --> 00:01:33,566
+And in our browser
+everything works.
+
+29
+00:01:37,220 --> 00:01:40,490
+Eventually, we want to call
+out to a web service or API
+
+30
+00:01:40,490 --> 00:01:44,290
+to get this carPart data
+and we have all this mock data
+
+31
+00:01:44,290 --> 00:01:46,730
+inside of our component.
+
+32
+00:01:46,730 --> 00:01:53,770
+We need to move this out
+and create a mocks.ts file.
+
+33
+00:01:53,770 --> 00:01:56,060
+Inside this mocks.ts
+file, we need
+
+34
+00:01:56,060 --> 00:01:58,900
+to import our carPart
+model and we'll
+
+35
+00:01:58,900 --> 00:02:03,580
+create a constant of
+all capital CARPARTS.
+
+36
+00:02:03,580 --> 00:02:06,020
+Notice, we're using
+const instead of let.
+
+37
+00:02:06,020 --> 00:02:09,150
+This is an ES2015 feature
+which doesn't allow
+
+38
+00:02:09,150 --> 00:02:11,130
+CARPARTS to be reassigned.
+
+39
+00:02:11,130 --> 00:02:12,860
+We're exporting
+this constant, which
+
+40
+00:02:12,860 --> 00:02:16,640
+means we need to import it
+into our carParts component,
+
+41
+00:02:16,640 --> 00:02:17,730
+like you see here.
+
+42
+00:02:17,730 --> 00:02:21,590
+Next, we need to initialize
+our carParts array inside
+
+43
+00:02:21,590 --> 00:02:23,540
+of our carParts component.
+
+44
+00:02:23,540 --> 00:02:25,500
+And you might think
+the best place
+
+45
+00:02:25,500 --> 00:02:29,130
+to do this would be
+inside a constructor,
+
+46
+00:02:29,130 --> 00:02:33,420
+but this is better off
+inside our ngOnInit method.
+
+47
+00:02:33,420 --> 00:02:36,860
+The ngOnInit method is
+invoked after the component is
+
+48
+00:02:36,860 --> 00:02:39,210
+constructed, and
+is the best place
+
+49
+00:02:39,210 --> 00:02:41,460
+to initialize property values.
+
+50
+00:02:41,460 --> 00:02:45,690
+It also makes this
+easier to test.
+
+51
+00:02:45,690 --> 00:02:48,120
+And their application
+still works.
+
+52
+00:02:48,120 --> 00:02:50,070
+We didn't add any
+new functionality,
+
+53
+00:02:50,070 --> 00:02:55,372
+but our code now is a lot
+easier to maintain and scale.
+
+54
+00:02:55,372 --> 00:02:57,330
+Let's take a look back
+through our architecture
+
+55
+00:02:57,330 --> 00:03:00,520
+and see how our files are
+being included and used.
+
+56
+00:03:00,520 --> 00:03:02,940
+Our index loads
+our main.ts file,
+
+57
+00:03:02,940 --> 00:03:06,060
+which imports and bootstraps
+our first component, which
+
+58
+00:03:06,060 --> 00:03:08,150
+is app.component.
+
+59
+00:03:08,150 --> 00:03:11,610
+This loads our header
+and our subcomponent,
+
+60
+00:03:11,610 --> 00:03:14,020
+car-parts.component.ts.
+
+61
+00:03:14,020 --> 00:03:16,530
+If we dive into
+that file, we'll see
+
+62
+00:03:16,530 --> 00:03:19,910
+that our carPart model
+is getting imported
+
+63
+00:03:19,910 --> 00:03:22,660
+and our carPart mocks
+are getting imported.
+
+64
+00:03:22,660 --> 00:03:26,420
+Lastly, it's including
+our HTML and CSS files.
+
+65
+00:03:29,295 --> 00:03:30,670
+So what we'd learn
+in this level?
+
+66
+00:03:30,670 --> 00:03:34,210
+Well, TypeScript can use
+classes to model our data.
+
+67
+00:03:34,210 --> 00:03:38,150
+TypeScript also helps us
+specify class property types,
+
+68
+00:03:38,150 --> 00:03:41,410
+which help our compiler ensure
+that we're writing good code.
+
+69
+00:03:41,410 --> 00:03:43,870
+Lastly, it's a good practice
+to keep your mock data
+
+70
+00:03:43,870 --> 00:03:46,620
+separate from your model
+and your components,
+
+71
+00:03:46,620 --> 00:03:49,890
+in its own file.
+
+72
+00:03:49,890 --> 00:03:52,140
+Why don't you go into
+the challenges and I'll
+
+73
+00:03:52,140 --> 00:03:54,900
+see you in the next level.
+
+74
+00:03:54,900 --> 00:03:57,840
+Now we've sare-- sareprecated?
+
+75
+00:03:57,840 --> 00:03:59,460
+Different parts of
+our application.
+
+76
+00:03:59,460 --> 00:04:00,430
+I don't like this take.
+
+77
+00:04:00,430 --> 00:04:03,160
+It's awful.
+
+78
+00:04:03,160 --> 00:04:04,790
+That's how that works.
+
+79
+00:04:04,790 --> 00:04:07,450
+Three separate files --
+

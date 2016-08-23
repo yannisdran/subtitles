@@ -1,0 +1,546 @@
+﻿1
+00:00:02,060 --> 00:00:02,886
+Welcome back.
+
+2
+00:00:02,886 --> 00:00:04,260
+In this section,
+we'll be talking
+
+3
+00:00:04,260 --> 00:00:07,990
+about pipes and methods.
+
+4
+00:00:07,990 --> 00:00:10,970
+We use pipes in angular
+to format screen data.
+
+5
+00:00:10,970 --> 00:00:14,570
+So it takes data input and
+transforms it into data output.
+
+6
+00:00:14,570 --> 00:00:17,260
+How might we use one to
+write out our car part
+
+7
+00:00:17,260 --> 00:00:19,980
+names in all capital letters?
+
+8
+00:00:19,980 --> 00:00:22,450
+Well, here, down in
+our code, all we do
+
+9
+00:00:22,450 --> 00:00:25,520
+is we write pipe uppercase.
+
+10
+00:00:25,520 --> 00:00:27,020
+And if we look in
+our browser, we'll
+
+11
+00:00:27,020 --> 00:00:30,180
+see that all of our titles
+are now in upper case.
+
+12
+00:00:30,180 --> 00:00:32,580
+The pipe works similar
+to the Linux pipe,
+
+13
+00:00:32,580 --> 00:00:36,010
+if you're familiar with it,
+where it just takes an input,
+
+14
+00:00:36,010 --> 00:00:37,932
+transforms it to
+a desired output.
+
+15
+00:00:40,650 --> 00:00:42,760
+Let's add some data
+to our car parts,
+
+16
+00:00:42,760 --> 00:00:46,300
+which we'll have to format
+properly onto our page,
+
+17
+00:00:46,300 --> 00:00:47,900
+like price.
+
+18
+00:00:47,900 --> 00:00:50,460
+Here you can see we added
+price to our car parts array.
+
+19
+00:00:53,950 --> 00:00:56,170
+How might we use the
+angular documentation
+
+20
+00:00:56,170 --> 00:00:58,200
+to look up the
+right pipe to use?
+
+21
+00:00:58,200 --> 00:01:00,950
+Well, we go to the
+documentation page.
+
+22
+00:01:00,950 --> 00:01:04,260
+We would click on API reference.
+
+23
+00:01:04,260 --> 00:01:08,340
+Then, we could just type in the
+word pipe into the search box
+
+24
+00:01:08,340 --> 00:01:11,150
+here, which would show us
+a list of all the pipes we
+
+25
+00:01:11,150 --> 00:01:13,280
+have available to us.
+
+26
+00:01:13,280 --> 00:01:16,219
+We want to use currency pipe.
+
+27
+00:01:16,219 --> 00:01:17,760
+And here, on this
+page, we could read
+
+28
+00:01:17,760 --> 00:01:22,280
+all about how to use
+it in our template.
+
+29
+00:01:22,280 --> 00:01:24,840
+To format our currency,
+we use the ISO currency
+
+30
+00:01:24,840 --> 00:01:30,430
+code, like USD for US
+dollars or EUR for euros.
+
+31
+00:01:30,430 --> 00:01:34,150
+So we need to provide that
+as a parameter to our pipe.
+
+32
+00:01:34,150 --> 00:01:38,060
+We do that like this,
+by just using a colon,
+
+33
+00:01:38,060 --> 00:01:40,911
+EUR, like you see here for euro.
+
+34
+00:01:40,911 --> 00:01:42,410
+If we look in our
+browser, we'll see
+
+35
+00:01:42,410 --> 00:01:48,550
+that it's printing out
+EUR 4.99, EUR 9.99, which
+
+36
+00:01:48,550 --> 00:01:50,250
+isn't quite what we wanted.
+
+37
+00:01:50,250 --> 00:01:52,425
+We wanted to use the
+actual euro symbol.
+
+38
+00:01:55,750 --> 00:01:57,330
+If we look back in
+the documentation,
+
+39
+00:01:57,330 --> 00:02:00,360
+we'd see we just need to add
+another parameter to do this,
+
+40
+00:02:00,360 --> 00:02:02,490
+which is a boolean of true.
+
+41
+00:02:02,490 --> 00:02:06,800
+So if we specify colon true,
+then look back in our browser,
+
+42
+00:02:06,800 --> 00:02:09,380
+we can see it's now using
+the proper euro symbol.
+
+43
+00:02:13,540 --> 00:02:15,870
+There's a bunch of
+additional pipes you can use,
+
+44
+00:02:15,870 --> 00:02:21,120
+like lowercase, date,
+number, decimal, replace,
+
+45
+00:02:21,120 --> 00:02:26,000
+slice, and the last one, json is
+great for debugging because you
+
+46
+00:02:26,000 --> 00:02:28,760
+can take any object,
+pipe it to json,
+
+47
+00:02:28,760 --> 00:02:31,720
+and it will print out
+nicely into your browser
+
+48
+00:02:31,720 --> 00:02:34,250
+so you can take a
+look at your data.
+
+49
+00:02:34,250 --> 00:02:37,630
+You can also create
+your own custom pipes.
+
+50
+00:02:37,630 --> 00:02:39,110
+Jumping back into our template.
+
+51
+00:02:39,110 --> 00:02:42,270
+How might we display the
+total number of car parts
+
+52
+00:02:42,270 --> 00:02:44,505
+in stock at the top of the page?
+
+53
+00:02:47,690 --> 00:02:50,956
+First off, let's add
+our HTML template code.
+
+54
+00:02:50,956 --> 00:02:52,580
+It's going to look
+something like this.
+
+55
+00:02:52,580 --> 00:02:56,990
+There are total car parts,
+total parts in stock.
+
+56
+00:02:56,990 --> 00:02:59,470
+Notice there, in between
+the curly braces,
+
+57
+00:02:59,470 --> 00:03:02,440
+I'm calling a method
+total car parts,
+
+58
+00:03:02,440 --> 00:03:04,660
+which I haven't defined yet.
+
+59
+00:03:04,660 --> 00:03:07,890
+Let's go ahead and do that.
+
+60
+00:03:07,890 --> 00:03:09,760
+First, let's do
+the simplest thing
+
+61
+00:03:09,760 --> 00:03:12,960
+and just create a class
+method that returns 10.
+
+62
+00:03:12,960 --> 00:03:14,630
+So here, down in
+our app component,
+
+63
+00:03:14,630 --> 00:03:19,380
+we'll define total car parts
+and just say return 10.
+
+64
+00:03:19,380 --> 00:03:21,140
+If we look inside
+our browser, we
+
+65
+00:03:21,140 --> 00:03:24,450
+can see there are 10
+total parts in stock.
+
+66
+00:03:24,450 --> 00:03:26,400
+Notice, inside a
+TypeScript class,
+
+67
+00:03:26,400 --> 00:03:29,770
+we don't use the word function
+to declare a class method,
+
+68
+00:03:29,770 --> 00:03:33,340
+just like we didn't use
+let to declare properties.
+
+69
+00:03:33,340 --> 00:03:36,945
+This is ES2015 functionality
+enabled by TypeScript.
+
+70
+00:03:40,630 --> 00:03:43,010
+Now let's really
+get total car parts.
+
+71
+00:03:43,010 --> 00:03:46,340
+First, we'll declare a sum
+local variable called let.
+
+72
+00:03:46,340 --> 00:03:47,380
+Set it to zero.
+
+73
+00:03:47,380 --> 00:03:50,530
+Then we'll use a for loop, much
+like we used in our template,
+
+74
+00:03:50,530 --> 00:03:52,740
+iterating through each car part.
+
+75
+00:03:52,740 --> 00:03:56,490
+And we'll add the in stock
+number to our sum.
+
+76
+00:03:56,490 --> 00:03:58,767
+Lastly, we'll return that value.
+
+77
+00:03:58,767 --> 00:04:00,350
+Now, if we jump back
+into our browser,
+
+78
+00:04:00,350 --> 00:04:04,260
+we can see it shows us there
+are nine total parts in stock.
+
+79
+00:04:06,850 --> 00:04:08,980
+So in this section,
+we learned about pipes
+
+80
+00:04:08,980 --> 00:04:11,350
+to transform our
+template output.
+
+81
+00:04:11,350 --> 00:04:14,650
+And we learned how to create and
+use methods in our component.
+
+82
+00:04:14,650 --> 00:04:19,410
+And our application architecture
+looks something like this.
+
+83
+00:04:19,410 --> 00:04:22,840
+We just have an
+index and a main.ts.
+
+84
+00:04:22,840 --> 00:04:26,160
+And then over the next couple
+levels, that will grow.
+
+85
+00:04:26,160 --> 00:04:28,940
+So why don't you jump
+into the challenges
+
+86
+00:04:28,940 --> 00:04:34,310
+and practice using pipe and
+creating a class method?
+
+87
+00:04:34,310 --> 00:04:38,240
+There is a bonus section
+attached to this section.
+
+88
+00:04:38,240 --> 00:04:40,080
+Remember this code here?
+
+89
+00:04:40,080 --> 00:04:43,500
+Well, some of you probably saw
+that and were thinking, hey, 
+
+90
+00:04:43,500 --> 00:04:47,650
+I know quicker ways, shorter
+ways in JavaScript to do this.
+
+91
+00:04:47,650 --> 00:04:50,520
+And so if we wanted
+to simplify this code,
+
+92
+00:04:50,520 --> 00:04:55,130
+we could do something
+like this using reduce.
+
+93
+00:04:55,130 --> 00:04:59,890
+So notice here, this goes
+through each car part.
+
+94
+00:04:59,890 --> 00:05:03,260
+And that zero parameter at
+the end says start at zero.
+
+95
+00:05:03,260 --> 00:05:05,420
+Then add it all
+up and return it.
+
+96
+00:05:05,420 --> 00:05:07,060
+Since we're using
+TypeScript, we could
+
+97
+00:05:07,060 --> 00:05:11,980
+simplify this one step
+further and use the fat arrow
+
+98
+00:05:11,980 --> 00:05:14,150
+from ES2015.
+
+99
+00:05:14,150 --> 00:05:16,850
+This would also work fine.
+
+100
+00:05:16,850 --> 00:05:19,190
+I'm going to keep the
+original code personally
+
+101
+00:05:19,190 --> 00:05:20,888
+because it is a
+little more readable.
+
+102
+00:05:23,580 --> 00:05:24,290
+OK.
+
+103
+00:05:24,290 --> 00:05:26,230
+Now, you can go
+do the challenges.
+
+104
+00:05:26,230 --> 00:05:27,055
+Really.
+
+105
+00:05:27,055 --> 00:05:27,930
+Really, it's the end.
+
+106
+00:05:30,790 --> 00:05:33,090
+Go.
+
+107
+00:05:33,090 --> 00:05:33,590
+[BEEPING]
+
+108
+00:05:33,590 --> 00:05:34,960
+Alters are laid out.
+
+109
+00:05:34,960 --> 00:05:35,585
+Laid out?
+
+110
+00:05:35,585 --> 00:05:36,270
+[BEEPING]
+
+111
+00:05:36,270 --> 00:05:39,551
+Jumping back into-- oh.
+
+112
+00:05:39,551 --> 00:05:40,050
+[BEEPING]
+
+113
+00:05:40,050 --> 00:05:42,580
+And we omit the
+blah, the, the, the.
+
+114
+00:05:42,580 --> 00:05:43,080
+[BEEPING]
+
+115
+00:05:43,080 --> 00:05:46,510
+I also want to notice the door.
+
+116
+00:05:46,510 --> 00:05:48,060
+[BEEPING]
+

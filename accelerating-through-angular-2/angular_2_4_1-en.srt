@@ -1,0 +1,604 @@
+﻿1
+00:00:00,000 --> 00:00:04,210
+[SINGING] Put your pedal to
+the metal and burn up the road.
+
+2
+00:00:04,210 --> 00:00:07,290
+Start the race and
+load Angular 2 code.
+
+3
+00:00:07,290 --> 00:00:11,470
+A class decorator can
+help you in this moment.
+
+4
+00:00:11,470 --> 00:00:14,980
+Tune your engine with a
+template and component.
+
+5
+00:00:14,980 --> 00:00:18,410
+Use data binding to
+drift through the turns.
+
+6
+00:00:18,410 --> 00:00:20,920
+With import and export
+separate your concerns.
+
+7
+00:00:20,920 --> 00:00:24,500
+Inject your service
+with your racing crew
+
+8
+00:00:24,500 --> 00:00:27,710
+while Accelerating
+Through Angular 2.
+
+9
+00:00:30,666 --> 00:00:32,540
+You're watching Accelerating
+Through Angular.
+
+10
+00:00:32,540 --> 00:00:35,400
+I'm Gregg Pollack, and this
+is level 4, where we will
+
+11
+00:00:35,400 --> 00:00:37,770
+be learning about data binding.
+
+12
+00:00:37,770 --> 00:00:42,580
+And in the first section,
+property and class binding.
+
+13
+00:00:42,580 --> 00:00:45,660
+In the first few levels, we've
+worked with really simple HTML
+
+14
+00:00:45,660 --> 00:00:46,650
+and CSS.
+
+15
+00:00:46,650 --> 00:00:50,770
+But we just received a
+template from our designer
+
+16
+00:00:50,770 --> 00:00:53,120
+which has pure HTML
+and CSS that we
+
+17
+00:00:53,120 --> 00:00:56,330
+can integrate into our
+design so it looks nice.
+
+18
+00:00:56,330 --> 00:00:58,550
+It's going to look
+something like this.
+
+19
+00:00:58,550 --> 00:01:03,190
+So we need to bring in this
+HTML and CSS to our app.
+
+20
+00:01:03,190 --> 00:01:06,990
+OK, let's do that.
+
+21
+00:01:06,990 --> 00:01:09,940
+We'll take the styles and
+we'll put them in two places.
+
+22
+00:01:09,940 --> 00:01:14,080
+First, we'll put the base
+styles in a style.css file,
+
+23
+00:01:14,080 --> 00:01:16,860
+which is in a new CSS
+directory we've created.
+
+24
+00:01:16,860 --> 00:01:19,100
+And the rest that are
+specific to car parts
+
+25
+00:01:19,100 --> 00:01:24,320
+will be put in the car
+parts component.css file.
+
+26
+00:01:24,320 --> 00:01:27,950
+The HTML, on the other hand,
+goes in three different places.
+
+27
+00:01:27,950 --> 00:01:32,280
+It will go in the index.html,
+for the base HTML,
+
+28
+00:01:32,280 --> 00:01:36,910
+then in the app
+component for our header,
+
+29
+00:01:36,910 --> 00:01:38,810
+and then finally the
+rest in our car parts
+
+30
+00:01:38,810 --> 00:01:42,710
+component for our
+car parts list.
+
+31
+00:01:42,710 --> 00:01:45,000
+So here's what our
+app now looks like.
+
+32
+00:01:45,000 --> 00:01:47,490
+But wouldn't it be nice
+to have images in there?
+
+33
+00:01:47,490 --> 00:01:49,780
+Well, let's work towards
+getting the images in there.
+
+34
+00:01:49,780 --> 00:01:52,240
+But first, we need to talk
+about the different ways
+
+35
+00:01:52,240 --> 00:01:56,050
+that data can flow
+in an Angular app.
+
+36
+00:01:56,050 --> 00:01:58,770
+First, it can flow from
+our JavaScript code
+
+37
+00:01:58,770 --> 00:02:02,700
+or our component into our
+HTML, or our template,
+
+38
+00:02:02,700 --> 00:02:05,360
+like we've been doing with
+properties and components.
+
+39
+00:02:05,360 --> 00:02:08,850
+It can also flow from
+HTML back to JavaScript,
+
+40
+00:02:08,850 --> 00:02:11,480
+like click events or
+hover or key presses.
+
+41
+00:02:11,480 --> 00:02:14,070
+Or it can go both ways,
+like with a text box,
+
+42
+00:02:14,070 --> 00:02:17,430
+which needs to stay in
+sync between the HTML
+
+43
+00:02:17,430 --> 00:02:18,840
+and the JavaScript.
+
+44
+00:02:18,840 --> 00:02:22,420
+And I'm saying JavaScript here
+because our TypeScript compiles
+
+45
+00:02:22,420 --> 00:02:25,804
+into JavaScript.
+
+46
+00:02:25,804 --> 00:02:27,220
+In our application
+thus far, we've
+
+47
+00:02:27,220 --> 00:02:29,690
+been sending lots of
+data from our component
+
+48
+00:02:29,690 --> 00:02:32,220
+to our template
+using interpolation,
+
+49
+00:02:32,220 --> 00:02:33,320
+as you can see here.
+
+50
+00:02:33,320 --> 00:02:35,100
+And this is the same code.
+
+51
+00:02:35,100 --> 00:02:38,460
+But remember, we integrated
+that design from our designer
+
+52
+00:02:38,460 --> 00:02:41,010
+so it looks a little different.
+
+53
+00:02:41,010 --> 00:02:43,630
+Take a look.
+
+54
+00:02:43,630 --> 00:02:46,891
+Now, how would we add an image
+tag with a dynamic image?
+
+55
+00:02:49,780 --> 00:02:54,570
+First things first, we'll add
+an image property to our model.
+
+56
+00:02:54,570 --> 00:02:59,300
+Then, inside of our mocks,
+we'll add image data.
+
+57
+00:02:59,300 --> 00:03:01,120
+And our designer
+happened to send over
+
+58
+00:03:01,120 --> 00:03:03,140
+some images for
+each of our parts.
+
+59
+00:03:03,140 --> 00:03:06,020
+We'll stash those inside
+a new images folder.
+
+60
+00:03:10,270 --> 00:03:13,060
+To add the image or template,
+we can use interpolation,
+
+61
+00:03:13,060 --> 00:03:14,260
+like you see here.
+
+62
+00:03:14,260 --> 00:03:15,940
+And this would work just fine.
+
+63
+00:03:15,940 --> 00:03:18,050
+However, there is an
+alternative syntax
+
+64
+00:03:18,050 --> 00:03:23,820
+we can use when we want to set
+DOM element property values.
+
+65
+00:03:23,820 --> 00:03:26,250
+This is property binding.
+
+66
+00:03:26,250 --> 00:03:29,190
+Property binding allows us
+to glue component properties
+
+67
+00:03:29,190 --> 00:03:32,230
+to DOM element properties.
+
+68
+00:03:32,230 --> 00:03:33,160
+And check it out.
+
+69
+00:03:33,160 --> 00:03:38,010
+All we have to do here is
+add those square brackets.
+
+70
+00:03:38,010 --> 00:03:40,640
+No curly braces needed.
+
+71
+00:03:40,640 --> 00:03:43,450
+Source equals car part image.
+
+72
+00:03:43,450 --> 00:03:46,220
+The square brackets tell
+Angular to set this DOM element
+
+73
+00:03:46,220 --> 00:03:48,910
+property to our
+component property.
+
+74
+00:03:48,910 --> 00:03:51,630
+And if the component
+property changes,
+
+75
+00:03:51,630 --> 00:03:52,790
+go ahead and update this.
+
+76
+00:03:52,790 --> 00:03:55,010
+And if we check in our
+browser, we can see,
+
+77
+00:03:55,010 --> 00:03:56,690
+sweet, now we have images.
+
+78
+00:04:00,620 --> 00:04:02,090
+We can use this
+technique to bind
+
+79
+00:04:02,090 --> 00:04:04,470
+to any DOM element property.
+
+80
+00:04:04,470 --> 00:04:06,990
+So how might you
+think we bind these?
+
+81
+00:04:10,730 --> 00:04:14,090
+All we need to do to these
+is add brackets and specify
+
+82
+00:04:14,090 --> 00:04:15,620
+a component property.
+
+83
+00:04:15,620 --> 00:04:19,260
+So if the user isn't an admin,
+maybe we want to hide a div,
+
+84
+00:04:19,260 --> 00:04:20,760
+we might want to
+disable the button,
+
+85
+00:04:20,760 --> 00:04:25,870
+or set the appropriate image
+description as the alt text.
+
+86
+00:04:25,870 --> 00:04:27,810
+Next, we have another
+piece of functionality
+
+87
+00:04:27,810 --> 00:04:29,740
+we want to add to our page.
+
+88
+00:04:29,740 --> 00:04:32,860
+Our designer gave
+us a featured class
+
+89
+00:04:32,860 --> 00:04:35,210
+that we can add
+to our list items.
+
+90
+00:04:35,210 --> 00:04:39,190
+And we'll give it that nice,
+lighter gradient border.
+
+91
+00:04:39,190 --> 00:04:42,800
+So how would we add that
+functionality to sometimes add
+
+92
+00:04:42,800 --> 00:04:43,831
+that featured class?
+
+93
+00:04:46,480 --> 00:04:49,870
+First, let's add the ability for
+our car parts to be featured.
+
+94
+00:04:49,870 --> 00:04:52,650
+We'll add it as a
+property to our model.
+
+95
+00:04:52,650 --> 00:04:55,950
+Then inside of our mocks,
+we'll set some data.
+
+96
+00:04:55,950 --> 00:04:58,570
+So right now,
+product 2 is featured
+
+97
+00:04:58,570 --> 00:05:00,030
+and the others are not.
+
+98
+00:05:00,030 --> 00:05:03,640
+Next, we need to conditionally
+add a class if that property is
+
+99
+00:05:03,640 --> 00:05:04,365
+true or false.
+
+100
+00:05:06,870 --> 00:05:10,610
+We do this using class
+property binding.
+
+101
+00:05:10,610 --> 00:05:14,410
+We specify class.featured
+equals carPart.featured.
+
+102
+00:05:17,240 --> 00:05:20,600
+The behavior here is if
+carPart.featured is true,
+
+103
+00:05:20,600 --> 00:05:22,690
+then the class is added.
+
+104
+00:05:22,690 --> 00:05:25,520
+And if it's false, then
+the class is removed.
+
+105
+00:05:29,190 --> 00:05:30,850
+And now in our
+browser, we can see
+
+106
+00:05:30,850 --> 00:05:35,310
+that carPart number 2 has
+that class and is highlighted.
+
+107
+00:05:35,310 --> 00:05:36,810
+And if we look at
+the source, we can
+
+108
+00:05:36,810 --> 00:05:39,793
+see that the element and the
+class are properly scoped.
+
+109
+00:05:43,960 --> 00:05:46,440
+You might be tempted to bind
+directly to the class element
+
+110
+00:05:46,440 --> 00:05:50,160
+property and you
+can do that, but it
+
+111
+00:05:50,160 --> 00:05:54,200
+will overwrite all classes
+when that value changes.
+
+112
+00:05:54,200 --> 00:05:58,460
+So remember, you just do class
+dot and the name of the class
+
+113
+00:05:58,460 --> 00:06:01,250
+you want to add or remove.
+
+114
+00:06:01,250 --> 00:06:02,880
+And that's how it works.
+
+115
+00:06:02,880 --> 00:06:05,490
+And it's worth mentioning
+that class names with dashes
+
+116
+00:06:05,490 --> 00:06:08,999
+also work fine.
+
+117
+00:06:08,999 --> 00:06:10,540
+So what did we learn
+in this section?
+
+118
+00:06:10,540 --> 00:06:14,290
+Well, property binding allows
+us to bind component properties
+
+119
+00:06:14,290 --> 00:06:17,150
+to DOM element properties.
+
+120
+00:06:17,150 --> 00:06:19,190
+Any update to the
+component property value
+
+121
+00:06:19,190 --> 00:06:22,920
+will update the DOM
+property, but not vice versa.
+
+122
+00:06:22,920 --> 00:06:25,400
+That's why it's called
+one-way binding.
+
+123
+00:06:25,400 --> 00:06:28,460
+And class binding
+allows us to specify
+
+124
+00:06:28,460 --> 00:06:31,500
+a CSS class to add
+to a DOM element
+
+125
+00:06:31,500 --> 00:06:35,600
+if a component property is true.
+
+126
+00:06:35,600 --> 00:06:38,150
+Why don't you try some property
+and class binding and I'll
+
+127
+00:06:38,150 --> 00:06:40,330
+see you in the next section.
+

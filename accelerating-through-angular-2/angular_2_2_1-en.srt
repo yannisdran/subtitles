@@ -1,0 +1,325 @@
+﻿1
+00:00:00,500 --> 00:00:04,210
+[SINGING] Put your pedal to
+the metal and burn up the road.
+
+2
+00:00:04,210 --> 00:00:07,250
+Start the race and load
+Angular 2 code.
+
+3
+00:00:07,250 --> 00:00:11,075
+A class decorator can
+help you in this moment.
+
+4
+00:00:11,075 --> 00:00:13,992
+Tune your engine with the
+template and component.
+
+5
+00:00:13,992 --> 00:00:15,468
+Use data binding to
+
+6
+00:00:15,468 --> 00:00:17,436
+drift through the turns.
+
+7
+00:00:17,436 --> 00:00:20,926
+With import and export
+separate your concerns.
+
+8
+00:00:20,926 --> 00:00:25,276
+Inject a service with your
+racing crew while Accelerating
+
+9
+00:00:25,276 --> 00:00:30,070
+Through Angular 2.
+
+10
+00:00:30,070 --> 00:00:32,420
+You're watching Accelerating
+Through Angular 2.
+
+11
+00:00:32,420 --> 00:00:33,170
+Welcome back.
+
+12
+00:00:33,170 --> 00:00:35,210
+In this level, we'll
+start out by talking
+
+13
+00:00:35,210 --> 00:00:38,620
+about structural directives.
+
+14
+00:00:38,620 --> 00:00:41,850
+A directive within Angular is
+how we add dynamic behavior
+
+15
+00:00:41,850 --> 00:00:43,080
+to our HTML.
+
+16
+00:00:43,080 --> 00:00:44,960
+And you already know one.
+
+17
+00:00:44,960 --> 00:00:50,244
+A component is a kind of
+directive with a template.
+
+18
+00:00:50,244 --> 00:00:51,660
+In this section,
+we'll be learning
+
+19
+00:00:51,660 --> 00:00:53,770
+about structural directives.
+
+20
+00:00:53,770 --> 00:00:55,530
+And we'll define them in a bit.
+
+21
+00:00:55,530 --> 00:00:58,120
+There's also
+attribute directives,
+
+22
+00:00:58,120 --> 00:01:01,700
+which we won't be
+covering in this course.
+
+23
+00:01:01,700 --> 00:01:03,920
+Let's jump back into
+our code and think
+
+24
+00:01:03,920 --> 00:01:07,960
+about what would happen if we
+had more than one car part.
+
+25
+00:01:07,960 --> 00:01:09,831
+How would we print
+that into the template?
+
+26
+00:01:12,480 --> 00:01:14,410
+First, we're going to
+change our single car
+
+27
+00:01:14,410 --> 00:01:18,430
+part into an array
+of car part objects.
+
+28
+00:01:18,430 --> 00:01:19,400
+Sweet.
+
+29
+00:01:19,400 --> 00:01:22,510
+Now, how would we loop through
+each of these in the template?
+
+30
+00:01:25,910 --> 00:01:28,610
+In the template, we're going
+to create an unordered list.
+
+31
+00:01:28,610 --> 00:01:30,620
+And inside of our
+list item, we'll
+
+32
+00:01:30,620 --> 00:01:36,860
+specify ngFor let
+carPart of carParts.
+
+33
+00:01:36,860 --> 00:01:38,180
+Let's step through this.
+
+34
+00:01:38,180 --> 00:01:40,680
+ngFor is a structural directive.
+
+35
+00:01:40,680 --> 00:01:42,430
+And as you might
+imagine, it gives us
+
+36
+00:01:42,430 --> 00:01:45,150
+for syntax functionality.
+
+37
+00:01:45,150 --> 00:01:47,940
+carPart is a local
+variable, and carParts
+
+38
+00:01:47,940 --> 00:01:50,190
+is the array we want
+to loop through.
+
+39
+00:01:50,190 --> 00:01:52,830
+The loop, as you might
+imagine, is run three times,
+
+40
+00:01:52,830 --> 00:01:54,090
+one for each carPart.
+
+41
+00:01:54,090 --> 00:01:55,915
+And here is the
+result in our browser.
+
+42
+00:01:59,290 --> 00:02:01,880
+A structural
+directive, like ngFor,
+
+43
+00:02:01,880 --> 00:02:04,210
+alters our layout
+by adding, removing,
+
+44
+00:02:04,210 --> 00:02:08,030
+or replacing HTML elements.
+
+45
+00:02:08,030 --> 00:02:09,740
+Jumping back over
+to our code, we
+
+46
+00:02:09,740 --> 00:02:12,080
+want to add some
+additional functionality.
+
+47
+00:02:12,080 --> 00:02:16,390
+When there are zero carParts
+for a particular carPart,
+
+48
+00:02:16,390 --> 00:02:18,800
+instead of displaying
+zero in stock,
+
+49
+00:02:18,800 --> 00:02:21,235
+we want to display out of stock.
+
+50
+00:02:24,720 --> 00:02:27,390
+We can do this using another
+structural directive called
+
+51
+00:02:27,390 --> 00:02:28,520
+ngIf.
+
+52
+00:02:28,520 --> 00:02:31,030
+It allows us to
+evaluate conditionals.
+
+53
+00:02:31,030 --> 00:02:36,010
+So we'll code out ngIf
+carPart.inStock greater than zero.
+
+54
+00:02:36,010 --> 00:02:38,960
+And we'll add a new
+paragraph that has ngIf car
+
+55
+00:02:38,960 --> 00:02:42,120
+Part.instock equal to zero.
+
+56
+00:02:42,120 --> 00:02:44,670
+And if either of these
+conditionals is true,
+
+57
+00:02:44,670 --> 00:02:47,480
+the paragraph will get
+displayed on the page.
+
+58
+00:02:47,480 --> 00:02:49,160
+Otherwise, it won't.
+
+59
+00:02:49,160 --> 00:02:51,490
+And if we look at our
+browser, everything still
+
+60
+00:02:51,490 --> 00:02:52,610
+works as it should.
+
+61
+00:02:55,160 --> 00:02:57,560
+I want you to code
+some ngFors and ngIfs.
+
+62
+00:02:57,560 --> 00:02:59,930
+But before you do,
+what did we learn?
+
+63
+00:02:59,930 --> 00:03:01,750
+We learned a
+directive in Angular
+
+64
+00:03:01,750 --> 00:03:04,580
+is how we add dynamic
+behavior to HTML.
+
+65
+00:03:04,580 --> 00:03:07,200
+We learned that a component
+directive has a template.
+
+66
+00:03:07,200 --> 00:03:09,610
+And we learned that a structural
+directive alters layout
+
+67
+00:03:09,610 --> 00:03:12,880
+by adding, removing, or
+replacing HTML elements.
+
+68
+00:03:12,880 --> 00:03:16,220
+And we learned two of
+those, ngFor and ngIf,
+
+69
+00:03:16,220 --> 00:03:19,680
+which you should go
+code in the challenges.
+

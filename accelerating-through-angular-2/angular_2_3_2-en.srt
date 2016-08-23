@@ -1,0 +1,298 @@
+﻿1
+00:00:02,100 --> 00:00:02,870
+Welcome back.
+
+2
+00:00:02,870 --> 00:00:04,450
+In section 2 we'll
+be talking all
+
+3
+00:00:04,450 --> 00:00:07,820
+about component HTML and CSS.
+
+4
+00:00:07,820 --> 00:00:12,410
+So back inside of our
+component we put HTML here,
+
+5
+00:00:12,410 --> 00:00:17,916
+but how might we tie
+CSS into our component?
+
+6
+00:00:17,916 --> 00:00:22,060
+Turns out we can add a
+styles array to our metadata.
+
+7
+00:00:22,060 --> 00:00:24,930
+So here in our HTML
+template, first,
+
+8
+00:00:24,930 --> 00:00:27,400
+let's add some new CSS classes.
+
+9
+00:00:27,400 --> 00:00:30,650
+And then here you'll
+see we specified styles.
+
+10
+00:00:30,650 --> 00:00:32,530
+Sent an array.
+
+11
+00:00:32,530 --> 00:00:36,720
+Notice the back tick and
+then we have a couple styles.
+
+12
+00:00:36,720 --> 00:00:38,910
+If you load up our
+web page we could see
+
+13
+00:00:38,910 --> 00:00:41,130
+the styles are getting applied.
+
+14
+00:00:41,130 --> 00:00:44,060
+Our description is smaller
+and the price is bold.
+
+15
+00:00:47,020 --> 00:00:49,640
+If we look at the HTML
+source for this code,
+
+16
+00:00:49,640 --> 00:00:51,780
+we'd see something
+really interesting.
+
+17
+00:00:51,780 --> 00:00:54,070
+First of all, in
+the HTML, you'll
+
+18
+00:00:54,070 --> 00:00:56,670
+see that a custom
+attribute is getting added
+
+19
+00:00:56,670 --> 00:01:00,000
+by angular ngcontent-dcy-2.
+
+20
+00:01:00,940 --> 00:01:05,519
+And then, inside of our CSS you
+would see that that same custom
+
+21
+00:01:05,519 --> 00:01:09,270
+attribute is getting
+added to our CSS source
+
+22
+00:01:09,270 --> 00:01:16,420
+effectively scoping our
+CSS to our template.
+
+23
+00:01:16,420 --> 00:01:21,690
+Kind of like properties are
+scoped, it's scoping our CSS.
+
+24
+00:01:21,690 --> 00:01:24,710
+So technically, if I
+had a description class
+
+25
+00:01:24,710 --> 00:01:28,000
+in one component and
+a description class
+
+26
+00:01:28,000 --> 00:01:31,260
+in another component, they
+wouldn't clash with each other
+
+27
+00:01:31,260 --> 00:01:34,610
+because they're getting scoped.
+
+28
+00:01:34,610 --> 00:01:36,590
+Mind blown, right?
+
+29
+00:01:36,590 --> 00:01:40,080
+Because the component
+property is scoped
+
+30
+00:01:40,080 --> 00:01:45,741
+and also the CSS is getting
+scoped all to the directive.
+
+31
+00:01:45,741 --> 00:01:48,717
+PWOO!
+
+32
+00:01:48,717 --> 00:01:50,550
+I don't know, I thought
+that was pretty cool
+
+33
+00:01:50,550 --> 00:01:51,800
+when I was learning Angular 2.
+
+34
+00:01:54,760 --> 00:01:56,702
+It's time to split things
+out into more files.
+
+35
+00:01:56,702 --> 00:01:59,160
+And if you're like me, you're
+probably looking at this code
+
+36
+00:01:59,160 --> 00:02:02,740
+and going, what is
+your HTML and CSS doing
+
+37
+00:02:02,740 --> 00:02:04,880
+inside of my JavaScript?
+
+38
+00:02:04,880 --> 00:02:07,020
+We need to split this
+out into multiple files.
+
+39
+00:02:07,020 --> 00:02:11,330
+So let's create a
+car-parts.component.html where
+
+40
+00:02:11,330 --> 00:02:12,820
+our HTML will live.
+
+41
+00:02:12,820 --> 00:02:18,910
+And our car-parts.component.css
+where our CSS will live.
+
+42
+00:02:18,910 --> 00:02:22,660
+So back in our component
+let's split out this code.
+
+43
+00:02:22,660 --> 00:02:25,437
+And as you can see here, we have
+our car-parts.component.html
+
+44
+00:02:25,430 --> 00:02:29,150
+and our car-parts.component.css.
+
+45
+00:02:29,490 --> 00:02:31,800
+Then inside of our
+car-parts component
+
+46
+00:02:31,800 --> 00:02:35,510
+itself, we need to tell
+it about these files.
+
+47
+00:02:35,510 --> 00:02:38,510
+So we write
+templateUrl and specify
+
+48
+00:02:38,510 --> 00:02:40,030
+where I can find this file.
+
+49
+00:02:40,030 --> 00:02:44,130
+And also we write styleUrls--
+this is still an array--
+
+50
+00:02:44,130 --> 00:02:46,280
+and specify our CSS file.
+
+51
+00:02:46,280 --> 00:02:48,530
+Even though our CSS is
+now in a separate file,
+
+52
+00:02:48,530 --> 00:02:51,070
+it still gets scoped
+to this component.
+
+53
+00:02:53,900 --> 00:02:55,080
+So what did we learn?
+
+54
+00:02:55,080 --> 00:02:58,460
+Well, our CSS can be included
+inside of our template just
+
+55
+00:02:58,460 --> 00:02:59,855
+like our HTML.
+
+56
+00:02:59,855 --> 00:03:03,510
+Our CSS automatically gets
+scoped to our component.
+
+57
+00:03:03,510 --> 00:03:04,570
+PWOO!
+
+58
+00:03:04,570 --> 00:03:07,310
+And also, our HTML and
+CSS can get split out
+
+59
+00:03:07,310 --> 00:03:10,470
+into their own files to
+keep things more organized.
+
+60
+00:03:10,470 --> 00:03:13,560
+Now as you can see, this is
+what our architecture currently
+
+61
+00:03:13,560 --> 00:03:14,130
+looks like.
+
+62
+00:03:17,910 --> 00:03:19,939
+And, oh, it's time for you.
+
+63
+00:03:19,939 --> 00:03:20,730
+Do some challenges.
+
+64
+00:03:20,730 --> 00:03:23,680
+We'll be back in section 3.
+

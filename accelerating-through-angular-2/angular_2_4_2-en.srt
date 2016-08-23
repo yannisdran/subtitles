@@ -1,0 +1,495 @@
+﻿1
+00:00:02,060 --> 00:00:03,650
+Welcome back-- in
+the last section,
+
+2
+00:00:03,650 --> 00:00:06,410
+we talked about property
+binding and class binding that
+
+3
+00:00:06,410 --> 00:00:09,680
+are binding in this
+direction, from the JavaScript
+
+4
+00:00:09,680 --> 00:00:11,360
+to the HTML.
+
+5
+00:00:11,360 --> 00:00:14,330
+In this level, we'll be
+talking about event binding.
+
+6
+00:00:14,330 --> 00:00:17,760
+That's where we're listening
+for events-- like a mouse click
+
+7
+00:00:17,760 --> 00:00:19,890
+or hover or key
+press-- and we're
+
+8
+00:00:19,890 --> 00:00:23,500
+sending that event from the
+HTML into our JavaScript
+
+9
+00:00:23,500 --> 00:00:27,140
+to do something about it.
+
+10
+00:00:27,140 --> 00:00:30,580
+Let's look at where we should
+be at the end of this section.
+
+11
+00:00:30,580 --> 00:00:33,330
+We want to be able to
+increment the quantity
+
+12
+00:00:33,330 --> 00:00:36,150
+of any particular
+CarPart with the plus,
+
+13
+00:00:36,150 --> 00:00:38,580
+and we want to
+decrement it as well.
+
+14
+00:00:38,580 --> 00:00:41,700
+How could we do this?
+
+15
+00:00:41,700 --> 00:00:44,850
+First we need to add a quantity
+property to our CarPart.
+
+16
+00:00:44,850 --> 00:00:47,520
+So we'll add it to the model.
+
+17
+00:00:47,520 --> 00:00:50,060
+And then we'll go into our
+mocks and start our quantities
+
+18
+00:00:50,060 --> 00:00:50,960
+all at zero.
+
+19
+00:00:54,110 --> 00:00:56,580
+Now in our CarParts
+component, let's start out
+
+20
+00:00:56,580 --> 00:00:58,700
+by defining the method
+we want to call.
+
+21
+00:00:58,700 --> 00:01:00,360
+And we'll do the simplest thing.
+
+22
+00:01:00,360 --> 00:01:02,540
+If the upQuantity
+method is called,
+
+23
+00:01:02,540 --> 00:01:06,330
+let's simply show an
+alert so we know it works.
+
+24
+00:01:06,330 --> 00:01:09,160
+Then in order to capture
+an event from our template,
+
+25
+00:01:09,160 --> 00:01:11,450
+we need to wrap the
+name of the event we
+
+26
+00:01:11,450 --> 00:01:15,420
+want to listen to in
+parentheses and then specify
+
+27
+00:01:15,420 --> 00:01:17,310
+the method we want to call.
+
+28
+00:01:17,310 --> 00:01:20,190
+So in the code,
+we write "click,"
+
+29
+00:01:20,190 --> 00:01:23,350
+surround that by
+parentheses, and then set
+
+30
+00:01:23,350 --> 00:01:26,660
+that equal to the method we
+want to call-- in this case,
+
+31
+00:01:26,660 --> 00:01:28,130
+upQuantity.
+
+32
+00:01:28,130 --> 00:01:30,970
+Using parentheses like
+this around an event
+
+33
+00:01:30,970 --> 00:01:34,460
+is a special Angular syntax.
+
+34
+00:01:34,460 --> 00:01:38,250
+Now if we go into the web
+page, we press the plus button.
+
+35
+00:01:38,250 --> 00:01:39,840
+And we can see that
+an alert pops up.
+
+36
+00:01:42,790 --> 00:01:45,060
+Now let's use that
+carPart.quantity we
+
+37
+00:01:45,060 --> 00:01:46,600
+have on each CarPart.
+
+38
+00:01:46,600 --> 00:01:50,000
+First, inside of our 
+CarPartsComponent template,
+
+39
+00:01:50,000 --> 00:01:53,510
+we will print out
+carPart.quantity to the screen
+
+40
+00:01:53,510 --> 00:01:55,310
+so we can keep
+track of the value.
+
+41
+00:01:55,310 --> 00:01:58,750
+We also need to send
+in the current car part
+
+42
+00:01:58,750 --> 00:02:01,470
+into our method so
+we know which one
+
+43
+00:02:01,470 --> 00:02:03,790
+to increment the quantity on.
+
+44
+00:02:03,790 --> 00:02:06,120
+And then inside our
+upQuantity method,
+
+45
+00:02:06,120 --> 00:02:10,169
+we'll receive that CarPart
+and increment the quantity.
+
+46
+00:02:10,169 --> 00:02:14,480
+Now on our page, we can
+increment the quantity.
+
+47
+00:02:14,480 --> 00:02:17,250
+But uh-oh-- looks like we
+can increase the quantity
+
+48
+00:02:17,250 --> 00:02:19,730
+beyond what we have in stock.
+
+49
+00:02:19,730 --> 00:02:21,980
+That's probably not good.
+
+50
+00:02:21,980 --> 00:02:24,600
+So let's get back
+into our method
+
+51
+00:02:24,600 --> 00:02:25,860
+and see if we can fix that.
+
+52
+00:02:28,860 --> 00:02:31,240
+All we need to do here
+is add a conditional.
+
+53
+00:02:31,240 --> 00:02:35,900
+If carPart.quantity is less
+than what we have in stock,
+
+54
+00:02:35,900 --> 00:02:40,500
+only then increment
+the quantity.
+
+55
+00:02:40,500 --> 00:02:42,790
+Now if we jump back
+into our browser,
+
+56
+00:02:42,790 --> 00:02:46,230
+we can see that we can
+increment only up to the number
+
+57
+00:02:46,230 --> 00:02:48,700
+that we have in stock.
+
+58
+00:02:48,700 --> 00:02:49,900
+Nice.
+
+59
+00:02:49,900 --> 00:02:52,800
+If we even go down
+to zero-- well
+
+60
+00:02:52,800 --> 00:02:54,440
+we can increment
+padded seats at all
+
+61
+00:02:54,440 --> 00:02:55,900
+because we don't
+have any in stock.
+
+62
+00:02:55,900 --> 00:02:59,140
+Which is the behavior we want.
+
+63
+00:02:59,140 --> 00:03:00,810
+Now let's add our
+decrease button which
+
+64
+00:03:00,810 --> 00:03:02,950
+is pretty self-explanatory.
+
+65
+00:03:02,950 --> 00:03:04,400
+Well listen for the click event.
+
+66
+00:03:04,400 --> 00:03:08,690
+And if we hear it, call
+the down quantity method.
+
+67
+00:03:08,690 --> 00:03:10,770
+Then inside of our
+CarPartsComponent,
+
+68
+00:03:10,770 --> 00:03:13,190
+we will receive that carPart.
+
+69
+00:03:13,190 --> 00:03:15,080
+And if the
+carPart.quantity is not
+
+70
+00:03:15,080 --> 00:03:17,890
+equal to zero-- because we
+don't want negative numbers--
+
+71
+00:03:17,890 --> 00:03:20,840
+we'll decrease the
+carPart.quantity.
+
+72
+00:03:20,840 --> 00:03:24,600
+So now we can see that we
+can increment and decrement
+
+73
+00:03:24,600 --> 00:03:25,871
+the carPart.quantity.
+
+74
+00:03:29,560 --> 00:03:31,860
+Any standard DOM
+event can be listened
+
+75
+00:03:31,860 --> 00:03:34,260
+for by wrapping
+it in parentheses
+
+76
+00:03:34,260 --> 00:03:36,990
+and removing the "on" at
+the beginning of the word
+
+77
+00:03:36,990 --> 00:03:37,880
+like you see here.
+
+78
+00:03:43,660 --> 00:03:47,290
+Sometimes, though, you may need
+additional event information
+
+79
+00:03:47,290 --> 00:03:51,480
+like what key is pressed or
+when the mouse is on the screen.
+
+80
+00:03:51,480 --> 00:03:54,350
+And this is what the
+Angular event object is for.
+
+81
+00:03:54,350 --> 00:03:58,380
+So here you can see we
+have a key down event.
+
+82
+00:03:58,380 --> 00:04:01,920
+And we're sending $event--
+that's the Angular event
+
+83
+00:04:01,920 --> 00:04:03,740
+object-- into the method.
+
+84
+00:04:03,740 --> 00:04:06,270
+We receive that in
+the show key method,
+
+85
+00:04:06,270 --> 00:04:09,780
+and then we're just alerting
+the key code to the screen.
+
+86
+00:04:09,780 --> 00:04:11,800
+And then for the
+mouseover event,
+
+87
+00:04:11,800 --> 00:04:13,500
+we might want to send
+that into a method
+
+88
+00:04:13,500 --> 00:04:17,149
+if we wanted to have access to
+where exactly the mouse was
+
+89
+00:04:17,149 --> 00:04:20,170
+on the screen for the
+x and y-coordinate.
+
+90
+00:04:20,170 --> 00:04:22,680
+Lastly, it's worth
+mentioning that we could also
+
+91
+00:04:22,680 --> 00:04:25,730
+call event.preventDefault
+to prevent
+
+92
+00:04:25,730 --> 00:04:27,750
+a clicked link
+from being followed
+
+93
+00:04:27,750 --> 00:04:29,726
+or a form from being submitted.
+
+94
+00:04:32,790 --> 00:04:34,460
+So what did we learn
+in this section?
+
+95
+00:04:34,460 --> 00:04:37,920
+We learned that we can use event
+binding to listen to any DOM
+
+96
+00:04:37,920 --> 00:04:41,370
+event and call a component
+method when it gets triggered.
+
+97
+00:04:41,370 --> 00:04:43,410
+We learned that to
+listen to any event,
+
+98
+00:04:43,410 --> 00:04:46,020
+we remove the "on"
+in front of the word,
+
+99
+00:04:46,020 --> 00:04:48,990
+wrap it in parentheses,
+and specify a component
+
+100
+00:04:48,990 --> 00:04:51,280
+method we want to call.
+
+101
+00:04:51,280 --> 00:04:54,050
+Also, if we need to
+access the event object,
+
+102
+00:04:54,050 --> 00:04:56,880
+we can pass it into our
+component method with $event.
+
+103
+00:04:59,524 --> 00:05:01,440
+Why don't you give it a
+try in the challenges?
+
+104
+00:05:01,440 --> 00:05:03,770
+And I'll see you in
+the next section.
+
