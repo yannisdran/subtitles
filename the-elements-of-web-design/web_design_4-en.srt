@@ -1,0 +1,754 @@
+﻿1
+00:00:00,640 --> 00:00:05,220
+[SINGING] No one's buying all your widgets,
+and you're losing people quick.
+
+2
+00:00:05,220 --> 00:00:07,610
+They're lost inside
+your website,
+
+3
+00:00:07,610 --> 00:00:09,300
+and they don't know
+where to click.
+
+4
+00:00:09,300 --> 00:00:12,320
+If you had learned
+about your users,
+
+5
+00:00:12,320 --> 00:00:14,190
+you'd know where you went wrong.
+
+6
+00:00:14,190 --> 00:00:17,200
+They'd be engaging
+with your content,
+
+7
+00:00:17,200 --> 00:00:20,220
+and I wouldn't sing this song.
+
+8
+00:00:20,220 --> 00:00:21,920
+User-centered
+design helps improve
+
+9
+00:00:21,920 --> 00:00:25,200
+communication,
+navigation, pagination,
+
+10
+00:00:25,200 --> 00:00:26,876
+Architect your information.
+
+11
+00:00:26,876 --> 00:00:31,390
+Add a motto or a tagline,
+with search so they can find,
+
+12
+00:00:31,390 --> 00:00:35,530
+A better website is defined
+with The Elements of Web Design.
+
+13
+00:00:38,100 --> 00:00:41,580
+Welcome back to The Elements of
+Web Design, level four, section
+
+14
+00:00:41,580 --> 00:00:43,660
+one, Mobile Best Practices.
+
+15
+00:00:43,660 --> 00:00:46,350
+Let's get started.
+
+16
+00:00:46,350 --> 00:00:47,920
+If we look back at
+our personas, we
+
+17
+00:00:47,920 --> 00:00:51,340
+can clearly see that our users
+want a great mobile experience,
+
+18
+00:00:51,340 --> 00:00:54,310
+but where do we start?
+
+19
+00:00:54,310 --> 00:00:57,030
+We start by ensuring that
+our website is responsive.
+
+20
+00:00:57,030 --> 00:01:00,660
+If a user visits our web page
+on a desktop or a mobile device,
+
+21
+00:01:00,660 --> 00:01:04,818
+they need to have the
+same positive experience.
+
+22
+00:01:04,818 --> 00:01:07,420
+If you would like to learn
+more about responsive design,
+
+23
+00:01:07,420 --> 00:01:10,810
+I would suggest the Code School
+course, Journey Into Mobile.
+
+24
+00:01:10,810 --> 00:01:12,450
+It's a great starting
+point to learn
+
+25
+00:01:12,450 --> 00:01:15,930
+more about responsive design.
+
+26
+00:01:15,930 --> 00:01:18,360
+It's important that when
+you're creating a mobile app
+
+27
+00:01:18,360 --> 00:01:20,220
+to go along with
+your web product,
+
+28
+00:01:20,220 --> 00:01:21,630
+that the experience
+on the app is
+
+29
+00:01:21,630 --> 00:01:24,160
+consistent with the
+experience on the website.
+
+30
+00:01:24,160 --> 00:01:26,710
+This will ensure users
+know how to use the product
+
+31
+00:01:26,710 --> 00:01:29,210
+with little explanation.
+
+32
+00:01:29,210 --> 00:01:31,980
+Although our interface may
+change between devices,
+
+33
+00:01:31,980 --> 00:01:35,840
+we need to ensure that our
+content is seamless across all.
+
+34
+00:01:35,840 --> 00:01:38,830
+For example, when you read
+an article on the mobile app,
+
+35
+00:01:38,830 --> 00:01:44,030
+it appears in the Recently
+Read Articles on the web app.
+
+36
+00:01:44,030 --> 00:01:46,310
+It's important that you
+design for the user's context
+
+37
+00:01:46,310 --> 00:01:47,710
+and not for the device.
+
+38
+00:01:47,710 --> 00:01:49,520
+We need to look at
+the who, what, when,
+
+39
+00:01:49,520 --> 00:01:52,360
+and where to understand
+their context.
+
+40
+00:01:52,360 --> 00:01:55,160
+For example, we know our
+users want to read articles
+
+41
+00:01:55,160 --> 00:01:56,700
+from the app, but
+they would also
+
+42
+00:01:56,700 --> 00:01:58,650
+like to create and
+publish articles,
+
+43
+00:01:58,650 --> 00:02:02,090
+so we need to build
+a feature for that.
+
+44
+00:02:02,090 --> 00:02:04,090
+One way we can improve
+the mobile experience
+
+45
+00:02:04,090 --> 00:02:07,158
+is by allowing the user to
+access the device's hardware.
+
+46
+00:02:07,158 --> 00:02:08,699
+If they're working
+on a article, they
+
+47
+00:02:08,699 --> 00:02:10,410
+could use the camera
+to take a picture
+
+48
+00:02:10,410 --> 00:02:13,179
+to show what they're working on.
+
+49
+00:02:13,179 --> 00:02:15,720
+One thing we should think about,
+whether we're building a web
+
+50
+00:02:15,720 --> 00:02:18,110
+app or a mobile app, are icons.
+
+51
+00:02:18,110 --> 00:02:21,360
+There are really only three
+icons globally recognized.
+
+52
+00:02:21,360 --> 00:02:23,060
+It's the house button for home.
+
+53
+00:02:23,060 --> 00:02:25,160
+It's the magnifying
+glass for search.
+
+54
+00:02:25,160 --> 00:02:27,360
+And it's the printer for print.
+
+55
+00:02:27,360 --> 00:02:30,500
+To ensure users understand
+the icon, it's best practice
+
+56
+00:02:30,500 --> 00:02:34,320
+to include a text
+label when possible.
+
+57
+00:02:34,320 --> 00:02:36,970
+A site can really benefit
+from having good icons.
+
+58
+00:02:36,970 --> 00:02:38,460
+Icons make good targets.
+
+59
+00:02:38,460 --> 00:02:40,274
+They're typically
+large enough to touch.
+
+60
+00:02:40,274 --> 00:02:41,690
+They're also great
+because they're
+
+61
+00:02:41,690 --> 00:02:43,700
+fast to recognize at a glance.
+
+62
+00:02:43,700 --> 00:02:45,750
+And icons can be
+visually pleasing,
+
+63
+00:02:45,750 --> 00:02:49,100
+and enhance the overall
+aesthetic appeal of our design.
+
+64
+00:02:49,100 --> 00:02:50,840
+When creating
+icons, you typically
+
+65
+00:02:50,840 --> 00:02:53,037
+want to keep the design
+simple and always
+
+66
+00:02:53,037 --> 00:02:54,120
+test them with your users.
+
+67
+00:02:56,760 --> 00:02:58,910
+Because icons are
+generally small,
+
+68
+00:02:58,910 --> 00:03:00,560
+you don't want to
+use a lot of detail.
+
+69
+00:03:00,560 --> 00:03:03,070
+Here, you can see the difference
+between two book icons.
+
+70
+00:03:05,760 --> 00:03:07,590
+Let's look at the Blinkist app.
+
+71
+00:03:07,590 --> 00:03:10,180
+It uses clean, simple
+icons with labels
+
+72
+00:03:10,180 --> 00:03:14,600
+to help users quickly learn
+and understand the app.
+
+73
+00:03:14,600 --> 00:03:17,290
+External triggers can
+be used to engage users.
+
+74
+00:03:17,290 --> 00:03:19,010
+They live in the
+user's environment
+
+75
+00:03:19,010 --> 00:03:21,530
+and they help motivate
+them to take action.
+
+76
+00:03:21,530 --> 00:03:23,330
+A good example of
+an external trigger
+
+77
+00:03:23,330 --> 00:03:25,600
+is using the social
+buttons on an article
+
+78
+00:03:25,600 --> 00:03:29,320
+to tweet about what
+they've just read.
+
+79
+00:03:29,320 --> 00:03:32,620
+Internal triggers can play
+into external triggers as well.
+
+80
+00:03:32,620 --> 00:03:34,490
+Say a friend of yours
+tweets that they just
+
+81
+00:03:34,490 --> 00:03:36,960
+read an awesome
+article about inks
+
+82
+00:03:36,960 --> 00:03:38,760
+being used to create circuits.
+
+83
+00:03:38,760 --> 00:03:40,382
+Since you trust your
+friend's opinion,
+
+84
+00:03:40,382 --> 00:03:42,340
+you're more likely to
+engage with that content.
+
+85
+00:03:45,130 --> 00:03:48,550
+Successful products do a great
+job of triggering our emotions.
+
+86
+00:03:48,550 --> 00:03:51,890
+When I complete a run on
+Runkeeper, I feel accomplished.
+
+87
+00:03:51,890 --> 00:03:54,740
+When someone likes a post
+on Twitter, I feel happy.
+
+88
+00:03:54,740 --> 00:03:56,920
+When I'm uncertain about
+a piece of information,
+
+89
+00:03:56,920 --> 00:03:59,780
+I could always Google it.
+
+90
+00:03:59,780 --> 00:04:03,510
+Good triggers prompt action,
+while vague ones, just
+
+91
+00:04:03,510 --> 00:04:04,690
+annoy users.
+
+92
+00:04:04,690 --> 00:04:08,090
+It's important that there's a
+clear action to the trigger.
+
+93
+00:04:08,090 --> 00:04:11,030
+The trigger we set up in our
+mobile app occurs when a user
+
+94
+00:04:11,030 --> 00:04:13,230
+we follow posts a new article.
+
+95
+00:04:13,230 --> 00:04:15,760
+We get a push notification
+that we can swipe,
+
+96
+00:04:15,760 --> 00:04:18,250
+and it will take us to
+the article to read it.
+
+97
+00:04:18,250 --> 00:04:21,230
+This is a good, simple
+personalized message
+
+98
+00:04:21,230 --> 00:04:24,330
+with a clear action.
+
+99
+00:04:24,330 --> 00:04:26,850
+Another attribute of
+a good notification
+
+100
+00:04:26,850 --> 00:04:28,610
+is to create intrigue.
+
+101
+00:04:28,610 --> 00:04:31,470
+One way we can do this is by
+notifying users of the most
+
+102
+00:04:31,470 --> 00:04:33,540
+commented articles of the week.
+
+103
+00:04:33,540 --> 00:04:36,220
+This will be tempting to engage
+with because the user will
+
+104
+00:04:36,220 --> 00:04:38,260
+want to know what
+everyone is talking about.
+
+105
+00:04:38,260 --> 00:04:42,930
+It plays into our basic
+human sense of curiosity.
+
+106
+00:04:42,930 --> 00:04:45,550
+With all that said, the most
+important aspect of the app
+
+107
+00:04:45,550 --> 00:04:47,170
+is how we onboard users.
+
+108
+00:04:47,170 --> 00:04:49,300
+If the onboarding is
+difficult or annoying,
+
+109
+00:04:49,300 --> 00:04:51,365
+no one will ever know
+how cool our app is.
+
+110
+00:04:51,365 --> 00:04:52,740
+But there are a
+few things we can
+
+111
+00:04:52,740 --> 00:04:54,580
+do to help users
+get into the app
+
+112
+00:04:54,580 --> 00:04:56,340
+and understand how to use it.
+
+113
+00:04:56,340 --> 00:04:58,910
+The first thing we need to
+do is make the signup process
+
+114
+00:04:58,910 --> 00:05:01,220
+as simple and easy as possible.
+
+115
+00:05:01,220 --> 00:05:03,360
+One way we can do this
+is to ask for users
+
+116
+00:05:03,360 --> 00:05:06,020
+to enter their email
+if they want to login.
+
+117
+00:05:06,020 --> 00:05:08,140
+Then we can send them an
+email with the link that
+
+118
+00:05:08,140 --> 00:05:09,540
+logs them into the app.
+
+119
+00:05:09,540 --> 00:05:12,140
+This way if the user
+has a complex password,
+
+120
+00:05:12,140 --> 00:05:16,150
+they don't have to enter
+it with their thumbs.
+
+121
+00:05:16,150 --> 00:05:19,030
+Another way to add ease to
+the onboarding experience
+
+122
+00:05:19,030 --> 00:05:21,670
+is to create a
+self-paced tutorial
+
+123
+00:05:21,670 --> 00:05:24,370
+where users can understand the
+primary functions of the app
+
+124
+00:05:24,370 --> 00:05:26,170
+and quickly get acclimated.
+
+125
+00:05:26,170 --> 00:05:28,880
+Make sure you're only showing
+the most important actions they
+
+126
+00:05:28,880 --> 00:05:30,790
+will need to perform right away.
+
+127
+00:05:30,790 --> 00:05:33,170
+The more advanced features
+can be explained later
+
+128
+00:05:33,170 --> 00:05:37,230
+when the user has become
+more familiar with the app.
+
+129
+00:05:37,230 --> 00:05:39,480
+When utilizing the
+tutorial approach,
+
+130
+00:05:39,480 --> 00:05:41,410
+make sure to use
+a big, bold button
+
+131
+00:05:41,410 --> 00:05:43,700
+to guide users through the app.
+
+132
+00:05:43,700 --> 00:05:46,760
+Each view should have
+one clear primary action
+
+133
+00:05:46,760 --> 00:05:50,120
+the user needs to take.
+
+134
+00:05:50,120 --> 00:05:51,820
+Guide them every
+step of the way.
+
+135
+00:05:51,820 --> 00:05:53,420
+Get them excited.
+
+136
+00:05:53,420 --> 00:05:55,930
+For our tutorial, once
+the user is in the app,
+
+137
+00:05:55,930 --> 00:05:58,880
+we will show them a list of top
+thought leaders for the user
+
+138
+00:05:58,880 --> 00:06:00,080
+to start following.
+
+139
+00:06:00,080 --> 00:06:02,140
+This will help
+personalize the content
+
+140
+00:06:02,140 --> 00:06:05,850
+to the user's interests.
+
+141
+00:06:05,850 --> 00:06:08,784
+Now keep in mind a lot of
+this is best practices.
+
+142
+00:06:08,784 --> 00:06:10,200
+It's always important
+to remember,
+
+143
+00:06:10,200 --> 00:06:11,840
+whenever you design
+anything, you
+
+144
+00:06:11,840 --> 00:06:14,280
+want to get it in front
+of users, test the idea,
+
+145
+00:06:14,280 --> 00:06:15,375
+and validate it.
+
+146
+00:06:15,375 --> 00:06:17,750
+This will ensure that your
+product is on the right track.
+
+147
+00:06:17,750 --> 00:06:20,485
+And this is the basic principle
+of a user-centered design
+
+148
+00:06:20,485 --> 00:06:20,985
+approach.
+
+149
+00:06:24,340 --> 00:06:26,660
+Thanks for taking The
+Elements of Web Design course.
+
+150
+00:06:26,660 --> 00:06:28,076
+Now we have a few
+more challenges,
+
+151
+00:06:28,076 --> 00:06:30,921
+and I'll see you in
+the wrap-up video.
+
+152
+00:06:30,921 --> 00:06:31,920
+Can I do that one again?
+
+153
+00:06:31,920 --> 00:06:34,030
+I kind of ended it like, mreh.
+
+154
+00:06:34,030 --> 00:06:34,930
+What's the motto?
+
+155
+00:06:37,792 --> 00:06:38,610
+I don't know.
+
+156
+00:06:38,610 --> 00:06:40,820
+What's the motto with you?
+
+157
+00:06:40,820 --> 00:06:42,800
+That's a joke.
+
+158
+00:06:42,800 --> 00:06:44,290
+[LAUGHTER]
+
+159
+00:06:44,290 --> 00:06:46,890
+If we-- I got the joke now.
+
+160
+00:06:46,890 --> 00:06:48,440
+[LAUGHTER]
+

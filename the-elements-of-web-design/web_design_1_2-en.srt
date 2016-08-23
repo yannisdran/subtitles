@@ -1,0 +1,709 @@
+﻿1
+00:00:02,040 --> 00:00:03,140
+Welcome back.
+
+2
+00:00:03,140 --> 00:00:08,530
+Now let's get started on Section
+Two: Designing and Testing.
+
+3
+00:00:08,530 --> 00:00:10,180
+Now that we have
+our two personas,
+
+4
+00:00:10,180 --> 00:00:12,350
+how do we use them
+to create wireframes?
+
+5
+00:00:12,350 --> 00:00:15,310
+The answer is a user-centered
+design approach.
+
+6
+00:00:15,310 --> 00:00:17,330
+User-centered
+design is a process
+
+7
+00:00:17,330 --> 00:00:21,480
+in which the needs, wants,
+and limitations of the user
+
+8
+00:00:21,480 --> 00:00:24,810
+are given extensive attention
+at each stage of the design
+
+9
+00:00:24,810 --> 00:00:25,980
+process.
+
+10
+00:00:25,980 --> 00:00:28,960
+Having the personas in
+place is the foundation
+
+11
+00:00:28,960 --> 00:00:33,350
+of a user-centered
+design approach.
+
+12
+00:00:33,350 --> 00:00:34,960
+There are five
+primary steps that we
+
+13
+00:00:34,960 --> 00:00:37,530
+need to take to build
+and test a feature.
+
+14
+00:00:37,530 --> 00:00:39,950
+We need to identify
+the primary feature.
+
+15
+00:00:39,950 --> 00:00:43,200
+We need to understand why a
+persona needs that feature.
+
+16
+00:00:43,200 --> 00:00:46,760
+Then we need to research,
+sketch, and test our design.
+
+17
+00:00:46,760 --> 00:00:51,330
+We will start by identifying
+the first feature to build.
+
+18
+00:00:51,330 --> 00:00:54,770
+So let's take a look at Walter
+to see what we can find out.
+
+19
+00:00:54,770 --> 00:00:56,620
+It appears that Walter
+has limited time
+
+20
+00:00:56,620 --> 00:00:59,820
+to spend on a product, based
+on the information provided.
+
+21
+00:00:59,820 --> 00:01:02,840
+We know he wants to stay up
+to date on the latest trends
+
+22
+00:01:02,840 --> 00:01:05,120
+and breakthroughs, and
+he would like the ability
+
+23
+00:01:05,120 --> 00:01:09,120
+to read stories on his iPad.
+
+24
+00:01:09,120 --> 00:01:10,790
+Now in June's
+persona, we can see
+
+25
+00:01:10,790 --> 00:01:13,270
+that she wants to read
+stories on polymer
+
+26
+00:01:13,270 --> 00:01:17,080
+and read articles on her phone.
+
+27
+00:01:17,080 --> 00:01:19,530
+If we look back at the
+design brief from Amanda,
+
+28
+00:01:19,530 --> 00:01:22,340
+we can see that she wants
+users to easily find and read
+
+29
+00:01:22,340 --> 00:01:23,150
+articles.
+
+30
+00:01:23,150 --> 00:01:25,120
+When we look at our
+personas, we can
+
+31
+00:01:25,120 --> 00:01:27,120
+see that they want
+the same thing this
+
+32
+00:01:27,120 --> 00:01:28,830
+is the primary feature
+of the product,
+
+33
+00:01:28,830 --> 00:01:32,340
+and this is where we will start.
+
+34
+00:01:32,340 --> 00:01:34,520
+Now we can move to
+step two: understanding
+
+35
+00:01:34,520 --> 00:01:38,340
+why personas need this feature.
+
+36
+00:01:38,340 --> 00:01:40,652
+So why do our personas
+need this feature?
+
+37
+00:01:40,652 --> 00:01:42,110
+Well, if we look
+back at Walter, we
+
+38
+00:01:42,110 --> 00:01:44,026
+can see that he wants
+to quickly find and read
+
+39
+00:01:44,026 --> 00:01:46,610
+the latest stories,
+primarily on his iPad.
+
+40
+00:01:46,610 --> 00:01:49,970
+And June wants to read stories
+specific to her discipline
+
+41
+00:01:49,970 --> 00:01:51,390
+and typically on her phone.
+
+42
+00:01:51,390 --> 00:01:52,960
+With this information,
+we know they
+
+43
+00:01:52,960 --> 00:01:57,970
+need to find and read articles,
+and mobile's important as well.
+
+44
+00:01:57,970 --> 00:01:59,790
+Now that we have
+the why, let's look
+
+45
+00:01:59,790 --> 00:02:03,890
+into how other people have
+solved it for their users.
+
+46
+00:02:03,890 --> 00:02:06,490
+Tumblr is a well-established
+blogging platform
+
+47
+00:02:06,490 --> 00:02:08,330
+with a large user base.
+
+48
+00:02:08,330 --> 00:02:10,050
+If we look at their
+site, we can see
+
+49
+00:02:10,050 --> 00:02:11,450
+that they have a
+large search bar
+
+50
+00:02:11,450 --> 00:02:15,810
+at the top of the screen and
+category links in the top left.
+
+51
+00:02:15,810 --> 00:02:17,860
+Another cool feature
+is the ability
+
+52
+00:02:17,860 --> 00:02:21,150
+to look at your search terms
+and find similar searches
+
+53
+00:02:21,150 --> 00:02:22,560
+that you can explore.
+
+54
+00:02:22,560 --> 00:02:24,640
+This can help keep
+users engaged,
+
+55
+00:02:24,640 --> 00:02:26,480
+and they're more
+likely to find content
+
+56
+00:02:26,480 --> 00:02:27,910
+that they're looking for.
+
+57
+00:02:27,910 --> 00:02:30,770
+Below the user section
+are filters to help
+
+58
+00:02:30,770 --> 00:02:32,540
+refine your search.
+
+59
+00:02:32,540 --> 00:02:35,870
+And search results are displayed
+on cards in a four column
+
+60
+00:02:35,870 --> 00:02:36,550
+layout.
+
+61
+00:02:36,550 --> 00:02:39,090
+This can help maintain
+a recognizable pattern
+
+62
+00:02:39,090 --> 00:02:42,800
+on desktop and mobile.
+
+63
+00:02:42,800 --> 00:02:45,440
+Medium is another
+well-established blogging
+
+64
+00:02:45,440 --> 00:02:46,410
+platform.
+
+65
+00:02:46,410 --> 00:02:50,400
+They rely on search and group it
+with user-focused interactions,
+
+66
+00:02:50,400 --> 00:02:53,410
+like writing a story,
+notifications, and a link
+
+67
+00:02:53,410 --> 00:02:54,640
+to your profile.
+
+68
+00:02:54,640 --> 00:02:56,650
+Below that, they
+encourage you to connect
+
+69
+00:02:56,650 --> 00:02:59,920
+with a social account, so
+they can prioritize posts
+
+70
+00:02:59,920 --> 00:03:01,106
+from people you know.
+
+71
+00:03:01,106 --> 00:03:03,580
+A feature like this can
+help cultivate a more
+
+72
+00:03:03,580 --> 00:03:06,610
+personalized
+experience for users.
+
+73
+00:03:06,610 --> 00:03:09,500
+Below that, they
+display top stories.
+
+74
+00:03:09,500 --> 00:03:12,615
+And they use a two column
+layout to display their content.
+
+75
+00:03:15,260 --> 00:03:16,910
+Now that we've done
+a little research,
+
+76
+00:03:16,910 --> 00:03:18,780
+we can start sketching
+out our ideas
+
+77
+00:03:18,780 --> 00:03:22,350
+and testing with our users.
+
+78
+00:03:22,350 --> 00:03:24,930
+Here's what a rough sketch of
+our website might look like.
+
+79
+00:03:24,930 --> 00:03:28,160
+Sketching is a great way to get
+out ideas with low commitment.
+
+80
+00:03:28,160 --> 00:03:30,640
+And sketching can be
+done as a group exercise.
+
+81
+00:03:30,640 --> 00:03:32,200
+It's important to
+design for mobile
+
+82
+00:03:32,200 --> 00:03:33,470
+when working on features.
+
+83
+00:03:33,470 --> 00:03:34,790
+You can see ours here.
+
+84
+00:03:34,790 --> 00:03:37,540
+Designing for mobile will
+keep your design focused
+
+85
+00:03:37,540 --> 00:03:42,510
+on the user's needs and prevent
+bloat in the design process.
+
+86
+00:03:42,510 --> 00:03:45,020
+Wireframes are another
+great solution.
+
+87
+00:03:45,020 --> 00:03:47,650
+They allow us to test
+and refine navigation,
+
+88
+00:03:47,650 --> 00:03:49,900
+see how content lays
+out on the page,
+
+89
+00:03:49,900 --> 00:03:53,340
+study and rapidly refine the
+interface in the interactive
+
+90
+00:03:53,340 --> 00:03:56,160
+elements, and evaluate
+the overall effectiveness
+
+91
+00:03:56,160 --> 00:04:00,160
+of the page layout
+and usability.
+
+92
+00:04:00,160 --> 00:04:02,690
+A few of the more popular
+tools used for wireframing
+
+93
+00:04:02,690 --> 00:04:05,410
+are OmniGraffle,
+Sketch and Balsamiq.
+
+94
+00:04:05,410 --> 00:04:07,620
+These tools can help you
+quickly get out ideas
+
+95
+00:04:07,620 --> 00:04:11,040
+and get them in front of users.
+
+96
+00:04:11,040 --> 00:04:12,880
+I also want to note
+that when testing,
+
+97
+00:04:12,880 --> 00:04:15,010
+it's important that
+you use real content.
+
+98
+00:04:15,010 --> 00:04:16,850
+Users have to know
+what they're looking at
+
+99
+00:04:16,850 --> 00:04:18,399
+and how to interact with it.
+
+100
+00:04:18,399 --> 00:04:21,425
+You should never use lorem
+ipsum or any kind of filler text
+
+101
+00:04:21,425 --> 00:04:22,800
+when you're testing
+your designs.
+
+102
+00:04:25,420 --> 00:04:26,080
+Alright,
+
+103
+00:04:26,080 --> 00:04:28,730
+now that we have some wireframes
+to test against, let's
+
+104
+00:04:28,730 --> 00:04:33,140
+get them in front of users and
+start getting some feedback.
+
+105
+00:04:33,140 --> 00:04:35,300
+We created two designs to test.
+
+106
+00:04:35,300 --> 00:04:37,560
+First, we need to print
+out each wireframe.
+
+107
+00:04:37,560 --> 00:04:39,700
+In our first design,
+we went with a large search
+
+108
+00:04:39,700 --> 00:04:42,270
+across the top and
+a two column layout
+
+109
+00:04:42,270 --> 00:04:44,990
+with sorting and categories
+in the aside div.
+
+110
+00:04:48,430 --> 00:04:50,600
+In the second design, we
+put search and sorting
+
+111
+00:04:50,600 --> 00:04:53,130
+in the top aligned
+navigation with categories
+
+112
+00:04:53,130 --> 00:04:55,690
+below that in a
+secondary navigation.
+
+113
+00:04:55,690 --> 00:05:00,180
+We also went with a three
+column tiled layout.
+
+114
+00:05:00,180 --> 00:05:02,140
+Now that our wireframes
+have been printed,
+
+115
+00:05:02,140 --> 00:05:04,840
+we are going to conduct
+what UsabilityHub coined
+
+116
+00:05:04,840 --> 00:05:07,020
+the five second usability test.
+
+117
+00:05:07,020 --> 00:05:09,090
+We will put them in
+front of our testers
+
+118
+00:05:09,090 --> 00:05:11,540
+and ask them these
+three simple questions.
+
+119
+00:05:11,540 --> 00:05:13,350
+What does this feature do?
+
+120
+00:05:13,350 --> 00:05:14,830
+What do you like about it?
+
+121
+00:05:14,830 --> 00:05:16,630
+What don't you like about it?
+
+122
+00:05:16,630 --> 00:05:18,670
+Five second tests
+help us understand
+
+123
+00:05:18,670 --> 00:05:21,170
+peoples' first impressions
+of our designs.
+
+124
+00:05:21,170 --> 00:05:23,840
+The five second test will help
+you discover if your design is
+
+125
+00:05:23,840 --> 00:05:27,600
+understandable and easy to use.
+
+126
+00:05:27,600 --> 00:05:30,050
+A few things to keep in
+mind when testing are,
+
+127
+00:05:30,050 --> 00:05:32,110
+you're testing the
+feature not the user.
+
+128
+00:05:32,110 --> 00:05:33,550
+Always remain neutral.
+
+129
+00:05:33,550 --> 00:05:34,780
+Listen and watch.
+
+130
+00:05:34,780 --> 00:05:38,370
+Never jump in and assist or
+lead the user in any way.
+
+131
+00:05:38,370 --> 00:05:39,590
+Take good notes.
+
+132
+00:05:39,590 --> 00:05:41,540
+Capture what they do
+and what they say.
+
+133
+00:05:41,540 --> 00:05:46,280
+And try to test between five
+and seven users at a time.
+
+134
+00:05:46,280 --> 00:05:46,880
+OK.
+
+135
+00:05:46,880 --> 00:05:48,560
+So I've conducted
+some user testing,
+
+136
+00:05:48,560 --> 00:05:50,090
+and here are my results.
+
+137
+00:05:50,090 --> 00:05:52,030
+I can see that neither
+was a home run,
+
+138
+00:05:52,030 --> 00:05:54,131
+but we could take the
+pros from both designs
+
+139
+00:05:54,131 --> 00:05:55,131
+and create a new design.
+
+140
+00:06:00,980 --> 00:06:03,330
+You should test through
+the entire design process,
+
+141
+00:06:03,330 --> 00:06:05,290
+from sketching to live code.
+
+142
+00:06:05,290 --> 00:06:07,086
+Testing the entire
+process ensures
+
+143
+00:06:07,086 --> 00:06:08,710
+that you are on the
+right path, and you
+
+144
+00:06:08,710 --> 00:06:11,840
+are building a product
+your users actually want.
+
+145
+00:06:11,840 --> 00:06:14,120
+Understanding who your
+target audience is
+
+146
+00:06:14,120 --> 00:06:16,980
+and testing your designs
+are the core principles
+
+147
+00:06:16,980 --> 00:06:18,648
+of a user-centered
+design approach.
+
+148
+00:06:21,400 --> 00:06:23,160
+Now let's jump into
+some challenges,
+
+149
+00:06:23,160 --> 00:06:25,650
+and I'll see you
+in the next level.
+

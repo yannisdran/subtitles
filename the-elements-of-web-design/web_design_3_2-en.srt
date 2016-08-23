@@ -1,0 +1,598 @@
+﻿1
+00:00:02,050 --> 00:00:05,710
+Welcome back to level three,
+section two-- Homepage Design.
+
+2
+00:00:05,710 --> 00:00:08,520
+Let's get started.
+
+3
+00:00:08,520 --> 00:00:10,620
+So now that we've hashed
+out our main features,
+
+4
+00:00:10,620 --> 00:00:13,610
+we need to make sure that our
+homepage is well-designed.
+
+5
+00:00:13,610 --> 00:00:16,480
+Users need to be able to
+answer these questions.
+
+6
+00:00:16,480 --> 00:00:17,960
+What is this?
+
+7
+00:00:17,960 --> 00:00:19,470
+What do they have here?
+
+8
+00:00:19,470 --> 00:00:21,000
+What can I do here?
+
+9
+00:00:21,000 --> 00:00:22,860
+Why should I be here?
+
+10
+00:00:22,860 --> 00:00:25,930
+And where do I start?
+
+11
+00:00:25,930 --> 00:00:27,610
+Let's start with search.
+
+12
+00:00:27,610 --> 00:00:31,170
+The search function should
+always be prominently featured.
+
+13
+00:00:31,170 --> 00:00:34,640
+If we look at the Airbnb
+site, we find a custom search
+
+14
+00:00:34,640 --> 00:00:37,380
+with added features to
+help the users perform
+
+15
+00:00:37,380 --> 00:00:42,200
+the necessary tasks to
+find a rental property.
+
+16
+00:00:42,200 --> 00:00:45,540
+On our site, we will add a
+standard search field as well
+
+17
+00:00:45,540 --> 00:00:47,980
+as a search by category feature.
+
+18
+00:00:47,980 --> 00:00:53,510
+This will allow users to view
+content in a specific category.
+
+19
+00:00:53,510 --> 00:00:55,460
+Next, we want to
+create a tagline.
+
+20
+00:00:55,460 --> 00:00:58,110
+A tagline is generally
+towards the top of the page
+
+21
+00:00:58,110 --> 00:01:01,030
+and explains the product
+or service being offered.
+
+22
+00:01:01,030 --> 00:01:04,569
+If you look at Bohemian
+Coding's Sketch 3 landing page,
+
+23
+00:01:04,569 --> 00:01:07,740
+you can see the tagline,
+"Professional digital design
+
+24
+00:01:07,740 --> 00:01:10,460
+for Mac."
+
+25
+00:01:10,460 --> 00:01:12,360
+It's also important to
+explain the difference
+
+26
+00:01:12,360 --> 00:01:14,480
+between a tagline and a motto.
+
+27
+00:01:14,480 --> 00:01:16,810
+A motto is generally
+used with bigger brands
+
+28
+00:01:16,810 --> 00:01:18,790
+and explains the
+company's ethics,
+
+29
+00:01:18,790 --> 00:01:22,920
+whereas a tagline is explaining
+the product or the service.
+
+30
+00:01:22,920 --> 00:01:25,370
+If we look at Ford's site,
+we can see their motto,
+
+31
+00:01:25,370 --> 00:01:26,770
+"Go Further."
+
+32
+00:01:26,770 --> 00:01:28,860
+Since our site is a
+new product, a motto
+
+33
+00:01:28,860 --> 00:01:30,130
+wouldn't make much sense here.
+
+34
+00:01:30,130 --> 00:01:31,650
+So we'll go with a tagline.
+
+35
+00:01:31,650 --> 00:01:35,340
+But before we mock this up,
+let's consider one more thing--
+
+36
+00:01:35,340 --> 00:01:37,090
+a welcome statement.
+
+37
+00:01:37,090 --> 00:01:41,150
+Welcome statements and taglines
+tend to overlap at times.
+
+38
+00:01:41,150 --> 00:01:43,040
+They are typically
+a short description
+
+39
+00:01:43,040 --> 00:01:45,120
+of the site displayed
+in the upper left
+
+40
+00:01:45,120 --> 00:01:47,090
+or upper center of the page.
+
+41
+00:01:47,090 --> 00:01:50,100
+They tend to be a more complete
+and concise explanation
+
+42
+00:01:50,100 --> 00:01:52,920
+of the product or service,
+and should help guide the user
+
+43
+00:01:52,920 --> 00:01:54,200
+into the next step.
+
+44
+00:01:54,200 --> 00:01:57,420
+If we look at the user testing
+site, we can see the tagline,
+
+45
+00:01:57,420 --> 00:02:00,480
+"Give your users a great
+experience," paired
+
+46
+00:02:00,480 --> 00:02:03,850
+with the welcome statement
+of, "Get videos of real people
+
+47
+00:02:03,850 --> 00:02:07,920
+speaking their thoughts as
+they use websites, mobile apps,
+
+48
+00:02:07,920 --> 00:02:09,639
+prototypes and more!"
+
+49
+00:02:09,639 --> 00:02:14,150
+This quickly explains what the
+product is in one sentence.
+
+50
+00:02:14,150 --> 00:02:17,130
+We will add our tagline,
+"Blogging for Chemistry,"
+
+51
+00:02:17,130 --> 00:02:19,240
+under the logo, and a
+welcome statement that
+
+52
+00:02:19,240 --> 00:02:22,810
+reads, "Read the latest insights
+from the chemistry industry
+
+53
+00:02:22,810 --> 00:02:24,600
+or share your own."
+
+54
+00:02:24,600 --> 00:02:27,590
+This should clearly explain
+what our service is to anyone
+
+55
+00:02:27,590 --> 00:02:30,590
+who comes to the site.
+
+56
+00:02:30,590 --> 00:02:32,440
+Another important
+feature of the homepage
+
+57
+00:02:32,440 --> 00:02:34,850
+is the signup and login feature.
+
+58
+00:02:34,850 --> 00:02:37,290
+This needs to be prominently
+displayed on the web page,
+
+59
+00:02:37,290 --> 00:02:40,180
+and users need to know
+why and how to use it.
+
+60
+00:02:40,180 --> 00:02:43,020
+Both LinkedIn and Facebook
+have large signup forms
+
+61
+00:02:43,020 --> 00:02:45,990
+at the top of the page that
+show up when the users are not
+
+62
+00:02:45,990 --> 00:02:46,840
+logged in.
+
+63
+00:02:46,840 --> 00:02:49,030
+It's critical for
+both of these sites
+
+64
+00:02:49,030 --> 00:02:51,740
+to make it as easy as
+possible to sign up.
+
+65
+00:02:51,740 --> 00:02:56,010
+Because without an account,
+you cannot participate.
+
+66
+00:02:56,010 --> 00:02:58,330
+While it is not necessary
+to sign up for an account
+
+67
+00:02:58,330 --> 00:03:01,320
+to view our content, it
+is still an important part
+
+68
+00:03:01,320 --> 00:03:03,520
+of our site being that
+users need to create
+
+69
+00:03:03,520 --> 00:03:05,440
+content for others to read.
+
+70
+00:03:05,440 --> 00:03:07,530
+So we will create a
+signup section just
+
+71
+00:03:07,530 --> 00:03:09,460
+below the header
+that is displayed
+
+72
+00:03:09,460 --> 00:03:11,420
+if the user is not logged in.
+
+73
+00:03:11,420 --> 00:03:13,970
+Let's give them multiple
+ways to sign up,
+
+74
+00:03:13,970 --> 00:03:16,120
+as well as an option to sign in.
+
+75
+00:03:16,120 --> 00:03:19,240
+We need to make sure there is
+a clear understanding of why
+
+76
+00:03:19,240 --> 00:03:20,570
+you would create an account.
+
+77
+00:03:20,570 --> 00:03:24,530
+We can accomplish this with the
+"Add to the Conversation" text.
+
+78
+00:03:24,530 --> 00:03:27,920
+By doing this, we hope to make
+it easy as possible for users
+
+79
+00:03:27,920 --> 00:03:30,920
+to get involved.
+
+80
+00:03:30,920 --> 00:03:32,900
+Another important
+feature of the homepage
+
+81
+00:03:32,900 --> 00:03:34,950
+is time-sensitive content.
+
+82
+00:03:34,950 --> 00:03:37,900
+This shows users that the
+site is active and updated
+
+83
+00:03:37,900 --> 00:03:38,900
+frequently.
+
+84
+00:03:38,900 --> 00:03:40,550
+If we look at The
+New Yorker site,
+
+85
+00:03:40,550 --> 00:03:43,650
+we clearly see The
+Latest section.
+
+86
+00:03:43,650 --> 00:03:46,300
+And every article under
+it shows a date and time
+
+87
+00:03:46,300 --> 00:03:51,770
+stamp that shows how current
+or relevant that content is.
+
+88
+00:03:51,770 --> 00:03:54,460
+On our site, we will add
+a "Top Stories" section
+
+89
+00:03:54,460 --> 00:03:56,510
+to show what
+content is trending.
+
+90
+00:03:56,510 --> 00:03:59,400
+And below each title we
+will display a time stamp
+
+91
+00:03:59,400 --> 00:04:03,960
+to show users that the content
+is recent and relevant.
+
+92
+00:04:03,960 --> 00:04:06,390
+Lastly, you should always
+have a way for users
+
+93
+00:04:06,390 --> 00:04:09,570
+to discover new content
+and features without having
+
+94
+00:04:09,570 --> 00:04:10,920
+to come back to the page.
+
+95
+00:04:10,920 --> 00:04:13,550
+You can do this typically
+with a newsletter.
+
+96
+00:04:13,550 --> 00:04:15,990
+This will help users to
+re-engage with your product
+
+97
+00:04:15,990 --> 00:04:18,829
+without actually having
+to come back to the site.
+
+98
+00:04:18,829 --> 00:04:21,850
+If you look at both
+MaterialUp and CSS tricks,
+
+99
+00:04:21,850 --> 00:04:25,030
+they both give you the option to
+sign up for a newsletter, where
+
+100
+00:04:25,030 --> 00:04:27,125
+they send you the latest
+content to your email,
+
+101
+00:04:27,125 --> 00:04:30,410
+in hopes of re-engagement.
+
+102
+00:04:30,410 --> 00:04:33,280
+We will use the same model
+by adding a newsletter signup
+
+103
+00:04:33,280 --> 00:04:34,070
+to our page.
+
+104
+00:04:34,070 --> 00:04:36,830
+We will clearly state what
+you get-- the top five
+
+105
+00:04:36,830 --> 00:04:38,240
+stories of the week.
+
+106
+00:04:38,240 --> 00:04:41,540
+It tells users how frequently
+they will receive emails--
+
+107
+00:04:41,540 --> 00:04:42,740
+weekly.
+
+108
+00:04:42,740 --> 00:04:46,820
+And it tells the user that
+they will never be spammed.
+
+109
+00:04:46,820 --> 00:04:47,320
+Awesome.
+
+110
+00:04:47,320 --> 00:04:48,510
+We have our homepage.
+
+111
+00:04:48,510 --> 00:04:51,120
+It's clean, clear,
+and straightforward.
+
+112
+00:04:51,120 --> 00:04:52,709
+Typically, if I go
+to a website and I
+
+113
+00:04:52,709 --> 00:04:54,250
+don't understand
+what I'm looking at,
+
+114
+00:04:54,250 --> 00:04:55,820
+I get frustrated and leave.
+
+115
+00:04:55,820 --> 00:04:58,230
+But if I go to the website
+and it's clear what to do
+
+116
+00:04:58,230 --> 00:05:00,070
+and what services
+they provide, I'm
+
+117
+00:05:00,070 --> 00:05:02,560
+more likely to have a
+successful experience.
+
+118
+00:05:02,560 --> 00:05:06,020
+Steve Krug calls this "the big
+bang theory of web design."
+
+119
+00:05:06,020 --> 00:05:08,970
+The idea is, the first few
+seconds you spend on a website
+
+120
+00:05:08,970 --> 00:05:11,110
+or web page are critical.
+
+121
+00:05:11,110 --> 00:05:12,720
+The homepage should be focused.
+
+122
+00:05:12,720 --> 00:05:15,340
+If you try and get a user's
+attention with 100 things,
+
+123
+00:05:15,340 --> 00:05:16,720
+they won't know what to look at.
+
+124
+00:05:16,720 --> 00:05:20,270
+Try to focus on one or two
+things and direct them to it.
+
+125
+00:05:20,270 --> 00:05:20,840
+That's it.
+
+126
+00:05:20,840 --> 00:05:21,825
+We have our homepage.
+
+127
+00:05:21,825 --> 00:05:24,450
+So let's do some challenges, and
+I'll see you in section three.
+
+128
+00:05:24,450 --> 00:05:26,180
+Good luck.
+

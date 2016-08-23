@@ -1,0 +1,631 @@
+﻿1
+00:00:02,120 --> 00:00:02,912
+Welcome back.
+
+2
+00:00:02,912 --> 00:00:04,870
+Now let's get started on
+Section Two, Navigation.
+
+3
+00:00:07,540 --> 00:00:09,370
+All right, our site
+is doing great.
+
+4
+00:00:09,370 --> 00:00:11,180
+We have tons of people
+writing articles,
+
+5
+00:00:11,180 --> 00:00:12,514
+but it's creating a problem.
+
+6
+00:00:12,514 --> 00:00:14,930
+It's becoming harder for users
+to find the content they're
+
+7
+00:00:14,930 --> 00:00:15,970
+looking for.
+
+8
+00:00:15,970 --> 00:00:19,530
+We could use navigation
+to solve this.
+
+9
+00:00:19,530 --> 00:00:21,830
+Let's first look at our
+persistent navigation.
+
+10
+00:00:21,830 --> 00:00:23,420
+As we pointed out
+in the last section,
+
+11
+00:00:23,420 --> 00:00:26,130
+we should have a logo that
+links back to the home page.
+
+12
+00:00:26,130 --> 00:00:28,980
+We should also have a
+top level navigation.
+
+13
+00:00:28,980 --> 00:00:31,840
+And now we've added
+a utility navigation.
+
+14
+00:00:31,840 --> 00:00:35,010
+This includes utilities
+like Login and Contact,
+
+15
+00:00:35,010 --> 00:00:37,470
+which are links to parts
+of the site that aren't
+
+16
+00:00:37,470 --> 00:00:39,210
+part of our content hierarchy.
+
+17
+00:00:39,210 --> 00:00:41,890
+It's a good rule of
+thumb to only accommodate
+
+18
+00:00:41,890 --> 00:00:45,620
+fortified utility links in
+the persistent navigation.
+
+19
+00:00:45,620 --> 00:00:48,120
+And lastly, you always
+want to incorporate
+
+20
+00:00:48,120 --> 00:00:50,975
+a search function which should
+be at the top of every page.
+
+21
+00:00:53,870 --> 00:00:56,135
+Now that our persistent
+navigation is in good shape,
+
+22
+00:00:56,135 --> 00:00:58,980
+we should also include
+a descriptor navigation
+
+23
+00:00:58,980 --> 00:01:00,370
+on the home page.
+
+24
+00:01:00,370 --> 00:01:02,220
+This will give people
+coming to the site
+
+25
+00:01:02,220 --> 00:01:04,430
+the ability to quickly
+start interacting
+
+26
+00:01:04,430 --> 00:01:08,720
+with the content
+that interests them.
+
+27
+00:01:08,720 --> 00:01:10,500
+This is commonly
+seen on the web.
+
+28
+00:01:10,500 --> 00:01:12,820
+If we look at the
+Smashing Magazine site,
+
+29
+00:01:12,820 --> 00:01:14,720
+we can see that they
+separate their content
+
+30
+00:01:14,720 --> 00:01:18,370
+into topics of interest
+like Coding, Design, Mobile,
+
+31
+00:01:18,370 --> 00:01:21,310
+and Graphics.
+
+32
+00:01:21,310 --> 00:01:23,760
+Spotify does this as
+well by organizing
+
+33
+00:01:23,760 --> 00:01:29,940
+their content into genres like
+Mood, Party, Pop, and work out.
+
+34
+00:01:29,940 --> 00:01:31,460
+When it comes to
+the dashboard, we
+
+35
+00:01:31,460 --> 00:01:34,685
+want to focus on a
+verb-based navigation.
+
+36
+00:01:34,685 --> 00:01:36,310
+This is a good choice
+for the dashboard
+
+37
+00:01:36,310 --> 00:01:38,340
+because a lot of the
+links are actionable.
+
+38
+00:01:38,340 --> 00:01:42,470
+For example, the right link
+in the top right corner.
+
+39
+00:01:42,470 --> 00:01:44,430
+You frequently see
+verb-based navigation
+
+40
+00:01:44,430 --> 00:01:50,370
+on financial sites using words
+like Invest, Bank, Trading.
+
+41
+00:01:50,370 --> 00:01:53,030
+And we also need a
+user-based navigation.
+
+42
+00:01:53,030 --> 00:01:56,010
+This helps users find
+content based on their needs.
+
+43
+00:01:56,010 --> 00:01:58,020
+In our case, we will
+define two types
+
+44
+00:01:58,020 --> 00:02:00,840
+of users, people that
+have done a study and need
+
+45
+00:02:00,840 --> 00:02:02,670
+people to peer
+review, as well as
+
+46
+00:02:02,670 --> 00:02:07,090
+people that want to get paid to
+help someone with their study.
+
+47
+00:02:07,090 --> 00:02:09,620
+User-based navigation
+is a common convention
+
+48
+00:02:09,620 --> 00:02:12,420
+of pricing pages, where
+pricing is divided out
+
+49
+00:02:12,420 --> 00:02:14,314
+based on the user's needs.
+
+50
+00:02:14,314 --> 00:02:15,730
+On the Litmus the
+site, we can see
+
+51
+00:02:15,730 --> 00:02:19,710
+that they use Premium, Plus, and
+Basic to create their user base
+
+52
+00:02:19,710 --> 00:02:20,930
+navigation.
+
+53
+00:02:20,930 --> 00:02:24,000
+It's also important to keep
+in mind that some users prefer
+
+54
+00:02:24,000 --> 00:02:27,490
+to use Search or some prefer to
+use the persistent navigation.
+
+55
+00:02:27,490 --> 00:02:30,710
+They're split about 50-50.
+
+56
+00:02:30,710 --> 00:02:33,250
+In the case of Apple,
+they know that some people
+
+57
+00:02:33,250 --> 00:02:36,300
+want to explore and use
+the persistent navigation
+
+58
+00:02:36,300 --> 00:02:38,730
+while others know exactly
+what they're searching for
+
+59
+00:02:38,730 --> 00:02:40,740
+and should probably
+use the search.
+
+60
+00:02:40,740 --> 00:02:42,540
+Keep in mind that
+people are also
+
+61
+00:02:42,540 --> 00:02:45,370
+influenced by the size
+of the search field.
+
+62
+00:02:45,370 --> 00:02:48,900
+Smaller search fields will
+get one word searches,
+
+63
+00:02:48,900 --> 00:02:52,970
+while longer fields will
+typically get phrases.
+
+64
+00:02:52,970 --> 00:02:54,650
+Now that our site is
+easier to navigate,
+
+65
+00:02:54,650 --> 00:02:56,900
+we need to make it easier
+for them to find the content
+
+66
+00:02:56,900 --> 00:02:58,180
+that they're looking for.
+
+67
+00:02:58,180 --> 00:02:59,490
+But why is this important?
+
+68
+00:02:59,490 --> 00:03:02,410
+It turns out research has
+shown that people usually
+
+69
+00:03:02,410 --> 00:03:06,780
+see a very small number of
+items in each search result set.
+
+70
+00:03:06,780 --> 00:03:10,650
+As Jakob Nielsen wrote in
+Prioritizing Web Usability,
+
+71
+00:03:10,650 --> 00:03:14,690
+"Viewing frequency drops off
+rapidly after the first page.
+
+72
+00:03:14,690 --> 00:03:17,800
+More than half of all
+users didn't scroll at all.
+
+73
+00:03:17,800 --> 00:03:21,050
+So only 42% of users
+will see any information
+
+74
+00:03:21,050 --> 00:03:22,650
+on the second screen.
+
+75
+00:03:22,650 --> 00:03:25,810
+So we need to provide a means
+of moving content the user is
+
+76
+00:03:25,810 --> 00:03:29,260
+looking for to the first page."
+
+77
+00:03:29,260 --> 00:03:31,700
+One way we can do
+this is by sorting.
+
+78
+00:03:31,700 --> 00:03:35,700
+In our case it is Recent,
+Popular, and Most Commented.
+
+79
+00:03:35,700 --> 00:03:38,320
+It is important to keep in mind
+that sorting does not remove
+
+80
+00:03:38,320 --> 00:03:39,910
+entries from the data set.
+
+81
+00:03:39,910 --> 00:03:43,900
+It only puts the
+data in a new order.
+
+82
+00:03:43,900 --> 00:03:46,930
+Filtering, on the other hand,
+is useful in a different way.
+
+83
+00:03:46,930 --> 00:03:49,020
+Filtering actually
+reduces the amount
+
+84
+00:03:49,020 --> 00:03:51,590
+of content being displayed.
+
+85
+00:03:51,590 --> 00:03:53,820
+We will be using our
+top six categories
+
+86
+00:03:53,820 --> 00:03:55,430
+to filter our content.
+
+87
+00:03:55,430 --> 00:03:57,440
+With both methods
+being used together,
+
+88
+00:03:57,440 --> 00:04:00,730
+users can quickly find the
+most popular physical articles
+
+89
+00:04:00,730 --> 00:04:05,400
+or the most recent polymer
+articles in just two clicks.
+
+90
+00:04:05,400 --> 00:04:07,720
+Another powerful method
+for sorting our content
+
+91
+00:04:07,720 --> 00:04:09,100
+is with meta filters.
+
+92
+00:04:09,100 --> 00:04:11,120
+This is also called tagging.
+
+93
+00:04:11,120 --> 00:04:14,660
+When users can tag their own
+content with relevant keywords,
+
+94
+00:04:14,660 --> 00:04:16,649
+it makes the content
+more searchable.
+
+95
+00:04:16,649 --> 00:04:20,360
+We can tag articles with the
+writer's name, school, or work,
+
+96
+00:04:20,360 --> 00:04:23,230
+so that users can just search
+articles from Stanford,
+
+97
+00:04:23,230 --> 00:04:28,400
+or just search articles
+written by Jacqueline Olson.
+
+98
+00:04:28,400 --> 00:04:31,350
+Meta tagging is extremely
+powerful on commerce sites
+
+99
+00:04:31,350 --> 00:04:32,960
+with a lot of content.
+
+100
+00:04:32,960 --> 00:04:34,900
+For example, Urban
+Outfitters allows
+
+101
+00:04:34,900 --> 00:04:37,180
+users to filter
+information based
+
+102
+00:04:37,180 --> 00:04:40,090
+on the article of
+clothing, color, or brand.
+
+103
+00:04:40,090 --> 00:04:43,440
+This allows users to filter out
+items they're not interested in
+
+104
+00:04:43,440 --> 00:04:45,380
+and moves the items
+they are interested
+
+105
+00:04:45,380 --> 00:04:48,390
+in to the front page.
+
+106
+00:04:48,390 --> 00:04:51,000
+Even with the ability
+to reduce content,
+
+107
+00:04:51,000 --> 00:04:52,460
+we will still need
+a way of dealing
+
+108
+00:04:52,460 --> 00:04:54,610
+with a large list of content.
+
+109
+00:04:54,610 --> 00:04:56,910
+Pagination is a
+universal option.
+
+110
+00:04:56,910 --> 00:05:00,330
+So we will use pagination to
+give users the sense of control
+
+111
+00:05:00,330 --> 00:05:04,870
+and make it easier for
+them to access the results.
+
+112
+00:05:04,870 --> 00:05:09,510
+Plus, Google search uses
+pagination, like you see here.
+
+113
+00:05:09,510 --> 00:05:11,344
+We can also use
+tabs for sorting.
+
+114
+00:05:11,344 --> 00:05:12,760
+They clean up the
+page and they're
+
+115
+00:05:12,760 --> 00:05:14,010
+easy for people to understand.
+
+116
+00:05:16,440 --> 00:05:18,990
+To summarize, top
+navigation standards
+
+117
+00:05:18,990 --> 00:05:21,290
+help users find what
+they're looking for.
+
+118
+00:05:21,290 --> 00:05:24,520
+Descriptor navigations
+help with page discovery.
+
+119
+00:05:24,520 --> 00:05:26,240
+You should use
+verbs in navigation
+
+120
+00:05:26,240 --> 00:05:28,180
+for actionable links.
+
+121
+00:05:28,180 --> 00:05:31,800
+Navigation links and search
+are equally important.
+
+122
+00:05:31,800 --> 00:05:35,510
+Sorting and filtering help
+connect users to content.
+
+123
+00:05:35,510 --> 00:05:37,675
+And tabs can really
+help clean up a page.
+
+124
+00:05:40,296 --> 00:05:42,420
+So now that we know a little
+more about navigation,
+
+125
+00:05:42,420 --> 00:05:46,300
+let's do some challenges and
+I'll see you in the next level.
+
+126
+00:05:46,300 --> 00:05:47,180
+SERPS uses--
+
+127
+00:05:47,180 --> 00:05:47,780
+SERPS.
+
+128
+00:05:47,780 --> 00:05:49,469
+SERPS is such a weird word.
+
+129
+00:05:49,469 --> 00:05:51,510
+I'm going to be a much
+better speaker after this,
+
+130
+00:05:51,510 --> 00:05:53,630
+I think, without a doubt.
+
+131
+00:05:53,630 --> 00:05:54,880
+Was that too marble mouthy?
+
+132
+00:05:54,880 --> 00:05:57,220
+Homepage design.
+

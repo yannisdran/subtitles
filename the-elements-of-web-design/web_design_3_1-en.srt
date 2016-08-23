@@ -1,0 +1,771 @@
+﻿1
+00:00:00,499 --> 00:00:02,810
+[SINGING] No one's
+buying all your widgets,
+
+2
+00:00:02,810 --> 00:00:05,031
+and you're losing people quick.
+
+3
+00:00:05,031 --> 00:00:07,970
+They're lost inside
+your website, and they
+
+4
+00:00:07,970 --> 00:00:09,740
+don't know where to click.
+
+5
+00:00:09,740 --> 00:00:11,880
+If you had learned
+about your users,
+
+6
+00:00:11,880 --> 00:00:14,400
+you'd know where you went wrong.
+
+7
+00:00:14,400 --> 00:00:17,500
+They'd be engaging
+with your content,
+
+8
+00:00:17,500 --> 00:00:20,210
+and I wouldn't sing this song.
+
+9
+00:00:20,210 --> 00:00:23,230
+User-centered design helps
+improve communication,
+
+10
+00:00:23,230 --> 00:00:25,160
+navigation, pagination,
+
+11
+00:00:25,160 --> 00:00:27,068
+Architect your information.
+
+12
+00:00:27,068 --> 00:00:31,370
+Add a motto or a tagline,
+with search so they can find,
+
+13
+00:00:31,370 --> 00:00:38,450
+A better website is defined
+with The Elements of Web Design.
+
+14
+00:00:38,450 --> 00:00:41,480
+Welcome back to Level
+Three, Section One, Forms.
+
+15
+00:00:41,480 --> 00:00:44,370
+Let's get started.
+
+16
+00:00:44,370 --> 00:00:46,420
+We need to create our
+peer review feature,
+
+17
+00:00:46,420 --> 00:00:47,610
+and it starts with a form.
+
+18
+00:00:47,610 --> 00:00:50,850
+So what happens when
+we click this button?
+
+19
+00:00:50,850 --> 00:00:52,410
+So let's create the form.
+
+20
+00:00:52,410 --> 00:00:54,460
+A great way to start
+is by sketching.
+
+21
+00:00:54,460 --> 00:00:58,790
+Let's add in all the content
+we think we need for the form.
+
+22
+00:00:58,790 --> 00:00:59,820
+OK, great.
+
+23
+00:00:59,820 --> 00:01:02,580
+So now we've implemented our
+form, but there's a problem.
+
+24
+00:01:02,580 --> 00:01:04,670
+Users are saying that
+it's hard to use.
+
+25
+00:01:04,670 --> 00:01:06,980
+We understand that when
+they're looking at the form,
+
+26
+00:01:06,980 --> 00:01:09,150
+their eyes are moving
+in a zigzag pattern.
+
+27
+00:01:09,150 --> 00:01:11,330
+This is making it hard
+to read the form, which
+
+28
+00:01:11,330 --> 00:01:13,760
+makes it hard for users
+to engage with the form.
+
+29
+00:01:17,090 --> 00:01:20,680
+To fix this, we will move the
+labels above the input fields.
+
+30
+00:01:20,680 --> 00:01:22,740
+This makes it easy
+for users to read down
+
+31
+00:01:22,740 --> 00:01:24,630
+the form in a list-like pattern.
+
+32
+00:01:24,630 --> 00:01:26,960
+The easier it is to use
+the form, the more likely
+
+33
+00:01:26,960 --> 00:01:28,898
+they will be to engage with it.
+
+34
+00:01:32,140 --> 00:01:35,660
+The next thing we need to do is
+remove any unnecessary fields.
+
+35
+00:01:35,660 --> 00:01:37,880
+Since the users
+need to be logged in
+
+36
+00:01:37,880 --> 00:01:39,590
+to participate in
+the peer reviews,
+
+37
+00:01:39,590 --> 00:01:41,920
+we don't need to ask for
+their first and last names.
+
+38
+00:01:41,920 --> 00:01:44,170
+We can also remove
+the Location field,
+
+39
+00:01:44,170 --> 00:01:46,630
+since it's irrelevant
+to what we're asking.
+
+40
+00:01:46,630 --> 00:01:49,870
+Removing any unnecessary
+fields increases the likelihood
+
+41
+00:01:49,870 --> 00:01:53,480
+that users will actually
+engage with the form.
+
+42
+00:01:53,480 --> 00:01:53,980
+All right.
+
+43
+00:01:53,980 --> 00:01:55,590
+Now that we've
+simplified the form,
+
+44
+00:01:55,590 --> 00:01:57,430
+it's much more
+attractive to fill out.
+
+45
+00:01:57,430 --> 00:01:59,590
+We've removed any
+unnecessary fields.
+
+46
+00:01:59,590 --> 00:02:01,380
+We've improved the readability.
+
+47
+00:02:01,380 --> 00:02:03,820
+And we've added the user
+account information to it.
+
+48
+00:02:03,820 --> 00:02:08,360
+This is a great improvement
+to the form's usability.
+
+49
+00:02:08,360 --> 00:02:11,850
+Making required fields
+generally results in users
+
+50
+00:02:11,850 --> 00:02:13,980
+skipping optional fields.
+
+51
+00:02:13,980 --> 00:02:16,360
+But by making
+optional fields, users
+
+52
+00:02:16,360 --> 00:02:19,970
+are generally more inclined to
+fill out the form completely.
+
+53
+00:02:19,970 --> 00:02:23,230
+It's a best practice to avoid
+creating required fields.
+
+54
+00:02:23,230 --> 00:02:25,480
+If a field isn't required,
+just make it optional.
+
+55
+00:02:25,480 --> 00:02:29,280
+People are more likely
+to fill it out anyways.
+
+56
+00:02:29,280 --> 00:02:31,490
+If the user runs into
+an issue with the form,
+
+57
+00:02:31,490 --> 00:02:33,240
+an error should be displayed.
+
+58
+00:02:33,240 --> 00:02:36,500
+Keep in mind that the error text
+should be clear and helpful.
+
+59
+00:02:36,500 --> 00:02:37,960
+Never blame the user.
+
+60
+00:02:37,960 --> 00:02:39,820
+It's important to
+understand the error.
+
+61
+00:02:39,820 --> 00:02:43,824
+We need to give them
+contextual feedback.
+
+62
+00:02:43,824 --> 00:02:45,240
+There are a number
+of ways you can
+
+63
+00:02:45,240 --> 00:02:48,300
+ask a user for their information
+when you're creating a form.
+
+64
+00:02:48,300 --> 00:02:49,600
+Let's take a look at our form.
+
+65
+00:02:49,600 --> 00:02:51,370
+It looks like we
+have two options.
+
+66
+00:02:51,370 --> 00:02:54,290
+No, I'd rather not
+receive the newsletter,
+
+67
+00:02:54,290 --> 00:02:57,370
+and Yes, sign me up
+for the newsletter.
+
+68
+00:02:57,370 --> 00:02:59,210
+That looks a little confusing.
+
+69
+00:02:59,210 --> 00:03:01,490
+We're asking the user
+to read this information
+
+70
+00:03:01,490 --> 00:03:02,620
+and make a decision.
+
+71
+00:03:02,620 --> 00:03:05,280
+It's less likely that they're
+going to click on anything.
+
+72
+00:03:05,280 --> 00:03:09,500
+This is where explicit
+choice comes into play.
+
+73
+00:03:09,500 --> 00:03:12,490
+Research has shown that when
+a default choice is offered,
+
+74
+00:03:12,490 --> 00:03:15,000
+most people do not
+deviate from it.
+
+75
+00:03:15,000 --> 00:03:17,640
+So in our form, we have
+the newsletter pre-checked
+
+76
+00:03:17,640 --> 00:03:19,990
+for the user, making
+far more likely
+
+77
+00:03:19,990 --> 00:03:21,780
+that the user will opt into it.
+
+78
+00:03:21,780 --> 00:03:24,590
+The decision has simply
+been made for them.
+
+79
+00:03:24,590 --> 00:03:28,804
+This is called explicit choice.
+
+80
+00:03:28,804 --> 00:03:30,970
+Now let's think about the
+buttons we want to create.
+
+81
+00:03:30,970 --> 00:03:32,600
+We want to make sure
+users understand
+
+82
+00:03:32,600 --> 00:03:34,180
+why they're clicking
+it, and what's
+
+83
+00:03:34,180 --> 00:03:35,600
+going to happen after they do.
+
+84
+00:03:35,600 --> 00:03:37,740
+A few things to keep in
+mind when creating buttons
+
+85
+00:03:37,740 --> 00:03:39,920
+are, younger and
+older users generally
+
+86
+00:03:39,920 --> 00:03:42,380
+tend to have a hard time
+targeting the mouse.
+
+87
+00:03:42,380 --> 00:03:45,330
+We want to make sure buttons
+are large and easy to click.
+
+88
+00:03:45,330 --> 00:03:47,950
+For example, the top four
+buttons are very big.
+
+89
+00:03:47,950 --> 00:03:50,390
+They have a lot of space where
+you can target the mouse.
+
+90
+00:03:50,390 --> 00:03:52,770
+Where the bottom two
+aren't quite as easy.
+
+91
+00:03:52,770 --> 00:03:55,130
+There's not a lot of padding
+on the one to the right,
+
+92
+00:03:55,130 --> 00:03:57,370
+and the one to the left
+is just an underline.
+
+93
+00:03:57,370 --> 00:04:00,650
+These are less
+likely to be clicked.
+
+94
+00:04:00,650 --> 00:04:02,280
+We also want to
+try and avoid using
+
+95
+00:04:02,280 --> 00:04:04,270
+confusing or cutesy terms.
+
+96
+00:04:04,270 --> 00:04:06,370
+Links should be very
+clearly labeled,
+
+97
+00:04:06,370 --> 00:04:08,580
+and users should
+undoubtedly understand
+
+98
+00:04:08,580 --> 00:04:12,380
+what will happen after
+they click the link.
+
+99
+00:04:12,380 --> 00:04:14,930
+And always make sure
+you use the hand cursor
+
+100
+00:04:14,930 --> 00:04:18,589
+when a user hovers over a link,
+so as to signify the button
+
+101
+00:04:18,589 --> 00:04:19,510
+is clickable.
+
+102
+00:04:19,510 --> 00:04:22,400
+If you hover over your button
+and the pointer doesn't appear,
+
+103
+00:04:22,400 --> 00:04:24,640
+you can use the
+cursor property in CSS
+
+104
+00:04:24,640 --> 00:04:27,122
+if you're familiar with it.
+
+105
+00:04:27,122 --> 00:04:31,020
+With certain forms, confirmation
+messages can be very useful.
+
+106
+00:04:31,020 --> 00:04:33,180
+But it's important
+not to overuse them.
+
+107
+00:04:33,180 --> 00:04:35,370
+You should never use
+a confirmation message
+
+108
+00:04:35,370 --> 00:04:38,460
+when you can easily give
+the user the option to undo.
+
+109
+00:04:38,460 --> 00:04:40,800
+It's best to use the
+confirmation message
+
+110
+00:04:40,800 --> 00:04:44,720
+when the user is doing
+something that's irreversible.
+
+111
+00:04:44,720 --> 00:04:46,700
+For example on
+Skype, the user must
+
+112
+00:04:46,700 --> 00:04:49,100
+confirm that they want
+to mute the conversation.
+
+113
+00:04:49,100 --> 00:04:52,080
+If the user didn't realize
+they muted the conversation,
+
+114
+00:04:52,080 --> 00:04:56,550
+you may think there's an issue
+with Skype and get frustrated.
+
+115
+00:04:56,550 --> 00:04:58,760
+Apple uses a
+confirmation message
+
+116
+00:04:58,760 --> 00:05:01,540
+when a user tries to
+delete older messages
+
+117
+00:05:01,540 --> 00:05:02,780
+from the messaging app.
+
+118
+00:05:02,780 --> 00:05:05,670
+This is to ensure users
+understand exactly what will
+
+119
+00:05:05,670 --> 00:05:07,880
+happen when they do
+this, and prevent them
+
+120
+00:05:07,880 --> 00:05:12,830
+from accidentally deleting
+information that is important.
+
+121
+00:05:12,830 --> 00:05:15,980
+We will use a confirmation
+message on the peer review form
+
+122
+00:05:15,980 --> 00:05:17,705
+when users are checking out.
+
+123
+00:05:17,705 --> 00:05:19,830
+This will let them know
+that they are being charged
+
+124
+00:05:19,830 --> 00:05:22,210
+and will help prevent
+user confusion in dealing
+
+125
+00:05:22,210 --> 00:05:26,130
+with accidental
+checkouts and refunds.
+
+126
+00:05:26,130 --> 00:05:28,430
+We want our users to feel
+a sense of accomplishment
+
+127
+00:05:28,430 --> 00:05:31,610
+when they fill out the form,
+so we'll congratulate them.
+
+128
+00:05:31,610 --> 00:05:32,950
+This is called a mini win.
+
+129
+00:05:32,950 --> 00:05:34,800
+It will help reassure
+them that the task was
+
+130
+00:05:34,800 --> 00:05:36,630
+completed correctly,
+and condition
+
+131
+00:05:36,630 --> 00:05:39,180
+them to continue the behavior.
+
+132
+00:05:39,180 --> 00:05:41,460
+Finally, let's talk
+about accessibility.
+
+133
+00:05:41,460 --> 00:05:43,480
+Accessibility refers
+to making your web
+
+134
+00:05:43,480 --> 00:05:46,040
+page more usable for
+everyone, including
+
+135
+00:05:46,040 --> 00:05:47,480
+people with disabilities.
+
+136
+00:05:47,480 --> 00:05:49,990
+It's a huge subject and
+shares responsibility
+
+137
+00:05:49,990 --> 00:05:52,070
+between design and development.
+
+138
+00:05:52,070 --> 00:05:55,220
+At the very least, let's
+consider these three things.
+
+139
+00:05:55,220 --> 00:05:56,920
+Never put text in an image.
+
+140
+00:05:56,920 --> 00:05:59,030
+Screen readers should
+be able to tell the user
+
+141
+00:05:59,030 --> 00:06:01,070
+everything they need
+to know without having
+
+142
+00:06:01,070 --> 00:06:02,540
+to fill out the form.
+
+143
+00:06:02,540 --> 00:06:05,540
+Avoid low contrast
+text and input fields.
+
+144
+00:06:05,540 --> 00:06:09,010
+It makes it hard on people with
+bad vision or color blindness.
+
+145
+00:06:09,010 --> 00:06:12,040
+Make sure all fields are
+laid out in a logical way,
+
+146
+00:06:12,040 --> 00:06:15,880
+asking for the right
+information at the right time.
+
+147
+00:06:15,880 --> 00:06:18,450
+And always, always,
+always test your forms
+
+148
+00:06:18,450 --> 00:06:20,000
+with accessibility tools.
+
+149
+00:06:20,000 --> 00:06:21,790
+One of my favorites is Wave.
+
+150
+00:06:21,790 --> 00:06:26,790
+You can paste your URL
+at wave.webaim.org.
+
+151
+00:06:26,790 --> 00:06:28,970
+It will return a lot
+of valuable information
+
+152
+00:06:28,970 --> 00:06:33,420
+to ensure everyone has a
+great experience on your site.
+
+153
+00:06:33,420 --> 00:06:36,610
+You can also test your site
+with the Color Contrast Analyzer
+
+154
+00:06:36,610 --> 00:06:37,220
+tool.
+
+155
+00:06:37,220 --> 00:06:39,170
+This looks at all the
+colors on your website
+
+156
+00:06:39,170 --> 00:06:41,150
+and measures the
+difference between them.
+
+157
+00:06:41,150 --> 00:06:44,370
+If there's not enough contrast,
+the edges don't light up,
+
+158
+00:06:44,370 --> 00:06:48,800
+and you may want to increase
+the color contrast there.
+
+159
+00:06:48,800 --> 00:06:50,603
+All right, that's the
+end of Section One.
+
+160
+00:06:50,603 --> 00:06:52,186
+Let's go try some
+challenges, and I'll
+
+161
+00:06:52,186 --> 00:06:54,440
+see you in Section Two.
+
+162
+00:06:54,440 --> 00:06:55,427
+.
+

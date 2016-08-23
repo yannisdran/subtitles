@@ -1,0 +1,524 @@
+﻿1
+00:00:02,080 --> 00:00:05,450
+Hello and welcome back to level
+three, section three-- Pricing
+
+2
+00:00:05,450 --> 00:00:06,110
+Pages.
+
+3
+00:00:06,110 --> 00:00:08,700
+Let's get started.
+
+4
+00:00:08,700 --> 00:00:10,970
+Now that our peer review
+feature is doing better,
+
+5
+00:00:10,970 --> 00:00:13,940
+we want to expand the offer
+and create tiered pricing.
+
+6
+00:00:13,940 --> 00:00:16,200
+This will help different
+people with different needs
+
+7
+00:00:16,200 --> 00:00:19,100
+have access to the peer review
+and get people on a budget
+
+8
+00:00:19,100 --> 00:00:21,530
+some different options.
+
+9
+00:00:21,530 --> 00:00:24,500
+The first thing we need to do
+is make sure page influences
+
+10
+00:00:24,500 --> 00:00:25,210
+decision.
+
+11
+00:00:25,210 --> 00:00:28,260
+There are a few ways we can
+do this-- offer content that
+
+12
+00:00:28,260 --> 00:00:30,350
+answers a person's
+question and helps
+
+13
+00:00:30,350 --> 00:00:33,160
+to make an informed choice.
+
+14
+00:00:33,160 --> 00:00:35,380
+Here we can see the
+price clearly displayed
+
+15
+00:00:35,380 --> 00:00:38,830
+at the top and everything that
+we will get in a bullet form
+
+16
+00:00:38,830 --> 00:00:40,870
+beneath it.
+
+17
+00:00:40,870 --> 00:00:44,710
+We can also influence decision
+by offering recommendations.
+
+18
+00:00:44,710 --> 00:00:47,500
+Users value advice from experts.
+
+19
+00:00:47,500 --> 00:00:49,380
+We will do this by
+clearly displaying
+
+20
+00:00:49,380 --> 00:00:52,090
+our most popular option
+and encouraging people
+
+21
+00:00:52,090 --> 00:00:54,550
+to get started for free.
+
+22
+00:00:54,550 --> 00:00:56,970
+We will also describe
+the benefits.
+
+23
+00:00:56,970 --> 00:00:59,220
+People want to know
+what's in it for them.
+
+24
+00:00:59,220 --> 00:01:02,530
+This might include extrinsic
+rewards like money, rebates,
+
+25
+00:01:02,530 --> 00:01:06,170
+or helping users get published.
+
+26
+00:01:06,170 --> 00:01:09,350
+You can also appeal to a
+user's intrinsic motivations
+
+27
+00:01:09,350 --> 00:01:10,310
+and values.
+
+28
+00:01:10,310 --> 00:01:13,060
+The TOMS website does this
+by helping people in need
+
+29
+00:01:13,060 --> 00:01:16,800
+with the purchase
+of a pair of shoes.
+
+30
+00:01:16,800 --> 00:01:20,270
+You can also influence users
+by reframing the message.
+
+31
+00:01:20,270 --> 00:01:23,100
+You can push people towards
+a specific choice using
+
+32
+00:01:23,100 --> 00:01:26,370
+scarcity, social motivators,
+social comparison,
+
+33
+00:01:26,370 --> 00:01:27,430
+and social proof.
+
+34
+00:01:27,430 --> 00:01:30,100
+Here you can see we
+will use social proof
+
+35
+00:01:30,100 --> 00:01:32,810
+by creating testimonials that
+display beneath the pricing
+
+36
+00:01:32,810 --> 00:01:35,230
+table.
+
+37
+00:01:35,230 --> 00:01:36,970
+Take a look at
+Indiegogo's website.
+
+38
+00:01:36,970 --> 00:01:39,890
+It uses several methods
+to influence our decisions
+
+39
+00:01:39,890 --> 00:01:41,160
+to back a project.
+
+40
+00:01:41,160 --> 00:01:43,620
+Donation recommendations
+are reinforced
+
+41
+00:01:43,620 --> 00:01:45,640
+with behavioral
+science techniques--
+
+42
+00:01:45,640 --> 00:01:48,520
+like social proof with how
+many people have pledged
+
+43
+00:01:48,520 --> 00:01:52,760
+and scarcity with
+a limited time.
+
+44
+00:01:52,760 --> 00:01:55,060
+After a person has made
+the decision to act,
+
+45
+00:01:55,060 --> 00:01:56,720
+the next step is
+to help them follow
+
+46
+00:01:56,720 --> 00:02:00,090
+through-- making the action
+as easy and barrier-free as
+
+47
+00:02:00,090 --> 00:02:01,090
+possible.
+
+48
+00:02:01,090 --> 00:02:03,040
+One way is try for free.
+
+49
+00:02:03,040 --> 00:02:06,390
+Also, you want to shape the
+experience in a way that
+
+50
+00:02:06,390 --> 00:02:08,139
+facilitates action.
+
+51
+00:02:08,139 --> 00:02:11,100
+Common techniques include
+walkthroughs, callouts, ,
+
+52
+00:02:11,100 --> 00:02:12,624
+and pre-determined defaults.
+
+53
+00:02:12,624 --> 00:02:14,165
+Here, we are splitting
+up our content
+
+54
+00:02:14,165 --> 00:02:16,370
+into small actionable chunks.
+
+55
+00:02:16,370 --> 00:02:18,560
+This makes it more
+approachable and more likely
+
+56
+00:02:18,560 --> 00:02:20,910
+that the user will
+complete the process.
+
+57
+00:02:20,910 --> 00:02:22,990
+You can also encourage
+people to plan,
+
+58
+00:02:22,990 --> 00:02:25,160
+set goals, and
+commit to actions.
+
+59
+00:02:25,160 --> 00:02:26,310
+Send reminders.
+
+60
+00:02:26,310 --> 00:02:29,640
+Follow up on their
+progress over time.
+
+61
+00:02:29,640 --> 00:02:32,570
+It's important that you trigger
+actions at the right moment.
+
+62
+00:02:32,570 --> 00:02:33,969
+Timing is critical.
+
+63
+00:02:33,969 --> 00:02:36,260
+You should always trigger
+people to take an action when
+
+64
+00:02:36,260 --> 00:02:38,740
+they're able to and want to.
+
+65
+00:02:38,740 --> 00:02:40,920
+For example, users need
+to create an account
+
+66
+00:02:40,920 --> 00:02:42,400
+to post articles.
+
+67
+00:02:42,400 --> 00:02:44,860
+So when the new user is
+interested in contributing
+
+68
+00:02:44,860 --> 00:02:47,670
+to the site and clicks
+on the "Write an Article"
+
+69
+00:02:47,670 --> 00:02:51,240
+button, a modal will drop
+down asking them to sign-up.
+
+70
+00:02:51,240 --> 00:02:53,250
+The user is free
+to explore the site
+
+71
+00:02:53,250 --> 00:02:54,850
+and read as much as they want.
+
+72
+00:02:54,850 --> 00:02:57,002
+And we will never try
+to make them sign-up.
+
+73
+00:02:57,002 --> 00:02:58,460
+Only when they want
+to do something
+
+74
+00:02:58,460 --> 00:03:00,130
+that requires an
+account, we we'll
+
+75
+00:03:00,130 --> 00:03:02,520
+ask for their information.
+
+76
+00:03:02,520 --> 00:03:04,390
+Two more concepts
+we should consider
+
+77
+00:03:04,390 --> 00:03:06,450
+when creating pricing
+pages are the paradox
+
+78
+00:03:06,450 --> 00:03:08,620
+of choice and
+progressive disclosure.
+
+79
+00:03:08,620 --> 00:03:11,200
+This will help reduce the
+cognitive load on the user
+
+80
+00:03:11,200 --> 00:03:14,670
+and help facilitate action.
+
+81
+00:03:14,670 --> 00:03:16,650
+The more options
+you offer someone,
+
+82
+00:03:16,650 --> 00:03:18,470
+the harder it is
+for them to choose.
+
+83
+00:03:18,470 --> 00:03:20,450
+This is called the
+paradox of choice.
+
+84
+00:03:20,450 --> 00:03:22,700
+If the user can't
+decide, they will leave.
+
+85
+00:03:22,700 --> 00:03:25,070
+Choosing from three
+things is much easier
+
+86
+00:03:25,070 --> 00:03:28,310
+and will increase the chances of
+the user deciding and following
+
+87
+00:03:28,310 --> 00:03:29,030
+through.
+
+88
+00:03:29,030 --> 00:03:31,980
+According to Jakob Nielsen,
+on the average web page,
+
+89
+00:03:31,980 --> 00:03:35,280
+users have time to read
+at most 28% of the words
+
+90
+00:03:35,280 --> 00:03:36,880
+during an average visit.
+
+91
+00:03:36,880 --> 00:03:38,195
+20% is more likely.
+
+92
+00:03:40,760 --> 00:03:43,610
+Progressive disclosure means
+that we reduce page details
+
+93
+00:03:43,610 --> 00:03:44,460
+to a minimum.
+
+94
+00:03:44,460 --> 00:03:45,990
+We only show the basic content.
+
+95
+00:03:45,990 --> 00:03:48,860
+This will help users
+facilitate their objectives.
+
+96
+00:03:48,860 --> 00:03:52,260
+Make sure to only show what
+is necessary on each screen.
+
+97
+00:03:52,260 --> 00:03:54,320
+If people are
+making a choice, try
+
+98
+00:03:54,320 --> 00:03:56,290
+to only show them
+enough information
+
+99
+00:03:56,290 --> 00:03:58,260
+to allow them to
+make that choice.
+
+100
+00:03:58,260 --> 00:04:01,590
+Avoid the tendency to over
+explain or show everything
+
+101
+00:04:01,590 --> 00:04:02,230
+all at once.
+
+102
+00:04:05,000 --> 00:04:07,040
+Most people will only
+consider the choices
+
+103
+00:04:07,040 --> 00:04:10,700
+they are offered-- even if
+other possibilities exist.
+
+104
+00:04:10,700 --> 00:04:12,820
+All choices should
+bring the user closer
+
+105
+00:04:12,820 --> 00:04:14,910
+to their goal as well as ours.
+
+106
+00:04:14,910 --> 00:04:17,110
+Then we can help lead a
+user to the choices that
+
+107
+00:04:17,110 --> 00:04:18,577
+are best for them.
+
+108
+00:04:18,577 --> 00:04:20,910
+Keep these things in mind
+when creating your own pricing
+
+109
+00:04:20,910 --> 00:04:21,626
+pages.
+
+110
+00:04:21,626 --> 00:04:23,750
+Now let's get our hands
+dirty with some challenges.
+
+111
+00:04:23,750 --> 00:04:25,041
+And I'll see you in level four.
+
+112
+00:04:25,041 --> 00:04:26,714
+Good luck.
+

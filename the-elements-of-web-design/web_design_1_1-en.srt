@@ -1,0 +1,749 @@
+1
+00:00:00,499 --> 00:00:02,500
+[SINGING] No one's
+buying all your widgets,
+
+2
+00:00:02,500 --> 00:00:04,965
+and you're losing people quick.
+
+3
+00:00:04,965 --> 00:00:07,970
+They're lost inside
+your website, and they
+
+4
+00:00:07,970 --> 00:00:09,740
+don't know where to click.
+
+5
+00:00:09,740 --> 00:00:12,280
+If you had learned
+about your users,
+
+6
+00:00:12,280 --> 00:00:14,410
+you'd know where you went wrong.
+
+7
+00:00:14,410 --> 00:00:17,500
+They'd be engaging
+with your content,
+
+8
+00:00:17,500 --> 00:00:20,220
+and I wouldn't sing this song.
+
+9
+00:00:20,220 --> 00:00:23,230
+User centered design,
+helps improve communication,
+
+10
+00:00:23,230 --> 00:00:27,070
+Navigation, pagination,
+Architect your information.
+
+11
+00:00:27,070 --> 00:00:29,320
+Add a motto or a
+tagline, with search
+
+12
+00:00:29,320 --> 00:00:32,725
+so they can find a
+better website is
+
+13
+00:00:32,725 --> 00:00:38,360
+defined with The
+Elements of Web Design.
+
+14
+00:00:38,360 --> 00:00:40,320
+Welcome to The
+Elements of Web Design.
+
+15
+00:00:40,320 --> 00:00:41,660
+I'm Paul Hershey.
+
+16
+00:00:41,660 --> 00:00:43,350
+As the internet
+has evolved, users
+
+17
+00:00:43,350 --> 00:00:46,960
+have become less tolerant of
+bad design and bad experiences.
+
+18
+00:00:46,960 --> 00:00:50,710
+And this is why we need to plan
+our experiences for end users.
+
+19
+00:00:50,710 --> 00:00:54,840
+That's where the elements of
+web design come into play.
+
+20
+00:00:54,840 --> 00:00:58,660
+In this course, we'll cover
+persona creation, user testing,
+
+21
+00:00:58,660 --> 00:01:03,170
+site organization, wire framing
+and sketching, navigation best
+
+22
+00:01:03,170 --> 00:01:07,090
+practices, form design,
+home page best practices,
+
+23
+00:01:07,090 --> 00:01:10,220
+pricing page design, and
+mobile design best practices.
+
+24
+00:01:12,840 --> 00:01:15,320
+If you haven't taken Code
+School's Fundamentals of Design
+
+25
+00:01:15,320 --> 00:01:17,400
+course, I'd highly recommend it.
+
+26
+00:01:17,400 --> 00:01:20,490
+It's not necessarily a
+prerequisite to our course,
+
+27
+00:01:20,490 --> 00:01:23,000
+but it will give you the
+fundamentals of typography,
+
+28
+00:01:23,000 --> 00:01:24,450
+color, and layout.
+
+29
+00:01:24,450 --> 00:01:26,260
+Taking both courses
+together will give you
+
+30
+00:01:26,260 --> 00:01:28,960
+a better overall understanding
+of the design process
+
+31
+00:01:28,960 --> 00:01:32,890
+when you build your
+products and websites.
+
+32
+00:01:32,890 --> 00:01:35,430
+This is neither a
+UI or a UX course,
+
+33
+00:01:35,430 --> 00:01:37,810
+though I do want to make a
+distinction between both.
+
+34
+00:01:37,810 --> 00:01:41,080
+UX, meaning user
+experience, is the process
+
+35
+00:01:41,080 --> 00:01:42,550
+of understanding the end user.
+
+36
+00:01:42,550 --> 00:01:46,890
+It's creating personas, creating
+experience maps, and testing.
+
+37
+00:01:46,890 --> 00:01:49,650
+On the other hand, UI,
+or user interface design,
+
+38
+00:01:49,650 --> 00:01:52,860
+consists of interaction
+design, usability design,
+
+39
+00:01:52,860 --> 00:01:55,220
+visual hierarchy,
+and icon design.
+
+40
+00:01:55,220 --> 00:01:57,380
+As well as color
+and type choices.
+
+41
+00:01:57,380 --> 00:01:59,080
+There's a lot that
+goes into this
+
+42
+00:01:59,080 --> 00:02:00,840
+to ensure that a
+product or service is
+
+43
+00:02:00,840 --> 00:02:02,870
+easy to use and understand.
+
+44
+00:02:02,870 --> 00:02:04,880
+This course will be
+a very broad overview
+
+45
+00:02:04,880 --> 00:02:06,500
+of both of these disciplines.
+
+46
+00:02:06,500 --> 00:02:09,240
+It would be impossible to
+teach them both in one course.
+
+47
+00:02:09,240 --> 00:02:11,240
+My goal is to give you
+a common sense approach
+
+48
+00:02:11,240 --> 00:02:15,060
+to design when you're creating
+your websites and products.
+
+49
+00:02:15,060 --> 00:02:17,720
+With that said, let's
+get started on level 1
+
+50
+00:02:17,720 --> 00:02:20,760
+with personas.
+
+51
+00:02:20,760 --> 00:02:23,250
+Our client Amanda has brought
+us a new project that she
+
+52
+00:02:23,250 --> 00:02:24,920
+would like us to design.
+
+53
+00:02:24,920 --> 00:02:26,270
+It's called ChemCraft.
+
+54
+00:02:26,270 --> 00:02:29,540
+It's a social blogging platform
+for the chemistry industry.
+
+55
+00:02:29,540 --> 00:02:32,900
+We will spend this course
+building out her design.
+
+56
+00:02:32,900 --> 00:02:35,850
+She wants to make sure that
+users can easily find and read
+
+57
+00:02:35,850 --> 00:02:39,150
+articles, can publish
+their own articles,
+
+58
+00:02:39,150 --> 00:02:41,650
+have a dashboard where
+they can see analytics,
+
+59
+00:02:41,650 --> 00:02:44,510
+and have the ability to
+purchase peer reviews.
+
+60
+00:02:44,510 --> 00:02:46,430
+So with all that
+information, are
+
+61
+00:02:46,430 --> 00:02:48,800
+we ready to start wire framing?
+
+62
+00:02:48,800 --> 00:02:50,950
+Probably not yet.
+
+63
+00:02:50,950 --> 00:02:52,810
+Before we get started,
+we need to understand
+
+64
+00:02:52,810 --> 00:02:54,900
+who our target audience is.
+
+65
+00:02:54,900 --> 00:02:57,320
+So let's figure this
+out for ChemCraft.
+
+66
+00:02:57,320 --> 00:03:00,340
+We need to understand things
+like how much work experience
+
+67
+00:03:00,340 --> 00:03:03,550
+they have, what their
+professional background is,
+
+68
+00:03:03,550 --> 00:03:05,960
+what their needs
+and interests are,
+
+69
+00:03:05,960 --> 00:03:08,669
+how they are currently
+trying to meet those needs,
+
+70
+00:03:08,669 --> 00:03:10,835
+and when and where they
+would be using this service.
+
+71
+00:03:13,340 --> 00:03:15,880
+So how can we gather
+persona information?
+
+72
+00:03:15,880 --> 00:03:18,770
+Well, we can start by
+making educated assumptions,
+
+73
+00:03:18,770 --> 00:03:22,570
+we can conduct a focus group,
+we can interview current users,
+
+74
+00:03:22,570 --> 00:03:24,680
+or we can work with a
+third party research team
+
+75
+00:03:24,680 --> 00:03:26,210
+to gather information.
+
+76
+00:03:26,210 --> 00:03:27,920
+But we don't have any users yet.
+
+77
+00:03:27,920 --> 00:03:31,350
+So how can we gather this
+information and organize it?
+
+78
+00:03:31,350 --> 00:03:34,360
+The answer to this is to
+create an assumption persona.
+
+79
+00:03:34,360 --> 00:03:37,660
+Once our site is up and running,
+and we have real users on it,
+
+80
+00:03:37,660 --> 00:03:41,000
+we can use the data and
+get a clear understanding
+
+81
+00:03:41,000 --> 00:03:43,070
+of who our users actually are.
+
+82
+00:03:43,070 --> 00:03:45,570
+Nevertheless, it is
+always a good idea
+
+83
+00:03:45,570 --> 00:03:48,242
+to create assumption personas
+at the beginning of a project.
+
+84
+00:03:48,242 --> 00:03:49,700
+They will help to
+ensure that we're
+
+85
+00:03:49,700 --> 00:03:51,074
+creating a product
+for someone we
+
+86
+00:03:51,074 --> 00:03:53,770
+believe will actually use it.
+
+87
+00:03:53,770 --> 00:03:56,180
+So what exactly is a persona?
+
+88
+00:03:56,180 --> 00:03:58,620
+Personas are descriptions
+of users within our target
+
+89
+00:03:58,620 --> 00:03:59,440
+audience.
+
+90
+00:03:59,440 --> 00:04:02,870
+They generally consist of
+a pull quote, an image,
+
+91
+00:04:02,870 --> 00:04:07,240
+a fictitious name, a job
+title, demographic information,
+
+92
+00:04:07,240 --> 00:04:09,035
+and their goals
+and their concerns.
+
+93
+00:04:13,350 --> 00:04:16,399
+So let's start with a
+pull quote and an image.
+
+94
+00:04:16,399 --> 00:04:19,019
+The image helps us
+identify with the user,
+
+95
+00:04:19,019 --> 00:04:21,339
+and the quote should summarize
+their needs and goals
+
+96
+00:04:21,339 --> 00:04:23,850
+into a single sentence,
+and it gives a persona
+
+97
+00:04:23,850 --> 00:04:25,930
+further personality.
+
+98
+00:04:25,930 --> 00:04:30,090
+Next, we have attributes
+like a fictitious name, age,
+
+99
+00:04:30,090 --> 00:04:33,260
+job title, and general
+demographic information.
+
+100
+00:04:33,260 --> 00:04:36,030
+This will help us better
+understand the user's lifestyle
+
+101
+00:04:36,030 --> 00:04:37,860
+or work situation.
+
+102
+00:04:37,860 --> 00:04:40,220
+We also need to think
+about the end user's goals,
+
+103
+00:04:40,220 --> 00:04:42,750
+or what they want to accomplish
+when performing tasks
+
+104
+00:04:42,750 --> 00:04:43,970
+on our website.
+
+105
+00:04:43,970 --> 00:04:47,580
+This will help us identify their
+needs when we build features.
+
+106
+00:04:47,580 --> 00:04:49,900
+And finally, we have
+a list of concerns.
+
+107
+00:04:49,900 --> 00:04:52,830
+These, like goals,
+are typically a list
+
+108
+00:04:52,830 --> 00:04:56,040
+of product related concerns from
+the end user's point of view.
+
+109
+00:04:56,040 --> 00:04:57,650
+We're going to try
+to answer questions
+
+110
+00:04:57,650 --> 00:05:00,650
+like do they have to use
+this product for work?
+
+111
+00:05:00,650 --> 00:05:05,390
+Or will it primarily be
+used on a mobile device?
+
+112
+00:05:05,390 --> 00:05:07,180
+So here's our first persona.
+
+113
+00:05:07,180 --> 00:05:08,500
+Walter.
+
+114
+00:05:08,500 --> 00:05:11,580
+He's a department manager, and
+he's married with two kids.
+
+115
+00:05:11,580 --> 00:05:13,960
+We know his reasons
+for using the site are
+
+116
+00:05:13,960 --> 00:05:16,590
+to read about the
+latest trends, share
+
+117
+00:05:16,590 --> 00:05:19,110
+his knowledge with the
+chemistry community,
+
+118
+00:05:19,110 --> 00:05:22,310
+and find people to conduct
+peer reviews for him.
+
+119
+00:05:22,310 --> 00:05:26,170
+We also know he has a need
+to co-author articles, read
+
+120
+00:05:26,170 --> 00:05:28,970
+articles from his iPads,
+and he wants the ability
+
+121
+00:05:28,970 --> 00:05:33,090
+to save articles to read later.
+
+122
+00:05:33,090 --> 00:05:35,500
+I went ahead and
+created another persona.
+
+123
+00:05:35,500 --> 00:05:36,800
+June.
+
+124
+00:05:36,800 --> 00:05:39,700
+So we can see that June
+is an intern at DuPont,
+
+125
+00:05:39,700 --> 00:05:41,570
+and is single with no kids.
+
+126
+00:05:41,570 --> 00:05:45,080
+She is fresh out of college
+and new to the industry.
+
+127
+00:05:45,080 --> 00:05:47,900
+We also know that she
+wants to follow her peers,
+
+128
+00:05:47,900 --> 00:05:51,010
+get paid to participate
+in peer reviewed studies,
+
+129
+00:05:51,010 --> 00:05:53,980
+and comment on articles
+she is reading.
+
+130
+00:05:53,980 --> 00:05:56,800
+And she wants the ability
+to read and write articles
+
+131
+00:05:56,800 --> 00:06:00,020
+from her phone as well as be
+alerted when new articles are
+
+132
+00:06:00,020 --> 00:06:04,250
+written by users she follows.
+
+133
+00:06:04,250 --> 00:06:07,120
+When creating personas, you
+want to have a minimum of two,
+
+134
+00:06:07,120 --> 00:06:08,750
+and a maximum of four.
+
+135
+00:06:08,750 --> 00:06:10,450
+Personas give
+everyone on the team
+
+136
+00:06:10,450 --> 00:06:13,110
+a common understanding of
+who they're designing for.
+
+137
+00:06:13,110 --> 00:06:14,610
+When you're working
+on your product,
+
+138
+00:06:14,610 --> 00:06:16,570
+you can ask questions
+like will this
+
+139
+00:06:16,570 --> 00:06:18,200
+solve the problem for June?
+
+140
+00:06:18,200 --> 00:06:20,790
+Or does this solve a
+pain point for Walter?
+
+141
+00:06:20,790 --> 00:06:23,410
+They make them feel
+like real people.
+
+142
+00:06:23,410 --> 00:06:25,460
+Some other benefits
+of creating personas
+
+143
+00:06:25,460 --> 00:06:27,510
+are they separate
+you from your work
+
+144
+00:06:27,510 --> 00:06:30,970
+and prevent you from assuming
+you know what the user wants.
+
+145
+00:06:30,970 --> 00:06:34,320
+They also allow you to
+empathize with the user's needs.
+
+146
+00:06:34,320 --> 00:06:36,800
+They provide a focus
+for decision making
+
+147
+00:06:36,800 --> 00:06:39,030
+and help to
+personalize the user,
+
+148
+00:06:39,030 --> 00:06:41,120
+and they create a
+shared understanding
+
+149
+00:06:41,120 --> 00:06:43,150
+of who the user is.
+
+150
+00:06:43,150 --> 00:06:45,740
+So hopefully you can see that
+it's very valuable to do this
+
+151
+00:06:45,740 --> 00:06:48,830
+before we create
+our wire frames.
+
+152
+00:06:48,830 --> 00:06:51,430
+Countless organizations
+make decisions every day
+
+153
+00:06:51,430 --> 00:06:54,030
+based on personas they've
+created for their users.
+
+154
+00:06:54,030 --> 00:06:58,640
+From Apple to Southwest,
+and Nike to Spotify.
+
+155
+00:06:58,640 --> 00:07:00,190
+Now let's work on
+some challenges,
+
+156
+00:07:00,190 --> 00:07:01,500
+and I'll see afterwards.
+
+157
+00:07:01,500 --> 00:07:03,260
+Good luck.
+
