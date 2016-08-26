@@ -1,0 +1,629 @@
+﻿1
+00:00:02,029 --> 00:00:05,156
+Welcome back to Forging
+Ahead with .Net MVC.
+
+2
+00:00:05,156 --> 00:00:07,280
+In this section, we're
+going to use layouts to make
+
+3
+00:00:07,280 --> 00:00:08,378
+our views more consistent.
+
+4
+00:00:11,010 --> 00:00:12,560
+Some things we want
+to do is we want
+
+5
+00:00:12,560 --> 00:00:15,990
+to be able to set the title
+on our individual pages,
+
+6
+00:00:15,990 --> 00:00:20,050
+as well as the title and the
+metadata in our search results
+
+7
+00:00:20,050 --> 00:00:22,486
+to be more useful
+application wide.
+
+8
+00:00:25,960 --> 00:00:28,120
+Now, you'll notice,
+as we've made changes
+
+9
+00:00:28,120 --> 00:00:31,320
+in our application, certain
+parts of our pages have changed
+
+10
+00:00:31,320 --> 00:00:33,010
+and other parts haven't.
+
+11
+00:00:33,010 --> 00:00:36,545
+The navigation and the title at
+the top, as well as the footer,
+
+12
+00:00:36,545 --> 00:00:38,700
+have remained the same.
+
+13
+00:00:38,700 --> 00:00:42,200
+However, the middle portion--
+the body-- of our page
+
+14
+00:00:42,200 --> 00:00:44,800
+has changed depending on
+what view we've returned.
+
+15
+00:00:44,800 --> 00:00:46,015
+This is thanks to the layout.
+
+16
+00:00:49,610 --> 00:00:51,270
+Now if you look in
+our views folder,
+
+17
+00:00:51,270 --> 00:00:53,570
+we have a folder called Shared.
+
+18
+00:00:53,570 --> 00:00:58,520
+Inside this folder will be a
+file that's _Layout.cshtml.
+
+19
+00:00:59,080 --> 00:01:01,670
+This file contains the content
+that has been on our page
+
+20
+00:01:01,670 --> 00:01:03,800
+that has been remaining
+static this whole time,
+
+21
+00:01:03,800 --> 00:01:06,570
+as well as it sets up the
+layout for the content
+
+22
+00:01:06,570 --> 00:01:10,040
+we do add to our page.
+
+23
+00:01:10,040 --> 00:01:11,970
+We've got this layout
+file that sets up
+
+24
+00:01:11,970 --> 00:01:14,320
+the header and the
+footer of our page,
+
+25
+00:01:14,320 --> 00:01:16,860
+but exactly how do our
+individual views know
+
+26
+00:01:16,860 --> 00:01:19,370
+to use this layout of file?
+
+27
+00:01:19,370 --> 00:01:22,020
+We have a file also in
+our views folder called
+
+28
+00:01:22,020 --> 00:01:28,410
+_ViewStart.cshtml, which is
+added to the top of any view
+
+29
+00:01:28,410 --> 00:01:32,920
+any time we use the
+Return View method.
+
+30
+00:01:32,920 --> 00:01:37,020
+If you actually open the
+_ViewStart.cshtml file,
+
+31
+00:01:37,020 --> 00:01:40,410
+you'll notice there's really
+only one line of code here.
+
+32
+00:01:40,410 --> 00:01:44,570
+There's just at, curly
+brace, and then layout equals
+
+33
+00:01:44,570 --> 00:01:46,800
+underscore at layout.
+
+34
+00:01:46,800 --> 00:01:50,400
+Layout is a keyword by Razor
+that actually sets the layout
+
+35
+00:01:50,400 --> 00:01:52,780
+of a page, and then
+we're setting that layout
+
+36
+00:01:52,780 --> 00:01:57,160
+to our _layout file.
+
+37
+00:01:57,160 --> 00:02:00,810
+Looking in the _Layout.cshtml,
+you'll notice there is a lot
+
+38
+00:02:00,810 --> 00:02:01,702
+happening here.
+
+39
+00:02:01,702 --> 00:02:03,410
+So we're going to go
+ahead and break down
+
+40
+00:02:03,410 --> 00:02:05,730
+some of the important
+pieces that we care about.
+
+41
+00:02:05,730 --> 00:02:08,365
+Most of the rest of this is
+just HTML we've seen before.
+
+42
+00:02:11,580 --> 00:02:14,350
+The first thing you'll see
+that is unique to ASP.net
+
+43
+00:02:14,350 --> 00:02:17,200
+is the at view
+data, which is going
+
+44
+00:02:17,200 --> 00:02:19,950
+to have a string in
+brackets afterwards.
+
+45
+00:02:19,950 --> 00:02:21,710
+View Data is a
+dictionary that allows
+
+46
+00:02:21,710 --> 00:02:24,730
+us to pass data from our
+controller to our view,
+
+47
+00:02:24,730 --> 00:02:26,544
+similar to the model.
+
+48
+00:02:26,544 --> 00:02:28,460
+Now a model is actually
+defining the structure
+
+49
+00:02:28,460 --> 00:02:30,287
+of the data on the
+page. View Data
+
+50
+00:02:30,287 --> 00:02:32,370
+is something we would use
+if we have like that one
+
+51
+00:02:32,370 --> 00:02:34,760
+off variable, or one off
+field that doesn't really
+
+52
+00:02:34,760 --> 00:02:38,700
+fit into our model, but
+we're going to need.
+
+53
+00:02:38,700 --> 00:02:41,200
+So the next thing you'll
+notice that isn't standard HTML
+
+54
+00:02:41,200 --> 00:02:44,900
+are at render section, which is
+followed by a string and then
+
+55
+00:02:44,900 --> 00:02:47,010
+whether or not it's required.
+
+56
+00:02:47,010 --> 00:02:50,670
+What Render Section allows us to
+do is it acts as a placeholder
+
+57
+00:02:50,670 --> 00:02:53,600
+that we can define within
+our view to pass content
+
+58
+00:02:53,600 --> 00:02:55,962
+into that location of the page.
+
+59
+00:02:55,962 --> 00:02:58,420
+So in this case, where we have
+the in between our head tag,
+
+60
+00:02:58,420 --> 00:03:01,140
+if I want to reference an
+additional style sheet,
+
+61
+00:03:01,140 --> 00:03:03,360
+I could just drop
+that in on my view
+
+62
+00:03:03,360 --> 00:03:06,860
+and it would bring that in here.
+
+63
+00:03:06,860 --> 00:03:09,830
+You'll also notice we
+have the at render body.
+
+64
+00:03:09,830 --> 00:03:11,970
+Now anytime in our view
+we don't specifically
+
+65
+00:03:11,970 --> 00:03:15,000
+define a section we're
+going to put the content in,
+
+66
+00:03:15,000 --> 00:03:17,910
+it'll end up being put
+worthy at render body is.
+
+67
+00:03:17,910 --> 00:03:20,030
+That's the reason all of
+our changes in our index
+
+68
+00:03:20,030 --> 00:03:24,680
+are details pages
+have shown up here.
+
+69
+00:03:24,680 --> 00:03:27,100
+So let's put our layout to
+use to try and accomplish
+
+70
+00:03:27,100 --> 00:03:29,780
+our goal of being able to
+set the title on our page,
+
+71
+00:03:29,780 --> 00:03:33,590
+as well as to be able to set
+the metadata for search results.
+
+72
+00:03:33,590 --> 00:03:36,440
+Now, we don't have to actually
+do anything with the RenderBody
+
+73
+00:03:36,440 --> 00:03:40,360
+because that's been
+working this whole time.
+
+74
+00:03:40,360 --> 00:03:43,440
+The way we would set our
+ViewData for our title,
+
+75
+00:03:43,440 --> 00:03:45,710
+is we can just use it
+like it's a variable.
+
+76
+00:03:45,710 --> 00:03:48,050
+We'll just have our
+ViewData, our key,
+
+77
+00:03:48,050 --> 00:03:49,650
+and then we can set
+that to characters
+
+78
+00:03:49,650 --> 00:03:51,000
+in our index section.
+
+79
+00:03:51,000 --> 00:03:54,690
+What this will do is it will
+pass this characters value back
+
+80
+00:03:54,690 --> 00:03:58,300
+to the Layout page, and put
+that in the title for us.
+
+81
+00:03:58,300 --> 00:03:59,800
+Now, you'll notice
+we didn't have
+
+82
+00:03:59,800 --> 00:04:02,881
+to actually pass this ViewData
+through our view method.
+
+83
+00:04:02,881 --> 00:04:05,380
+That's because this is handled
+in the background where we'll
+
+84
+00:04:05,380 --> 00:04:09,620
+automatically map up that
+ViewData in our controller
+
+85
+00:04:09,620 --> 00:04:11,590
+to the ViewData in our view.
+
+86
+00:04:11,590 --> 00:04:13,740
+So we don't actually have
+to wire anything else up.
+
+87
+00:04:16,459 --> 00:04:19,700
+What this will end up doing is
+taking that character's value,
+
+88
+00:04:19,700 --> 00:04:23,120
+bringing it to our layout
+page, replacing that ViewData
+
+89
+00:04:23,120 --> 00:04:25,040
+in the Layout page
+with characters
+
+90
+00:04:25,040 --> 00:04:26,780
+when it comes time to render.
+
+91
+00:04:26,780 --> 00:04:28,570
+That will make our
+title characters
+
+92
+00:04:28,570 --> 00:04:33,361
+space dash space forging ahead.
+
+93
+00:04:33,361 --> 00:04:34,860
+The next thing we're
+going to set up
+
+94
+00:04:34,860 --> 00:04:38,345
+is to be able to actually add
+our metadata to our head tag
+
+95
+00:04:38,345 --> 00:04:39,620
+in our layout.
+
+96
+00:04:39,620 --> 00:04:42,090
+As you'll recall, we had
+that at render section
+
+97
+00:04:42,090 --> 00:04:44,860
+header on our layout page.
+
+98
+00:04:44,860 --> 00:04:49,760
+If we go into our index view,
+and add the at section space
+
+99
+00:04:49,760 --> 00:04:52,680
+header, anything we
+put in the curly braces
+
+100
+00:04:52,680 --> 00:04:56,360
+after that will be populated
+to that location on the layout.
+
+101
+00:04:56,360 --> 00:04:58,760
+What we're going to
+do is pass a meta tag
+
+102
+00:04:58,760 --> 00:05:01,710
+with the attribute
+description that's
+
+103
+00:05:01,710 --> 00:05:04,440
+going to have the basic
+description of the page.
+
+104
+00:05:04,440 --> 00:05:06,960
+You'll notice at render
+section, that first argument
+
+105
+00:05:06,960 --> 00:05:08,516
+is the name of the section.
+
+106
+00:05:08,516 --> 00:05:09,890
+So when we call
+it from our view,
+
+107
+00:05:09,890 --> 00:05:11,710
+we're actually
+just saying render.
+
+108
+00:05:11,710 --> 00:05:13,980
+We're using the actual
+name of the section
+
+109
+00:05:13,980 --> 00:05:16,587
+to make that map up.
+
+110
+00:05:16,587 --> 00:05:18,670
+If we were to pull up the
+index page at this point
+
+111
+00:05:18,670 --> 00:05:20,503
+and look at the results
+of the changes we've
+
+112
+00:05:20,503 --> 00:05:22,640
+made to our layout,
+we'll notice the title
+
+113
+00:05:22,640 --> 00:05:25,550
+on the top of our browser
+will have our new characters
+
+114
+00:05:25,550 --> 00:05:28,650
+dash forging ahead, just
+the same as if we were
+
+115
+00:05:28,650 --> 00:05:30,970
+to look in search
+results for this page,
+
+116
+00:05:30,970 --> 00:05:34,065
+we would also see that
+characters dash forging ahead,
+
+117
+00:05:34,065 --> 00:05:36,398
+as well as would have the
+description from our metadata.
+
+118
+00:05:39,150 --> 00:05:41,490
+There are some conventions
+to be aware of.
+
+119
+00:05:41,490 --> 00:05:43,850
+For example, the naming
+convention of layouts
+
+120
+00:05:43,850 --> 00:05:46,540
+is typically underscore
+then PascalCase.
+
+121
+00:05:46,540 --> 00:05:50,280
+That is, underscore and then
+each word of the name of that
+
+122
+00:05:50,280 --> 00:05:52,520
+file to be capitalized.
+
+123
+00:05:52,520 --> 00:05:55,380
+All layouts typically
+go in the shared folder.
+
+124
+00:05:55,380 --> 00:05:58,100
+Normal naming conventions
+is for your section names
+
+125
+00:05:58,100 --> 00:05:59,876
+to be all lowercase.
+
+126
+00:05:59,876 --> 00:06:01,500
+And finally, if you
+have content that's
+
+127
+00:06:01,500 --> 00:06:03,910
+only going to be on some
+pages, you typically
+
+128
+00:06:03,910 --> 00:06:06,959
+don't want to put
+that in your layout.
+
+129
+00:06:06,959 --> 00:06:09,000
+Now, it's your turn to
+make changes to the Layout
+
+130
+00:06:09,000 --> 00:06:10,510
+page in the challenges.
+
+131
+00:06:10,510 --> 00:06:12,060
+Enjoy.
+

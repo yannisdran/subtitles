@@ -1,0 +1,793 @@
+﻿1
+00:00:02,040 --> 00:00:02,989
+Welcome back.
+
+2
+00:00:02,989 --> 00:00:04,780
+In the last section,
+you got to play around
+
+3
+00:00:04,780 --> 00:00:08,460
+with a framework to actually
+create a record in a database.
+
+4
+00:00:08,460 --> 00:00:10,590
+Now there is one thing we
+went ahead and took care
+
+5
+00:00:10,590 --> 00:00:12,090
+of for you behind the
+scenes that you'll
+
+6
+00:00:12,090 --> 00:00:14,440
+need to take care of yourself
+when you do the project.
+
+7
+00:00:14,440 --> 00:00:16,800
+And that is, if you
+noticed, we accepted
+
+8
+00:00:16,800 --> 00:00:19,830
+the ApplicationDBContext
+that was injected
+
+9
+00:00:19,830 --> 00:00:23,080
+but we never did set
+up to inject that.
+
+10
+00:00:23,080 --> 00:00:25,080
+So first thing we're going
+to do in this section
+
+11
+00:00:25,080 --> 00:00:27,214
+is we're going to actually
+set up that injection.
+
+12
+00:00:27,214 --> 00:00:29,130
+And then, we're going
+to move on to setting up
+
+13
+00:00:29,130 --> 00:00:34,657
+your CRUD methods, create,
+read, update, and delete.
+
+14
+00:00:34,657 --> 00:00:37,240
+If you recall, this is what our
+character controller currently
+
+15
+00:00:37,240 --> 00:00:38,630
+looks like.
+
+16
+00:00:38,630 --> 00:00:41,520
+Now the ApplicationDBContext
+will get injected
+
+17
+00:00:41,520 --> 00:00:43,450
+by the services collection.
+
+18
+00:00:43,450 --> 00:00:45,680
+The problem is we
+need to actually add
+
+19
+00:00:45,680 --> 00:00:50,512
+ApplicationDBContext to
+that services collection.
+
+20
+00:00:50,512 --> 00:00:51,970
+The place we'll
+need to add this is
+
+21
+00:00:51,970 --> 00:00:54,860
+in our Startup.cs file,
+which is right in the root
+
+22
+00:00:54,860 --> 00:00:56,960
+directory of our project.
+
+23
+00:00:56,960 --> 00:00:59,877
+This is how we're actually
+going to configure our ORM.
+
+24
+00:00:59,877 --> 00:01:01,460
+Now the way we're
+going to set this up
+
+25
+00:01:01,460 --> 00:01:03,192
+isn't unique to
+this application.
+
+26
+00:01:03,192 --> 00:01:04,900
+This is the sort of
+stuff you'll actually
+
+27
+00:01:04,900 --> 00:01:06,900
+do with any project
+you make that's going
+
+28
+00:01:06,900 --> 00:01:08,066
+to be using EntityFramework.
+
+29
+00:01:10,690 --> 00:01:13,270
+So exactly what is Startup.cs?
+
+30
+00:01:13,270 --> 00:01:16,510
+Startup.cs is how we actually
+configure an application to let
+
+31
+00:01:16,510 --> 00:01:18,490
+it know we're going
+to use MVC, what we're
+
+32
+00:01:18,490 --> 00:01:20,520
+going to dependency
+inject, how it's
+
+33
+00:01:20,520 --> 00:01:22,610
+going to host the web, routes.
+
+34
+00:01:22,610 --> 00:01:23,875
+All of that is handled here.
+
+35
+00:01:27,200 --> 00:01:29,720
+Just like before, we're going
+to add our using statements.
+
+36
+00:01:29,720 --> 00:01:32,870
+In this case, we're going to
+add EntityFramework core dot
+
+37
+00:01:32,870 --> 00:01:34,064
+infrastructure.
+
+38
+00:01:34,064 --> 00:01:35,480
+Now infrastructure
+is going to let
+
+39
+00:01:35,480 --> 00:01:37,250
+us have an in-memory database.
+
+40
+00:01:37,250 --> 00:01:40,330
+If you were to want to use
+SQL Server, MySQL server,
+
+41
+00:01:40,330 --> 00:01:42,560
+or an other alternative,
+you would end up
+
+42
+00:01:42,560 --> 00:01:44,580
+changing that infrastructure
+portion to whatever
+
+43
+00:01:44,580 --> 00:01:46,090
+the appropriate database is.
+
+44
+00:01:49,410 --> 00:01:51,590
+The place we actually set
+up dependency injection
+
+45
+00:01:51,590 --> 00:01:57,060
+within our Startup.cs file is in
+our configure services method.
+
+46
+00:01:57,060 --> 00:02:01,080
+As you can see here, we
+already have services.AddMvc,
+
+47
+00:02:01,080 --> 00:02:02,770
+which is what's
+enabling MVC to be
+
+48
+00:02:02,770 --> 00:02:04,353
+accessible throughout
+our application.
+
+49
+00:02:07,360 --> 00:02:09,885
+To add EntityFramework to our
+services, all we have to do
+
+50
+00:02:09,885 --> 00:02:13,380
+is call
+services.AddEntityFramework.
+
+51
+00:02:13,900 --> 00:02:16,587
+This is a special method
+just for EntityFramework,
+
+52
+00:02:16,587 --> 00:02:18,420
+whereas if you were to
+inject other classes,
+
+53
+00:02:18,420 --> 00:02:20,794
+you'd have to go through a
+little more complicated route.
+
+54
+00:02:23,390 --> 00:02:25,235
+To actually set up
+EntityFramework,
+
+55
+00:02:25,235 --> 00:02:26,860
+we're going to need
+to let it know what
+
+56
+00:02:26,860 --> 00:02:28,680
+DB context it's going to use.
+
+57
+00:02:28,680 --> 00:02:31,610
+In this case, we'll call
+the method add DB context
+
+58
+00:02:31,610 --> 00:02:34,620
+and then pass in our
+application DB context.
+
+59
+00:02:34,620 --> 00:02:36,340
+This method is
+what's actually going
+
+60
+00:02:36,340 --> 00:02:39,540
+to make our application
+DB context injectable
+
+61
+00:02:39,540 --> 00:02:42,990
+to our other constructors.
+
+62
+00:02:42,990 --> 00:02:46,290
+At this point, our
+Startup.cs is fully set up.
+
+63
+00:02:46,290 --> 00:02:48,070
+We're able to do our
+injection and we're
+
+64
+00:02:48,070 --> 00:02:50,800
+ready to move on to actually
+creating our CRUD methods.
+
+65
+00:02:50,800 --> 00:02:54,430
+We'll have a create character
+method, a read all characters
+
+66
+00:02:54,430 --> 00:02:58,370
+method, a read a specific
+characters details,
+
+67
+00:02:58,370 --> 00:03:02,350
+read all active characters,
+update a character,
+
+68
+00:03:02,350 --> 00:03:03,930
+and delete a character.
+
+69
+00:03:03,930 --> 00:03:06,130
+We actually don't need
+to make our create method
+
+70
+00:03:06,130 --> 00:03:10,875
+because we already have
+created that in section one.
+
+71
+00:03:10,875 --> 00:03:13,000
+Once again, we're going to
+add our using statements
+
+72
+00:03:13,000 --> 00:03:14,150
+to our class.
+
+73
+00:03:14,150 --> 00:03:17,400
+In this case, we're
+going to add System.Linq.
+
+74
+00:03:17,400 --> 00:03:20,092
+This is going to give us
+access to lambda expressions
+
+75
+00:03:20,092 --> 00:03:21,675
+which we'll need for
+our CRUD methods.
+
+76
+00:03:24,660 --> 00:03:26,490
+Our first action
+we're going to set up,
+
+77
+00:03:26,490 --> 00:03:28,040
+will be our index action.
+
+78
+00:03:28,040 --> 00:03:30,980
+This is effectively going
+to be our read all action.
+
+79
+00:03:33,670 --> 00:03:35,420
+We'll create a variable
+model which we're
+
+80
+00:03:35,420 --> 00:03:37,820
+going to pass back to our view.
+
+81
+00:03:37,820 --> 00:03:40,580
+This variable, we're going to
+actually take our characters
+
+82
+00:03:40,580 --> 00:03:43,715
+DB set and call
+the to list method.
+
+83
+00:03:43,715 --> 00:03:45,090
+This will actually
+change that DB
+
+84
+00:03:45,090 --> 00:03:47,950
+set into a list for
+returning to our view,
+
+85
+00:03:47,950 --> 00:03:51,830
+as our index will be expecting
+a list of characters as opposed
+
+86
+00:03:51,830 --> 00:03:53,158
+to a DB set of characters.
+
+87
+00:03:56,300 --> 00:03:57,890
+The next action
+we're going to set up
+
+88
+00:03:57,890 --> 00:03:59,810
+is our get active action.
+
+89
+00:03:59,810 --> 00:04:02,950
+This is going to work a lot like
+our index action with the one
+
+90
+00:04:02,950 --> 00:04:05,290
+difference of we're going
+to go ahead and add a where
+
+91
+00:04:05,290 --> 00:04:07,219
+method before our to list.
+
+92
+00:04:07,219 --> 00:04:09,010
+This where method is
+going to accept what's
+
+93
+00:04:09,010 --> 00:04:10,990
+known as a lambda expression.
+
+94
+00:04:10,990 --> 00:04:14,120
+And what this lambda expression
+is effectively doing is saying,
+
+95
+00:04:14,120 --> 00:04:19,940
+any record in this collection
+that is active true,
+
+96
+00:04:19,940 --> 00:04:23,070
+return that.
+
+97
+00:04:23,070 --> 00:04:24,770
+Lambda expressions
+effectively let
+
+98
+00:04:24,770 --> 00:04:27,960
+us write for each loop
+in a condensed form.
+
+99
+00:04:27,960 --> 00:04:31,100
+The e in our lambda is the
+name of the variable that
+
+100
+00:04:31,100 --> 00:04:32,890
+will represent each record.
+
+101
+00:04:32,890 --> 00:04:34,660
+Followed by an equal
+greater than that
+
+102
+00:04:34,660 --> 00:04:37,980
+looks like an arrow that'll
+tell our method what to do.
+
+103
+00:04:37,980 --> 00:04:41,730
+In our case, our e
+is active condition
+
+104
+00:04:41,730 --> 00:04:44,290
+will be applied to every
+single record in the collection
+
+105
+00:04:44,290 --> 00:04:47,500
+through our for each,
+and any records that
+
+106
+00:04:47,500 --> 00:04:49,320
+meet that condition,
+will be added
+
+107
+00:04:49,320 --> 00:04:51,710
+to the returned collection.
+
+108
+00:04:51,710 --> 00:04:53,800
+Using a lambda
+expression is much nicer
+
+109
+00:04:53,800 --> 00:04:56,290
+than having to write
+a for each loop
+
+110
+00:04:56,290 --> 00:04:59,820
+every single time we want
+to do something like this.
+
+111
+00:04:59,820 --> 00:05:02,640
+In addition, lambda expressions
+can often be more efficient
+
+112
+00:05:02,640 --> 00:05:05,610
+than a for each loop.
+
+113
+00:05:05,610 --> 00:05:09,120
+Now we're going to create
+our I action details.
+
+114
+00:05:09,120 --> 00:05:12,880
+This is going to return a
+single specific record for us.
+
+115
+00:05:12,880 --> 00:05:15,970
+To do this, we're going to use
+the first or default method
+
+116
+00:05:15,970 --> 00:05:17,950
+on our characters DB set.
+
+117
+00:05:17,950 --> 00:05:20,560
+This will return a single
+character as opposed
+
+118
+00:05:20,560 --> 00:05:24,670
+to a collection of characters.
+
+119
+00:05:24,670 --> 00:05:27,390
+We're going to use a lambda
+expression like we did before.
+
+120
+00:05:27,390 --> 00:05:29,470
+The difference being is
+instead of our condition
+
+121
+00:05:29,470 --> 00:05:33,040
+being we're looking to see
+if the is active is true,
+
+122
+00:05:33,040 --> 00:05:35,730
+we're going to actually see
+if each one of our characters
+
+123
+00:05:35,730 --> 00:05:39,240
+records has the same
+name as the end put name.
+
+124
+00:05:43,469 --> 00:05:46,010
+Now we're going to set up our
+update action which will update
+
+125
+00:05:46,010 --> 00:05:47,640
+a character in our database.
+
+126
+00:05:47,640 --> 00:05:50,160
+To update an entire
+character in our database,
+
+127
+00:05:50,160 --> 00:05:54,300
+we can call our DB
+contexts entry method
+
+128
+00:05:54,300 --> 00:05:57,030
+and then provide it the
+character we want to update.
+
+129
+00:05:57,030 --> 00:06:00,330
+We'll then set the state
+property of that record
+
+130
+00:06:00,330 --> 00:06:02,250
+to entity state modified.
+
+131
+00:06:02,250 --> 00:06:04,717
+This tells EntityFramework
+we have changed this record.
+
+132
+00:06:07,700 --> 00:06:10,246
+From here, we need to call
+save changes to submit
+
+133
+00:06:10,246 --> 00:06:11,495
+those changes to the database.
+
+134
+00:06:14,540 --> 00:06:16,530
+And just like any
+time we submit data,
+
+135
+00:06:16,530 --> 00:06:19,110
+we're going to want to go
+ahead and redirect to action.
+
+136
+00:06:19,110 --> 00:06:21,557
+So we'll go ahead redirect
+to action to our index again.
+
+137
+00:06:24,240 --> 00:06:26,220
+Let's set up our delete action.
+
+138
+00:06:26,220 --> 00:06:29,210
+Our delete action is going to
+start just like our details
+
+139
+00:06:29,210 --> 00:06:30,500
+action began.
+
+140
+00:06:30,500 --> 00:06:32,990
+We're going to go ahead and
+get the specific character we
+
+141
+00:06:32,990 --> 00:06:35,220
+want to actually work with.
+
+142
+00:06:35,220 --> 00:06:36,680
+At which point,
+we're going to want
+
+143
+00:06:36,680 --> 00:06:39,890
+to make sure that we actually
+got a character back.
+
+144
+00:06:39,890 --> 00:06:42,360
+So we're going to make sure
+we didn't get a null there.
+
+145
+00:06:42,360 --> 00:06:44,420
+In the event we do
+get a character back,
+
+146
+00:06:44,420 --> 00:06:47,660
+we want to call the remove
+method on the characters DB set
+
+147
+00:06:47,660 --> 00:06:50,310
+and pass in the character
+that we got back.
+
+148
+00:06:50,310 --> 00:06:52,070
+And then we'll have
+to do our save changes
+
+149
+00:06:52,070 --> 00:06:53,814
+to commit that to the database.
+
+150
+00:06:53,814 --> 00:06:55,230
+At that point,
+we're going to want
+
+151
+00:06:55,230 --> 00:06:57,740
+to make sure to do our redirect
+to action to our index page
+
+152
+00:06:57,740 --> 00:07:00,450
+again.
+
+153
+00:07:00,450 --> 00:07:02,880
+At this point, all of our
+CRUD methods are implemented.
+
+154
+00:07:02,880 --> 00:07:04,690
+We can create a character.
+
+155
+00:07:04,690 --> 00:07:06,390
+We can read all
+of our characters.
+
+156
+00:07:06,390 --> 00:07:08,000
+We can read a
+specific character.
+
+157
+00:07:08,000 --> 00:07:09,820
+We can read all of
+our active characters.
+
+158
+00:07:09,820 --> 00:07:12,354
+We can update a character and
+we can delete a character.
+
+159
+00:07:15,177 --> 00:07:17,260
+Now it's your turn to set
+up your own CRUD methods
+
+160
+00:07:17,260 --> 00:07:18,220
+in the challenges.
+
+161
+00:07:18,220 --> 00:07:19,920
+Enjoy.
+
+162
+00:07:19,920 --> 00:07:21,056
+Intelligence.
+
+163
+00:07:21,056 --> 00:07:22,930
+Just like we had done
+before on Try .Net NVC.
+
+164
+00:07:26,230 --> 00:07:28,990
+To set up our app-- the first
+thing we're going to need
+
+165
+00:07:28,990 --> 00:07:30,525
+to do--
+
+166
+00:07:30,525 --> 00:07:31,410
+Welcome back.
+
+167
+00:07:31,410 --> 00:07:33,266
+In the lacks--
+

@@ -1,0 +1,932 @@
+﻿1
+00:00:00,494 --> 00:00:00,994
+[SINGING]
+
+2
+00:00:00,994 --> 00:00:08,449
+Stoke the fire, fan the flames
+our journey continues, starting today.
+
+3
+00:00:08,449 --> 00:00:10,934
+We'll traverse the database,
+Entity Framework
+
+4
+00:00:10,934 --> 00:00:14,910
+on our side, ensuring
+that our data is ace
+
+5
+00:00:14,910 --> 00:00:18,886
+and presenting our views with
+pride. Routes help guide the way
+
+6
+00:00:18,886 --> 00:00:21,868
+to our success, I daresay.
+
+7
+00:00:21,868 --> 00:00:25,020
+For knowledge we shall seize
+While Forging Ahead with
+
+8
+00:00:25,020 --> 00:00:28,520
+.NET MVC.
+
+9
+00:00:31,500 --> 00:00:34,590
+My name is Eric Fisher, and
+welcome to Forging Ahead with
+
+10
+00:00:34,590 --> 00:00:39,910
+.NET MVC. In Try .NET MVC, we
+learned the basics of MVC.
+
+11
+00:00:39,910 --> 00:00:42,050
+We put together an
+application where we could
+
+12
+00:00:42,050 --> 00:00:43,970
+store characters and equipment.
+
+13
+00:00:43,970 --> 00:00:46,530
+The problem was, anytime
+we closed this application
+
+14
+00:00:46,530 --> 00:00:48,260
+we lost everything.
+
+15
+00:00:48,260 --> 00:00:50,370
+So we're going to set
+it up so we can actually
+
+16
+00:00:50,370 --> 00:00:52,420
+store this in a
+database and we can
+
+17
+00:00:52,420 --> 00:00:55,740
+validate to make sure our
+input is clean and correct.
+
+18
+00:00:55,740 --> 00:00:57,790
+Some specific things
+we're going to do
+
+19
+00:00:57,790 --> 00:00:59,550
+is store our characters
+and equipment
+
+20
+00:00:59,550 --> 00:01:02,600
+in a database so we can
+reuse them between games.
+
+21
+00:01:02,600 --> 00:01:05,129
+We're also going to take steps
+to make sure the data that's
+
+22
+00:01:05,129 --> 00:01:06,700
+entered is clean and valid.
+
+23
+00:01:09,710 --> 00:01:11,142
+There are two
+versions of ASP.NET
+
+24
+00:01:11,142 --> 00:01:12,600
+that we need to be
+concerned about.
+
+25
+00:01:12,600 --> 00:01:16,530
+We have ASP.NET Core
+and ASP.NET Framework.
+
+26
+00:01:16,530 --> 00:01:19,230
+Now this course is going
+to be using ASP.NET Core.
+
+27
+00:01:19,230 --> 00:01:22,500
+And while most of the
+material between ASP.NET Core
+
+28
+00:01:22,500 --> 00:01:26,230
+and Framework are the same,
+there are some differences.
+
+29
+00:01:26,230 --> 00:01:28,750
+In this case, we'll have
+our using statements
+
+30
+00:01:28,750 --> 00:01:30,990
+that have the word
+"core" in them,
+
+31
+00:01:30,990 --> 00:01:34,950
+and our startup.cs file will
+be different between the two.
+
+32
+00:01:34,950 --> 00:01:36,639
+I wouldn't worry
+about this too much.
+
+33
+00:01:36,639 --> 00:01:38,430
+Most of the material
+you see in this course
+
+34
+00:01:38,430 --> 00:01:40,490
+is going to be the exact same,
+regardless of whether you're
+
+35
+00:01:40,490 --> 00:01:42,600
+using Core or Framework,
+with the only exceptions
+
+36
+00:01:42,600 --> 00:01:45,490
+of startup.cs and the
+using directives that
+
+37
+00:01:45,490 --> 00:01:48,479
+have Core in their name.
+
+38
+00:01:48,479 --> 00:01:50,020
+In this section,
+we're going to cover
+
+39
+00:01:50,020 --> 00:01:54,840
+data annotations which we'll
+use to make our model smarter.
+
+40
+00:01:54,840 --> 00:01:58,260
+For storing our data long term,
+we have two real options here.
+
+41
+00:01:58,260 --> 00:02:00,170
+We can either save
+it to the file system
+
+42
+00:02:00,170 --> 00:02:02,440
+or we can create a database.
+
+43
+00:02:02,440 --> 00:02:05,670
+Now databases handle
+relational data lot better.
+
+44
+00:02:05,670 --> 00:02:08,520
+And since the data we're going
+to be using is relational data,
+
+45
+00:02:08,520 --> 00:02:10,020
+we're going to go
+with the database.
+
+46
+00:02:12,430 --> 00:02:15,650
+In our Try .NET MVC course,
+we cover model or view
+
+47
+00:02:15,650 --> 00:02:16,870
+under controller.
+
+48
+00:02:16,870 --> 00:02:19,760
+In our case, since we're going
+to be doing data and business
+
+49
+00:02:19,760 --> 00:02:22,093
+logic, we're going to go ahead
+and do that in our model.
+
+50
+00:02:24,290 --> 00:02:27,020
+We've created a new project
+called ForgingAhead.
+
+51
+00:02:27,020 --> 00:02:28,540
+Inside our models
+folder we're going
+
+52
+00:02:28,540 --> 00:02:31,480
+to go ahead and add
+the character.cs file
+
+53
+00:02:31,480 --> 00:02:33,190
+to hold our character model.
+
+54
+00:02:33,190 --> 00:02:35,120
+In this file we're
+going to add a bunch
+
+55
+00:02:35,120 --> 00:02:37,795
+of the properties such as
+name, strength, intelligence.
+
+56
+00:02:40,520 --> 00:02:42,070
+To read and write
+from our database,
+
+57
+00:02:42,070 --> 00:02:44,195
+we're going to use what's
+referred to as a database
+
+58
+00:02:44,195 --> 00:02:46,420
+context, or DbContext.
+
+59
+00:02:46,420 --> 00:02:49,590
+So we're going to create a file
+known as ApplicationDbContext
+
+60
+00:02:49,590 --> 00:02:51,270
+in our models folder.
+
+61
+00:02:51,270 --> 00:02:53,549
+So creating our
+ApplicationDbContext file
+
+62
+00:02:53,549 --> 00:02:55,090
+is only the first
+of many steps we're
+
+63
+00:02:55,090 --> 00:02:57,510
+going to have to do to set up
+to be able to read and write
+
+64
+00:02:57,510 --> 00:02:58,714
+from our database.
+
+65
+00:02:58,714 --> 00:03:00,380
+In addition to this,
+we're going to have
+
+66
+00:03:00,380 --> 00:03:02,490
+to reference
+EntityFramework, we're
+
+67
+00:03:02,490 --> 00:03:05,160
+going to need to add a
+property for our characters
+
+68
+00:03:05,160 --> 00:03:07,510
+in our
+ApplicationDbContext, we're
+
+69
+00:03:07,510 --> 00:03:09,500
+going to need to
+create a character
+
+70
+00:03:09,500 --> 00:03:13,220
+controller that loads
+the ApplicationDbContext,
+
+71
+00:03:13,220 --> 00:03:16,260
+we're going to create a
+character through the context
+
+72
+00:03:16,260 --> 00:03:18,100
+in our controller,
+and we're going
+
+73
+00:03:18,100 --> 00:03:20,254
+to need to save our new
+character in the database.
+
+74
+00:03:23,220 --> 00:03:26,270
+The first thing we're going to
+do in our ApplicationDbContext
+
+75
+00:03:26,270 --> 00:03:28,540
+is we're going to go ahead
+and set up a using statement
+
+76
+00:03:28,540 --> 00:03:29,950
+for EntityFramework.
+
+77
+00:03:29,950 --> 00:03:33,325
+That enables us to inherit
+the DbContext class which
+
+78
+00:03:33,325 --> 00:03:34,700
+lets us teach
+EntityFramework how
+
+79
+00:03:34,700 --> 00:03:35,970
+our database is going to work.
+
+80
+00:03:38,540 --> 00:03:40,560
+We'll set up a DbSet
+collection, which
+
+81
+00:03:40,560 --> 00:03:43,760
+works a lot like a list the
+difference is EntityFramework
+
+82
+00:03:43,760 --> 00:03:46,960
+will use this DbSet collection
+to define tables and views.
+
+83
+00:03:49,990 --> 00:03:52,560
+The normal naming
+convention for a DbSet
+
+84
+00:03:52,560 --> 00:03:54,700
+is to have whatever
+object we're adding
+
+85
+00:03:54,700 --> 00:03:58,770
+to our DbSet singular, and the
+name of our actual property
+
+86
+00:03:58,770 --> 00:04:00,790
+that is our DbSet to be plural.
+
+87
+00:04:00,790 --> 00:04:03,450
+So if I was passing in
+my object Character,
+
+88
+00:04:03,450 --> 00:04:04,810
+I would then name it Characters.
+
+89
+00:04:08,410 --> 00:04:10,690
+Our ApplicationDbContext
+is all set up
+
+90
+00:04:10,690 --> 00:04:12,840
+at this point to start
+accepting and passing
+
+91
+00:04:12,840 --> 00:04:14,190
+back character data.
+
+92
+00:04:14,190 --> 00:04:16,750
+We're going to actually access
+the data through our character
+
+93
+00:04:16,750 --> 00:04:17,452
+controller.
+
+94
+00:04:17,452 --> 00:04:19,660
+So let's go ahead and create
+our character controller
+
+95
+00:04:19,660 --> 00:04:20,846
+in our controllers folder.
+
+96
+00:04:23,530 --> 00:04:25,590
+Just like before, we're
+going to go ahead and add
+
+97
+00:04:25,590 --> 00:04:26,660
+using statements.
+
+98
+00:04:26,660 --> 00:04:29,480
+We're going to add a using
+statement for EntityFramework,
+
+99
+00:04:29,480 --> 00:04:31,850
+a using statement to
+get our collections,
+
+100
+00:04:31,850 --> 00:04:33,934
+and the using statement
+for our models.
+
+101
+00:04:33,934 --> 00:04:35,600
+These classes will
+give us functionality
+
+102
+00:04:35,600 --> 00:04:37,349
+we're going to need
+throughout this class.
+
+103
+00:04:40,500 --> 00:04:43,570
+Next, we'll add a private
+read-only context variable
+
+104
+00:04:43,570 --> 00:04:45,100
+to our character controller.
+
+105
+00:04:45,100 --> 00:04:47,850
+Let's break down each one of
+these keywords individually.
+
+106
+00:04:47,850 --> 00:04:49,600
+We've seen public
+before where we're
+
+107
+00:04:49,600 --> 00:04:51,250
+able to access a
+method or a property
+
+108
+00:04:51,250 --> 00:04:53,240
+anywhere within our application.
+
+109
+00:04:53,240 --> 00:04:54,820
+Private, on the
+other hand, makes it
+
+110
+00:04:54,820 --> 00:04:56,640
+so we are only able
+to normally access
+
+111
+00:04:56,640 --> 00:05:00,450
+our method or property within
+the context of that class.
+
+112
+00:05:00,450 --> 00:05:01,950
+Read-only is just
+like it sounds.
+
+113
+00:05:01,950 --> 00:05:04,160
+It allows us to read
+from the variable,
+
+114
+00:05:04,160 --> 00:05:06,480
+but not write to the variable.
+
+115
+00:05:06,480 --> 00:05:08,450
+You'll notice the
+standard naming convention
+
+116
+00:05:08,450 --> 00:05:12,930
+for a private read-only variable
+is underscore and lower case.
+
+117
+00:05:12,930 --> 00:05:14,520
+This is helpful
+because that way when
+
+118
+00:05:14,520 --> 00:05:16,020
+we're looking
+through our class, we
+
+119
+00:05:16,020 --> 00:05:18,163
+can very easily recognize
+our private and read-only
+
+120
+00:05:18,163 --> 00:05:18,663
+variables.
+
+121
+00:05:21,980 --> 00:05:24,060
+Now let's add a character
+controller constructor
+
+122
+00:05:24,060 --> 00:05:26,540
+to our character
+controller class.
+
+123
+00:05:26,540 --> 00:05:27,960
+This will take an
+input parameter
+
+124
+00:05:27,960 --> 00:05:30,420
+of ApplicationDbContext.
+
+125
+00:05:30,420 --> 00:05:32,530
+And inside of here we're
+going to go ahead and set
+
+126
+00:05:32,530 --> 00:05:36,070
+our private context
+variable to our passed
+
+127
+00:05:36,070 --> 00:05:38,070
+in ApplicationDbContext.
+
+128
+00:05:41,070 --> 00:05:43,630
+What we're doing here is
+constructor injection.
+
+129
+00:05:43,630 --> 00:05:46,400
+This allows us to
+inject an instance
+
+130
+00:05:46,400 --> 00:05:49,440
+of our ApplicationDBContext
+without creating a new one
+
+131
+00:05:49,440 --> 00:05:51,470
+inside of our class every time.
+
+132
+00:05:51,470 --> 00:05:54,390
+ASP.NET is set up to use the
+dependency injection design
+
+133
+00:05:54,390 --> 00:05:56,890
+pattern to loosely
+couple our dependencies
+
+134
+00:05:56,890 --> 00:05:58,970
+for better testability
+and adaptability
+
+135
+00:05:58,970 --> 00:06:00,320
+of our application.
+
+136
+00:06:00,320 --> 00:06:02,930
+ASP.NET will
+automatically inject
+
+137
+00:06:02,930 --> 00:06:07,000
+the ApplicationDBContext when we
+create our character controller.
+
+138
+00:06:07,000 --> 00:06:08,650
+This means we don't
+have to actually
+
+139
+00:06:08,650 --> 00:06:11,310
+create a new
+ApplicationDbContext
+
+140
+00:06:11,310 --> 00:06:13,246
+every single time we
+access our controller.
+
+141
+00:06:16,580 --> 00:06:19,950
+Dependency injection
+is built into ASP.NET.
+
+142
+00:06:19,950 --> 00:06:21,530
+The purpose of
+dependency injection
+
+143
+00:06:21,530 --> 00:06:24,450
+is to establish
+Inversion of Control.
+
+144
+00:06:24,450 --> 00:06:26,410
+Without Inversion
+of Control, we have
+
+145
+00:06:26,410 --> 00:06:28,380
+to instantiate a new
+instance of a class
+
+146
+00:06:28,380 --> 00:06:29,710
+anytime we want to use it.
+
+147
+00:06:32,890 --> 00:06:35,440
+With Inversion of
+Control, we can loosely
+
+148
+00:06:35,440 --> 00:06:37,090
+couple our dependencies.
+
+149
+00:06:37,090 --> 00:06:40,900
+In ASP.NET we have a class
+known as the ServicesCollection.
+
+150
+00:06:40,900 --> 00:06:43,150
+This will automatically
+inject anything
+
+151
+00:06:43,150 --> 00:06:45,620
+we've placed into it
+whenever we try and access it
+
+152
+00:06:45,620 --> 00:06:47,786
+through the constructor of
+one of our other classes.
+
+153
+00:06:50,290 --> 00:06:52,800
+To make our injected class
+accessible to the rest
+
+154
+00:06:52,800 --> 00:06:54,670
+of our current
+class, we're going
+
+155
+00:06:54,670 --> 00:06:57,450
+to go ahead and set
+our private variable
+
+156
+00:06:57,450 --> 00:06:59,690
+to be the injected class.
+
+157
+00:06:59,690 --> 00:07:01,600
+This makes it accessible
+to the entire class
+
+158
+00:07:01,600 --> 00:07:02,960
+through that underscore context.
+
+159
+00:07:06,557 --> 00:07:08,140
+Now the first place
+we're going to use
+
+160
+00:07:08,140 --> 00:07:11,790
+that context is in a new action
+that we're going to create
+
+161
+00:07:11,790 --> 00:07:13,470
+called Create.
+
+162
+00:07:13,470 --> 00:07:15,740
+This action method will
+accept an input parameter
+
+163
+00:07:15,740 --> 00:07:17,025
+of the Character object.
+
+164
+00:07:20,410 --> 00:07:22,716
+To add an object to our
+Characters Collection,
+
+165
+00:07:22,716 --> 00:07:24,590
+we can just call the
+add method like we would
+
+166
+00:07:24,590 --> 00:07:27,012
+with a list, passing in
+our character object.
+
+167
+00:07:29,564 --> 00:07:30,980
+The one difference
+we have to deal
+
+168
+00:07:30,980 --> 00:07:34,220
+with when dealing with our
+context as opposed to a list,
+
+169
+00:07:34,220 --> 00:07:36,740
+is once we're done we need
+to call the SaveChanges
+
+170
+00:07:36,740 --> 00:07:39,030
+method on our context
+to actually commit
+
+171
+00:07:39,030 --> 00:07:41,150
+those changes to the database.
+
+172
+00:07:41,150 --> 00:07:43,561
+You don't have to call
+SaveChanges every single time
+
+173
+00:07:43,561 --> 00:07:44,310
+you make a change.
+
+174
+00:07:44,310 --> 00:07:46,900
+You can make many changes,
+and then save all of them
+
+175
+00:07:46,900 --> 00:07:48,650
+at once at the end by
+calling SaveChanges.
+
+176
+00:07:51,760 --> 00:07:54,390
+To prevent the user from
+accidentally resubmitting
+
+177
+00:07:54,390 --> 00:07:56,390
+this information
+by hitting Refresh,
+
+178
+00:07:56,390 --> 00:08:00,170
+we're going to go ahead and do
+a RedirectToAction to our Index
+
+179
+00:08:00,170 --> 00:08:03,040
+page.
+
+180
+00:08:03,040 --> 00:08:05,570
+The result of calling
+our SaveChanges method
+
+181
+00:08:05,570 --> 00:08:07,590
+in our Create method
+can be different
+
+182
+00:08:07,590 --> 00:08:09,320
+depending on our situation.
+
+183
+00:08:09,320 --> 00:08:11,500
+If we don't already
+have a database,
+
+184
+00:08:11,500 --> 00:08:14,550
+EntityFramework will
+create a database for us.
+
+185
+00:08:14,550 --> 00:08:17,030
+In the event we don't already
+have a Characters table,
+
+186
+00:08:17,030 --> 00:08:20,270
+EntityFramework will create
+our Characters table for us.
+
+187
+00:08:20,270 --> 00:08:22,350
+And finally, we'll
+create a Character record
+
+188
+00:08:22,350 --> 00:08:24,870
+for the character
+object we've submitted,
+
+189
+00:08:24,870 --> 00:08:26,540
+like you see over here.
+
+190
+00:08:26,540 --> 00:08:31,460
+EntityFramework is an Object
+Relational Mapper, or an ORM.
+
+191
+00:08:31,460 --> 00:08:33,799
+ORMs EMS handle all
+of the database stuff
+
+192
+00:08:33,799 --> 00:08:37,190
+so we can focus on our code.
+
+193
+00:08:37,190 --> 00:08:39,140
+Now it's your turn to
+set up EntityFramework
+
+194
+00:08:39,140 --> 00:08:40,130
+in the Challenges.
+
+195
+00:08:40,130 --> 00:08:41,830
+Have fun.
+

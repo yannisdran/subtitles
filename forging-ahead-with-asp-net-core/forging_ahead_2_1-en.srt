@@ -1,0 +1,208 @@
+﻿1
+00:00:02,050 --> 00:00:04,920
+Welcome back to Forging
+Ahead with .NET MVC.
+
+2
+00:00:04,920 --> 00:00:07,850
+In this section, we're going
+to go over data relationships,
+
+3
+00:00:07,850 --> 00:00:11,964
+and how we can actually make
+data related to each other.
+
+4
+00:00:11,964 --> 00:00:14,130
+Before we can actually
+implement our data structure,
+
+5
+00:00:14,130 --> 00:00:15,774
+we need to kind of plan it out.
+
+6
+00:00:15,774 --> 00:00:17,190
+We know that our
+players are going
+
+7
+00:00:17,190 --> 00:00:18,388
+to have multiple characters.
+
+8
+00:00:21,670 --> 00:00:23,810
+We also know each
+individual character
+
+9
+00:00:23,810 --> 00:00:26,620
+is going to be able to have
+multiple pieces of equipment.
+
+10
+00:00:26,620 --> 00:00:28,866
+This would imply a one
+to many relationship
+
+11
+00:00:28,866 --> 00:00:30,407
+between our characters
+and equipment.
+
+12
+00:00:33,330 --> 00:00:36,090
+However, our equipment
+isn't unique.
+
+13
+00:00:36,090 --> 00:00:39,320
+Multiple characters could have
+a piece of equipment, "sword"
+
+14
+00:00:39,320 --> 00:00:42,670
+or "shield."
+
+15
+00:00:42,670 --> 00:00:44,590
+This means,
+ultimately, we're going
+
+16
+00:00:44,590 --> 00:00:46,440
+to have a many to
+many relationship
+
+17
+00:00:46,440 --> 00:00:48,880
+between our characters
+and equipment,
+
+18
+00:00:48,880 --> 00:00:51,880
+as any character can have
+multiple pieces of equipment
+
+19
+00:00:51,880 --> 00:00:54,475
+and any type of equipment can
+be on multiple characters.
+
+20
+00:00:57,380 --> 00:01:00,100
+The way a database handles
+a many to many relationship
+
+21
+00:01:00,100 --> 00:01:02,770
+is using what's referred
+to as a union table.
+
+22
+00:01:02,770 --> 00:01:04,980
+This table maps
+which characters will
+
+23
+00:01:04,980 --> 00:01:07,660
+have which pieces of equipment.
+
+24
+00:01:07,660 --> 00:01:10,590
+Fortunately, because we're
+using Entity Framework,
+
+25
+00:01:10,590 --> 00:01:13,150
+it's going to handle all of
+this complicated database
+
+26
+00:01:13,150 --> 00:01:14,230
+stuff for us.
+
+27
+00:01:14,230 --> 00:01:16,200
+We just need to know
+what's happening, in case
+
+28
+00:01:16,200 --> 00:01:17,920
+we need to police
+our records and make
+
+29
+00:01:17,920 --> 00:01:19,003
+sure everything's correct.
+
+30
+00:01:21,260 --> 00:01:24,260
+All we have to do to
+create a relationship
+
+31
+00:01:24,260 --> 00:01:26,450
+between our characters
+and equipment
+
+32
+00:01:26,450 --> 00:01:29,770
+is adding new property
+to our character's class
+
+33
+00:01:29,770 --> 00:01:32,106
+that is a list of equipment.
+
+34
+00:01:32,106 --> 00:01:33,480
+And then Entity
+Framework will take
+
+35
+00:01:33,480 --> 00:01:34,737
+care of all the rest for us.
+
+36
+00:01:34,737 --> 00:01:36,570
+Now you remember, for our naming conventions
+
+37
+00:01:36,570 --> 00:01:38,960
+for any type of list or collection,
+
+38
+00:01:38,960 --> 00:01:41,870
+we have the singular object that we're passing in.
+
+39
+00:01:41,870 --> 00:01:44,510
+Our name will be the plural of that object.
+
+40
+00:01:44,510 --> 00:01:46,800
+In this case, because the singular and the plural
+
+41
+00:01:46,800 --> 00:01:49,900
+for equipment are the same, we don't add an S, or anything,
+
+42
+00:01:49,900 --> 00:01:53,190
+onto it.
+
+43
+00:01:53,190 --> 00:01:55,620
+Now it's your turn to go
+through database relationships
+
+44
+00:01:55,620 --> 00:01:56,740
+in the challenges.
+
+45
+00:01:56,740 --> 00:01:58,470
+Have fun.
+

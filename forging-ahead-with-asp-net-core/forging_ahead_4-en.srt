@@ -1,0 +1,645 @@
+﻿1
+00:00:02,040 --> 00:00:05,490
+Welcome back to forging
+ahead with .NET MVC.
+
+2
+00:00:05,490 --> 00:00:09,920
+In this section, we're going
+to go over custom routes.
+
+3
+00:00:09,920 --> 00:00:13,620
+We can use custom routes to make
+our URLs a lot more friendly.
+
+4
+00:00:13,620 --> 00:00:16,730
+For example, if we are to
+access our details page,
+
+5
+00:00:16,730 --> 00:00:21,990
+we have to type in characters,
+details, question mark, name
+
+6
+00:00:21,990 --> 00:00:25,180
+equals, and then the name of the
+character you want to look at.
+
+7
+00:00:25,180 --> 00:00:27,110
+Most people aren't
+going to remember this
+
+8
+00:00:27,110 --> 00:00:29,500
+and search engines don't
+use this very well.
+
+9
+00:00:29,500 --> 00:00:31,740
+So instead, we would like
+to access our details
+
+10
+00:00:31,740 --> 00:00:36,940
+page through characters, the
+name of the character, details.
+
+11
+00:00:36,940 --> 00:00:39,850
+This will make our URL a
+lot clearer to our end user,
+
+12
+00:00:39,850 --> 00:00:43,150
+search engines' algorithm will
+find these URLs a lot easier,
+
+13
+00:00:43,150 --> 00:00:45,050
+and plus, it avoids
+query strings.
+
+14
+00:00:48,060 --> 00:00:50,610
+So where do we want to actually
+set up our custom route?
+
+15
+00:00:50,610 --> 00:00:53,810
+We actually have two
+places we can do this.
+
+16
+00:00:53,810 --> 00:00:57,260
+The first being the
+Startup.cs we've seen earlier.
+
+17
+00:00:57,260 --> 00:00:59,170
+Now the Startup.cs
+is kind of when
+
+18
+00:00:59,170 --> 00:01:02,620
+you want to make a custom route
+for your entire application.
+
+19
+00:01:02,620 --> 00:01:05,400
+For example, our
+default route is set up
+
+20
+00:01:05,400 --> 00:01:07,440
+in the Startup.cs file.
+
+21
+00:01:07,440 --> 00:01:10,180
+That's why we can use the
+controller then action
+
+22
+00:01:10,180 --> 00:01:12,070
+anywhere in our application.
+
+23
+00:01:12,070 --> 00:01:14,030
+However, we're looking
+at changing this,
+
+24
+00:01:14,030 --> 00:01:18,174
+and we really want to only apply
+it to very specific methods.
+
+25
+00:01:18,174 --> 00:01:19,590
+So what we're going
+to do is we're
+
+26
+00:01:19,590 --> 00:01:21,240
+going to go to our
+character controller
+
+27
+00:01:21,240 --> 00:01:24,150
+itself and set a route
+directly on the method
+
+28
+00:01:24,150 --> 00:01:27,155
+we want it to apply for.
+
+29
+00:01:27,155 --> 00:01:30,230
+To create a per
+action custom route,
+
+30
+00:01:30,230 --> 00:01:33,520
+we can just go to the action we
+want that route to be set for
+
+31
+00:01:33,520 --> 00:01:37,830
+and directly above it
+add the attribute route.
+
+32
+00:01:37,830 --> 00:01:40,690
+And then define the route
+in the parentheses after it.
+
+33
+00:01:40,690 --> 00:01:44,150
+In this case, we're going
+to do character, slash,
+
+34
+00:01:44,150 --> 00:01:48,850
+curly brace, name, curly
+brace, slash, details.
+
+35
+00:01:48,850 --> 00:01:52,310
+Now the curly braces are going
+to tell our route that this
+
+36
+00:01:52,310 --> 00:01:55,820
+is a parameter, which it will
+feed into our action method's
+
+37
+00:01:55,820 --> 00:01:57,140
+name parameter.
+
+38
+00:01:57,140 --> 00:02:00,190
+You'll also notice we didn't
+say controller and action
+
+39
+00:02:00,190 --> 00:02:02,450
+in our custom route even
+though that was an option.
+
+40
+00:02:02,450 --> 00:02:04,920
+Because we're making an
+action-specific route,
+
+41
+00:02:04,920 --> 00:02:08,229
+we want to make this as very
+tight on to this as possible
+
+42
+00:02:08,229 --> 00:02:09,795
+to avoid the risk of conflicts.
+
+43
+00:02:12,350 --> 00:02:14,100
+Now we have a lot nicer URLs.
+
+44
+00:02:14,100 --> 00:02:17,140
+We can actually go in
+and type in characters,
+
+45
+00:02:17,140 --> 00:02:20,490
+slash, the name of a
+character, slash, details,
+
+46
+00:02:20,490 --> 00:02:22,340
+and that's going to
+take us to the details
+
+47
+00:02:22,340 --> 00:02:23,470
+page for that character.
+
+48
+00:02:26,066 --> 00:02:28,190
+Looking at how our users
+are accessing our website,
+
+49
+00:02:28,190 --> 00:02:30,189
+we're starting to see
+some weird stuff happening
+
+50
+00:02:30,189 --> 00:02:31,480
+with our create action.
+
+51
+00:02:31,480 --> 00:02:33,070
+Our create action
+is supposed to be
+
+52
+00:02:33,070 --> 00:02:34,930
+where the users
+would go to a form,
+
+53
+00:02:34,930 --> 00:02:38,090
+they would fill out the fields,
+and then they'd hit submit.
+
+54
+00:02:38,090 --> 00:02:40,970
+But we're starting to see people
+putting these really long query
+
+55
+00:02:40,970 --> 00:02:42,428
+strings after
+create, where they're
+
+56
+00:02:42,428 --> 00:02:44,140
+doing every single
+one of the properties
+
+57
+00:02:44,140 --> 00:02:46,010
+as part of a query string.
+
+58
+00:02:46,010 --> 00:02:48,080
+And even weirder,
+our application
+
+59
+00:02:48,080 --> 00:02:50,430
+is actually accepting this.
+
+60
+00:02:50,430 --> 00:02:52,370
+This is something we
+really want to avoid.
+
+61
+00:02:52,370 --> 00:02:55,250
+If we were to set up any type
+of validation or security,
+
+62
+00:02:55,250 --> 00:02:57,450
+our users would
+be bypassing this.
+
+63
+00:02:57,450 --> 00:02:59,540
+This is something we really
+don't want to happen.
+
+64
+00:03:02,160 --> 00:03:05,880
+Our users are able to create
+characters because right now,
+
+65
+00:03:05,880 --> 00:03:08,790
+all of our actions are
+accepting both GET and POST.
+
+66
+00:03:08,790 --> 00:03:11,450
+We really don't want this
+to happen because URLs
+
+67
+00:03:11,450 --> 00:03:12,850
+have a limited length.
+
+68
+00:03:12,850 --> 00:03:15,740
+They can leak sensitive
+data, you can accidentally
+
+69
+00:03:15,740 --> 00:03:20,850
+resubmit data, and URLs are only
+meant to handle the GET verb.
+
+70
+00:03:20,850 --> 00:03:22,460
+An example where
+this can go wrong
+
+71
+00:03:22,460 --> 00:03:25,685
+is let's say someone is using
+query strings on our login
+
+72
+00:03:25,685 --> 00:03:26,960
+page.
+
+73
+00:03:26,960 --> 00:03:29,700
+That means we have actually
+exposed both the username
+
+74
+00:03:29,700 --> 00:03:31,970
+and the password to
+potentially being accessed
+
+75
+00:03:31,970 --> 00:03:35,710
+by someone not intended to.
+
+76
+00:03:35,710 --> 00:03:38,660
+GET and POST are
+examples of HttpVerbs.
+
+77
+00:03:38,660 --> 00:03:41,490
+HttpVerbs define how we
+interact with our data.
+
+78
+00:03:41,490 --> 00:03:44,460
+A GET request is
+requesting information
+
+79
+00:03:44,460 --> 00:03:46,220
+from an application.
+
+80
+00:03:46,220 --> 00:03:50,580
+A POST request is submitting
+information to an application.
+
+81
+00:03:50,580 --> 00:03:54,640
+By default, in ASP.NET
+MVC, every action
+
+82
+00:03:54,640 --> 00:04:00,580
+will accept GET and POST unless we specify otherwise.
+
+83
+00:04:00,580 --> 00:04:04,250
+Some examples of actions in our
+application that should be GETs
+
+84
+00:04:04,250 --> 00:04:10,080
+would be our index page or
+details page and our edit page.
+
+85
+00:04:10,080 --> 00:04:12,780
+Since our index action
+is supposed to be a GET
+
+86
+00:04:12,780 --> 00:04:15,360
+and it's currently able to
+accept both GET and POST,
+
+87
+00:04:15,360 --> 00:04:18,420
+let's correct it so
+it only accepts GET.
+
+88
+00:04:18,420 --> 00:04:20,779
+The way we can do this
+is we can go directly
+
+89
+00:04:20,779 --> 00:04:27,210
+above our index action and
+add an attribute, HttpGet.
+
+90
+00:04:27,210 --> 00:04:30,590
+By defining HttpGet,
+we're making it
+
+91
+00:04:30,590 --> 00:04:34,362
+so this action can
+only accept HttpGET.
+
+92
+00:04:36,960 --> 00:04:40,080
+So for some examples of
+POST-- our create action
+
+93
+00:04:40,080 --> 00:04:41,580
+that actually
+saves our character
+
+94
+00:04:41,580 --> 00:04:45,500
+to the database, our update
+action, and our delete action
+
+95
+00:04:45,500 --> 00:04:46,855
+are all examples of POST.
+
+96
+00:04:49,670 --> 00:04:52,310
+Since our create action is the
+one we're seeing as a problem
+
+97
+00:04:52,310 --> 00:04:54,380
+right now where users
+are submitting data
+
+98
+00:04:54,380 --> 00:04:58,130
+through the URL, let's go and
+correct that to be a POST.
+
+99
+00:04:58,130 --> 00:05:03,300
+The way or we can do this is add
+the attribute HttpPost directly
+
+100
+00:05:03,300 --> 00:05:05,620
+above our create action.
+
+101
+00:05:05,620 --> 00:05:08,970
+And just like GET, since we
+defined this specifically
+
+102
+00:05:08,970 --> 00:05:11,812
+to use POST, it will
+only except POST.
+
+103
+00:05:14,410 --> 00:05:17,210
+Now if our users were to
+go to our create action
+
+104
+00:05:17,210 --> 00:05:19,990
+with all of the fields
+provided in the query string,
+
+105
+00:05:19,990 --> 00:05:23,490
+they would end up just
+seeing our Create view.
+
+106
+00:05:23,490 --> 00:05:25,080
+That is because
+at this point, we
+
+107
+00:05:25,080 --> 00:05:28,450
+have only one Create
+action that is a GET
+
+108
+00:05:28,450 --> 00:05:32,350
+and that is the one
+returning the view.
+
+109
+00:05:32,350 --> 00:05:34,430
+The question comes
+up-- what verb should I
+
+110
+00:05:34,430 --> 00:05:36,570
+be using for my delete action?
+
+111
+00:05:36,570 --> 00:05:39,870
+There actually is an HttpDelete.
+
+112
+00:05:39,870 --> 00:05:42,710
+The thing, though, is
+browsers by default
+
+113
+00:05:42,710 --> 00:05:45,980
+only know GET and POST.
+
+114
+00:05:45,980 --> 00:05:49,256
+In this case, POST is the more
+appropriate verb to be using.
+
+115
+00:05:52,910 --> 00:05:56,440
+We also have to ask what we want
+to use for our update action.
+
+116
+00:05:56,440 --> 00:06:01,340
+With our update action, there's
+the verbs PUT, POST, and PATCH
+
+117
+00:06:01,340 --> 00:06:03,010
+are all available.
+
+118
+00:06:03,010 --> 00:06:05,220
+In our case, again,
+since browsers only
+
+119
+00:06:05,220 --> 00:06:07,070
+understand GET and
+POST by default,
+
+120
+00:06:07,070 --> 00:06:08,200
+we're going to use POST.
+
+121
+00:06:08,200 --> 00:06:10,150
+It also happens to be
+the most appropriate
+
+122
+00:06:10,150 --> 00:06:14,027
+for the way we're
+updating our record.
+
+123
+00:06:14,027 --> 00:06:15,610
+Now that we're using
+the proper verbs,
+
+124
+00:06:15,610 --> 00:06:17,400
+we don't have to worry
+about accidentally
+
+125
+00:06:17,400 --> 00:06:21,300
+leaking our information out
+through our query strings.
+
+126
+00:06:21,300 --> 00:06:23,890
+It also helps prevent from when
+search engines are actually
+
+127
+00:06:23,890 --> 00:06:25,950
+trying to find our
+pages accidentally
+
+128
+00:06:25,950 --> 00:06:28,070
+submitting data to us.
+
+129
+00:06:28,070 --> 00:06:30,740
+And finally, by knowing
+the proper HTTPVerbs,
+
+130
+00:06:30,740 --> 00:06:32,540
+we're in a better
+situation for any time
+
+131
+00:06:32,540 --> 00:06:34,875
+we go to consume or
+create our own services.
+
+132
+00:06:37,850 --> 00:06:39,920
+Now it's your turn to
+set up your own custom
+
+133
+00:06:39,920 --> 00:06:41,450
+routes in the challenges.
+
+134
+00:06:41,450 --> 00:06:43,000
+Enjoy.
+

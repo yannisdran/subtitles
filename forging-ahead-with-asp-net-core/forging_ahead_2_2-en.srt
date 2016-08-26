@@ -1,0 +1,438 @@
+﻿1
+00:00:02,220 --> 00:00:02,850
+Welcome back.
+
+2
+00:00:02,850 --> 00:00:04,641
+In this section, we're
+going to go over how
+
+3
+00:00:04,641 --> 00:00:08,740
+to present data in our views.
+
+4
+00:00:08,740 --> 00:00:10,740
+In the last level, we
+set up our CRUD methods
+
+5
+00:00:10,740 --> 00:00:12,962
+to read from and
+write to our database,
+
+6
+00:00:12,962 --> 00:00:16,130
+but we don't have any views
+to be able to access those.
+
+7
+00:00:16,130 --> 00:00:17,880
+So what we're going
+to go ahead and do now
+
+8
+00:00:17,880 --> 00:00:21,962
+is-- we're going to create our
+index view and our create view
+
+9
+00:00:21,962 --> 00:00:23,420
+to be able to access
+those actions.
+
+10
+00:00:26,070 --> 00:00:28,809
+Let's start with our
+index dot cshtml page.
+
+11
+00:00:28,809 --> 00:00:31,350
+We've gone ahead and we've added
+a bunch of the starting code
+
+12
+00:00:31,350 --> 00:00:32,420
+here for you.
+
+13
+00:00:32,420 --> 00:00:33,950
+We're going to go
+ahead and create
+
+14
+00:00:33,950 --> 00:00:37,330
+a link to our Create action
+directly below our heading.
+
+15
+00:00:37,330 --> 00:00:40,670
+We're going to do this
+by creating HTML link.
+
+16
+00:00:40,670 --> 00:00:44,260
+Now we're going to add two
+attributes to this-- asp dash
+
+17
+00:00:44,260 --> 00:00:47,620
+action and asp dash controller.
+
+18
+00:00:47,620 --> 00:00:51,050
+Our asp dash action we're
+going to set to Create
+
+19
+00:00:51,050 --> 00:00:52,830
+and our asp dash
+controller, we're
+
+20
+00:00:52,830 --> 00:00:54,430
+going to set to Characters.
+
+21
+00:00:54,430 --> 00:00:57,280
+The template will render the
+URL based on the two attributes
+
+22
+00:00:57,280 --> 00:00:58,510
+we have provided.
+
+23
+00:00:58,510 --> 00:01:02,070
+If you were to look at the
+rendered code in the browser,
+
+24
+00:01:02,070 --> 00:01:06,400
+you would actually see the href
+equals character slash create.
+
+25
+00:01:10,080 --> 00:01:14,040
+From here, we're going to create
+a link to our Details action.
+
+26
+00:01:14,040 --> 00:01:16,920
+Just like before, we're
+going to use the asp dash
+
+27
+00:01:16,920 --> 00:01:19,700
+action only to
+Details this time,
+
+28
+00:01:19,700 --> 00:01:24,000
+and the asp dash controller
+to the Characters' controller.
+
+29
+00:01:24,000 --> 00:01:26,780
+The catch is--
+our Details action
+
+30
+00:01:26,780 --> 00:01:30,160
+is expecting an input parameter
+of the name of our Character.
+
+31
+00:01:30,160 --> 00:01:34,960
+We can do this by adding the asp
+dash route dash name attribute
+
+32
+00:01:34,960 --> 00:01:37,947
+with the items' name property.
+
+33
+00:01:37,947 --> 00:01:39,530
+What this is going
+to do is it's going
+
+34
+00:01:39,530 --> 00:01:43,400
+to add a query string for
+the name that will map up
+
+35
+00:01:43,400 --> 00:01:46,810
+with our input parameter
+of our Details action,
+
+36
+00:01:46,810 --> 00:01:47,720
+as you can see below.
+
+37
+00:01:50,710 --> 00:01:54,069
+From here, we're going to
+create our Create page.
+
+38
+00:01:54,069 --> 00:01:55,610
+Now we've set up a
+bunch of this code
+
+39
+00:01:55,610 --> 00:01:58,784
+already for you, as most of
+this we've already seen before.
+
+40
+00:01:58,784 --> 00:02:00,450
+This may look complex,
+but a lot of this
+
+41
+00:02:00,450 --> 00:02:03,090
+is just the CSS we're using
+to make this page look nice.
+
+42
+00:02:06,445 --> 00:02:07,820
+One of the things
+you will notice
+
+43
+00:02:07,820 --> 00:02:11,136
+that is ASP.NET
+specific, is the asp dash
+
+44
+00:02:11,136 --> 00:02:13,750
+for tag helper,
+which we're going
+
+45
+00:02:13,750 --> 00:02:17,700
+to set to Name as it's going
+to tie to our Name property.
+
+46
+00:02:17,700 --> 00:02:20,420
+What this is going to do is
+when we use it with Label,
+
+47
+00:02:20,420 --> 00:02:23,620
+it's actually going to set
+that Labels' value to be
+
+48
+00:02:23,620 --> 00:02:25,890
+the Name of the property.
+
+49
+00:02:25,890 --> 00:02:28,770
+We'll also use asp
+dash for on the input.
+
+50
+00:02:28,770 --> 00:02:30,270
+And what this is
+going to do is it's
+
+51
+00:02:30,270 --> 00:02:32,519
+going to go a step farther
+than it did with the Label.
+
+52
+00:02:32,519 --> 00:02:34,760
+It's actually going to
+change the type of the input
+
+53
+00:02:34,760 --> 00:02:38,000
+to be whatever is appropriate
+for the type of the property,
+
+54
+00:02:38,000 --> 00:02:41,030
+as well as set the ID and
+the name of that input
+
+55
+00:02:41,030 --> 00:02:43,590
+to match the Name
+of that property.
+
+56
+00:02:43,590 --> 00:02:45,580
+You can see the
+resulting HTML here.
+
+57
+00:02:50,120 --> 00:02:52,120
+Well, that works great
+for any of our properties
+
+58
+00:02:52,120 --> 00:02:55,110
+that names happen
+to be only one word.
+
+59
+00:02:55,110 --> 00:02:57,850
+But an example of our
+is active property,
+
+60
+00:02:57,850 --> 00:03:00,880
+we'd probably want to display
+that as two separate words.
+
+61
+00:03:00,880 --> 00:03:03,930
+We can't do that with asp
+dash for without going
+
+62
+00:03:03,930 --> 00:03:05,820
+a step farther and
+adding data annotations.
+
+63
+00:03:09,290 --> 00:03:11,040
+So let's go back to
+our character model,
+
+64
+00:03:11,040 --> 00:03:14,820
+and add in using statement for
+system dot component model dot
+
+65
+00:03:14,820 --> 00:03:16,590
+data annotations.
+
+66
+00:03:16,590 --> 00:03:19,090
+The next step we would
+take is on the line
+
+67
+00:03:19,090 --> 00:03:21,890
+directly above our
+is active property,
+
+68
+00:03:21,890 --> 00:03:25,900
+we're going to add the
+display attribute with name
+
+69
+00:03:25,900 --> 00:03:28,720
+equals to is active
+with a space in it.
+
+70
+00:03:28,720 --> 00:03:31,000
+This will tell asp
+dash for any time
+
+71
+00:03:31,000 --> 00:03:34,470
+it is to display the name
+of the is active property,
+
+72
+00:03:34,470 --> 00:03:35,765
+to go ahead and add that space.
+
+73
+00:03:38,667 --> 00:03:40,750
+If you look at the rendered
+output of our template
+
+74
+00:03:40,750 --> 00:03:44,840
+at this point, and you look
+at the ID and Name attributes,
+
+75
+00:03:44,840 --> 00:03:46,830
+you'll notice that
+they're all still
+
+76
+00:03:46,830 --> 00:03:49,380
+set to the is active
+without the space, which
+
+77
+00:03:49,380 --> 00:03:52,190
+is necessary for them to
+map up with the property.
+
+78
+00:03:52,190 --> 00:03:54,240
+However, in the label
+where we're actually
+
+79
+00:03:54,240 --> 00:03:57,120
+returning the value to be
+displayed to the screen,
+
+80
+00:03:57,120 --> 00:03:58,125
+it now has our space.
+
+81
+00:04:01,270 --> 00:04:02,890
+At this point
+we've got our views
+
+82
+00:04:02,890 --> 00:04:06,860
+to read from and
+write to our database.
+
+83
+00:04:06,860 --> 00:04:08,980
+Now it's your turn to
+set up your own views
+
+84
+00:04:08,980 --> 00:04:10,290
+in the challenges.
+
+85
+00:04:10,290 --> 00:04:12,620
+Have fun.
+
+86
+00:04:12,620 --> 00:04:16,480
+All the code you're seeing
+here is just a bunch of ahhh.
+
+87
+00:04:16,480 --> 00:04:18,880
+Partial with that
+character's details--
+
+88
+00:04:18,880 --> 00:04:21,430
+I mispronounced it
+all sorts of wrong.
+
+89
+00:04:21,430 --> 00:04:22,360
+I said feels.
+
+90
+00:04:22,360 --> 00:04:23,885
+That's not even a word.
+
+91
+00:04:23,885 --> 00:04:26,290
+Well, I guess it is a word.
+

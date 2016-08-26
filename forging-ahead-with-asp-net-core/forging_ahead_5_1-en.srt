@@ -1,0 +1,396 @@
+﻿1
+00:00:02,020 --> 00:00:04,910
+Welcome back to Forging
+Ahead with .NET MVC.
+
+2
+00:00:04,910 --> 00:00:07,127
+In this section we're going
+to go through validation
+
+3
+00:00:07,127 --> 00:00:08,085
+using data annotations.
+
+4
+00:00:10,810 --> 00:00:13,220
+Looking at our data, we're
+seeing lots of problems.
+
+5
+00:00:13,220 --> 00:00:16,160
+We're seeing characters with
+levels that aren't appropriate.
+
+6
+00:00:16,160 --> 00:00:18,070
+They're either negative
+or they're way higher
+
+7
+00:00:18,070 --> 00:00:19,550
+than the game allows.
+
+8
+00:00:19,550 --> 00:00:22,840
+We're seeing names that are
+a single character long.
+
+9
+00:00:22,840 --> 00:00:24,632
+Just generally, a lot
+of this data is messy
+
+10
+00:00:24,632 --> 00:00:26,923
+and it's going to cause
+problems for the people playing
+
+11
+00:00:26,923 --> 00:00:27,429
+the game.
+
+12
+00:00:27,429 --> 00:00:29,720
+So we're going to set up
+validation to try and get this
+
+13
+00:00:29,720 --> 00:00:32,430
+under control.
+
+14
+00:00:32,430 --> 00:00:34,330
+Using data annotations
+we can actually
+
+15
+00:00:34,330 --> 00:00:37,500
+set up rules for our
+properties using attributes.
+
+16
+00:00:37,500 --> 00:00:39,990
+Using the Required attribute
+on our name property,
+
+17
+00:00:39,990 --> 00:00:42,590
+for example, when we
+go to our front end
+
+18
+00:00:42,590 --> 00:00:48,290
+this will add data-val-required
+on any inputs for our name
+
+19
+00:00:48,290 --> 00:00:49,490
+property.
+
+20
+00:00:49,490 --> 00:00:51,190
+Which will tell our
+front end validation
+
+21
+00:00:51,190 --> 00:00:52,950
+that this is a required field.
+
+22
+00:00:52,950 --> 00:00:55,230
+They have to enter
+something here.
+
+23
+00:00:55,230 --> 00:00:57,240
+Just the same, it
+will actually go
+
+24
+00:00:57,240 --> 00:00:59,920
+to what's referred to our model
+state, which is part of how
+
+25
+00:00:59,920 --> 00:01:02,060
+we do our back end validation.
+
+26
+00:01:02,060 --> 00:01:04,410
+And it will say if
+the name property is
+
+27
+00:01:04,410 --> 00:01:07,390
+null or empty to add an error.
+
+28
+00:01:07,390 --> 00:01:10,810
+And finally, this will actually
+go through Entity Framework
+
+29
+00:01:10,810 --> 00:01:14,871
+when it goes to create the
+column name in our database.
+
+30
+00:01:14,871 --> 00:01:16,995
+And it will make it so that
+column is not nullable.
+
+31
+00:01:20,500 --> 00:01:22,452
+Before we're able to use
+our data annotations,
+
+32
+00:01:22,452 --> 00:01:24,410
+we're going to have to
+set up a using statement
+
+33
+00:01:24,410 --> 00:01:27,960
+to System.component
+Model.DataAnnotations
+
+34
+00:01:27,960 --> 00:01:29,328
+to give us access to them.
+
+35
+00:01:32,789 --> 00:01:34,330
+The first thing
+we're going to tackle
+
+36
+00:01:34,330 --> 00:01:38,100
+is where our users are entering
+characters of the same name.
+
+37
+00:01:38,100 --> 00:01:40,060
+The problem is, our
+system doesn't really
+
+38
+00:01:40,060 --> 00:01:41,900
+have a good way of
+handling it when
+
+39
+00:01:41,900 --> 00:01:44,810
+we do have multiple
+characters with the same name.
+
+40
+00:01:44,810 --> 00:01:48,490
+We can disallow this behavior
+using the Key attribute.
+
+41
+00:01:48,490 --> 00:01:50,760
+What this will do,
+is in the database
+
+42
+00:01:50,760 --> 00:01:53,560
+it make this a unique key field.
+
+43
+00:01:53,560 --> 00:01:55,640
+This means there
+can only ever be
+
+44
+00:01:55,640 --> 00:01:58,325
+one character with the
+same name in the database.
+
+45
+00:02:01,386 --> 00:02:03,010
+So the next thing
+we're going to tackle
+
+46
+00:02:03,010 --> 00:02:04,690
+is where users are
+simply not entering
+
+47
+00:02:04,690 --> 00:02:06,523
+information, where
+they're skipping entering
+
+48
+00:02:06,523 --> 00:02:08,060
+the name or any of the stats.
+
+49
+00:02:08,060 --> 00:02:10,979
+Our game does require
+all of this information.
+
+50
+00:02:10,979 --> 00:02:13,240
+So we're going to
+disallow this behavior.
+
+51
+00:02:13,240 --> 00:02:16,890
+We can do that by adding
+the Required attribute.
+
+52
+00:02:16,890 --> 00:02:20,630
+What this will do is add rules
+on the front end, back end,
+
+53
+00:02:20,630 --> 00:02:23,560
+and the database to ensure
+that a name is entered.
+
+54
+00:02:27,647 --> 00:02:29,980
+From here, we're going to
+tackle where some of our users
+
+55
+00:02:29,980 --> 00:02:34,280
+were entering names
+like A and C and CC,
+
+56
+00:02:34,280 --> 00:02:36,380
+and other such short
+names that just really
+
+57
+00:02:36,380 --> 00:02:38,730
+aren't great for the
+way our game works.
+
+58
+00:02:38,730 --> 00:02:43,020
+So what we're going to do is
+use the MinLength attribute.
+
+59
+00:02:43,020 --> 00:02:46,200
+And we use this by having
+MinLength, parentheses,
+
+60
+00:02:46,200 --> 00:02:48,950
+and whatever length we want
+to be the minimum allowed.
+
+61
+00:02:48,950 --> 00:02:51,390
+In this case, we're
+going to use three.
+
+62
+00:02:51,390 --> 00:02:54,090
+This means any name
+entered must be
+
+63
+00:02:54,090 --> 00:02:56,000
+at least three characters long.
+
+64
+00:02:58,830 --> 00:03:01,000
+From here, let's
+handle where our users
+
+65
+00:03:01,000 --> 00:03:02,760
+were entering negative
+and numbers that
+
+66
+00:03:02,760 --> 00:03:04,560
+were way too big for our stats.
+
+67
+00:03:04,560 --> 00:03:07,550
+We can do this using
+the range attribute.
+
+68
+00:03:07,550 --> 00:03:10,000
+We do this by having
+Range, parenthesis,
+
+69
+00:03:10,000 --> 00:03:14,220
+the minimum allowed,
+comma, the maximum allowed.
+
+70
+00:03:14,220 --> 00:03:18,250
+What we're going to do
+is use range 1 and 20.
+
+71
+00:03:18,250 --> 00:03:22,700
+This means we'll require those
+stats to be anywhere from one
+
+72
+00:03:22,700 --> 00:03:23,770
+all the way up to 20.
+
+73
+00:03:26,280 --> 00:03:27,930
+At this point, our
+data annotations
+
+74
+00:03:27,930 --> 00:03:29,190
+are entirely set up.
+
+75
+00:03:29,190 --> 00:03:31,600
+We can make sure that
+they have a name.
+
+76
+00:03:31,600 --> 00:03:33,550
+We can make sure
+that name is unique.
+
+77
+00:03:33,550 --> 00:03:36,380
+We can make sure that the name
+is at least three characters
+
+78
+00:03:36,380 --> 00:03:36,900
+long.
+
+79
+00:03:36,900 --> 00:03:38,820
+As well as we can make
+sure all of our stats
+
+80
+00:03:38,820 --> 00:03:42,010
+are within an acceptable range.
+
+81
+00:03:42,010 --> 00:03:44,650
+Now it's your turn to set up
+your own validation using data
+
+82
+00:03:44,650 --> 00:03:46,460
+annotations in the challenges.
+
+83
+00:03:46,460 --> 00:03:48,240
+Have fun.
+

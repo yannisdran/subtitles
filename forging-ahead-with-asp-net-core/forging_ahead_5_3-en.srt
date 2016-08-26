@@ -1,0 +1,456 @@
+﻿1
+00:00:02,040 --> 00:00:02,867
+Welcome back.
+
+2
+00:00:02,867 --> 00:00:04,450
+In this section,
+we're going to set up
+
+3
+00:00:04,450 --> 00:00:06,640
+what is called
+ModelState Validation.
+
+4
+00:00:06,640 --> 00:00:10,000
+This is back-end validation.
+
+5
+00:00:10,000 --> 00:00:11,610
+We need to set up
+back-end validation
+
+6
+00:00:11,610 --> 00:00:13,990
+because you can bypass
+front-end validation,
+
+7
+00:00:13,990 --> 00:00:15,700
+whether intentionally or not.
+
+8
+00:00:15,700 --> 00:00:18,050
+If I disable my
+JavaScript, for example,
+
+9
+00:00:18,050 --> 00:00:20,690
+a lot of my front-end
+validation is going to break.
+
+10
+00:00:20,690 --> 00:00:24,470
+Users can also sometimes
+bypass our forms
+
+11
+00:00:24,470 --> 00:00:28,050
+to attempt to submit information
+directly to our application.
+
+12
+00:00:28,050 --> 00:00:30,450
+In these cases, we want
+to make sure we properly
+
+13
+00:00:30,450 --> 00:00:32,470
+validate the data coming in.
+
+14
+00:00:32,470 --> 00:00:35,690
+The ModelState is an object
+that tracks the value submitted
+
+15
+00:00:35,690 --> 00:00:36,890
+to the server.
+
+16
+00:00:36,890 --> 00:00:39,780
+In addition to storing the
+name and value of each field,
+
+17
+00:00:39,780 --> 00:00:44,840
+it also tracks the
+associated validation errors.
+
+18
+00:00:44,840 --> 00:00:47,300
+From here, to set up
+back-end validation,
+
+19
+00:00:47,300 --> 00:00:50,520
+we need to go to one of our
+actions that is expecting data.
+
+20
+00:00:50,520 --> 00:00:52,760
+We can go to the Create action.
+
+21
+00:00:52,760 --> 00:00:56,280
+The first step will
+be to add a condition.
+
+22
+00:00:56,280 --> 00:01:00,620
+If the ModelState is not
+valid-- the exclamation
+
+23
+00:01:00,620 --> 00:01:04,310
+mark meaning not-- we're just
+going to immediately return
+
+24
+00:01:04,310 --> 00:01:07,090
+the view with whatever
+model was passed to us.
+
+25
+00:01:07,090 --> 00:01:10,100
+By returning the character
+back to the view,
+
+26
+00:01:10,100 --> 00:01:13,800
+that ASP-validation
+summary is going
+
+27
+00:01:13,800 --> 00:01:16,990
+to be populated by all
+of the validation errors
+
+28
+00:01:16,990 --> 00:01:19,880
+we've received.
+
+29
+00:01:19,880 --> 00:01:23,370
+But let's try testing
+adding the same name twice,
+
+30
+00:01:23,370 --> 00:01:26,630
+which is one of the things we've
+set up validation to prevent.
+
+31
+00:01:26,630 --> 00:01:30,230
+The first time we added the
+name Hux, everything goes fine.
+
+32
+00:01:30,230 --> 00:01:35,240
+We're taken to the Index
+page, and the name is listed.
+
+33
+00:01:35,240 --> 00:01:39,140
+However, the second time
+we try to add the name Hux,
+
+34
+00:01:39,140 --> 00:01:42,270
+we wind up on a blank page.
+
+35
+00:01:42,270 --> 00:01:44,050
+Exactly why is that?
+
+36
+00:01:44,050 --> 00:01:46,110
+Well, if we were to
+look into our console,
+
+37
+00:01:46,110 --> 00:01:50,060
+we would notice that our key
+attribute actually worked.
+
+38
+00:01:50,060 --> 00:01:51,960
+It's just it didn't
+fail until the point it
+
+39
+00:01:51,960 --> 00:01:53,207
+went to save to the database.
+
+40
+00:01:55,830 --> 00:01:58,760
+Now this is occurring because
+our application doesn't
+
+41
+00:01:58,760 --> 00:02:01,060
+know the name is
+already in the database
+
+42
+00:02:01,060 --> 00:02:04,440
+until such time it actually
+attempts to hit the database.
+
+43
+00:02:04,440 --> 00:02:06,760
+So what we need to do
+is check for that name
+
+44
+00:02:06,760 --> 00:02:09,190
+before we attempt to save it.
+
+45
+00:02:09,190 --> 00:02:12,360
+And if the name already
+exists, create a new error.
+
+46
+00:02:12,360 --> 00:02:17,200
+We can do this by using the Any
+method on our DB set characters
+
+47
+00:02:17,200 --> 00:02:20,920
+and looking for any
+character with the same name
+
+48
+00:02:20,920 --> 00:02:23,895
+as the name of the
+character we are passing in.
+
+49
+00:02:23,895 --> 00:02:26,706
+In the event we do
+find a character, what
+
+50
+00:02:26,706 --> 00:02:32,830
+we're going to do is call
+ModelState.AddModelError.
+
+51
+00:02:32,860 --> 00:02:36,710
+And we are going to pass in
+Name, which is the field,
+
+52
+00:02:36,710 --> 00:02:42,340
+and what error message we want
+to be presented to the user.
+
+53
+00:02:42,340 --> 00:02:45,230
+At this point, our back-end
+validation is working.
+
+54
+00:02:45,230 --> 00:02:48,510
+But there is one thing that
+isn't quite the way we want it.
+
+55
+00:02:48,510 --> 00:02:50,120
+If we look at our
+error messages that
+
+56
+00:02:50,120 --> 00:02:51,510
+are being returned
+to our summary
+
+57
+00:02:51,510 --> 00:02:54,080
+from the back-end
+validation, some of them
+
+58
+00:02:54,080 --> 00:02:55,520
+are not exactly the cleanest.
+
+59
+00:02:55,520 --> 00:02:59,110
+We have the Value
+blank is invalid.
+
+60
+00:02:59,110 --> 00:03:02,400
+And that would be OK, if we only
+had one or two fields to deal
+
+61
+00:03:02,400 --> 00:03:05,510
+with, you'd be able to
+recognize what field is invalid
+
+62
+00:03:05,510 --> 00:03:06,830
+very easily.
+
+63
+00:03:06,830 --> 00:03:09,940
+But if it was on a form
+that had 20 or 30 values,
+
+64
+00:03:09,940 --> 00:03:12,900
+it would be almost impossible
+to tell which of these values
+
+65
+00:03:12,900 --> 00:03:14,790
+I'm getting an error from.
+
+66
+00:03:14,790 --> 00:03:18,870
+So we need to make our error
+messages a little friendlier.
+
+67
+00:03:18,870 --> 00:03:22,830
+We can set the error message
+for a validation error
+
+68
+00:03:22,830 --> 00:03:27,110
+by going to whatever attribute
+is appropriate for that error
+
+69
+00:03:27,110 --> 00:03:30,910
+and then adding after
+it, ErrorMessage equals
+
+70
+00:03:30,910 --> 00:03:33,440
+and whatever error
+is appropriate.
+
+71
+00:03:33,440 --> 00:03:37,150
+Now if this attribute
+already had parentheses,
+
+72
+00:03:37,150 --> 00:03:39,510
+we will add this as
+the last parameter.
+
+73
+00:03:39,510 --> 00:03:41,230
+If it does not have
+parentheses, we're
+
+74
+00:03:41,230 --> 00:03:46,250
+going to add the parentheses
+to contain that error.
+
+75
+00:03:46,250 --> 00:03:50,229
+At this point, our validation
+is entirely set up.
+
+76
+00:03:50,229 --> 00:03:52,270
+If we were to enter any
+of the information wrong,
+
+77
+00:03:52,270 --> 00:03:54,120
+we would get the
+appropriate error messages
+
+78
+00:03:54,120 --> 00:03:56,610
+from both the front
+and the back-end.
+
+79
+00:03:56,610 --> 00:03:59,240
+But you might be thinking,
+what about the database.
+
+80
+00:03:59,240 --> 00:04:01,920
+You mentioned that the
+database is part of validation.
+
+81
+00:04:01,920 --> 00:04:04,320
+One of the beauties of
+data annotations and entity
+
+82
+00:04:04,320 --> 00:04:06,850
+framework is all of this
+has been handled for us.
+
+83
+00:04:06,850 --> 00:04:08,730
+They have structured
+the table so anything
+
+84
+00:04:08,730 --> 00:04:11,630
+that isn't supposed to be
+null isn't allowed to be null,
+
+85
+00:04:11,630 --> 00:04:14,480
+anything that requires to be
+unique needs to be unique.
+
+86
+00:04:14,480 --> 00:04:17,983
+All of that is handled for us.
+
+87
+00:04:17,983 --> 00:04:20,399
+Now it is your turn to set up
+your own back-end validation
+
+88
+00:04:20,399 --> 00:04:21,570
+in the challenges.
+
+89
+00:04:21,570 --> 00:04:24,810
+I'll see you at
+the wrap-up video.
+
+90
+00:04:24,810 --> 00:04:27,640
+And that's all there
+isn't-- (COUGHING).
+
+91
+00:04:27,640 --> 00:04:28,140
+[LAUGHTER]
+
+92
+00:04:28,140 --> 00:04:29,953
+I'll see you at
+the summary video.
+
+93
+00:04:29,953 --> 00:04:30,800
+Wrap-up video.
+
+94
+00:04:30,800 --> 00:04:32,510
+Wrap-up.
+
+95
+00:04:32,510 --> 00:04:38,290
+Now does your-- the
+slide that does it in.
+
