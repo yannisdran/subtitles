@@ -1,3 +1,433 @@
 ﻿1
-00:00:00,000 --> 00:00:05,000
-[Subtitles pending]
+00:00:02,090 --> 00:00:03,090
+Welcome back.
+
+2
+00:00:03,090 --> 00:00:07,210
+In this section, we're going
+to cover editor templates.
+
+3
+00:00:07,210 --> 00:00:08,670
+Now our players
+are going to want
+
+4
+00:00:08,670 --> 00:00:11,150
+to be able to update their
+characters at different points.
+
+5
+00:00:11,150 --> 00:00:13,741
+Maybe their character gained
+a level or some stats changed,
+
+6
+00:00:13,741 --> 00:00:15,990
+so we're going to need to
+set up something to do this.
+
+7
+00:00:18,870 --> 00:00:22,310
+At this point, we're going
+to set up our edit action.
+
+8
+00:00:22,310 --> 00:00:25,000
+Our edit action is going to be
+almost exactly like our details
+
+9
+00:00:25,000 --> 00:00:26,960
+action, with the
+one exception of we
+
+10
+00:00:26,960 --> 00:00:29,710
+are just going to set the
+title to be "Edit" and then
+
+11
+00:00:29,710 --> 00:00:32,140
+the character name, as
+opposed to what Details had.
+
+12
+00:00:35,810 --> 00:00:38,122
+Now, in our Edit view,
+for the most part,
+
+13
+00:00:38,122 --> 00:00:40,080
+this view is going to
+follow the same structure
+
+14
+00:00:40,080 --> 00:00:41,820
+our Create view had.
+
+15
+00:00:41,820 --> 00:00:45,180
+It's going to have its heading,
+it's going to have a form.
+
+16
+00:00:45,180 --> 00:00:47,270
+The differences
+inside of our form,
+
+17
+00:00:47,270 --> 00:00:50,030
+instead of actually breaking
+out each and all of the labels
+
+18
+00:00:50,030 --> 00:00:53,610
+and inputs, we're just going
+to use @HTML.EditorForModel().
+
+19
+00:01:00,960 --> 00:01:03,620
+What this will do is when
+we render the template,
+
+20
+00:01:03,620 --> 00:01:06,220
+it'll actually create all
+of those labels and inputs
+
+21
+00:01:06,220 --> 00:01:09,560
+based on the properties in our
+model, completing the form.
+
+22
+00:01:09,560 --> 00:01:12,010
+As you can see here,
+the editor template
+
+23
+00:01:12,010 --> 00:01:14,840
+is taking all the properties
+and creating the proper input
+
+24
+00:01:14,840 --> 00:01:15,800
+fields for them.
+
+25
+00:01:18,810 --> 00:01:20,650
+So our template works.
+
+26
+00:01:20,650 --> 00:01:23,690
+Unfortunately, it's really
+not cosmetically as good
+
+27
+00:01:23,690 --> 00:01:25,030
+as it could be.
+
+28
+00:01:25,030 --> 00:01:26,980
+Our update but it's
+kind of just smashed
+
+29
+00:01:26,980 --> 00:01:28,790
+against the bottom
+of our input field,
+
+30
+00:01:28,790 --> 00:01:31,290
+and the spacing isn't
+really consistent.
+
+31
+00:01:31,290 --> 00:01:33,720
+So what we can actually
+do is we can override
+
+32
+00:01:33,720 --> 00:01:36,260
+parts of our editor template.
+
+33
+00:01:36,260 --> 00:01:38,430
+So what we're going to
+do is override parts
+
+34
+00:01:38,430 --> 00:01:42,010
+of the template based on
+the types: string, Boolean,
+
+35
+00:01:42,010 --> 00:01:44,115
+and int32, and integer.
+
+36
+00:01:47,529 --> 00:01:50,340
+To override parts of
+our editor template,
+
+37
+00:01:50,340 --> 00:01:53,000
+we just need to create an
+editor templates folder
+
+38
+00:01:53,000 --> 00:01:54,345
+inside our shared folder.
+
+39
+00:01:54,345 --> 00:01:59,020
+What we'll do here is create
+three views: Boolean.cshtml,
+
+40
+00:01:59,020 --> 00:02:03,290
+Int32.cshtml, and string.cshtml.
+
+41
+00:02:03,290 --> 00:02:06,310
+What this will do is any time
+the editor template finds
+
+42
+00:02:06,310 --> 00:02:08,979
+one of those data types to
+create a label and an input
+
+43
+00:02:08,979 --> 00:02:12,900
+field for, it is going to use
+what we put in these files
+
+44
+00:02:12,900 --> 00:02:15,530
+in place of its
+automatically generated code.
+
+45
+00:02:18,170 --> 00:02:21,590
+In our string.cshtml
+editor template,
+
+46
+00:02:21,590 --> 00:02:24,570
+what we're going to do is we're
+going to set up our @model
+
+47
+00:02:24,570 --> 00:02:26,450
+to be of a type string.
+
+48
+00:02:26,450 --> 00:02:29,080
+Since the data type we are
+going to be replacing is string,
+
+49
+00:02:29,080 --> 00:02:31,084
+we want to make sure it
+maps up with our model.
+
+50
+00:02:31,084 --> 00:02:33,500
+The only thing we're going to
+actually have in this editor
+
+51
+00:02:33,500 --> 00:02:38,730
+template is an input that's
+going to have an asp dash for that
+
+52
+00:02:38,730 --> 00:02:43,620
+is our model, and we're
+also going to add class equals
+
+53
+00:02:43,620 --> 00:02:44,720
+form-control.
+
+54
+00:02:44,720 --> 00:02:46,320
+So what we're actually
+doing is we're
+
+55
+00:02:46,320 --> 00:02:48,430
+adding a class from
+the Bootstrap framework
+
+56
+00:02:48,430 --> 00:02:50,427
+to just make our
+input look nicer.
+
+57
+00:02:50,427 --> 00:02:52,010
+We're not going to
+actually show going
+
+58
+00:02:52,010 --> 00:02:55,100
+into the int32 and
+our Boolean templates.
+
+59
+00:02:55,100 --> 00:02:57,250
+Really, the only difference
+between those templates
+
+60
+00:02:57,250 --> 00:03:00,540
+and our string template
+is just that model
+
+61
+00:03:00,540 --> 00:03:04,820
+is going to be to the
+appropriate data type.
+
+62
+00:03:04,820 --> 00:03:08,300
+With this, our players can now
+update their characters.
+
+63
+00:03:08,300 --> 00:03:11,660
+In addition to this, our form
+actually looks nice and clean.
+
+64
+00:03:11,660 --> 00:03:14,750
+Editor templates are a great way to set up our input styles
+
+65
+00:03:14,750 --> 00:03:16,375
+and layouts throughout
+our application.
+
+66
+00:03:19,040 --> 00:03:21,150
+Some conventions to note.
+
+67
+00:03:21,150 --> 00:03:23,130
+The naming conventions
+for editor templates
+
+68
+00:03:23,130 --> 00:03:25,540
+is to simply be a
+PascalCase name.
+
+69
+00:03:25,540 --> 00:03:29,060
+Editor templates are always
+located in a subfolder called
+
+70
+00:03:29,060 --> 00:03:30,660
+EditorTemplates.
+
+71
+00:03:30,660 --> 00:03:32,390
+Now, if you want
+an editor template
+
+72
+00:03:32,390 --> 00:03:34,680
+to apply application
+wide, you would put
+
+73
+00:03:34,680 --> 00:03:36,850
+that inside your shared folder.
+
+74
+00:03:36,850 --> 00:03:38,610
+However, if you wanted
+an editor template
+
+75
+00:03:38,610 --> 00:03:41,390
+to only apply to
+a specific area,
+
+76
+00:03:41,390 --> 00:03:43,740
+say for example, in our
+characters templates only,
+
+77
+00:03:43,740 --> 00:03:46,800
+we can add an editor's templates
+to our Characters folder
+
+78
+00:03:46,800 --> 00:03:49,020
+instead, and any
+templates we put in
+
+79
+00:03:49,020 --> 00:03:51,280
+that folder is
+only going to apply
+
+80
+00:03:51,280 --> 00:03:53,360
+to those views in that
+Characters folder.
+
+81
+00:03:56,000 --> 00:03:58,050
+Now, it's your turn to
+set up your own editor
+
+82
+00:03:58,050 --> 00:04:00,010
+templates in the challenges.
+
+83
+00:04:00,010 --> 00:04:00,510
+Have fun.
+
+84
+00:04:02,400 --> 00:04:06,180
+Attribute wrong,
+attribute wrong.
+
+85
+00:04:06,180 --> 00:04:08,620
+--opposed to be
+submitting information.
+
+86
+00:04:08,620 --> 00:04:10,030
+I paused there just to ruin it.
+
+87
+00:04:10,030 --> 00:04:12,480
+--only except HTP get.
+
+88
+00:04:12,480 --> 00:04:12,980
+HTP?
+
+89
+00:04:12,980 --> 00:04:15,030
+HTTP.
+
+90
+00:04:15,030 --> 00:04:16,160
+Yeah.
+
+91
+00:04:16,160 --> 00:04:21,540
+By defining HTTP--
+get, as I ruin get--
+
