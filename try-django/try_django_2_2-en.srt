@@ -1,0 +1,338 @@
+﻿1
+00:00:02,070 --> 00:00:05,020
+Welcome back to
+Level 2, Section 2,
+
+2
+00:00:05,020 --> 00:00:07,315
+where we'll be covering
+more on templates.
+
+3
+00:00:09,960 --> 00:00:12,670
+We previously used
+a context dictionary
+
+4
+00:00:12,670 --> 00:00:15,570
+to send two values
+to the template.
+
+5
+00:00:15,570 --> 00:00:18,250
+And this worked fine for that.
+
+6
+00:00:18,250 --> 00:00:23,050
+But what if we have more
+complex data, like name, value,
+
+7
+00:00:23,050 --> 00:00:25,770
+material, and
+location associated
+
+8
+00:00:25,770 --> 00:00:29,520
+with a treasure or a
+bunch of treasures?
+
+9
+00:00:29,520 --> 00:00:33,710
+How would we send that to
+the template in a context?
+
+10
+00:00:33,710 --> 00:00:37,250
+We can use a class to store
+information about a treasure
+
+11
+00:00:37,250 --> 00:00:40,720
+object and then
+use a list to store
+
+12
+00:00:40,720 --> 00:00:42,620
+all of the treasure objects.
+
+13
+00:00:42,620 --> 00:00:44,970
+And we can name that Treasures.
+
+14
+00:00:44,970 --> 00:00:47,360
+Then we have just
+one variable to put
+
+15
+00:00:47,360 --> 00:00:51,780
+in our context, treasures.
+
+16
+00:00:51,780 --> 00:00:53,940
+When we create our
+Treasure class,
+
+17
+00:00:53,940 --> 00:00:57,480
+we'll write class and then
+the name of the class,
+
+18
+00:00:57,480 --> 00:00:59,030
+here it's Treasure.
+
+19
+00:00:59,030 --> 00:01:01,300
+Then we'll define
+a method called
+
+20
+00:01:01,300 --> 00:01:06,420
+init, which sets all of the
+attributes that we pass in.
+
+21
+00:01:06,420 --> 00:01:08,670
+Then we can create
+a treasure object
+
+22
+00:01:08,670 --> 00:01:12,330
+and set its attributes
+with just one line of code.
+
+23
+00:01:12,330 --> 00:01:16,130
+t1 here is a Gold
+Nugget Treasure.
+
+24
+00:01:16,130 --> 00:01:19,770
+And t2 is a Fool's
+Gold Treasure.
+
+25
+00:01:19,770 --> 00:01:22,660
+And they each are
+separate instances
+
+26
+00:01:22,660 --> 00:01:23,825
+of the Treasure class.
+
+27
+00:01:28,760 --> 00:01:30,380
+We'll then move
+our Treasure class
+
+28
+00:01:30,380 --> 00:01:32,790
+to the bottom of the views.py.
+
+29
+00:01:32,790 --> 00:01:36,710
+And then instead of creating
+individual treasure objects,
+
+30
+00:01:36,710 --> 00:01:39,120
+we'll create a list
+called Treasures
+
+31
+00:01:39,120 --> 00:01:41,408
+to hold a few treasure objects.
+
+32
+00:01:44,760 --> 00:01:49,270
+Then we can pass this
+treasures list in our context.
+
+33
+00:01:49,270 --> 00:01:51,810
+Also notice we put
+the context directly
+
+34
+00:01:51,810 --> 00:01:54,730
+in line instead of
+creating a separate context
+
+35
+00:01:54,730 --> 00:01:55,628
+variable first.
+
+36
+00:01:58,320 --> 00:02:02,940
+How do we then display HTML for
+each object in the treasurer's
+
+37
+00:02:02,940 --> 00:02:03,890
+list?
+
+38
+00:02:03,890 --> 00:02:06,110
+If this was a regular
+Python script,
+
+39
+00:02:06,110 --> 00:02:08,110
+we could write a ForLoop.
+
+40
+00:02:08,110 --> 00:02:12,370
+But we're inside a template,
+so we use the Django template
+
+41
+00:02:12,370 --> 00:02:15,880
+language and its
+corresponding tags that
+
+42
+00:02:15,880 --> 00:02:19,470
+start with a curly
+bracket percent
+
+43
+00:02:19,470 --> 00:02:21,930
+and then we write
+our ForLoop and end
+
+44
+00:02:21,930 --> 00:02:23,790
+with percent curly bracket.
+
+45
+00:02:23,790 --> 00:02:28,420
+We can then close the for
+block with an endfor tag, which
+
+46
+00:02:28,420 --> 00:02:30,870
+tells Django where
+the for block ends
+
+47
+00:02:30,870 --> 00:02:34,460
+since we don't have
+indentation like we would
+
+48
+00:02:34,460 --> 00:02:36,093
+in a regular Python script.
+
+49
+00:02:39,200 --> 00:02:42,650
+You can see here we've
+added this ForLoop inside
+
+50
+00:02:42,650 --> 00:02:44,810
+of our index.html template.
+
+51
+00:02:48,390 --> 00:02:52,200
+Now when we view our page, we
+can see each treasure object's
+
+52
+00:02:52,200 --> 00:02:55,060
+name and value displayed.
+
+53
+00:02:55,060 --> 00:02:56,540
+Let's make another change.
+
+54
+00:02:56,540 --> 00:02:59,990
+You can see we have
+a 0 for Fool's Gold.
+
+55
+00:02:59,990 --> 00:03:02,780
+And we want to
+replace 0 with unknown
+
+56
+00:03:02,780 --> 00:03:04,850
+since that means we
+really don't know what
+
+57
+00:03:04,850 --> 00:03:09,030
+the value of that thing is.
+
+58
+00:03:09,030 --> 00:03:11,070
+To do this, we'll
+add a conditional,
+
+59
+00:03:11,070 --> 00:03:13,880
+which looks similar
+to Python except we
+
+60
+00:03:13,880 --> 00:03:17,010
+have the curly bracket
+percent symbol wrapped
+
+61
+00:03:17,010 --> 00:03:18,860
+around the conditional.
+
+62
+00:03:18,860 --> 00:03:23,720
+And we also add the endif
+tag to end the conditional.
+
+63
+00:03:23,720 --> 00:03:25,680
+Inside the first
+if statement, we'll
+
+64
+00:03:25,680 --> 00:03:27,970
+check if the value's
+greater than 0.
+
+65
+00:03:27,970 --> 00:03:31,080
+If so, we'll display the value.
+
+66
+00:03:31,080 --> 00:03:34,710
+Otherwise, we'll display
+the text unknown.
+
+67
+00:03:42,980 --> 00:03:47,510
+If we look at our page again, we
+can see Fool's Gold is unknown.
+
+68
+00:03:47,510 --> 00:03:50,607
+That's because its value
+was not greater than 0.
+
+69
+00:03:53,350 --> 00:03:56,110
+That's it for Level 2 Section 2.
+
+70
+00:03:56,110 --> 00:03:58,720
+Now it's time for you
+to use Django template
+
+71
+00:03:58,720 --> 00:04:00,710
+tags in the challenges.
+
+72
+00:04:00,710 --> 00:04:02,380
+Good luck.
+

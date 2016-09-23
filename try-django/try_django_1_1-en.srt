@@ -1,0 +1,861 @@
+﻿1
+00:00:00,500 --> 00:00:03,430
+[SINGING] Hitch up your
+wagon and mosey out west.
+
+2
+00:00:03,430 --> 00:00:07,710
+There's gold to find
+and knowledge to test.
+
+3
+00:00:07,710 --> 00:00:11,040
+We'll build an app for
+the treasure we seek.
+
+4
+00:00:11,040 --> 00:00:14,840
+Django's got the tools
+for our trek to the creek.
+
+5
+00:00:14,840 --> 00:00:18,430
+Prospect for riches with
+the model, template, view.
+
+6
+00:00:18,430 --> 00:00:23,640
+Route to your data,
+and render HTML too.
+
+7
+00:00:23,640 --> 00:00:25,620
+Now pack up your gear,
+
+8
+00:00:25,620 --> 00:00:27,420
+it's time to make some dough.
+
+9
+00:00:27,420 --> 00:00:31,230
+You're fixin' to strike
+gold as you try Django.
+
+10
+00:00:36,070 --> 00:00:38,230
+Hi, I'm Sara Holderness.
+
+11
+00:00:38,230 --> 00:00:40,750
+And welcome to Try
+Django where we'll
+
+12
+00:00:40,750 --> 00:00:43,330
+be learning about the
+Django web framework
+
+13
+00:00:43,330 --> 00:00:46,000
+and building an app along the way.
+
+14
+00:00:46,000 --> 00:00:48,670
+In level 1, section
+1, we'll be going
+
+15
+00:00:48,670 --> 00:00:52,660
+over getting
+started with Django.
+
+16
+00:00:52,660 --> 00:00:54,730
+Coming into this
+course, we're expecting
+
+17
+00:00:54,730 --> 00:00:58,940
+you to have some experience
+with Python, HTML, and database
+
+18
+00:00:58,940 --> 00:01:00,180
+concepts.
+
+19
+00:01:00,180 --> 00:01:02,570
+If you need a refresher
+on any of those things,
+
+20
+00:01:02,570 --> 00:01:05,069
+you can check out our
+prerequisite courses.
+
+21
+00:01:07,870 --> 00:01:12,260
+Django is an open source MVC
+framework written in Python
+
+22
+00:01:12,260 --> 00:01:14,740
+for building web application.
+
+23
+00:01:14,740 --> 00:01:17,170
+Django's website says
+it makes it easier
+
+24
+00:01:17,170 --> 00:01:21,270
+to build better web apps more
+quickly and with less code.
+
+25
+00:01:21,270 --> 00:01:24,270
+And it does this by handling
+common web development
+
+26
+00:01:24,270 --> 00:01:26,380
+tasks right out of the box.
+
+27
+00:01:26,380 --> 00:01:28,710
+We'll explain these
+points in a second,
+
+28
+00:01:28,710 --> 00:01:32,120
+but first let's
+see who's using it.
+
+29
+00:01:32,120 --> 00:01:36,570
+One company that uses Django
+is Disqus, a discussion service
+
+30
+00:01:36,570 --> 00:01:39,020
+that can be added
+to your website.
+
+31
+00:01:39,020 --> 00:01:40,710
+Another one you
+might have heard of
+
+32
+00:01:40,710 --> 00:01:44,350
+is Instagram, a photo
+sharing website,
+
+33
+00:01:44,350 --> 00:01:50,090
+and Pinterest, a visual
+link sharing social network.
+
+34
+00:01:50,090 --> 00:01:53,030
+Let's look at how Django
+works from a high level.
+
+35
+00:01:53,030 --> 00:01:57,180
+Today, most web applications
+send a web request
+
+36
+00:01:57,180 --> 00:02:01,110
+to the server for validation,
+processing, and rendering,
+
+37
+00:02:01,110 --> 00:02:04,850
+and then send HTML and
+assets back to the browser.
+
+38
+00:02:04,850 --> 00:02:07,020
+Django is what's being
+run on the server
+
+39
+00:02:07,020 --> 00:02:12,350
+and handles the validation,
+processing, and rendering.
+
+40
+00:02:12,350 --> 00:02:16,580
+If we look at this in a little
+more detail, we see that first,
+
+41
+00:02:16,580 --> 00:02:22,290
+the user requests a URL, like
+instagram.com/codeschool.
+
+42
+00:02:22,290 --> 00:02:26,410
+Then the request is sent to
+the Django app for processing.
+
+43
+00:02:26,410 --> 00:02:29,980
+All of the user info is
+looked up and validated,
+
+44
+00:02:29,980 --> 00:02:32,840
+and then data is passed
+off for rendering,
+
+45
+00:02:32,840 --> 00:02:36,420
+and HTML is sent
+back to the user.
+
+46
+00:02:36,420 --> 00:02:39,730
+Django separates these duties
+into separate components
+
+47
+00:02:39,730 --> 00:02:43,254
+to make projects easier to
+maintain and collaborate on.
+
+48
+00:02:45,920 --> 00:02:49,770
+Django has specific names for
+each one of these components.
+
+49
+00:02:49,770 --> 00:02:53,030
+The part which processes
+data is called the view.
+
+50
+00:02:53,030 --> 00:02:55,550
+The part which stores
+and validates data
+
+51
+00:02:55,550 --> 00:02:57,270
+is called the model.
+
+52
+00:02:57,270 --> 00:03:02,130
+And the part that renders
+HTML is called the template.
+
+53
+00:03:02,130 --> 00:03:06,180
+The model, template, and
+view make up the Django app.
+
+54
+00:03:06,180 --> 00:03:10,430
+If you are familiar with MVC
+or model, view, controller
+
+55
+00:03:10,430 --> 00:03:13,070
+frameworks, then you
+can think of the view
+
+56
+00:03:13,070 --> 00:03:17,260
+as the controller and
+the template as the view,
+
+57
+00:03:17,260 --> 00:03:20,940
+and MVC becomes MTV in Django.
+
+58
+00:03:20,940 --> 00:03:22,870
+This might be a little
+confusing if you're
+
+59
+00:03:22,870 --> 00:03:28,000
+used to MVC frameworks,
+but you'll get used to it.
+
+60
+00:03:28,000 --> 00:03:30,540
+In this course we'll
+be creating a site
+
+61
+00:03:30,540 --> 00:03:35,010
+to keep track of our treasures
+found along our journey west.
+
+62
+00:03:35,010 --> 00:03:39,340
+It'll have an image,
+the name, the material,
+
+63
+00:03:39,340 --> 00:03:42,990
+and the location found.
+
+64
+00:03:42,990 --> 00:03:45,500
+If you're going to follow
+along with the challenges
+
+65
+00:03:45,500 --> 00:03:48,510
+in this course, then you
+don't need to install Django.
+
+66
+00:03:48,510 --> 00:03:52,090
+But if you'd like to play with
+Django on your own computer,
+
+67
+00:03:52,090 --> 00:03:54,250
+you should install it first.
+
+68
+00:03:54,250 --> 00:03:56,140
+If you have Python
+installed, it's
+
+69
+00:03:56,140 --> 00:04:00,830
+as easy as typing pip install
+django in your terminal.
+
+70
+00:04:00,830 --> 00:04:03,940
+You'll see some information
+about the progress
+
+71
+00:04:03,940 --> 00:04:07,260
+of downloading and
+installing Django.
+
+72
+00:04:07,260 --> 00:04:09,980
+To learn more about setting
+up your Django environment,
+
+73
+00:04:09,980 --> 00:04:11,800
+you can check out
+our install video.
+
+74
+00:04:14,590 --> 00:04:16,260
+Here's all of the
+different places
+
+75
+00:04:16,260 --> 00:04:20,130
+we'll be writing code in this
+course-- in the console, which
+
+76
+00:04:20,130 --> 00:04:23,960
+uses a single carat in
+the Django shell, which
+
+77
+00:04:23,960 --> 00:04:29,026
+uses the three carat symbol, and
+in scripts inside your Django
+
+78
+00:04:29,026 --> 00:04:29,526
+project.
+
+79
+00:04:33,210 --> 00:04:35,730
+Before we create
+our Django project,
+
+80
+00:04:35,730 --> 00:04:38,710
+it's important to know the
+difference between projects
+
+81
+00:04:38,710 --> 00:04:40,970
+and apps in Django.
+
+82
+00:04:40,970 --> 00:04:43,730
+For example, if we're going
+to create a project called
+
+83
+00:04:43,730 --> 00:04:47,000
+Pinterest, inside we'd
+could have separate apps
+
+84
+00:04:47,000 --> 00:04:51,580
+for the main dotcom, the
+blog, and the jobs posting.
+
+85
+00:04:51,580 --> 00:04:53,540
+In Django, each
+of the apps would
+
+86
+00:04:53,540 --> 00:04:55,920
+live inside the outer
+Pinterest project,
+
+87
+00:04:55,920 --> 00:04:59,360
+but would have separate
+directories for each app.
+
+88
+00:04:59,360 --> 00:05:01,920
+So before we start
+writing the actual code,
+
+89
+00:05:01,920 --> 00:05:04,960
+we'll need to create
+a project and an app.
+
+90
+00:05:08,290 --> 00:05:12,490
+We create our Django project
+with the command django-admin
+
+91
+00:05:12,490 --> 00:05:16,672
+startproject and the name of
+our project, Treasuregram.
+
+92
+00:05:16,672 --> 00:05:18,255
+This will create a
+directory structure
+
+93
+00:05:18,255 --> 00:05:20,540
+for our Django project.
+
+94
+00:05:20,540 --> 00:05:22,570
+Under the folder
+Treasuregram, there
+
+95
+00:05:22,570 --> 00:05:25,750
+will be several
+files created for us.
+
+96
+00:05:25,750 --> 00:05:29,060
+settings.py will hold
+our project settings.
+
+97
+00:05:29,060 --> 00:05:32,820
+urls.py will hold
+our project's URLs.
+
+98
+00:05:32,820 --> 00:05:37,320
+And manage.py is a utility
+for administrative tasks.
+
+99
+00:05:37,320 --> 00:05:40,540
+Now we'll run our Django server
+to see our project running.
+
+100
+00:05:43,080 --> 00:05:47,750
+To serve our site locally,
+we can type Python manage.py
+
+101
+00:05:47,750 --> 00:05:49,600
+runserver.
+
+102
+00:05:49,600 --> 00:05:53,800
+Manage.py is in the top
+level Treasuregram directory,
+
+103
+00:05:53,800 --> 00:05:57,180
+so you should navigate
+there to run this command.
+
+104
+00:05:57,180 --> 00:06:01,330
+That output tells us our site
+is running at local host port
+
+105
+00:06:01,330 --> 00:06:02,790
+8000.
+
+106
+00:06:02,790 --> 00:06:04,680
+If we go there in
+our browser, we
+
+107
+00:06:04,680 --> 00:06:08,030
+can see a
+congratulations message.
+
+108
+00:06:08,030 --> 00:06:11,440
+It also tells us to start
+our first app by running
+
+109
+00:06:11,440 --> 00:06:13,530
+python manage.py startapp.
+
+110
+00:06:18,290 --> 00:06:22,630
+Now we'll create our first app
+by running Python manage.py
+
+111
+00:06:22,630 --> 00:06:26,770
+startapp and the name
+of our app, main_app.
+
+112
+00:06:26,770 --> 00:06:30,680
+This will create a directory for
+main_app plus a bunch of files
+
+113
+00:06:30,680 --> 00:06:31,880
+inside.
+
+114
+00:06:31,880 --> 00:06:35,470
+We won't go into what each
+of these files does yet,
+
+115
+00:06:35,470 --> 00:06:39,140
+but we'll focus on creating
+our first view in views.py.
+
+116
+00:06:42,180 --> 00:06:45,300
+A view is simply
+a Python function
+
+117
+00:06:45,300 --> 00:06:50,180
+that takes in a web request
+and returns a web response.
+
+118
+00:06:50,180 --> 00:06:54,000
+For our first view, we want to
+keep it simple and just return
+
+119
+00:06:54,000 --> 00:06:56,992
+a text response that
+says, "Hello explorers!".
+
+120
+00:06:59,650 --> 00:07:01,880
+If we open up
+views.py, we can see
+
+121
+00:07:01,880 --> 00:07:05,690
+there's a single import
+statement that imports
+
+122
+00:07:05,690 --> 00:07:08,830
+render from django.shortcuts.
+
+123
+00:07:08,830 --> 00:07:11,300
+Render is used to
+render templates,
+
+124
+00:07:11,300 --> 00:07:13,020
+which we'll do later.
+
+125
+00:07:13,020 --> 00:07:16,632
+But for now we're just going to
+return a simple HTTP response.
+
+126
+00:07:19,940 --> 00:07:26,795
+To do this, we'll need to import
+HttpResponse from django.http.
+
+127
+00:07:26,795 --> 00:07:31,520
+This imports that specific
+class from a specific module.
+
+128
+00:07:34,640 --> 00:07:37,570
+Now we can define our
+view function called
+
+129
+00:07:37,570 --> 00:07:40,370
+index that takes in a request.
+
+130
+00:07:40,370 --> 00:07:45,730
+This function will return an
+HTTP response with an HTML
+
+131
+00:07:45,730 --> 00:07:47,900
+string as the parameter.
+
+132
+00:07:47,900 --> 00:07:49,960
+You might think you
+could go to your browser
+
+133
+00:07:49,960 --> 00:07:52,670
+and load this view now,
+but there's actually
+
+134
+00:07:52,670 --> 00:07:54,620
+one more step we need to do.
+
+135
+00:07:54,620 --> 00:07:57,427
+We need to map
+this view to a URL.
+
+136
+00:08:00,110 --> 00:08:05,490
+So let's say we want the URL
+/index to go to the index view
+
+137
+00:08:05,490 --> 00:08:07,480
+we just wrote.
+
+138
+00:08:07,480 --> 00:08:10,690
+Django has a URL
+dispatcher whose job
+
+139
+00:08:10,690 --> 00:08:15,300
+is to map a URL to its
+corresponding view.
+
+140
+00:08:15,300 --> 00:08:18,690
+So what this will look like
+is you will type the URL
+
+141
+00:08:18,690 --> 00:08:22,290
+localhost:8000/index/.
+
+142
+00:08:22,290 --> 00:08:28,430
+The URL dispatcher will map the
+URL to the corresponding view.
+
+143
+00:08:28,430 --> 00:08:32,610
+And then the view will
+return that HTTP response,
+
+144
+00:08:32,610 --> 00:08:36,280
+"Hello Explorers!"
+
+145
+00:08:36,280 --> 00:08:42,080
+The URL dispatcher lives inside
+the project's url.py file.
+
+146
+00:08:42,080 --> 00:08:46,980
+If we open that up, we see
+there's a URL patterns list.
+
+147
+00:08:46,980 --> 00:08:51,180
+And there's one URL in that
+list that goes to the admin.
+
+148
+00:08:51,180 --> 00:08:53,620
+We won't need to
+touch that right now,
+
+149
+00:08:53,620 --> 00:08:58,190
+but we'll need to add a
+new URL for the index path.
+
+150
+00:08:58,190 --> 00:09:02,720
+To do this, we'll create a URL
+object with two parameters.
+
+151
+00:09:02,720 --> 00:09:06,450
+The first one is the path
+that we want to match.
+
+152
+00:09:06,450 --> 00:09:09,400
+And the second one
+is the view function.
+
+153
+00:09:09,400 --> 00:09:12,360
+This path might look
+kind of strange.
+
+154
+00:09:12,360 --> 00:09:14,980
+It actually holds a
+regular expression
+
+155
+00:09:14,980 --> 00:09:18,380
+that starts with r to
+mean the string is raw
+
+156
+00:09:18,380 --> 00:09:20,000
+and won't be escaped.
+
+157
+00:09:20,000 --> 00:09:23,560
+And the carat means the
+start of the string.
+
+158
+00:09:23,560 --> 00:09:27,410
+The second parameter just
+accesses the index function
+
+159
+00:09:27,410 --> 00:09:29,600
+in the views file.
+
+160
+00:09:29,600 --> 00:09:33,370
+And to access that view,
+we'll also need to import
+
+161
+00:09:33,370 --> 00:09:36,150
+main_app.views.
+
+162
+00:09:36,150 --> 00:09:38,870
+If you want to learn more
+about regular expressions,
+
+163
+00:09:38,870 --> 00:09:41,865
+check out our Breaking the
+Ice With Regular Expressions
+
+164
+00:09:41,865 --> 00:09:42,365
+course.
+
+165
+00:09:45,600 --> 00:09:48,390
+If this pattern is
+matched, then the request
+
+166
+00:09:48,390 --> 00:09:52,040
+will be sent to the view.
+
+167
+00:09:52,040 --> 00:09:56,010
+This second parameter means
+go inside the main_app,
+
+168
+00:09:56,010 --> 00:10:00,230
+look inside the views.py
+file, then call the index view
+
+169
+00:10:00,230 --> 00:10:03,750
+function, which will send us
+to the index view function
+
+170
+00:10:03,750 --> 00:10:05,280
+we wrote previously.
+
+171
+00:10:05,280 --> 00:10:08,910
+Now if the user visits
+localhost/index,
+
+172
+00:10:08,910 --> 00:10:11,900
+they'll be sent to
+main_app's index view, which
+
+173
+00:10:11,900 --> 00:10:13,628
+will return the HTTP response.
+
+174
+00:10:17,120 --> 00:10:19,290
+So if we preview
+that in the browser,
+
+175
+00:10:19,290 --> 00:10:25,190
+we'll see the heading
+text, "Hello Explorers!"
+
+176
+00:10:25,190 --> 00:10:27,560
+That's it for
+level 1, section 1.
+
+177
+00:10:27,560 --> 00:10:29,460
+Now it's time for
+you to practice
+
+178
+00:10:29,460 --> 00:10:33,900
+getting a simple Django app up
+and running in the challenges.
+
+179
+00:10:33,900 --> 00:10:35,690
+Good luck.
+

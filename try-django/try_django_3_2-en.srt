@@ -1,0 +1,176 @@
+﻿1
+00:00:02,020 --> 00:00:05,240
+Welcome back to Level 3,
+Section 2, where we'll
+
+2
+00:00:05,240 --> 00:00:09,650
+be introducing the Django Admin.
+
+3
+00:00:09,650 --> 00:00:11,960
+One of the most
+powerful parts of Django
+
+4
+00:00:11,960 --> 00:00:14,250
+is the automatic
+admin interface,
+
+5
+00:00:14,250 --> 00:00:17,500
+located at localhost/admin.
+
+6
+00:00:17,500 --> 00:00:19,810
+It reads metadata
+from your models
+
+7
+00:00:19,810 --> 00:00:24,130
+to provide a quick interface
+for viewing and editing them.
+
+8
+00:00:24,130 --> 00:00:27,230
+This is where trusted users,
+that are marked as staff,
+
+9
+00:00:27,230 --> 00:00:31,480
+can log in and manage
+content on your site.
+
+10
+00:00:31,480 --> 00:00:34,860
+For instance, you can view
+the objects in your model,
+
+11
+00:00:34,860 --> 00:00:41,790
+edit them, and create new ones.
+
+12
+00:00:47,420 --> 00:00:51,520
+To use the admin site, we
+need to create a super user.
+
+13
+00:00:51,520 --> 00:00:55,330
+To do that we run the
+command, python manage.py
+
+14
+00:00:55,330 --> 00:00:57,410
+createsuperuser.
+
+15
+00:00:57,410 --> 00:01:00,586
+Then enter your user
+name, email, and password.
+
+16
+00:01:06,110 --> 00:01:11,840
+Now in our browser, we can go
+to localhost/admin and login.
+
+17
+00:01:11,840 --> 00:01:15,020
+When we login, we can see
+our automatically generated
+
+18
+00:01:15,020 --> 00:01:19,160
+groups and users, but
+not our treasure model.
+
+19
+00:01:19,160 --> 00:01:22,580
+We actually have to register our
+models with the admin for them
+
+20
+00:01:22,580 --> 00:01:23,250
+to show up.
+
+21
+00:01:26,630 --> 00:01:29,050
+In order to see our
+models in the admin,
+
+22
+00:01:29,050 --> 00:01:32,630
+will need to register
+them in admin.py.
+
+23
+00:01:32,630 --> 00:01:35,790
+We do this by importing
+our treasure model
+
+24
+00:01:35,790 --> 00:01:38,990
+and then registering
+Treasure with the command,
+
+25
+00:01:38,990 --> 00:01:44,330
+admin.site.register.
+Now when we login,
+
+26
+00:01:44,330 --> 00:01:46,810
+we can see our treasure model.
+
+27
+00:01:46,810 --> 00:01:50,120
+We can see all of the
+objects inside of our model
+
+28
+00:01:50,120 --> 00:01:53,980
+and we can add more
+treasures, using the form,
+
+29
+00:01:53,980 --> 00:01:57,265
+like an arrowhead,
+and a horseshoe.
+
+30
+00:02:02,760 --> 00:02:05,330
+If we demo our
+app again, we have
+
+31
+00:02:05,330 --> 00:02:08,840
+the new items we just added,
+the arrowhead and horseshoe.
+
+32
+00:02:12,360 --> 00:02:15,340
+Congratulations on
+finishing Try Django.
+
+33
+00:02:15,340 --> 00:02:19,690
+First, you have a few challenges
+to complete on using the admin,
+
+34
+00:02:19,690 --> 00:02:21,855
+and then I'll see you
+in the outro video.
+
+35
+00:02:29,150 --> 00:02:33,080
+For fool's gold.
+
+36
+00:02:33,080 --> 00:02:34,950
+I'm sorry.
+
+37
+00:02:34,950 --> 00:02:37,371
+We need to--
+

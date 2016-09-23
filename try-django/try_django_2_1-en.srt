@@ -1,0 +1,364 @@
+﻿1
+00:00:00,500 --> 00:00:03,610
+[SINGING] Hitch up your
+wagon and mosey out west.
+
+2
+00:00:03,610 --> 00:00:07,710
+There's gold to find
+and knowledge to test.
+
+3
+00:00:07,710 --> 00:00:11,040
+We'll build an app for
+the treasure we seek.
+
+4
+00:00:11,040 --> 00:00:14,840
+Django's got the tools
+for our trek to the creek.
+
+5
+00:00:14,840 --> 00:00:18,430
+Prospect for riches with
+the model, template, view.
+
+6
+00:00:18,430 --> 00:00:23,640
+Route to your data
+and render HTML too.
+
+7
+00:00:23,640 --> 00:00:27,420
+Now pack up your gear, it's
+time to make some dough.
+
+8
+00:00:27,420 --> 00:00:31,630
+You're fixin' to strike
+gold as you Try Django.
+
+9
+00:00:35,970 --> 00:00:37,610
+Hi, I'm Sara Holderness.
+
+10
+00:00:37,610 --> 00:00:41,710
+And welcome back to Try
+Django, level 2, section 1,
+
+11
+00:00:41,710 --> 00:00:42,790
+covering Templates.
+
+12
+00:00:45,656 --> 00:00:48,180
+If you remember, this
+is the app that we're
+
+13
+00:00:48,180 --> 00:00:51,640
+trying to build-- a
+list of our treasures.
+
+14
+00:00:51,640 --> 00:00:53,460
+So now we're going
+to start building out
+
+15
+00:00:53,460 --> 00:00:55,910
+the UI for this page.
+
+16
+00:00:55,910 --> 00:00:58,165
+And to do that, we'll
+need to use a template.
+
+17
+00:01:00,800 --> 00:01:04,849
+Before we do that, let's look
+at our app flow diagram again.
+
+18
+00:01:04,849 --> 00:01:08,000
+A request comes in,
+the URL Dispatcher
+
+19
+00:01:08,000 --> 00:01:10,410
+matches the correct
+view, and then
+
+20
+00:01:10,410 --> 00:01:12,800
+the view should
+render a template.
+
+21
+00:01:12,800 --> 00:01:18,570
+A template is just an HTML file
+that can have dynamic data.
+
+22
+00:01:18,570 --> 00:01:20,860
+This is the part
+we'll be adding now.
+
+23
+00:01:20,860 --> 00:01:24,140
+We need to create an HTML
+file since we already
+
+24
+00:01:24,140 --> 00:01:29,250
+have the URL and view set up.
+
+25
+00:01:29,250 --> 00:01:31,720
+To do this, we'll need
+a Templates Directory
+
+26
+00:01:31,720 --> 00:01:33,740
+to store our templates.
+
+27
+00:01:33,740 --> 00:01:37,180
+See, Django automatically
+looks for directories named
+
+28
+00:01:37,180 --> 00:01:41,600
+"templates" for template files.
+
+29
+00:01:41,600 --> 00:01:43,950
+But this is only if
+your app is registered
+
+30
+00:01:43,950 --> 00:01:49,250
+with the Django project in
+settings, so we'll do that now.
+
+31
+00:01:49,250 --> 00:01:52,580
+In this settings.py
+file, you'll see
+
+32
+00:01:52,580 --> 00:01:55,550
+a list called INSTALLED_APPS.
+
+33
+00:01:55,550 --> 00:01:59,140
+We'll add our main
+app to this list.
+
+34
+00:01:59,140 --> 00:02:01,200
+And you can see a few
+of the apps that come
+
+35
+00:02:01,200 --> 00:02:05,250
+installed with Django already.
+
+36
+00:02:05,250 --> 00:02:08,229
+Now we can get to creating
+our first template
+
+37
+00:02:08,229 --> 00:02:11,810
+in a file called index.html.
+
+38
+00:02:11,810 --> 00:02:15,960
+And this contains just some
+basic HTML and the heading
+
+39
+00:02:15,960 --> 00:02:18,240
+that display TreasureGram.
+
+40
+00:02:18,240 --> 00:02:20,590
+So this template will
+render like this.
+
+41
+00:02:24,480 --> 00:02:27,850
+Now we want to go
+into our Index view,
+
+42
+00:02:27,850 --> 00:02:29,870
+and instead of
+returning and http
+
+43
+00:02:29,870 --> 00:02:32,960
+response, like we
+were doing before,
+
+44
+00:02:32,960 --> 00:02:35,480
+we'll render our template.
+
+45
+00:02:35,480 --> 00:02:40,730
+So we can actually delete
+the import of http response.
+
+46
+00:02:40,730 --> 00:02:46,460
+And we'll return a render
+object that takes in a request,
+
+47
+00:02:46,460 --> 00:02:49,450
+and a string that
+contains the name
+
+48
+00:02:49,450 --> 00:02:51,500
+of our template index.html.
+
+49
+00:02:54,860 --> 00:02:58,360
+So if we load our page, we
+can see the text TreasureGram.
+
+50
+00:02:58,360 --> 00:03:02,480
+And if we view the source of
+the page, we can see the HTML 
+
+51
+00:03:02,480 --> 00:03:04,050
+we just created.
+
+52
+00:03:04,050 --> 00:03:08,150
+So our template is working.
+
+53
+00:03:08,150 --> 00:03:12,300
+Now we'd like to display a list
+of our treasures on our page.
+
+54
+00:03:12,300 --> 00:03:16,640
+But to do that, we need
+dynamic data in our template.
+
+55
+00:03:16,640 --> 00:03:19,020
+This is a two-step process.
+
+56
+00:03:19,020 --> 00:03:24,150
+First, we want to send data
+from our view to our template.
+
+57
+00:03:24,150 --> 00:03:27,680
+And second, we want to access
+that data inside our template.
+
+58
+00:03:30,840 --> 00:03:33,780
+So inside our view,
+we'll create some data--
+
+59
+00:03:33,780 --> 00:03:38,050
+a variable name that holds
+the string "Gold Nugget,"
+
+60
+00:03:38,050 --> 00:03:41,210
+a variable value
+equal to 1000.00,
+
+61
+00:03:41,210 --> 00:03:44,450
+and we'll wrap these
+variables in a context,
+
+62
+00:03:44,450 --> 00:03:49,670
+which is a dictionary that
+maps variable names to Python
+
+63
+00:03:49,670 --> 00:03:51,080
+objects.
+
+64
+00:03:51,080 --> 00:03:54,620
+Then we can pass this context
+as the third parameter
+
+65
+00:03:54,620 --> 00:03:56,005
+of our render function.
+
+66
+00:03:58,890 --> 00:04:03,020
+In the template, you can access
+a variable from the context
+
+67
+00:04:03,020 --> 00:04:06,300
+by surrounding it with
+double curly brackets, which
+
+68
+00:04:06,300 --> 00:04:09,200
+is part of the Django
+Template language.
+
+69
+00:04:09,200 --> 00:04:11,230
+During the rendering
+of the template,
+
+70
+00:04:11,230 --> 00:04:14,490
+all of the variables inside
+double curly brackets
+
+71
+00:04:14,490 --> 00:04:15,956
+are replaced with their values.
+
+72
+00:04:20,060 --> 00:04:23,460
+So you can see in our rendered
+template that the values "Gold
+
+73
+00:04:23,460 --> 00:04:25,010
+Nugget" and 1000.00.
+
+74
+00:04:25,010 --> 00:04:25,730
+Show up.
+
+75
+00:04:28,310 --> 00:04:30,840
+That's it for
+level 2, section 1.
+
+76
+00:04:30,840 --> 00:04:34,580
+Now it's time for you to create
+a template in the Challenges.
+
+77
+00:04:34,580 --> 00:04:36,280
+Good luck.
+

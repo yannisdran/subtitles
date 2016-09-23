@@ -1,0 +1,800 @@
+﻿1
+00:00:00,500 --> 00:00:03,430
+[SINGING] Hitch your web
+again and mosey out west.
+
+2
+00:00:03,430 --> 00:00:07,710
+There's gold to find
+and knowledge to test.
+
+3
+00:00:07,710 --> 00:00:11,040
+We'll build an app for
+the treasure we seek.
+
+4
+00:00:11,040 --> 00:00:14,830
+Django's got the tools
+for our trek to the creek.
+
+5
+00:00:14,830 --> 00:00:18,420
+Prospect for riches with
+the model, template, view.
+
+6
+00:00:18,420 --> 00:00:22,950
+Route to your data,
+and render HTML too.
+
+7
+00:00:22,950 --> 00:00:25,250
+Now pack up your gear;
+
+8
+00:00:25,250 --> 00:00:27,420
+it's time to make some dough.
+
+9
+00:00:27,420 --> 00:00:31,712
+You're fixin' to strike
+gold as you Try Django.
+
+10
+00:00:35,790 --> 00:00:38,270
+Hi, I'm Sarah Holderness,
+and welcome back
+
+11
+00:00:38,270 --> 00:00:42,530
+to Try Django level 3,
+section 1, covering models.
+
+12
+00:00:45,380 --> 00:00:50,080
+We've seen the URL to view
+to template process before.
+
+13
+00:00:50,080 --> 00:00:54,080
+But now we want to add in our
+model to organize and provide
+
+14
+00:00:54,080 --> 00:00:57,870
+our view with data.
+
+15
+00:00:57,870 --> 00:00:59,830
+Right now we're
+storing our treasures
+
+16
+00:00:59,830 --> 00:01:02,270
+in a list in views.py.
+
+17
+00:01:02,270 --> 00:01:05,690
+But there's not a good interface
+for adding new ones directly
+
+18
+00:01:05,690 --> 00:01:07,500
+from the website.
+
+19
+00:01:07,500 --> 00:01:12,010
+And we want something that's
+easy to maintain over time.
+
+20
+00:01:12,010 --> 00:01:14,980
+A model is how you
+would do this in Django.
+
+21
+00:01:14,980 --> 00:01:21,310
+So we'll replace our Treasure
+class with a Treasure model.
+
+22
+00:01:21,310 --> 00:01:25,220
+We'll create the Treasure model
+in models.py following
+
+23
+00:01:25,220 --> 00:01:26,900
+these three steps.
+
+24
+00:01:26,900 --> 00:01:31,360
+First we'll import
+models from django.db.
+
+25
+00:01:31,360 --> 00:01:33,960
+Then we'll create a
+class called Treasure
+
+26
+00:01:33,960 --> 00:01:37,680
+that inherits from
+models.Model so that Django
+
+27
+00:01:37,680 --> 00:01:40,170
+knows we're creating a model.
+
+28
+00:01:40,170 --> 00:01:44,160
+Then we'll create our same
+attributes we had before,
+
+29
+00:01:44,160 --> 00:01:46,430
+but using special
+model types that
+
+30
+00:01:46,430 --> 00:01:48,225
+correspond to database types.
+
+31
+00:01:51,850 --> 00:01:55,700
+If we compare our old Treasure
+class to our new Treasure
+
+32
+00:01:55,700 --> 00:01:59,160
+model, you can see
+a few differences.
+
+33
+00:01:59,160 --> 00:02:01,640
+But overall the
+structure's the same.
+
+34
+00:02:01,640 --> 00:02:05,200
+Notice we didn't need to create
+a constructor in our Treasure
+
+35
+00:02:05,200 --> 00:02:08,130
+model, because the
+model has one built
+
+36
+00:02:08,130 --> 00:02:14,870
+in where you use the attribute
+names to set each one like so.
+
+37
+00:02:14,870 --> 00:02:18,310
+We also use special
+Django field types
+
+38
+00:02:18,310 --> 00:02:23,240
+that correspond to Python
+types and SQL types.
+
+39
+00:02:23,240 --> 00:02:28,040
+For instance, models.CharField
+corresponds to a Python string
+
+40
+00:02:28,040 --> 00:02:30,340
+and an SQL VARCHAR.
+
+41
+00:02:30,340 --> 00:02:32,810
+A models.IntegerField
+corresponds
+
+42
+00:02:32,810 --> 00:02:38,710
+to a Python int or an
+SQL INTEGER, and so on.
+
+43
+00:02:38,710 --> 00:02:40,800
+There are many more
+Django model field types
+
+44
+00:02:40,800 --> 00:02:42,640
+that you can find
+in the docs here.
+
+45
+00:02:45,520 --> 00:02:48,500
+In our model, we'll also
+need to define some rules
+
+46
+00:02:48,500 --> 00:02:49,770
+for our attributes.
+
+47
+00:02:49,770 --> 00:02:52,340
+Otherwise we would
+get errors like these.
+
+48
+00:02:52,340 --> 00:02:55,590
+We'll set the max
+length of our CharFields
+
+49
+00:02:55,590 --> 00:02:58,800
+and the max digits and decimal
+places for our DecimalField.
+
+50
+00:03:03,360 --> 00:03:05,420
+Our model now
+describes how we want
+
+51
+00:03:05,420 --> 00:03:07,750
+to store data in the database.
+
+52
+00:03:07,750 --> 00:03:10,980
+But do we actually
+have to write any SQL?
+
+53
+00:03:10,980 --> 00:03:12,640
+No, actually we don't.
+
+54
+00:03:12,640 --> 00:03:16,310
+That's covered by
+the Django ORM.
+
+55
+00:03:16,310 --> 00:03:18,500
+The ORM will usually
+work automatically
+
+56
+00:03:18,500 --> 00:03:21,280
+behind the scenes
+translating Python commands
+
+57
+00:03:21,280 --> 00:03:26,240
+to SQL commands, unless you edit
+the structure of your model.
+
+58
+00:03:26,240 --> 00:03:30,260
+Then you'll need to do an
+extra step called a migration.
+
+59
+00:03:30,260 --> 00:03:32,350
+And we'll need to do
+that now since we just
+
+60
+00:03:32,350 --> 00:03:35,700
+created our model.
+
+61
+00:03:35,700 --> 00:03:37,880
+How do we then
+perform a migration?
+
+62
+00:03:37,880 --> 00:03:41,280
+We actually have to run two
+commands in the console.
+
+63
+00:03:41,280 --> 00:03:46,370
+The first one is python
+manage.py makemigrations,
+
+64
+00:03:46,370 --> 00:03:49,110
+which makes a migration file.
+
+65
+00:03:49,110 --> 00:03:53,270
+Then to apply the
+migration to the database,
+
+66
+00:03:53,270 --> 00:03:57,540
+we run python manage.py migrate.
+
+67
+00:03:57,540 --> 00:04:00,810
+These separate steps let you
+review the migration before you
+
+68
+00:04:00,810 --> 00:04:02,720
+actually run migrate.
+
+69
+00:04:02,720 --> 00:04:05,850
+And since migrations are kind
+of like a version control
+
+70
+00:04:05,850 --> 00:04:08,545
+system for your database,
+that can come in handy.
+
+71
+00:04:11,300 --> 00:04:14,300
+Let's actually run those
+commands on our project.
+
+72
+00:04:14,300 --> 00:04:18,600
+We'll run python
+manage.py makemigrations.
+
+73
+00:04:18,600 --> 00:04:23,790
+And we can see this
+generates 001_initial.py,
+
+74
+00:04:23,790 --> 00:04:26,240
+which is our migration file.
+
+75
+00:04:26,240 --> 00:04:28,185
+And then we can see
+a list of the things
+
+76
+00:04:28,185 --> 00:04:31,360
+that that migration file does.
+
+77
+00:04:31,360 --> 00:04:35,910
+And ours just creates
+the model Treasure.
+
+78
+00:04:35,910 --> 00:04:38,450
+Before running migrate,
+we can actually
+
+79
+00:04:38,450 --> 00:04:42,390
+preview the SQL commands
+that will be run
+
+80
+00:04:42,390 --> 00:04:45,340
+by doing an intermediate step.
+
+81
+00:04:45,340 --> 00:04:48,870
+We can type this command
+and then see all the SQL
+
+82
+00:04:48,870 --> 00:04:51,660
+that will get run as a preview.
+
+83
+00:04:51,660 --> 00:04:54,870
+You don't need to do this,
+but it can come in handy
+
+84
+00:04:54,870 --> 00:04:57,170
+if you want to see if
+your Python code is
+
+85
+00:04:57,170 --> 00:05:00,840
+doing what you expect.
+
+86
+00:05:00,840 --> 00:05:04,460
+Now let's run migrate
+for real on our project.
+
+87
+00:05:04,460 --> 00:05:07,330
+The output shows us all the
+migrations that are run.
+
+88
+00:05:07,330 --> 00:05:08,990
+And you can see
+there are a few we
+
+89
+00:05:08,990 --> 00:05:12,170
+didn't create that are
+related to some other Django
+
+90
+00:05:12,170 --> 00:05:13,650
+components.
+
+91
+00:05:13,650 --> 00:05:16,560
+The last one,
+main_app, is the one
+
+92
+00:05:16,560 --> 00:05:19,194
+we just created, and
+is getting run now.
+
+93
+00:05:21,980 --> 00:05:24,970
+Now if you're wondering if
+your project is up to date
+
+94
+00:05:24,970 --> 00:05:30,730
+with all of its migrations, you
+can try running makemigrations,
+
+95
+00:05:30,730 --> 00:05:35,200
+and it'll say no changes
+detected if you're up to date.
+
+96
+00:05:35,200 --> 00:05:37,020
+And then if you run
+migrate, it will
+
+97
+00:05:37,020 --> 00:05:39,085
+say no migrations to apply.
+
+98
+00:05:42,080 --> 00:05:43,780
+Now that we've
+done our migration,
+
+99
+00:05:43,780 --> 00:05:46,040
+we can actually use
+our Treasure model
+
+100
+00:05:46,040 --> 00:05:48,230
+and create Treasure objects.
+
+101
+00:05:48,230 --> 00:05:51,500
+And we'll do this in the
+Django interactive shell.
+
+102
+00:05:51,500 --> 00:05:57,480
+We'll run python manage.py
+shell to open the Django shell.
+
+103
+00:05:57,480 --> 00:05:59,990
+The Django shell is a
+great way to play around
+
+104
+00:05:59,990 --> 00:06:03,480
+with creating models and
+writing queries before you
+
+105
+00:06:03,480 --> 00:06:05,820
+write actual Python code.
+
+106
+00:06:05,820 --> 00:06:10,080
+To start, we'll need to
+import our Treasure model from
+
+107
+00:06:10,080 --> 00:06:12,020
+main_app.models.
+
+108
+00:06:12,020 --> 00:06:16,620
+Then we'll type our first
+query, Treasure.objects.all.
+
+109
+00:06:16,620 --> 00:06:20,380
+And we can see we get an empty
+list since we haven't created
+
+110
+00:06:20,380 --> 00:06:22,131
+any Treasure objects yet.
+
+111
+00:06:24,720 --> 00:06:27,990
+We did that
+Treasure.objects.all,
+
+112
+00:06:27,990 --> 00:06:31,120
+which is a Django QuerySet.
+
+113
+00:06:31,120 --> 00:06:35,240
+A QuerySet is like a
+SELECT statement in SQL.
+
+114
+00:06:35,240 --> 00:06:39,450
+All QuerySets start with
+the model name dot objects.
+
+115
+00:06:39,450 --> 00:06:42,620
+So here it would be
+Treasure.objects.
+
+116
+00:06:42,620 --> 00:06:46,100
+And that's like a
+SELECT statement in SQL.
+
+117
+00:06:46,100 --> 00:06:48,770
+To retrieve all
+objects in SQL, we
+
+118
+00:06:48,770 --> 00:06:51,380
+would write SELECT
+* FROM Treasure.
+
+119
+00:06:51,380 --> 00:06:55,830
+As a QuerySet, we would
+write Treasure.objects.all.
+
+120
+00:06:55,830 --> 00:07:00,500
+We can also use filters
+like SQL WHERE or LIMIT
+
+121
+00:07:00,500 --> 00:07:03,870
+by doing
+Treasure.objects.filter.
+
+122
+00:07:04,430 --> 00:07:08,960
+And in the filter, we want
+to create in parentheses like
+
+123
+00:07:08,960 --> 00:07:11,780
+location = 'Orlando, Florida.'
+
+124
+00:07:11,780 --> 00:07:14,720
+If you know there's only one
+element matched in your query,
+
+125
+00:07:14,720 --> 00:07:16,170
+you can use get.
+
+126
+00:07:16,170 --> 00:07:22,010
+Treasure.objects.get(pk
+= 1) is an example.
+
+127
+00:07:22,010 --> 00:07:26,210
+pk is the primary key and
+we know will be unique.
+
+128
+00:07:26,210 --> 00:07:28,880
+So this will return
+only the Treasure object
+
+129
+00:07:28,880 --> 00:07:32,990
+with the matching primary key.
+
+130
+00:07:32,990 --> 00:07:35,930
+Back in our shell we'll create
+our first Treasure object
+
+131
+00:07:35,930 --> 00:07:37,690
+with our model.
+
+132
+00:07:37,690 --> 00:07:41,530
+Then if we use the query
+Treasure.objects.all,
+
+133
+00:07:41,530 --> 00:07:43,520
+we see an empty list.
+
+134
+00:07:43,520 --> 00:07:46,820
+That's because we forgot to
+save our Treasure object.
+
+135
+00:07:46,820 --> 00:07:50,050
+We can do that with t.save.
+
+136
+00:07:50,050 --> 00:07:54,460
+Now if we repeat the query
+Treasure.objects.all,
+
+137
+00:07:54,460 --> 00:07:58,160
+we'll see we have one
+Treasure object in our list.
+
+138
+00:07:58,160 --> 00:08:03,510
+But this description, Treasure
+object, isn't very specific.
+
+139
+00:08:03,510 --> 00:08:06,790
+We can make this more specific
+in our Treasure model.
+
+140
+00:08:09,880 --> 00:08:16,210
+In our Treasure model, we'll
+add a method called __str__,
+
+141
+00:08:16,210 --> 00:08:21,340
+which will define a description
+for a Treasure model.
+
+142
+00:08:21,340 --> 00:08:25,120
+And we'll just have it return
+the name of the Treasure.
+
+143
+00:08:25,120 --> 00:08:27,060
+Now the Treasure's
+name will be shown
+
+144
+00:08:27,060 --> 00:08:30,350
+whenever we output that object
+in the interactive shell.
+
+145
+00:08:35,880 --> 00:08:40,700
+Let's create a couple more
+Treasure objects, Gold Nugget
+
+146
+00:08:40,700 --> 00:08:42,159
+and Fool's Gold.
+
+147
+00:08:42,159 --> 00:08:45,470
+And remember after each
+one we have to save.
+
+148
+00:08:45,470 --> 00:08:49,280
+Then if we query
+Treasure.objects.all again,
+
+149
+00:08:49,280 --> 00:08:52,273
+we see all the names of the
+objects we just created.
+
+150
+00:08:55,660 --> 00:08:58,440
+Great, now these objects
+are in our database.
+
+151
+00:08:58,440 --> 00:09:01,280
+So we'll need to
+update our view to pull
+
+152
+00:09:01,280 --> 00:09:04,600
+this data from our
+database and then pass it
+
+153
+00:09:04,600 --> 00:09:06,960
+to the template for rendering.
+
+154
+00:09:06,960 --> 00:09:09,980
+Since the way we interact
+with database objects
+
+155
+00:09:09,980 --> 00:09:13,490
+is through our model, we'll
+need to import our Treasure
+
+156
+00:09:13,490 --> 00:09:15,051
+model into our view.
+
+157
+00:09:18,210 --> 00:09:20,790
+Then inside of the
+index function,
+
+158
+00:09:20,790 --> 00:09:24,560
+we can call Treasure.objects.all
+and store it
+
+159
+00:09:24,560 --> 00:09:27,370
+in a variable called treasures.
+
+160
+00:09:27,370 --> 00:09:29,290
+Since our template
+was already set up
+
+161
+00:09:29,290 --> 00:09:31,460
+to handle a list of
+Treasure objects,
+
+162
+00:09:31,460 --> 00:09:34,220
+we actually don't have
+to edit our template.
+
+163
+00:09:34,220 --> 00:09:37,470
+We can see our rendered
+page, and it already
+
+164
+00:09:37,470 --> 00:09:43,130
+loads all of our Treasure
+objects from our model.
+
+165
+00:09:43,130 --> 00:09:45,540
+That's it for
+level 3, section 1.
+
+166
+00:09:45,540 --> 00:09:48,780
+Now it's time for you to
+create models and migrations
+
+167
+00:09:48,780 --> 00:09:50,090
+in the challenges.
+
+168
+00:09:50,090 --> 00:09:51,780
+Good luck.
+

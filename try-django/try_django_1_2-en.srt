@@ -1,0 +1,243 @@
+﻿1
+00:00:02,050 --> 00:00:04,720
+Welcome back to
+Level 1 Section 2
+
+2
+00:00:04,720 --> 00:00:11,250
+where we'll be covering URL
+dispatcher best practices.
+
+3
+00:00:11,250 --> 00:00:15,430
+Right now, localhost/index
+goes to our homepage,
+
+4
+00:00:15,430 --> 00:00:18,030
+but this is kind of an ugly URL.
+
+5
+00:00:18,030 --> 00:00:20,860
+If you were going
+to go to google.com,
+
+6
+00:00:20,860 --> 00:00:24,960
+you wouldn't type
+google.com/index,
+
+7
+00:00:24,960 --> 00:00:27,295
+so we'd like to get
+rid of that /index.
+
+8
+00:00:30,890 --> 00:00:35,750
+First, we'll remove index/ from
+our regular expression and then
+
+9
+00:00:35,750 --> 00:00:39,310
+send an empty path
+to load our view.
+
+10
+00:00:39,310 --> 00:00:43,210
+Our pattern is now an empty
+string with just a carat.
+
+11
+00:00:43,210 --> 00:00:49,260
+And if we load local host, we
+see that our view loads without
+
+12
+00:00:49,260 --> 00:00:50,045
+typing /index.
+
+13
+00:00:52,890 --> 00:00:56,610
+In Django, it's a best
+practice to have a project URL
+
+14
+00:00:56,610 --> 00:01:00,390
+dispatcher and an
+app URL dispatcher.
+
+15
+00:01:00,390 --> 00:01:03,510
+Right now, our
+project's URL dispatcher
+
+16
+00:01:03,510 --> 00:01:06,390
+is handling all of
+the requests, but we'd
+
+17
+00:01:06,390 --> 00:01:10,000
+like to funnel requests
+for our main app
+
+18
+00:01:10,000 --> 00:01:12,850
+to our main app's
+URL dispatcher.
+
+19
+00:01:12,850 --> 00:01:17,710
+So the first thing we'll do is
+create that new urls.py file
+
+20
+00:01:17,710 --> 00:01:21,540
+in the main app folder.
+
+21
+00:01:21,540 --> 00:01:25,090
+So now in the
+projects urls.py file,
+
+22
+00:01:25,090 --> 00:01:30,740
+instead of mapping to
+main apps view.index
+
+23
+00:01:30,740 --> 00:01:34,690
+we'll instead include
+all of main apps URLs.
+
+24
+00:01:34,690 --> 00:01:38,580
+Notice to use that include
+function, we need to import
+
+25
+00:01:38,580 --> 00:01:42,720
+include from django.conf.urls.
+
+26
+00:01:42,720 --> 00:01:47,285
+So now we'll create our
+urls.py file in our main app.
+
+27
+00:01:51,960 --> 00:01:56,080
+We'll still need to
+import URL, and we'll also
+
+28
+00:01:56,080 --> 00:01:58,920
+want to import our views.
+
+29
+00:01:58,920 --> 00:02:02,700
+If you want to import a specific
+module from your current app,
+
+30
+00:02:02,700 --> 00:02:05,832
+you can leave off the
+package and just type dot.
+
+31
+00:02:08,750 --> 00:02:13,210
+So now we want to create our
+app specific URL patterns.
+
+32
+00:02:13,210 --> 00:02:16,720
+We'll start with
+an empty string,
+
+33
+00:02:16,720 --> 00:02:20,110
+but we'll also terminate
+it with a dollar sign
+
+34
+00:02:20,110 --> 00:02:23,280
+so that this doesn't
+match all strings.
+
+35
+00:02:23,280 --> 00:02:26,095
+And then the second parameter
+will be our views.index.
+
+36
+00:02:30,080 --> 00:02:34,610
+Now if we load local host with
+no path, we see our homepage.
+
+37
+00:02:34,610 --> 00:02:37,600
+So things are working the
+same as they did before,
+
+38
+00:02:37,600 --> 00:02:41,270
+even though we've refactored
+things behind the scenes.
+
+39
+00:02:41,270 --> 00:02:44,130
+And this will allow us
+to stay more organized
+
+40
+00:02:44,130 --> 00:02:45,392
+as our app grows.
+
+41
+00:02:47,990 --> 00:02:49,420
+That's it for Level 1.
+
+42
+00:02:49,420 --> 00:02:52,890
+Now it's time for you to
+refactor your URL dispatcher
+
+43
+00:02:52,890 --> 00:02:54,240
+in the challenges.
+
+44
+00:02:54,240 --> 00:02:56,960
+Have fun.
+
+45
+00:02:56,960 --> 00:02:58,584
+Let's get--
+
+46
+00:02:58,584 --> 00:02:59,560
+[BEEP]
+
+47
+00:02:59,560 --> 00:03:01,390
+Django from a-- OK.
+
+48
+00:03:01,390 --> 00:03:01,890
+[BEEP]
+
+49
+00:03:01,890 --> 00:03:04,211
+Creating in this course--
+
+50
+00:03:04,211 --> 00:03:04,710
+[BEEP]
+
+51
+00:03:04,710 --> 00:03:06,890
+That would have sceptre--
+
+52
+00:03:06,890 --> 00:03:08,440
+[BEEP]
+
