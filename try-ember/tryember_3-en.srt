@@ -1,0 +1,995 @@
+﻿1
+00:00:00,500 --> 00:00:02,850
+[SINGING] It's time
+to build an app,
+
+2
+00:00:02,850 --> 00:00:05,360
+to a framework I will go.
+
+3
+00:00:05,360 --> 00:00:09,200
+Ambitious apps are easy
+when Ember runs the show.
+
+4
+00:00:09,200 --> 00:00:12,570
+Templates, Routes, and
+Models; it's a client MVC.
+
+5
+00:00:12,570 --> 00:00:16,846
+Best practices from all
+around; come try Ember with me.
+
+6
+00:00:21,950 --> 00:00:23,290
+You're watching Try Ember.
+
+7
+00:00:23,290 --> 00:00:24,860
+This is Level 3,
+where we'll learn
+
+8
+00:00:24,860 --> 00:00:26,200
+about models and services.
+
+9
+00:00:29,010 --> 00:00:31,350
+In the last level, we
+showed how to provide data
+
+10
+00:00:31,350 --> 00:00:33,320
+from routes to templates.
+
+11
+00:00:33,320 --> 00:00:35,310
+You might have noticed
+that in the model hooks,
+
+12
+00:00:35,310 --> 00:00:37,726
+we started repeating ourselves
+with a lot of the data that
+
+13
+00:00:37,726 --> 00:00:39,060
+was being returned.
+
+14
+00:00:39,060 --> 00:00:41,260
+So let's go about
+trying to centralize
+
+15
+00:00:41,260 --> 00:00:43,820
+and organize that before we
+start working with that data
+
+16
+00:00:43,820 --> 00:00:46,570
+little bit more.
+
+17
+00:00:46,570 --> 00:00:48,160
+To centralize our
+data, we're going
+
+18
+00:00:48,160 --> 00:00:50,500
+to create something
+called a service.
+
+19
+00:00:50,500 --> 00:00:53,100
+An Ember Service is
+a long-living object
+
+20
+00:00:53,100 --> 00:00:55,640
+that can be accessed
+throughout your application.
+
+21
+00:00:55,640 --> 00:00:58,710
+A long-living object is
+sometimes called a singleton.
+
+22
+00:00:58,710 --> 00:01:01,030
+These objects are good
+for things like managing
+
+23
+00:01:01,030 --> 00:01:04,180
+third-party resources
+or logging systems
+
+24
+00:01:04,180 --> 00:01:06,650
+or even holding data in a
+data repository, which is
+
+25
+00:01:06,650 --> 00:01:08,210
+how we're going to use it now.
+
+26
+00:01:08,210 --> 00:01:10,440
+To create our service,
+we're going to, again,
+
+27
+00:01:10,440 --> 00:01:12,690
+rely on Ember CLI's generators.
+
+28
+00:01:12,690 --> 00:01:15,760
+You type ember generate service
+and the name of the service
+
+29
+00:01:15,760 --> 00:01:17,010
+you want to generate.
+
+30
+00:01:17,010 --> 00:01:18,750
+So in our case, we're
+going to generate
+
+31
+00:01:18,750 --> 00:01:20,540
+a service called the store.
+
+32
+00:01:20,540 --> 00:01:22,500
+And the blueprint
+creates for us a new file
+
+33
+00:01:22,500 --> 00:01:24,820
+in App Services,
+called store.js,
+
+34
+00:01:24,820 --> 00:01:27,872
+which we'll jump to now.
+
+35
+00:01:27,872 --> 00:01:29,330
+And if we jump into
+the store file,
+
+36
+00:01:29,330 --> 00:01:31,090
+there's nothing too
+surprising here.
+
+37
+00:01:31,090 --> 00:01:32,530
+The only difference
+from something
+
+38
+00:01:32,530 --> 00:01:34,150
+we might have seen
+earlier is that we
+
+39
+00:01:34,150 --> 00:01:36,820
+are extending from something
+called ember.service.
+
+40
+00:01:36,820 --> 00:01:38,840
+But otherwise there's
+not a whole lot going on.
+
+41
+00:01:41,341 --> 00:01:43,090
+Now that we have this
+empty store service.
+
+42
+00:01:43,090 --> 00:01:47,060
+Let's start moving our data out
+of the routes into that store.
+
+43
+00:01:47,060 --> 00:01:49,462
+So I'm going to create a new
+get orders function inside
+
+44
+00:01:49,462 --> 00:01:51,420
+of the store that's going
+to return the data we
+
+45
+00:01:51,420 --> 00:01:53,880
+have from the orders route.
+
+46
+00:01:53,880 --> 00:01:55,940
+After that I need to go
+back to the orders routes
+
+47
+00:01:55,940 --> 00:01:58,380
+and update the route
+to use the store.
+
+48
+00:01:58,380 --> 00:02:00,820
+To do that, I need to
+reference the store.
+
+49
+00:02:00,820 --> 00:02:03,380
+So here we'll add a store
+property to the route.
+
+50
+00:02:03,380 --> 00:02:07,270
+And we'll inject a new
+service, called store.
+
+51
+00:02:07,270 --> 00:02:09,630
+So Ember is going to locate
+that store service for us
+
+52
+00:02:09,630 --> 00:02:12,369
+and make it available as a
+store property in the route.
+
+53
+00:02:12,369 --> 00:02:13,910
+Now that the store
+is available, I'll
+
+54
+00:02:13,910 --> 00:02:16,239
+update the model to use it.
+
+55
+00:02:16,239 --> 00:02:17,780
+Inside of the model
+hook, I'll create
+
+56
+00:02:17,780 --> 00:02:19,430
+a new variable, called store.
+
+57
+00:02:19,430 --> 00:02:21,490
+In this case, I've
+defined it as a const.
+
+58
+00:02:21,490 --> 00:02:24,650
+This is an ES 2015 feature
+the just throws a JavaScript
+
+59
+00:02:24,650 --> 00:02:26,810
+error if that variable changes.
+
+60
+00:02:26,810 --> 00:02:29,292
+I'll assign it to
+be this.get store.
+
+61
+00:02:29,292 --> 00:02:31,250
+That grabs the property
+of store and assigns it
+
+62
+00:02:31,250 --> 00:02:32,564
+to the store variable.
+
+63
+00:02:32,564 --> 00:02:33,980
+And then from the
+model hook, I'll
+
+64
+00:02:33,980 --> 00:02:36,340
+just return store.get
+orders, which
+
+65
+00:02:36,340 --> 00:02:39,460
+is the function that we
+created just a minute ago.
+
+66
+00:02:39,460 --> 00:02:43,030
+And here, because the service
+name matches the property name,
+
+67
+00:02:43,030 --> 00:02:45,560
+we can just leave off the
+service name from the call.
+
+68
+00:02:45,560 --> 00:02:47,530
+And Ember will infer it
+from the property name.
+
+69
+00:02:51,080 --> 00:02:53,570
+Now, because the store service
+has all of our order data
+
+70
+00:02:53,570 --> 00:02:56,870
+in it, we can update the
+order route to use it as well.
+
+71
+00:02:56,870 --> 00:02:58,610
+To do that, I'll
+create a new function
+
+72
+00:02:58,610 --> 00:03:01,040
+in the store, called
+get order by ID,
+
+73
+00:03:01,040 --> 00:03:03,410
+where I'll pass it in ID.
+
+74
+00:03:03,410 --> 00:03:05,790
+Inside of that function,
+I'll take the same order data
+
+75
+00:03:05,790 --> 00:03:07,030
+we already have in the store.
+
+76
+00:03:07,030 --> 00:03:10,490
+And I'll just move the find
+by functionality over into it.
+
+77
+00:03:10,490 --> 00:03:12,650
+Then back in the order
+route, I can just
+
+78
+00:03:12,650 --> 00:03:16,700
+update it to inject the store
+and call our new function.
+
+79
+00:03:21,070 --> 00:03:23,060
+And with the store
+now complete, you
+
+80
+00:03:23,060 --> 00:03:26,290
+can see those changes didn't
+actually change anything
+
+81
+00:03:26,290 --> 00:03:27,730
+about the application.
+
+82
+00:03:27,730 --> 00:03:30,109
+Our application still functions
+exactly as it did before.
+
+83
+00:03:30,109 --> 00:03:31,650
+But our data is all
+now in one place.
+
+84
+00:03:34,620 --> 00:03:36,960
+Now that we have a place
+for our data in the store,
+
+85
+00:03:36,960 --> 00:03:39,440
+let's look back at our
+application to see exactly what
+
+86
+00:03:39,440 --> 00:03:40,440
+data we're working with.
+
+87
+00:03:43,850 --> 00:03:46,290
+First, we have products.
+
+88
+00:03:46,290 --> 00:03:53,130
+Products have titles, prices,
+descriptions, and images.
+
+89
+00:03:53,130 --> 00:03:54,860
+Then there are orders.
+
+90
+00:03:54,860 --> 00:03:57,600
+Orders have a name
+and a collection
+
+91
+00:03:57,600 --> 00:03:58,980
+of items being ordered.
+
+92
+00:04:01,910 --> 00:04:03,400
+And then those line
+items each have
+
+93
+00:04:03,400 --> 00:04:06,110
+an associated product and a
+quantity of that product being
+
+94
+00:04:06,110 --> 00:04:07,554
+ordered.
+
+95
+00:04:07,554 --> 00:04:09,970
+Now that we've identified the
+three types of objects being
+
+96
+00:04:09,970 --> 00:04:11,590
+used in this
+application, let's look
+
+97
+00:04:11,590 --> 00:04:13,400
+at how we can use Ember
+to formalize them.
+
+98
+00:04:17,579 --> 00:04:19,420
+This is where Ember
+models come in.
+
+99
+00:04:19,420 --> 00:04:21,470
+Ember models represent
+the underlying data
+
+100
+00:04:21,470 --> 00:04:25,520
+in your application that
+is sometimes persistent.
+
+101
+00:04:25,520 --> 00:04:27,480
+Models are defined
+in app models.
+
+102
+00:04:27,480 --> 00:04:29,520
+Since we have a
+product model, we'll
+
+103
+00:04:29,520 --> 00:04:33,110
+go ahead and create an
+app models product.js file
+
+104
+00:04:33,110 --> 00:04:34,460
+to define it.
+
+105
+00:04:34,460 --> 00:04:37,850
+Inside of that file, we will
+extend from Ember Object
+
+106
+00:04:37,850 --> 00:04:39,080
+for this course.
+
+107
+00:04:39,080 --> 00:04:41,470
+It's here that we can
+define properties, methods,
+
+108
+00:04:41,470 --> 00:04:43,870
+or other behaviors that we
+might find useful for products
+
+109
+00:04:43,870 --> 00:04:45,400
+in this application.
+
+110
+00:04:45,400 --> 00:04:49,130
+But why extend from Ember Object?
+
+111
+00:04:49,130 --> 00:04:51,440
+Ember Object is the base
+for just about everything
+
+112
+00:04:51,440 --> 00:04:52,464
+inside of Ember.
+
+113
+00:04:52,464 --> 00:04:54,380
+And there are three main
+reasons for extending
+
+114
+00:04:54,380 --> 00:04:55,500
+from Ember Object.
+
+115
+00:04:55,500 --> 00:04:57,600
+First, it creates a
+common interface for us
+
+116
+00:04:57,600 --> 00:05:00,070
+for creating and
+destroying objects.
+
+117
+00:05:00,070 --> 00:05:02,720
+Second, Ember Object
+provides life cycle events
+
+118
+00:05:02,720 --> 00:05:05,530
+and hooks that other parts of
+the system can watch out for.
+
+119
+00:05:05,530 --> 00:05:07,860
+And third, it provides
+some property observation
+
+120
+00:05:07,860 --> 00:05:09,860
+functionality so that
+the rest of the system
+
+121
+00:05:09,860 --> 00:05:12,960
+can know when properties
+change on these objects.
+
+122
+00:05:12,960 --> 00:05:15,400
+For example, this
+observation functionality
+
+123
+00:05:15,400 --> 00:05:18,064
+is used so that Ember can
+update the templates when
+
+124
+00:05:18,064 --> 00:05:18,605
+data changes.
+
+125
+00:05:21,600 --> 00:05:23,950
+Now that we've created our
+product model, let's go ahead
+
+126
+00:05:23,950 --> 00:05:25,866
+and play around a little
+bit with Ember models
+
+127
+00:05:25,866 --> 00:05:29,110
+just to kind of get
+a feel for them.
+
+128
+00:05:29,110 --> 00:05:31,930
+So you'll create a new instance
+of a model, called a record,
+
+129
+00:05:31,930 --> 00:05:33,900
+by using a create method.
+
+130
+00:05:33,900 --> 00:05:36,500
+You can optionally pass
+properties into the record,
+
+131
+00:05:36,500 --> 00:05:38,090
+like you see here.
+
+132
+00:05:38,090 --> 00:05:40,820
+Properties are read from a
+record using the get function.
+
+133
+00:05:40,820 --> 00:05:44,580
+And properties are changed on a
+record using the set function.
+
+134
+00:05:44,580 --> 00:05:47,400
+The get and set functions,
+while a little bit verbose, let
+
+135
+00:05:47,400 --> 00:05:48,850
+the rest of the
+Ember application
+
+136
+00:05:48,850 --> 00:05:51,170
+know when those properties
+are being changed or read.
+
+137
+00:05:54,410 --> 00:05:56,760
+For now, the line
+item in order models
+
+138
+00:05:56,760 --> 00:06:00,590
+will be identical to the product
+model, which is to say, empty.
+
+139
+00:06:00,590 --> 00:06:02,400
+That'll change as
+the course goes on.
+
+140
+00:06:02,400 --> 00:06:06,722
+But at least this gives us three
+different objects to work with.
+
+141
+00:06:06,722 --> 00:06:08,910
+So with these models in place.
+
+142
+00:06:08,910 --> 00:06:10,550
+We need to go back
+to the service
+
+143
+00:06:10,550 --> 00:06:12,440
+and start using them within it.
+
+144
+00:06:12,440 --> 00:06:15,560
+How do we do that?
+
+145
+00:06:15,560 --> 00:06:17,920
+First, we'll need to import
+these model definitions
+
+146
+00:06:17,920 --> 00:06:19,250
+into the service.
+
+147
+00:06:19,250 --> 00:06:22,480
+We can do that using
+the Import statement.
+
+148
+00:06:22,480 --> 00:06:25,620
+One way to import them is
+by using relative paths.
+
+149
+00:06:25,620 --> 00:06:28,770
+So from a store service
+located in App Services,
+
+150
+00:06:28,770 --> 00:06:32,360
+I can traverse up a directory
+to App with dot dot.
+
+151
+00:06:32,360 --> 00:06:34,400
+And then I can go into
+the models line item
+
+152
+00:06:34,400 --> 00:06:36,060
+product or order.
+
+153
+00:06:36,060 --> 00:06:36,970
+And that works.
+
+154
+00:06:36,970 --> 00:06:39,310
+But if the store ever
+changes file location,
+
+155
+00:06:39,310 --> 00:06:42,450
+those imports will break.
+
+156
+00:06:42,450 --> 00:06:44,980
+Better than relative paths,
+I can use absolute or project
+
+157
+00:06:44,980 --> 00:06:45,480
+paths.
+
+158
+00:06:45,480 --> 00:06:48,670
+To use absolute paths, I
+start with the app name
+
+159
+00:06:48,670 --> 00:06:50,170
+and the Import statement.
+
+160
+00:06:50,170 --> 00:06:52,600
+The app name what I
+defined when I Ember new'd
+
+161
+00:06:52,600 --> 00:06:55,570
+the project, in
+this case, woodland.
+
+162
+00:06:55,570 --> 00:06:57,170
+After the project
+name, I can import
+
+163
+00:06:57,170 --> 00:07:00,150
+the rest of the file path
+directly with woodland models
+
+164
+00:07:00,150 --> 00:07:00,787
+line item.
+
+165
+00:07:00,787 --> 00:07:02,370
+And it references
+the line item model.
+
+166
+00:07:05,800 --> 00:07:08,700
+With our application models
+now available within the store,
+
+167
+00:07:08,700 --> 00:07:11,086
+let's go about using them now.
+
+168
+00:07:11,086 --> 00:07:12,710
+To do that, I'll
+create a private array
+
+169
+00:07:12,710 --> 00:07:14,081
+of product records.
+
+170
+00:07:14,081 --> 00:07:15,580
+I'll fill it with
+records whose data
+
+171
+00:07:15,580 --> 00:07:18,435
+matches those from the
+design mockups you've seen.
+
+172
+00:07:18,435 --> 00:07:20,310
+I called it a private
+array, because it's not
+
+173
+00:07:20,310 --> 00:07:22,217
+directly available to
+the rest of the system.
+
+174
+00:07:22,217 --> 00:07:24,300
+So to make it available
+to the rest of the system,
+
+175
+00:07:24,300 --> 00:07:26,600
+I'll need to add a new
+function to the service
+
+176
+00:07:26,600 --> 00:07:28,010
+that people can call.
+
+177
+00:07:28,010 --> 00:07:30,200
+So I'll create a get
+products function that
+
+178
+00:07:30,200 --> 00:07:33,636
+just returns this array.
+
+179
+00:07:33,636 --> 00:07:35,010
+And following the
+same pattern, I
+
+180
+00:07:35,010 --> 00:07:36,480
+can update the
+store to also have
+
+181
+00:07:36,480 --> 00:07:38,790
+an array of pre-defined
+orders, just
+
+182
+00:07:38,790 --> 00:07:40,860
+so we have data in the system.
+
+183
+00:07:40,860 --> 00:07:42,390
+Orders have an ID and name,
+
+184
+00:07:42,390 --> 00:07:44,369
+but they also have a
+collection of line items.
+
+185
+00:07:44,369 --> 00:07:46,160
+So here, you can see
+I'm creating a handful
+
+186
+00:07:46,160 --> 00:07:47,368
+of line items for each order.
+
+187
+00:07:50,560 --> 00:07:52,369
+And now that order's
+array is in place,
+
+188
+00:07:52,369 --> 00:07:54,660
+I can go back to the functions
+that we defined earlier,
+
+189
+00:07:54,660 --> 00:07:56,490
+like get orders, and
+have it use them.
+
+190
+00:08:00,170 --> 00:08:02,680
+Now that the application has
+some of our mockup data in it,
+
+191
+00:08:02,680 --> 00:08:04,888
+it's time to go ahead and
+move the rest of the design
+
+192
+00:08:04,888 --> 00:08:06,000
+over as well.
+
+193
+00:08:06,000 --> 00:08:07,600
+To do that, I'll
+go ahead and grab
+
+194
+00:08:07,600 --> 00:08:09,640
+some of the snippets of
+the HTML from the design
+
+195
+00:08:09,640 --> 00:08:13,127
+and apply it straight
+to our templates.
+
+196
+00:08:13,127 --> 00:08:15,710
+I'll then grab all of the images
+that our design team provided
+
+197
+00:08:15,710 --> 00:08:19,460
+to us and put them into
+public assets images.
+
+198
+00:08:19,460 --> 00:08:21,390
+This directory doesn't
+exist by default.
+
+199
+00:08:21,390 --> 00:08:24,260
+So I've gone ahead and
+created that for you.
+
+200
+00:08:24,260 --> 00:08:26,140
+And finally, I can just
+copy the style sheets
+
+201
+00:08:26,140 --> 00:08:28,470
+that our designers
+provided into the app CSS
+
+202
+00:08:28,470 --> 00:08:31,154
+file, located in app styles.
+
+203
+00:08:31,154 --> 00:08:33,570
+That style sheet is already
+included in the rendered index
+
+204
+00:08:33,570 --> 00:08:36,429
+HTML page.
+
+205
+00:08:36,429 --> 00:08:38,190
+So you can see that
+our models are now
+
+206
+00:08:38,190 --> 00:08:39,447
+being rendered onto the page.
+
+207
+00:08:39,447 --> 00:08:40,780
+And our design is being applied.
+
+208
+00:08:48,662 --> 00:08:50,870
+It's time for you to do the
+same in your application.
+
+209
+00:08:50,870 --> 00:08:52,350
+So head on over
+to the challenges.
+
+210
+00:08:52,350 --> 00:08:55,299
+And I'll see you when
+you get back in Level 4.
+

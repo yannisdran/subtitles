@@ -1,0 +1,734 @@
+﻿1
+00:00:00,499 --> 00:00:03,610
+[SINGING] It's time
+to build an app,
+
+2
+00:00:03,610 --> 00:00:05,350
+to a framework I will go.
+
+3
+00:00:05,350 --> 00:00:09,140
+Ambitious apps are easy
+when Ember runs the show.
+
+4
+00:00:09,140 --> 00:00:12,620
+Templates, Routes, and
+Models; it's a client MVC.
+
+5
+00:00:12,620 --> 00:00:14,580
+Best practices from all around;
+
+6
+00:00:14,580 --> 00:00:16,465
+come try Ember with me.
+
+7
+00:00:21,590 --> 00:00:22,960
+You're watching Try Ember.
+
+8
+00:00:22,960 --> 00:00:24,960
+This is level 5,
+section 1, where we'll
+
+9
+00:00:24,960 --> 00:00:26,305
+introduce computed properties.
+
+10
+00:00:30,520 --> 00:00:33,600
+The app that we've built
+together now displays the menu,
+
+11
+00:00:33,600 --> 00:00:36,354
+takes an order, and shows the
+order receipt to the user.
+
+12
+00:00:36,354 --> 00:00:37,770
+There's still a
+couple pieces left
+
+13
+00:00:37,770 --> 00:00:39,360
+to implement on that order receipt.
+
+14
+00:00:39,360 --> 00:00:41,599
+Specifically, we need
+the line item cost,
+
+15
+00:00:41,599 --> 00:00:43,890
+we need the total order cost,
+and we need the line item
+
+16
+00:00:43,890 --> 00:00:45,120
+percentage.
+
+17
+00:00:45,120 --> 00:00:48,080
+So let's go about
+doing that now.
+
+18
+00:00:48,080 --> 00:00:50,850
+Before we start adding new
+functionality to the receipt,
+
+19
+00:00:50,850 --> 00:00:53,850
+there's something bothering
+me about the existing receipt.
+
+20
+00:00:53,850 --> 00:00:55,709
+And that is if you look
+at these properties,
+
+21
+00:00:55,709 --> 00:00:57,500
+you'll see that we're
+accessing the product
+
+22
+00:00:57,500 --> 00:01:01,540
+title and the product price
+through the line item.
+
+23
+00:01:01,540 --> 00:01:02,800
+I'm not a big fan of that.
+
+24
+00:01:02,800 --> 00:01:03,980
+That breaks something
+called the Law
+
+25
+00:01:03,980 --> 00:01:05,445
+of the Demeter,
+which is you really
+
+26
+00:01:05,445 --> 00:01:08,290
+are only supposed to talk
+to your immediate friends.
+
+27
+00:01:08,290 --> 00:01:10,830
+But what we want is to just
+be able to show the line item
+
+28
+00:01:10,830 --> 00:01:13,709
+price and the line item
+title, like you see here.
+
+29
+00:01:13,709 --> 00:01:15,000
+So how would we make that work?
+
+30
+00:01:18,140 --> 00:01:20,390
+So to make this work, I'm
+going to show you something
+
+31
+00:01:20,390 --> 00:01:22,230
+called computed properties.
+
+32
+00:01:22,230 --> 00:01:23,970
+So back in the line
+item model, we're
+
+33
+00:01:23,970 --> 00:01:26,660
+going to add a new
+property called Title.
+
+34
+00:01:26,660 --> 00:01:30,050
+That property is going to be
+an Ember computed function.
+
+35
+00:01:30,050 --> 00:01:32,560
+Ember computed takes
+a couple parameters.
+
+36
+00:01:32,560 --> 00:01:34,870
+First, it takes a list
+of dependent properties.
+
+37
+00:01:34,870 --> 00:01:37,510
+Those are properties in
+which we want to be alerted
+
+38
+00:01:37,510 --> 00:01:39,960
+if their value changes
+so that we can recompute
+
+39
+00:01:39,960 --> 00:01:42,180
+our local property value.
+
+40
+00:01:42,180 --> 00:01:45,000
+And lastly, it takes
+an anonymous function.
+
+41
+00:01:45,000 --> 00:01:46,860
+That function returns
+whatever value
+
+42
+00:01:46,860 --> 00:01:49,150
+you want to set as
+your property value.
+
+43
+00:01:49,150 --> 00:01:51,530
+So in this case, I
+want the product title
+
+44
+00:01:51,530 --> 00:01:56,340
+to be my line items title, so
+I just return product.title.
+
+45
+00:01:56,340 --> 00:01:59,190
+The way that this works is
+if the product's title ever
+
+46
+00:01:59,190 --> 00:02:01,860
+changes, Ember
+will know about it.
+
+47
+00:02:01,860 --> 00:02:03,850
+These dependent
+values will alert it,
+
+48
+00:02:03,850 --> 00:02:05,550
+and the computed
+function will run again
+
+49
+00:02:05,550 --> 00:02:08,069
+to update the value
+of our local property.
+
+50
+00:02:08,069 --> 00:02:10,110
+Just like you saw in the
+route and in the models,
+
+51
+00:02:10,110 --> 00:02:13,310
+computed properties are accessed
+using get property name.
+
+52
+00:02:16,300 --> 00:02:18,740
+Because there are so many
+common cases when properties
+
+53
+00:02:18,740 --> 00:02:20,670
+are going to get
+computed, Ember provides
+
+54
+00:02:20,670 --> 00:02:23,430
+a list of about 30
+different computed property
+
+55
+00:02:23,430 --> 00:02:26,269
+macros in the framework itself.
+
+56
+00:02:26,269 --> 00:02:28,310
+You can get a list of a
+couple of them over here,
+
+57
+00:02:28,310 --> 00:02:32,640
+like alias, collect, empty,
+equal, sort, and sum.
+
+58
+00:02:32,640 --> 00:02:34,960
+In this case, the title
+property that we just defined
+
+59
+00:02:34,960 --> 00:02:38,250
+is very similar to
+Ember's alias macro.
+
+60
+00:02:38,250 --> 00:02:41,260
+We can use the alias macro,
+just like you see here.
+
+61
+00:02:45,490 --> 00:02:48,280
+Just like we saw with title,
+a line item's unit price
+
+62
+00:02:48,280 --> 00:02:50,710
+is just an alias to
+the product price.
+
+63
+00:02:50,710 --> 00:02:53,320
+So I can create a unit
+price property here
+
+64
+00:02:53,320 --> 00:02:56,740
+that is an Ember-computed
+alias of the product's price.
+
+65
+00:02:56,740 --> 00:02:59,170
+It's important to note here
+that the product's price
+
+66
+00:02:59,170 --> 00:03:01,875
+property does not have to have
+the same name as the unit price
+
+67
+00:03:01,875 --> 00:03:02,750
+that we have locally.
+
+68
+00:03:05,650 --> 00:03:07,900
+Now that we have the alias
+properties on the line item
+
+69
+00:03:07,900 --> 00:03:10,290
+model, we can just head
+back over to the template
+
+70
+00:03:10,290 --> 00:03:13,140
+and update it to use the
+new title and unit price.
+
+71
+00:03:17,180 --> 00:03:19,630
+Now let's implement
+that line item cost.
+
+72
+00:03:19,630 --> 00:03:21,860
+The line item cost is
+just a multiplication
+
+73
+00:03:21,860 --> 00:03:24,630
+of the line item's quantity
+times the line item's unit
+
+74
+00:03:24,630 --> 00:03:25,300
+price.
+
+75
+00:03:25,300 --> 00:03:29,190
+So you can see here that
+1 times $10 each is $10.
+
+76
+00:03:29,190 --> 00:03:34,940
+1 times $5 each is 5, or 0
+for the flashlights is $0.
+
+77
+00:03:34,940 --> 00:03:36,730
+Now to make that
+work, we're going
+
+78
+00:03:36,730 --> 00:03:38,370
+to head back over
+to Line Item model
+
+79
+00:03:38,370 --> 00:03:40,174
+and add a new price property.
+
+80
+00:03:40,174 --> 00:03:41,590
+That price property
+is going to be
+
+81
+00:03:41,590 --> 00:03:43,770
+another Ember-computed property.
+
+82
+00:03:43,770 --> 00:03:46,550
+In this case, it's going to be
+dependent on two values, which
+
+83
+00:03:46,550 --> 00:03:49,400
+are the unit price
+and the quantity.
+
+84
+00:03:49,400 --> 00:03:51,620
+It's going to implemented
+as a function that
+
+85
+00:03:51,620 --> 00:03:54,450
+multiplies the quantity
+times the unit price.
+
+86
+00:03:54,450 --> 00:03:56,450
+You may notice that I'm
+wrapping the quantity
+
+87
+00:03:56,450 --> 00:03:58,260
+property with a parseInt call.
+
+88
+00:03:58,260 --> 00:04:00,530
+Because when we get
+the value from a form,
+
+89
+00:04:00,530 --> 00:04:01,900
+it comes to us as a string.
+
+90
+00:04:01,900 --> 00:04:03,470
+And since we're
+doing multiplication,
+
+91
+00:04:03,470 --> 00:04:04,570
+we need it to be a number.
+
+92
+00:04:04,570 --> 00:04:07,210
+So I'm forcing it to be
+a number with parseInt.
+
+93
+00:04:07,210 --> 00:04:08,930
+And for the sake
+of being explicit,
+
+94
+00:04:08,930 --> 00:04:11,040
+I have a base 10
+indicator there that
+
+95
+00:04:11,040 --> 00:04:13,530
+instructs JavaScript
+to force that string
+
+96
+00:04:13,530 --> 00:04:14,700
+to be a base 10 number.
+
+97
+00:04:19,170 --> 00:04:21,630
+With that in place, we can
+head back over the template
+
+98
+00:04:21,630 --> 00:04:23,105
+and use that new
+line item price.
+
+99
+00:04:27,350 --> 00:04:30,420
+And you can see here in
+the browser that it works.
+
+100
+00:04:30,420 --> 00:04:34,790
+For a tent where we had 1
+at $10 each, that costs $10.
+
+101
+00:04:34,790 --> 00:04:38,870
+And for the sleeping bag where
+we had 1 at $5, that costs $5.
+
+102
+00:04:38,870 --> 00:04:41,460
+So that still leaves
+two things outstanding.
+
+103
+00:04:41,460 --> 00:04:43,400
+One, we need to calculate
+the line item cost
+
+104
+00:04:43,400 --> 00:04:46,430
+percentage, and two, we need to
+still calculate the total order
+
+105
+00:04:46,430 --> 00:04:48,970
+price.
+
+106
+00:04:48,970 --> 00:04:51,370
+To calculate the
+total order price,
+
+107
+00:04:51,370 --> 00:04:54,190
+it's just the sum of
+each line item price.
+
+108
+00:04:54,190 --> 00:04:56,230
+So with the example
+that we have here,
+
+109
+00:04:56,230 --> 00:04:58,340
+you can see that
+the tent was $10.
+
+110
+00:04:58,340 --> 00:05:02,132
+The sleeping bag added $5, so
+that's a total of $15 so far.
+
+111
+00:05:02,132 --> 00:05:03,840
+And then the flashlight
+and first aid kit
+
+112
+00:05:03,840 --> 00:05:07,400
+both add $0, so that's
+15 plus 0 is 15.
+
+113
+00:05:07,400 --> 00:05:10,920
+So the total order price,
+in this case, is $15.
+
+114
+00:05:10,920 --> 00:05:14,300
+To implement this total order
+price, it'll take two steps.
+
+115
+00:05:14,300 --> 00:05:16,890
+So let's head back over to the
+order model to get it done.
+
+116
+00:05:19,524 --> 00:05:20,940
+The first step is
+that we're going
+
+117
+00:05:20,940 --> 00:05:23,616
+to add an Item Prices property.
+
+118
+00:05:23,616 --> 00:05:25,240
+This is going to be
+a collection of all
+
+119
+00:05:25,240 --> 00:05:27,400
+of the prices of the
+line items in the order.
+
+120
+00:05:27,400 --> 00:05:30,400
+To implement that, we're going
+to use Ember-computed's map
+
+121
+00:05:30,400 --> 00:05:31,850
+by macro.
+
+122
+00:05:31,850 --> 00:05:34,320
+The map by macro
+takes two arguments,
+
+123
+00:05:34,320 --> 00:05:36,680
+which is the name of
+the collection to use
+
+124
+00:05:36,680 --> 00:05:38,740
+and the name of the
+property to map.
+
+125
+00:05:38,740 --> 00:05:41,090
+In this case, items is
+the collection and price
+
+126
+00:05:41,090 --> 00:05:43,230
+is the property.
+
+127
+00:05:43,230 --> 00:05:46,170
+So if we get the item price's
+property from the order,
+
+128
+00:05:46,170 --> 00:05:49,270
+you can see that it returns an
+array of prices from each line
+
+129
+00:05:49,270 --> 00:05:52,157
+item-- so 10, 5, 0, 0.
+
+130
+00:05:52,157 --> 00:05:53,990
+And the second step
+that we need to complete
+
+131
+00:05:53,990 --> 00:05:55,045
+is to sum those prices.
+
+132
+00:05:58,230 --> 00:06:01,480
+For that, we're going to use
+Ember-computed's sum macro.
+
+133
+00:06:01,480 --> 00:06:04,190
+So we'll create a new
+property called Price.
+
+134
+00:06:04,190 --> 00:06:05,660
+We'll use the
+Ember-computed sum,
+
+135
+00:06:05,660 --> 00:06:07,409
+and we'll give it the
+name of the property
+
+136
+00:06:07,409 --> 00:06:10,829
+that we want it to sum--
+in this case, item prices.
+
+137
+00:06:10,829 --> 00:06:12,370
+The macro will go
+ahead and take each
+
+138
+00:06:12,370 --> 00:06:14,960
+of those numbers in the array
+and add them together for us.
+
+139
+00:06:14,960 --> 00:06:17,810
+So when I call
+order.getprice, you
+
+140
+00:06:17,810 --> 00:06:21,080
+can see that we get the
+expected number of 15.
+
+141
+00:06:21,080 --> 00:06:23,500
+And what's really cool about
+using any of these computed
+
+142
+00:06:23,500 --> 00:06:25,980
+properties or macros is that
+if any of these properties
+
+143
+00:06:25,980 --> 00:06:29,089
+change from anywhere in the
+system, all of the rendering
+
+144
+00:06:29,089 --> 00:06:31,380
+gets updated immediately,
+and everything knows about it
+
+145
+00:06:31,380 --> 00:06:31,880
+right away.
+
+146
+00:06:35,310 --> 00:06:36,730
+The order price is now in place.
+
+147
+00:06:36,730 --> 00:06:38,188
+And looking at the
+browser, you can
+
+148
+00:06:38,188 --> 00:06:40,090
+see that we get the
+value we expect.
+
+149
+00:06:40,090 --> 00:06:42,456
+That's awesome.
+
+150
+00:06:42,456 --> 00:06:44,830
+Now it's time for you to go
+and do some computed property
+
+151
+00:06:44,830 --> 00:06:45,680
+challenges.
+
+152
+00:06:45,680 --> 00:06:49,430
+I'll see you in the next and
+final section when you're done.
+
+153
+00:06:49,430 --> 00:06:50,156
+.
+

@@ -1,0 +1,1069 @@
+﻿1
+00:00:00,499 --> 00:00:03,330
+[SINGING] It's time
+to build an app,
+
+2
+00:00:03,330 --> 00:00:05,350
+to a framework I will go.
+
+3
+00:00:05,350 --> 00:00:09,140
+Ambitious apps are easy
+when Ember runs the show.
+
+4
+00:00:09,140 --> 00:00:12,620
+Templates, Routes, and
+Models; it's a client MVC.
+
+5
+00:00:12,620 --> 00:00:14,580
+Best practices from all around;
+
+6
+00:00:14,580 --> 00:00:16,552
+come Try Ember with me.
+
+7
+00:00:21,990 --> 00:00:23,654
+You're watching Try Ember.
+
+8
+00:00:23,654 --> 00:00:25,070
+This is level 4,
+where we're going
+
+9
+00:00:25,070 --> 00:00:27,740
+to make our applications more
+interactive using actions.
+
+10
+00:00:30,800 --> 00:00:33,840
+At this point, you know about
+the router, routes, models,
+
+11
+00:00:33,840 --> 00:00:34,980
+and templates.
+
+12
+00:00:34,980 --> 00:00:38,400
+We've built a pretty darn
+good brochure application.
+
+13
+00:00:38,400 --> 00:00:40,560
+That is to say, the
+user can click through
+
+14
+00:00:40,560 --> 00:00:42,130
+and see a whole lot of things.
+
+15
+00:00:42,130 --> 00:00:45,030
+But so far, they can't do
+anything in the application.
+
+16
+00:00:45,030 --> 00:00:46,770
+So we need to go
+about fixing that.
+
+17
+00:00:46,770 --> 00:00:49,520
+We're going to do that by
+implementing the order form.
+
+18
+00:00:49,520 --> 00:00:51,170
+On the order form,
+the user needs
+
+19
+00:00:51,170 --> 00:00:53,790
+to be able to enter their
+name, enter quantities
+
+20
+00:00:53,790 --> 00:00:55,300
+for products they
+want to purchase,
+
+21
+00:00:55,300 --> 00:00:57,810
+and click a button to
+submit their order.
+
+22
+00:00:57,810 --> 00:01:01,310
+And we'll start this process
+by creating a new, empty order
+
+23
+00:01:01,310 --> 00:01:03,790
+record.
+
+24
+00:01:03,790 --> 00:01:06,470
+To have the user submit a
+new order to our system,
+
+25
+00:01:06,470 --> 00:01:08,530
+we need to have a new
+empty order object for them
+
+26
+00:01:08,530 --> 00:01:09,730
+to work with.
+
+27
+00:01:09,730 --> 00:01:12,115
+To do that, I'm going
+to go back to the store.
+
+28
+00:01:12,115 --> 00:01:14,240
+And in the store, we're
+going to create a new order
+
+29
+00:01:14,240 --> 00:01:16,365
+function that returns that
+empty order that they're
+
+30
+00:01:16,365 --> 00:01:17,780
+going to work with.
+
+31
+00:01:17,780 --> 00:01:19,330
+So in that function,
+we are going
+
+32
+00:01:19,330 --> 00:01:22,710
+to order.create to create
+our new empty order record.
+
+33
+00:01:22,710 --> 00:01:25,390
+We're going to go ahead and
+give it items that are also
+
+34
+00:01:25,390 --> 00:01:26,794
+empty line item objects.
+
+35
+00:01:26,794 --> 00:01:28,460
+And we're going to
+give it one line item
+
+36
+00:01:28,460 --> 00:01:30,920
+for each product in the system.
+
+37
+00:01:30,920 --> 00:01:32,710
+So there's a few
+things going on here.
+
+38
+00:01:32,710 --> 00:01:35,415
+You can see that I'm using
+the JavaScript map function.
+
+39
+00:01:35,415 --> 00:01:37,790
+And what that will do is for
+each product in the products
+
+40
+00:01:37,790 --> 00:01:41,540
+array, it will create and return
+a new line item record for us,
+
+41
+00:01:41,540 --> 00:01:44,940
+assigning itself to the
+line item as its product.
+
+42
+00:01:44,940 --> 00:01:48,000
+There's also that arrow function
+expression, or fat arrow.
+
+43
+00:01:48,000 --> 00:01:50,390
+This is another ES 2015 feature.
+
+44
+00:01:50,390 --> 00:01:52,875
+It's used here as a shorthand
+for function product.
+
+45
+00:01:55,420 --> 00:01:58,020
+Because we want the order
+form to be at slash orders,
+
+46
+00:01:58,020 --> 00:02:01,810
+we need to customize and
+create the orders.index route.
+
+47
+00:02:01,810 --> 00:02:03,620
+This route was
+implicitly created for us
+
+48
+00:02:03,620 --> 00:02:06,640
+when we nested the
+orders routes earlier.
+
+49
+00:02:06,640 --> 00:02:08,570
+Once it's created, we're
+going to customize it
+
+50
+00:02:08,570 --> 00:02:11,350
+by adding the model hook,
+retrieving the store,
+
+51
+00:02:11,350 --> 00:02:13,920
+and using the store's new
+order function that we just created.
+
+52
+00:02:16,850 --> 00:02:18,700
+Now we need to update
+the orders index
+
+53
+00:02:18,700 --> 00:02:21,880
+template to use that model
+that we just created.
+
+54
+00:02:21,880 --> 00:02:24,560
+So first, we're going
+to update the form
+
+55
+00:02:24,560 --> 00:02:26,450
+to iterate over each
+of the orders line
+
+56
+00:02:26,450 --> 00:02:29,500
+items to present each
+product data to the user.
+
+57
+00:02:29,500 --> 00:02:32,580
+You can see we're printing
+out each product title.
+
+58
+00:02:32,580 --> 00:02:34,850
+Next, we need to bind
+all of these input fields
+
+59
+00:02:34,850 --> 00:02:37,250
+somewhere in the model
+as well as do something
+
+60
+00:02:37,250 --> 00:02:39,410
+to the Submit button so we
+know when the user wants
+
+61
+00:02:39,410 --> 00:02:40,320
+to submit the order.
+
+62
+00:02:43,470 --> 00:02:46,030
+Binding the input fields
+is very straightforward.
+
+63
+00:02:46,030 --> 00:02:48,380
+Ember provides an
+input handlebars helper
+
+64
+00:02:48,380 --> 00:02:49,610
+that we can use.
+
+65
+00:02:49,610 --> 00:02:51,930
+To use it, we replace
+the square brackets
+
+66
+00:02:51,930 --> 00:02:54,740
+from the HTML input
+element with curly braces
+
+67
+00:02:54,740 --> 00:02:57,240
+to turn them into
+handle bars expressions.
+
+68
+00:02:57,240 --> 00:03:00,200
+And then we add a new
+value property to it
+
+69
+00:03:00,200 --> 00:03:02,770
+that binds to the property
+that we want it to update.
+
+70
+00:03:02,770 --> 00:03:05,780
+So in this case, we'll bind the
+order name to the model name,
+
+71
+00:03:05,780 --> 00:03:09,220
+because model is that order, and
+we'll bind each item's quantity
+
+72
+00:03:09,220 --> 00:03:10,990
+to an item quantity.
+
+73
+00:03:10,990 --> 00:03:13,020
+It's important to note
+that I didn't put quotes
+
+74
+00:03:13,020 --> 00:03:14,820
+around the value properties.
+
+75
+00:03:14,820 --> 00:03:17,131
+If I had put quotes around
+it, it would pass a string.
+
+76
+00:03:17,131 --> 00:03:19,630
+But instead of a string, I want
+to pass the property itself.
+
+77
+00:03:22,140 --> 00:03:23,850
+If we jump back over
+into the browser,
+
+78
+00:03:23,850 --> 00:03:26,680
+you can see that the form
+is pretty much working.
+
+79
+00:03:26,680 --> 00:03:28,344
+We've got product
+details showing up.
+
+80
+00:03:28,344 --> 00:03:30,010
+We've got all the
+input fields hooked up.
+
+81
+00:03:30,010 --> 00:03:31,690
+The only thing we
+have left to do here
+
+82
+00:03:31,690 --> 00:03:32,910
+is fix that Submit button.
+
+83
+00:03:35,826 --> 00:03:37,200
+So to hook that
+Submit button up,
+
+84
+00:03:37,200 --> 00:03:40,020
+we need a way to listen for
+that submit event coming
+
+85
+00:03:40,020 --> 00:03:42,010
+from the form in that button.
+
+86
+00:03:42,010 --> 00:03:46,610
+To do that in Ember, we use
+something called Actions.
+
+87
+00:03:46,610 --> 00:03:49,390
+In Ember, Actions let
+you map DOM events
+
+88
+00:03:49,390 --> 00:03:52,320
+to application-specific
+domain functions.
+
+89
+00:03:52,320 --> 00:03:55,030
+For example, clicking on a
+Read More link might expand
+
+90
+00:03:55,030 --> 00:03:58,360
+an article contents, or
+typing in a search box
+
+91
+00:03:58,360 --> 00:04:01,320
+might create some
+auto-complete functionality.
+
+92
+00:04:01,320 --> 00:04:03,810
+But for this application,
+submitting that order form
+
+93
+00:04:03,810 --> 00:04:05,640
+means creating a new order.
+
+94
+00:04:05,640 --> 00:04:07,800
+So how can we use an
+action to handle that?
+
+95
+00:04:10,740 --> 00:04:13,770
+It's important to remember
+that in HTML, a form can
+
+96
+00:04:13,770 --> 00:04:16,330
+be submitted in a lot
+of different ways.
+
+97
+00:04:16,330 --> 00:04:17,579
+It could be clicking a button.
+
+98
+00:04:17,579 --> 00:04:19,649
+It could be hitting
+Enter on an input field,
+
+99
+00:04:19,649 --> 00:04:21,540
+or it could be called
+from JavaScript.
+
+100
+00:04:21,540 --> 00:04:24,450
+So we need a mechanism
+to capture all of those.
+
+101
+00:04:24,450 --> 00:04:29,980
+So to define our action, we need
+to define an action expression.
+
+102
+00:04:29,980 --> 00:04:34,056
+So inside of our template,
+we'll make an action expression.
+
+103
+00:04:34,056 --> 00:04:35,930
+The first parameter is
+the name of the action
+
+104
+00:04:35,930 --> 00:04:38,055
+we want to trigger, and
+then there's an on property
+
+105
+00:04:38,055 --> 00:04:41,750
+that you can define that tells
+it on what event to watch for.
+
+106
+00:04:41,750 --> 00:04:44,134
+So to capture the form
+submission using an action,
+
+107
+00:04:44,134 --> 00:04:45,550
+we're going to go
+to the template.
+
+108
+00:04:45,550 --> 00:04:47,940
+We're going to change
+the form HTML element.
+
+109
+00:04:47,940 --> 00:04:50,860
+We're going to add the
+action expression to it.
+
+110
+00:04:50,860 --> 00:04:53,020
+We'll call this
+action Create Order.
+
+111
+00:04:53,020 --> 00:04:55,420
+We'll pass the
+model as a parameter
+
+112
+00:04:55,420 --> 00:04:58,430
+so we know which object
+we're working with later.
+
+113
+00:04:58,430 --> 00:05:01,120
+And then we'll tell the action
+to listen for the forms submit
+
+114
+00:05:01,120 --> 00:05:03,770
+event-- so on submit.
+
+115
+00:05:03,770 --> 00:05:06,830
+By default, actions prevent
+the browser default activity,
+
+116
+00:05:06,830 --> 00:05:09,480
+which is sometimes referred
+to as prevent default.
+
+117
+00:05:09,480 --> 00:05:11,230
+So in this case, it
+will keep the form
+
+118
+00:05:11,230 --> 00:05:12,646
+from submitting
+to the web server.
+
+119
+00:05:15,500 --> 00:05:18,130
+Now that we're triggering
+a Create Order action,
+
+120
+00:05:18,130 --> 00:05:20,450
+we need to define that
+create order function
+
+121
+00:05:20,450 --> 00:05:22,670
+somewhere so that Ember
+knows what to do with it.
+
+122
+00:05:22,670 --> 00:05:25,700
+And to do that, we're going
+to go back to the route.
+
+123
+00:05:25,700 --> 00:05:28,010
+In this case, because we're
+working in the Orders Index
+
+124
+00:05:28,010 --> 00:05:30,790
+route, we're going to go
+into that route to define it.
+
+125
+00:05:30,790 --> 00:05:33,370
+To define an action handler,
+inside of the route,
+
+126
+00:05:33,370 --> 00:05:35,776
+we're going to create
+an Actions block.
+
+127
+00:05:35,776 --> 00:05:37,150
+Inside of that
+block, we're going
+
+128
+00:05:37,150 --> 00:05:39,680
+to create a new function
+called Create Order, which
+
+129
+00:05:39,680 --> 00:05:41,263
+matches the name of
+the action that we
+
+130
+00:05:41,263 --> 00:05:42,390
+defined in the template.
+
+131
+00:05:42,390 --> 00:05:43,970
+In this case, because
+we're passing the model
+
+132
+00:05:43,970 --> 00:05:45,390
+through as a
+parameter, we're going
+
+133
+00:05:45,390 --> 00:05:47,515
+to go ahead and add that
+parameter to the function.
+
+134
+00:05:50,790 --> 00:05:52,350
+So going back to
+the web browser,
+
+135
+00:05:52,350 --> 00:05:55,240
+I can fill out the order form
+and hit that Submit button.
+
+136
+00:05:55,240 --> 00:05:58,100
+And when I submit, I'll see
+the name appear on the screen.
+
+137
+00:05:58,100 --> 00:05:58,840
+And that's great.
+
+138
+00:05:58,840 --> 00:05:59,700
+It works.
+
+139
+00:05:59,700 --> 00:06:01,550
+But that's not exactly
+what we want to do.
+
+140
+00:06:01,550 --> 00:06:03,290
+Instead, we want to
+create that order
+
+141
+00:06:03,290 --> 00:06:04,590
+and show somebody the receipt.
+
+142
+00:06:04,590 --> 00:06:07,092
+So let's do that now.
+
+143
+00:06:07,092 --> 00:06:09,550
+To do that, I'm going to head
+back over to the Orders Index
+
+144
+00:06:09,550 --> 00:06:11,890
+route, and I'm going to
+replace the alert functionality
+
+145
+00:06:11,890 --> 00:06:14,140
+that we had before in
+the action handler.
+
+146
+00:06:14,140 --> 00:06:16,660
+First, I'm going to take
+the order that we're given,
+
+147
+00:06:16,660 --> 00:06:20,040
+and I'm going to hand it over
+to the store using a new Save
+
+148
+00:06:20,040 --> 00:06:22,660
+Order function that we'll
+create in just a second.
+
+149
+00:06:22,660 --> 00:06:25,030
+And then I'm going
+to instruct Ember
+
+150
+00:06:25,030 --> 00:06:26,600
+that I want the
+user to transition
+
+151
+00:06:26,600 --> 00:06:30,360
+from this route to another
+using this.transitionTo the name
+
+152
+00:06:30,360 --> 00:06:31,099
+of the route.
+
+153
+00:06:31,099 --> 00:06:32,640
+In this case, I want
+it to transition
+
+154
+00:06:32,640 --> 00:06:35,200
+to orders.order,
+which is the receipt,
+
+155
+00:06:35,200 --> 00:06:37,040
+and I'll pass the order
+to it as the model
+
+156
+00:06:37,040 --> 00:06:38,410
+that I want it to show.
+
+157
+00:06:38,410 --> 00:06:40,830
+This is very similar to the
+link to functionality that you
+
+158
+00:06:40,830 --> 00:06:41,955
+learned from the templates.
+
+159
+00:06:45,120 --> 00:06:47,760
+So what am I going to do to
+save the order in the store?
+
+160
+00:06:47,760 --> 00:06:49,968
+Back in the store, I'm going
+to create the save order
+
+161
+00:06:49,968 --> 00:06:52,280
+function that takes the
+order as a parameter.
+
+162
+00:06:52,280 --> 00:06:53,840
+And inside of that
+function, I'm just
+
+163
+00:06:53,840 --> 00:06:56,006
+going to pretend that I'm
+going to talk to a server,
+
+164
+00:06:56,006 --> 00:06:57,970
+and I'm just going to
+set an ID on that order,
+
+165
+00:06:57,970 --> 00:07:00,430
+just like a server would
+if it had saved it.
+
+166
+00:07:00,430 --> 00:07:03,310
+After that I'm going to add
+it to the orders array that's
+
+167
+00:07:03,310 --> 00:07:06,340
+already inside of the
+store using push object.
+
+168
+00:07:06,340 --> 00:07:09,452
+Ember's push object is just
+like JavaScript's push,
+
+169
+00:07:09,452 --> 00:07:10,910
+except that it also
+has the ability
+
+170
+00:07:10,910 --> 00:07:15,150
+to alert the rest of the
+system that items have changed.
+
+171
+00:07:15,150 --> 00:07:17,790
+Now, back in the browser,
+when I fill out the form,
+
+172
+00:07:17,790 --> 00:07:20,600
+you can see that I'm taken
+to the Orders Receipt page.
+
+173
+00:07:20,600 --> 00:07:22,339
+And all the way
+down at the bottom,
+
+174
+00:07:22,339 --> 00:07:24,880
+you can see that the new order
+is added to the existing order
+
+175
+00:07:24,880 --> 00:07:25,380
+list.
+
+176
+00:07:28,361 --> 00:07:29,860
+And the last little
+bit that we need
+
+177
+00:07:29,860 --> 00:07:32,190
+to implement on the
+order form is that plus
+
+178
+00:07:32,190 --> 00:07:33,940
+10 quantity button.
+
+179
+00:07:33,940 --> 00:07:37,160
+The design gives campers
+the ability to bulk order,
+
+180
+00:07:37,160 --> 00:07:38,130
+if you will.
+
+181
+00:07:38,130 --> 00:07:41,610
+So how do we go
+about doing that?
+
+182
+00:07:41,610 --> 00:07:43,970
+To do that, we're going
+to need another action.
+
+183
+00:07:43,970 --> 00:07:46,239
+In this case, I'm going to
+put an action on the button
+
+184
+00:07:46,239 --> 00:07:48,780
+directly, because I want it to
+trigger when the person clicks
+
+185
+00:07:48,780 --> 00:07:50,190
+on the button.
+
+186
+00:07:50,190 --> 00:07:52,940
+I'll trigger and add to
+item quantity action.
+
+187
+00:07:52,940 --> 00:07:55,550
+I'll hand it the item that
+I want it to increment,
+
+188
+00:07:55,550 --> 00:07:57,150
+and I'll hand it an
+increment amount.
+
+189
+00:07:57,150 --> 00:07:59,320
+In this case, I want
+it to go up by 10.
+
+190
+00:07:59,320 --> 00:08:02,520
+You'll notice here that I
+did not specify the On Click
+
+191
+00:08:02,520 --> 00:08:04,770
+trigger, and that's because
+click is the default
+
+192
+00:08:04,770 --> 00:08:06,655
+trigger for an action.
+
+193
+00:08:06,655 --> 00:08:08,780
+And lastly, I'm passing
+two arguments to the action
+
+194
+00:08:08,780 --> 00:08:10,940
+here, just to make the
+action more reusable--
+
+195
+00:08:10,940 --> 00:08:12,500
+the item and the
+amount to increment--
+
+196
+00:08:12,500 --> 00:08:14,460
+so that in the future, if
+we want to increment by five
+
+197
+00:08:14,460 --> 00:08:16,330
+or three or two, we
+just do it right here.
+
+198
+00:08:19,090 --> 00:08:21,270
+Finally, to implement
+that action handler,
+
+199
+00:08:21,270 --> 00:08:23,600
+I just go back
+over to the route.
+
+200
+00:08:23,600 --> 00:08:26,120
+I add a new handler, called
+Add Item to Quantity,
+
+201
+00:08:26,120 --> 00:08:28,930
+where I accept the line item
+and amount to increment.
+
+202
+00:08:28,930 --> 00:08:30,520
+And then, in one
+line, I can just
+
+203
+00:08:30,520 --> 00:08:34,120
+say line item, increment
+property, quantity, amount.
+
+204
+00:08:34,120 --> 00:08:36,020
+Increment property is
+a function provided
+
+205
+00:08:36,020 --> 00:08:40,100
+by Ember that simply increments
+an object's property--
+
+206
+00:08:40,100 --> 00:08:42,900
+by default, 1, in this case,
+the amount that I'm giving it,
+
+207
+00:08:42,900 --> 00:08:44,520
+or 10.
+
+208
+00:08:44,520 --> 00:08:47,940
+With the bulk ordering in place,
+we can head back to our browser
+
+209
+00:08:47,940 --> 00:08:49,360
+and open up the form.
+
+210
+00:08:49,360 --> 00:08:51,180
+In the form, we can
+fill out everything--
+
+211
+00:08:51,180 --> 00:08:52,640
+the name, the quantities.
+
+212
+00:08:52,640 --> 00:08:54,342
+We can type those
+quantities in, or we
+
+213
+00:08:54,342 --> 00:08:55,830
+could click the
+Bulk Order button,
+
+214
+00:08:55,830 --> 00:08:57,379
+and we can submit the form.
+
+215
+00:08:57,379 --> 00:08:58,920
+When we submit the
+form, we get taken
+
+216
+00:08:58,920 --> 00:09:01,378
+to the receipt page, where we
+see all of the correct values
+
+217
+00:09:01,378 --> 00:09:04,101
+represented.
+
+218
+00:09:04,101 --> 00:09:06,350
+So now it's time for you to
+make your application more
+
+219
+00:09:06,350 --> 00:09:07,084
+interactive.
+
+220
+00:09:07,084 --> 00:09:09,500
+Head on over to the challenges
+and implement some actions,
+
+221
+00:09:09,500 --> 00:09:12,130
+and I'll see you
+back in level 5.
+
+222
+00:09:12,130 --> 00:09:12,936
+.
+

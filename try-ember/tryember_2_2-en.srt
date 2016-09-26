@@ -1,0 +1,1485 @@
+﻿1
+00:00:01,856 --> 00:00:03,060
+Welcome back.
+
+2
+00:00:03,060 --> 00:00:04,360
+You're watching Try Ember.
+
+3
+00:00:04,360 --> 00:00:06,620
+This is level 2,
+section 2, where
+
+4
+00:00:06,620 --> 00:00:07,870
+I'm going to introduce routes.
+
+5
+00:00:10,596 --> 00:00:12,470
+In the last section, we
+added link-to helpers
+
+6
+00:00:12,470 --> 00:00:14,380
+to the templates that
+allowed our users
+
+7
+00:00:14,380 --> 00:00:16,430
+to navigate between pages.
+
+8
+00:00:16,430 --> 00:00:19,116
+But the templates, otherwise,
+were largely very static.
+
+9
+00:00:19,116 --> 00:00:20,990
+And that's not very
+interesting, to just have
+
+10
+00:00:20,990 --> 00:00:22,830
+hard-coded hello messages.
+
+11
+00:00:22,830 --> 00:00:25,620
+You can see where we're going
+is to have more interesting
+
+12
+00:00:25,620 --> 00:00:27,200
+dynamic data, like
+on the receipt
+
+13
+00:00:27,200 --> 00:00:29,325
+page we're going to eventually
+build, where we show
+
+14
+00:00:29,325 --> 00:00:31,535
+the item title, quantity, cost.
+
+15
+00:00:31,535 --> 00:00:34,160
+We need to go about adding some
+dynamic data to those templates
+
+16
+00:00:34,160 --> 00:00:34,659
+now.
+
+17
+00:00:34,659 --> 00:00:37,536
+So how do we do that?
+
+18
+00:00:37,536 --> 00:00:39,410
+So when a request comes
+into the application,
+
+19
+00:00:39,410 --> 00:00:41,286
+that request hits the router.
+
+20
+00:00:41,286 --> 00:00:43,160
+The router determines
+what it is you're doing
+
+21
+00:00:43,160 --> 00:00:44,690
+and where you're doing it.
+
+22
+00:00:44,690 --> 00:00:47,070
+It actually doesn't know
+anything or care anything
+
+23
+00:00:47,070 --> 00:00:49,290
+about the templates being used.
+
+24
+00:00:49,290 --> 00:00:52,130
+On the other hand, the
+template is rendering HTML
+
+25
+00:00:52,130 --> 00:00:53,580
+once it's called.
+
+26
+00:00:53,580 --> 00:00:55,240
+But there's nothing
+actually telling
+
+27
+00:00:55,240 --> 00:00:58,320
+the template what data to render
+because the router doesn't
+
+28
+00:00:58,320 --> 00:01:00,300
+actually talk directly
+to the template.
+
+29
+00:01:00,300 --> 00:01:05,269
+There's something in between
+there that does that job.
+
+30
+00:01:05,269 --> 00:01:07,610
+Just as before, when we saw
+that Ember was automatically
+
+31
+00:01:07,610 --> 00:01:09,510
+generating that
+index template for us
+
+32
+00:01:09,510 --> 00:01:11,565
+when we didn't define
+it, here, Ember
+
+33
+00:01:11,565 --> 00:01:13,120
+is actually
+automatically generating
+
+34
+00:01:13,120 --> 00:01:15,240
+another concept for
+us, as well, that
+
+35
+00:01:15,240 --> 00:01:18,765
+sits between the router
+and the templates.
+
+36
+00:01:18,765 --> 00:01:20,890
+And this is where the third
+major concept comes in,
+
+37
+00:01:20,890 --> 00:01:23,606
+in Ember, called routes.
+
+38
+00:01:23,606 --> 00:01:26,140
+Routes are responsible for
+collecting and organizing
+
+39
+00:01:26,140 --> 00:01:27,970
+data, as well as
+handing that data off
+
+40
+00:01:27,970 --> 00:01:29,680
+to templates to be rendered.
+
+41
+00:01:29,680 --> 00:01:35,510
+So the router talks to routes,
+and routes talk to templates.
+
+42
+00:01:35,510 --> 00:01:37,450
+And as I very briefly
+mentioned, Ember
+
+43
+00:01:37,450 --> 00:01:40,210
+has been auto-generating
+some of these things for us.
+
+44
+00:01:40,210 --> 00:01:42,010
+So you remember, in
+the router we defined
+
+45
+00:01:42,010 --> 00:01:44,050
+an endpoint called orders.
+
+46
+00:01:44,050 --> 00:01:46,310
+We didn't actually
+define a template
+
+47
+00:01:46,310 --> 00:01:47,850
+called orders in the router.
+
+48
+00:01:47,850 --> 00:01:51,000
+What we did was define a route
+called orders in the router.
+
+49
+00:01:51,000 --> 00:01:53,100
+But because we didn't
+actually create
+
+50
+00:01:53,100 --> 00:01:55,840
+a route in the application,
+Ember just used
+
+51
+00:01:55,840 --> 00:01:58,540
+the auto-generated default.
+And that default's job
+
+52
+00:01:58,540 --> 00:02:01,320
+is to just render a template
+that has a matching name.
+
+53
+00:02:01,320 --> 00:02:04,350
+So when in the router, we said
+we have a route called orders,
+
+54
+00:02:04,350 --> 00:02:06,270
+ultimately, that
+auto-generated route
+
+55
+00:02:06,270 --> 00:02:08,060
+just rendered the
+orders template for us.
+
+56
+00:02:10,451 --> 00:02:12,450
+Normally, when we're going
+to add a new endpoint
+
+57
+00:02:12,450 --> 00:02:14,340
+to our application,
+this is where
+
+58
+00:02:14,340 --> 00:02:16,230
+we're going to start,
+which is by adding
+
+59
+00:02:16,230 --> 00:02:18,410
+a new route to the application.
+
+60
+00:02:18,410 --> 00:02:20,170
+To do that, we're
+going to type ember
+
+61
+00:02:20,170 --> 00:02:22,700
+generate route and
+the route name.
+
+62
+00:02:22,700 --> 00:02:24,840
+So in our case with
+orders, we would say
+
+63
+00:02:24,840 --> 00:02:27,420
+ember generate route orders.
+
+64
+00:02:27,420 --> 00:02:30,340
+That blueprint that runs is
+going to generate a new route
+
+65
+00:02:30,340 --> 00:02:33,100
+file for us, it's going to
+generate a basic template,
+
+66
+00:02:33,100 --> 00:02:35,076
+and it's also going to
+automatically inject
+
+67
+00:02:35,076 --> 00:02:36,950
+that route definition
+for us into the router,
+
+68
+00:02:36,950 --> 00:02:38,500
+if we haven't already.
+
+69
+00:02:38,500 --> 00:02:40,910
+And that route definition
+that Ember CLI injects
+
+70
+00:02:40,910 --> 00:02:45,250
+should look familiar since this
+is what we were just doing.
+
+71
+00:02:45,250 --> 00:02:48,010
+The routes for the application
+are defined in the app routes
+
+72
+00:02:48,010 --> 00:02:48,790
+directory.
+
+73
+00:02:48,790 --> 00:02:50,810
+And the file name of each
+route matches the name
+
+74
+00:02:50,810 --> 00:02:51,870
+that we gave it.
+
+75
+00:02:51,870 --> 00:02:55,040
+So in this case, when we
+generated the orders route,
+
+76
+00:02:55,040 --> 00:02:57,170
+you can see that it created
+a file in app routes
+
+77
+00:02:57,170 --> 00:02:58,670
+called orders.js.
+
+78
+00:02:58,670 --> 00:03:01,010
+Opening that file,
+you can see that it
+
+79
+00:03:01,010 --> 00:03:03,730
+extends from Ember.Route.
+
+80
+00:03:03,730 --> 00:03:05,500
+By extending Ember.Route,
+we can easily
+
+81
+00:03:05,500 --> 00:03:08,620
+customize how it behaves for
+this one particular route
+
+82
+00:03:08,620 --> 00:03:11,570
+without affecting any other
+route in the application.
+
+83
+00:03:11,570 --> 00:03:14,010
+Currently, I haven't done
+anything special to this route,
+
+84
+00:03:14,010 --> 00:03:17,954
+so it's still equivalent to
+that default route behavior.
+
+85
+00:03:17,954 --> 00:03:20,090
+One way to customize
+the route is
+
+86
+00:03:20,090 --> 00:03:22,750
+by adding a model
+function or hook.
+
+87
+00:03:22,750 --> 00:03:24,814
+In that function, I
+could return anything
+
+88
+00:03:24,814 --> 00:03:26,730
+that I want to make
+available to the template.
+
+89
+00:03:26,730 --> 00:03:29,160
+So for now, I'll
+just return a string.
+
+90
+00:03:29,160 --> 00:03:31,670
+And you can see that when my
+model hook returns a string,
+
+91
+00:03:31,670 --> 00:03:33,420
+I can then go over
+to the template
+
+92
+00:03:33,420 --> 00:03:37,250
+and reference that string as
+the model in the Handlebars
+
+93
+00:03:37,250 --> 00:03:38,650
+expression.
+
+94
+00:03:38,650 --> 00:03:41,430
+Using model here is
+an Ember convention.
+
+95
+00:03:41,430 --> 00:03:44,620
+Model represents the
+primary piece of data
+
+96
+00:03:44,620 --> 00:03:46,370
+that the route
+represents and makes
+
+97
+00:03:46,370 --> 00:03:49,370
+available to its templates.
+
+98
+00:03:49,370 --> 00:03:52,860
+So we see that the route's model
+function can return a string.
+
+99
+00:03:52,860 --> 00:03:54,840
+That model function
+could return anything.
+
+100
+00:03:54,840 --> 00:03:58,040
+So in this case, we
+could return an object.
+
+101
+00:03:58,040 --> 00:04:00,890
+That object is still referenced
+as model in the template,
+
+102
+00:04:00,890 --> 00:04:03,600
+and its properties are
+referenced using dot notation.
+
+103
+00:04:03,600 --> 00:04:05,724
+So model.id, model.name.
+
+104
+00:04:05,724 --> 00:04:07,890
+And here's what it looks
+like when it gets rendered.
+
+105
+00:04:13,050 --> 00:04:15,310
+Or the model hook
+could return an array.
+
+106
+00:04:15,310 --> 00:04:17,084
+How would we deal with that?
+
+107
+00:04:17,084 --> 00:04:18,959
+Well, in the template,
+we could use something
+
+108
+00:04:18,959 --> 00:04:20,534
+like the each helper.
+
+109
+00:04:20,534 --> 00:04:22,450
+The each helper is an iterator.
+
+110
+00:04:22,450 --> 00:04:25,840
+It's called using each,
+collection name, as, and what
+
+111
+00:04:25,840 --> 00:04:27,482
+you want to call each instance.
+
+112
+00:04:27,482 --> 00:04:29,190
+So in the template,
+you can see that I've
+
+113
+00:04:29,190 --> 00:04:32,310
+defined each model as order.
+
+114
+00:04:32,310 --> 00:04:34,840
+Remember, model is
+that collection.
+
+115
+00:04:34,840 --> 00:04:36,630
+This block is going
+to iterate once
+
+116
+00:04:36,630 --> 00:04:38,180
+for each item in the collection.
+
+117
+00:04:38,180 --> 00:04:40,050
+So within that block,
+I'm going to go ahead
+
+118
+00:04:40,050 --> 00:04:43,582
+and just render out each
+order's ID and name.
+
+119
+00:04:43,582 --> 00:04:45,040
+And here's what it
+would look like.
+
+120
+00:04:50,155 --> 00:04:52,710
+Routes have several
+other customization hooks
+
+121
+00:04:52,710 --> 00:04:55,450
+available to them, but
+by far, the most common
+
+122
+00:04:55,450 --> 00:04:56,350
+is the model hook.
+
+123
+00:05:00,790 --> 00:05:02,570
+With multiple orders
+in the system,
+
+124
+00:05:02,570 --> 00:05:05,220
+it would be nice to be able
+to navigate somebody directly
+
+125
+00:05:05,220 --> 00:05:07,320
+to the receipt for
+a single order.
+
+126
+00:05:07,320 --> 00:05:09,200
+But how would we do that?
+
+127
+00:05:09,200 --> 00:05:10,920
+Where would we link them to?
+
+128
+00:05:10,920 --> 00:05:12,960
+How do we tell the
+router or the route
+
+129
+00:05:12,960 --> 00:05:15,340
+that we want to view
+order 1 or order 2?
+
+130
+00:05:17,744 --> 00:05:20,410
+So we need a way for the browser
+to tell the application that it
+
+131
+00:05:20,410 --> 00:05:23,390
+wants to see the receipt
+for order number 1.
+
+132
+00:05:23,390 --> 00:05:25,596
+That request needs to
+go down to the router.
+
+133
+00:05:25,596 --> 00:05:27,470
+The router, in turn,
+needs to talk to a route
+
+134
+00:05:27,470 --> 00:05:30,810
+to say, hey route, load
+the data for order number 1
+
+135
+00:05:30,810 --> 00:05:32,860
+and hand that off
+to your template.
+
+136
+00:05:32,860 --> 00:05:35,340
+The route then needs to
+say, OK, order template,
+
+137
+00:05:35,340 --> 00:05:37,130
+here's the data for order 1.
+
+138
+00:05:37,130 --> 00:05:39,490
+How do we go about
+doing all of that?
+
+139
+00:05:39,490 --> 00:05:41,240
+So the first step is
+to create a new state
+
+140
+00:05:41,240 --> 00:05:42,940
+in our application
+that represents
+
+141
+00:05:42,940 --> 00:05:45,220
+viewing a receipt
+for a single order,
+
+142
+00:05:45,220 --> 00:05:47,380
+and ideally, it should
+view it by order number.
+
+143
+00:05:50,600 --> 00:05:53,360
+To map the new endpoint or
+state in the application,
+
+144
+00:05:53,360 --> 00:05:55,176
+we need to head
+back to the router.
+
+145
+00:05:55,176 --> 00:05:56,800
+In the router map
+section, we'll create
+
+146
+00:05:56,800 --> 00:05:58,070
+a new route called order.
+
+147
+00:05:58,070 --> 00:06:00,720
+This will represent the
+receipt for a single order.
+
+148
+00:06:00,720 --> 00:06:03,100
+We'll give it a
+path of /orders/.
+
+149
+00:06:03,100 --> 00:06:07,070
+And here we're going to do
+:order_id That :order_id is
+
+150
+00:06:07,070 --> 00:06:08,530
+called a dynamic segment.
+
+151
+00:06:08,530 --> 00:06:11,470
+It instructs the router that
+it will match anything that's
+
+152
+00:06:11,470 --> 00:06:13,060
+at that location in the URL.
+
+153
+00:06:13,060 --> 00:06:16,147
+So that could be
+the order number.
+
+154
+00:06:16,147 --> 00:06:17,730
+Now that we've defined
+that new route,
+
+155
+00:06:17,730 --> 00:06:20,600
+let me show you a little bit
+more about how that works.
+
+156
+00:06:20,600 --> 00:06:23,190
+When a request comes in to
+view the receipt for order 1,
+
+157
+00:06:23,190 --> 00:06:27,710
+for example, the browser is
+going to try to go to /order/1.
+
+158
+00:06:27,710 --> 00:06:29,547
+The router is going
+to see that URL,
+
+159
+00:06:29,547 --> 00:06:31,130
+and it's going to
+try to interpret it.
+
+160
+00:06:31,130 --> 00:06:33,830
+It's going to compare it
+against all of its known routes.
+
+161
+00:06:33,830 --> 00:06:36,660
+So first, it's going to compare
+it against that orders route
+
+162
+00:06:36,660 --> 00:06:38,684
+that we defined a
+little while back.
+
+163
+00:06:38,684 --> 00:06:40,350
+It's not going to
+match because it's got
+
+164
+00:06:40,350 --> 00:06:41,940
+that extra portion at the end.
+
+165
+00:06:41,940 --> 00:06:44,160
+So it's going to fall down
+to the next route, which
+
+166
+00:06:44,160 --> 00:06:45,620
+is the order route.
+
+167
+00:06:45,620 --> 00:06:48,200
+In this case, it's going
+to match because the orders
+
+168
+00:06:48,200 --> 00:06:51,900
+portion matches, and the dynamic
+segment matches any value.
+
+169
+00:06:51,900 --> 00:06:54,770
+So in this case, it's going
+to match the number 1.
+
+170
+00:06:54,770 --> 00:06:56,480
+The router is then
+going to say, hey,
+
+171
+00:06:56,480 --> 00:06:58,050
+I've got dynamic values here.
+
+172
+00:06:58,050 --> 00:07:00,980
+Let me go ahead
+and capture those.
+
+173
+00:07:00,980 --> 00:07:04,880
+So it's going to grab the 1 and
+map it to an order_id variable
+
+174
+00:07:04,880 --> 00:07:07,370
+and put that into a hash.
+
+175
+00:07:07,370 --> 00:07:09,910
+That hash is then
+going to get sent over
+
+176
+00:07:09,910 --> 00:07:14,760
+to the route to tell it which
+order the user requested.
+
+177
+00:07:14,760 --> 00:07:16,900
+So now that the router
+has this order_id 1 hash,
+
+178
+00:07:16,900 --> 00:07:18,860
+it needs to get that
+data over to the route
+
+179
+00:07:18,860 --> 00:07:20,100
+so that it can use it.
+
+180
+00:07:20,100 --> 00:07:21,549
+How does it do that?
+
+181
+00:07:21,549 --> 00:07:22,965
+Well, it turns out
+that model hook
+
+182
+00:07:22,965 --> 00:07:25,840
+that we showed you earlier
+takes optional parameters.
+
+183
+00:07:25,840 --> 00:07:28,060
+And that first parameter
+to it is something
+
+184
+00:07:28,060 --> 00:07:29,980
+that's often called params.
+
+185
+00:07:29,980 --> 00:07:31,730
+It's whatever dynamic
+data the router
+
+186
+00:07:31,730 --> 00:07:34,180
+has found that's handing
+down to the route.
+
+187
+00:07:34,180 --> 00:07:36,210
+Once that data is
+in your route, you
+
+188
+00:07:36,210 --> 00:07:38,640
+can do pretty much whatever
+you want to do with it.
+
+189
+00:07:38,640 --> 00:07:40,580
+So in this case, I've
+re-created the data
+
+190
+00:07:40,580 --> 00:07:42,480
+that we had earlier
+from the orders route,
+
+191
+00:07:42,480 --> 00:07:45,300
+and I'm using that passed-in
+params data to filter
+
+192
+00:07:45,300 --> 00:07:47,280
+that data down to one object.
+
+193
+00:07:47,280 --> 00:07:50,490
+Here I'm using the
+Ember-provided findBy function
+
+194
+00:07:50,490 --> 00:07:53,370
+to just say, Ember,
+take this collection
+
+195
+00:07:53,370 --> 00:07:56,610
+and find the first matching
+item that has a matching value.
+
+196
+00:07:59,210 --> 00:08:01,530
+Next, we need an order
+template so that we can render
+
+197
+00:08:01,530 --> 00:08:03,630
+that data back to the user.
+
+198
+00:08:03,630 --> 00:08:06,210
+In this case, I have a fairly
+straightforward template here
+
+199
+00:08:06,210 --> 00:08:09,500
+that just renders the model
+ID and name back to the user.
+
+200
+00:08:09,500 --> 00:08:11,970
+When I head over to the
+browser, I can change the URL
+
+201
+00:08:11,970 --> 00:08:16,690
+to /order/1, and you can see
+that I get order 1's data
+
+202
+00:08:16,690 --> 00:08:17,390
+on the screen.
+
+203
+00:08:21,220 --> 00:08:23,430
+So now that we have a
+place to send the user,
+
+204
+00:08:23,430 --> 00:08:25,610
+let's head back over
+to that order listing
+
+205
+00:08:25,610 --> 00:08:27,495
+and go ahead and
+hook up that link-to.
+
+206
+00:08:27,495 --> 00:08:30,330
+To do that, we're going to
+take the link-to helper,
+
+207
+00:08:30,330 --> 00:08:33,000
+and we're going to pass
+it an additional argument.
+
+208
+00:08:33,000 --> 00:08:36,059
+So we're going to say, link-to
+"order"-- that's "order"
+
+209
+00:08:36,059 --> 00:08:38,330
+singular, which is the
+receipt we just created.
+
+210
+00:08:38,330 --> 00:08:40,704
+And we're going to pass it an
+additional parameter, which
+
+211
+00:08:40,704 --> 00:08:42,246
+is the order object.
+
+212
+00:08:42,246 --> 00:08:44,120
+That order object is
+going to get handed over
+
+213
+00:08:44,120 --> 00:08:47,130
+to the template as its model,
+so it knows exactly what
+
+214
+00:08:47,130 --> 00:08:50,450
+to render on the page.
+
+215
+00:08:50,450 --> 00:08:52,580
+And now, if we take a
+look at the rendered HTML
+
+216
+00:08:52,580 --> 00:08:55,490
+from this list, you'll see
+that the link-to helper was
+
+217
+00:08:55,490 --> 00:08:57,800
+smart enough to go ahead
+and grab the ID for each
+
+218
+00:08:57,800 --> 00:09:00,830
+of the objects given to it and
+stick it in the dynamic segment
+
+219
+00:09:00,830 --> 00:09:01,330
+portion.
+
+220
+00:09:01,330 --> 00:09:06,180
+So we have links to
+orders 1 and orders 2.
+
+221
+00:09:06,180 --> 00:09:08,100
+So adding that
+link-to works great.
+
+222
+00:09:08,100 --> 00:09:10,260
+Clicking on a link to
+see an orders receipt
+
+223
+00:09:10,260 --> 00:09:13,190
+shows the order details,
+which is exactly what we want.
+
+224
+00:09:13,190 --> 00:09:14,665
+The part we don't
+want, however, is
+
+225
+00:09:14,665 --> 00:09:17,390
+what the design calls for
+that list to stay on the page
+
+226
+00:09:17,390 --> 00:09:18,174
+as we navigate.
+
+227
+00:09:18,174 --> 00:09:20,590
+So how do we go about keeping
+that list from disappearing?
+
+228
+00:09:23,140 --> 00:09:25,080
+Currently, in the
+router, our application
+
+229
+00:09:25,080 --> 00:09:28,060
+has what we would call a
+very flat route hierarchy.
+
+230
+00:09:28,060 --> 00:09:30,040
+All of the routes
+defined are siblings.
+
+231
+00:09:30,040 --> 00:09:31,620
+They're equivalent
+to each other.
+
+232
+00:09:31,620 --> 00:09:34,450
+What that means is that,
+when the browser requests
+
+233
+00:09:34,450 --> 00:09:36,510
+each one of these
+states or routes,
+
+234
+00:09:36,510 --> 00:09:38,440
+they end up kind of
+replacing each other.
+
+235
+00:09:38,440 --> 00:09:40,840
+So if somebody goes
+to the root route,
+
+236
+00:09:40,840 --> 00:09:43,569
+they'll see the index template
+get rendered into the outlet.
+
+237
+00:09:43,569 --> 00:09:45,860
+When they go to orders,
+they'll see the orders template
+
+238
+00:09:45,860 --> 00:09:49,120
+get rendered into the outlet,
+replacing the index template.
+
+239
+00:09:49,120 --> 00:09:52,420
+And the same is true
+for the receipt.
+
+240
+00:09:52,420 --> 00:09:55,190
+And this last behavior, where
+the order template replaced
+
+241
+00:09:55,190 --> 00:09:57,130
+the orders template,
+is what we don't
+
+242
+00:09:57,130 --> 00:09:59,730
+want because that's where
+we lost the orders listing.
+
+243
+00:09:59,730 --> 00:10:00,810
+So let's fix that now.
+
+244
+00:10:04,600 --> 00:10:07,820
+We can solve this by using
+something called nested routes.
+
+245
+00:10:07,820 --> 00:10:09,990
+Using nested routes
+allows multiple templates
+
+246
+00:10:09,990 --> 00:10:12,630
+to be displayed on the
+page simultaneously.
+
+247
+00:10:12,630 --> 00:10:15,210
+To create a nested route,
+I'll add a function argument
+
+248
+00:10:15,210 --> 00:10:18,580
+to the orders route mapping then
+move the order route mapping
+
+249
+00:10:18,580 --> 00:10:19,650
+into it.
+
+250
+00:10:19,650 --> 00:10:21,190
+This makes the
+order route a child
+
+251
+00:10:21,190 --> 00:10:23,030
+of the orders parent route.
+
+252
+00:10:23,030 --> 00:10:26,010
+Notice that, among other changes
+the we'll see in a second,
+
+253
+00:10:26,010 --> 00:10:28,470
+this automatically
+inherits the parent's path,
+
+254
+00:10:28,470 --> 00:10:31,530
+so I no longer need to define
+the /orders part of the path
+
+255
+00:10:31,530 --> 00:10:32,960
+on the order route.
+
+256
+00:10:32,960 --> 00:10:35,930
+Now, how does this
+affect navigation?
+
+257
+00:10:35,930 --> 00:10:37,960
+With the nested routes
+in place, when the user
+
+258
+00:10:37,960 --> 00:10:40,870
+requests the root
+path, or just slash,
+
+259
+00:10:40,870 --> 00:10:43,890
+they'll still see the
+index, route, and template.
+
+260
+00:10:43,890 --> 00:10:46,250
+This time, though, when
+we navigate to /orders,
+
+261
+00:10:46,250 --> 00:10:48,820
+the rendered orders template
+replaces the index template
+
+262
+00:10:48,820 --> 00:10:50,370
+in the outlet.
+
+263
+00:10:50,370 --> 00:10:52,890
+And it's important to note
+here that, now orders is
+
+264
+00:10:52,890 --> 00:10:56,200
+a parent route, its
+template has its own outlet.
+
+265
+00:10:56,200 --> 00:10:58,840
+And in this outlet, a
+new orders index template
+
+266
+00:10:58,840 --> 00:11:00,550
+is rendered there, as well.
+
+267
+00:11:00,550 --> 00:11:03,760
+Index templates are always
+created for parent routes.
+
+268
+00:11:03,760 --> 00:11:06,360
+They're like the
+index HTML in Ember.
+
+269
+00:11:06,360 --> 00:11:08,190
+Whenever you navigate
+straight to a parent,
+
+270
+00:11:08,190 --> 00:11:10,550
+it's the index that
+gets displayed.
+
+271
+00:11:10,550 --> 00:11:14,950
+And finally, when clicking on
+an order to go to /order/1,
+
+272
+00:11:14,950 --> 00:11:18,390
+the orders template remains
+in the applications outlet,
+
+273
+00:11:18,390 --> 00:11:21,720
+but now, the order details
+are rendered into the orders
+
+274
+00:11:21,720 --> 00:11:25,110
+outlet, replacing orders index.
+
+275
+00:11:25,110 --> 00:11:27,820
+So we now have a layer of
+templates being rendered,
+
+276
+00:11:27,820 --> 00:11:30,630
+and that listing from the orders
+template remains on the page.
+
+277
+00:11:33,370 --> 00:11:35,500
+With these nesting changes
+applied to the router,
+
+278
+00:11:35,500 --> 00:11:37,124
+we need to make some
+additional changes
+
+279
+00:11:37,124 --> 00:11:39,760
+to the rest of the application
+to make the nesting work.
+
+280
+00:11:39,760 --> 00:11:41,760
+First, we need to go back
+to the orders template
+
+281
+00:11:41,760 --> 00:11:43,420
+and change our link-to.
+
+282
+00:11:43,420 --> 00:11:45,900
+Previously, we were
+linking to order.
+
+283
+00:11:45,900 --> 00:11:48,984
+Because order was at the top of
+the router, it was just order.
+
+284
+00:11:48,984 --> 00:11:50,400
+Now that's it's a
+child of orders,
+
+285
+00:11:50,400 --> 00:11:54,200
+we need to change that reference
+to say, "orders.order."
+
+286
+00:11:54,200 --> 00:11:56,000
+That represents
+that order is now
+
+287
+00:11:56,000 --> 00:11:58,320
+a child of the orders route.
+
+288
+00:11:58,320 --> 00:12:00,070
+And while we're
+here, we also need
+
+289
+00:12:00,070 --> 00:12:03,000
+to make sure that we add that
+outlet to the orders template,
+
+290
+00:12:03,000 --> 00:12:05,164
+just like we needed in
+the application template.
+
+291
+00:12:05,164 --> 00:12:06,830
+Because the orders
+template is a parent,
+
+292
+00:12:06,830 --> 00:12:08,204
+it now needs its
+own outlet, too.
+
+293
+00:12:11,140 --> 00:12:13,980
+And finally, we need to update
+the file system to match
+
+294
+00:12:13,980 --> 00:12:15,970
+our new nested hierarchy.
+
+295
+00:12:15,970 --> 00:12:18,500
+So inside of app
+templates and app routes,
+
+296
+00:12:18,500 --> 00:12:21,660
+we need to create a new
+orders subdirectory.
+
+297
+00:12:21,660 --> 00:12:24,500
+That orders subdirectory is
+going to now contain the order
+
+298
+00:12:24,500 --> 00:12:27,290
+template and order route.
+
+299
+00:12:27,290 --> 00:12:28,890
+With all of those
+changes in place,
+
+300
+00:12:28,890 --> 00:12:31,280
+we can now go back to the
+application in the browser.
+
+301
+00:12:31,280 --> 00:12:33,590
+And we can see that when
+a user clicks on a link
+
+302
+00:12:33,590 --> 00:12:36,460
+to view an order receipt, the
+listing remains on the page
+
+303
+00:12:36,460 --> 00:12:39,992
+and the order details
+are also displayed.
+
+304
+00:12:39,992 --> 00:12:42,930
+Now, I know that nested routes
+seem a little complicated,
+
+305
+00:12:42,930 --> 00:12:45,780
+and it might take a few minutes
+for that to kind of settle in.
+
+306
+00:12:45,780 --> 00:12:48,150
+But at this point, you know
+about routes, the router,
+
+307
+00:12:48,150 --> 00:12:49,084
+and templates.
+
+308
+00:12:49,084 --> 00:12:51,250
+So it's time for you to get
+back to your application
+
+309
+00:12:51,250 --> 00:12:53,510
+and update it with some
+changes in the challenges.
+
+310
+00:12:53,510 --> 00:12:56,150
+And I'll see you
+back in level 3.
+

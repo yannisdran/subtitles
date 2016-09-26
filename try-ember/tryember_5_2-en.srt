@@ -1,0 +1,771 @@
+﻿1
+00:00:02,220 --> 00:00:03,067
+Welcome back.
+
+2
+00:00:03,067 --> 00:00:04,150
+You're watching Try Ember.
+
+3
+00:00:04,150 --> 00:00:06,552
+And this is Level
+5, Section 2, where
+
+4
+00:00:06,552 --> 00:00:08,260
+I'm going to introduce
+you to components.
+
+5
+00:00:12,216 --> 00:00:13,840
+The last piece of
+functionality that we
+
+6
+00:00:13,840 --> 00:00:15,370
+need to implement
+in the application
+
+7
+00:00:15,370 --> 00:00:17,600
+is that line item percentage.
+
+8
+00:00:17,600 --> 00:00:19,270
+The line item
+percentage is calculated
+
+9
+00:00:19,270 --> 00:00:23,000
+by dividing the line item
+cost by the total order cost.
+
+10
+00:00:23,000 --> 00:00:26,200
+So you can see here that the
+sleeping bag that cost $5.00
+
+11
+00:00:26,200 --> 00:00:29,810
+represented 1/2 of the
+total order cost, or 50%.
+
+12
+00:00:29,810 --> 00:00:32,470
+5 divided by 10 is 50%.
+
+13
+00:00:32,470 --> 00:00:34,720
+And to make things just a
+little bit more interesting,
+
+14
+00:00:34,720 --> 00:00:37,250
+the design team wants
+that value to be bold
+
+15
+00:00:37,250 --> 00:00:38,580
+if it's at or above 50%.
+
+16
+00:00:41,655 --> 00:00:43,280
+Looking at the cost
+percentage, there's
+
+17
+00:00:43,280 --> 00:00:45,000
+a few things to consider here.
+
+18
+00:00:45,000 --> 00:00:48,690
+First, the presentation of it
+changes based on its value.
+
+19
+00:00:48,690 --> 00:00:50,910
+Second, nowhere
+else in the system
+
+20
+00:00:50,910 --> 00:00:53,750
+do we currently use that
+line item percentage.
+
+21
+00:00:53,750 --> 00:00:56,820
+It's just local to the
+template or presentation.
+
+22
+00:00:56,820 --> 00:00:59,470
+And finally, it
+would be really nice,
+
+23
+00:00:59,470 --> 00:01:01,510
+if when a user clicks
+on that percentage,
+
+24
+00:01:01,510 --> 00:01:03,645
+they could see the
+formula that calculated it.
+
+25
+00:01:03,645 --> 00:01:05,520
+So that's kind of like
+action or interaction.
+
+26
+00:01:08,200 --> 00:01:10,500
+For all of these
+reasons, it's a good idea
+
+27
+00:01:10,500 --> 00:01:12,110
+to use a component here.
+
+28
+00:01:12,110 --> 00:01:14,310
+Components represent
+a reusable way
+
+29
+00:01:14,310 --> 00:01:17,210
+to package up templates,
+action handling, and behavior
+
+30
+00:01:17,210 --> 00:01:19,419
+through the rest
+of your application.
+
+31
+00:01:19,419 --> 00:01:20,960
+Components are best
+used for creating
+
+32
+00:01:20,960 --> 00:01:22,600
+common pieces of
+an application that
+
+33
+00:01:22,600 --> 00:01:25,730
+are used over and over again,
+like custom buttons or input
+
+34
+00:01:25,730 --> 00:01:28,670
+fields or other
+presentation or actions.
+
+35
+00:01:28,670 --> 00:01:30,550
+And as time goes on,
+components are only
+
+36
+00:01:30,550 --> 00:01:32,530
+becoming more and
+more central to Ember.
+
+37
+00:01:32,530 --> 00:01:35,040
+So they're really
+important to know.
+
+38
+00:01:35,040 --> 00:01:37,450
+In fact, encapsulating
+presentation and behavior
+
+39
+00:01:37,450 --> 00:01:39,410
+into HTML elements
+is so important
+
+40
+00:01:39,410 --> 00:01:42,590
+that the W3C is working on a
+new standard for it, called
+
+41
+00:01:42,590 --> 00:01:44,367
+custom elements.
+
+42
+00:01:44,367 --> 00:01:46,700
+And you might be surprised
+to learn that you are already
+
+43
+00:01:46,700 --> 00:01:49,220
+using components when you
+used link-to and input.
+
+44
+00:01:52,920 --> 00:01:55,000
+Ember CLI provides a
+generator for creating
+
+45
+00:01:55,000 --> 00:01:58,490
+components, which is run with
+ember generate component,
+
+46
+00:01:58,490 --> 00:01:59,854
+and the component name.
+
+47
+00:01:59,854 --> 00:02:02,020
+In this case, I'm going to
+create a component called
+
+48
+00:02:02,020 --> 00:02:04,500
+item percentage, since that's
+what it's going to be doing.
+
+49
+00:02:04,500 --> 00:02:06,000
+As you can see,
+it's going to create
+
+50
+00:02:06,000 --> 00:02:10,110
+a couple of files for us, an app
+components item percentage js.
+
+51
+00:02:10,110 --> 00:02:11,902
+And that's the definition
+of the component.
+
+52
+00:02:11,902 --> 00:02:14,193
+And it will go ahead and
+create the components template
+
+53
+00:02:14,193 --> 00:02:15,390
+in app templates components.
+
+54
+00:02:18,320 --> 00:02:20,114
+Opening up the item
+percentage component,
+
+55
+00:02:20,114 --> 00:02:22,530
+you can see that it's pretty
+straightforward, just like we
+
+56
+00:02:22,530 --> 00:02:24,560
+saw with services,
+except this time it
+
+57
+00:02:24,560 --> 00:02:26,789
+extends from Ember component.
+
+58
+00:02:26,789 --> 00:02:28,580
+It's important to note
+that components must
+
+59
+00:02:28,580 --> 00:02:30,340
+have a hyphen in their name.
+
+60
+00:02:30,340 --> 00:02:33,050
+It separates them from
+standard HTML element names.
+
+61
+00:02:33,050 --> 00:02:35,760
+And it's required to conform
+to the custom elements spec.
+
+62
+00:02:39,010 --> 00:02:40,480
+As I mentioned
+earlier, components
+
+63
+00:02:40,480 --> 00:02:42,320
+have their own
+properties and behaviors.
+
+64
+00:02:42,320 --> 00:02:45,210
+So since this line item
+percentage really only applies
+
+65
+00:02:45,210 --> 00:02:47,840
+this component, I'm going
+to go into the component
+
+66
+00:02:47,840 --> 00:02:50,080
+and define it as
+a local property.
+
+67
+00:02:50,080 --> 00:02:52,680
+To do that, I'm going to
+create a percentage property
+
+68
+00:02:52,680 --> 00:02:53,900
+within the component.
+
+69
+00:02:53,900 --> 00:02:57,010
+And I'm going to define it
+using an Ember computed.
+
+70
+00:02:57,010 --> 00:02:59,710
+These two properties, item
+price and order price,
+
+71
+00:02:59,710 --> 00:03:02,160
+will be given to the component
+through the template when
+
+72
+00:03:02,160 --> 00:03:03,210
+we use it.
+
+73
+00:03:03,210 --> 00:03:04,770
+Just like a standard
+percentage, it's
+
+74
+00:03:04,770 --> 00:03:08,020
+calculated by dividing the
+item price by the order price
+
+75
+00:03:08,020 --> 00:03:11,700
+and multiplying it by 100.
+
+76
+00:03:11,700 --> 00:03:13,980
+And now to display that
+calculated percentage,
+
+77
+00:03:13,980 --> 00:03:16,150
+we'll update the
+components template.
+
+78
+00:03:16,150 --> 00:03:19,420
+To do that, I'll open the
+app templates components item
+
+79
+00:03:19,420 --> 00:03:21,590
+percentage handlebars file.
+
+80
+00:03:21,590 --> 00:03:25,920
+In there, I'll define the
+percentage within a span.
+
+81
+00:03:25,920 --> 00:03:28,260
+Now that we have the component
+and its template defined,
+
+82
+00:03:28,260 --> 00:03:30,050
+we need to hook it
+up to the receipt.
+
+83
+00:03:30,050 --> 00:03:32,420
+So over in the orders
+dot order template,
+
+84
+00:03:32,420 --> 00:03:34,870
+we're going to add in
+item percentage handlebars
+
+85
+00:03:34,870 --> 00:03:35,950
+expression here.
+
+86
+00:03:35,950 --> 00:03:37,580
+That's the same name
+as the component
+
+87
+00:03:37,580 --> 00:03:39,420
+that we defined earlier.
+
+88
+00:03:39,420 --> 00:03:42,530
+We're also going to pass it in
+item price and in order price
+
+89
+00:03:42,530 --> 00:03:44,520
+property, because
+remember, the percentage
+
+90
+00:03:44,520 --> 00:03:46,050
+is based on those
+two properties.
+
+91
+00:03:46,050 --> 00:03:47,220
+So this is how it gets them.
+
+92
+00:03:50,420 --> 00:03:52,680
+So looking at the Receipt
+page now in the browser,
+
+93
+00:03:52,680 --> 00:03:55,970
+you can see that we get the
+expected percentage displayed,
+
+94
+00:03:55,970 --> 00:03:57,670
+although it is still un-styled.
+
+95
+00:03:57,670 --> 00:04:00,480
+So let's go about
+changing that now.
+
+96
+00:04:00,480 --> 00:04:02,320
+Back in the item
+percentage component,
+
+97
+00:04:02,320 --> 00:04:05,400
+I'll add another property
+called isImportant.
+
+98
+00:04:05,400 --> 00:04:08,430
+I'll again make it use an
+Ember computed macro, which
+
+99
+00:04:08,430 --> 00:04:12,500
+in this case is gte, or
+greater than or equal to.
+
+100
+00:04:12,500 --> 00:04:16,690
+So I'll say Ember computed
+gte of percentage 50.
+
+101
+00:04:16,690 --> 00:04:19,730
+So isImportant will be true
+if the percentage value
+
+102
+00:04:19,730 --> 00:04:21,360
+is equal to or greater than 50.
+
+103
+00:04:25,030 --> 00:04:26,820
+Then in the components
+template, I'm
+
+104
+00:04:26,820 --> 00:04:29,330
+going to add a new style
+attribute to the span.
+
+105
+00:04:29,330 --> 00:04:33,410
+And inside of it, I'm going
+to say, if this is important,
+
+106
+00:04:33,410 --> 00:04:36,900
+then we're going to add an
+important class to the span.
+
+107
+00:04:39,930 --> 00:04:43,230
+And to see that in
+action, here it is.
+
+108
+00:04:43,230 --> 00:04:46,710
+In the case of the sleeping
+bag is 50% or more of the cost,
+
+109
+00:04:46,710 --> 00:04:48,970
+you can see the
+50% there is bold.
+
+110
+00:04:48,970 --> 00:04:52,090
+The 0, 20, 30 percents are not.
+
+111
+00:04:52,090 --> 00:04:54,550
+The last bit we have
+here is how do we
+
+112
+00:04:54,550 --> 00:04:57,180
+show the formula that was
+involved in calculating that
+
+113
+00:04:57,180 --> 00:04:57,820
+to the user?
+
+114
+00:05:00,560 --> 00:05:03,210
+To do that we'll,
+again, use an action.
+
+115
+00:05:03,210 --> 00:05:05,950
+Components handle actions,
+just like routes do.
+
+116
+00:05:05,950 --> 00:05:08,860
+So over in our component,
+I'll make an actions block.
+
+117
+00:05:08,860 --> 00:05:12,240
+And inside of that block, I'll
+define a toggle details action
+
+118
+00:05:12,240 --> 00:05:13,620
+handler.
+
+119
+00:05:13,620 --> 00:05:16,700
+For that, I'll have it toggle
+a local property, called
+
+120
+00:05:16,700 --> 00:05:17,860
+show details.
+
+121
+00:05:17,860 --> 00:05:20,560
+This uses Ember's toggle
+property function, which
+
+122
+00:05:20,560 --> 00:05:22,100
+is a bit like a light switch.
+
+123
+00:05:22,100 --> 00:05:23,939
+So whenever this
+function is called,
+
+124
+00:05:23,939 --> 00:05:25,480
+it will just swap
+that property value
+
+125
+00:05:25,480 --> 00:05:29,200
+from false to true
+or true to false.
+
+126
+00:05:29,200 --> 00:05:31,920
+Now, to use that action
+handler that we just defined,
+
+127
+00:05:31,920 --> 00:05:34,330
+we're going to head back over
+to the components template
+
+128
+00:05:34,330 --> 00:05:37,070
+and add an action
+expression to the span
+
+129
+00:05:37,070 --> 00:05:38,760
+that we defined earlier.
+
+130
+00:05:38,760 --> 00:05:40,540
+It will trigger
+that toggle details
+
+131
+00:05:40,540 --> 00:05:42,880
+function that we just created.
+
+132
+00:05:42,880 --> 00:05:44,580
+I'm not defining
+an on trigger here,
+
+133
+00:05:44,580 --> 00:05:46,910
+because it's going to
+use the default on click.
+
+134
+00:05:49,470 --> 00:05:52,260
+And lastly, I can use
+a conditional inside
+
+135
+00:05:52,260 --> 00:05:55,830
+of the template to change out
+what's rendered on the page
+
+136
+00:05:55,830 --> 00:05:58,690
+depending on the value
+of that toggled property.
+
+137
+00:05:58,690 --> 00:06:01,580
+So here, you can see I
+have if show details.
+
+138
+00:06:01,580 --> 00:06:03,350
+So if show details
+is enabled, I'm
+
+139
+00:06:03,350 --> 00:06:06,680
+going to show the function
+of the item price divided
+
+140
+00:06:06,680 --> 00:06:08,530
+by the order price.
+
+141
+00:06:08,530 --> 00:06:10,610
+Otherwise, if it's
+not enabled, I'm
+
+142
+00:06:10,610 --> 00:06:15,170
+going to just display the
+percentage like we were before.
+
+143
+00:06:15,170 --> 00:06:17,840
+Finally, to see
+everything in action,
+
+144
+00:06:17,840 --> 00:06:19,820
+we can take a browser
+over to the landing page,
+
+145
+00:06:19,820 --> 00:06:21,620
+where we see the menu displayed.
+
+146
+00:06:21,620 --> 00:06:24,410
+We see all the products in
+the system and their prices.
+
+147
+00:06:24,410 --> 00:06:26,290
+We can go to the order form.
+
+148
+00:06:26,290 --> 00:06:30,120
+We can fill out the order
+name and product quantities.
+
+149
+00:06:30,120 --> 00:06:32,850
+We can click on the bulk order
+buttons to see that increase.
+
+150
+00:06:32,850 --> 00:06:35,430
+We can place the order and
+get taken to the receipt page.
+
+151
+00:06:35,430 --> 00:06:37,490
+On the receipt page,
+you can see that we
+
+152
+00:06:37,490 --> 00:06:39,470
+show all of the
+expected numbers,
+
+153
+00:06:39,470 --> 00:06:40,990
+the prices, the percentages.
+
+154
+00:06:40,990 --> 00:06:42,700
+And when we click on
+those percentages,
+
+155
+00:06:42,700 --> 00:06:44,116
+you can see the
+formula displayed.
+
+156
+00:06:47,720 --> 00:06:48,750
+Great job.
+
+157
+00:06:48,750 --> 00:06:51,094
+We're done with
+this application.
+
+158
+00:06:51,094 --> 00:06:53,010
+Now it's time for you
+to go to the challenges,
+
+159
+00:06:53,010 --> 00:06:54,060
+show me that you
+know what you need
+
+160
+00:06:54,060 --> 00:06:55,340
+to know about components.
+
+161
+00:06:55,340 --> 00:06:57,870
+And I'll see you
+again in the wrap-up.
+

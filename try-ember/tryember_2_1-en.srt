@@ -1,0 +1,1307 @@
+﻿1
+00:00:00,499 --> 00:00:02,840
+[SINGING] It's time
+to build an app,
+
+2
+00:00:02,840 --> 00:00:05,350
+to a framework I will go.
+
+3
+00:00:05,350 --> 00:00:09,140
+Ambitious apps are easy
+when Ember runs the show.
+
+4
+00:00:09,140 --> 00:00:12,620
+Templates, Routes, and
+Models; it's a client MVC.
+
+5
+00:00:12,620 --> 00:00:15,090
+Best practices from all around;
+
+6
+00:00:15,090 --> 00:00:16,784
+come try Ember with me.
+
+7
+00:00:21,670 --> 00:00:23,110
+You're watching Try Ember.
+
+8
+00:00:23,110 --> 00:00:25,100
+This is Level 2,
+Section 1, where
+
+9
+00:00:25,100 --> 00:00:28,570
+we're going to focus on
+templates and the router.
+
+10
+00:00:28,570 --> 00:00:31,410
+In the last level, we create
+a new Ember application
+
+11
+00:00:31,410 --> 00:00:32,900
+using Ember New.
+
+12
+00:00:32,900 --> 00:00:35,872
+And we saw that heading
+that said, Welcome to Ember.
+
+13
+00:00:35,872 --> 00:00:37,580
+Let's look at what we
+need to do to start
+
+14
+00:00:37,580 --> 00:00:40,870
+customizing that header now.
+
+15
+00:00:40,870 --> 00:00:44,040
+To start, I'll open the app,
+templates, application.hbs
+
+16
+00:00:44,040 --> 00:00:44,540
+file.
+
+17
+00:00:48,270 --> 00:00:51,500
+And here, we run into our first
+Ember concept, the template.
+
+18
+00:00:55,090 --> 00:00:57,140
+A template is what
+instructs Ember
+
+19
+00:00:57,140 --> 00:01:01,362
+what HTML to render to your
+end user for each page.
+
+20
+00:01:01,362 --> 00:01:03,820
+This is called the application
+template because of the file
+
+21
+00:01:03,820 --> 00:01:06,300
+name, application.hbs.
+
+22
+00:01:06,300 --> 00:01:10,100
+And all Ember applications
+have an application template.
+
+23
+00:01:10,100 --> 00:01:12,670
+Ember uses the Handlebars
+templating library,
+
+24
+00:01:12,670 --> 00:01:17,060
+which is why you see that .hbs
+file extension for Handlebars.
+
+25
+00:01:17,060 --> 00:01:19,540
+These Handlebars
+templates look like HTML,
+
+26
+00:01:19,540 --> 00:01:22,260
+but later on, we'll learn how
+to insert dynamic data into them
+
+27
+00:01:22,260 --> 00:01:25,170
+using something called
+Handlebars expressions.
+
+28
+00:01:25,170 --> 00:01:27,110
+You've probably noticed
+that icon up there.
+
+29
+00:01:27,110 --> 00:01:29,580
+You know, it kind of looks
+like bicycle handlebars?
+
+30
+00:01:29,580 --> 00:01:31,950
+Well, that icon is going
+to represent our templates.
+
+31
+00:01:31,950 --> 00:01:34,491
+And you're going to see that a
+few more times in this course.
+
+32
+00:01:36,760 --> 00:01:38,440
+Inside of the
+application template,
+
+33
+00:01:38,440 --> 00:01:39,815
+you'll notice the
+welcome message
+
+34
+00:01:39,815 --> 00:01:42,200
+at the top which
+is just hard coded HTML.
+
+35
+00:01:42,200 --> 00:01:44,492
+So I'm going to go ahead
+and change that now.
+
+36
+00:01:44,492 --> 00:01:46,450
+And you'll notice that
+when I changed the title
+
+37
+00:01:46,450 --> 00:01:49,700
+and save the file, the browser
+automatically reloads and I
+
+38
+00:01:49,700 --> 00:01:51,574
+see my change immediately.
+
+39
+00:01:51,574 --> 00:01:52,990
+And that's because,
+if you recall,
+
+40
+00:01:52,990 --> 00:01:55,780
+I mentioned that Ember
+CLI has live reloading,
+
+41
+00:01:55,780 --> 00:01:57,550
+so whenever a file
+changes, we're
+
+42
+00:01:57,550 --> 00:02:01,470
+going to automatically
+see that update.
+
+43
+00:02:01,470 --> 00:02:03,890
+In the application template,
+you probably also noticed
+
+44
+00:02:03,890 --> 00:02:06,310
+the curly brace wrapped outlet.
+
+45
+00:02:06,310 --> 00:02:09,350
+Those curly braces, or mustaches
+is as they're sometimes called,
+
+46
+00:02:09,350 --> 00:02:11,170
+are Handlebars expressions.
+
+47
+00:02:11,170 --> 00:02:14,570
+Handlebars expressions indicate
+the dynamic data points
+
+48
+00:02:14,570 --> 00:02:16,880
+or logic points or places
+that can change inside
+
+49
+00:02:16,880 --> 00:02:18,320
+of our template.
+
+50
+00:02:18,320 --> 00:02:20,500
+In this case, the
+outlet expression
+
+51
+00:02:20,500 --> 00:02:23,120
+tells Ember where other
+templates can actually
+
+52
+00:02:23,120 --> 00:02:27,090
+be injected into our application
+template to be rendered.
+
+53
+00:02:27,090 --> 00:02:29,010
+What this means
+is later on when I
+
+54
+00:02:29,010 --> 00:02:31,020
+have other templates
+in our application,
+
+55
+00:02:31,020 --> 00:02:33,540
+those templates are going to
+get rendered into the outlet
+
+56
+00:02:33,540 --> 00:02:35,930
+and then displayed to our
+user in the outlet location.
+
+57
+00:02:41,014 --> 00:02:42,680
+Here you can see what
+the final rendered
+
+58
+00:02:42,680 --> 00:02:45,882
+HTML might look like where
+the user template is rendering
+
+59
+00:02:45,882 --> 00:02:46,840
+in place of the outlet.
+
+60
+00:02:50,080 --> 00:02:51,890
+Then later, when
+the user navigates
+
+61
+00:02:51,890 --> 00:02:54,380
+to a new place in our
+application, maybe one that
+
+62
+00:02:54,380 --> 00:02:56,740
+uses a post template
+for example,
+
+63
+00:02:56,740 --> 00:02:59,340
+that user template will
+get replaced with the post
+
+64
+00:02:59,340 --> 00:03:00,710
+templates content.
+
+65
+00:03:00,710 --> 00:03:02,870
+So Ember applications
+have many templates
+
+66
+00:03:02,870 --> 00:03:05,080
+and they can be layered.
+
+67
+00:03:05,080 --> 00:03:06,880
+And, because the
+application template
+
+68
+00:03:06,880 --> 00:03:08,810
+is the outermost
+template and it's always
+
+69
+00:03:08,810 --> 00:03:11,580
+rendered on the page, often
+the application template
+
+70
+00:03:11,580 --> 00:03:13,110
+is where your
+headers, footers,
+
+71
+00:03:13,110 --> 00:03:15,230
+and any other common
+content will end up.
+
+72
+00:03:17,870 --> 00:03:19,610
+Remember, it's
+important to always
+
+73
+00:03:19,610 --> 00:03:22,480
+have that outlet expression
+in your application template.
+
+74
+00:03:22,480 --> 00:03:24,370
+Because without it,
+Ember won't know
+
+75
+00:03:24,370 --> 00:03:27,120
+where to display your templates
+and nothing will get displayed.
+
+76
+00:03:29,640 --> 00:03:31,380
+So back in the app
+we've been working on,
+
+77
+00:03:31,380 --> 00:03:33,130
+you can see in the
+application template
+
+78
+00:03:33,130 --> 00:03:35,840
+that we have a hard coded
+header that we added earlier.
+
+79
+00:03:35,840 --> 00:03:36,990
+And that outlet is there.
+
+80
+00:03:36,990 --> 00:03:38,640
+And it's been there
+the whole time.
+
+81
+00:03:38,640 --> 00:03:40,740
+But in the rendered
+HTML, there's
+
+82
+00:03:40,740 --> 00:03:42,580
+really nothing on the page.
+
+83
+00:03:42,580 --> 00:03:44,480
+So what's happening
+with that outlet?
+
+84
+00:03:44,480 --> 00:03:45,950
+What's going in there?
+
+85
+00:03:45,950 --> 00:03:48,780
+Well, it turns out that
+because we didn't define one,
+
+86
+00:03:48,780 --> 00:03:52,070
+Ember is injecting an
+auto-generated index
+
+87
+00:03:52,070 --> 00:03:53,690
+template into that outlet.
+
+88
+00:03:53,690 --> 00:03:56,400
+And it just so happens that the
+auto-generated templates are
+
+89
+00:03:56,400 --> 00:03:59,820
+just empty by default. So when
+you look at the rendered HTML,
+
+90
+00:03:59,820 --> 00:04:02,640
+there's nothing to see.
+
+91
+00:04:02,640 --> 00:04:05,760
+And now, if we manually
+create an app templates
+
+92
+00:04:05,760 --> 00:04:09,870
+index.hbs or index template
+because of the file name,
+
+93
+00:04:09,870 --> 00:04:12,220
+Ember will detect that we
+now have an index template
+
+94
+00:04:12,220 --> 00:04:14,880
+and it will use that instead
+of the auto-generated empty
+
+95
+00:04:14,880 --> 00:04:15,870
+template.
+
+96
+00:04:15,870 --> 00:04:18,250
+And here you can see, if
+the index template just
+
+97
+00:04:18,250 --> 00:04:21,140
+says Hello from Index, it
+shows up in the web browser.
+
+98
+00:04:24,170 --> 00:04:26,140
+Now let's make another template.
+
+99
+00:04:26,140 --> 00:04:28,010
+How about an orders template?
+
+100
+00:04:28,010 --> 00:04:31,910
+So I'll create a new file
+called app/templates/orders.hbs
+
+101
+00:04:31,910 --> 00:04:33,650
+and give it some content.
+
+102
+00:04:33,650 --> 00:04:36,260
+But now we've kind of
+run into a problem.
+
+103
+00:04:36,260 --> 00:04:38,690
+How do we show the
+user the content?
+
+104
+00:04:38,690 --> 00:04:41,750
+That landing page worked
+because Ember always
+
+105
+00:04:41,750 --> 00:04:45,510
+has that application template
+and the index template.
+
+106
+00:04:45,510 --> 00:04:48,330
+Ember does not always
+have an orders template.
+
+107
+00:04:48,330 --> 00:04:50,910
+So we need to go about telling
+Ember about this endpoint
+
+108
+00:04:50,910 --> 00:04:52,660
+so that we can render
+it for the end user.
+
+109
+00:04:56,000 --> 00:04:58,250
+In order to tell Ember
+about our new endpoint,
+
+110
+00:04:58,250 --> 00:05:00,760
+we need to work in
+something called the router.
+
+111
+00:05:00,760 --> 00:05:03,900
+The router is the second and
+arguably most important concept
+
+112
+00:05:03,900 --> 00:05:04,860
+in Ember.
+
+113
+00:05:04,860 --> 00:05:08,910
+The router's job is to manage
+the application's state.
+
+114
+00:05:08,910 --> 00:05:10,770
+It keeps track of
+what somebody is doing
+
+115
+00:05:10,770 --> 00:05:14,000
+and where somebody is at, in
+your application at all times.
+
+116
+00:05:14,000 --> 00:05:15,750
+So for the application
+that we're building
+
+117
+00:05:15,750 --> 00:05:19,310
+together, that could be is
+the person viewing the menu?
+
+118
+00:05:19,310 --> 00:05:20,580
+Are they creating an order?
+
+119
+00:05:20,580 --> 00:05:22,020
+Are they viewing a receipt?
+
+120
+00:05:22,020 --> 00:05:23,980
+And it does that by
+mapping that state
+
+121
+00:05:23,980 --> 00:05:27,720
+or what they're
+doing into the URL.
+
+122
+00:05:27,720 --> 00:05:30,520
+We configure or modify the
+router by opening the app,
+
+123
+00:05:30,520 --> 00:05:32,600
+router.js file.
+
+124
+00:05:32,600 --> 00:05:34,822
+In it, you'll see
+something like this.
+
+125
+00:05:34,822 --> 00:05:37,030
+And this section we're going
+to focus pretty much all
+
+126
+00:05:37,030 --> 00:05:40,072
+of our effort on is
+that router.map section.
+
+127
+00:05:40,072 --> 00:05:42,280
+That is where we're going
+to define all the endpoints
+
+128
+00:05:42,280 --> 00:05:43,790
+in the application.
+
+129
+00:05:43,790 --> 00:05:45,850
+So how do we configure
+the router map section
+
+130
+00:05:45,850 --> 00:05:48,270
+to tell Ember about
+the order's end point?
+
+131
+00:05:48,270 --> 00:05:50,290
+To do that, inside
+of the map, we're
+
+132
+00:05:50,290 --> 00:05:53,570
+going to say, this.route
+and give it a name.
+
+133
+00:05:53,570 --> 00:05:54,960
+So in this case, orders.
+
+134
+00:05:54,960 --> 00:05:56,501
+And then we're going
+to tell it where
+
+135
+00:05:56,501 --> 00:05:58,542
+it goes to with path/orders.
+
+136
+00:05:58,542 --> 00:06:01,000
+That's going to tell the router
+that we have a new endpoint
+
+137
+00:06:01,000 --> 00:06:03,900
+called orders at /orders.
+
+138
+00:06:03,900 --> 00:06:06,690
+And what that says is, I should
+see the orders template when I
+
+139
+00:06:06,690 --> 00:06:08,450
+navigate to /orders.
+
+140
+00:06:08,450 --> 00:06:11,850
+So if I call up the browser, you
+can see navigating to /orders
+
+141
+00:06:11,850 --> 00:06:15,330
+now shows us the
+orders template.
+
+142
+00:06:15,330 --> 00:06:17,690
+You may think we should
+also update the router
+
+143
+00:06:17,690 --> 00:06:20,075
+map with an index definition.
+
+144
+00:06:20,075 --> 00:06:22,050
+You know, something
+that says, I want
+
+145
+00:06:22,050 --> 00:06:25,440
+to see the index template when
+I navigate to the root path.
+
+146
+00:06:25,440 --> 00:06:28,720
+But actually, Ember already does
+that for you under the hood.
+
+147
+00:06:28,720 --> 00:06:32,820
+So you don't need to have
+that in there at all.
+
+148
+00:06:32,820 --> 00:06:35,800
+And in fact, Ember actually
+has even another convention
+
+149
+00:06:35,800 --> 00:06:37,010
+that we can use here.
+
+150
+00:06:37,010 --> 00:06:38,870
+And that is, if the
+name of the endpoint
+
+151
+00:06:38,870 --> 00:06:41,020
+matches the path that
+we want to map it to,
+
+152
+00:06:41,020 --> 00:06:42,790
+we could actually
+omit the path as well
+
+153
+00:06:42,790 --> 00:06:44,990
+and Ember will go ahead
+and infer that path based
+
+154
+00:06:44,990 --> 00:06:45,780
+on the name.
+
+155
+00:06:45,780 --> 00:06:48,727
+So we can remove, in
+this case path orders
+
+156
+00:06:48,727 --> 00:06:49,810
+and it's still equivalent.
+
+157
+00:06:52,590 --> 00:06:54,400
+Earlier I said that
+it's the router's job
+
+158
+00:06:54,400 --> 00:06:56,470
+to keep track of the
+state of your application
+
+159
+00:06:56,470 --> 00:06:59,570
+and what your users doing,
+and map it to the URL.
+
+160
+00:06:59,570 --> 00:07:02,630
+But as you just saw, when we
+change the URL to /orders,
+
+161
+00:07:02,630 --> 00:07:05,350
+we actually changed the
+state of our application.
+
+162
+00:07:05,350 --> 00:07:07,550
+So the router actually
+goes both ways.
+
+163
+00:07:07,550 --> 00:07:08,790
+It updates the URL.
+
+164
+00:07:08,790 --> 00:07:10,100
+And the URL updates it.
+
+165
+00:07:10,100 --> 00:07:12,990
+So it keeps things in sync.
+
+166
+00:07:12,990 --> 00:07:15,830
+So now that we've told Ember
+and the router about our orders
+
+167
+00:07:15,830 --> 00:07:19,067
+endpoint, how do we link
+somebody from the landing page
+
+168
+00:07:19,067 --> 00:07:21,650
+to the orders endpoint, because
+it's unlikely people are going
+
+169
+00:07:21,650 --> 00:07:23,964
+to type /orders in the URL.
+
+170
+00:07:23,964 --> 00:07:25,380
+So the first thing
+you might think
+
+171
+00:07:25,380 --> 00:07:27,860
+is that you could go into
+the index template and just
+
+172
+00:07:27,860 --> 00:07:31,020
+hard code an anchor
+tag, a standard ahref.
+
+173
+00:07:31,020 --> 00:07:32,124
+And that would work.
+
+174
+00:07:32,124 --> 00:07:33,540
+When somebody
+clicked on the link,
+
+175
+00:07:33,540 --> 00:07:35,570
+they would go to
+the orders endpoint.
+
+176
+00:07:35,570 --> 00:07:37,810
+The downside is, it
+would perform a full page
+
+177
+00:07:37,810 --> 00:07:40,910
+refresh which kind of negates
+most of the value of using
+
+178
+00:07:40,910 --> 00:07:43,300
+a client side framework.
+
+179
+00:07:43,300 --> 00:07:45,320
+So to avoid that
+full page refresh,
+
+180
+00:07:45,320 --> 00:07:47,260
+instead in the
+index template, we
+
+181
+00:07:47,260 --> 00:07:49,390
+could use the link-to helper.
+
+182
+00:07:49,390 --> 00:07:52,860
+The link-to helper works very
+similarly to an anchor tag.
+
+183
+00:07:52,860 --> 00:07:54,480
+It takes at least
+one parameter, which
+
+184
+00:07:54,480 --> 00:07:56,360
+is the name of the
+endpoint to link to.
+
+185
+00:07:56,360 --> 00:07:57,690
+So in this case, orders.
+
+186
+00:07:57,690 --> 00:08:00,450
+We will link to orders.
+
+187
+00:08:00,450 --> 00:08:02,200
+Here we've added a
+pound sign at the start
+
+188
+00:08:02,200 --> 00:08:04,690
+of the expression which tells
+Handlebars that we're using
+
+189
+00:08:04,690 --> 00:08:06,280
+a block form of the helper.
+
+190
+00:08:06,280 --> 00:08:08,680
+That lets us put content
+inside of the link,
+
+191
+00:08:08,680 --> 00:08:10,375
+just like a standard anchor tag.
+
+192
+00:08:10,375 --> 00:08:11,750
+Then we'll close
+the block around
+
+193
+00:08:11,750 --> 00:08:14,630
+with a forward slash and the
+name of the helper, link-to.
+
+194
+00:08:14,630 --> 00:08:18,220
+Think of it a lot like
+a standard HTML tag.
+
+195
+00:08:18,220 --> 00:08:21,000
+And now, with a link-to in
+place, clicking that orders
+
+196
+00:08:21,000 --> 00:08:23,690
+link avoids the
+full page refresh
+
+197
+00:08:23,690 --> 00:08:25,600
+and Ember takes over
+to just re-render
+
+198
+00:08:25,600 --> 00:08:28,780
+the page purely on the client.
+
+199
+00:08:28,780 --> 00:08:31,710
+If we look at the rendered
+HTML from that link-to helper,
+
+200
+00:08:31,710 --> 00:08:34,669
+you'll see that it's pretty much
+just the standard anchor tag.
+
+201
+00:08:34,669 --> 00:08:38,000
+But, what's special about it
+is, because we use the helper,
+
+202
+00:08:38,000 --> 00:08:41,080
+Ember now knows about it and
+it's watching for those clicks.
+
+203
+00:08:41,080 --> 00:08:42,740
+It's going to
+intercept those clicks.
+
+204
+00:08:42,740 --> 00:08:45,550
+And rather than having the
+browser perform the navigation,
+
+205
+00:08:45,550 --> 00:08:47,750
+it's instead going to
+navigate the router
+
+206
+00:08:47,750 --> 00:08:49,380
+and re-render the
+page automatically
+
+207
+00:08:49,380 --> 00:08:53,600
+on the client side for us, which
+will be significantly faster.
+
+208
+00:08:53,600 --> 00:08:56,180
+But what if we want to customize
+that rendered anchor tag?
+
+209
+00:08:56,180 --> 00:08:58,520
+Maybe we need a custom
+class because that's
+
+210
+00:08:58,520 --> 00:08:59,880
+what design calls for.
+
+211
+00:08:59,880 --> 00:09:03,340
+To do that, we just add an
+additional property to the link
+
+212
+00:09:03,340 --> 00:09:06,330
+to helper in this case,
+we could say class equals
+
+213
+00:09:06,330 --> 00:09:08,700
+and whatever class
+want to give it.
+
+214
+00:09:08,700 --> 00:09:11,210
+The link-to helper will
+pass that class through down
+
+215
+00:09:11,210 --> 00:09:13,910
+to the rendered anchor tag.
+
+216
+00:09:13,910 --> 00:09:15,560
+So you can largely
+think of link-to
+
+217
+00:09:15,560 --> 00:09:17,610
+as a traditional anchor tag.
+
+218
+00:09:17,610 --> 00:09:19,330
+Most of the attributes
+you give to it
+
+219
+00:09:19,330 --> 00:09:21,880
+will pass through down
+to the render tag.
+
+220
+00:09:21,880 --> 00:09:24,440
+And if you don't provide
+an ID, for example,
+
+221
+00:09:24,440 --> 00:09:28,950
+you can see Ember is actually
+going to generate one for you.
+
+222
+00:09:28,950 --> 00:09:31,500
+What if we need to customize
+that tag even more?
+
+223
+00:09:31,500 --> 00:09:34,040
+Let's say the design
+called for a button instead
+
+224
+00:09:34,040 --> 00:09:35,850
+of an anchor tag.
+
+225
+00:09:35,850 --> 00:09:39,110
+The link-to helper allows us
+to pass a tag name property
+
+226
+00:09:39,110 --> 00:09:42,200
+through that indicates
+which type of HTML element
+
+227
+00:09:42,200 --> 00:09:45,300
+to render when it
+generates its element.
+
+228
+00:09:45,300 --> 00:09:48,210
+So if I write tag
+name, div, Ember
+
+229
+00:09:48,210 --> 00:09:51,740
+will generate a div for me
+instead of an anchor tag.
+
+230
+00:09:51,740 --> 00:09:54,250
+And even though it's
+generating a div in this case,
+
+231
+00:09:54,250 --> 00:09:56,122
+Embers still knows to
+watch for clicks on it
+
+232
+00:09:56,122 --> 00:09:57,830
+and still performs
+the navigation for me.
+
+233
+00:10:00,610 --> 00:10:02,400
+Ember ships with
+several Handlebars
+
+234
+00:10:02,400 --> 00:10:04,520
+helpers already available to us.
+
+235
+00:10:04,520 --> 00:10:06,770
+Those include the link-to
+that you just saw.
+
+236
+00:10:06,770 --> 00:10:08,560
+They also include
+things like form helpers
+
+237
+00:10:08,560 --> 00:10:10,850
+for text areas or input fields.
+
+238
+00:10:10,850 --> 00:10:13,470
+They could include
+logging for debugging.
+
+239
+00:10:13,470 --> 00:10:16,040
+And even conditional
+statements like if and unless,
+
+240
+00:10:16,040 --> 00:10:18,830
+to optionally render content.
+
+241
+00:10:18,830 --> 00:10:20,940
+So with a link-to
+helper in the template,
+
+242
+00:10:20,940 --> 00:10:24,080
+you noticed that clicking on
+the link shows the new page.
+
+243
+00:10:24,080 --> 00:10:26,900
+You probably also noticed that
+it updates the browser's URL
+
+244
+00:10:26,900 --> 00:10:28,960
+and maybe you're wondering why?
+
+245
+00:10:28,960 --> 00:10:31,335
+Why would it go through the
+effort updating the browser's
+
+246
+00:10:31,335 --> 00:10:33,370
+URL when all of it's
+done on the client side?
+
+247
+00:10:33,370 --> 00:10:35,940
+There's actually two really
+good reasons for this.
+
+248
+00:10:35,940 --> 00:10:39,060
+First, Ember uses the URL
+to keep track of the state
+
+249
+00:10:39,060 --> 00:10:40,320
+and what you're doing.
+
+250
+00:10:40,320 --> 00:10:42,070
+That's what we call
+the application state.
+
+251
+00:10:42,070 --> 00:10:44,970
+You may remember me saying that
+when I introduced the router.
+
+252
+00:10:44,970 --> 00:10:47,340
+But second, because
+it's using the URL,
+
+253
+00:10:47,340 --> 00:10:49,410
+that automatically
+gives you all the power
+
+254
+00:10:49,410 --> 00:10:51,050
+and benefit of web browsers.
+
+255
+00:10:51,050 --> 00:10:52,840
+That means you can
+create bookmarks.
+
+256
+00:10:52,840 --> 00:10:54,630
+You can share URLs
+with your friends,
+
+257
+00:10:54,630 --> 00:11:00,180
+or most importantly, you
+can use your back button.
+
+258
+00:11:00,180 --> 00:11:02,840
+At this point, our Ember
+application has two states.
+
+259
+00:11:02,840 --> 00:11:05,037
+We've got index and
+we've got orders.
+
+260
+00:11:05,037 --> 00:11:07,120
+Index, at the root path,
+is where we're ultimately
+
+261
+00:11:07,120 --> 00:11:09,090
+going to show the
+menu to the user
+
+262
+00:11:09,090 --> 00:11:11,070
+when they want to
+purchase something.
+
+263
+00:11:11,070 --> 00:11:13,870
+And orders is going to be where
+we have the order form for them
+
+264
+00:11:13,870 --> 00:11:15,819
+to create their order.
+
+265
+00:11:15,819 --> 00:11:17,360
+And now you've also
+seen that there's
+
+266
+00:11:17,360 --> 00:11:20,340
+two ways to change the
+state of the application.
+
+267
+00:11:20,340 --> 00:11:23,130
+First, by changing the URL
+directly, typing in the URL
+
+268
+00:11:23,130 --> 00:11:24,380
+and hitting Enter.
+
+269
+00:11:24,380 --> 00:11:27,370
+Or by clicking a link and having
+Ember do the navigation for us.
+
+270
+00:11:29,910 --> 00:11:31,440
+I know that was a lot.
+
+271
+00:11:31,440 --> 00:11:33,230
+But the good news
+is, it's time for you
+
+272
+00:11:33,230 --> 00:11:35,100
+to start customizing
+your app too.
+
+273
+00:11:35,100 --> 00:11:36,700
+So head on over and
+do some challenges
+
+274
+00:11:36,700 --> 00:11:39,090
+and I'll see you in Section 2.
+

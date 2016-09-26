@@ -1,0 +1,778 @@
+1
+00:00:00,499 --> 00:00:03,330
+[SINGING] It's time
+to build an app,
+
+2
+00:00:03,330 --> 00:00:05,350
+to a framework I will go.
+
+3
+00:00:05,350 --> 00:00:09,220
+Ambitious apps are easy
+when Ember runs the show.
+
+4
+00:00:09,220 --> 00:00:12,610
+Templates, Routes, and
+Models, it's a client MVC.
+
+5
+00:00:12,610 --> 00:00:14,666
+Best practices from all around;
+
+6
+00:00:14,666 --> 00:00:16,280
+come try Ember with me.
+
+7
+00:00:21,560 --> 00:00:23,070
+Welcome to Try Ember.
+
+8
+00:00:23,070 --> 00:00:24,140
+I'm Nathaniel Bibler.
+
+9
+00:00:24,140 --> 00:00:26,822
+In this first level, I'm going
+to introduce you to Ember.
+
+10
+00:00:26,822 --> 00:00:28,530
+I'm going to show you
+what it's used for.
+
+11
+00:00:28,530 --> 00:00:30,020
+I'm going to show
+you who uses it.
+
+12
+00:00:30,020 --> 00:00:31,090
+I'm going to show you
+some apps that we're
+
+13
+00:00:31,090 --> 00:00:32,860
+going to build together
+with it, and then I'm
+
+14
+00:00:32,860 --> 00:00:34,660
+going to show you how to
+get it installed and get up
+
+15
+00:00:34,660 --> 00:00:35,160
+and running.
+
+16
+00:00:37,600 --> 00:00:39,080
+To get up and
+running with Ember,
+
+17
+00:00:39,080 --> 00:00:42,290
+it's important that you
+know HTML and JavaScript.
+
+18
+00:00:42,290 --> 00:00:44,320
+If you're not super
+comfortable JavaScript,
+
+19
+00:00:44,320 --> 00:00:46,300
+you can go to something
+like Try JavaScript
+
+20
+00:00:46,300 --> 00:00:50,014
+on JavaScript.com or Code
+School's JavaScript Road Trip.
+
+21
+00:00:50,014 --> 00:00:51,680
+It's not as important
+that you know back
+
+22
+00:00:51,680 --> 00:00:54,270
+end software, like
+Ruby or Python,
+
+23
+00:00:54,270 --> 00:00:58,530
+or even database systems,
+like MySQL or PostgreSQL.
+
+24
+00:00:58,530 --> 00:01:01,240
+And finally, while you will
+need to have Node.js installed
+
+25
+00:01:01,240 --> 00:01:03,070
+and running, you don't need
+a whole lot of experience
+
+26
+00:01:03,070 --> 00:01:04,569
+with it, and we'll
+actually show you
+
+27
+00:01:04,569 --> 00:01:08,400
+where to go for instructions
+on how to install that.
+
+28
+00:01:08,400 --> 00:01:11,180
+With that out of the
+way, what is Ember?
+
+29
+00:01:11,180 --> 00:01:13,540
+Ember is an open
+source MVC framework
+
+30
+00:01:13,540 --> 00:01:16,360
+for creating ambitious
+web applications.
+
+31
+00:01:16,360 --> 00:01:18,130
+And I know that
+sounds like a lot,
+
+32
+00:01:18,130 --> 00:01:20,050
+and I'll break it
+down just a minute.
+
+33
+00:01:20,050 --> 00:01:23,000
+But first, let's
+see who's using it.
+
+34
+00:01:23,000 --> 00:01:25,900
+The most immediate and
+obvious answer is Discourse.
+
+35
+00:01:25,900 --> 00:01:29,700
+Discourse is an open source
+and very popular forum system.
+
+36
+00:01:29,700 --> 00:01:32,240
+In fact, both Code
+School's and Ember's forum
+
+37
+00:01:32,240 --> 00:01:34,980
+are powered by Discourse.
+
+38
+00:01:34,980 --> 00:01:38,070
+Ember has also moved beyond just
+powering open source systems
+
+39
+00:01:38,070 --> 00:01:39,800
+to now powering
+small businesses,
+
+40
+00:01:39,800 --> 00:01:41,557
+like Dollar Shave Club.
+
+41
+00:01:41,557 --> 00:01:43,140
+Or maybe that one's
+too small for you.
+
+42
+00:01:43,140 --> 00:01:44,740
+So how about Sony?
+
+43
+00:01:44,740 --> 00:01:47,240
+Ember powers PlayStation Now.
+
+44
+00:01:47,240 --> 00:01:49,040
+Even Apple is using Ember.
+
+45
+00:01:49,040 --> 00:01:51,310
+In fact, Ember came out
+of an Apple project called
+
+46
+00:01:51,310 --> 00:01:55,820
+SproutCore, and Apple now uses
+Ember to power its help guides.
+
+47
+00:01:55,820 --> 00:01:57,670
+And then there's also
+Apple Music Store
+
+48
+00:01:57,670 --> 00:01:59,380
+that's now powered by Ember.
+
+49
+00:01:59,380 --> 00:02:01,930
+And finally, if those two
+are large enough for you,
+
+50
+00:02:01,930 --> 00:02:03,130
+we've also got NASA.gov.
+
+51
+00:02:05,720 --> 00:02:07,790
+Now back to Ember and MVC.
+
+52
+00:02:07,790 --> 00:02:10,210
+You've probably heard of
+Model View Controller, or MVC
+
+53
+00:02:10,210 --> 00:02:11,530
+architectures, before.
+
+54
+00:02:11,530 --> 00:02:14,670
+Most server side frameworks
+and even client side frameworks
+
+55
+00:02:14,670 --> 00:02:17,420
+follow these patterns
+to varying degrees.
+
+56
+00:02:17,420 --> 00:02:20,700
+At a high level, your user will
+interact with a controller.
+
+57
+00:02:20,700 --> 00:02:23,720
+That controller will in turn
+manipulate data on a model.
+
+58
+00:02:23,720 --> 00:02:25,560
+That model's data
+will change and update
+
+59
+00:02:25,560 --> 00:02:28,510
+a presentation or view layer,
+which your user will finally
+
+60
+00:02:28,510 --> 00:02:29,470
+see.
+
+61
+00:02:29,470 --> 00:02:31,530
+The separation of
+responsibilities
+
+62
+00:02:31,530 --> 00:02:34,220
+makes it easier to maintain
+and work with the code
+
+63
+00:02:34,220 --> 00:02:36,900
+as well as distribute that code
+to larger teams and everybody
+
+64
+00:02:36,900 --> 00:02:40,230
+work together at the same time.
+
+65
+00:02:40,230 --> 00:02:42,330
+Now, what about
+that ambitious part?
+
+66
+00:02:42,330 --> 00:02:44,140
+Well, in traditional
+web applications,
+
+67
+00:02:44,140 --> 00:02:46,490
+whenever a user interacts
+with your website,
+
+68
+00:02:46,490 --> 00:02:49,650
+they might click on a
+link or submit a form.
+
+69
+00:02:49,650 --> 00:02:52,160
+That data gets transmitted
+back to the server.
+
+70
+00:02:52,160 --> 00:02:55,260
+The server then verifies it
+and works with it and renders
+
+71
+00:02:55,260 --> 00:02:58,340
+some new output, which then
+ships back over to the client.
+
+72
+00:02:58,340 --> 00:03:00,250
+That whole process takes
+quite a bit of time,
+
+73
+00:03:00,250 --> 00:03:03,560
+especially on the network side.
+
+74
+00:03:03,560 --> 00:03:05,430
+To combat some of
+those inefficiencies
+
+75
+00:03:05,430 --> 00:03:08,030
+and make your application
+feel more responsive,
+
+76
+00:03:08,030 --> 00:03:10,340
+the web is actually
+well into a shift
+
+77
+00:03:10,340 --> 00:03:12,722
+of putting more of that
+responsibility onto the client.
+
+78
+00:03:12,722 --> 00:03:15,180
+So where before, the server
+was doing a lot of these things
+
+79
+00:03:15,180 --> 00:03:17,200
+and there was a network
+request involved,
+
+80
+00:03:17,200 --> 00:03:19,590
+those responsibilities, like
+validation and rendering,
+
+81
+00:03:19,590 --> 00:03:22,140
+are shifting onto the client
+and cutting out that network
+
+82
+00:03:22,140 --> 00:03:23,180
+request almost entirely.
+
+83
+00:03:26,150 --> 00:03:29,550
+Whereas some frameworks only
+focus on one or two things,
+
+84
+00:03:29,550 --> 00:03:32,930
+Ember's philosophy is to be
+a lot more all encompassing.
+
+85
+00:03:32,930 --> 00:03:36,290
+So Ember packages up all of your
+build tools and best practices
+
+86
+00:03:36,290 --> 00:03:38,560
+and standards into
+one place that
+
+87
+00:03:38,560 --> 00:03:41,120
+benefits from the
+knowledge of everybody.
+
+88
+00:03:41,120 --> 00:03:43,780
+And that even extends to having
+Ember core team members working
+
+89
+00:03:43,780 --> 00:03:46,400
+on web standards with a W3C.
+
+90
+00:03:46,400 --> 00:03:49,550
+Ember's ambitious goal is
+to capture all the best
+
+91
+00:03:49,550 --> 00:03:52,510
+practices in the community,
+framework and non-framework,
+
+92
+00:03:52,510 --> 00:03:54,760
+and boil them down into
+straightforward, common
+
+93
+00:03:54,760 --> 00:03:58,200
+convention that all of us can
+use, Ember developers or not.
+
+94
+00:04:01,180 --> 00:04:03,770
+In this course, we're both
+going to work on apps.
+
+95
+00:04:03,770 --> 00:04:05,990
+I'm going to walk you through
+building a camp supply
+
+96
+00:04:05,990 --> 00:04:09,650
+store for the Woodland
+Wanderer Whatchamacallits.
+
+97
+00:04:09,650 --> 00:04:11,800
+There, the campers
+can view a menu.
+
+98
+00:04:11,800 --> 00:04:15,082
+They can place an order,
+and they can get a receipt.
+
+99
+00:04:15,082 --> 00:04:17,040
+And you are going to make
+sure the critters are
+
+100
+00:04:17,040 --> 00:04:19,320
+learning what they need by
+building a camper polling
+
+101
+00:04:19,320 --> 00:04:20,269
+system.
+
+102
+00:04:20,269 --> 00:04:23,810
+In it, campers can
+create polling questions,
+
+103
+00:04:23,810 --> 00:04:29,370
+answer those poll questions,
+and view the poll results.
+
+104
+00:04:29,370 --> 00:04:33,110
+Now that you know what Ember
+is, let's get it installed.
+
+105
+00:04:33,110 --> 00:04:35,910
+The official way to create
+an Ember application
+
+106
+00:04:35,910 --> 00:04:38,390
+is by using something
+called Ember CLI.
+
+107
+00:04:38,390 --> 00:04:41,340
+Ember CLI is a Node.js
+package, so it's
+
+108
+00:04:41,340 --> 00:04:44,220
+going to be installed
+through Node's NPM.
+
+109
+00:04:44,220 --> 00:04:47,010
+Just in case you don't already
+have Node.js or the NPM Package
+
+110
+00:04:47,010 --> 00:04:48,910
+Manager installed,
+you should check out
+
+111
+00:04:48,910 --> 00:04:51,930
+Nodejs.org for setup and
+installation instructions
+
+112
+00:04:51,930 --> 00:04:52,985
+in your environment.
+
+113
+00:04:52,985 --> 00:04:54,360
+There are downloadable
+installers
+
+114
+00:04:54,360 --> 00:04:58,680
+available for Windows,
+Mac OS, Linux, and more.
+
+115
+00:04:58,680 --> 00:05:01,140
+Once Node and NPM are
+installed, Ember CLI
+
+116
+00:05:01,140 --> 00:05:06,250
+is installed by typing
+NPM install-g Ember CLI.
+
+117
+00:05:06,250 --> 00:05:09,450
+Ember CLI is the name
+of the NPM package,
+
+118
+00:05:09,450 --> 00:05:12,750
+and that -g install
+Ember CLI globally.
+
+119
+00:05:12,750 --> 00:05:14,575
+What that does is it
+makes the executable
+
+120
+00:05:14,575 --> 00:05:20,000
+that it installs available
+to every user on your system.
+
+121
+00:05:20,000 --> 00:05:23,420
+Once Ember CLI installs, it
+will install an Ember executable
+
+122
+00:05:23,420 --> 00:05:24,552
+on your system.
+
+123
+00:05:24,552 --> 00:05:26,510
+You can see here that
+when I run Ember version,
+
+124
+00:05:26,510 --> 00:05:29,760
+it tells me the current
+version of Ember CLI installed.
+
+125
+00:05:29,760 --> 00:05:32,570
+It's important to note here
+that it's an Ember executable,
+
+126
+00:05:32,570 --> 00:05:36,067
+not Ember-CLI, which I know
+is a little bit confusing.
+
+127
+00:05:36,067 --> 00:05:37,900
+But we are going to be
+using this executable
+
+128
+00:05:37,900 --> 00:05:40,830
+throughout this course, so it's
+important to know about it.
+
+129
+00:05:40,830 --> 00:05:43,130
+The Ember Command Line
+Interface, or CLI,
+
+130
+00:05:43,130 --> 00:05:45,950
+is where you're going to be
+spending a lot of your time
+
+131
+00:05:45,950 --> 00:05:48,170
+if you're building
+an Ember application.
+
+132
+00:05:48,170 --> 00:05:50,700
+Ember CLI provides a ton
+of features and support,
+
+133
+00:05:50,700 --> 00:05:53,640
+helpers, and generators
+for doing everyday tasks.
+
+134
+00:05:53,640 --> 00:05:55,350
+At any time, you
+can run Ember Help
+
+135
+00:05:55,350 --> 00:05:57,340
+to get an idea of what
+commands are available
+
+136
+00:05:57,340 --> 00:06:00,320
+or Ember Help and a
+command name for details
+
+137
+00:06:00,320 --> 00:06:03,392
+about a single command.
+
+138
+00:06:03,392 --> 00:06:05,100
+So let's get started
+by creating an Ember
+
+139
+00:06:05,100 --> 00:06:07,270
+application using Ember CLI.
+
+140
+00:06:07,270 --> 00:06:11,300
+To do that, we'll type
+Ember new project name.
+
+141
+00:06:11,300 --> 00:06:13,600
+And that will instruct
+Ember CLI to run a blueprint
+
+142
+00:06:13,600 --> 00:06:17,200
+to generate a whole directory
+for us for the project.
+
+143
+00:06:17,200 --> 00:06:20,620
+Here you can see when we type
+Ember New Woodland-- Woodland
+
+144
+00:06:20,620 --> 00:06:22,330
+because that's the
+name of our project--
+
+145
+00:06:22,330 --> 00:06:25,290
+Ember CLI creates a bunch
+of new files and directories
+
+146
+00:06:25,290 --> 00:06:27,660
+to get us going.
+
+147
+00:06:27,660 --> 00:06:30,330
+Once the project is created,
+we can change directories
+
+148
+00:06:30,330 --> 00:06:32,190
+into our project
+directory was created,
+
+149
+00:06:32,190 --> 00:06:34,310
+and we can type Ember serve.
+
+150
+00:06:34,310 --> 00:06:37,360
+What that does is it starts
+up a development server that
+
+151
+00:06:37,360 --> 00:06:39,390
+has live reloading
+functionality, which
+
+152
+00:06:39,390 --> 00:06:41,780
+means whenever we change
+any file in the application,
+
+153
+00:06:41,780 --> 00:06:44,720
+it automatically reloads
+our browsers for us.
+
+154
+00:06:44,720 --> 00:06:48,680
+And now we can open a browser,
+go to local host 4200,
+
+155
+00:06:48,680 --> 00:06:51,350
+and see a welcome
+to Ember message.
+
+156
+00:06:51,350 --> 00:06:53,410
+With that, we've
+got Ember installed.
+
+157
+00:06:53,410 --> 00:06:55,924
+Now, I know that you're eager
+to start your development.
+
+158
+00:06:55,924 --> 00:06:57,590
+But first, we need
+to make sure that you
+
+159
+00:06:57,590 --> 00:07:00,310
+know what you need to know and
+get your own project started.
+
+160
+00:07:00,310 --> 00:07:01,900
+So head on over and
+do the challenges,
+
+161
+00:07:01,900 --> 00:07:04,270
+and I'll see you
+in the next level.
+
