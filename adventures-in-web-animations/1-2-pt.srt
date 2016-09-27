@@ -1,0 +1,312 @@
+﻿1
+00:00:02,040 --> 00:00:03,060
+Bem vindo de volta.
+
+2
+00:00:03,060 --> 00:00:05,900
+Esta é a sessão dois do level
+de transições
+
+3
+00:00:05,900 --> 00:00:09,710
+e nós falaremos sobre 
+transicionar posição.
+
+4
+00:00:09,710 --> 00:00:13,200
+Até agora, você nos viu usando
+transições para suavemente mudar
+
+5
+00:00:13,200 --> 00:00:16,480
+a cor de fundo e 
+a cor do texto deste botão.
+
+6
+00:00:16,480 --> 00:00:18,470
+No entanto, mover
+conteúdo escondido
+
+7
+00:00:18,470 --> 00:00:21,430
+é outro uso comum para transições.
+
+8
+00:00:21,430 --> 00:00:23,070
+Então, com este botão,
+digamos que
+
+9
+00:00:23,070 --> 00:00:27,595
+nós queremos mostrar o preço
+do jogo quando ele for focado.
+
+10
+00:00:27,595 --> 00:00:28,720
+Bem, como podemos fazer isso?
+
+11
+00:00:28,720 --> 00:00:29,886
+Vamos em frente descobrir.
+
+12
+00:00:32,210 --> 00:00:34,929
+Aqui está o HTML
+do nosso botão.
+
+13
+00:00:34,929 --> 00:00:36,470
+Serão dois passos
+
+14
+00:00:36,470 --> 00:00:38,980
+para conseguirmos essa transição
+no conteúdo escondido
+
+15
+00:00:38,980 --> 00:00:40,290
+que queremos fazer.
+
+16
+00:00:40,290 --> 00:00:42,830
+O primeiro é criar dois 
+spans internos --
+
+17
+00:00:42,830 --> 00:00:44,660
+um que conterá o atual Buy Now
+
+18
+00:00:44,660 --> 00:00:48,060
+(comprar agora), e outro que irá
+exibir o texto
+
+19
+00:00:48,060 --> 00:00:49,300
+escondido.
+
+20
+00:00:49,300 --> 00:00:51,450
+Nós também queremos definir o estilo
+inicial e quando houver foco
+
+21
+00:00:51,450 --> 00:00:53,410
+sobre esses spans.
+
+22
+00:00:53,410 --> 00:00:56,200
+E então, nós iremos querer criar
+uma transição entre o foco
+
+23
+00:00:56,200 --> 00:00:56,980
+e o estado inicial.
+
+24
+00:00:59,570 --> 00:01:01,930
+Para começar, vamos em frente
+criar este span.
+
+25
+00:01:01,930 --> 00:01:04,099
+Nós iremos envolver o Buy Now 
+(comprar agora) com um span
+
+26
+00:01:04,099 --> 00:01:07,040
+e daremos a ele a classe
+top content.
+
+27
+00:01:07,040 --> 00:01:09,190
+Nós iremos então criar
+um segundo span, e dar a ele
+We'll then create a
+second span, give it
+
+28
+00:01:09,190 --> 00:01:12,673
+a classe bottom content,
+e dizer On Sale (a venda) $59.
+
+29
+00:01:17,820 --> 00:01:21,110
+Para o segundo passo, nós iremos
+estilizar a posição inicial
+
+30
+00:01:21,110 --> 00:01:22,830
+de cada um dos spans.
+
+31
+00:01:22,830 --> 00:01:27,320
+Então primeiro, nós chamamos
+o invólucro Big Momma, o .btn,
+
+32
+00:01:27,320 --> 00:01:29,600
+e nós daremos a ele
+um posicionameno relativo.
+
+33
+00:01:29,600 --> 00:01:33,030
+Então, nós chamaremos
+os dois spans internos
+
+34
+00:01:33,030 --> 00:01:36,500
+com a classe content (conteúdo), e
+daremos a ele posicionamento absoluto.
+
+35
+00:01:36,500 --> 00:01:39,870
+Posicionamento absoluto significa posicione-me
+relativamente ao mais próximo
+
+36
+00:01:39,870 --> 00:01:42,110
+elemento pai ou documento.
+
+37
+00:01:42,110 --> 00:01:44,160
+Neste caso, nosso botão.
+
+38
+00:01:44,160 --> 00:01:47,620
+Em seguida, nós definimos o 
+posicionamento de ambos os spans.
+
+39
+00:01:47,620 --> 00:01:50,680
+Nós definiremos o top para
+ser zero, assim ele ficará confortavelmente
+
+40
+00:01:50,680 --> 00:01:52,545
+acima do topo do botão.
+
+41
+00:01:52,545 --> 00:01:56,010
+E nós definiremos o bottom
+para ficar 100 pixels distante
+
+42
+00:01:56,010 --> 00:01:57,530
+do topo do botão.
+
+43
+00:01:57,530 --> 00:01:59,630
+Ele ficará fora
+da área visivel.
+
+44
+00:02:03,930 --> 00:02:06,010
+Então, quando nosso botão
+é focado, nós
+
+45
+00:02:06,010 --> 00:02:08,630
+queremos chamar a sua classe
+top e dar a ela
+
+46
+00:02:08,630 --> 00:02:11,440
+o valor negativo de 100 pixels
+a propriedade top.
+
+47
+00:02:11,440 --> 00:02:14,240
+Nós faremos exatamente a mesma coisa
+quando o botão é focado.
+
+48
+00:02:14,240 --> 00:02:18,630
+Nós chamaremos sua classe bottom
+e daremos a ela a propriedade top de zero pixels.
+
+49
+00:02:18,630 --> 00:02:21,690
+Isto nos dará este
+efeito de disparo para cima.
+
+50
+00:02:21,690 --> 00:02:24,900
+Agora, no foco,
+ambos os spans
+
+51
+00:02:24,900 --> 00:02:26,955
+estão sendo movidos para cima
+em 100 pixels.
+
+52
+00:02:31,540 --> 00:02:32,500
+Nós estamos chegando perto.
+
+53
+00:02:32,500 --> 00:02:34,850
+Tudo o que precisamos fazer
+agora é a transição
+
+54
+00:02:34,850 --> 00:02:37,780
+suave para que pareça
+que isso está deslizando para cima.
+
+55
+00:02:37,780 --> 00:02:40,720
+Agora, tudo o que temos que fazer
+é transicionar
+
+56
+00:02:40,720 --> 00:02:44,210
+a propriedade top 
+durante 0.3 segundo.
+
+57
+00:02:44,210 --> 00:02:45,710
+Se você for e 
+focar o botão,
+
+58
+00:02:45,710 --> 00:02:49,380
+ao invés de você ver o disparo
+100 pixels para cima, ambos
+
+59
+00:02:49,380 --> 00:02:51,670
+irão deslizar para cima suavemente.
+
+60
+00:02:51,670 --> 00:02:53,950
+Nós ainda conseguimos ver
+ambos os nossos spans.
+We can still see both
+of our spans, though,
+
+61
+00:02:53,950 --> 00:02:56,590
+Para ver apenas o de dentro do
+conteúdo, nós
+
+62
+00:02:56,590 --> 00:02:58,770
+definimos a propriedade overflow com
+o valor hidden.
+
+63
+00:02:58,770 --> 00:03:01,540
+E agora nosso botão parece
+exatamente como nós esperavamos.
+
+64
+00:03:05,770 --> 00:03:08,590
+Vá e pratique transicionamento
+de posições nos desafios,
+
+65
+00:03:08,590 --> 00:03:12,590
+e eu vejo você novamente na 
+última sessão do level um.
+
