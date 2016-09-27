@@ -1,0 +1,438 @@
+﻿1
+00:00:02,040 --> 00:00:04,450
+Bem vindo de volta ao level 
+dois, sessão dois,
+
+2
+00:00:04,450 --> 00:00:09,650
+onde nós iremos transformar,
+escalar e transladar.
+
+3
+00:00:09,650 --> 00:00:13,890
+Outro bom uso de animação é
+em inputs de formulários web.
+
+4
+00:00:13,890 --> 00:00:17,110
+Nós podemos criar uma
+interação legal entre nosso input
+
+5
+00:00:17,110 --> 00:00:19,020
+e a label do nosso input.
+
+6
+00:00:19,020 --> 00:00:21,240
+Como você pode ver aqui,
+a label do nosso input
+
+7
+00:00:21,240 --> 00:00:23,775
+está animando entre dois
+estados separados.
+
+8
+00:00:26,560 --> 00:00:29,510
+Se nós quebrarmos isso, nós
+podemos ver que a label do nosso
+
+9
+00:00:29,510 --> 00:00:33,210
+input, no seu estado inicial,
+está agindo como um placeholder
+
+10
+00:00:33,210 --> 00:00:35,820
+sobre o nosso input.
+
+11
+00:00:35,820 --> 00:00:38,490
+Quando o nossi nput
+recebe o foco, nós queremos
+
+12
+00:00:38,490 --> 00:00:42,200
+que a label deslize
+para cima e diminua de tamanho (scale down),
+
+13
+00:00:42,200 --> 00:00:45,810
+se tornando uma label média
+para um input.
+
+14
+00:00:45,810 --> 00:00:49,700
+Nós também estamos escurecendo
+a label quando o input está com o foco.
+
+15
+00:00:49,700 --> 00:00:55,100
+vamos começar transicionando a cor
+da label.
+
+16
+00:00:55,100 --> 00:01:01,070
+Assim como nós fizemos antes,
+nós iremos definir a cor inicial.
+
+17
+00:01:01,070 --> 00:01:04,900
+E, ao foco do input,
+nós vamos setar a cor do foco
+
+18
+00:01:04,900 --> 00:01:05,670
+para a label.
+
+19
+00:01:05,670 --> 00:01:10,890
+Então, nós vamos transicionar a
+cor durante 0.3 segundo.
+
+20
+00:01:10,890 --> 00:01:14,570
+Eu gostaria de destacar que
+nós usamos seletores adjacentes aqui.
+
+21
+00:01:14,570 --> 00:01:19,050
+Ele irá selecionar apenas a
+primeira label após cada input.
+
+22
+00:01:19,050 --> 00:01:21,740
+Isso é importante porque você pode
+ter várias labels
+
+23
+00:01:21,740 --> 00:01:26,160
+ou inputs dentro de um form.
+
+24
+00:01:26,160 --> 00:01:28,840
+Então nós transicionamos a cor,
+e nosso próximo passo
+
+25
+00:01:28,840 --> 00:01:33,270
+é redimensiona-la (scaling)
+para baixo para 80%, como você pode ver aqui.
+
+26
+00:01:36,450 --> 00:01:40,380
+Scale (escala) é usado para esticar
+um elemento baseado no fator
+
+27
+00:01:40,380 --> 00:01:42,430
+de multiplicação que é passado a ele.
+
+28
+00:01:42,430 --> 00:01:44,560
+Então se você só
+passar um valor,
+
+29
+00:01:44,560 --> 00:01:48,730
+ele irá esticar em 
+ambas as direções por aquele valor.
+
+30
+00:01:48,730 --> 00:01:51,850
+Então por exemplo, se eu disser
+transform scale 2
+
+31
+00:01:51,850 --> 00:01:56,250
+meu quadrado irá dobrar o tamanho
+na altura e na largura.
+
+32
+00:01:56,250 --> 00:02:00,120
+Nós também podemos dizer
+transform scale 4 2,
+
+33
+00:02:00,120 --> 00:02:03,060
+e ele irá esticar
+horizontalmente por quatro
+
+34
+00:02:03,060 --> 00:02:05,540
+e verticalmente por dois.
+
+35
+00:02:05,540 --> 00:02:08,990
+Você pode especificar o x e
+o y separados.
+
+36
+00:02:13,020 --> 00:02:15,240
+Então quando o input é 
+focado, nós
+
+37
+00:02:15,240 --> 00:02:20,020
+adicionaremos transform scale 0.8
+ao label do formulário.
+
+38
+00:02:20,020 --> 00:02:25,410
+Nós também queremos transicionar (transition)
+ele por, digamos, 0.3 segundo.
+
+39
+00:02:25,410 --> 00:02:27,530
+Quando você foca no
+input, no entanto, você irá
+
+40
+00:02:27,530 --> 00:02:30,680
+perceber que a label
+está se movendo para a direita.
+
+41
+00:02:30,680 --> 00:02:33,140
+Nós nunca especificamos para
+ele mudar sua posição.
+
+42
+00:02:33,140 --> 00:02:34,275
+Então, por que isso está acontecendo?
+
+43
+00:02:37,300 --> 00:02:40,520
+Quando você escala algo para baixo,
+ele mantém o tamanho original
+
+44
+00:02:40,520 --> 00:02:41,890
+de sua caixa.
+
+45
+00:02:41,890 --> 00:02:45,250
+Por exemplo, vamos
+dizer que a label do nosso número CC
+
+46
+00:02:45,250 --> 00:02:48,660
+tem 100 pixels em altura
+e 400 em largura,
+
+47
+00:02:48,660 --> 00:02:51,650
+não importa o quão pequeno você
+escale isso, sua label
+
+48
+00:02:51,650 --> 00:02:56,850
+sempre terá 100 por 400.
+
+49
+00:02:56,850 --> 00:03:00,650
+Então aqui nós temos um input
+e uma label de input.
+
+50
+00:03:00,650 --> 00:03:05,420
+As linhas pontilhadas especificam
+o tamanho do elemento label.
+
+51
+00:03:05,420 --> 00:03:09,110
+Aqui está o nosso desejado
+estado de foco, escalando para
+
+52
+00:03:09,110 --> 00:03:11,660
+80% do seu tamanho original.
+
+53
+00:03:11,660 --> 00:03:15,390
+E o estado de foco atual,
+que também está escalando para
+
+54
+00:03:15,390 --> 00:03:17,580
+80% do seu tamanho original.
+
+55
+00:03:17,580 --> 00:03:20,000
+No entanto, ele está fazendo
+isso a partir do seu centro.
+
+56
+00:03:23,820 --> 00:03:28,310
+Uma forma fácil de corrigir isso, é
+simplesmente especificar uma origem diferente.
+
+57
+00:03:28,310 --> 00:03:31,800
+Nós podemos dizer transform
+origin center left--
+
+58
+00:03:31,800 --> 00:03:36,160
+center sendo a origem de y,
+e left sendo a origem de x.
+
+59
+00:03:36,160 --> 00:03:39,520
+Uma vez que especificamos left
+como nossa origem de x,
+
+60
+00:03:39,520 --> 00:03:42,220
+nós estaremos transformando ao
+longo do lado esquerdo,
+
+61
+00:03:42,220 --> 00:03:44,910
+e isso nos dá o 
+nosso desejado estado de foco.
+
+62
+00:03:44,910 --> 00:03:47,790
+Nós podemos definir esse transform
+origin com palavras chave,
+
+63
+00:03:47,790 --> 00:03:50,480
+como center right
+top ou pixels.
+
+64
+00:03:53,540 --> 00:03:58,270
+Então para colocar isso em prática,
+o estado inicial da input label
+
+65
+00:03:58,270 --> 00:04:02,520
+do form, nós diremos
+transform origin center left.
+
+66
+00:04:02,520 --> 00:04:06,270
+Agora quando é clicado, ambos
+cor e escala
+
+67
+00:04:06,270 --> 00:04:08,115
+mudam ao longo do lado esquerdo.
+
+68
+00:04:12,850 --> 00:04:17,790
+Nosso terceiro e final passo é
+transladar para cima, ou mover para cima,
+
+69
+00:04:17,790 --> 00:04:18,890
+acima do input.
+
+70
+00:04:22,050 --> 00:04:24,920
+Transladar simplesmente
+significa mover.
+
+71
+00:04:24,920 --> 00:04:28,570
+Nós podemos dizer transform
+translate x por três pixels,
+
+72
+00:04:28,570 --> 00:04:31,740
+e tudo o que isso está dizendo
+é mova três para a direita.
+
+73
+00:04:31,740 --> 00:04:34,720
+Nós podemos dizer translate
+y 3 pixels negativos,
+
+74
+00:04:34,720 --> 00:04:37,600
+e isso o moverá três para cima.
+
+75
+00:04:37,600 --> 00:04:40,794
+Nós também podemos dizer,
+translate três pixels
+
+76
+00:04:40,794 --> 00:04:42,210
+e isso irá usar
+três
+
+77
+00:04:42,210 --> 00:04:44,830
+pixels para os valores de
+ambos x e y,
+
+78
+00:04:44,830 --> 00:04:47,330
+movendo para baixo e para
+a direita em três.
+
+79
+00:04:51,790 --> 00:04:53,990
+Agora quando o input é
+focado, nós iremos
+
+80
+00:04:53,990 --> 00:04:58,010
+definir nosso form label
+para transform translate y
+
+81
+00:04:58,010 --> 00:04:59,840
+por 40 pixels negativos--
+
+82
+00:04:59,840 --> 00:05:02,120
+move para cima 40 pixels.
+
+83
+00:05:02,120 --> 00:05:05,430
+Nós já estamos
+transicionando e transformando.
+
+84
+00:05:05,430 --> 00:05:10,020
+Então ambos, escala e translação,
+estão sendo transicionados.
+
+85
+00:05:10,020 --> 00:05:13,200
+Nós podemos encurtar isso, para
+usar a palavra chave all.
+
+86
+00:05:16,110 --> 00:05:18,240
+Agora, quando você
+clica no input,
+
+87
+00:05:18,240 --> 00:05:21,920
+nossa label muda de cor,
+escala para 80%,
+
+88
+00:05:21,920 --> 00:05:25,995
+e move para cima 40 pixels--
+tudo com uma boa e suave transição.
+
+89
+00:05:32,440 --> 00:05:35,170
+Agora é hora de você
+praticar transformar, escalar
+
+90
+00:05:35,170 --> 00:05:36,410
+e transladar.
+
+91
+00:05:36,410 --> 00:05:39,330
+Eu vejo você de volta
+no próximo level.
+

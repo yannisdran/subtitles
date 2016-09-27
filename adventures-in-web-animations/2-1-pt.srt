@@ -1,0 +1,197 @@
+﻿1
+00:00:00,760 --> 00:00:04,790
+[MÚSICA] Your website
+is unused because
+
+2
+00:00:04,790 --> 00:00:06,800
+your users are confused.
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,740
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,740 --> 00:00:12,490
+Make buttons
+scale and skew.
+
+6
+00:00:12,490 --> 00:00:14,700
+Keyframes
+animate it too.
+
+7
+00:00:14,700 --> 00:00:16,630
+Change color
+and use easing.
+
+8
+00:00:16,630 --> 00:00:18,460
+The effect will
+be quite pleasing.
+
+9
+00:00:18,460 --> 00:00:22,710
+Try rotations and
+translations in
+
+10
+00:00:22,710 --> 00:00:25,583
+Adventures in Web Animations.
+
+11
+00:00:29,810 --> 00:00:33,720
+Bem vindo de volta ao level dois
+de Adventures in Web Animations.
+
+12
+00:00:33,720 --> 00:00:38,660
+Nesta sessão, nós falaremos
+sobre rotação (transforming rotate).
+
+13
+00:00:38,660 --> 00:00:41,860
+Transformações CSS permitem
+que você modifique elementos
+
+14
+00:00:41,860 --> 00:00:44,190
+através de suas coordenadas no espaço.
+
+15
+00:00:44,190 --> 00:00:51,820
+Eles podem ser rotacionados, 
+transladados (translated), escalados (scaled),
+e até distorcidos (skewed).
+
+16
+00:00:51,820 --> 00:00:53,700
+Na nossa aplicação,
+algo divertido
+
+17
+00:00:53,700 --> 00:00:58,050
+para animar, que é parte da nossa
+UI, pode ser este ícone de fechar
+
+18
+00:00:58,050 --> 00:00:59,630
+no formulário para comprar o game.
+
+19
+00:00:59,630 --> 00:01:02,410
+Com transform, nós podemos
+facilmente rotacionar isso.
+
+20
+00:01:06,170 --> 00:01:09,330
+Nós chamamos nosso modal-close
+no hover
+
+21
+00:01:09,330 --> 00:01:14,210
+e nós dizemos transform
+rotate 360 degrees (graus).
+
+22
+00:01:14,210 --> 00:01:18,420
+Rotate recebe qualquer número
+com o sufixo degree (graus) ou
+
+
+23
+00:01:18,420 --> 00:01:19,520
+turn (volta).
+
+24
+00:01:19,520 --> 00:01:24,830
+Então transform rotate um turn
+é o mesmo que 360 degrees (graus).
+
+25
+00:01:24,830 --> 00:01:28,310
+Nosso ícone, ao ser focado, no entanto,
+está pulando do estado inicial
+
+26
+00:01:28,310 --> 00:01:30,140
+imediatamente para o estado final.
+
+27
+00:01:30,140 --> 00:01:34,050
+Atualmente você não consegue
+ver a rotação.
+
+28
+00:01:34,050 --> 00:01:37,990
+Aqui é onde as transições,
+sim, denovo, vêm ao nosso resgate.
+
+29
+00:01:37,990 --> 00:01:40,970
+Dentro do estado inicial do
+nosso modal-close,
+
+30
+00:01:40,970 --> 00:01:45,690
+nós diremos transition transform 4s.
+
+31
+00:01:45,690 --> 00:01:47,790
+Adicionar transition
+transform nos permite
+
+32
+00:01:47,790 --> 00:01:49,885
+ver o ícone mudando ao ser
+focado.
+
+33
+00:01:53,990 --> 00:01:57,000
+Até agora, nós estavamos usando apenas
+a função de tempo padrão de
+
+34
+00:01:57,000 --> 00:01:59,310
+ease em nossas transições.
+
+35
+00:01:59,310 --> 00:02:02,730
+No entanto, nós temos toda
+essa lista disponível para nós.
+
+36
+00:02:02,730 --> 00:02:05,270
+Se nós formos em frente e dissermos
+transition transform
+
+37
+00:02:05,270 --> 00:02:09,169
+4s e usarmos
+ease out, por exemplo,
+
+38
+00:02:09,169 --> 00:02:11,636
+você verá como o ícone x
+irá girar mais devagar
+
+39
+00:02:11,636 --> 00:02:12,885
+próximo ao fim da animação.
+
+40
+00:02:21,760 --> 00:02:24,780
+Vá em frente e coloque a mão
+nos transforms,
+
+41
+00:02:24,780 --> 00:02:27,320
+e eu vejo você na próxima sessão.
+
