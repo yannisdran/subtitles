@@ -1,3 +1,322 @@
 ﻿1
-00:00:00,000 --> 00:00:05,000
-[ Sorry!  Subtitles are pending! ]
+00:00:06,540 --> 00:00:08,400
+If we look at where
+we left off, we
+
+2
+00:00:08,400 --> 00:00:11,920
+have the basic building
+blocks for our final page,
+
+3
+00:00:11,920 --> 00:00:15,781
+but we'll need to add some
+style to get to our end goal.
+
+4
+00:00:18,730 --> 00:00:21,610
+We'll start by
+adding a CSS file.
+
+5
+00:00:21,610 --> 00:00:24,050
+Like with templates,
+Django automatically
+
+6
+00:00:24,050 --> 00:00:26,540
+looks for static
+files and directories
+
+7
+00:00:26,540 --> 00:00:29,020
+named static in your app.
+
+8
+00:00:29,020 --> 00:00:31,990
+So we'll create a
+directory called static,
+
+9
+00:00:31,990 --> 00:00:36,380
+and then create our
+style.css file in there.
+
+10
+00:00:36,380 --> 00:00:41,780
+For now, it will just
+turn the heading green.
+
+11
+00:00:41,780 --> 00:00:45,560
+Then in our template, we'll
+need to use the tag load
+
+12
+00:00:45,560 --> 00:00:48,380
+staticfiles to make
+our static files
+
+13
+00:00:48,380 --> 00:00:50,440
+available to the template.
+
+14
+00:00:50,440 --> 00:00:52,800
+We'll also need to link
+to our style sheet.
+
+15
+00:00:52,800 --> 00:00:56,100
+So inside the link
+tags href attribute,
+
+16
+00:00:56,100 --> 00:00:59,970
+we'll add the static tag
+that tells Django where
+
+17
+00:00:59,970 --> 00:01:02,730
+our style.css file is located.
+
+18
+00:01:05,790 --> 00:01:07,580
+If we look at our
+rendered template,
+
+19
+00:01:07,580 --> 00:01:15,250
+we can see our H1 is now green,
+so our style.css is working.
+
+20
+00:01:15,250 --> 00:01:18,460
+We can also add a CSS
+framework like Bootstrap
+
+21
+00:01:18,460 --> 00:01:20,760
+to do some style work for us.
+
+22
+00:01:20,760 --> 00:01:22,960
+We'll make sure the
+minified Bootstrap
+
+23
+00:01:22,960 --> 00:01:25,670
+file is in our Static
+folder, and then we'll
+
+24
+00:01:25,670 --> 00:01:29,390
+link to it just like
+we did with style.css.
+
+25
+00:01:29,390 --> 00:01:31,230
+We won't cover
+this in the slides,
+
+26
+00:01:31,230 --> 00:01:34,140
+but we added a few
+Bootstrap customizations
+
+27
+00:01:34,140 --> 00:01:38,270
+to our style.css file.
+
+28
+00:01:38,270 --> 00:01:40,920
+We'll also add a
+static images directory
+
+29
+00:01:40,920 --> 00:01:44,935
+to hold some static images to
+style our site, like our logo.
+
+30
+00:01:48,580 --> 00:01:51,750
+Now we'll start adding Bootstrap
+elements to our template,
+
+31
+00:01:51,750 --> 00:01:54,790
+like a nav bar that
+displays our static logo
+
+32
+00:01:54,790 --> 00:02:05,500
+image and a container
+and some panels
+
+33
+00:02:05,500 --> 00:02:07,382
+to organize the page better.
+
+34
+00:02:10,039 --> 00:02:13,490
+If you're curious about what
+all of these Bootstrap classes
+
+35
+00:02:13,490 --> 00:02:16,300
+are doing, you can find
+out more in our Blasting
+
+36
+00:02:16,300 --> 00:02:17,687
+Off with Bootstrap course.
+
+37
+00:02:20,550 --> 00:02:23,640
+If we look at our page,
+it's looking way better,
+
+38
+00:02:23,640 --> 00:02:27,010
+but we want to add a table
+to organize these attributes
+
+39
+00:02:27,010 --> 00:02:30,210
+a little better.
+
+40
+00:02:30,210 --> 00:02:33,790
+We'll add a table with some
+icons for the material location
+
+41
+00:02:33,790 --> 00:02:35,060
+and value.
+
+42
+00:02:35,060 --> 00:02:38,170
+You can see this page is
+getting a little complex,
+
+43
+00:02:38,170 --> 00:02:43,320
+but at its core, it's just HTML
+tags and our Django template
+
+44
+00:02:43,320 --> 00:02:47,760
+tags loading dynamic data.
+
+45
+00:02:47,760 --> 00:02:50,540
+Now our site is starting
+to look really nice,
+
+46
+00:02:50,540 --> 00:02:53,310
+but it would look even
+better if we could add images
+
+47
+00:02:53,310 --> 00:02:54,970
+for each treasure object.
+
+48
+00:02:57,670 --> 00:03:00,030
+Since this is a
+new piece of data,
+
+49
+00:03:00,030 --> 00:03:05,590
+we'll update our treasure class
+to add the img_url attribute.
+
+50
+00:03:05,590 --> 00:03:07,670
+Then when we create
+our treasures,
+
+51
+00:03:07,670 --> 00:03:10,720
+we'll also add the img_url's.
+
+52
+00:03:10,720 --> 00:03:14,410
+Notice that these images
+aren't in our static folder.
+
+53
+00:03:14,410 --> 00:03:17,310
+This is because these
+images aren't static
+
+54
+00:03:17,310 --> 00:03:18,608
+and are hosted elsewhere.
+
+55
+00:03:21,420 --> 00:03:25,620
+Now we'll just reference
+the treasure's img_url
+
+56
+00:03:25,620 --> 00:03:27,670
+inside an image tag.
+
+57
+00:03:30,370 --> 00:03:33,000
+It's been a long journey,
+but we finally made it.
+
+58
+00:03:33,000 --> 00:03:37,740
+We have a styled site
+with dynamic data,
+
+59
+00:03:37,740 --> 00:03:44,720
+and our objects' images that
+matches our designer's mockup.
+
+60
+00:03:44,720 --> 00:03:47,520
+Now it's time for you to add
+some styles to your Django
+
+61
+00:03:47,520 --> 00:03:49,250
+app in the challenges.
+
+62
+00:03:49,250 --> 00:03:50,851
+Have fun.
+
+63
+00:03:50,851 --> 00:03:51,725
+[BEEP]
+
+64
+00:03:51,725 --> 00:03:54,561
+HTTP res-- I hate saying that.
+
+65
+00:03:54,561 --> 00:03:55,060
+Can--
+
+66
+00:03:55,940 --> 00:03:59,130
+the- view-- do?
+
+67
+00:03:59,130 --> 00:04:02,180
+We'll re-- sorry.
+
+68
+00:04:02,180 --> 00:04:04,980
+We get our home page.
+
+69
+00:04:04,980 --> 00:04:06,830
+[BEEP]
+
