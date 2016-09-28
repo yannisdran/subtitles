@@ -1,0 +1,707 @@
+﻿1
+00:00:00,000 --> 00:00:04,790
+[Música] Your website
+is unused because
+
+2
+00:00:04,790 --> 00:00:06,790
+your users are confused.
+
+3
+00:00:06,790 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,740
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,740 --> 00:00:12,490
+Make buttons
+scale and skew.
+
+6
+00:00:12,490 --> 00:00:14,700
+Keyframes
+animate it too.
+
+7
+00:00:14,700 --> 00:00:16,630
+Change color
+and use easing.
+
+8
+00:00:16,630 --> 00:00:18,500
+The effect will
+be quite pleasing.
+
+9
+00:00:18,500 --> 00:00:22,830
+Try rotations and
+translations in
+
+10
+00:00:22,830 --> 00:00:25,570
+Adventures in Web Animations.
+
+11
+00:00:30,080 --> 00:00:31,050
+Bem vindo de volta.
+
+12
+00:00:31,050 --> 00:00:35,890
+Este é o level quatro, SVG, no
+curso Adventures in Web
+
+13
+00:00:35,890 --> 00:00:37,340
+ Animations.
+
+14
+00:00:37,340 --> 00:00:39,380
+Esta é a última sessão,
+e nós falaremos
+
+15
+00:00:39,380 --> 00:00:44,230
+sobre animar SVGs com CSS.
+
+16
+00:00:44,230 --> 00:00:47,870
+Nossa rosquinha animada
+parece bem legal até então.
+
+17
+00:00:47,870 --> 00:00:49,480
+A rosquinha,
+no entanto, é composta
+
+18
+00:00:49,480 --> 00:00:51,340
+de um monte de partes diferentes.
+
+19
+00:00:51,340 --> 00:00:55,240
+Você tem os seus braços, pernas,
+corpo, cobertura, granulados.
+
+20
+00:00:55,240 --> 00:00:57,240
+E a lista continua.
+
+21
+00:00:57,240 --> 00:00:58,852
+Para podermos
+animar cada
+
+22
+00:00:58,852 --> 00:01:00,560
+uma dessas partes
+diferentes da nossa rosquinha,
+
+23
+00:01:00,560 --> 00:01:03,740
+nós temos que separa-las
+todas em seus próprios PNG
+
+24
+00:01:03,740 --> 00:01:06,170
+e então posiciona-las
+na página
+
+25
+00:01:06,170 --> 00:01:09,130
+para que a rosquinha pareça
+estar toda no lugar correto.
+
+26
+00:01:09,130 --> 00:01:12,020
+Se nós usarmos uma imagem SVG,
+no entanto, nós
+
+27
+00:01:12,020 --> 00:01:15,240
+teremos acesso a todas
+essas partes internas
+
+28
+00:01:15,240 --> 00:01:17,970
+que nós queremos, e
+todas elas estarão posicionadas
+
+29
+00:01:17,970 --> 00:01:21,020
+e unidas corretamente.
+
+30
+00:01:21,020 --> 00:01:22,570
+Há ainda algumas
+coisas que são
+
+31
+00:01:22,570 --> 00:01:27,350
+impossíveis fazer com PNG
+mas que conseguimos animar com SVG.
+
+32
+00:01:27,350 --> 00:01:29,950
+Como você consegue um
+conjunto SVG então?
+
+33
+00:01:29,950 --> 00:01:32,290
+Bem, você pode
+criar seu próprio conjunto
+
+34
+00:01:32,290 --> 00:01:36,010
+ou encontrar um, gratuito
+ou pago, online.
+
+35
+00:01:36,010 --> 00:01:38,500
+Nós criamos nossa própria rosquinha
+no Illustrator aqui.
+
+36
+00:01:38,500 --> 00:01:41,010
+E então nós nomeamos
+cada uma dessas layers
+
+37
+00:01:41,010 --> 00:01:42,610
+de acordo com o que cada uma é.
+
+38
+00:01:42,610 --> 00:01:46,610
+Granulados, olho
+esquerdo, boca, etc.
+
+39
+00:01:46,610 --> 00:01:49,850
+Quando nós salvamos
+como um arquivo SVG,
+
+40
+00:01:49,850 --> 00:01:54,060
+ele tem IDs dentro dos caminhos
+que são relacionados ao nome
+
+41
+00:01:54,060 --> 00:01:55,750
+da layer. O que é bem útil. 
+
+42
+00:01:58,280 --> 00:02:02,910
+SVG é um formato de arquivo que
+contem imagens vetoriais.
+
+43
+00:02:02,910 --> 00:02:07,750
+Ambos, SVG e HTML, são
+originados do XML.
+
+44
+00:02:07,750 --> 00:02:10,090
+Eles são bem, bem, parecidos.
+
+45
+00:02:10,090 --> 00:02:12,880
+Como você pode ver, a versão
+SVG da nossa rosquinha
+
+46
+00:02:12,880 --> 00:02:17,970
+parece a mesma e todas as 
+animações, para ambos os braços
+
+47
+00:02:17,970 --> 00:02:20,490
+e pernas,
+continuam acontecendo.
+
+48
+00:02:20,490 --> 00:02:23,950
+Isso acontece porque os IDs são
+os mesmos dos que nós estávamos chamando
+
+49
+00:02:23,950 --> 00:02:25,590
+do PNG mais cedo.
+
+50
+00:02:33,300 --> 00:02:38,910
+O SVG é colocado dentro do HTML,
+ao invés do PNG.
+
+51
+00:02:38,910 --> 00:02:42,800
+Nós simplesmente pegamos essa div
+que tem nossas imagens PNG dentro
+
+52
+00:02:42,800 --> 00:02:45,790
+e substituimos com este
+grande SVG.
+
+53
+00:02:48,950 --> 00:02:53,290
+Sem nenhum trabalho adicional,
+se você der aumentar o zoom
+
+54
+00:02:53,290 --> 00:02:56,730
+na nossa rosquinha, você verá
+que ela está crocante como no dia
+
+55
+00:02:56,730 --> 00:02:58,360
+em que ela foi frita.
+
+56
+00:02:58,360 --> 00:03:00,080
+Não importa quanto
+zoom você de,
+
+57
+00:03:00,080 --> 00:03:01,650
+esse SVG continuará parecendo bonito.
+
+58
+00:03:04,190 --> 00:03:09,330
+Como eu mencionei mais cedo,
+XML é bastante similar a HTML.
+
+59
+00:03:09,330 --> 00:03:12,550
+Você pode acessar cada uma
+dessas tags especificas
+
+60
+00:03:12,550 --> 00:03:16,540
+com seletores CSS, chamando
+as próprias tags,
+
+61
+00:03:16,540 --> 00:03:17,545
+os IDs, classes.
+
+62
+00:03:20,340 --> 00:03:24,270
+Continuemos e chamemos
+o ID da cobertura
+
+63
+00:03:24,270 --> 00:03:29,230
+e mudemos sua cor, seu
+fill, para um rosa mais escuro.
+
+64
+00:03:29,230 --> 00:03:31,420
+Nós não podemos fazer
+isso com PNG,
+
+65
+00:03:31,420 --> 00:03:33,760
+então nós já estamos tendo
+alguma funcionalidade extra.
+
+66
+00:03:36,560 --> 00:03:40,950
+Nós podemos animar nossa
+cobertura para sua cor mais escura.
+
+67
+00:03:40,950 --> 00:03:43,560
+Nós podemos criar um keyframe
+chamado darken (mais escuro).
+
+68
+00:03:43,560 --> 00:03:48,250
+Ele começará rosa e terminará
+com o seu rosa mais escuro.
+
+69
+00:03:48,250 --> 00:03:51,280
+Vamos em frente e chamemos
+o ID da cobertura
+
+70
+00:03:51,280 --> 00:03:54,940
+e vamos dar a ela a animação
+darken por três segundos.
+
+71
+00:03:54,940 --> 00:03:57,100
+Nós teremos então isso
+em loop infinito.
+
+72
+00:03:57,100 --> 00:03:59,520
+Como você pode ver,
+nossa rosquinha SVG
+
+73
+00:03:59,520 --> 00:04:02,030
+está escurecendo a cobertura
+denovo e denovo.
+
+74
+00:04:07,870 --> 00:04:10,650
+Você deve ter percebido que fill
+é uma nova propriedade que nós
+
+75
+00:04:10,650 --> 00:04:12,600
+estamos usando e que
+parece que existem um monte
+
+76
+00:04:12,600 --> 00:04:17,600
+de propriedades únicas
+ao estilizar SVGs com CSS.
+
+77
+00:04:17,600 --> 00:04:22,450
+Aqui estão algumas delas, como
+fill, opacity, filter, mask,
+
+78
+00:04:22,450 --> 00:04:24,810
+stroke, viewport fill.
+
+79
+00:04:24,810 --> 00:04:28,340
+Você pode chegar a lista
+completa no site do MDN.
+
+80
+00:04:32,220 --> 00:04:35,950
+Então aqui está o nosso objetivo final
+onde queremos que nossa animada
+
+81
+00:04:35,950 --> 00:04:37,850
+rosquinha por SVG esteja.
+
+82
+00:04:37,850 --> 00:04:40,940
+Até então, nós temos os braços
+movendo, o pé batendo,
+
+83
+00:04:40,940 --> 00:04:43,340
+a cobertura escurecendo.
+
+84
+00:04:43,340 --> 00:04:45,370
+Em seguida, vamos em frente
+trabalhar nesses granulados
+
+85
+00:04:45,370 --> 00:04:48,450
+que estão voando pra fora.
+
+86
+00:04:48,450 --> 00:04:50,500
+Nós vamos criar um 
+keyframe que
+
+87
+00:04:50,500 --> 00:04:52,570
+vai animar múltiplas propriedades.
+
+88
+00:04:52,570 --> 00:04:54,580
+Então espere.
+
+89
+00:04:54,580 --> 00:04:57,410
+Vamos em frente e criemos
+o keyframe flyoff (voar pra fora).
+
+90
+00:04:57,410 --> 00:05:02,040
+E então, nós especificamos
+passos de 0 até 40%
+
+91
+00:05:02,040 --> 00:05:07,160
+Então 0, 10%, 20%, 30%, 40%.
+
+92
+00:05:07,160 --> 00:05:11,190
+Nós começamos rotacionando
+os granulados pra trás e pra frente.
+
+93
+00:05:11,190 --> 00:05:14,930
+Isso vai criar o movimento
+de agitação que nós queremos.
+
+94
+00:05:14,930 --> 00:05:19,620
+Em seguida, em 45%, nós vamos
+definir sua opacidade para 1.
+
+95
+00:05:19,620 --> 00:05:23,060
+Estamos ficando prontos
+para começar a faze-los desaparecer.
+
+96
+00:05:23,060 --> 00:05:27,040
+Em 50%, nós queremos rotacionar
+os granulados ainda mais
+
+97
+00:05:27,040 --> 00:05:29,870
+do que eles estiveram
+antes e começamos a escala-los
+
+98
+00:05:29,870 --> 00:05:32,560
+para dar o efeito de voar pra fora.
+
+99
+00:05:32,560 --> 00:05:35,810
+Então nós dizemos transform
+rotate 100 degrees.
+
+100
+00:05:35,810 --> 00:05:37,790
+Realmente rotacione esses granulados.
+
+101
+00:05:37,790 --> 00:05:40,470
+E então escale-os
+em 3 vezes.
+
+102
+00:05:40,470 --> 00:05:42,610
+Fiquem três vezes maior.
+
+103
+00:05:42,610 --> 00:05:46,300
+A este ponto nós também queremos
+que nossa opacidade seja zero.
+
+104
+00:05:46,300 --> 00:05:51,370
+Em 100%, nossa opacidade
+é zero, mas vamos setar o transform
+
+105
+00:05:51,370 --> 00:05:54,190
+para escalar de volta ao tamanho normal.
+
+106
+00:05:54,190 --> 00:05:56,800
+Isso irá permitir 
+ter uma transição mais suave
+
+107
+00:05:56,800 --> 00:05:58,610
+durante o loop.
+
+108
+00:06:01,610 --> 00:06:03,270
+Nós criamos o
+keyframe flyoff,
+
+109
+00:06:03,270 --> 00:06:05,080
+mas vamos em frente
+atribui-lo.
+
+110
+00:06:05,080 --> 00:06:07,610
+Vamos selecionar o ID dos granulados.
+
+111
+00:06:07,610 --> 00:06:11,190
+Nós também queremos
+transicionar o transform.
+
+112
+00:06:11,190 --> 00:06:14,530
+Vamos dar a ele 
+dois segundos de duração.
+
+113
+00:06:14,530 --> 00:06:18,210
+Transform origin, center,
+center, você deve pensar 
+
+114
+00:06:18,210 --> 00:06:19,360
+vai funcionar.
+
+115
+00:06:19,360 --> 00:06:23,810
+Mas na verdade, nossa rosquinha
+é mais alta do que larga.
+
+116
+00:06:23,810 --> 00:06:26,580
+Então o centro do 
+corpo da nossa rosquinha
+
+117
+00:06:26,580 --> 00:06:31,160
+é 302 pixels por 337 pixels.
+
+118
+00:06:31,160 --> 00:06:33,400
+Em frente, vamos especificar
+o centro do seu corpo
+
+119
+00:06:33,400 --> 00:06:36,770
+para os granulados
+girarem em volta.
+
+120
+00:06:36,770 --> 00:06:40,230
+Vamos dizer animation
+flyoff três segundos,
+
+121
+00:06:40,230 --> 00:06:42,560
+tendo isso em loop infinito,
+e vamos dar
+
+122
+00:06:42,560 --> 00:06:45,030
+a função de tempo ease-in.
+
+123
+00:06:45,030 --> 00:06:47,560
+Alguns browsers não
+suportam palavras chave
+
+124
+00:06:47,560 --> 00:06:50,520
+como center para o transform origin.
+
+125
+00:06:50,520 --> 00:06:52,280
+Isso é apenas para SVGs.
+
+126
+00:06:52,280 --> 00:06:55,150
+Mas, para sermos seguros, vamos
+usar pixels ao invés de
+
+127
+00:06:55,150 --> 00:06:58,140
+palavras chave.
+
+128
+00:06:58,140 --> 00:07:02,310
+Agora nossos sprinkles estão voando
+pra fora e desaparecendo
+
+129
+00:07:02,310 --> 00:07:05,180
+cada vêz que a animação acontece.
+
+130
+00:07:05,180 --> 00:07:08,530
+A próxima parte é fazer
+a cobertura sacudir para trás
+
+131
+00:07:08,530 --> 00:07:09,730
+e para frente.
+
+132
+00:07:09,730 --> 00:07:12,910
+Nós podemos ir em frente e
+pegar esta primeira parte do 0
+
+133
+00:07:12,910 --> 00:07:16,130
+até o 50, o balançar que nós
+criamos na nossa animação
+
+134
+00:07:16,130 --> 00:07:20,890
+flyoff, e apenas usar isso
+em uma animação de balançar aqui.
+
+135
+00:07:20,890 --> 00:07:24,310
+Nós então atribuimos isso
+para ambos, o preenchimento da cobertura
+
+136
+00:07:24,310 --> 00:07:26,740
+e o contorno da cobertura.
+
+137
+00:07:26,740 --> 00:07:29,230
+Nós também precisamos
+especificar a mesma origem
+
+138
+00:07:29,230 --> 00:07:30,480
+do meio do nosso donut.
+
+139
+00:07:37,770 --> 00:07:40,160
+Se você deslizar para a 
+parte inferior da nossa página,
+
+140
+00:07:40,160 --> 00:07:43,870
+você verá que a nossa rosquinha
+está fazendo muitas coisas maravilhosas.
+
+141
+00:07:43,870 --> 00:07:46,130
+Parece que ela está ficando
+nervosa com os seus granulados
+
+142
+00:07:46,130 --> 00:07:47,370
+e está expulsando-os pra fora.
+
+143
+00:07:50,220 --> 00:07:51,980
+Pessoal, eu espero que vocês
+tenham se divertido aprendendo
+
+144
+00:07:51,980 --> 00:07:53,880
+sobre animações na web.
+
+145
+00:07:53,880 --> 00:07:56,007
+Vá e pratique SVGs
+nos desafios,
+
+146
+00:07:56,007 --> 00:07:57,840
+e eu vejo você para
+o video de encerramento.
+
+147
+00:08:00,830 --> 00:08:10,280
+[INAUDÍVEL] Baldes de peixe.
+
+148
+00:08:10,280 --> 00:08:13,010
+Rotacionem  mais devagar
+quando voarem.
+
+149
+00:08:13,010 --> 00:08:13,620
+Mais devagar? (pronuncia)
+
+150
+00:08:13,620 --> 00:08:15,240
+Mais devagar.
+
