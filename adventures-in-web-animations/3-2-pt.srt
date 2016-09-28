@@ -1,0 +1,296 @@
+﻿1
+00:00:02,120 --> 00:00:03,980
+Bem vindo de volta ao level três.
+
+2
+00:00:03,980 --> 00:00:05,027
+Nós estamos na sessão dois.
+
+3
+00:00:05,027 --> 00:00:06,860
+Nós falaremos sobre
+keyframes com vários passos.
+
+4
+00:00:09,640 --> 00:00:11,610
+O braço da nossa rosquinha está
+balançando, mas o balançar
+
+5
+00:00:11,610 --> 00:00:14,680
+não parece legal
+apenas com dois passos.
+
+6
+00:00:14,680 --> 00:00:16,400
+Vamos em frente
+adicionar mais passos
+
+7
+00:00:16,400 --> 00:00:19,350
+assim a animação de balançar
+vai parecer mais natural.
+
+8
+00:00:19,350 --> 00:00:22,070
+Então entre os nossos estados
+inicial e final,
+
+9
+00:00:22,070 --> 00:00:27,090
+nós adicionaremos os passos
+25%, 50% e 75%.
+
+10
+00:00:27,090 --> 00:00:31,120
+Nós o faremos rotacionar entre
+10 graus negativos até zero
+
+11
+00:00:31,120 --> 00:00:32,585
+e então até 10 graus.
+
+12
+00:00:38,340 --> 00:00:40,495
+Então digamos que nós 
+daremos a animação swing (balançar)
+
+13
+00:00:40,495 --> 00:00:42,960
+duração de 2 segundos.
+
+14
+00:00:42,960 --> 00:00:47,210
+Em 25% de 2 segundos,
+nós estaremos em 0.5 segundo.
+
+15
+00:00:47,210 --> 00:00:49,670
+E então em 50%,
+nós estaremos em 1 segundo,
+
+16
+00:00:49,670 --> 00:00:52,660
+e em 75%, nós estaremos em 1.5 segundo.
+
+17
+00:00:52,660 --> 00:00:55,170
+Porque nós espaçamos os
+passos uniformemente,
+
+18
+00:00:55,170 --> 00:00:57,295
+nossa animação é
+boa e linear.
+
+19
+00:01:00,470 --> 00:01:03,930
+Se nós quiséssemos que a animação
+fosse mais rápida no inicio
+
+20
+00:01:03,930 --> 00:01:07,550
+e então mais lenta no final, nós
+poderiamos mudar as porcentagens
+
+21
+00:01:07,550 --> 00:01:11,490
+para 10%, 20% e então 30%.
+
+22
+00:01:11,490 --> 00:01:14,131
+Isso iria causar um
+espaçamento ease-out
+
+23
+00:01:14,131 --> 00:01:16,130
+então aconteceria realmente
+rápido no inicio
+
+24
+00:01:16,130 --> 00:01:18,250
+e então devagar próximo ao fim.
+
+25
+00:01:18,250 --> 00:01:21,130
+Ao invés de espaçar manualmente
+os passos do keyframe,
+
+26
+00:01:21,130 --> 00:01:24,050
+se você quiser, no entanto,
+uma sensação de ease-out,
+
+27
+00:01:24,050 --> 00:01:26,240
+simplesmente use uma função de
+tempo ease-out
+
+28
+00:01:26,240 --> 00:01:27,657
+para fazer este trabalho por você.
+
+29
+00:01:30,786 --> 00:01:34,300
+Você deve ter notado que
+nosso estado inicial, final,
+
+30
+00:01:34,300 --> 00:01:38,670
+e estado intermediário são todos
+o mesmo rotacione para 0 graus.
+
+31
+00:01:38,670 --> 00:01:41,170
+Nós podemos condensar
+essas linhas duplicadas
+
+32
+00:01:41,170 --> 00:01:43,310
+separando por vírgula
+as porcentagens.
+
+33
+00:01:48,190 --> 00:01:51,500
+Ambos os nossos braços estão
+rotacionando para a esquerda e direita
+
+34
+00:01:51,500 --> 00:01:53,050
+ao mesmo tempo.
+
+35
+00:01:53,050 --> 00:01:56,580
+No entanto, nós queremos que um
+se mova paraa esquerda e o outro
+
+36
+00:01:56,580 --> 00:02:00,170
+se mova para a direita, ao 
+mesmo tempo e opostos.
+
+37
+00:02:00,170 --> 00:02:02,004
+Existem duas formas para
+conseguirmos isso.
+
+38
+00:02:02,004 --> 00:02:04,500
+Primeiro, nós podemos escrever
+dois keyframes completamente diferentes--
+
+39
+00:02:04,500 --> 00:02:07,690
+um com 10 graus negativos
+ao mesmo tempo
+
+40
+00:02:07,690 --> 00:02:10,139
+em que esse é
+10 graus positivos
+
+41
+00:02:10,139 --> 00:02:12,890
+Ou nós podemos usar o delay
+com o mesmo keyframe.
+
+42
+00:02:17,200 --> 00:02:21,330
+Então se formos em frente devolta
+ao seletor do braço direito,
+
+43
+00:02:21,330 --> 00:02:24,910
+nós podemos adicionar um segundo de delay,
+dando ao braço direito um atraso
+
+44
+00:02:24,910 --> 00:02:28,630
+então ele começará na metade
+da animação do braço esquerdo.
+
+45
+00:02:28,630 --> 00:02:31,000
+Perceba agora que a nossa rosquinha
+pausa seu braço direito 
+
+46
+00:02:31,000 --> 00:02:35,420
+por 1 segundo, e então ambos os braços
+continuam para fora e para dentro juntos.
+
+47
+00:02:40,760 --> 00:02:43,950
+Vamos criar um último keyframe
+antes dos desafios.
+
+48
+00:02:43,950 --> 00:02:45,480
+E quanto a perna esquerda?
+
+49
+00:02:45,480 --> 00:02:49,100
+Para te-la batendo,
+nós criaremos um keyframe
+
+50
+00:02:49,100 --> 00:02:50,970
+de animação de batida.
+
+51
+00:02:50,970 --> 00:02:53,530
+Nós daremos a ele o
+estado inicial e final
+
+52
+00:02:53,530 --> 00:02:57,170
+onde seu translate de y é 0--
+exatamente onde o seu pé está.
+
+53
+00:02:57,170 --> 00:03:03,170
+Mas no meio, nós queremos
+que transladar y 5 pixels para cima.
+
+54
+00:03:03,170 --> 00:03:05,420
+Nós criamos a
+animação, mas se lembre,
+
+55
+00:03:05,420 --> 00:03:07,550
+você tem que atribui-la também.
+
+56
+00:03:07,550 --> 00:03:10,810
+Vamos prosseguir e 
+chamar o ID da perna esquerda,
+
+57
+00:03:10,810 --> 00:03:16,985
+dê a ele a propriedade animation
+com tap 1s infinitely (infinitamente).
+
+58
+00:03:16,985 --> 00:03:19,330
+Se você olhar para a nossa
+rosquinha agora, ambos os seus braços
+
+59
+00:03:19,330 --> 00:03:21,350
+estão balançando, e sua
+perna esquerda está batendo.
+
+60
+00:03:25,470 --> 00:03:28,140
+Agora é hora de você praticar
+keyframes de vários passos.
+
+61
+00:03:28,140 --> 00:03:29,040
+nos desafios.
+
+62
+00:03:29,040 --> 00:03:33,010
+Te vejo em breve para a 
+sessão final do level três.

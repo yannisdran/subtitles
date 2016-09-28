@@ -1,0 +1,462 @@
+1
+00:00:00,760 --> 00:00:04,790
+[MÚSICA] Your website
+is unused because
+
+2
+00:00:04,790 --> 00:00:06,800
+your users are confused. 
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,740
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,740 --> 00:00:12,490
+Make buttons
+scale and skew.
+
+6
+00:00:12,490 --> 00:00:14,700
+Keyframes
+animate it too.
+
+7
+00:00:14,700 --> 00:00:16,790
+Change color
+and use easing.
+
+8
+00:00:16,790 --> 00:00:18,460
+The effect will
+be quite pleasing.
+
+9
+00:00:18,460 --> 00:00:22,830
+Try rotations and
+translations in
+
+10
+00:00:22,830 --> 00:00:25,170
+Adventures in Web Animations.
+
+11
+00:00:29,650 --> 00:00:33,090
+Bem vindo de volta ao Adventures
+in Web Animations.
+
+12
+00:00:33,090 --> 00:00:35,750
+Este é o level três
+e nós falaremos sobre criar
+
+13
+00:00:35,750 --> 00:00:38,980
+e reutilizar keyframes.
+
+14
+00:00:38,980 --> 00:00:41,230
+Aqui está o nosso site até então.
+
+15
+00:00:41,230 --> 00:00:43,730
+Nós aprendemos como transformar
+elementos e transicionar
+
+16
+00:00:43,730 --> 00:00:46,950
+propriedades que estão
+sendo alteradas no CSS.
+
+17
+00:00:46,950 --> 00:00:48,830
+Nosso site começa a
+ter um visual bem bonito.
+
+18
+00:00:51,570 --> 00:00:53,740
+Então animações por keyframe
+são uma lista
+
+19
+00:00:53,740 --> 00:00:57,540
+do que deve acontecer durante
+o curso de uma animação-- quais
+
+20
+00:00:57,540 --> 00:01:00,240
+propriedades devem
+mudar, como e quando.
+
+21
+00:01:00,240 --> 00:01:03,200
+Estamos acostumados a, agora mesmo,
+especificar um estado inicial,
+
+22
+00:01:03,200 --> 00:01:07,560
+como uma estrela branca e então
+o estado final de estrela roxa.
+
+23
+00:01:07,560 --> 00:01:11,090
+E nós estamos esperando que
+a transição apenas faça
+
+24
+00:01:11,090 --> 00:01:12,860
+tudo o que acontece entre.
+
+25
+00:01:12,860 --> 00:01:14,640
+Uma animação por keyframe,
+no entanto, nos permite
+
+26
+00:01:14,640 --> 00:01:18,310
+especificar certos passos
+durante a animação.
+
+27
+00:01:18,310 --> 00:01:20,830
+Em 25%, torne a estrela rosa.
+
+28
+00:01:20,830 --> 00:01:22,810
+Em 50%, torne-a azul.
+
+29
+00:01:22,810 --> 00:01:24,742
+Antes de atingir
+o fim da animação,
+
+30
+00:01:24,742 --> 00:01:25,950
+quando a estrela se torna roxa.
+
+31
+00:01:28,700 --> 00:01:30,870
+Nós vamos começar usando
+keyframes no nosso site
+
+32
+00:01:30,870 --> 00:01:33,740
+para animar este
+personagem rosquinha.
+
+33
+00:01:33,740 --> 00:01:35,860
+Como você pode ver, ele
+tem um monte de coisas acontecendo.
+
+34
+00:01:35,860 --> 00:01:37,500
+Ele está movendo seus
+braços para trás e para frente.
+
+35
+00:01:37,500 --> 00:01:39,120
+Ele está batendo o pé.
+
+36
+00:01:39,120 --> 00:01:41,000
+Sua cobertura está girando
+e os granulados
+
+37
+00:01:41,000 --> 00:01:42,890
+estão voando para fora e desaparecendo.
+
+38
+00:01:42,890 --> 00:01:44,230
+Mas nós vamos começar simples.
+
+39
+00:01:44,230 --> 00:01:49,480
+Começemos por balançar
+seu braço para trás e para frente.
+
+40
+00:01:49,480 --> 00:01:52,150
+Tem duas partes para fazer
+animações por keyframe.
+
+41
+00:01:52,150 --> 00:01:54,000
+Primeiro, criar a animação.
+
+42
+00:01:54,000 --> 00:01:56,560
+E em segundo,
+atribuir a animação a algo.
+
+43
+00:01:56,560 --> 00:01:59,610
+A fim de criar isso,
+nós usaremos essa receita aqui.
+
+44
+00:01:59,610 --> 00:02:02,670
+Nós declararemos a animação
+com a regra keyframe
+
+45
+00:02:02,670 --> 00:02:03,610
+e iremos nomea-la.
+
+46
+00:02:03,610 --> 00:02:05,250
+Então dentro disso,
+nós definiremos
+
+47
+00:02:05,250 --> 00:02:07,270
+os passos da animação.
+
+48
+00:02:07,270 --> 00:02:11,620
+Então para a nossa rosquinha, nós chamaremos
+de swing (balançar) -- no keyframe swing.
+
+49
+00:02:11,620 --> 00:02:12,730
+Este é um nome qualquer.
+
+50
+00:02:12,730 --> 00:02:15,170
+Poderia ser chamado de
+beau-knut-arm-swing.
+
+51
+00:02:15,170 --> 00:02:17,380
+Mas vamos mante-lo
+curto e simples.
+
+52
+00:02:17,380 --> 00:02:20,420
+Então, dentro nós especificaremos
+os dois diferentes passos,
+
+53
+00:02:20,420 --> 00:02:24,880
+nosso 0% para o nosso primeiro,
+e 100% para o nosso segundo.
+
+54
+00:02:24,880 --> 00:02:28,320
+Nós começaremos com transform
+rotate zero degrees
+
+55
+00:02:28,320 --> 00:02:30,310
+então eu não estou movendo nada. 
+
+56
+00:02:30,310 --> 00:02:33,450
+Mas ao fim do
+key frame, em 100%,
+
+57
+00:02:33,450 --> 00:02:37,720
+Eu quero dizer transform
+rotate negative 10 degrees.
+
+58
+00:02:37,720 --> 00:02:40,460
+Existem duas formas de 
+definir esses passos internos.
+
+59
+00:02:40,460 --> 00:02:42,540
+Você pode usar porcentagens,
+como nós fizemos aqui,
+
+60
+00:02:42,540 --> 00:02:47,470
+ou você pode usar as palavras-chave
+"from" e "to". "From" sendo o 0%,
+
+61
+00:02:47,470 --> 00:02:48,650
+"to" sendo 100%.
+
+62
+00:02:51,180 --> 00:02:54,590
+Nós criamos a animação, mas
+nosso próximo passo é atribui-la.
+
+63
+00:02:54,590 --> 00:02:57,260
+Para tornar isso possível,
+nós quebramos o PNG
+
+64
+00:02:57,260 --> 00:03:01,360
+em múltiplos elementos, cada
+um com seu próprio PNG.
+
+65
+00:03:01,360 --> 00:03:04,050
+Então o braço esquerdo
+tem seu próprio elemento.
+
+66
+00:03:04,050 --> 00:03:07,650
+O corpo da rosquinha tem o seu próprio
+elemento, e assim por diante.
+
+67
+00:03:07,650 --> 00:03:09,680
+A fim de atribuir a
+animação,
+
+68
+00:03:09,680 --> 00:03:14,430
+nós vamos selecionar o ID do braço esquerdo,
+e dar a ele a propriedade animation,
+
+69
+00:03:14,430 --> 00:03:16,950
+e então nós
+especificaremos os valores.
+
+70
+00:03:16,950 --> 00:03:20,220
+Então primeiro, o nome
+swing da animação.
+
+71
+00:03:20,220 --> 00:03:21,200
+Então, a duração. 
+
+72
+00:03:21,200 --> 00:03:22,800
+Nós daremos a ela dois segundos.
+
+73
+00:03:22,800 --> 00:03:23,880
+O delay (atraso) é o próximo.
+
+74
+00:03:23,880 --> 00:03:27,000
+Nós não queremos delay, então
+nós diremos zero segundos.
+
+75
+00:03:27,000 --> 00:03:30,770
+Iteração infinita (infinite), que é
+quantas vocês ela vai repetir.
+
+76
+00:03:30,770 --> 00:03:33,980
+E finalmente, a função de tempo
+ease.
+
+77
+00:03:33,980 --> 00:03:36,770
+Uma coisa importante a notar
+é que a duração
+
+78
+00:03:36,770 --> 00:03:38,590
+deve vir antes do delay.
+
+79
+00:03:38,590 --> 00:03:40,530
+Se você tiver dois
+números, você sempre
+
+80
+00:03:40,530 --> 00:03:43,350
+deve considerar o primeiro
+número como a duranção
+
+81
+00:03:43,350 --> 00:03:45,255
+e o segundo
+número como o delay.
+
+82
+00:03:45,255 --> 00:03:48,110
+Se nós formos em frente e checarmos
+a nossa rosquinha agora,
+
+83
+00:03:48,110 --> 00:03:51,340
+você verá que ele está rotacionando,
+mas alguma coisa
+
+84
+00:03:51,340 --> 00:03:52,020
+parece estranha.
+
+85
+00:03:57,600 --> 00:04:02,560
+Bem, isso é porque a origem
+da transformação está definida para centro centro. 
+
+86
+00:04:02,560 --> 00:04:04,620
+Se nós especificarmos uma
+origem diferente,
+
+87
+00:04:04,620 --> 00:04:07,820
+para topo centro,
+
+88
+00:04:07,820 --> 00:04:11,470
+ele vai rotacionar do
+ombro ao invés do cotovelo.
+
+89
+00:04:11,470 --> 00:04:14,820
+Nossa rosquinha agora está balançando
+seu braço muito bem.
+
+90
+00:04:20,630 --> 00:04:23,650
+Vamos reutilizar este keyframe
+para o braço direito agora.
+
+91
+00:04:23,650 --> 00:04:26,480
+Nós vamos em frente e chamamos
+o ID do braço direito,
+We'll go ahead and call
+out the ID of right arm,
+
+92
+00:04:26,480 --> 00:04:30,160
+damos a ele a animação,
+swing dois segundos infinito,
+
+93
+00:04:30,160 --> 00:04:32,630
+e então nós também
+alteramos sua origem
+
+94
+00:04:32,630 --> 00:04:36,040
+para transformar a partir de topo centro.
+
+95
+00:04:36,040 --> 00:04:38,715
+Agora, como você pode ver,
+ambos os braços da rosquinha estão balançando.
+
+96
+00:04:44,140 --> 00:04:46,390
+Por que você não pratica
+keyframes nos desafios,
+
+97
+00:04:46,390 --> 00:04:49,220
+e eu te vejo na próxima sessão.
+
