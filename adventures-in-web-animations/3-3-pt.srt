@@ -1,0 +1,453 @@
+﻿1
+00:00:02,029 --> 00:00:03,640
+Bem vindo de volta ao level
+três. Nós falaremos
+
+2
+00:00:03,640 --> 00:00:06,820
+sobre keyframes mais avançados
+nessa terceira sessão.
+
+3
+00:00:09,540 --> 00:00:12,030
+Nossa aplicação parece
+bem legal até aqui,
+
+4
+00:00:12,030 --> 00:00:14,770
+mas há alguns casos
+complicados aqui
+
+5
+00:00:14,770 --> 00:00:17,240
+que os keyframes podem ser
+usados para resolver.
+
+6
+00:00:17,240 --> 00:00:20,380
+Por hora, ao invés de apenas
+transicionar o nosso modal,
+
+7
+00:00:20,380 --> 00:00:23,340
+nós podemos ter ele disparando
+enquanto aparece gradativamente.
+
+8
+00:00:23,340 --> 00:00:25,720
+Keyframes seriam perfeitos
+para este tipo de animação.
+
+9
+00:00:28,450 --> 00:00:30,430
+Então vamos analizar
+o que nós precisamos
+
+10
+00:00:30,430 --> 00:00:32,600
+fazer para criar este efeito.
+
+11
+00:00:32,600 --> 00:00:34,710
+Aqui temos multiplos
+elementos que estão animando
+
+12
+00:00:34,710 --> 00:00:36,580
+com diferentes propriedades.
+
+13
+00:00:36,580 --> 00:00:38,370
+Primeiro, você tem o overlay.
+
+14
+00:00:38,370 --> 00:00:40,470
+Ele está simplesmente desaparecendo
+gradativamente.
+
+15
+00:00:40,470 --> 00:00:43,200
+A seguir, você tem
+o modal como um todo.
+
+16
+00:00:43,200 --> 00:00:46,250
+Ele está deslizando pra cima e
+aparecendo gradativamente.
+
+17
+00:00:46,250 --> 00:00:49,440
+Terceiro, você tem o
+interior do modal.
+
+18
+00:00:49,440 --> 00:00:53,110
+Esses pequenos pedaços estão
+aparecendo gradativamente e deslizando 
+pra cima
+
+19
+00:00:53,110 --> 00:00:55,710
+em uma velocidade diferente
+do modal como um todo,
+
+20
+00:00:55,710 --> 00:00:57,140
+para dar a ele um divertido efeito de pulo.
+
+21
+00:00:59,910 --> 00:01:03,940
+Primeiro, vamos cuidar
+do aparecimento gradual no modal overlay.
+
+22
+00:01:03,940 --> 00:01:06,840
+Nós queremos que ele comece
+escondido, e então
+
+23
+00:01:06,840 --> 00:01:09,850
+esteja visivel no final.
+
+24
+00:01:09,850 --> 00:01:13,380
+Perceba que nós estamos colocando isso tudo
+dentro de um keyframe de fade in.
+
+25
+00:01:13,380 --> 00:01:15,890
+Isto é porque nós
+vamos reutilizar este fade in
+
+26
+00:01:15,890 --> 00:01:17,980
+em todas as três partes.
+
+27
+00:01:17,980 --> 00:01:20,690
+Nós iremos então atribuir
+essa animação de fade in
+
+28
+00:01:20,690 --> 00:01:24,250
+ao modal overlay, quando
+este tiver a classe active.
+
+29
+00:01:24,250 --> 00:01:27,720
+Também daremos a
+duração de 0.25 segundo.
+
+30
+00:01:27,720 --> 00:01:29,550
+Se formos em frente e
+clicarmos no botão,
+
+31
+00:01:29,550 --> 00:01:31,280
+você verá que
+o modal overlay aparece
+
+32
+00:01:31,280 --> 00:01:34,230
+como esperado, mas
+desaparece logo em seguida.
+
+33
+00:01:41,110 --> 00:01:43,240
+Isso é por causa do fill mode
+(modo de preenchimento).
+
+34
+00:01:43,240 --> 00:01:46,310
+Nós temos usado o fill mode
+padrão de none.
+
+35
+00:01:49,690 --> 00:01:52,340
+Entretanto, se nós simplesmente
+mudarmos isso para forwards (a frente)
+
+36
+00:01:52,340 --> 00:01:56,260
+fill mode forward irá definir
+o estado final da animação
+
+37
+00:01:56,260 --> 00:01:58,580
+para o último passo especificado.
+
+38
+00:01:58,580 --> 00:02:01,880
+Então nós clicamos no botão,
+o modal overlay aparece gradativamente,
+
+39
+00:02:01,880 --> 00:02:04,655
+e ele permanece visível
+no passo final.
+
+40
+00:02:07,520 --> 00:02:10,100
+Em seguida, nós queremos ir em frente
+e fazer o modal deslizar
+
+41
+00:02:10,100 --> 00:02:13,070
+pra cima e aparecer como um todo.
+
+42
+00:02:13,070 --> 00:02:15,130
+Nós criamos um keyframe fade in,
+
+43
+00:02:15,130 --> 00:02:17,790
+agora vamos criar um
+keyframe slide up.
+
+44
+00:02:17,790 --> 00:02:22,850
+Ele começará baixo na página,
+e então transform translate y,
+
+45
+00:02:22,850 --> 00:02:25,280
+bem, digamos, 400 pixels.
+
+46
+00:02:25,280 --> 00:02:28,150
+E ele terminará
+alto na página,
+
+47
+00:02:28,150 --> 00:02:32,850
+então transform translate y
+-300 pixels.
+
+48
+00:02:32,850 --> 00:02:36,040
+Então nós especificamos a
+proopriedade animation.
+
+49
+00:02:36,040 --> 00:02:40,910
+Nós vamos deslizar para cima
+durante 0.65 segundo
+
+50
+00:02:40,910 --> 00:02:43,180
+e dar a ele meio
+segundo de delay.
+
+51
+00:02:43,180 --> 00:02:46,345
+E é claro, nós vamos especificar
+fill mode como forwards.
+
+52
+00:02:51,620 --> 00:02:55,120
+Então nosso modal está
+deslizando pra cima como esperado.
+
+53
+00:02:55,120 --> 00:02:58,780
+No entanto, nosso objetivo é
+que ele passe um pouco
+
+54
+00:02:58,780 --> 00:03:00,370
+e volte para baixo.
+
+55
+00:03:00,370 --> 00:03:03,910
+Nós conseguimos isso com
+uma função de tempo cubiz 
+
+56
+00:03:03,910 --> 00:03:04,950
+bezier.
+
+57
+00:03:04,950 --> 00:03:09,080
+Nós simplesmente dizemos cubic bezier
+e então damos quatro números aqui.
+
+58
+00:03:09,080 --> 00:03:12,305
+Isso irá nos dar esse efeito
+de disparo que nós queremos.
+
+59
+00:03:15,530 --> 00:03:17,760
+O que é cubiz bezier,
+e o que
+
+60
+00:03:17,760 --> 00:03:19,720
+na terra são esses números?
+
+61
+00:03:19,720 --> 00:03:23,150
+Bem, o cubic bezier
+é apenas uma curva
+
+62
+00:03:23,150 --> 00:03:28,000
+que está especificando o quão rápido
+uma propriedade muda no tempo.
+
+63
+00:03:28,000 --> 00:03:31,880
+Esses números são o
+que fazem essa curva.
+
+64
+00:03:31,880 --> 00:03:34,230
+Todas as funções de tempo,
+embaixo do capô,
+
+65
+00:03:34,230 --> 00:03:37,970
+são cubic bezier.
+Então linear, ease,
+
+66
+00:03:37,970 --> 00:03:41,010
+ease in, todos esses
+tem uma fórmula cubic-bezier
+
+67
+00:03:41,010 --> 00:03:44,420
+que faz com que aconteça.
+
+68
+00:03:44,420 --> 00:03:47,200
+Você não precisa se preocupar
+em recriar esses números
+
+69
+00:03:47,200 --> 00:03:51,760
+apenas saiba que todos eles
+são cubic bezier.
+
+70
+00:03:51,760 --> 00:03:53,430
+Uma coisa importante
+para observar, é que
+
+71
+00:03:53,430 --> 00:03:56,030
+não importa qual função de tempo
+você use,
+
+72
+00:03:56,030 --> 00:03:59,240
+o ínicio e o fim
+serão sempre os mesmos.
+
+73
+00:03:59,240 --> 00:04:01,520
+A curva não muda
+a duração,
+
+74
+00:04:01,520 --> 00:04:03,220
+ela muda apenas como
+os valores mudam
+
+75
+00:04:03,220 --> 00:04:05,090
+entre o ínicio e o fim.
+
+76
+00:04:08,150 --> 00:04:11,690
+Então nós criamos esse
+keyframe sliding up overshooting
+
+77
+00:04:11,690 --> 00:04:14,570
+e o atribuimos ao
+modal quando ativo.
+
+78
+00:04:14,570 --> 00:04:16,700
+Vamos em frente e usemos
+o keyframe fade in
+
+79
+00:04:16,700 --> 00:04:18,959
+que nós criamos mais cedo.
+
+80
+00:04:18,959 --> 00:04:22,780
+Nós diremos fade in
+0.65s de duração,
+
+81
+00:04:22,780 --> 00:04:25,755
+com 0.5 segundo de delay
+e fill mode forwards.
+
+82
+00:04:29,000 --> 00:04:31,970
+Vamos em frente
+finalizar deslizando para cima
+
+83
+00:04:31,970 --> 00:04:35,740
+os elementos internos em
+um ritmo diferente do modal como um todo.
+
+84
+00:04:35,740 --> 00:04:39,400
+Nós vamos criar  um keyframe
+slide up small.
+
+85
+00:04:39,400 --> 00:04:43,720
+Vamos dizer from transform
+translate y 80 pixels,
+
+86
+00:04:43,720 --> 00:04:47,970
+e então to transform
+translate y zero.
+
+87
+00:04:47,970 --> 00:04:50,930
+Então vamos atribuir esse
+slide up small e o nosso fade
+
+88
+00:04:50,930 --> 00:04:55,670
+in para o interior do modal, o
+H3 e o formulário quando
+
+89
+00:04:55,670 --> 00:04:56,195
+estiver ativo.
+
+90
+00:05:00,820 --> 00:05:04,040
+No clicar do botão, nosso
+form está disparando,
+
+91
+00:05:04,040 --> 00:05:06,980
+o interior está dando um salto
+ligeiramente diferente,
+
+92
+00:05:06,980 --> 00:05:09,170
+e o fundo está aparecendo gradativamente.
+
+93
+00:05:12,710 --> 00:05:15,330
+Vá em frente e pratique um pouco
+com esses keyframe
+
+94
+00:05:15,330 --> 00:05:19,120
+mais complexos, e eu vejo
+você no último level.
+

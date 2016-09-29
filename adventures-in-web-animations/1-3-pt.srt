@@ -1,0 +1,348 @@
+﻿1
+00:00:02,140 --> 00:00:04,250
+Bem vindo de volta
+ao level um, transições.
+
+2
+00:00:04,250 --> 00:00:05,920
+Você está na seção
+final, onde nós iremos
+
+3
+00:00:05,920 --> 00:00:09,400
+transicionar visibilidade.
+
+4
+00:00:09,400 --> 00:00:10,830
+Então aqui está nossa
+aplicação atual
+
+5
+00:00:10,830 --> 00:00:12,770
+com o nosso estiloso botão.
+
+6
+00:00:12,770 --> 00:00:16,200
+Que está fazendo o fundo,
+a cor e o conteúdo escondido
+
+7
+00:00:16,200 --> 00:00:18,070
+transicionarem.
+
+8
+00:00:18,070 --> 00:00:19,880
+Quando nós clicamos no botão,
+no entanto, nós
+
+9
+00:00:19,880 --> 00:00:22,420
+temos um formulário que simplesmente
+aparece instantaneamente,
+
+10
+00:00:22,420 --> 00:00:24,170
+e este parece o
+lugar perfeito
+
+11
+00:00:24,170 --> 00:00:26,315
+para ir em frente e usar
+nosso conhecimento de transições.
+
+12
+00:00:29,254 --> 00:00:31,170
+Então aqui está o formulário
+que nós iremos exibir
+
+13
+00:00:31,170 --> 00:00:32,860
+quando o botão for clicado.
+
+14
+00:00:32,860 --> 00:00:35,090
+Aqui há três partes principais.
+
+15
+00:00:35,090 --> 00:00:39,554
+Tem o cabeçalho do modal, que
+tem o icone de fechar e o H3.
+
+16
+00:00:39,554 --> 00:00:41,970
+Tem o conteúdo do modal,
+que contém o formulário e 
+
+17
+00:00:41,970 --> 00:00:43,390
+todas essas coisas de entrada.
+
+18
+00:00:43,390 --> 00:00:45,530
+E por último, tem o modal overlay,
+
+19
+00:00:45,530 --> 00:00:49,030
+que é esta grande e semi-opaca
+caixa roxa cobrindo
+
+20
+00:00:49,030 --> 00:00:51,920
+o nosso fundo.
+
+21
+00:00:51,920 --> 00:00:53,320
+Assim como nós fizemos
+com o botão,
+
+22
+00:00:53,320 --> 00:00:54,986
+nós iremos estilizar
+o estado inicial
+
+23
+00:00:54,986 --> 00:00:57,190
+e em foco do modal.
+
+24
+00:00:57,190 --> 00:00:59,470
+Então nós chamamos o modal
+e o modal overlay,
+
+25
+00:00:59,470 --> 00:01:01,760
+e damos a eles a propriedade
+visibility com valor hidden
+
+26
+00:01:01,760 --> 00:01:03,530
+e opacity zero.
+
+27
+00:01:03,530 --> 00:01:06,390
+Nós não queremos eles
+aparecendo inicialmente.
+
+28
+00:01:06,390 --> 00:01:09,350
+Então nós queremos que o modal
+
+29
+00:01:09,350 --> 00:01:13,720
+e o modal overlay, quando ativos,
+tenham opacity um
+
+30
+00:01:13,720 --> 00:01:15,090
+e visibility visible.
+
+31
+00:01:19,810 --> 00:01:23,030
+Você deve estar maginando porque
+nós usamos ambos, opacity zero
+
+32
+00:01:23,030 --> 00:01:24,350
+e visibility hidden.
+
+33
+00:01:24,350 --> 00:01:26,420
+Por que não um ou outro?
+
+34
+00:01:26,420 --> 00:01:29,250
+Bem, opacity zero
+esconde o elemento,
+
+35
+00:01:29,250 --> 00:01:31,820
+mas continua ocupando a mesma 
+quantidade de largura e altura
+
+36
+00:01:31,820 --> 00:01:32,760
+na página.
+
+37
+00:01:32,760 --> 00:01:35,970
+Então isso irá bloquear
+qualquer outra coisa na tela.
+
+38
+00:01:35,970 --> 00:01:38,100
+Então visibility hidden
+vem e faz
+
+39
+00:01:38,100 --> 00:01:41,630
+o elemento transparente
+a esses eventos de clique.
+
+40
+00:01:41,630 --> 00:01:43,470
+Isso também pode
+faze-lo pensar,
+
+41
+00:01:43,470 --> 00:01:45,630
+por que não apenas usar display none?
+
+42
+00:01:45,630 --> 00:01:48,290
+Por que usar opacity e visibility?
+
+43
+00:01:48,290 --> 00:01:50,880
+Bem, como se vê,
+nem todas as propriedades
+
+44
+00:01:50,880 --> 00:01:53,360
+são transicionáveis no CSS.
+
+45
+00:01:53,360 --> 00:01:57,450
+Então quando transicionar, use
+ambos, opacity e visibility
+
+46
+00:01:57,450 --> 00:02:03,980
+ao invés de display none
+
+47
+00:02:03,980 --> 00:02:08,259
+Agora, vamos transicionar a
+opacity por 0.5 segundo.
+
+48
+00:02:08,259 --> 00:02:11,150
+Você vê, no entanto, que
+ele está desaparecendo de imediato.
+
+49
+00:02:11,150 --> 00:02:12,470
+Alguma coisa não está certa.
+
+50
+00:02:12,470 --> 00:02:15,070
+O que aconteceu ao
+nosso fade out?
+
+51
+00:02:15,070 --> 00:02:17,780
+Bem, nós precisamos transicionar ambos,
+a propriedade
+
+52
+00:02:17,780 --> 00:02:21,580
+visibility e opacity.
+
+53
+00:02:21,580 --> 00:02:26,080
+Vamos separa-los por vírgula
+e dizer visibility 0.5 segundo.
+
+54
+00:02:26,080 --> 00:02:27,960
+Ou, como aprendemos antes,
+você apenas
+
+55
+00:02:27,960 --> 00:02:31,460
+diz transition all 0.5s.
+
+56
+00:02:31,460 --> 00:02:33,240
+E agora, ao clique
+do botão, você pode
+
+57
+00:02:33,240 --> 00:02:35,830
+ver que o modal
+e o modal overlay
+
+58
+00:02:35,830 --> 00:02:40,070
+estão transicionando para dentro
+e para fora.
+
+59
+00:02:40,070 --> 00:02:42,090
+Assim como com display,
+nós iremos
+
+60
+00:02:42,090 --> 00:02:46,940
+múltiplas vezes nos perguntar,
+com quais propriedades posso transicionar?
+
+61
+00:02:46,940 --> 00:02:50,630
+Uma boa regra de ouro é,
+ela tem algum estado intermediário?
+
+62
+00:02:50,630 --> 00:02:53,350
+Com opacity, nosso 
+estado inicial era zero
+
+63
+00:02:53,350 --> 00:02:55,420
+e nosso estado final era um.
+
+64
+00:02:55,420 --> 00:02:59,750
+Então, teoricamente, o meio do
+nosso estado de transição seria 0.5.
+
+65
+00:02:59,750 --> 00:03:02,170
+Então sim, isso transiciona.
+
+66
+00:03:02,170 --> 00:03:05,270
+Display, no entanto, tem o estado
+inicial none
+
+67
+00:03:05,270 --> 00:03:07,520
+e o estado final block.
+
+68
+00:03:07,520 --> 00:03:11,510
+Então, o meio de seu estado de 
+transição seria algum tipo de?
+
+69
+00:03:11,510 --> 00:03:12,190
+Não.
+
+70
+00:03:12,190 --> 00:03:13,865
+Isso definitivamente
+não é transicionável.
+
+71
+00:03:17,580 --> 00:03:20,340
+As propriedades que podem
+ser transicionadas no CSS
+
+72
+00:03:20,340 --> 00:03:22,660
+estão sempre sendo
+atualizadas, então sempre tenha certeza
+
+73
+00:03:22,660 --> 00:03:24,420
+de checkar a lista completa
+na web.
+
+74
+00:03:28,520 --> 00:03:30,920
+Divirta-se transicionando
+a propriedade visibility nos desafios,
+
+75
+00:03:30,920 --> 00:03:33,910
+e eu vejo você no level dois.
+

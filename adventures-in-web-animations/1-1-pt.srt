@@ -1,0 +1,554 @@
+﻿1
+00:00:00,500 --> 00:00:04,800
+[Música] Your website
+is unused because
+
+2
+00:00:04,800 --> 00:00:06,800
+your users are confused.
+
+3
+00:00:06,800 --> 00:00:08,780
+Bad UI can be
+quite deadly.
+
+4
+00:00:08,780 --> 00:00:10,500
+Let's make it
+sweet and friendly.
+
+5
+00:00:10,500 --> 00:00:12,500
+Make buttons
+scale and skew.
+
+6
+00:00:12,500 --> 00:00:14,420
+Keyframes
+animate it too.
+
+7
+00:00:14,420 --> 00:00:16,540
+Change color
+and use easing.
+
+8
+00:00:16,540 --> 00:00:18,530
+The effect will
+be quite pleasing.
+
+9
+00:00:18,530 --> 00:00:22,310
+Try rotations and
+translations in
+
+10
+00:00:22,310 --> 00:00:25,170
+Adventures in Web Animations.
+
+11
+00:00:29,850 --> 00:00:32,340
+Bem vindo ao Adventures
+in Web Animations.
+
+12
+00:00:32,340 --> 00:00:35,880
+Meu nome é Alyssa Nicoll,
+e eu serei sua guia.
+
+13
+00:00:35,880 --> 00:00:38,220
+Nós guiamos os usuários online
+usando ferramentas
+
+14
+00:00:38,220 --> 00:00:42,450
+que nós temos disponiveis, como
+cor, fonte e movimento.
+
+15
+00:00:42,450 --> 00:00:45,730
+Neste curso, nós iremos falar
+especificamente
+
+16
+00:00:45,730 --> 00:00:47,480
+de movimento.
+
+17
+00:00:47,480 --> 00:00:49,930
+Nós vamos aprender como criar
+divertidas e úteis animações
+
+18
+00:00:49,930 --> 00:00:54,040
+usando transições, transformações,
+keyframes de animações, e até mesmo
+
+19
+00:00:54,040 --> 00:00:57,042
+animando SVGs.
+
+20
+00:00:57,042 --> 00:00:58,750
+Através deste curso,
+nós aprenderemos
+
+21
+00:00:58,750 --> 00:01:01,230
+a animar este
+site aqui. Que está
+
+22
+00:01:01,230 --> 00:01:03,720
+vendendo o jogo Sweet Lands.
+
+23
+00:01:03,720 --> 00:01:05,760
+Você precisará de
+conhecimento em HTML
+
+24
+00:01:05,760 --> 00:01:08,840
+e CSS como pré-requisitos
+para este curso.
+
+25
+00:01:08,840 --> 00:01:13,590
+Um pouco de JavaScript e JQuery
+serão úteis, mas não são obrigatórios.
+
+26
+00:01:13,590 --> 00:01:15,580
+Bem vindo ao level um,
+transições, onde
+
+27
+00:01:15,580 --> 00:01:19,910
+nós falaremos sobre
+fazer transição entre cores.
+
+28
+00:01:19,910 --> 00:01:21,980
+Transições aplicam
+alterações a uma propriedade
+
+29
+00:01:21,980 --> 00:01:25,200
+que acontecem gradativamente
+com o passar do tempo.
+
+30
+00:01:25,200 --> 00:01:27,240
+Então, ao invés
+de um elemento mudar
+
+31
+00:01:27,240 --> 00:01:29,740
+da cor branca para
+rosa instantaneamente,
+
+32
+00:01:29,740 --> 00:01:34,600
+transições farão com que isso aconteça
+aos poucos.
+
+33
+00:01:34,600 --> 00:01:37,335
+Este período de tempo
+é chamado de duração (duration).
+
+34
+00:01:42,560 --> 00:01:44,400
+Nós já falamos
+sobre todas as coisas
+
+35
+00:01:44,400 --> 00:01:47,250
+que teremos disponiveis na
+web para guiar os usuários.
+
+36
+00:01:47,250 --> 00:01:49,400
+Mas guiá-los a que?
+
+37
+00:01:49,400 --> 00:01:53,480
+Bem, uma primeira chamada
+a uma ação, ou PCA,
+
+38
+00:01:53,480 --> 00:01:57,430
+é o objetivo primário para um
+usuário em um aplicativo web.
+
+39
+00:01:57,430 --> 00:01:59,170
+E para o nosso site,
+este será
+
+40
+00:01:59,170 --> 00:02:01,300
+comprar o jogo
+Sweet Lands.
+
+41
+00:02:01,300 --> 00:02:03,690
+Então nós iremos usar 
+transições CSS para fazer
+
+42
+00:02:03,690 --> 00:02:07,100
+este botão de Comprar Agora (Buy Now) 
+uma chamada mais forte para a ação.
+
+43
+00:02:10,289 --> 00:02:12,120
+Nós começaremos por
+estilizar
+
+44
+00:02:12,120 --> 00:02:15,980
+o fundo nos estados inicial (initial) e 
+em foco (hover) do nosso botão.
+
+45
+00:02:15,980 --> 00:02:19,000
+Para o estado inicial, nós vamos
+dar a ele um azul mais claro
+
+46
+00:02:19,000 --> 00:02:21,240
+e então, quando ele estiver
+em foco, nós iremos
+
+47
+00:02:21,240 --> 00:02:23,880
+dar a ele um azul ligeiramente mais escuro.
+
+48
+00:02:23,880 --> 00:02:26,860
+Uma coisa a notar em
+transições como essa,
+
+49
+00:02:26,860 --> 00:02:30,690
+é que você pode transicionar de uma
+palavra chave para um hexadecimal
+ou de um hexadecimal
+
+50
+00:02:30,690 --> 00:02:31,390
+para RGB.
+
+51
+00:02:31,390 --> 00:02:36,160
+Não é preciso que seja
+o mesmo tipo de valor.
+
+52
+00:02:36,160 --> 00:02:38,270
+Nós temos os nossos estados inicial
+e em foco definidos.
+
+53
+00:02:38,270 --> 00:02:40,870
+Então, para toda transição que nós
+fizermos,
+
+54
+00:02:40,870 --> 00:02:42,280
+nós usaremos esta receita.
+
+55
+00:02:42,280 --> 00:02:44,280
+Nós diremos transição,
+e então lhe daremos
+
+56
+00:02:44,280 --> 00:02:46,250
+uma propriedade e uma duração.
+
+57
+00:02:46,250 --> 00:02:49,340
+Então para o nosso botão,
+nós diremos transição,
+
+58
+00:02:49,340 --> 00:02:51,350
+a propriedade de cor de fundo
+(background color),
+
+59
+00:02:51,350 --> 00:02:54,250
+e então 0.4s
+de duração.
+
+60
+00:02:54,250 --> 00:02:57,540
+Como você pode ver aqui no nosso site,
+quando você foca o botão,
+
+61
+00:02:57,540 --> 00:03:01,270
+ele transiciona do seu
+azul mais claro para o azul mais escuro.
+
+62
+00:03:01,270 --> 00:03:04,060
+É uma boa ideia permanecer
+sutil com transições
+
+63
+00:03:04,060 --> 00:03:06,590
+e somente ser mais drástico quando
+você realmente precisar chamar atenção
+
+64
+00:03:06,590 --> 00:03:07,530
+para um elemento.
+
+65
+00:03:07,530 --> 00:03:11,740
+E mais do que isso, fique atento
+a transições super loucas.
+
+66
+00:03:11,740 --> 00:03:14,770
+A transição mais rápida
+facilmente vista pelho olho humano
+
+67
+00:03:14,770 --> 00:03:20,030
+é 0.256 segundo, então, qualquer coisa
+muito mais rápida do que isso
+
+68
+00:03:20,030 --> 00:03:21,090
+poderá não ser observada.
+
+69
+00:03:24,190 --> 00:03:26,700
+Você pode transicionar
+múltiplas propriedades
+
+70
+00:03:26,700 --> 00:03:28,750
+quando elas são separadas por vírgula.
+
+71
+00:03:28,750 --> 00:03:33,300
+Então no foco, nós demos ao texto
+uma cor suavemente mais escura.
+
+72
+00:03:33,300 --> 00:03:36,420
+Para transicionar esta cor
+junto a cor do fundo,
+
+73
+00:03:36,420 --> 00:03:39,310
+nós digitamos vírgula, cor, e
+então damos uma duração.
+
+74
+00:03:39,310 --> 00:03:41,150
+Digamos, 0.4 segundos.
+
+75
+00:03:41,150 --> 00:03:44,090
+E você pode ver aqui que no
+foco, ambos, a cor do fundo
+
+76
+00:03:44,090 --> 00:03:45,865
+e a cor do texto
+estão transicionando.
+
+77
+00:03:49,340 --> 00:03:51,880
+Se você notar, ambos, a cor do fundo
+e a cor do
+
+78
+00:03:51,880 --> 00:03:55,020
+texto tem 0.4 segundo de duração.
+
+79
+00:03:55,020 --> 00:03:57,760
+Nós podemos encurtar isso
+usando a palavra chave: all
+
+80
+00:03:57,760 --> 00:04:01,010
+e apenas dizer all 0.4s.
+
+81
+00:04:01,010 --> 00:04:05,190
+No entanto, tenha cuidado, porque toda
+propriedade que puder ser animada, será.
+
+82
+00:04:05,190 --> 00:04:08,810
+Porque nós estamos dizendo para transicionar
+todas as propriedades.
+
+83
+00:04:08,810 --> 00:04:10,130
+Como você pode ver
+no site, no entanto,
+
+84
+00:04:10,130 --> 00:04:11,795
+isso continua funcionando
+como esperado.
+
+85
+00:04:15,600 --> 00:04:19,720
+Até agora, nós apenas usamos
+transições com dois valores.
+
+86
+00:04:19,720 --> 00:04:24,020
+Mas na verdade há quatro valores
+para um comando de transição completo.
+
+87
+00:04:24,020 --> 00:04:26,600
+A propriedade e a duração,
+, dos quais nós já sabemos,
+
+88
+00:04:26,600 --> 00:04:29,140
+e então a função de 
+tempo e o atraso (delay).
+
+89
+00:04:29,140 --> 00:04:33,340
+Tecnicamente, a única que precisa
+ser especificada é a duração.
+
+90
+00:04:33,340 --> 00:04:37,930
+O restante tem valores padrões, como
+o padrão all para as propriedades,
+
+91
+00:04:37,930 --> 00:04:41,320
+a função de tempo
+padrão para ease,
+
+92
+00:04:41,320 --> 00:04:44,450
+e o atraso (delay) padrão para zero.
+
+93
+00:04:44,450 --> 00:04:46,660
+Isso significa que
+uma transição como essa
+
+94
+00:04:46,660 --> 00:04:49,660
+que está especificando
+todos os valores padrões
+
+95
+00:04:49,660 --> 00:04:53,810
+pode ser encurtada para apenas
+transition 0.4s.
+
+96
+00:04:53,810 --> 00:04:55,570
+Você deve deixar
+os valores padrões de fora
+
+97
+00:04:55,570 --> 00:04:56,980
+a menos que você queira altera-los.
+
+98
+00:04:59,690 --> 00:05:02,980
+Todos os nossos exemplos até aqui
+e até o final do curso
+
+99
+00:05:02,980 --> 00:05:05,230
+serão sem o prefixo de fornecedor
+(vendor).
+
+100
+00:05:05,230 --> 00:05:08,840
+No entanto, em produção,
+você precisa usa-los.
+
+101
+00:05:08,840 --> 00:05:11,860
+Esses prefixos parecem com 
+isso-- webkit, moz,
+
+102
+00:05:11,860 --> 00:05:15,280
+ms. Eles são apenas essas They're just these
+palavras chave prefixo-y que vão
+
+103
+00:05:15,280 --> 00:05:18,980
+antes de coisas como transition.
+
+104
+00:05:18,980 --> 00:05:22,160
+Como eu sei qual propriedade
+vai precisar de um prefixo, no entanto,
+
+105
+00:05:22,160 --> 00:05:24,080
+e para qual browser?
+
+106
+00:05:24,080 --> 00:05:28,020
+Eu, pessoalmente, gosto de usar
+um website chamado caniuse.com.
+
+107
+00:05:28,020 --> 00:05:29,720
+Nele você simplesmente
+digita a coisa
+
+108
+00:05:29,720 --> 00:05:33,390
+que você está querendo usar, como
+transition ou keyframes,
+
+109
+00:05:33,390 --> 00:05:35,940
+e então ele irá listar
+cada um dos browsers que
+
+110
+00:05:35,940 --> 00:05:37,820
+são compativeis
+com isso e qual
+
+111
+00:05:37,820 --> 00:05:39,780
+dos prefixos você precisa usar.
+
+112
+00:05:39,780 --> 00:05:42,490
+As vezes browsers não funcionam
+nem com prefixos,
+
+113
+00:05:42,490 --> 00:05:46,760
+e você os verá 
+destacados em vermelho.
+
+114
+00:05:46,760 --> 00:05:48,930
+Divirta-se transicionando cores
+
+115
+00:05:48,930 --> 00:05:52,540
+nos desafios, e eu vejo você
+na próxima sessão.
+
