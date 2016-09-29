@@ -21,6 +21,12 @@ which one to use.
 If you have a Code School account, make sure to let us know what your username is in
 your pull request. Wouldn't be surprised if you get some free stuff!!! :-)
 
+## Contributors
+
+Thank you all so much!
+
+- https://github.com/ricardovsilva
+
 ## Deployment on Code School
 We will only release new subtitles to a course when all videos for all levels have
 been translated.
