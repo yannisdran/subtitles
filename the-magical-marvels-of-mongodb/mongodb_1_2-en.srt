@@ -1,0 +1,705 @@
+﻿1
+00:00:02,029 --> 00:00:02,784
+Welcome back.
+
+2
+00:00:02,784 --> 00:00:04,825
+In this section, we'll
+look at how to query data,
+
+3
+00:00:04,825 --> 00:00:06,380
+and we'll talk
+about types of data
+
+4
+00:00:06,380 --> 00:00:07,630
+we can store in our documents.
+
+5
+00:00:10,250 --> 00:00:12,130
+Let's look at the potion
+we stored earlier.
+
+6
+00:00:12,130 --> 00:00:14,620
+Since we didn't specify
+the underscore ID,
+
+7
+00:00:14,620 --> 00:00:19,240
+Mongo created one for us
+using the object ID data type.
+
+8
+00:00:19,240 --> 00:00:21,047
+While we can set
+the ID ourselves,
+
+9
+00:00:21,047 --> 00:00:23,505
+generally, it's better to let
+Mongo handle that so we don't
+
+10
+00:00:23,505 --> 00:00:26,160
+have to worry about unique ID
+generation in our application
+
+11
+00:00:26,160 --> 00:00:27,810
+code.
+
+12
+00:00:27,810 --> 00:00:31,450
+We can use the Find method to
+query for specific potions.
+
+13
+00:00:31,450 --> 00:00:34,230
+To do this, we'll pass the
+document to the find method
+
+14
+00:00:34,230 --> 00:00:37,870
+with the field "name" and
+the value "Invisibility".
+
+15
+00:00:37,870 --> 00:00:40,490
+This is saying that we want to
+find a document with the name
+
+16
+00:00:40,490 --> 00:00:43,250
+Invisibility within
+the potions collection.
+
+17
+00:00:43,250 --> 00:00:46,870
+It's referred to as
+a query of equality.
+
+18
+00:00:46,870 --> 00:00:48,460
+Find returns the
+entire document,
+
+19
+00:00:48,460 --> 00:00:51,080
+not just the field
+that we queried for.
+
+20
+00:00:51,080 --> 00:00:52,844
+So what would happen
+if our query matched
+
+21
+00:00:52,844 --> 00:00:53,635
+multiple documents?
+
+22
+00:00:57,082 --> 00:00:59,290
+Here we're going to query
+for all documents that have
+
+23
+00:00:59,290 --> 00:01:01,185
+the vendor of Kettlecooked.
+
+24
+00:01:01,185 --> 00:01:05,234
+As we can see, find returns all
+documents that match the query.
+
+25
+00:01:05,234 --> 00:01:08,845
+And here we've been returned
+two separate documents.
+
+26
+00:01:08,845 --> 00:01:10,970
+It's important to remember
+that queries of equality
+
+27
+00:01:10,970 --> 00:01:12,560
+are case sensitive.
+
+28
+00:01:12,560 --> 00:01:13,990
+So if we had a
+vendor Kettlecooked
+
+29
+00:01:13,990 --> 00:01:17,240
+with a lowercase k, it
+wouldn't match for this query.
+
+30
+00:01:17,240 --> 00:01:19,450
+Now that we've learned about
+the queries of equality,
+
+31
+00:01:19,450 --> 00:01:21,533
+let's take a look at what
+we can store in MongoDB.
+
+32
+00:01:24,900 --> 00:01:28,490
+Documents are JSON-like objects,
+but more specifically, they're
+
+33
+00:01:28,490 --> 00:01:30,700
+saved in a format called BSON.
+
+34
+00:01:30,700 --> 00:01:33,210
+And BSON built
+upon JSON, so that
+
+35
+00:01:33,210 --> 00:01:37,410
+means we can store values in
+the same way, like strings,
+
+36
+00:01:37,410 --> 00:01:44,420
+numbers, Booleans, arrays,
+objects, or even null.
+
+37
+00:01:44,420 --> 00:01:46,370
+But in addition, we
+can also set values
+
+38
+00:01:46,370 --> 00:01:49,760
+like ObjectID and ISODate.
+
+39
+00:01:49,760 --> 00:01:52,570
+To learn more about BSON, you
+can check out the documentation
+
+40
+00:01:52,570 --> 00:01:53,520
+using the link below.
+
+41
+00:01:56,232 --> 00:01:57,690
+Now that we know
+what types of data
+
+42
+00:01:57,690 --> 00:02:00,250
+we can store, let's build out
+our potion document with all
+
+43
+00:02:00,250 --> 00:02:04,410
+the important data, like the
+tryDate, the Price, Score,
+
+44
+00:02:04,410 --> 00:02:05,805
+Ingredients, and the Rating.
+
+45
+00:02:08,900 --> 00:02:11,580
+We have the name and the vendor
+information for the potion.
+
+46
+00:02:11,580 --> 00:02:13,730
+Let's add the price
+and the review score.
+
+47
+00:02:13,730 --> 00:02:17,400
+We'll add the price of
+$10.99 and the score of 59.
+
+48
+00:02:17,400 --> 00:02:19,671
+MongoDB will preserve the
+precision of our integers
+
+49
+00:02:19,671 --> 00:02:22,170
+and floats, so we don't have
+to worry about losing any data.
+
+50
+00:02:25,390 --> 00:02:28,670
+Next we'll add the date that
+we first tried our potion.
+
+51
+00:02:28,670 --> 00:02:31,970
+We'll add our tryDate field
+with the value as a new Date
+
+52
+00:02:31,970 --> 00:02:33,800
+JavaScript function.
+
+53
+00:02:33,800 --> 00:02:37,470
+This date reads as
+September 13, 2012.
+
+54
+00:02:37,470 --> 00:02:40,430
+Even though we refer to
+September as the number 9,
+
+55
+00:02:40,430 --> 00:02:42,770
+JavaScript starts months
+off with the number 0,
+
+56
+00:02:42,770 --> 00:02:44,500
+which makes so much sense.
+
+57
+00:02:44,500 --> 00:02:46,760
+So instead, we have to
+specify the number 8
+
+58
+00:02:46,760 --> 00:02:48,570
+to represent September.
+
+59
+00:02:48,570 --> 00:02:51,800
+With normal JSON, we have to
+save the date to a string.
+
+60
+00:02:51,800 --> 00:02:53,740
+But when this gets
+saved to the database,
+
+61
+00:02:53,740 --> 00:02:56,867
+MongoDB will convert
+the date to an ISO format that
+
+62
+00:02:56,867 --> 00:02:58,075
+gives us great functionality.
+
+63
+00:03:02,220 --> 00:03:03,870
+Time to add the
+list of ingredients
+
+64
+00:03:03,870 --> 00:03:05,610
+to our potion document.
+
+65
+00:03:05,610 --> 00:03:07,330
+We'll specify the
+field ingredients
+
+66
+00:03:07,330 --> 00:03:10,920
+and then assign it the values
+newt toes, the number 42,
+
+67
+00:03:10,920 --> 00:03:12,206
+and laughter.
+
+68
+00:03:12,206 --> 00:03:14,080
+Which is great, because
+we can store any data
+
+69
+00:03:14,080 --> 00:03:15,290
+type within an array.
+
+70
+00:03:18,710 --> 00:03:21,040
+We'll be giving each
+potion some ratings.
+
+71
+00:03:21,040 --> 00:03:24,080
+Each rating will consist
+of strength and flavor.
+
+72
+00:03:24,080 --> 00:03:27,340
+Here we have a strength
+of 2 and a flavor of 5.
+
+73
+00:03:27,340 --> 00:03:30,510
+Luckily for us, MongoDB
+supports embedded documents,
+
+74
+00:03:30,510 --> 00:03:32,166
+so we can take this
+document and simply
+
+75
+00:03:32,166 --> 00:03:33,415
+add it to our existing potion.
+
+76
+00:03:36,860 --> 00:03:39,340
+Here we've added a ratings
+field with the value
+
+77
+00:03:39,340 --> 00:03:43,040
+of the document containing the
+flavor and strength scores.
+
+78
+00:03:43,040 --> 00:03:44,815
+Embedded documents
+don't require an ID
+
+79
+00:03:44,815 --> 00:03:48,330
+since they're just a child
+of the main document.
+
+80
+00:03:48,330 --> 00:03:51,280
+We finally finished creating
+our new and improved potion.
+
+81
+00:03:51,280 --> 00:03:52,990
+Now let's get it
+saved to the database.
+
+82
+00:03:52,990 --> 00:03:55,580
+In preparation, we completely
+erased our database
+
+83
+00:03:55,580 --> 00:03:59,130
+and reset it to make
+room for this new potion.
+
+84
+00:03:59,130 --> 00:04:01,440
+We'll insert using db,
+the potions collection,
+
+85
+00:04:01,440 --> 00:04:03,150
+and the insert method.
+
+86
+00:04:03,150 --> 00:04:05,520
+We'll pass it the new
+document that we've created.
+
+87
+00:04:05,520 --> 00:04:06,665
+And there we have it.
+
+88
+00:04:06,665 --> 00:04:09,240
+We successfully
+saved the new potion.
+
+89
+00:04:09,240 --> 00:04:11,785
+Let's see what queries we can
+perform on this new potion.
+
+90
+00:04:14,851 --> 00:04:16,934
+Let's say we wanted to
+find a potion that contains
+
+91
+00:04:16,934 --> 00:04:18,260
+the ingredient laughter.
+
+92
+00:04:18,260 --> 00:04:20,120
+Well, it turns out
+that array values
+
+93
+00:04:20,120 --> 00:04:23,010
+are treated individually, which
+means that we can query them
+
+94
+00:04:23,010 --> 00:04:26,190
+by specifying the field and
+value that we want to find,
+
+95
+00:04:26,190 --> 00:04:27,970
+just like a query of equality.
+
+96
+00:04:27,970 --> 00:04:31,420
+To do this, we'll first specify
+the field ingredients and then
+
+97
+00:04:31,420 --> 00:04:33,044
+the value laughter.
+
+98
+00:04:33,044 --> 00:04:34,585
+With this, we'll
+return any documents
+
+99
+00:04:34,585 --> 00:04:36,950
+that have laughter in
+the ingredients array.
+
+100
+00:04:36,950 --> 00:04:39,685
+As you can see here, this potion
+has the proper ingredient.
+
+101
+00:04:43,270 --> 00:04:45,060
+Sometimes we only
+want to find potions
+
+102
+00:04:45,060 --> 00:04:46,980
+that taste the absolute best.
+
+103
+00:04:46,980 --> 00:04:48,730
+Let's find a potion
+with the flavor rating
+
+104
+00:04:48,730 --> 00:04:50,800
+of 5, the highest rating.
+
+105
+00:04:50,800 --> 00:04:53,740
+To perform a query of equality
+on an embedded document,
+
+106
+00:04:53,740 --> 00:04:55,440
+we can use dot
+notation to specify
+
+107
+00:04:55,440 --> 00:04:57,030
+the field we want to search.
+
+108
+00:04:57,030 --> 00:04:59,635
+So to find the strongest potion,
+we use ratings.strength.
+
+109
+00:04:59,635 --> 00:05:03,630
+To find the best tasting
+potion, we use ratings.flavor.
+
+110
+00:05:03,630 --> 00:05:05,390
+Using dot notation,
+we can easily
+
+111
+00:05:05,390 --> 00:05:07,000
+query embedded documents.
+
+112
+00:05:07,000 --> 00:05:09,110
+So to find the best
+tasting potion,
+
+113
+00:05:09,110 --> 00:05:10,860
+we can query using
+ratings.flavor
+
+114
+00:05:10,860 --> 00:05:12,370
+with the value of 5.
+
+115
+00:05:14,984 --> 00:05:16,400
+While inserting a
+document, we got
+
+116
+00:05:16,400 --> 00:05:19,790
+a bit distracted and set
+the price value to a string
+
+117
+00:05:19,790 --> 00:05:21,440
+saying Ten dollars.
+
+118
+00:05:21,440 --> 00:05:23,330
+And while this is
+invalid data to us,
+
+119
+00:05:23,330 --> 00:05:24,990
+Mongo doesn't really care.
+
+120
+00:05:24,990 --> 00:05:26,940
+And to our dismay,
+the document still
+
+121
+00:05:26,940 --> 00:05:28,382
+gets saved to the database.
+
+122
+00:05:28,382 --> 00:05:29,215
+Why did this happen?
+
+123
+00:05:32,950 --> 00:05:35,980
+Turns out that Mongo doesn't
+enforce many validations.
+
+124
+00:05:35,980 --> 00:05:38,300
+In fact, there's
+only a few criteria.
+
+125
+00:05:38,300 --> 00:05:42,280
+For instance, Mongo will check
+that the ID field is unique,
+
+126
+00:05:42,280 --> 00:05:44,990
+that there aren't any syntax
+errors, that the document
+
+127
+00:05:44,990 --> 00:05:47,600
+size is less than 16 megabytes.
+
+128
+00:05:47,600 --> 00:05:50,430
+Currently, this document
+passes all the validations.
+
+129
+00:05:50,430 --> 00:05:51,570
+Both IDs are unique.
+
+130
+00:05:51,570 --> 00:05:53,010
+The structure's good.
+
+131
+00:05:53,010 --> 00:05:54,995
+The document is a small size.
+
+132
+00:05:54,995 --> 00:05:56,700
+But let's say we
+forgot the end curly
+
+133
+00:05:56,700 --> 00:05:58,210
+brace on the first document.
+
+134
+00:05:58,210 --> 00:06:00,740
+That would break the no syntax
+errors and this document
+
+135
+00:06:00,740 --> 00:06:02,960
+would error out.
+
+136
+00:06:02,960 --> 00:06:05,210
+Now, if we try to add a
+document with the ID of 1,
+
+137
+00:06:05,210 --> 00:06:08,420
+when there's already a document
+that exists with that ID,
+
+138
+00:06:08,420 --> 00:06:13,260
+Mongo will raise an error
+about duplicate IDs.
+
+139
+00:06:13,260 --> 00:06:15,330
+All this means is that
+it's our responsibility
+
+140
+00:06:15,330 --> 00:06:17,925
+to make sure the data is valid
+before sending it to Mongo.
+
+141
+00:06:21,161 --> 00:06:23,160
+You've learned how to
+perform queries and create
+
+142
+00:06:23,160 --> 00:06:24,160
+rich documents.
+
+143
+00:06:24,160 --> 00:06:27,400
+Now go try it out
+in the challenges.
+
+144
+00:06:27,400 --> 00:06:27,900
+[BEEP]
+
+145
+00:06:27,900 --> 00:06:29,263
+Place to right con--
+
+146
+00:06:29,263 --> 00:06:29,950
+[BEEP]
+
+147
+00:06:29,950 --> 00:06:33,350
+Setup of-- ah, who-oo.
+[SNAPS] You've learned--
+
+148
+00:06:33,350 --> 00:06:33,920
+[BEEP]
+
+149
+00:06:33,920 --> 00:06:36,130
+Smile.
+
+150
+00:06:36,130 --> 00:06:37,680
+[BEEP]
+

@@ -1,0 +1,467 @@
+﻿1
+00:00:00,810 --> 00:00:02,910
+[SINGING] Store documents
+in collections,
+
+2
+00:00:02,910 --> 00:00:04,940
+conjure them with projections.
+
+3
+00:00:04,940 --> 00:00:06,710
+Update, Remove, Insert and Find.
+
+4
+00:00:06,710 --> 00:00:08,920
+It's schemaless,
+keep this in mind.
+
+5
+00:00:08,920 --> 00:00:12,783
+NoSQL looks like wizardry in
+the Magical Marvels of MongoDB.
+
+6
+00:00:16,079 --> 00:00:18,350
+You're watching the
+Magical Marvels of MongoDB.
+
+7
+00:00:18,350 --> 00:00:19,930
+I'm Joel Taylor,
+and at this level,
+
+8
+00:00:19,930 --> 00:00:21,721
+we'll be talking about
+common aggregations.
+
+9
+00:00:23,920 --> 00:00:26,500
+We've been tasked with
+finding the number of potions
+
+10
+00:00:26,500 --> 00:00:28,160
+per vendor, so
+that we can perform
+
+11
+00:00:28,160 --> 00:00:30,310
+an audit on potion reviews.
+
+12
+00:00:30,310 --> 00:00:32,090
+We could query for
+all the potions,
+
+13
+00:00:32,090 --> 00:00:33,740
+project the name
+and vendor fields,
+
+14
+00:00:33,740 --> 00:00:36,060
+and then use something like
+Excel to group our data,
+
+15
+00:00:36,060 --> 00:00:39,340
+together but that's
+masochistic, MongoDB already
+
+16
+00:00:39,340 --> 00:00:40,910
+has all the tools
+we'd need to perform
+
+17
+00:00:40,910 --> 00:00:44,270
+this operation efficiently.
+
+18
+00:00:44,270 --> 00:00:46,890
+MongoDB comes with a powerful
+aggregation framework
+
+19
+00:00:46,890 --> 00:00:49,990
+that allows us to manipulate
+our data before retrieving it.
+
+20
+00:00:49,990 --> 00:00:52,460
+To use it, we can simply
+call the aggregate method
+
+21
+00:00:52,460 --> 00:00:54,080
+on our collection.
+
+22
+00:00:54,080 --> 00:00:57,300
+The term aggregate is just a
+fancy word for combining data.
+
+23
+00:00:57,300 --> 00:00:59,214
+First, we'll add our
+aggregate method.
+
+24
+00:00:59,214 --> 00:01:01,380
+Aggregate takes an array
+as a parameter, in which we
+
+25
+00:01:01,380 --> 00:01:03,046
+can place our stage operators.
+
+26
+00:01:03,046 --> 00:01:04,879
+And the first step we
+want to do is to group
+
+27
+00:01:04,879 --> 00:01:06,420
+our documents by vendor.
+
+28
+00:01:06,420 --> 00:01:09,440
+To do this, we can use
+the group stage operator.
+
+29
+00:01:09,440 --> 00:01:11,689
+Just like an update
+operator, stage operators
+
+30
+00:01:11,689 --> 00:01:13,980
+start with a dollar sign and
+have a similar field value
+
+31
+00:01:13,980 --> 00:01:15,020
+format.
+
+32
+00:01:15,020 --> 00:01:18,820
+The group requires us set an _id
+to the field name that we want
+
+33
+00:01:18,820 --> 00:01:19,980
+to group by.
+
+34
+00:01:19,980 --> 00:01:22,150
+In this case, you want
+to group by vendor.
+
+35
+00:01:22,150 --> 00:01:23,630
+But instead of
+just adding vendor,
+
+36
+00:01:23,630 --> 00:01:26,090
+we need to add a 
+dollar sign in front.
+
+37
+00:01:26,090 --> 00:01:27,980
+This makes vendor
+a field path that
+
+38
+00:01:27,980 --> 00:01:29,630
+points to the value
+of the vendor field
+
+39
+00:01:29,630 --> 00:01:32,210
+so that the group knows what
+values to group the documents
+
+40
+00:01:32,210 --> 00:01:32,710
+by.
+
+41
+00:01:35,100 --> 00:01:37,220
+The _id field is known
+as the group key,
+
+42
+00:01:37,220 --> 00:01:39,550
+and it's required by the
+group stage operator.
+
+43
+00:01:39,550 --> 00:01:42,050
+If we run this code, it
+will return a result object
+
+44
+00:01:42,050 --> 00:01:44,060
+containing a list of
+unique vendor names
+
+45
+00:01:44,060 --> 00:01:45,770
+in our potions collection.
+
+46
+00:01:45,770 --> 00:01:48,800
+We have three _id fields that
+each have a unique vendor name
+
+47
+00:01:48,800 --> 00:01:49,999
+as their value.
+
+48
+00:01:49,999 --> 00:01:51,790
+These are the group
+keys that we set above.
+
+49
+00:01:55,206 --> 00:01:56,830
+The next thing we
+want to do, is to get
+
+50
+00:01:56,830 --> 00:01:59,474
+to a count of the number
+of potion per unit vendor.
+
+51
+00:01:59,474 --> 00:02:01,390
+Now, everything that
+comes after the group key
+
+52
+00:02:01,390 --> 00:02:03,900
+is considered an accumulator.
+
+53
+00:02:03,900 --> 00:02:06,100
+Accumulators can be
+assigned to any field name
+
+54
+00:02:06,100 --> 00:02:08,229
+and take an expression
+that will be computed
+
+55
+00:02:08,229 --> 00:02:10,250
+on each document in a group.
+
+56
+00:02:10,250 --> 00:02:12,450
+We'll start off by
+adding a field total
+
+57
+00:02:12,450 --> 00:02:15,520
+and use the sum accumulator
+with the value of 1.
+
+58
+00:02:15,520 --> 00:02:18,982
+The sum accumulator will add 1
+for each document in the group.
+
+59
+00:02:18,982 --> 00:02:21,440
+If we run the code above, we'll
+see that we have each group
+
+60
+00:02:21,440 --> 00:02:23,850
+key, the field called total,
+and the number of documents
+
+61
+00:02:23,850 --> 00:02:24,640
+within the group.
+
+62
+00:02:26,967 --> 00:02:29,300
+We're starting to get a lot
+of dollar signs in our code,
+
+63
+00:02:29,300 --> 00:02:31,760
+and it could be a bit confusing.
+
+64
+00:02:31,760 --> 00:02:33,314
+A good rule of
+thumb to remember is
+
+65
+00:02:33,314 --> 00:02:35,230
+that when the fields
+begin with a dollar sign,
+
+66
+00:02:35,230 --> 00:02:38,890
+they'll perform some sort of
+task, like grouping or summing,
+
+67
+00:02:38,890 --> 00:02:40,640
+but if a value begins
+with a dollar sign,
+
+68
+00:02:40,640 --> 00:02:42,015
+we know it's a
+field path that is
+
+69
+00:02:42,015 --> 00:02:43,920
+pointing to the value
+of the specified field.
+
+70
+00:02:47,300 --> 00:02:49,510
+The sum is useful for
+counting as well a summing
+
+71
+00:02:49,510 --> 00:02:51,546
+all the values of
+fields in a group.
+
+72
+00:02:51,546 --> 00:02:53,545
+For instance, if we want
+to get the total grades
+
+73
+00:02:53,545 --> 00:02:56,440
+of all potions per
+vendor, we can simply
+
+74
+00:02:56,440 --> 00:02:58,450
+add another accumulator.
+
+75
+00:02:58,450 --> 00:03:00,570
+This time, we'll add a
+field called grade_total,
+
+76
+00:03:00,570 --> 00:03:03,370
+and pass the grade
+field path with the sum.
+
+77
+00:03:03,370 --> 00:03:05,120
+This will cause the
+grade of each document
+
+78
+00:03:05,120 --> 00:03:08,064
+within a group to be summed
+up into one single total.
+
+79
+00:03:08,064 --> 00:03:09,480
+Looking at the
+results, we can see
+
+80
+00:03:09,480 --> 00:03:11,690
+that each document has
+a grade_total field
+
+81
+00:03:11,690 --> 00:03:13,380
+with their total score.
+
+82
+00:03:13,380 --> 00:03:15,360
+This is cool and all,
+but what we really want
+
+83
+00:03:15,360 --> 00:03:16,995
+is the average grade per vendor.
+
+84
+00:03:20,420 --> 00:03:23,520
+Let's calculate the average
+potion grade for these vendors.
+
+85
+00:03:23,520 --> 00:03:25,660
+We can do this by using
+the average accumulator.
+
+86
+00:03:25,660 --> 00:03:27,542
+To start, we'll group by vendor.
+
+87
+00:03:27,542 --> 00:03:29,500
+We'll have the field as
+average, and then we'll
+
+88
+00:03:29,500 --> 00:03:31,865
+pass in the grade field
+path as the value.
+
+89
+00:03:31,865 --> 00:03:36,860
+As you can see, we'll return
+the average grade per vendor.
+
+90
+00:03:36,860 --> 00:03:38,480
+Finding the max
+grade per vendor is
+
+91
+00:03:38,480 --> 00:03:41,440
+as simple as putting max
+in where we had average.
+
+92
+00:03:41,440 --> 00:03:43,965
+As you can see, we now have
+the max grade per each vendor.
+
+93
+00:03:47,790 --> 00:03:50,120
+We can even use max and
+min accumulators together
+
+94
+00:03:50,120 --> 00:03:52,210
+to generate useful reporting.
+
+95
+00:03:52,210 --> 00:03:55,360
+And as a result, we get back a
+single report with both the max
+
+96
+00:03:55,360 --> 00:03:56,295
+and min per vendor.
+
+97
+00:03:59,519 --> 00:04:01,310
+Now it's time for you
+to try to aggregating
+
+98
+00:04:01,310 --> 00:04:03,410
+some data in the challenges.
+

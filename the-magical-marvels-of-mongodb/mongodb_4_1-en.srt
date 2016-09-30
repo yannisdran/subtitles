@@ -1,0 +1,658 @@
+﻿1
+00:00:00,810 --> 00:00:02,910
+[SINGING] Store documents
+in collections,
+
+2
+00:00:02,910 --> 00:00:04,940
+conjure them with projections.
+
+3
+00:00:04,940 --> 00:00:06,710
+Update, Remove,
+Insert, and Find.
+
+4
+00:00:06,710 --> 00:00:08,980
+It's schemaless,
+keep this in mind.
+
+5
+00:00:08,980 --> 00:00:12,786
+NoSQL looks like wizardry in
+the Magical Marvels of MongoDB.
+
+6
+00:00:16,160 --> 00:00:18,570
+You're watching the
+Magical Marvels of MongoDB.
+
+7
+00:00:18,570 --> 00:00:19,550
+I'm Joel Taylor.
+
+8
+00:00:19,550 --> 00:00:21,591
+And in this level, we're
+going to learn about how
+
+9
+00:00:21,591 --> 00:00:24,600
+to best model our data.
+
+10
+00:00:24,600 --> 00:00:27,630
+We've decided to allow users
+to sign into our application.
+
+11
+00:00:27,630 --> 00:00:29,300
+We'll be giving
+them a basic profile
+
+12
+00:00:29,300 --> 00:00:32,609
+to add their name, email, and
+top three favorite potions.
+
+13
+00:00:36,110 --> 00:00:38,650
+Users and their favorite
+potions go hand in hand.
+
+14
+00:00:38,650 --> 00:00:40,130
+Whenever we visit
+a user's profile,
+
+15
+00:00:40,130 --> 00:00:43,140
+we'll always be displaying
+their favorite potions.
+
+16
+00:00:43,140 --> 00:00:44,720
+Because of the
+strong relationship,
+
+17
+00:00:44,720 --> 00:00:47,450
+we can add a favorites
+field to the users document
+
+18
+00:00:47,450 --> 00:00:50,290
+with an array containing the
+names of the favorite potions.
+
+19
+00:00:53,000 --> 00:00:55,310
+Next up, we'd like to add
+more vendor information
+
+20
+00:00:55,310 --> 00:00:57,530
+for each potion so that
+users who will know more
+
+21
+00:00:57,530 --> 00:00:59,460
+about a vendor can
+easily find necessarily
+
+22
+00:00:59,460 --> 00:01:02,000
+information, like their phone
+number or if they're organic
+
+23
+00:01:02,000 --> 00:01:03,230
+or not.
+
+24
+00:01:03,230 --> 00:01:04,730
+Let's try modeling
+this the same way
+
+25
+00:01:04,730 --> 00:01:07,440
+we did a users favorite
+potions and embed it directly
+
+26
+00:01:07,440 --> 00:01:08,775
+into the potion document.
+
+27
+00:01:12,545 --> 00:01:13,920
+If we take a look
+at our potions,
+
+28
+00:01:13,920 --> 00:01:15,878
+we'll notice that there's
+a lot of duplication.
+
+29
+00:01:15,878 --> 00:01:17,690
+When we see this
+kind of duplication,
+
+30
+00:01:17,690 --> 00:01:20,170
+it's a good sign that we need
+to step back and take a look
+
+31
+00:01:20,170 --> 00:01:21,804
+at how we're modeling our data.
+
+32
+00:01:21,804 --> 00:01:23,720
+The reason we want to
+be cautious about having
+
+33
+00:01:23,720 --> 00:01:25,680
+duplicated data
+is that it can be
+
+34
+00:01:25,680 --> 00:01:27,820
+difficult to keep
+data consistent.
+
+35
+00:01:27,820 --> 00:01:29,250
+This is known as data integrity.
+
+36
+00:01:31,760 --> 00:01:34,170
+One day, we might get a
+potion in from a vendor that
+
+37
+00:01:34,170 --> 00:01:36,030
+says that they're not organic.
+
+38
+00:01:36,030 --> 00:01:38,240
+If we update that for this
+potion but not the others,
+
+39
+00:01:38,240 --> 00:01:39,823
+we're going to have
+inconsistent data.
+
+40
+00:01:39,823 --> 00:01:41,340
+And this is bad.
+
+41
+00:01:41,340 --> 00:01:44,750
+What can we do about this?
+
+42
+00:01:44,750 --> 00:01:47,450
+Instead of embedding
+vendor information directly
+
+43
+00:01:47,450 --> 00:01:49,545
+in the potions document,
+we can split it
+
+44
+00:01:49,545 --> 00:01:51,800
+into two collections, the
+potions and the vendor
+
+45
+00:01:51,800 --> 00:01:52,325
+collection.
+
+46
+00:01:52,325 --> 00:01:53,866
+In the potions
+collection, we'll have
+
+47
+00:01:53,866 --> 00:01:57,580
+a vendor ID that references
+the vendor and the vendors
+
+48
+00:01:57,580 --> 00:01:58,650
+collection.
+
+49
+00:01:58,650 --> 00:02:00,670
+If you're familiar with
+relational databases,
+
+50
+00:02:00,670 --> 00:02:02,790
+this is a step in
+normalizing our data, which
+
+51
+00:02:02,790 --> 00:02:05,620
+allows us to reduce duplication,
+which in turn reduces
+
+52
+00:02:05,620 --> 00:02:07,820
+inconsistencies.
+
+53
+00:02:07,820 --> 00:02:09,460
+For example, in the
+potion document,
+
+54
+00:02:09,460 --> 00:02:12,450
+we have a field called
+vendor_id set to Kettlecooked.
+
+55
+00:02:12,450 --> 00:02:14,790
+In the vendors collection,
+we have a vendor document
+
+56
+00:02:14,790 --> 00:02:16,790
+with the ID set to Kettlecooked.
+
+57
+00:02:16,790 --> 00:02:18,740
+We're using the
+vendor's name as the ID
+
+58
+00:02:18,740 --> 00:02:21,320
+since they're unique and
+rarely change, unlike the rest
+
+59
+00:02:21,320 --> 00:02:23,010
+of their information.
+
+60
+00:02:23,010 --> 00:02:25,670
+This actually ends up being a
+better fit for our use case.
+
+61
+00:02:25,670 --> 00:02:28,030
+Most users only want to
+know a vendor's name,
+
+62
+00:02:28,030 --> 00:02:30,445
+but then there are those
+who want to know more.
+
+63
+00:02:30,445 --> 00:02:32,320
+Let's see how we insert
+this in the database.
+
+64
+00:02:36,820 --> 00:02:39,270
+First, let's add a vendor
+to the vendors collection.
+
+65
+00:02:39,270 --> 00:02:41,230
+Now, this time, we're
+going to specify the ID
+
+66
+00:02:41,230 --> 00:02:43,970
+and use Kettlecooked
+as the vendor ID.
+
+67
+00:02:43,970 --> 00:02:46,500
+Next, we'll insert a potion
+with the normal details.
+
+68
+00:02:46,500 --> 00:02:47,960
+But this time,
+instead of vendor,
+
+69
+00:02:47,960 --> 00:02:51,506
+we'll have vendor ID
+with value Kettlecooked.
+
+70
+00:02:51,506 --> 00:02:52,380
+And there we have it,
+
+71
+00:02:52,380 --> 00:02:54,360
+our potion document
+references the vendor document.
+
+72
+00:02:54,360 --> 00:02:58,920
+Document references
+are manual,
+
+73
+00:02:58,920 --> 00:03:01,630
+and we're required to make the
+connection between documents.
+
+74
+00:03:01,630 --> 00:03:05,500
+Mongo doesn't see anything
+besides field and value pairs.
+
+75
+00:03:05,500 --> 00:03:07,910
+In order to pull a potion
+document and all of its vendor
+
+76
+00:03:07,910 --> 00:03:11,060
+information, we must first
+query for the potion.
+
+77
+00:03:11,060 --> 00:03:13,570
+Then using the vendor
+ID from the potion,
+
+78
+00:03:13,570 --> 00:03:16,610
+we must perform a second query
+on the vendors collection
+
+79
+00:03:16,610 --> 00:03:18,615
+in order to get the
+correct vendor document.
+
+80
+00:03:18,615 --> 00:03:20,740
+Now let's look at the
+differences between embedding
+
+81
+00:03:20,740 --> 00:03:21,823
+and referencing documents.
+
+82
+00:03:24,570 --> 00:03:27,140
+Embedding documents comes
+with some great features.
+
+83
+00:03:27,140 --> 00:03:28,760
+For example, when
+we perform a query,
+
+84
+00:03:28,760 --> 00:03:30,180
+we only have to
+perform one query
+
+85
+00:03:30,180 --> 00:03:32,060
+to get all the
+data that we need.
+
+86
+00:03:32,060 --> 00:03:33,770
+In this example,
+for users, we can
+
+87
+00:03:33,770 --> 00:03:36,250
+get the email and the
+favorites with a single query.
+
+88
+00:03:40,650 --> 00:03:42,830
+In addition, we
+get atomic writes.
+
+89
+00:03:42,830 --> 00:03:45,340
+What this means, if we were
+to update the user's email
+
+90
+00:03:45,340 --> 00:03:48,450
+and add a new favorite, either
+all the operations would occur
+
+91
+00:03:48,450 --> 00:03:50,077
+or nothing would happen at all.
+
+92
+00:03:50,077 --> 00:03:51,910
+Let's take a closer
+look at what this means.
+
+93
+00:03:54,856 --> 00:03:56,480
+Let's say we're
+updating a user's email
+
+94
+00:03:56,480 --> 00:03:58,159
+and adding a favorite potion.
+
+95
+00:03:58,159 --> 00:04:00,200
+If during that update
+there's a power outage that
+
+96
+00:04:00,200 --> 00:04:02,010
+happens at our data
+center and we've only
+
+97
+00:04:02,010 --> 00:04:04,100
+got a partial update,
+nothing will actually
+
+98
+00:04:04,100 --> 00:04:05,160
+happen to that document.
+
+99
+00:04:05,160 --> 00:04:06,834
+It won't be changed.
+
+100
+00:04:06,834 --> 00:04:08,750
+This prevents impartial
+writes from happening.
+
+101
+00:04:08,750 --> 00:04:11,210
+Imagine how that would be to
+only have a partial update
+
+102
+00:04:11,210 --> 00:04:11,935
+occur.
+
+103
+00:04:11,935 --> 00:04:14,310
+On the other hand, when we
+get a write result back saying
+
+104
+00:04:14,310 --> 00:04:16,709
+that we updated one document,
+we know without a doubt
+
+105
+00:04:16,709 --> 00:04:17,875
+that everything got updated.
+
+106
+00:04:21,100 --> 00:04:23,050
+Now let's compare that
+to reference documents,
+
+107
+00:04:23,050 --> 00:04:25,120
+which are completely different.
+
+108
+00:04:25,120 --> 00:04:27,880
+Documents that are referenced
+are independent documents.
+
+109
+00:04:27,880 --> 00:04:31,110
+This means that they exist
+completely by themselves.
+
+110
+00:04:31,110 --> 00:04:34,140
+This is ideal for data that
+sometimes gets used together,
+
+111
+00:04:34,140 --> 00:04:36,810
+but sometimes also gets
+used independently.
+
+112
+00:04:36,810 --> 00:04:39,090
+What's great is we only
+have to update our vendor
+
+113
+00:04:39,090 --> 00:04:40,730
+information in one place.
+
+114
+00:04:40,730 --> 00:04:43,800
+This helps reduce the
+risk of inconsistencies.
+
+115
+00:04:43,800 --> 00:04:46,290
+Unlike embedded documents,
+one factor to consider
+
+116
+00:04:46,290 --> 00:04:48,860
+is that we can't atomically
+write to multiple documents
+
+117
+00:04:48,860 --> 00:04:49,940
+at once.
+
+118
+00:04:49,940 --> 00:04:51,680
+If you come from
+relational databases,
+
+119
+00:04:51,680 --> 00:04:53,140
+this is called a transaction,
+
+120
+00:04:53,140 --> 00:04:56,870
+and Mongo does not
+support that by default.
+
+121
+00:04:56,870 --> 00:04:59,230
+To understand the
+implications of not having
+
+122
+00:04:59,230 --> 00:05:01,010
+default support
+for multi-document
+
+123
+00:05:01,010 --> 00:05:04,100
+write operations, imagine that
+we received a new potion
+
+124
+00:05:04,100 --> 00:05:05,315
+from a new vendor.
+
+125
+00:05:05,315 --> 00:05:08,170
+If we tried to enter both
+documents at the same time
+
+126
+00:05:08,170 --> 00:05:10,610
+and the potions document
+writes successfully,
+
+127
+00:05:10,610 --> 00:05:13,050
+but the vendor document runs
+into some kind of error,
+
+128
+00:05:13,050 --> 00:05:14,910
+there wouldn't be any
+sort of roll back.
+
+129
+00:05:14,910 --> 00:05:16,510
+The potion document
+would get written
+
+130
+00:05:16,510 --> 00:05:18,055
+regardless of the vendor.
+
+131
+00:05:18,055 --> 00:05:19,430
+So what's the big
+deal with that?
+
+132
+00:05:22,790 --> 00:05:25,010
+Since MongoDB doesn't
+acknowledge relationships,
+
+133
+00:05:25,010 --> 00:05:27,510
+we'd end up with a
+potion that has a vendor ID
+
+134
+00:05:27,510 --> 00:05:29,115
+of a vendor that doesn't exist.
+
+135
+00:05:29,115 --> 00:05:30,990
+So you want to be really
+careful when working
+
+136
+00:05:30,990 --> 00:05:32,031
+with reference documents.
+
+137
+00:05:35,282 --> 00:05:37,490
+Now head over to the challenges
+and try out your hand
+
+138
+00:05:37,490 --> 00:05:39,680
+at modeling some data.
+

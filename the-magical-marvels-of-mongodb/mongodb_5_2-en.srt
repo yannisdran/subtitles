@@ -1,0 +1,548 @@
+﻿1
+00:00:02,040 --> 00:00:02,810
+Welcome back.
+
+2
+00:00:02,810 --> 00:00:05,197
+We've only scratched the
+surface of aggregations.
+
+3
+00:00:05,197 --> 00:00:07,280
+In this section, we'll be
+covering the aggregation
+
+4
+00:00:07,280 --> 00:00:09,890
+pipeline.
+
+5
+00:00:09,890 --> 00:00:12,916
+Unfortunately, it turns out
+that potions containing unicorn
+
+6
+00:00:12,916 --> 00:00:14,540
+and their ingredients
+aren't permitted,
+
+7
+00:00:14,540 --> 00:00:16,063
+because unicorns are majestic.
+
+8
+00:00:16,063 --> 00:00:17,646
+We need to do a
+quick audit to get
+
+9
+00:00:17,646 --> 00:00:19,430
+an idea of how many
+potions per vendor
+
+10
+00:00:19,430 --> 00:00:21,680
+contain this
+horrific ingredient.
+
+11
+00:00:21,680 --> 00:00:24,490
+First, we'll query for
+potions containing unicorn.
+
+12
+00:00:24,490 --> 00:00:26,619
+Then, we'll group the
+potions by vendor.
+
+13
+00:00:26,619 --> 00:00:29,035
+And finally, we'll count the
+number of potions per vendor.
+
+14
+00:00:31,600 --> 00:00:34,110
+The aggregate method
+functions like a pipeline.
+
+15
+00:00:34,110 --> 00:00:36,130
+Instead of just adding
+one stage operator,
+
+16
+00:00:36,130 --> 00:00:40,020
+we can add multiple ones
+for data to pass through.
+
+17
+00:00:40,020 --> 00:00:42,020
+We've already been working
+with stage operators,
+
+18
+00:00:42,020 --> 00:00:44,311
+like this group one
+we did in the last section.
+
+19
+00:00:44,311 --> 00:00:48,950
+Let's explore a few other stages
+we can pass our data through.
+
+20
+00:00:48,950 --> 00:00:51,310
+The aggregation pipeline
+works by passing data
+
+21
+00:00:51,310 --> 00:00:54,420
+from stage to stage and
+modifying it along the way.
+
+22
+00:00:54,420 --> 00:00:56,730
+For instance, the
+pooling numbers we want
+
+23
+00:00:56,730 --> 00:00:58,240
+will perform a
+query of equality,
+
+24
+00:00:58,240 --> 00:01:01,195
+and pass only documents that
+match to the group stage.
+
+25
+00:01:01,195 --> 00:01:03,695
+This functionality allows us
+to manipulate data efficiently.
+
+26
+00:01:06,095 --> 00:01:07,470
+The first step we
+need to take is
+
+27
+00:01:07,470 --> 00:01:09,330
+to query for the proper potions.
+
+28
+00:01:09,330 --> 00:01:11,830
+We can do this by using
+the match stage operator.
+
+29
+00:01:11,830 --> 00:01:13,380
+We'll pass it the
+filled ingredients
+
+30
+00:01:13,380 --> 00:01:15,050
+and the value, unicorn.
+
+31
+00:01:15,050 --> 00:01:16,519
+Now match is a lot
+like find, so we
+
+32
+00:01:16,519 --> 00:01:18,310
+can use the same kind
+of query for equality
+
+33
+00:01:18,310 --> 00:01:20,190
+to find the correct documents.
+
+34
+00:01:20,190 --> 00:01:22,680
+It's good practice to use the
+match stage operator as early
+
+35
+00:01:22,680 --> 00:01:24,554
+as possible to reduce
+the number of documents
+
+36
+00:01:24,554 --> 00:01:26,080
+that we pass through
+the pipeline.
+
+37
+00:01:26,080 --> 00:01:27,660
+You can even use
+match multiple times
+
+38
+00:01:27,660 --> 00:01:28,970
+to continually remove data.
+
+39
+00:01:31,399 --> 00:01:32,815
+Now that we've
+limited our potions
+
+40
+00:01:32,815 --> 00:01:35,230
+to those containing
+unicorn, let's go ahead
+
+41
+00:01:35,230 --> 00:01:38,040
+and group them by vendor
+and count their potions.
+
+42
+00:01:38,040 --> 00:01:40,390
+In order to use multiple
+stages, all we need to do
+
+43
+00:01:40,390 --> 00:01:43,119
+is add the next operator,
+separated by a comma.
+
+44
+00:01:43,119 --> 00:01:44,910
+So next we'll add the
+group stage operator,
+
+45
+00:01:44,910 --> 00:01:46,910
+and we'll group
+potions by their vendor
+
+46
+00:01:46,910 --> 00:01:51,492
+and sum the total number
+of potions per vendor.
+
+47
+00:01:51,492 --> 00:01:52,950
+Let's look at an
+example where we'd
+
+48
+00:01:52,950 --> 00:01:54,730
+have a complex query
+that we can make
+
+49
+00:01:54,730 --> 00:01:56,387
+simple by using aggregation.
+
+50
+00:01:56,387 --> 00:01:58,470
+In this example, we're
+going to find the top three
+
+51
+00:01:58,470 --> 00:02:00,915
+vendors with potions under $15.
+
+52
+00:02:00,915 --> 00:02:02,540
+First, we're going
+to query for potions
+
+53
+00:02:02,540 --> 00:02:04,600
+with a price less than 15.
+
+54
+00:02:04,600 --> 00:02:06,550
+Next, we'll group
+our potions by vendor
+
+55
+00:02:06,550 --> 00:02:08,500
+and average their grades.
+
+56
+00:02:08,500 --> 00:02:11,090
+Then we'll sort results
+by grade average.
+
+57
+00:02:11,090 --> 00:02:12,670
+And lastly, we'll
+limit our results
+
+58
+00:02:12,670 --> 00:02:16,214
+to only the top three vendors.
+
+59
+00:02:16,214 --> 00:02:17,630
+Here, we'll use
+match to only pass
+
+60
+00:02:17,630 --> 00:02:20,410
+on documents that have
+a price of less than 15,
+
+61
+00:02:20,410 --> 00:02:22,360
+using the $lt query operator.
+
+62
+00:02:22,360 --> 00:02:24,650
+Again, it's good practice
+to use match early on.
+
+63
+00:02:27,972 --> 00:02:30,430
+Now that we've got the documents
+filtered, let's group them
+
+64
+00:02:30,430 --> 00:02:32,050
+and get their average grade.
+
+65
+00:02:32,050 --> 00:02:34,070
+We'll do this by using
+the group operator,
+
+66
+00:02:34,070 --> 00:02:36,330
+setting the group key to
+the vendor field path,
+
+67
+00:02:36,330 --> 00:02:38,590
+and then we'll create a
+field called average grade,
+
+68
+00:02:38,590 --> 00:02:41,042
+and then use the average accumulator
+with the grade field path
+
+69
+00:02:41,042 --> 00:02:43,125
+to get an average of the
+potion grades per vendor.
+
+70
+00:02:47,730 --> 00:02:50,790
+Next up, we need to sort our
+potions by their average grade.
+
+71
+00:02:50,790 --> 00:02:53,570
+We can do this by using
+the sort stage operator.
+
+72
+00:02:53,570 --> 00:02:57,020
+Then we'll use the average grade
+field with the value negative 1
+
+73
+00:02:57,020 --> 00:02:59,020
+to sort the grades
+in descending order.
+
+74
+00:03:04,830 --> 00:03:06,950
+The last stage is to limit
+the number of documents
+
+75
+00:03:06,950 --> 00:03:08,360
+that we return.
+
+76
+00:03:08,360 --> 00:03:10,350
+There's no need to
+return any extra data.
+
+77
+00:03:10,350 --> 00:03:12,500
+We can do this by using
+the limit stage operator
+
+78
+00:03:12,500 --> 00:03:14,060
+and passing it the value of 3.
+
+79
+00:03:18,640 --> 00:03:20,089
+Well, our code works just fine.
+
+80
+00:03:20,089 --> 00:03:21,630
+We could still
+improve its efficiency
+
+81
+00:03:21,630 --> 00:03:23,505
+by making sure we're
+only passing the data we
+
+82
+00:03:23,505 --> 00:03:25,230
+need through the pipeline.
+
+83
+00:03:25,230 --> 00:03:27,190
+After the match, all we
+need from the documents
+
+84
+00:03:27,190 --> 00:03:29,430
+is their vendor name
+and their grade.
+
+85
+00:03:29,430 --> 00:03:31,350
+While the other filter
+unused and are just
+
+86
+00:03:31,350 --> 00:03:33,160
+bloating the pipeline,
+let's look at how
+
+87
+00:03:33,160 --> 00:03:34,368
+we can trim up our documents.
+
+88
+00:03:37,310 --> 00:03:38,900
+In order to slim
+down our documents,
+
+89
+00:03:38,900 --> 00:03:40,780
+we can use the
+project stage directly
+
+90
+00:03:40,780 --> 00:03:43,470
+after match, which takes
+the same values as we'd
+
+91
+00:03:43,470 --> 00:03:46,300
+use if we're projecting
+with the find method.
+
+92
+00:03:46,300 --> 00:03:48,680
+It's good practice to
+project as soon as possible.
+
+93
+00:03:48,680 --> 00:03:50,700
+We'll set the
+underscore ID to false
+
+94
+00:03:50,700 --> 00:03:53,210
+since we don't really need it,
+and the vendor ID and grade
+
+95
+00:03:53,210 --> 00:03:54,277
+fields to true.
+
+96
+00:03:54,277 --> 00:03:56,610
+With this last touch, we have
+an efficient and working
+
+97
+00:03:56,610 --> 00:03:58,100
+aggregation.
+
+98
+00:03:58,100 --> 00:04:00,529
+Again, it's common to see
+match and project used together
+
+99
+00:04:00,529 --> 00:04:02,570
+throughout the pipeline
+to continue trimming down
+
+100
+00:04:02,570 --> 00:04:03,344
+our data.
+
+101
+00:04:03,344 --> 00:04:04,760
+This becomes
+critical when dealing
+
+102
+00:04:04,760 --> 00:04:06,399
+with large amounts of data.
+
+103
+00:04:06,399 --> 00:04:07,940
+Now let's take a
+look at our results.
+
+104
+00:04:11,600 --> 00:04:14,050
+As you can see, our results
+have exactly what we want,
+
+105
+00:04:14,050 --> 00:04:16,100
+the group key with the
+vendor name and average
+
+106
+00:04:16,100 --> 00:04:16,980
+grade per vendor.
+
+107
+00:04:19,529 --> 00:04:21,779
+Now it's your turn to try
+the aggregation pipeline out
+
+108
+00:04:21,779 --> 00:04:24,157
+in the challenges.
+
+109
+00:04:24,157 --> 00:04:25,740
+Fortunately, it turns
+out that potions
+
+110
+00:04:25,740 --> 00:04:28,030
+with unicorn in their
+ingredients aren't permitted,
+
+111
+00:04:28,030 --> 00:04:32,290
+because unicorns are
+******* majestic.
+
+112
+00:04:32,290 --> 00:04:34,022
+As it turns out, who knew?
+
+113
+00:04:34,022 --> 00:04:36,105
+You can't grind up a unicorn
+and put it in a potion.
+
+114
+00:04:39,070 --> 00:04:40,520
+An idea of how many
+potions per vendor contains...
+
+115
+00:04:40,520 --> 00:04:46,533
+[LAUGHTER]
+

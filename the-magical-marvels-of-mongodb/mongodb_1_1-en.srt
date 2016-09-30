@@ -1,0 +1,908 @@
+﻿1
+00:00:00,810 --> 00:00:02,910
+[SINGING] Store documents
+in collections,
+
+2
+00:00:02,910 --> 00:00:04,940
+conjure them with projections.
+
+3
+00:00:04,940 --> 00:00:06,710
+Update, Remove,
+Insert, and Find.
+
+4
+00:00:06,710 --> 00:00:08,980
+It's schemaless,
+keep this in mind.
+
+5
+00:00:08,980 --> 00:00:12,786
+NoSQL looks like wizardry in
+the Magical Marvels of MongoDB.
+
+6
+00:00:15,980 --> 00:00:18,820
+You're watching the
+Magical Marvels of MongoDB.
+
+7
+00:00:18,820 --> 00:00:20,050
+I'm Joel Taylor.
+
+8
+00:00:20,050 --> 00:00:21,450
+And throughout
+this course, we'll
+
+9
+00:00:21,450 --> 00:00:24,360
+be interacting with the
+potion review application.
+
+10
+00:00:24,360 --> 00:00:27,130
+We'll be using MongoDB
+as a back-end database
+
+11
+00:00:27,130 --> 00:00:29,170
+to store and
+retrieve our potions.
+
+12
+00:00:29,170 --> 00:00:32,070
+These reviews will consist
+of the strength, the flavor,
+
+13
+00:00:32,070 --> 00:00:34,790
+and the grade.
+
+14
+00:00:34,790 --> 00:00:37,110
+This course consists
+of five levels.
+
+15
+00:00:37,110 --> 00:00:39,410
+First, in conjuring
+MongoDB, we'll
+
+16
+00:00:39,410 --> 00:00:42,060
+look at the basics of Mongo and
+learn how to insert and find
+
+17
+00:00:42,060 --> 00:00:43,550
+our documents.
+
+18
+00:00:43,550 --> 00:00:46,590
+Next, we'll look at how to
+update and remove them, perform
+
+19
+00:00:46,590 --> 00:00:49,650
+advanced queries, learn some
+best practices for storing
+
+20
+00:00:49,650 --> 00:00:50,494
+our data.
+
+21
+00:00:50,494 --> 00:00:52,160
+And lastly, we'll see
+how we can combine
+
+22
+00:00:52,160 --> 00:00:54,020
+data for interesting reports.
+
+23
+00:00:54,020 --> 00:00:56,450
+So get ready, sit back,
+relax, and enjoy the course.
+
+24
+00:00:59,370 --> 00:01:01,620
+To start off, let's
+first answer the question
+
+25
+00:01:01,620 --> 00:01:03,870
+of what is MongoDB.
+
+26
+00:01:03,870 --> 00:01:07,830
+Well, Mongo is an
+open-source NoSQL database.
+
+27
+00:01:07,830 --> 00:01:11,100
+Now, the term NoSQL to be a
+little difficult to define.
+
+28
+00:01:11,100 --> 00:01:13,330
+But for this course,
+we'll refer to it
+
+29
+00:01:13,330 --> 00:01:16,440
+as databases that generally
+aren't relational and don't
+
+30
+00:01:16,440 --> 00:01:18,900
+have a query language like SQL.
+
+31
+00:01:18,900 --> 00:01:20,580
+Mongo is document-oriented.
+
+32
+00:01:20,580 --> 00:01:23,450
+And it's great for unstructured
+data, especially when we
+
+33
+00:01:23,450 --> 00:01:25,200
+have lots of it.
+
+34
+00:01:25,200 --> 00:01:27,100
+MongoDB first came
+into being back
+
+35
+00:01:27,100 --> 00:01:30,890
+in 2007 when it was developed
+by a company called 10gen
+
+36
+00:01:30,890 --> 00:01:32,664
+as a part of their product.
+
+37
+00:01:32,664 --> 00:01:34,830
+Unfortunately, they didn't
+generate as much interest
+
+38
+00:01:34,830 --> 00:01:36,060
+as they wanted to.
+
+39
+00:01:36,060 --> 00:01:37,560
+But instead of
+scrapping everything,
+
+40
+00:01:37,560 --> 00:01:39,434
+they thought their
+database was really great.
+
+41
+00:01:39,434 --> 00:01:41,730
+So in 2009, they
+open-sourced it.
+
+42
+00:01:41,730 --> 00:01:46,140
+And since then, it's gotten
+so popular that in 2013, 10gen
+
+43
+00:01:46,140 --> 00:01:48,870
+renamed themselves to MongoDB.
+
+44
+00:01:48,870 --> 00:01:51,370
+You might be wondering, where
+does the name Mongo come from?
+
+45
+00:01:51,370 --> 00:01:53,120
+It actually stems from
+the word humongous.
+
+46
+00:01:56,330 --> 00:01:58,400
+MongoDB shares a
+lot of similarities
+
+47
+00:01:58,400 --> 00:01:59,870
+with the SQL database.
+
+48
+00:01:59,870 --> 00:02:03,330
+At the lowest level, they both
+store their data in a database.
+
+49
+00:02:03,330 --> 00:02:05,890
+In SQL, the database
+is made up of tables,
+
+50
+00:02:05,890 --> 00:02:08,850
+whereas MongoDB is
+made up of collections.
+
+51
+00:02:08,850 --> 00:02:10,660
+Tables are made up of rows.
+
+52
+00:02:10,660 --> 00:02:14,320
+But in MongoDB, collections
+are made up of documents.
+
+53
+00:02:14,320 --> 00:02:16,620
+So for SQL, data
+is stored in a row
+
+54
+00:02:16,620 --> 00:02:20,720
+that gets placed in a table,
+which is saved in the database.
+
+55
+00:02:20,720 --> 00:02:23,255
+For MongoDB, documents get
+grouped in collections.
+
+56
+00:02:23,255 --> 00:02:26,790
+And collections are
+stored in the database.
+
+57
+00:02:26,790 --> 00:02:28,190
+So what's the big difference?
+
+58
+00:02:28,190 --> 00:02:32,710
+Well, SQL is relational while
+MongoDB is document-oriented.
+
+59
+00:02:33,660 --> 00:02:36,280
+Let's take a closer look at
+what it means to be relational.
+
+60
+00:02:36,280 --> 00:02:39,360
+Let's imagine we have a
+love potion that costs $3.99
+
+61
+00:02:39,360 --> 00:02:41,890
+and is made by a
+company called Brewers.
+
+62
+00:02:41,890 --> 00:02:44,340
+To store this in SQL,
+we'd have a potions table
+
+63
+00:02:44,340 --> 00:02:49,620
+with the potion ID, name,
+price, and a vendor ID column.
+
+64
+00:02:49,620 --> 00:02:53,160
+Then we'd have a vendor's table
+with the vendor ID and name
+
+65
+00:02:53,160 --> 00:02:54,250
+column.
+
+66
+00:02:54,250 --> 00:02:56,900
+You'll notice that the
+love potion has a vendor
+
+67
+00:02:56,900 --> 00:02:59,590
+ID of 2, which
+creates a relationship
+
+68
+00:02:59,590 --> 00:03:03,780
+with the vendor and the vendor's
+table that also has an ID of 2.
+
+69
+00:03:03,780 --> 00:03:06,420
+On the other hand,
+document-oriented databases
+
+70
+00:03:06,420 --> 00:03:08,660
+would take the information
+about the potion and group
+
+71
+00:03:08,660 --> 00:03:11,270
+it all together in
+a single document.
+
+72
+00:03:11,270 --> 00:03:13,600
+All those documents then
+get grouped together
+
+73
+00:03:13,600 --> 00:03:15,190
+in a potions collection.
+
+74
+00:03:15,190 --> 00:03:17,190
+You can think about this
+like you're filling out
+
+75
+00:03:17,190 --> 00:03:18,860
+a form that contains
+everything you
+
+76
+00:03:18,860 --> 00:03:20,110
+need to know about the potion.
+
+77
+00:03:22,519 --> 00:03:24,310
+So you've learned that
+collections are just
+
+78
+00:03:24,310 --> 00:03:25,143
+groups of documents.
+
+79
+00:03:25,143 --> 00:03:28,560
+And documents exist
+entirely on their own.
+
+80
+00:03:28,560 --> 00:03:31,040
+This means we can store
+completely different documents
+
+81
+00:03:31,040 --> 00:03:32,730
+in the same collection.
+
+82
+00:03:32,730 --> 00:03:34,920
+For instance, here's
+our potions collection
+
+83
+00:03:34,920 --> 00:03:36,930
+with three potion documents.
+
+84
+00:03:36,930 --> 00:03:39,130
+You might have one that
+has the name, price,
+
+85
+00:03:39,130 --> 00:03:40,780
+and vendor information.
+
+86
+00:03:40,780 --> 00:03:43,080
+Another with only
+name and price.
+
+87
+00:03:43,080 --> 00:03:46,770
+And then one with name, price,
+and even danger information.
+
+88
+00:03:46,770 --> 00:03:49,020
+This is referred to
+as a dynamic schema,
+
+89
+00:03:49,020 --> 00:03:51,600
+which means potions can
+have different data.
+
+90
+00:03:51,600 --> 00:03:54,390
+This is why MongoDB is great
+for unstructured data that's
+
+91
+00:03:54,390 --> 00:03:55,984
+still related.
+
+92
+00:03:55,984 --> 00:03:57,650
+Now that we've covered
+the fundamentals,
+
+93
+00:03:57,650 --> 00:03:58,774
+let's break into some code.
+
+94
+00:04:01,450 --> 00:04:03,460
+One place to write
+Mongo is in the shell.
+
+95
+00:04:03,460 --> 00:04:05,220
+To do this, in the
+command line we type
+
+96
+00:04:05,220 --> 00:04:08,012
+Mongo, which then
+puts us in the shell.
+
+97
+00:04:08,012 --> 00:04:10,220
+We can write our commands
+after the greater than sign
+
+98
+00:04:10,220 --> 00:04:12,320
+to interact with our database.
+
+99
+00:04:12,320 --> 00:04:15,050
+We'll be providing the shell in
+the browser during challenges.
+
+100
+00:04:15,050 --> 00:04:16,904
+But if you want to set up
+Mongo on your local computer,
+
+101
+00:04:16,904 --> 00:04:19,070
+you can head over to their
+installation instructions
+
+102
+00:04:19,070 --> 00:04:21,769
+online.
+
+103
+00:04:21,769 --> 00:04:24,720
+As we just saw, all instances of
+Mongo come with a command line
+
+104
+00:04:24,720 --> 00:04:26,640
+app called the
+shell, which is just
+
+105
+00:04:26,640 --> 00:04:30,340
+a JavaScript interpreter that
+let's us write JavaScript code.
+
+106
+00:04:30,340 --> 00:04:32,110
+As you can see
+here, we can perform
+
+107
+00:04:32,110 --> 00:04:35,090
+basic variable assignment,
+access the variable
+
+108
+00:04:35,090 --> 00:04:38,270
+to see the contents,
+and get a response back.
+
+109
+00:04:38,270 --> 00:04:39,835
+This is all just
+normal JavaScript.
+
+110
+00:04:43,940 --> 00:04:46,920
+Documents, which is where
+we store data in Mongo,
+
+111
+00:04:46,920 --> 00:04:49,420
+are just JSON-like objects.
+
+112
+00:04:49,420 --> 00:04:53,190
+These objects are surrounded by
+curly braces, consist of field
+
+113
+00:04:53,190 --> 00:04:54,770
+value pairs.
+
+114
+00:04:54,770 --> 00:04:58,120
+In this example, we have a
+field with the string name
+
+115
+00:04:58,120 --> 00:05:01,020
+and a value with a
+string invisibility.
+
+116
+00:05:01,020 --> 00:05:04,320
+Then we have a field with the
+string vendor and the value,
+
+117
+00:05:04,320 --> 00:05:06,540
+with the string Kettlecooked.
+
+118
+00:05:06,540 --> 00:05:09,460
+We can have as many field
+value pairs as we like.
+
+119
+00:05:09,460 --> 00:05:12,510
+All we have to do is
+separate them with a comma.
+
+120
+00:05:12,510 --> 00:05:14,230
+Let's look at a few
+basic shell commands.
+
+121
+00:05:16,910 --> 00:05:19,230
+MongoDB comes with a
+number of helper methods
+
+122
+00:05:19,230 --> 00:05:21,630
+to make it easy to
+work with our database.
+
+123
+00:05:21,630 --> 00:05:24,010
+We'll be using a
+database called reviews.
+
+124
+00:05:24,010 --> 00:05:25,980
+To get started, we can
+select which database
+
+125
+00:05:25,980 --> 00:05:28,180
+we want by typing use reviews.
+
+126
+00:05:28,180 --> 00:05:31,080
+We'll get a response back saying
+that we switched to the database
+
+127
+00:05:31,080 --> 00:05:32,500
+reviews.
+
+128
+00:05:32,500 --> 00:05:34,060
+If that database
+doesn't exist yet,
+
+129
+00:05:34,060 --> 00:05:37,640
+it'll get automatically created
+for us when we write to it.
+
+130
+00:05:37,640 --> 00:05:39,710
+To check which database
+we're currently using,
+
+131
+00:05:39,710 --> 00:05:41,450
+we can simply type db,
+
+132
+00:05:41,450 --> 00:05:44,760
+and we'll get a response
+back saying reviews.
+
+133
+00:05:44,760 --> 00:05:46,250
+If you ever forget
+a command, you
+
+134
+00:05:46,250 --> 00:05:47,960
+can always type help,
+which will give you
+
+135
+00:05:47,960 --> 00:05:49,640
+a list of helpful commands.
+
+136
+00:05:49,640 --> 00:05:51,720
+For instance, show
+dbs will give us
+
+137
+00:05:51,720 --> 00:05:54,720
+a list of all the databases
+and their names and sizes.
+
+138
+00:05:58,540 --> 00:06:00,110
+Here's our potion document.
+
+139
+00:06:00,110 --> 00:06:02,790
+Now, we can't just store this
+document in the database.
+
+140
+00:06:02,790 --> 00:06:04,920
+If we did that, it would
+be a complete mess.
+
+141
+00:06:04,920 --> 00:06:07,510
+First we have to store the
+document in a collection,
+
+142
+00:06:07,510 --> 00:06:10,350
+and that collection gets
+filed in the database.
+
+143
+00:06:10,350 --> 00:06:12,580
+So we're going to create a
+collection called potions.
+
+144
+00:06:12,580 --> 00:06:15,060
+We'll put that potion document
+in the potions collection,
+
+145
+00:06:15,060 --> 00:06:16,890
+which then gets persisted
+in the database.
+
+146
+00:06:20,630 --> 00:06:23,470
+We can use the Insert method
+to save our potion document
+
+147
+00:06:23,470 --> 00:06:24,890
+in the potions collection.
+
+148
+00:06:24,890 --> 00:06:26,155
+First, we type db.
+
+149
+00:06:26,155 --> 00:06:27,780
+Whenever we interact
+with the database,
+
+150
+00:06:27,780 --> 00:06:31,480
+we always use db first,
+followed by the collection name.
+
+151
+00:06:31,480 --> 00:06:33,850
+In this case, we'll put
+the collection potions.
+
+152
+00:06:33,850 --> 00:06:35,850
+What's cool here is
+although we haven't actually
+
+153
+00:06:35,850 --> 00:06:37,266
+created this
+collection yet, it'll
+
+154
+00:06:37,266 --> 00:06:39,790
+be created when we insert
+our document into it.
+
+155
+00:06:39,790 --> 00:06:42,530
+So next we have insert
+with parentheses.
+
+156
+00:06:42,530 --> 00:06:45,800
+We'll then pass the parameter
+of our potion object.
+
+157
+00:06:45,800 --> 00:06:47,290
+When we run this
+code, we get back
+
+158
+00:06:47,290 --> 00:06:49,560
+a response that has
+the words WriteResult.
+
+159
+00:06:49,560 --> 00:06:51,100
+But we didn't
+conjure this, did we?
+
+160
+00:06:54,630 --> 00:06:56,940
+Well, it turns out that
+whenever we create, update,
+
+161
+00:06:56,940 --> 00:06:58,920
+or move a document, we
+always get a WriteResult
+
+162
+00:06:58,920 --> 00:07:01,350
+back to let us know if the
+operation was successful
+
+163
+00:07:01,350 --> 00:07:02,230
+or not.
+
+164
+00:07:02,230 --> 00:07:04,650
+In this case, we
+have nInserted, which
+
+165
+00:07:04,650 --> 00:07:07,070
+stands for the number
+of documents inserted
+
+166
+00:07:07,070 --> 00:07:08,510
+and the value of one.
+
+167
+00:07:08,510 --> 00:07:10,680
+This lets us know that one
+document was successfully
+
+168
+00:07:10,680 --> 00:07:12,280
+inserted into the
+potions collection.
+
+169
+00:07:15,044 --> 00:07:16,460
+In order to retrieve
+our document,
+
+170
+00:07:16,460 --> 00:07:18,490
+we'll use the find method.
+
+171
+00:07:18,490 --> 00:07:20,040
+Just like we do with
+inserting, we'll
+
+172
+00:07:20,040 --> 00:07:23,430
+first type db followed by
+the collection potions,
+
+173
+00:07:23,430 --> 00:07:25,570
+and then the find method.
+
+174
+00:07:25,570 --> 00:07:27,800
+Even if we don't pass any
+parameters to a method,
+
+175
+00:07:27,800 --> 00:07:30,590
+we always end them
+with parentheses.
+
+176
+00:07:30,590 --> 00:07:31,670
+Let's give this a try.
+
+177
+00:07:31,670 --> 00:07:33,610
+And just as we expected,
+we successfully
+
+178
+00:07:33,610 --> 00:07:35,730
+retrieved our potion document.
+
+179
+00:07:35,730 --> 00:07:36,810
+But wait a second.
+
+180
+00:07:36,810 --> 00:07:41,090
+What's the _id field with
+the weird object ID value?
+
+181
+00:07:41,090 --> 00:07:44,690
+MongoDB requires that each
+document has a unique ID.
+
+182
+00:07:44,690 --> 00:07:46,790
+Since we didn't specify
+one, it automatically
+
+183
+00:07:46,790 --> 00:07:50,220
+created one for us.
+
+184
+00:07:50,220 --> 00:07:52,340
+The find method will
+return all the documents
+
+185
+00:07:52,340 --> 00:07:53,240
+in the collection.
+
+186
+00:07:53,240 --> 00:07:55,875
+To see this, we'll
+add two more potions.
+
+187
+00:07:55,875 --> 00:08:00,000
+So you can see, we have two
+successful WriteResults.
+
+188
+00:08:00,000 --> 00:08:02,285
+Running find again will
+return all three documents.
+
+189
+00:08:06,870 --> 00:08:08,900
+Now that you've learned
+the basics of MongoDB,
+
+190
+00:08:08,900 --> 00:08:10,870
+go try creating and
+finding your own documents
+
+191
+00:08:10,870 --> 00:08:12,570
+in the challenges.
+

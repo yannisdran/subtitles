@@ -1,0 +1,648 @@
+﻿1
+00:00:00,499 --> 00:00:02,910
+[SINGING] Store
+documents in collections,
+
+2
+00:00:02,910 --> 00:00:04,940
+conjure them with projections.
+
+3
+00:00:04,940 --> 00:00:06,990
+Update, Remove,
+Insert, and Find.
+
+4
+00:00:06,990 --> 00:00:08,980
+It's schemaless,
+keep this in mind.
+
+5
+00:00:08,980 --> 00:00:12,780
+NoSQL looks like wizardry in
+the Magical Marvels of MongoDB.
+
+6
+00:00:15,780 --> 00:00:18,660
+You're watching the
+Magical Marvels of MongoDB.
+
+7
+00:00:18,660 --> 00:00:20,686
+I'm Joel Taylor,
+and this is Level 2.
+
+8
+00:00:20,686 --> 00:00:22,310
+We'll talk about
+removing and modifying
+
+9
+00:00:22,310 --> 00:00:25,920
+documents in our database.
+
+10
+00:00:25,920 --> 00:00:27,480
+While getting our
+potion site set up,
+
+11
+00:00:27,480 --> 00:00:30,080
+we accidentally sneezed
+a spell, and as a result,
+
+12
+00:00:30,080 --> 00:00:31,780
+messed up our database.
+
+13
+00:00:31,780 --> 00:00:33,880
+Now our application isn't
+displaying our potions
+
+14
+00:00:33,880 --> 00:00:35,010
+correctly.
+
+15
+00:00:35,010 --> 00:00:37,180
+We need a way to remove
+all the affected potions.
+
+16
+00:00:40,610 --> 00:00:42,300
+Here's all the potions
+that got ruined.
+
+17
+00:00:42,300 --> 00:00:44,883
+Our love potion review has gone
+rogue and we need to remove it.
+
+18
+00:00:44,883 --> 00:00:47,460
+To do this, we can use the
+Remove Collection method,
+
+19
+00:00:47,460 --> 00:00:49,870
+along with a query of
+equality to specify
+
+20
+00:00:49,870 --> 00:00:52,140
+the document we want to remove.
+
+21
+00:00:52,140 --> 00:00:55,660
+In this case, we'll query for
+a potion with the field name
+
+22
+00:00:55,660 --> 00:00:57,340
+and a value of Love.
+
+23
+00:00:57,340 --> 00:00:59,590
+When we run that command,
+we get a WriteResults saying
+
+24
+00:00:59,590 --> 00:01:01,880
+it nRemoved with a value 1.
+
+25
+00:01:01,880 --> 00:01:03,590
+nRemoved is the
+number of documents
+
+26
+00:01:03,590 --> 00:01:06,020
+removed, letting us know one
+document was successfully
+
+27
+00:01:06,020 --> 00:01:07,570
+removed.
+
+28
+00:01:07,570 --> 00:01:09,195
+Now let's remove the
+other two potions.
+
+29
+00:01:12,460 --> 00:01:14,670
+It turns out the remaining
+two potions have one thing
+
+30
+00:01:14,670 --> 00:01:16,590
+in common, their vendor.
+
+31
+00:01:16,590 --> 00:01:18,820
+So instead of removing
+the potions one by one,
+
+32
+00:01:18,820 --> 00:01:22,140
+we can write a query to match
+the vendor of Kettlecooked.
+
+33
+00:01:22,140 --> 00:01:23,690
+By default, the
+Remove method will
+
+34
+00:01:23,690 --> 00:01:26,030
+remove all matching documents.
+
+35
+00:01:26,030 --> 00:01:28,542
+When we run this command, we
+get a WriteResult back saying
+
+36
+00:01:28,542 --> 00:01:29,875
+that two documents were removed.
+
+37
+00:01:32,590 --> 00:01:34,360
+Instead of completely
+removing a potion,
+
+38
+00:01:34,360 --> 00:01:37,640
+we can also update specific
+fields with new values.
+
+39
+00:01:37,640 --> 00:01:39,960
+For instance, this
+love potion has a price
+
+40
+00:01:39,960 --> 00:01:42,930
+of $40.99, which is completely
+wrong, because love potions are
+
+41
+00:01:42,930 --> 00:01:43,950
+always cheap.
+
+42
+00:01:43,950 --> 00:01:46,690
+To fix this, we can use the
+Update Collection method.
+
+43
+00:01:49,470 --> 00:01:52,280
+The first thing you want to do
+is pass in a query parameter
+
+44
+00:01:52,280 --> 00:01:54,570
+to select the document
+we want to update.
+
+45
+00:01:54,570 --> 00:01:58,430
+So here we'll pass in the field
+name with the value Love.
+
+46
+00:01:58,430 --> 00:02:01,140
+The Update method also
+takes an update parameter.
+
+47
+00:02:01,140 --> 00:02:04,280
+In this example, we'll be
+using the set update operator
+
+48
+00:02:04,280 --> 00:02:06,920
+to set the field to a new value.
+
+49
+00:02:06,920 --> 00:02:08,580
+Update operators
+are tools we can
+
+50
+00:02:08,580 --> 00:02:11,015
+use to perform various
+operations on our documents,
+
+51
+00:02:11,015 --> 00:02:13,460
+and always begin
+with a dollar sign.
+
+52
+00:02:13,460 --> 00:02:15,970
+To update our potion,
+we'll use $set with a field
+
+53
+00:02:15,970 --> 00:02:18,820
+price and a value of $3.99.
+
+54
+00:02:18,820 --> 00:02:20,670
+So you can see, our
+potion successfully
+
+55
+00:02:20,670 --> 00:02:22,470
+updates with the new price.
+
+56
+00:02:22,470 --> 00:02:24,330
+It's important to note
+that the update only
+
+57
+00:02:24,330 --> 00:02:27,430
+applies to the first matching
+document, which in this case,
+
+58
+00:02:27,430 --> 00:02:29,905
+is ok, because we only want
+to update a single potion.
+
+59
+00:02:33,370 --> 00:02:35,350
+Whenever we perform
+an update, we
+
+60
+00:02:35,350 --> 00:02:38,010
+get returned a WriteResult
+that has three fields.
+
+61
+00:02:38,010 --> 00:02:40,330
+The first is
+nMatched, which lets
+
+62
+00:02:40,330 --> 00:02:42,940
+us know how many
+documents were matched.
+
+63
+00:02:42,940 --> 00:02:45,600
+The second is nUpserted,
+which is the number
+
+64
+00:02:45,600 --> 00:02:48,600
+of documents that were
+created because of the update.
+
+65
+00:02:48,600 --> 00:02:51,750
+The third is nModify, which
+is the number of documents
+
+66
+00:02:51,750 --> 00:02:53,120
+that were modified.
+
+67
+00:02:53,120 --> 00:02:55,770
+As we expected, we matched
+and modified one document.
+
+68
+00:02:59,017 --> 00:03:00,850
+What would happen if
+we didn't use an update
+
+69
+00:03:00,850 --> 00:03:03,380
+operator with the Update
+method, and instead
+
+70
+00:03:03,380 --> 00:03:06,710
+just passed a document
+with the price of $3.99?
+
+71
+00:03:06,710 --> 00:03:08,450
+This results in a
+complete replacement
+
+72
+00:03:08,450 --> 00:03:09,840
+of our matched document.
+
+73
+00:03:09,840 --> 00:03:11,920
+You can see
+everything but the ID
+
+74
+00:03:11,920 --> 00:03:15,110
+gets replaced with the values
+of the update parameter.
+
+75
+00:03:15,110 --> 00:03:16,750
+This might seem a
+bit counterintuitive,
+
+76
+00:03:16,750 --> 00:03:18,865
+but it's great for importing
+or overwriting data.
+
+77
+00:03:21,680 --> 00:03:23,625
+After the whole
+sneeze fiasco, we
+
+78
+00:03:23,625 --> 00:03:26,380
+were adding our potions
+back in and accidentally set
+
+79
+00:03:26,380 --> 00:03:29,619
+some potions to the vendor of
+KC instead of Kettlecooked.
+
+80
+00:03:29,619 --> 00:03:31,160
+Well, we got this
+angry letter and we
+
+81
+00:03:31,160 --> 00:03:33,130
+need to fix this immediately,
+else Kettlecooked
+
+82
+00:03:33,130 --> 00:03:35,440
+is going to send us
+more angry letters.
+
+83
+00:03:35,440 --> 00:03:37,310
+First, we'll pass
+in a query parameter
+
+84
+00:03:37,310 --> 00:03:40,640
+to find potions
+with a vendor of KC.
+
+85
+00:03:40,640 --> 00:03:44,140
+Then we'll pass in an update
+parameter using the set operator
+
+86
+00:03:44,140 --> 00:03:47,280
+to set the field
+vendor to Kettlecooked.
+
+87
+00:03:47,280 --> 00:03:49,490
+We know that as is,
+this will only update
+
+88
+00:03:49,490 --> 00:03:51,670
+the first matching potion.
+
+89
+00:03:51,670 --> 00:03:53,870
+In order to perform
+multiple updates,
+
+90
+00:03:53,870 --> 00:03:55,980
+we need to add a
+third parameter, which
+
+91
+00:03:55,980 --> 00:03:57,500
+is the options parameter.
+
+92
+00:03:57,500 --> 00:04:00,760
+And we can specify the
+option multi to true.
+
+93
+00:04:00,760 --> 00:04:02,930
+And by doing so, we're
+telling the update
+
+94
+00:04:02,930 --> 00:04:06,414
+to perform the operation
+on all matching documents.
+
+95
+00:04:06,414 --> 00:04:08,330
+If we run this code,
+we'll see that we matched
+
+96
+00:04:08,330 --> 00:04:09,625
+and modified four documents.
+
+97
+00:04:13,720 --> 00:04:16,240
+Our application is trying
+to grow in popularity,
+
+98
+00:04:16,240 --> 00:04:19,130
+and we want to see which potions
+users care about the most.
+
+99
+00:04:19,130 --> 00:04:22,130
+To do this, we'll start
+logging user behavior.
+
+100
+00:04:22,130 --> 00:04:23,940
+Whenever a user
+clicks More info,
+
+101
+00:04:23,940 --> 00:04:26,650
+we want to create a log
+document with a potion
+
+102
+00:04:26,650 --> 00:04:30,310
+name and a count which will get
+stored in the Logs Collection.
+
+103
+00:04:30,310 --> 00:04:33,350
+Whenever that potion's More
+info button gets clicked again,
+
+104
+00:04:33,350 --> 00:04:36,390
+we'll update the existing log
+document with a count increment
+
+105
+00:04:36,390 --> 00:04:36,890
+by 1.
+
+106
+00:04:39,730 --> 00:04:41,240
+First, let's see
+how we would update
+
+107
+00:04:41,240 --> 00:04:44,570
+an existing document that's
+already in the Logs Collection.
+
+108
+00:04:44,570 --> 00:04:48,050
+We'll use the Update method and
+a query for the name Shrinking.
+
+109
+00:04:48,050 --> 00:04:50,700
+We can then use the
+$inc update operator
+
+110
+00:04:50,700 --> 00:04:52,640
+which will update
+the specified field
+
+111
+00:04:52,640 --> 00:04:55,460
+by any positive or
+negative value we supply.
+
+112
+00:04:55,460 --> 00:04:58,630
+So here we'll increment
+the field count by 1.
+
+113
+00:04:58,630 --> 00:05:01,310
+As you can see, the document
+now has a count of 2.
+
+114
+00:05:07,490 --> 00:05:10,710
+What happens if we try to update
+a log that doesn't exist yet?
+
+115
+00:05:10,710 --> 00:05:14,190
+For instance, there is no log
+document with the name Love.
+
+116
+00:05:14,190 --> 00:05:17,100
+When we run this update, we
+get a WriteResult back saying
+
+117
+00:05:17,100 --> 00:05:20,090
+that no documents were matched,
+which means none were modified.
+
+118
+00:05:20,090 --> 00:05:21,370
+What can we do to fix this?
+
+119
+00:05:24,640 --> 00:05:27,340
+Another option we can specify
+when performing an update
+
+120
+00:05:27,340 --> 00:05:31,090
+is upsert, which when true will
+create a new document with all
+
+121
+00:05:31,090 --> 00:05:33,035
+the details of the query
+and update parameters
+
+122
+00:05:33,035 --> 00:05:35,860
+when no document gets matched.
+
+123
+00:05:35,860 --> 00:05:39,140
+Running the same update as
+before with upsert set to true,
+
+124
+00:05:39,140 --> 00:05:42,150
+we get back a WriteResult that
+says no documents matched,
+
+125
+00:05:42,150 --> 00:05:46,380
+but one was upserted, letting us
+know one document was created.
+
+126
+00:05:46,380 --> 00:05:49,260
+And sure enough, we've create a
+log document with the name Love
+
+127
+00:05:49,260 --> 00:05:51,290
+and a count of 1.
+
+128
+00:05:51,290 --> 00:05:54,834
+Now, what happens when we
+run this same query again?
+
+129
+00:05:54,834 --> 00:05:56,250
+Running this code
+again, we'll see
+
+130
+00:05:56,250 --> 00:05:57,910
+that we matched and
+modified a document
+
+131
+00:05:57,910 --> 00:05:59,940
+and increase its count by 1.
+
+132
+00:05:59,940 --> 00:06:02,280
+This time, no documents were
+upserted because we matched
+
+133
+00:06:02,280 --> 00:06:03,363
+a document with our query.
+
+134
+00:06:06,860 --> 00:06:09,700
+Now it's time for you to perform
+some mystical modifications
+
+135
+00:06:09,700 --> 00:06:11,430
+in the challenges.
+

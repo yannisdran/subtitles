@@ -1,0 +1,916 @@
+﻿1
+00:00:02,040 --> 00:00:02,914
+Welcome back.
+
+2
+00:00:02,914 --> 00:00:05,580
+In this section, we'll be diving
+deeper into updating documents.
+
+3
+00:00:08,200 --> 00:00:09,990
+During development,
+we were a bit rushed
+
+4
+00:00:09,990 --> 00:00:11,790
+and made some bad
+code decisions.
+
+5
+00:00:11,790 --> 00:00:14,060
+Luckily, we kept a To Do list.
+
+6
+00:00:14,060 --> 00:00:16,530
+In order to accomplish these
+To Do lists, all we need to do
+
+7
+00:00:16,530 --> 00:00:18,430
+is use some more
+update operators.
+
+8
+00:00:18,430 --> 00:00:22,941
+The first item of action is
+to remove the color field.
+
+9
+00:00:22,941 --> 00:00:24,315
+While we initially
+thought people
+
+10
+00:00:24,315 --> 00:00:26,429
+cared about the color of
+our potion, it turns out,
+
+11
+00:00:26,429 --> 00:00:28,220
+no one's trying to make
+a fashion statement
+
+12
+00:00:28,220 --> 00:00:29,290
+with their potion.
+
+13
+00:00:29,290 --> 00:00:32,299
+To remove a field, we
+can use $unset operator.
+
+14
+00:00:32,299 --> 00:00:35,020
+Here we're going to call update
+on our potions collection,
+
+15
+00:00:35,020 --> 00:00:36,630
+but this time for
+our query parameter,
+
+16
+00:00:36,630 --> 00:00:38,399
+we're going to pass
+empty brackets.
+
+17
+00:00:38,399 --> 00:00:39,815
+This will select
+all the documents
+
+18
+00:00:39,815 --> 00:00:41,790
+in our potions collection.
+
+19
+00:00:41,790 --> 00:00:43,590
+Next, we'll pass $unset.
+
+20
+00:00:43,590 --> 00:00:46,930
+We'll specify the field color
+and then an empty string.
+
+21
+00:00:46,930 --> 00:00:49,164
+This might seem a bit weird,
+but when using $unset,
+
+22
+00:00:49,164 --> 00:00:50,830
+the value we pass
+really doesn't matter.
+
+23
+00:00:50,830 --> 00:00:52,490
+And the empty
+string communicates
+
+24
+00:00:52,490 --> 00:00:55,670
+what we're trying to do, which
+is remove the color field.
+
+25
+00:00:55,670 --> 00:00:57,520
+Lastly, we'll set
+multi to true in order
+
+26
+00:00:57,520 --> 00:01:00,094
+to apply this update to
+all of the documents.
+
+27
+00:01:00,094 --> 00:01:02,010
+If we run this code,
+we'll see that the colors
+
+28
+00:01:02,010 --> 00:01:03,660
+in the documents
+slowly fade away.
+
+29
+00:01:06,850 --> 00:01:08,650
+The next task on our
+list is to rename
+
+30
+00:01:08,650 --> 00:01:10,710
+the field "score" to "grades".
+
+31
+00:01:10,710 --> 00:01:13,719
+We can do this using the
+$rename update operator.
+
+32
+00:01:13,719 --> 00:01:15,510
+Looking at the code we'll
+will use the same kind
+
+33
+00:01:15,510 --> 00:01:18,100
+of query parameters you did
+previously with empty brackets
+
+34
+00:01:18,100 --> 00:01:19,970
+to select all the documents.
+
+35
+00:01:19,970 --> 00:01:22,460
+Next, we'll pass in the
+$rename update operator, then
+
+36
+00:01:22,460 --> 00:01:24,200
+the field "score",
+which is the one we
+
+37
+00:01:24,200 --> 00:01:27,110
+want to update to the value
+"grade", which is the new field
+
+38
+00:01:27,110 --> 00:01:28,140
+name we want.
+
+39
+00:01:28,140 --> 00:01:30,360
+In addition, we'll set
+multi to true to change all
+
+40
+00:01:30,360 --> 00:01:31,331
+documents.
+
+41
+00:01:31,331 --> 00:01:33,080
+Looking at the code
+above, we successfully
+
+42
+00:01:33,080 --> 00:01:34,470
+renamed our documents field.
+
+43
+00:01:37,589 --> 00:01:39,755
+We've received urgent notice
+from the Magical Council
+
+44
+00:01:39,755 --> 00:01:41,130
+that we can no
+longer have secret
+
+45
+00:01:41,130 --> 00:01:42,670
+as an ingredient in our potions.
+
+46
+00:01:42,670 --> 00:01:44,390
+So we need to change it.
+
+47
+00:01:44,390 --> 00:01:47,400
+Here we have a potion document
+and ingredients hippo, secret,
+
+48
+00:01:47,400 --> 00:01:48,150
+and mouse feet.
+
+49
+00:01:52,486 --> 00:01:54,110
+Now, we can try to
+update this by first
+
+50
+00:01:54,110 --> 00:01:56,160
+querying for ingredients
+that have secret,
+
+51
+00:01:56,160 --> 00:01:58,520
+and then setting
+ingredients to 42.
+
+52
+00:01:58,520 --> 00:01:59,930
+But if we do this,
+we'll actually
+
+53
+00:01:59,930 --> 00:02:01,745
+end up updating the
+entire ingredients
+
+54
+00:02:01,745 --> 00:02:03,665
+field to the value 42.
+
+55
+00:02:03,665 --> 00:02:06,040
+But instead, we just want to
+update the single value, not
+
+56
+00:02:06,040 --> 00:02:06,930
+the entire thing.
+
+57
+00:02:11,180 --> 00:02:13,890
+You can reference arrayed
+values using dot notation
+
+58
+00:02:13,890 --> 00:02:15,614
+and update them individually.
+
+59
+00:02:15,614 --> 00:02:17,780
+First we specify the field
+name ingredients and then
+
+60
+00:02:17,780 --> 00:02:19,380
+the index of the value.
+
+61
+00:02:19,380 --> 00:02:22,540
+So in this case, we have
+ingredients.0, ingredients.1,
+
+62
+00:02:22,540 --> 00:02:24,450
+and ingredients.2.
+
+63
+00:02:24,450 --> 00:02:26,360
+And since we want to
+update the secret value,
+
+64
+00:02:26,360 --> 00:02:27,568
+we'll be using ingredients.1.
+
+65
+00:02:31,690 --> 00:02:33,520
+First we'll query
+for the proper potion
+
+66
+00:02:33,520 --> 00:02:35,030
+using a query of equality.
+
+67
+00:02:35,030 --> 00:02:36,810
+We'll set name to Shrinking.
+
+68
+00:02:36,810 --> 00:02:38,450
+Then we'll put
+$set with the field
+
+69
+00:02:38,450 --> 00:02:43,050
+ingredients.1 to
+the value of 42.
+
+70
+00:02:43,050 --> 00:02:45,330
+As you can see, we matched
+and modified one document,
+
+71
+00:02:45,330 --> 00:02:46,845
+and now the ingredients says 42.
+
+72
+00:02:50,404 --> 00:02:51,820
+Our previous update
+will work when
+
+73
+00:02:51,820 --> 00:02:53,389
+we know the location
+of the value,
+
+74
+00:02:53,389 --> 00:02:54,930
+but sometimes we're
+not going to know
+
+75
+00:02:54,930 --> 00:02:56,820
+where the secret ingredient is.
+
+76
+00:02:56,820 --> 00:02:59,255
+For instance, one
+might be ingredients.1,
+
+77
+00:02:59,255 --> 00:03:02,220
+while another is
+ingredients.0, and then
+
+78
+00:03:02,220 --> 00:03:04,290
+another in ingredients.2.
+
+79
+00:03:04,290 --> 00:03:06,040
+We need a way to update
+multiple documents
+
+80
+00:03:06,040 --> 00:03:08,290
+without knowing the location
+of the secret ingredient.
+
+81
+00:03:10,980 --> 00:03:13,760
+We can this with something
+called a positional operator.
+
+82
+00:03:13,760 --> 00:03:15,830
+First, we'll query for
+potions with the value
+
+83
+00:03:15,830 --> 00:03:16,750
+we want to change.
+
+84
+00:03:16,750 --> 00:03:19,460
+We'll set ingredients
+to the value of secret.
+
+85
+00:03:19,460 --> 00:03:22,060
+Next, with our update parameter,
+we'll $set with the field
+
+86
+00:03:22,060 --> 00:03:23,940
+ingredients, but
+instead of specifying
+
+87
+00:03:23,940 --> 00:03:26,730
+the location, this time
+we'll use a dollar sign.
+
+88
+00:03:26,730 --> 00:03:28,300
+And that's a
+positional operator,
+
+89
+00:03:28,300 --> 00:03:31,290
+and it acts as a placeholder
+for the index of the value
+
+90
+00:03:31,290 --> 00:03:32,640
+that we're querying.
+
+91
+00:03:32,640 --> 00:03:34,260
+So if our query
+matches the document
+
+92
+00:03:34,260 --> 00:03:36,680
+with the secret at the
+index 0, the dollar sign
+
+93
+00:03:36,680 --> 00:03:38,260
+will then turn to 0.
+
+94
+00:03:38,260 --> 00:03:41,880
+If it's at an index of 1, the
+dollar sign then becomes a 1.
+
+95
+00:03:41,880 --> 00:03:44,440
+Lastly, we'll set multi to true
+to apply this update to all
+
+96
+00:03:44,440 --> 00:03:45,881
+documents.
+
+97
+00:03:45,881 --> 00:03:48,130
+It's important to note that
+the positional operator only
+
+98
+00:03:48,130 --> 00:03:50,550
+applies to the first
+match per document.
+
+99
+00:03:50,550 --> 00:03:52,550
+So if we had secret
+multiple times in the array,
+
+100
+00:03:52,550 --> 00:03:54,950
+it only applied to
+the first value.
+
+101
+00:03:54,950 --> 00:03:58,524
+Let's see the position
+operator in action.
+
+102
+00:03:58,524 --> 00:04:00,190
+When we run this
+update, the dollar sign
+
+103
+00:04:00,190 --> 00:04:02,810
+will be replaced with
+the index of the secret.
+
+104
+00:04:02,810 --> 00:04:04,450
+So for the first
+document, the update
+
+105
+00:04:04,450 --> 00:04:07,032
+becomes $set with ingredients.1.
+
+106
+00:04:07,032 --> 00:04:08,490
+For the second
+document, it becomes
+
+107
+00:04:08,490 --> 00:04:10,821
+$set with ingredients.0.
+
+108
+00:04:10,821 --> 00:04:13,070
+And the last document becomes
+$set with ingredients.2.
+
+109
+00:04:13,070 --> 00:04:15,090
+And there we have it.
+
+110
+00:04:15,090 --> 00:04:19,040
+All the potions have been
+successfully updated.
+
+111
+00:04:19,040 --> 00:04:20,924
+We recently tried out
+a new shrinking potion.
+
+112
+00:04:20,924 --> 00:04:23,090
+And originally, we didn't
+think it worked very well,
+
+113
+00:04:23,090 --> 00:04:24,526
+so we gave it a strength of 1.
+
+114
+00:04:24,526 --> 00:04:25,900
+But when we woke
+up this morning,
+
+115
+00:04:25,900 --> 00:04:27,944
+our pillow was the
+size of our house,
+
+116
+00:04:27,944 --> 00:04:29,360
+so now that we're
+full size again,
+
+117
+00:04:29,360 --> 00:04:31,480
+we're going to update
+that strength to 5.
+
+118
+00:04:31,480 --> 00:04:33,085
+We can do this
+using dot notation.
+
+119
+00:04:36,570 --> 00:04:38,440
+Since we want to update
+the strength field,
+
+120
+00:04:38,440 --> 00:04:40,800
+we'll be using ratings.strength.
+
+121
+00:04:40,800 --> 00:04:43,370
+Then we'll update the potion
+with the name Shrinking
+
+122
+00:04:43,370 --> 00:04:46,259
+and set ratings.strength
+to the value 5.
+
+123
+00:04:46,259 --> 00:04:48,800
+From the WriteResult, we can
+see that we successfully matched
+
+124
+00:04:48,800 --> 00:04:49,883
+and modified our document.
+
+125
+00:04:53,090 --> 00:04:54,775
+MongoDB comes with
+a few operators
+
+126
+00:04:54,775 --> 00:04:57,550
+that allow us to perform
+complex operations.
+
+127
+00:04:57,550 --> 00:04:59,120
+For instance, we
+have $max, which
+
+128
+00:04:59,120 --> 00:05:01,390
+allows us to update
+a value only if it's
+
+129
+00:05:01,390 --> 00:05:03,170
+greater than the current value.
+
+130
+00:05:03,170 --> 00:05:05,280
+$min if we want to update
+only if the new value is
+
+131
+00:05:05,280 --> 00:05:07,010
+less than the current value.
+
+132
+00:05:07,010 --> 00:05:09,690
+And $mul, which allows us to
+multiply the current value
+
+133
+00:05:09,690 --> 00:05:11,540
+by the value we supply.
+
+134
+00:05:11,540 --> 00:05:14,320
+Now, that's a lot of new
+operators, but don't worry.
+
+135
+00:05:14,320 --> 00:05:16,720
+MongoDB has great
+documentation and you
+
+136
+00:05:16,720 --> 00:05:19,150
+can read about them
+using the link below.
+
+137
+00:05:19,150 --> 00:05:21,230
+As you continue
+learning MongoDB,
+
+138
+00:05:21,230 --> 00:05:22,980
+the documentation will
+be a loyal friend.
+
+139
+00:05:26,380 --> 00:05:28,806
+Arrays are a common way
+to store data in Mongo.
+
+140
+00:05:28,806 --> 00:05:30,180
+Here we have our
+shrinking potion
+
+141
+00:05:30,180 --> 00:05:32,600
+where we've added the
+categories array with the values
+
+142
+00:05:32,600 --> 00:05:34,430
+tasty and effective.
+
+143
+00:05:34,430 --> 00:05:37,790
+Let's see how we can
+modify this array.
+
+144
+00:05:37,790 --> 00:05:40,250
+Let's say we wanted to
+remove the last value
+
+145
+00:05:40,250 --> 00:05:42,170
+in the categories array.
+
+146
+00:05:42,170 --> 00:05:44,070
+To do this, we can
+use the $pop operator
+
+147
+00:05:44,070 --> 00:05:47,650
+to remove either the first or
+the last value in an array.
+
+148
+00:05:47,650 --> 00:05:49,750
+We simply specify the
+field "categories",
+
+149
+00:05:49,750 --> 00:05:52,680
+and give it a value of negative
+1 for the first element
+
+150
+00:05:52,680 --> 00:05:54,607
+or 1 for the last element.
+
+151
+00:05:54,607 --> 00:05:56,190
+Since we're removing
+the last element,
+
+152
+00:05:56,190 --> 00:05:58,060
+we'll give it a value of 1.
+
+153
+00:05:58,060 --> 00:06:00,970
+Now our categories array
+only has the value tasty.
+
+154
+00:06:00,970 --> 00:06:03,020
+Now, keep in mind,
+the $pop operator
+
+155
+00:06:03,020 --> 00:06:04,084
+only modifies the array.
+
+156
+00:06:04,084 --> 00:06:05,625
+It doesn't actually
+return the value.
+
+157
+00:06:10,120 --> 00:06:12,090
+We can use the $push
+operator to add values
+
+158
+00:06:12,090 --> 00:06:13,600
+to the end of an array.
+
+159
+00:06:13,600 --> 00:06:15,280
+For this example,
+we'll use $push
+
+160
+00:06:15,280 --> 00:06:18,400
+with the field categories,
+and specify the value budget.
+
+161
+00:06:18,400 --> 00:06:20,350
+So we can see, budget
+is now at the end
+
+162
+00:06:20,350 --> 00:06:21,420
+of the categories array.
+
+163
+00:06:24,970 --> 00:06:26,640
+To keep things neat
+and tidy, we only
+
+164
+00:06:26,640 --> 00:06:29,560
+want to add unique values
+to the categories array.
+
+165
+00:06:29,560 --> 00:06:31,840
+To do this, we can use
+the $addToSet operator,
+
+166
+00:06:31,840 --> 00:06:34,220
+which will only add the
+value if it doesn't already
+
+167
+00:06:34,220 --> 00:06:36,220
+exist in the array.
+
+168
+00:06:36,220 --> 00:06:38,750
+So here we have $addToSet,
+the field categories,
+
+169
+00:06:38,750 --> 00:06:40,460
+and the value budget.
+
+170
+00:06:40,460 --> 00:06:42,300
+So you can see, the
+categories field
+
+171
+00:06:42,300 --> 00:06:43,690
+only has tasty and budget.
+
+172
+00:06:43,690 --> 00:06:45,360
+It didn't add budget
+a second time.
+
+173
+00:06:48,734 --> 00:06:50,650
+We've learned how to add
+elements to an array,
+
+174
+00:06:50,650 --> 00:06:52,000
+but what about removing them?
+
+175
+00:06:52,000 --> 00:06:55,440
+To remove values, we can
+use the $pull operator.
+
+176
+00:06:55,440 --> 00:06:58,200
+The $pull operator removes
+all instances of a specified
+
+177
+00:06:58,200 --> 00:06:59,610
+value from an array.
+
+178
+00:06:59,610 --> 00:07:02,510
+By using $pull in categories
+with the value tasty,
+
+179
+00:07:02,510 --> 00:07:04,490
+you see that tasty
+has been removed.
+
+180
+00:07:04,490 --> 00:07:05,930
+It's really
+important to remember
+
+181
+00:07:05,930 --> 00:07:09,570
+that $pull will remove all
+instances of a matching value.
+
+182
+00:07:09,570 --> 00:07:11,032
+So if your value's
+not unique, they
+
+183
+00:07:11,032 --> 00:07:12,490
+will all be removed
+from the array.
+
+184
+00:07:15,714 --> 00:07:17,380
+Now you're equipped
+with some operators.
+
+185
+00:07:17,380 --> 00:07:20,000
+Go give them a try
+in the challenges.
+
+186
+00:07:20,000 --> 00:07:20,500
+[BEEP]
+
+187
+00:07:20,500 --> 00:07:22,091
+Let's start from the top.
+
+188
+00:07:22,091 --> 00:07:22,590
+[BEEP]
+
+189
+00:07:22,590 --> 00:07:24,180
+That's a fake smile.
+
+190
+00:07:24,180 --> 00:07:25,608
+[LAUGHTER]
+
+191
+00:07:25,608 --> 00:07:27,040
+[BEEP]
+
+192
+00:07:27,040 --> 00:07:28,321
+That was good.
+
+193
+00:07:28,321 --> 00:07:28,820
+[BEEP]
+
+194
+00:07:28,820 --> 00:07:29,528
+Mystical--
+
+195
+00:07:29,528 --> 00:07:30,670
+[BEEP]
+

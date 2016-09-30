@@ -1,0 +1,490 @@
+﻿1
+00:00:00,499 --> 00:00:02,910
+[SINGING] Store
+documents in collections,
+
+2
+00:00:02,910 --> 00:00:04,940
+conjure them with projections.
+
+3
+00:00:04,940 --> 00:00:06,990
+Update, Remove,
+Insert, and Find.
+
+4
+00:00:06,990 --> 00:00:08,920
+It's schemaless,
+keep this in mind.
+
+5
+00:00:08,920 --> 00:00:12,786
+NoSQL looks like wizardry in
+the Magical Marvels of MongoDB.
+
+6
+00:00:15,870 --> 00:00:18,380
+You're watching the
+magical marvels of MongoDB.
+
+7
+00:00:18,380 --> 00:00:19,144
+I'm Joel Taylor.
+
+8
+00:00:19,144 --> 00:00:21,310
+In this level, we'll talk
+about some query operators
+
+9
+00:00:21,310 --> 00:00:25,099
+and how to customize
+our results.
+
+10
+00:00:25,099 --> 00:00:27,140
+We've decided to add some
+filtering functionality
+
+11
+00:00:27,140 --> 00:00:30,584
+to our application to make it
+easy to find specific potions.
+
+12
+00:00:30,584 --> 00:00:32,250
+In this example, we
+want to find potions
+
+13
+00:00:32,250 --> 00:00:35,060
+by the vendor Kettlecooked
+that are only the strongest,
+
+14
+00:00:35,060 --> 00:00:36,075
+with a strength of 5.
+
+15
+00:00:38,600 --> 00:00:41,890
+To do this, we can pass multiple
+queries to the find method.
+
+16
+00:00:41,890 --> 00:00:45,010
+First, we'll query for a
+vendor of Kettlecooked.
+
+17
+00:00:45,010 --> 00:00:46,800
+Add a comma, and
+then we'll query
+
+18
+00:00:46,800 --> 00:00:49,150
+for ratings.strength of 5.
+
+19
+00:00:49,150 --> 00:00:52,200
+As you can see, we matched the
+two first documents, but not
+
+20
+00:00:52,200 --> 00:00:56,156
+the third because it only
+has a strength rating of 4.
+
+21
+00:00:56,156 --> 00:00:57,530
+Most of the time,
+we can get away
+
+22
+00:00:57,530 --> 00:00:59,680
+with finding potions
+based on equality,
+
+23
+00:00:59,680 --> 00:01:02,519
+but sometimes we want to use
+queries with comparisons.
+
+24
+00:01:02,519 --> 00:01:04,560
+It's about time that we
+allow our users to search
+
+25
+00:01:04,560 --> 00:01:06,760
+for potions based on the price.
+
+26
+00:01:06,760 --> 00:01:09,060
+So here we want to find
+potions that are less than $20.
+
+27
+00:01:11,820 --> 00:01:14,010
+In order to perform
+complex queries,
+
+28
+00:01:14,010 --> 00:01:17,340
+we can make use of the
+comparison query operators.
+
+29
+00:01:17,340 --> 00:01:20,390
+The most common are
+greater than, less than,
+
+30
+00:01:20,390 --> 00:01:24,210
+greater than equal to, less
+than equal to, and not equal to.
+
+31
+00:01:24,210 --> 00:01:27,716
+Let's see how we can
+put these to use.
+
+32
+00:01:27,716 --> 00:01:29,090
+Let's filter these
+documents down
+
+33
+00:01:29,090 --> 00:01:32,436
+to only match documents that
+have a price of less than $20.
+
+34
+00:01:32,436 --> 00:01:33,810
+Using the find
+collection method,
+
+35
+00:01:33,810 --> 00:01:35,930
+we'll specify the
+field price as usual.
+
+36
+00:01:35,930 --> 00:01:37,680
+But this time, we'll
+pass it a field value
+
+37
+00:01:37,680 --> 00:01:41,010
+pair with it, $lt query
+operator and the value of 20,
+
+38
+00:01:41,010 --> 00:01:43,287
+to find potions less than $20.
+
+39
+00:01:43,287 --> 00:01:45,870
+If we run this code, we'll see
+the proper potions get matched.
+
+40
+00:01:48,822 --> 00:01:50,280
+Let's make our
+filter more advanced
+
+41
+00:01:50,280 --> 00:01:51,886
+and allow for price ranges.
+
+42
+00:01:51,886 --> 00:01:53,260
+Here we want to
+query for potions
+
+43
+00:01:53,260 --> 00:01:56,440
+that are greater than
+$10 but less than $20.
+
+44
+00:01:56,440 --> 00:01:58,900
+Just like we did before,
+we'll use find, specify
+
+45
+00:01:58,900 --> 00:02:00,800
+the field price,
+but this time we'll
+
+46
+00:02:00,800 --> 00:02:02,982
+use multiple field value pairs.
+
+47
+00:02:02,982 --> 00:02:04,690
+First we'll add the
+greater than criteria
+
+48
+00:02:04,690 --> 00:02:07,430
+by using gt and a value 10.
+
+49
+00:02:07,430 --> 00:02:10,300
+Add a comma, and then query
+for prices less than 20
+
+50
+00:02:10,300 --> 00:02:13,510
+by using the $lt operator
+and the value of 20.
+
+51
+00:02:13,510 --> 00:02:16,070
+If we run this query, we'll see
+that we matched all documents
+
+52
+00:02:16,070 --> 00:02:18,225
+with a price greater than
+$10 but less than $20.
+
+53
+00:02:21,100 --> 00:02:23,590
+The vendor Brewers recently
+made some pretty risky comments
+
+54
+00:02:23,590 --> 00:02:24,330
+in the news.
+
+55
+00:02:24,330 --> 00:02:26,560
+We want to allow users to
+be able to select potions
+
+56
+00:02:26,560 --> 00:02:28,800
+that are not made by Brewers.
+
+57
+00:02:28,800 --> 00:02:31,240
+Using find, we'll
+specify the field vendor,
+
+58
+00:02:31,240 --> 00:02:34,350
+supply the field value with
+an $ne operator and the value
+
+59
+00:02:34,350 --> 00:02:38,065
+Brewers to find all potions with
+a vendor not equal to Brewers.
+
+60
+00:02:41,120 --> 00:02:42,860
+We've added a sizes
+field to our potion
+
+61
+00:02:42,860 --> 00:02:46,230
+documents that contain the
+sizes that each potion comes in.
+
+62
+00:02:46,230 --> 00:02:49,544
+We want to allow users to find
+potions between certain sizes.
+
+63
+00:02:49,544 --> 00:02:50,960
+For example, we
+want to allow them
+
+64
+00:02:50,960 --> 00:02:54,510
+to find potions that are
+greater than 8 but less than 16.
+
+65
+00:02:54,510 --> 00:02:56,520
+We can use the element
+match query operator
+
+66
+00:02:56,520 --> 00:03:00,020
+to only match arrays that have
+at least one value that matches
+
+67
+00:03:00,020 --> 00:03:02,230
+all of the query criteria.
+
+68
+00:03:02,230 --> 00:03:03,330
+Let's give this a try.
+
+69
+00:03:03,330 --> 00:03:06,900
+We'll specify the field
+sizes, pass element match,
+
+70
+00:03:06,900 --> 00:03:09,590
+and give it a range criteria
+for values greater than 8
+
+71
+00:03:09,590 --> 00:03:11,030
+but less than 16.
+
+72
+00:03:11,030 --> 00:03:12,950
+As you can see, the
+Luck potion matches
+
+73
+00:03:12,950 --> 00:03:14,180
+because it has a size of 10.
+
+74
+00:03:18,172 --> 00:03:20,380
+The reason we'd rather use
+the element match operator
+
+75
+00:03:20,380 --> 00:03:23,250
+is because arrays act
+differently with range criteria
+
+76
+00:03:23,250 --> 00:03:24,674
+than normal values.
+
+77
+00:03:24,674 --> 00:03:26,840
+For example, if we just did
+a normal range criteria,
+
+78
+00:03:26,840 --> 00:03:29,840
+we'd actually match the
+Love and the Luck potion.
+
+79
+00:03:29,840 --> 00:03:32,450
+The Luck potion makes sense
+because it has a value of 10.
+
+80
+00:03:32,450 --> 00:03:34,370
+But the Love potion
+doesn't have a value
+
+81
+00:03:34,370 --> 00:03:37,100
+that matches the criteria, so
+why did that actually match?
+
+82
+00:03:40,040 --> 00:03:41,810
+When running a
+query on an array,
+
+83
+00:03:41,810 --> 00:03:43,830
+each value is
+checked individually.
+
+84
+00:03:43,830 --> 00:03:45,770
+If one value matches
+each criteria,
+
+85
+00:03:45,770 --> 00:03:48,080
+then the document is
+considered a match.
+
+86
+00:03:48,080 --> 00:03:52,060
+For instance, here we have
+the sizes 2, 8, and 16.
+
+87
+00:03:52,060 --> 00:03:54,590
+The 16 matches the
+greater than 8,
+
+88
+00:03:54,590 --> 00:03:57,850
+and 2 and 8 match
+the less than 16.
+
+89
+00:03:57,850 --> 00:04:00,274
+Both criteria are met, which
+makes this document seem
+
+90
+00:04:00,274 --> 00:04:00,815
+like a match.
+
+91
+00:04:03,330 --> 00:04:05,232
+Let's take a look
+at another example.
+
+92
+00:04:05,232 --> 00:04:06,690
+Here we have an
+invisibility potion
+
+93
+00:04:06,690 --> 00:04:09,850
+with the values 32, 64, and 80.
+
+94
+00:04:09,850 --> 00:04:13,150
+All these values match the
+criteria of greater than 8,
+
+95
+00:04:13,150 --> 00:04:16,140
+while none match the
+criteria of less than 16.
+
+96
+00:04:16,140 --> 00:04:19,649
+So this document is
+not considered a match.
+
+97
+00:04:19,649 --> 00:04:21,000
+This is some strange behavior.
+
+98
+00:04:21,000 --> 00:04:22,510
+And the lesson here
+is that whenever
+
+99
+00:04:22,510 --> 00:04:24,301
+you're dealing with
+the ranges in an array,
+
+100
+00:04:24,301 --> 00:04:26,542
+you should use an
+array query operator.
+
+101
+00:04:26,542 --> 00:04:28,500
+Now it's time for you to
+go try some comparison
+
+102
+00:04:28,500 --> 00:04:31,030
+queries in the challenges.
+

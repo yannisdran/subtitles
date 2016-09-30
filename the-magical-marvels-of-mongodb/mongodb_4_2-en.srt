@@ -1,0 +1,657 @@
+﻿1
+00:00:02,029 --> 00:00:02,952
+Welcome back.
+
+2
+00:00:02,952 --> 00:00:05,160
+In this section, we'll be
+talking about some concepts
+
+3
+00:00:05,160 --> 00:00:07,310
+to help guide us between
+referencing and embedding
+
+4
+00:00:07,310 --> 00:00:07,809
+documents.
+
+5
+00:00:10,440 --> 00:00:12,690
+Data modeling is no easy task.
+
+6
+00:00:12,690 --> 00:00:15,160
+It can be really difficult
+to decide when to embed,
+
+7
+00:00:15,160 --> 00:00:17,040
+versus reference a document.
+
+8
+00:00:17,040 --> 00:00:18,757
+In order to make
+the best decision,
+
+9
+00:00:18,757 --> 00:00:20,340
+we have to really
+think about our data
+
+10
+00:00:20,340 --> 00:00:22,840
+and how it's used throughout
+the life application.
+
+11
+00:00:22,840 --> 00:00:25,090
+As a quick review,
+we have two options--
+
+12
+00:00:25,090 --> 00:00:27,100
+embedding and referencing.
+
+13
+00:00:27,100 --> 00:00:29,500
+With embedding we can
+perform single queries
+
+14
+00:00:29,500 --> 00:00:32,359
+to get all of our data,
+but with referencing we'll
+
+15
+00:00:32,359 --> 00:00:34,000
+need two queries.
+
+16
+00:00:34,000 --> 00:00:37,150
+Embedding means that documents
+only exist within their parent,
+
+17
+00:00:37,150 --> 00:00:40,370
+but reference documents
+exist independently.
+
+18
+00:00:40,370 --> 00:00:42,570
+Embedded documents
+have atomic rights,
+
+19
+00:00:42,570 --> 00:00:44,590
+but reference
+documents don't support
+
+20
+00:00:44,590 --> 00:00:45,840
+multi-document operations.
+
+21
+00:00:48,700 --> 00:00:50,650
+We decided we want to
+allow users to comment
+
+22
+00:00:50,650 --> 00:00:52,840
+on our reviews,
+and in this section
+
+23
+00:00:52,840 --> 00:00:55,770
+we're talking about how to
+best model this decision.
+
+24
+00:00:55,770 --> 00:00:58,020
+So we'll have potions
+that will have comments,
+
+25
+00:00:58,020 --> 00:00:59,720
+and those comments
+will belong to users.
+
+26
+00:01:02,450 --> 00:01:04,466
+Whenever we need to
+decide between referencing
+
+27
+00:01:04,466 --> 00:01:06,090
+and embedding documents,
+we need to ask
+
+28
+00:01:06,090 --> 00:01:07,420
+ourselves a few questions.
+
+29
+00:01:07,420 --> 00:01:10,720
+The first question is,
+how will our data be used?
+
+30
+00:01:10,720 --> 00:01:12,710
+If you have data that's
+always used together,
+
+31
+00:01:12,710 --> 00:01:14,600
+you're most likely
+safe embedding it,
+
+32
+00:01:14,600 --> 00:01:17,870
+and you'll benefit from faster
+read and write performances.
+
+33
+00:01:17,870 --> 00:01:20,530
+With referencing, it would
+require two queries every time
+
+34
+00:01:20,530 --> 00:01:22,350
+we need that data
+that's always used,
+
+35
+00:01:22,350 --> 00:01:24,410
+and that's just inefficient.
+
+36
+00:01:24,410 --> 00:01:27,050
+When data is either sometimes
+or rarely used together,
+
+37
+00:01:27,050 --> 00:01:28,809
+it can either be
+embedded or referenced,
+
+38
+00:01:28,809 --> 00:01:30,600
+as it will depend on
+some further questions
+
+39
+00:01:30,600 --> 00:01:32,290
+that will narrow
+down the decision.
+
+40
+00:01:32,290 --> 00:01:34,160
+The data isn't
+always needed together,
+
+41
+00:01:34,160 --> 00:01:36,660
+then the cost of performing two
+queries to get the data when
+
+42
+00:01:36,660 --> 00:01:38,830
+needed has minimal overhead.
+
+43
+00:01:38,830 --> 00:01:42,375
+As you can see, most the time
+embedding is the best option.
+
+44
+00:01:42,375 --> 00:01:43,750
+Let's take a look
+at our example.
+
+45
+00:01:46,370 --> 00:01:48,650
+Here's a potions view page
+with the potion review
+
+46
+00:01:48,650 --> 00:01:50,570
+details and some comments.
+
+47
+00:01:50,570 --> 00:01:52,540
+As you can see, whenever
+we display a potion,
+
+48
+00:01:52,540 --> 00:01:54,610
+we'll also be displaying
+their comments.
+
+49
+00:01:54,610 --> 00:01:57,560
+And for each comment we'll
+be displaying the author.
+
+50
+00:01:57,560 --> 00:02:01,010
+In this case, embedding comments
+and users in a potion document
+
+51
+00:02:01,010 --> 00:02:02,740
+makes the most sense.
+
+52
+00:02:02,740 --> 00:02:04,320
+Referencing would
+require us to query
+
+53
+00:02:04,320 --> 00:02:07,390
+for the potion, a query for
+the documents, and then a query
+
+54
+00:02:07,390 --> 00:02:11,340
+for the users, and
+that's too many queries.
+
+55
+00:02:11,340 --> 00:02:12,840
+The next question
+we'll need to ask is,
+
+56
+00:02:12,840 --> 00:02:14,270
+what is the size of the data?
+
+57
+00:02:14,270 --> 00:02:16,790
+As this can significantly
+impact our decision.
+
+58
+00:02:16,790 --> 00:02:19,560
+Generally, if the expected
+size is less than 100,
+
+59
+00:02:19,560 --> 00:02:21,359
+then the data can be embedded.
+
+60
+00:02:21,359 --> 00:02:23,650
+Whereas, when there's more
+than a few hundred documents
+
+61
+00:02:23,650 --> 00:02:25,940
+in a relationship,
+referencing presents itself
+
+62
+00:02:25,940 --> 00:02:29,180
+as a stronger option, as it's
+easier to manage the data.
+
+63
+00:02:29,180 --> 00:02:31,734
+Let's head back to
+our application.
+
+64
+00:02:31,734 --> 00:02:33,150
+Our site is growing
+in popularity,
+
+65
+00:02:33,150 --> 00:02:35,358
+but we don't really expect
+to have a ton of comments.
+
+66
+00:02:35,358 --> 00:02:37,800
+Maybe we'll have 50 per
+potion, and each comment
+
+67
+00:02:37,800 --> 00:02:39,209
+will only have one user.
+
+68
+00:02:39,209 --> 00:02:41,000
+This data's small enough
+that we can easily
+
+69
+00:02:41,000 --> 00:02:42,849
+manage it with embedding.
+
+70
+00:02:42,849 --> 00:02:44,640
+Whenever the data gets
+to the hundreds mark
+
+71
+00:02:44,640 --> 00:02:46,973
+is when we really want to
+start considering referencing.
+
+72
+00:02:49,060 --> 00:02:51,510
+Our last question is,
+will the data change often?
+
+73
+00:02:51,510 --> 00:02:54,480
+As it's important to understand
+the life cycle of the data.
+
+74
+00:02:54,480 --> 00:02:57,860
+If our data never or rarely
+changes, it's safe to embed it,
+
+75
+00:02:57,860 --> 00:02:59,260
+even if there's
+some duplication,
+
+76
+00:02:59,260 --> 00:03:01,470
+since it'll be easy to manage.
+
+77
+00:03:01,470 --> 00:03:03,330
+When the data might
+change occasionally,
+
+78
+00:03:03,330 --> 00:03:05,252
+we can either
+embed or reference,
+
+79
+00:03:05,252 --> 00:03:06,710
+as it will depend
+on whether or not
+
+80
+00:03:06,710 --> 00:03:09,780
+we want the overhead of
+managing duplication.
+
+81
+00:03:09,780 --> 00:03:11,880
+Lastly, data that is
+constantly changing
+
+82
+00:03:11,880 --> 00:03:14,650
+is better to be referenced, as
+it will prevent inconsistencies
+
+83
+00:03:14,650 --> 00:03:16,620
+when there's duplication.
+
+84
+00:03:16,620 --> 00:03:19,100
+It's much easier and performant
+to write in one place
+
+85
+00:03:19,100 --> 00:03:21,240
+than hundreds all the time.
+
+86
+00:03:21,240 --> 00:03:25,129
+This question changes a few
+things for our application.
+
+87
+00:03:25,129 --> 00:03:26,670
+Let's take a look
+at the relationship
+
+88
+00:03:26,670 --> 00:03:28,461
+between potions and comments.
+
+89
+00:03:28,461 --> 00:03:30,210
+Once a comment is
+written, we don't really
+
+90
+00:03:30,210 --> 00:03:31,790
+expect it to change that often.
+
+91
+00:03:31,790 --> 00:03:33,770
+There might be an
+edit here or there,
+
+92
+00:03:33,770 --> 00:03:35,600
+but it's not going to
+happen all the time.
+
+93
+00:03:35,600 --> 00:03:37,930
+With this, we can safely
+still embed comments
+
+94
+00:03:37,930 --> 00:03:39,470
+within our potion.
+
+95
+00:03:39,470 --> 00:03:42,310
+Now let's look at a
+comment and users.
+
+96
+00:03:42,310 --> 00:03:45,384
+Users might change their email,
+or add a few favorite potions,
+
+97
+00:03:45,384 --> 00:03:46,800
+and this would be
+an absolute pain
+
+98
+00:03:46,800 --> 00:03:48,670
+to update through
+all the comments.
+
+99
+00:03:48,670 --> 00:03:51,280
+And that's a lot of duplication,
+and our users surely
+
+100
+00:03:51,280 --> 00:03:53,650
+wouldn't appreciate
+having messed up data.
+
+101
+00:03:53,650 --> 00:03:55,872
+For comments, it looks like
+referencing is actually
+
+102
+00:03:55,872 --> 00:03:56,705
+the better decision.
+
+103
+00:03:59,855 --> 00:04:01,980
+We've chosen to embed our
+comments in the potions,
+
+104
+00:04:01,980 --> 00:04:03,724
+since the data is
+strongly related.
+
+105
+00:04:03,724 --> 00:04:05,140
+Every time we show
+a potion, we're
+
+106
+00:04:05,140 --> 00:04:06,980
+going to want to show
+the comments as well.
+
+107
+00:04:06,980 --> 00:04:09,104
+We don't foresee there
+being more than 100 comments
+
+108
+00:04:09,104 --> 00:04:12,826
+per potion, and the data
+doesn't change that often.
+
+109
+00:04:12,826 --> 00:04:14,450
+Now let's check out
+comments and users.
+
+110
+00:04:17,370 --> 00:04:19,992
+We've chosen to reference
+users and comments,
+
+111
+00:04:19,992 --> 00:04:21,450
+because a comment
+only really needs
+
+112
+00:04:21,450 --> 00:04:23,500
+to know the username
+for each user.
+
+113
+00:04:23,500 --> 00:04:25,310
+It doesn't need to
+know the other details
+
+114
+00:04:25,310 --> 00:04:27,518
+and it doesn't make sense
+for us to embed all of that
+
+115
+00:04:27,518 --> 00:04:28,617
+and duplicate our data.
+
+116
+00:04:28,617 --> 00:04:31,200
+In the event we ever want to get
+more information on the user,
+
+117
+00:04:31,200 --> 00:04:32,950
+we can simply query
+for it, but we'd never
+
+118
+00:04:32,950 --> 00:04:36,067
+expect that to really happen.
+
+119
+00:04:36,067 --> 00:04:37,650
+Before we head over
+to the challenges,
+
+120
+00:04:37,650 --> 00:04:39,660
+here's some brief
+guidelines and take-aways.
+
+121
+00:04:39,660 --> 00:04:41,660
+First, generally
+it's OK to consider
+
+122
+00:04:41,660 --> 00:04:43,790
+embedding as the first option.
+
+123
+00:04:43,790 --> 00:04:46,050
+Second, you'll want to
+reference data that needs
+
+124
+00:04:46,050 --> 00:04:48,060
+to be accessed independently.
+
+125
+00:04:48,060 --> 00:04:51,780
+Third, consider referencing
+when you have large data sizes.
+
+126
+00:04:51,780 --> 00:04:53,280
+Most importantly,
+always consider
+
+127
+00:04:53,280 --> 00:04:55,270
+how your data is going
+to be used and allow
+
+128
+00:04:55,270 --> 00:04:56,355
+that to guide you.
+
+129
+00:04:56,355 --> 00:04:59,470
+If you find that your data
+calls for complex relationships
+
+130
+00:04:59,470 --> 00:05:01,330
+and your data really
+seems relational,
+
+131
+00:05:01,330 --> 00:05:03,760
+you should consider using a
+relational database instead
+
+132
+00:05:03,760 --> 00:05:05,093
+of a document oriented database.
+
+133
+00:05:08,076 --> 00:05:09,450
+Now it's time for
+you to practice
+
+134
+00:05:09,450 --> 00:05:11,790
+making some good modeling
+decisions in the challenges.
+
+135
+00:05:11,790 --> 00:05:14,160
+Have fun.
+
+136
+00:05:14,160 --> 00:05:15,356
+Whenever we-- we.
+
+137
+00:05:19,570 --> 00:05:21,090
+Not good.
+
+138
+00:05:21,090 --> 00:05:23,240
+-No, I thought that was good.
+
