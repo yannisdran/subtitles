@@ -1,0 +1,194 @@
+﻿1
+00:00:02,110 --> 00:00:04,720
+Welcome back to level
+four, section three.
+
+2
+00:00:04,720 --> 00:00:07,260
+We're almost done with
+user authentication,
+
+3
+00:00:07,260 --> 00:00:10,270
+but we'll also want to add
+the ability to log out,
+
+4
+00:00:10,270 --> 00:00:12,778
+and links for logging
+in and logging out.
+
+5
+00:00:16,000 --> 00:00:18,050
+To add log out
+functionality, we'll
+
+6
+00:00:18,050 --> 00:00:22,390
+just need a URL and
+view, but not a template.
+
+7
+00:00:22,390 --> 00:00:26,670
+The log out URL is pretty
+similar to the log in URL,
+
+8
+00:00:26,670 --> 00:00:28,380
+except named logout.
+
+9
+00:00:31,700 --> 00:00:35,550
+In our log out view, we'll
+use the built in log out
+
+10
+00:00:35,550 --> 00:00:37,810
+function that takes
+in the request,
+
+11
+00:00:37,810 --> 00:00:41,780
+and then we'll simply redirect
+back to the home page.
+
+12
+00:00:41,780 --> 00:00:44,580
+But right now if we
+go to our home page,
+
+13
+00:00:44,580 --> 00:00:48,150
+we don't have any links set
+up to log in or log out,
+
+14
+00:00:48,150 --> 00:00:49,530
+so we'll want to add those.
+
+15
+00:00:52,120 --> 00:00:55,000
+Since we want those to
+show up on every page,
+
+16
+00:00:55,000 --> 00:01:00,650
+the best place to add those
+is in our base.html template.
+
+17
+00:01:00,650 --> 00:01:03,469
+And we'll add those right after
+we display the Treasuregram
+
+18
+00:01:03,469 --> 00:01:03,969
+logo.
+
+19
+00:01:07,760 --> 00:01:11,120
+So we only want to show a
+log in link if we're not
+
+20
+00:01:11,120 --> 00:01:15,060
+actually logged in, and
+then if we are logged in,
+
+21
+00:01:15,060 --> 00:01:19,000
+we want to show a log out link,
+and a link to our profile.
+
+22
+00:01:19,000 --> 00:01:24,030
+And we can accomplish this
+with a big if else block.
+
+23
+00:01:24,030 --> 00:01:26,160
+If the user is
+authenticated, we'll
+
+24
+00:01:26,160 --> 00:01:30,130
+show the link to their profile
+and a link to log out.
+
+25
+00:01:30,130 --> 00:01:32,670
+Otherwise we'll just
+add a link to log in.
+
+26
+00:01:36,510 --> 00:01:40,190
+Before we were hard coding
+any links in our templates,
+
+27
+00:01:40,190 --> 00:01:42,240
+but there's a
+better way to do it.
+
+28
+00:01:42,240 --> 00:01:44,885
+You can use a URL template tag.
+
+29
+00:01:47,620 --> 00:01:53,770
+And you can do that by writing
+URL, the name of the URL,
+
+30
+00:01:53,770 --> 00:01:57,210
+and any parameters you
+want to pass to that URL.
+
+31
+00:01:57,210 --> 00:02:01,450
+So here we have the profile
+as the name of the URL,
+
+32
+00:02:01,450 --> 00:02:04,950
+and user.username that
+we want to pass there.
+
+33
+00:02:04,950 --> 00:02:09,664
+So if my username is Sarah,
+the URL will look like this.
+
+34
+00:02:14,890 --> 00:02:17,540
+Then we can add the links
+to log in and log out
+
+35
+00:02:17,540 --> 00:02:20,895
+with the same URL tag, except
+they don't need any parameters.
+
+36
+00:02:24,940 --> 00:02:26,980
+And we can also
+add a little style
+
+37
+00:02:26,980 --> 00:02:29,153
+by adding our CSS classes.
+
+38
+00:02:34,870 --> 00:02:38,285
+Now we can see our log in and
+log out process in action.
+
+39
+00:02:46,390 --> 00:02:49,340
+And that's it for level
+four, section three.
+
+40
+00:02:49,340 --> 00:02:51,510
+Good luck in the challenges.
+

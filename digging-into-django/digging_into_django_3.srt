@@ -1,0 +1,366 @@
+﻿1
+00:00:00,500 --> 00:00:06,180
+[SINGING] Deep within the jungle
+lie treasures most unknown.
+
+2
+00:00:06,180 --> 00:00:12,060
+To track what we uncover,
+we'll need to use Django.
+
+3
+00:00:12,060 --> 00:00:18,260
+AJAX, forms, and grids,
+we'll cross the pyramids.
+
+4
+00:00:18,260 --> 00:00:23,660
+Dust off your old durangos -
+
+5
+00:00:23,660 --> 00:00:27,640
+we're Digging Into Django.
+
+6
+00:00:32,640 --> 00:00:35,160
+Welcome back to
+Digging Into Django.
+
+7
+00:00:35,160 --> 00:00:38,200
+This is level three, where
+we'll be covering adding
+
+8
+00:00:38,200 --> 00:00:40,125
+the ability to upload images.
+
+9
+00:00:43,540 --> 00:00:46,580
+Users can now add
+treasures through the form
+
+10
+00:00:46,580 --> 00:00:50,120
+we created in level
+two, but they still
+
+11
+00:00:50,120 --> 00:00:55,000
+need to have an image URL of
+where their image is hosted,
+
+12
+00:00:55,000 --> 00:00:58,490
+and we'd like them to be able
+to upload an image directly
+
+13
+00:00:58,490 --> 00:00:59,165
+into the app.
+
+14
+00:01:02,270 --> 00:01:04,930
+To do this we'll want
+to use an image field,
+
+15
+00:01:04,930 --> 00:01:08,210
+and there's a few steps
+to getting that working.
+
+16
+00:01:08,210 --> 00:01:11,350
+First we'll add the
+image field to our model,
+
+17
+00:01:11,350 --> 00:01:15,680
+then we'll need to install
+Pillow to use that image field.
+
+18
+00:01:15,680 --> 00:01:19,010
+Then we'll migrate our
+changes to the database.
+
+19
+00:01:19,010 --> 00:01:23,400
+We'll update settings.py
+to add a media directory,
+
+20
+00:01:23,400 --> 00:01:28,370
+and finally, add a special URL
+to urls.py to serve our media
+
+21
+00:01:28,370 --> 00:01:31,910
+files locally.
+
+22
+00:01:31,910 --> 00:01:34,400
+So let's do each of
+these steps in order.
+
+23
+00:01:34,400 --> 00:01:38,770
+First, in our treasure model
+we'll get rid of image URL,
+
+24
+00:01:38,770 --> 00:01:42,040
+and we'll add our new
+image field, which
+
+25
+00:01:42,040 --> 00:01:44,710
+has two required parameters.
+
+26
+00:01:44,710 --> 00:01:49,010
+Upload two is the location
+inside of the media directory
+
+27
+00:01:49,010 --> 00:01:53,150
+where we'll add our
+images to, and default
+
+28
+00:01:53,150 --> 00:01:57,940
+is a default image in case
+the user doesn't upload one.
+
+29
+00:01:57,940 --> 00:01:59,680
+So since we just
+changed the model,
+
+30
+00:01:59,680 --> 00:02:02,120
+you'd think we'd want to
+run make migrations.
+
+31
+00:02:02,120 --> 00:02:04,840
+But if we try to do
+that, we get this error
+
+32
+00:02:04,840 --> 00:02:08,460
+that Pillow's not installed,
+and we get some information
+
+33
+00:02:08,460 --> 00:02:09,780
+on how to install it.
+
+34
+00:02:13,130 --> 00:02:17,010
+We can install Pillow
+with pip install Pillow.
+
+35
+00:02:17,010 --> 00:02:19,910
+This will download it
+and install it for us.
+
+36
+00:02:23,120 --> 00:02:24,940
+Now that Pillow's
+installed, we can
+
+37
+00:02:24,940 --> 00:02:28,040
+run python manage.py
+make migrations,
+
+38
+00:02:28,040 --> 00:02:30,840
+which will add our image field.
+
+39
+00:02:30,840 --> 00:02:34,100
+Then we can run python
+manage.py migrate,
+
+40
+00:02:34,100 --> 00:02:37,715
+which will finish migrating
+your changes to the database.
+
+41
+00:02:41,690 --> 00:02:44,220
+At the bottom of
+settings.py we'll
+
+42
+00:02:44,220 --> 00:02:47,540
+add this media
+root variable that
+
+43
+00:02:47,540 --> 00:02:50,050
+will tell us the location
+of where to store all
+
+44
+00:02:50,050 --> 00:02:52,610
+of these user uploaded files.
+
+45
+00:02:52,610 --> 00:02:56,540
+So all our images will go
+in that media directory.
+
+46
+00:02:56,540 --> 00:03:01,725
+And media URL handles serving
+the media from media root.
+
+47
+00:03:04,930 --> 00:03:07,470
+Because we're running
+our app locally,
+
+48
+00:03:07,470 --> 00:03:11,630
+we need to add this special
+URL to our urls.py file.
+
+49
+00:03:11,630 --> 00:03:16,710
+This will match any
+image in media slash,
+
+50
+00:03:16,710 --> 00:03:21,470
+and will serve that file
+locally from the media root
+
+51
+00:03:21,470 --> 00:03:22,910
+directory we just created.
+
+52
+00:03:26,200 --> 00:03:29,340
+Now we've finished all the
+steps to set up an image field,
+
+53
+00:03:29,340 --> 00:03:33,090
+but we still need to refactor
+a few things to replace
+
+54
+00:03:33,090 --> 00:03:37,600
+our old image URL with
+our new image field,
+
+55
+00:03:37,600 --> 00:03:41,265
+in forms.py views.py, and
+both of our templates.
+
+56
+00:03:45,440 --> 00:03:49,180
+In forms.py we'll just
+replace our image URL
+
+57
+00:03:49,180 --> 00:03:52,000
+with our new image.
+
+58
+00:03:52,000 --> 00:03:55,920
+And remember, since we declared
+that image field in our model,
+
+59
+00:03:55,920 --> 00:04:00,120
+it will pull over all of
+the associated properties,
+
+60
+00:04:00,120 --> 00:04:04,390
+and the fact that
+it's an image field.
+
+61
+00:04:04,390 --> 00:04:06,700
+So now in our post
+treasure view,
+
+62
+00:04:06,700 --> 00:04:10,816
+we'll also need to pass our
+request.files to our form.
+
+63
+00:04:15,660 --> 00:04:18,070
+Finally, in our
+index template we
+
+64
+00:04:18,070 --> 00:04:21,860
+can change that ENC
+type to multipart form
+
+65
+00:04:21,860 --> 00:04:24,830
+data, which is required
+when submitting files
+
+66
+00:04:24,830 --> 00:04:26,350
+through a form.
+
+67
+00:04:26,350 --> 00:04:29,600
+And then in both our index
+and detail templates,
+
+68
+00:04:29,600 --> 00:04:34,380
+we'll need to change the old
+treasure.image URL to our new
+
+69
+00:04:34,380 --> 00:04:40,401
+treasure.image, and then add
+.url to get that images URL
+
+70
+00:04:40,401 --> 00:04:40,900
+field.
+
+71
+00:04:44,500 --> 00:04:47,180
+So now our image
+field is ready to use,
+
+72
+00:04:47,180 --> 00:04:49,780
+and we can see that we
+can create a new treasure
+
+73
+00:04:49,780 --> 00:04:52,640
+and upload a
+corresponding image,
+
+74
+00:04:52,640 --> 00:04:54,878
+and then we can see that
+new treasure displayed.
+
+75
+00:05:01,060 --> 00:05:03,410
+Now it's time for you
+to do some challenges.
+
+76
+00:05:03,410 --> 00:05:06,100
+I'll see you in the next level.
+

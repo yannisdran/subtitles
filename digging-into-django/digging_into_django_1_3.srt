@@ -1,0 +1,236 @@
+﻿1
+00:00:02,270 --> 00:00:04,470
+Welcome back to
+level 1, section 3
+
+2
+00:00:04,470 --> 00:00:06,720
+where we'll be covering
+template inheritance.
+
+3
+00:00:12,180 --> 00:00:14,890
+Each page on our site
+will have repeated code
+
+4
+00:00:14,890 --> 00:00:18,820
+for at least the navbar,
+the header, and the footer.
+
+5
+00:00:18,820 --> 00:00:22,230
+It would be great if we could
+share this repeated code
+
+6
+00:00:22,230 --> 00:00:23,853
+across different templates.
+
+7
+00:00:27,500 --> 00:00:30,260
+To do this, we can
+create a base template
+
+8
+00:00:30,260 --> 00:00:33,030
+that will hold the repeated
+code for the navbar
+
+9
+00:00:33,030 --> 00:00:37,025
+and footer that other
+templates can then extend.
+
+10
+00:00:40,350 --> 00:00:44,440
+In this base template, we'll
+start by loading static files.
+
+11
+00:00:44,440 --> 00:00:46,030
+Then we'll have
+all of the repeated
+
+12
+00:00:46,030 --> 00:00:48,450
+code for in the
+navbar, and then we'll
+
+13
+00:00:48,450 --> 00:00:52,400
+create this block that
+we'll assign a name to.
+
+14
+00:00:52,400 --> 00:00:55,410
+We'll call ours block content.
+
+15
+00:00:55,410 --> 00:00:57,620
+This is a special
+template tag that's
+
+16
+00:00:57,620 --> 00:01:01,020
+a placeholder for all
+of the content from all
+
+17
+00:01:01,020 --> 00:01:03,080
+of our other templates.
+
+18
+00:01:03,080 --> 00:01:05,330
+So we're actually not
+going to fill this block
+
+19
+00:01:05,330 --> 00:01:08,750
+in with any code.
+
+20
+00:01:08,750 --> 00:01:14,510
+Then in index.html, we'll start
+by extending the base template.
+
+21
+00:01:14,510 --> 00:01:16,670
+And then we'll write
+all of the code that's
+
+22
+00:01:16,670 --> 00:01:18,445
+specific to the index page.
+
+23
+00:01:21,220 --> 00:01:25,420
+And that will be wrapped
+by this block tag that
+
+24
+00:01:25,420 --> 00:01:29,010
+will tell Django to
+put all of this code
+
+25
+00:01:29,010 --> 00:01:31,376
+where it belongs in
+the base template.
+
+26
+00:01:36,280 --> 00:01:38,520
+So the final rendered
+index template
+
+27
+00:01:38,520 --> 00:01:44,150
+will have all of the navbar,
+then the copied in index code,
+
+28
+00:01:44,150 --> 00:01:46,924
+and then the footer
+combined into one template.
+
+29
+00:01:51,410 --> 00:01:53,170
+So what's the
+actual code we would
+
+30
+00:01:53,170 --> 00:01:55,574
+put in our base.html template?
+
+31
+00:01:58,240 --> 00:02:00,640
+We start with loading
+the static files.
+
+32
+00:02:00,640 --> 00:02:05,910
+Then we put in our head tags
+and we load our CSS files.
+
+33
+00:02:05,910 --> 00:02:07,380
+We'll add our navbar.
+
+34
+00:02:07,380 --> 00:02:09,810
+And we can even put
+in the main tags
+
+35
+00:02:09,810 --> 00:02:15,690
+that will contain the block
+content from each template.
+
+36
+00:02:15,690 --> 00:02:17,780
+And then finally,
+we'll add our footer.
+
+37
+00:02:24,320 --> 00:02:28,145
+Then in index.html,
+we'll extend base.
+
+38
+00:02:30,810 --> 00:02:33,170
+And then inside of
+our block content,
+
+39
+00:02:33,170 --> 00:02:37,225
+we'll add all of the code
+for displaying our treasures.
+
+40
+00:02:42,580 --> 00:02:45,310
+The detail template
+will look very similar,
+
+41
+00:02:45,310 --> 00:02:48,060
+except it will have code
+specific to the detail
+
+42
+00:02:48,060 --> 00:02:50,420
+page for displaying
+a single treasure.
+
+43
+00:02:54,130 --> 00:02:57,560
+If we look at this in
+action, nothing has changed.
+
+44
+00:02:57,560 --> 00:03:01,280
+But behind the scenes, our
+code is more organized.
+
+45
+00:03:01,280 --> 00:03:04,050
+So if we change something
+in the navbar, for instance,
+
+46
+00:03:04,050 --> 00:03:07,115
+we only have to change it
+in one place, in the base.
+
+47
+00:03:11,570 --> 00:03:14,050
+Now it's time for you to
+organize your templates
+
+48
+00:03:14,050 --> 00:03:15,310
+in the challenges.
+
+49
+00:03:15,310 --> 00:03:17,130
+Good luck.
+

@@ -1,0 +1,545 @@
+﻿1
+00:00:00,000 --> 00:00:05,725
+[SINGING] Deep within the jungle
+lie treasures most unknown.
+
+2
+00:00:05,725 --> 00:00:12,432
+To track what we uncover,
+we'll need to use Django.
+
+3
+00:00:12,432 --> 00:00:18,736
+AJAX, forms and grids,
+we'll cross the pyramids.
+
+4
+00:00:18,736 --> 00:00:24,170
+Dust off your old durangos -
+
+5
+00:00:24,170 --> 00:00:27,942
+We're Digging Into Django.
+
+6
+00:00:32,290 --> 00:00:34,460
+Welcome back to
+Digging into Django.
+
+7
+00:00:34,460 --> 00:00:37,455
+This is Level 2, where
+we'll be going over forms.
+
+8
+00:00:42,260 --> 00:00:44,310
+Right now, there
+is no way for users
+
+9
+00:00:44,310 --> 00:00:46,650
+to add treasures in our app.
+
+10
+00:00:46,650 --> 00:00:49,680
+In Try Django, we were
+adding new treasures
+
+11
+00:00:49,680 --> 00:00:52,480
+through the admin
+or the Django shell.
+
+12
+00:00:52,480 --> 00:00:57,140
+But we don't want
+regular users to do that.
+
+13
+00:00:57,140 --> 00:01:00,800
+Instead, we can
+create a form to show
+
+14
+00:01:00,800 --> 00:01:05,920
+on the home page that will allow
+users to add new treasures.
+
+15
+00:01:05,920 --> 00:01:09,730
+That way, only staff or dev
+can interact with the model
+
+16
+00:01:09,730 --> 00:01:11,320
+through the admin or shell.
+
+17
+00:01:16,110 --> 00:01:20,250
+To use a Django form, we'll
+create a new form class
+
+18
+00:01:20,250 --> 00:01:23,910
+called TreasureForm, which
+is very similar to when
+
+19
+00:01:23,910 --> 00:01:26,580
+we created our treasure model.
+
+20
+00:01:26,580 --> 00:01:32,420
+In forms.py, we'll first
+import forms from Django,
+
+21
+00:01:32,420 --> 00:01:35,240
+and then we'll create
+our TreasureForm class
+
+22
+00:01:35,240 --> 00:01:38,230
+that inherits from forms.Form.
+
+23
+00:01:38,230 --> 00:01:42,010
+We'll have similar
+CharFields and DecimalFields
+
+24
+00:01:42,010 --> 00:01:46,340
+that will map to HTML
+input elements just
+
+25
+00:01:46,340 --> 00:01:49,765
+like our ModelFields
+map to a database table.
+
+26
+00:01:56,460 --> 00:01:58,330
+Just like we did
+with ModelFields,
+
+27
+00:01:58,330 --> 00:02:00,940
+we can set the
+max_length and the label
+
+28
+00:02:00,940 --> 00:02:04,660
+to display in the HTML.
+
+29
+00:02:04,660 --> 00:02:06,950
+By setting these,
+Django takes some
+
+30
+00:02:06,950 --> 00:02:09,360
+of the work out of
+creating form fields
+
+31
+00:02:09,360 --> 00:02:10,949
+and validating form data.
+
+32
+00:02:15,150 --> 00:02:17,910
+Before we get to
+displaying our form,
+
+33
+00:02:17,910 --> 00:02:22,950
+let's add a URL that will
+handle our form submission.
+
+34
+00:02:22,950 --> 00:02:28,470
+We'll call this post_url, so
+localhost/post_url will go
+
+35
+00:02:28,470 --> 00:02:32,945
+to the views.post_treasure
+which will handle our form
+
+36
+00:02:32,945 --> 00:02:34,440
+submission.
+
+37
+00:02:38,870 --> 00:02:42,780
+You may be wondering why
+our URL was called POST URL.
+
+38
+00:02:42,780 --> 00:02:47,730
+Well, there's two main types
+of requests-- a GET and a POST.
+
+39
+00:02:47,730 --> 00:02:54,250
+By default, all of are URL
+requests are of type GET.
+
+40
+00:02:54,250 --> 00:02:56,300
+For example, if
+we make a request
+
+41
+00:02:56,300 --> 00:03:00,260
+to the server for a treasurer
+with a specific treasure_id,
+
+42
+00:03:00,260 --> 00:03:02,250
+that's going to
+use a GET request
+
+43
+00:03:02,250 --> 00:03:05,460
+and return that
+treasure back to us.
+
+44
+00:03:05,460 --> 00:03:09,080
+However, with our new treasure
+form, when we press submit,
+
+45
+00:03:09,080 --> 00:03:11,280
+that's going to send
+a treasure that's
+
+46
+00:03:11,280 --> 00:03:14,290
+going to add an object
+to our database.
+
+47
+00:03:14,290 --> 00:03:16,450
+So, since it's
+updating the server,
+
+48
+00:03:16,450 --> 00:03:19,090
+we'll want to use
+a POST request.
+
+49
+00:03:19,090 --> 00:03:24,850
+That's why we named
+our URL POST URL.
+
+50
+00:03:24,850 --> 00:03:28,650
+Now in our views we want to
+start with creating our POST
+
+51
+00:03:28,650 --> 00:03:30,050
+treasure view.
+
+52
+00:03:30,050 --> 00:03:33,640
+But, before we do that, we
+want to import the TreasureForm
+
+53
+00:03:33,640 --> 00:03:34,520
+we just created.
+
+54
+00:03:38,200 --> 00:03:40,520
+Then we'll create our
+post_treasure view
+
+55
+00:03:40,520 --> 00:03:43,300
+that takes in a request.
+
+56
+00:03:43,300 --> 00:03:45,640
+It then creates
+that treasure_form
+
+57
+00:03:45,640 --> 00:03:48,860
+from that request.POST
+submission.
+
+58
+00:03:48,860 --> 00:03:52,550
+And then it checks
+if the form.is_valid.
+
+59
+00:03:52,550 --> 00:03:55,410
+Then, if the form.is_valid,
+we'll go ahead and create
+
+60
+00:03:55,410 --> 00:03:58,665
+our treasure by looking
+up the attributes
+
+61
+00:03:58,665 --> 00:04:01,540
+in form.cleaned_data.
+
+62
+00:04:02,110 --> 00:04:04,490
+Remember that Django takes
+care of cleaning the data
+
+63
+00:04:04,490 --> 00:04:06,480
+and validating it for us.
+
+64
+00:04:11,450 --> 00:04:14,250
+So now we can save that
+treasure to the database
+
+65
+00:04:14,250 --> 00:04:16,630
+by doing treasure.save.
+
+66
+00:04:16,630 --> 00:04:18,649
+Then, outside of
+the if statement,
+
+67
+00:04:18,649 --> 00:04:20,850
+we'll redirect to the home page.
+
+68
+00:04:20,850 --> 00:04:23,210
+That way, even if the
+form wasn't valid,
+
+69
+00:04:23,210 --> 00:04:25,130
+we'll still redirect
+to the home page.
+
+70
+00:04:28,160 --> 00:04:31,570
+We'll also need to update
+our index view so that it
+
+71
+00:04:31,570 --> 00:04:35,570
+can create our new form
+and pass it to the index
+
+72
+00:04:35,570 --> 00:04:38,210
+template for rendering.
+
+73
+00:04:38,210 --> 00:04:40,230
+Now we've handled
+the form submission
+
+74
+00:04:40,230 --> 00:04:42,250
+but we haven't
+actually displayed
+
+75
+00:04:42,250 --> 00:04:45,370
+the form in the template.
+
+76
+00:04:45,370 --> 00:04:48,510
+At the bottom of our
+index.html template
+
+77
+00:04:48,510 --> 00:04:50,200
+we'll add our
+form, since we want
+
+78
+00:04:50,200 --> 00:04:52,060
+it to show up at the bottom.
+
+79
+00:04:52,060 --> 00:04:56,870
+We'll add a form HTML
+element with the action going
+
+80
+00:04:56,870 --> 00:05:01,360
+to our post URL, and
+the method is post.
+
+81
+00:05:01,360 --> 00:05:04,680
+Then, inside that, we can
+simply display our form
+
+82
+00:05:04,680 --> 00:05:09,950
+with curly bracket and
+the variable name form.
+
+83
+00:05:09,950 --> 00:05:13,510
+Notice we also have to add the
+special Django template tag
+
+84
+00:05:13,510 --> 00:05:15,510
+csrf_token.
+
+85
+00:05:15,510 --> 00:05:19,230
+Django handles a lot of
+security tasks for us,
+
+86
+00:05:19,230 --> 00:05:24,230
+like this token which protects
+against cross-site request
+
+87
+00:05:24,230 --> 00:05:26,650
+forgery attacks.
+
+88
+00:05:26,650 --> 00:05:28,760
+This is just one of
+the ways that Django
+
+89
+00:05:28,760 --> 00:05:33,580
+helps protect your apps
+with simple functionality.
+
+90
+00:05:33,580 --> 00:05:36,930
+And now we can see the HTML
+form that was automatically
+
+91
+00:05:36,930 --> 00:05:38,090
+generated for us.
+
+92
+00:05:41,480 --> 00:05:43,460
+We can also add some
+style to our form
+
+93
+00:05:43,460 --> 00:05:46,150
+so it fits in better
+with our home page.
+
+94
+00:05:46,150 --> 00:05:50,290
+We'll wrap the form in
+a panel, add a title,
+
+95
+00:05:50,290 --> 00:05:56,240
+and then we can also display the
+form with form.as_p which will
+
+96
+00:05:56,240 --> 00:06:00,300
+format the form like
+an HTML paragraph,
+
+97
+00:06:00,300 --> 00:06:03,152
+with each field on
+a separate line.
+
+98
+00:06:07,440 --> 00:06:10,790
+And, if we look at the HTML
+source for this page that
+
+99
+00:06:10,790 --> 00:06:14,370
+was generated, we can see
+that all the labels and input
+
+100
+00:06:14,370 --> 00:06:17,260
+fields are filled in for us.
+
+101
+00:06:17,260 --> 00:06:21,700
+It even has the csrf_token
+which now has a value filled in,
+
+102
+00:06:21,700 --> 00:06:25,060
+and it even provides the
+max length and type variables
+
+103
+00:06:25,060 --> 00:06:27,150
+to validate the data for us.
+
+104
+00:06:30,340 --> 00:06:32,740
+And now we can see our
+new form in action.
+
+105
+00:06:32,740 --> 00:06:35,850
+We can enter data into
+these fields, and submit,
+
+106
+00:06:35,850 --> 00:06:39,090
+and we see our new
+treasure displayed.
+
+107
+00:06:39,090 --> 00:06:42,900
+You may be wondering if Django
+forms can render anything other
+
+108
+00:06:42,900 --> 00:06:44,520
+than just simple text fields.
+
+109
+00:06:47,140 --> 00:06:50,730
+Django form widgets can
+render more complex input
+
+110
+00:06:50,730 --> 00:06:55,560
+fields like password input,
+date pickers, and file input.
+
+111
+00:06:55,560 --> 00:07:00,940
+And they're as easy as adding
+a widget to your form field.
+
+112
+00:07:00,940 --> 00:07:04,501
+And we'll see more widgets
+like this later in the course.
+
+113
+00:07:08,420 --> 00:07:10,920
+That's it for level
+2, section 1.
+
+114
+00:07:10,920 --> 00:07:14,160
+Good luck creating some
+forms in the challenges.
+

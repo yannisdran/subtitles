@@ -1,0 +1,559 @@
+﻿1
+00:00:00,500 --> 00:00:06,180
+[SINGING] Deep within the jungle
+lie treasures most unknown.
+
+2
+00:00:06,180 --> 00:00:12,044
+To track what we uncover,
+we'll need to use Django.
+
+3
+00:00:12,044 --> 00:00:18,646
+AJAX, forms, and grids,
+we'll cross the pyramids.
+
+4
+00:00:18,646 --> 00:00:24,074
+Dust off your old durangos -
+
+5
+00:00:24,074 --> 00:00:27,986
+we're Digging Into Django.
+
+6
+00:00:32,409 --> 00:00:34,450
+Welcome back to
+Digging Into Django.
+
+7
+00:00:34,450 --> 00:00:37,527
+This is level 4 where
+we'll be covering users.
+
+8
+00:00:41,660 --> 00:00:45,110
+Right now we can upload
+a treasure to our app.
+
+9
+00:00:45,110 --> 00:00:47,460
+But our treasures
+don't have any owners,
+
+10
+00:00:47,460 --> 00:00:50,730
+so we don't know whose
+treasures are whose.
+
+11
+00:00:50,730 --> 00:00:54,790
+Well, we can solve that by
+adding a relationship to a user
+
+12
+00:00:54,790 --> 00:00:56,990
+model from our Treasure model.
+
+13
+00:00:56,990 --> 00:01:00,150
+So that's what
+we'll be doing now.
+
+14
+00:01:00,150 --> 00:01:02,440
+In databases, there are
+three different types
+
+15
+00:01:02,440 --> 00:01:06,230
+of table relationships--
+one to one, one to many,
+
+16
+00:01:06,230 --> 00:01:08,510
+and many to many.
+
+17
+00:01:08,510 --> 00:01:11,850
+We want a user to have
+many treasures associated
+
+18
+00:01:11,850 --> 00:01:17,070
+with their account, so we'll
+use a one to many association.
+
+19
+00:01:17,070 --> 00:01:19,210
+The way to relate
+two tables together
+
+20
+00:01:19,210 --> 00:01:23,810
+is to mark a field in one
+as a foreign key in another.
+
+21
+00:01:23,810 --> 00:01:27,460
+So in our Treasure
+model, we'll have
+
+22
+00:01:27,460 --> 00:01:31,060
+a user field that's
+a foreign key that
+
+23
+00:01:31,060 --> 00:01:32,844
+belongs to the User model.
+
+24
+00:01:40,000 --> 00:01:43,770
+But you may be thinking,
+we don't have a User model.
+
+25
+00:01:43,770 --> 00:01:45,850
+Django actually
+creates a User model
+
+26
+00:01:45,850 --> 00:01:48,290
+as part of the auth
+module, which is what
+
+27
+00:01:48,290 --> 00:01:50,560
+we use to log into the admin.
+
+28
+00:01:50,560 --> 00:01:52,720
+So we'll be using that,
+
+29
+00:01:52,720 --> 00:01:54,145
+and we'll import that here.
+
+30
+00:01:56,790 --> 00:01:59,220
+Then we can create
+a user field that's
+
+31
+00:01:59,220 --> 00:02:02,550
+a foreign key to the
+user model like this.
+
+32
+00:02:06,660 --> 00:02:09,080
+So now that we've made
+this change in our model,
+
+33
+00:02:09,080 --> 00:02:12,090
+we need to migrate these
+changes to the database.
+
+34
+00:02:12,090 --> 00:02:17,190
+We'll run python
+manage.py makemigrations.
+
+35
+00:02:17,190 --> 00:02:18,870
+This will tell us
+that we're trying
+
+36
+00:02:18,870 --> 00:02:22,030
+to create a
+non-nullable field user
+
+37
+00:02:22,030 --> 00:02:25,890
+and ask us if we want to
+provide a one off default now.
+
+38
+00:02:25,890 --> 00:02:29,040
+We'll select 1 to provide
+a one off default,
+
+39
+00:02:29,040 --> 00:02:32,960
+and then we'll enter 1 which
+corresponds to the first user
+
+40
+00:02:32,960 --> 00:02:34,625
+in our user table.
+
+41
+00:02:37,900 --> 00:02:40,360
+That will then create
+our migration file.
+
+42
+00:02:43,680 --> 00:02:45,640
+Now we can apply
+that migration file
+
+43
+00:02:45,640 --> 00:02:48,348
+by running python
+manage.py migrate.
+
+44
+00:02:51,820 --> 00:02:54,850
+Now we can create new
+users through the admin.
+
+45
+00:02:54,850 --> 00:02:57,380
+So we'll create a new
+user called Indiana
+
+46
+00:02:57,380 --> 00:02:59,894
+and set up all his default
+information, including
+
+47
+00:02:59,894 --> 00:03:00,435
+his password.
+
+48
+00:03:03,950 --> 00:03:06,090
+For any new treasures
+we create, we'll
+
+49
+00:03:06,090 --> 00:03:08,640
+want to assign a user
+to those treasures.
+
+50
+00:03:08,640 --> 00:03:10,840
+But for our existing
+treasures, we
+
+51
+00:03:10,840 --> 00:03:14,340
+can use the admin to go
+through and assign users
+
+52
+00:03:14,340 --> 00:03:17,420
+to those treasures.
+
+53
+00:03:17,420 --> 00:03:21,580
+Now if we go back and try to
+add a treasure through our form,
+
+54
+00:03:21,580 --> 00:03:22,900
+we have this problem.
+
+55
+00:03:22,900 --> 00:03:24,310
+We get an error.
+
+56
+00:03:24,310 --> 00:03:28,040
+And that's because we have
+this non-nullable user field
+
+57
+00:03:28,040 --> 00:03:30,880
+and we're not adding
+that through the form.
+
+58
+00:03:30,880 --> 00:03:36,830
+So we want to add the user to
+the treasure in our view.
+
+59
+00:03:36,830 --> 00:03:39,610
+Now if we go into our
+post_treasure view,
+
+60
+00:03:39,610 --> 00:03:42,170
+we'll want to
+change a few things.
+
+61
+00:03:42,170 --> 00:03:46,220
+First we can call form.save
+without committing it,
+
+62
+00:03:46,220 --> 00:03:48,930
+and this will return a
+treasure which we can
+
+63
+00:03:48,930 --> 00:03:51,470
+capture in a treasure variable.
+
+64
+00:03:51,470 --> 00:03:54,890
+Then we'll assign the
+user to the treasure
+
+65
+00:03:54,890 --> 00:04:00,330
+as the request.user, since
+user is sent with the request.
+
+66
+00:04:00,330 --> 00:04:02,740
+And then we can
+save that treasure.
+
+67
+00:04:02,740 --> 00:04:06,130
+And now that treasure has
+a user associated with it.
+
+68
+00:04:10,920 --> 00:04:13,350
+So now that we have
+this user field set up,
+
+69
+00:04:13,350 --> 00:04:17,430
+we can display a profile page
+for each individual user that
+
+70
+00:04:17,430 --> 00:04:19,160
+will show all of
+the treasures that
+
+71
+00:04:19,160 --> 00:04:21,610
+belong to that specific user.
+
+72
+00:04:21,610 --> 00:04:23,680
+To do that, we'll want
+to go through the steps
+
+73
+00:04:23,680 --> 00:04:26,740
+we've seen before for
+creating the new page,
+
+74
+00:04:26,740 --> 00:04:31,220
+like setting up the URL,
+the view, and the template.
+
+75
+00:04:31,220 --> 00:04:35,840
+For the URL, we want
+localhost/url/user_name name
+
+76
+00:04:35,840 --> 00:04:38,760
+to go to a user_name's profile.
+
+77
+00:04:38,760 --> 00:04:41,630
+For the view, we'll want to
+look up all the treasures that
+
+78
+00:04:41,630 --> 00:04:44,260
+belong to that user_name.
+
+79
+00:04:44,260 --> 00:04:47,280
+And in the template, we'll
+display all of those treasures.
+
+80
+00:04:51,160 --> 00:04:54,590
+First we'll create our URL
+with a regular expression that
+
+81
+00:04:54,590 --> 00:05:00,190
+matches user/, and then
+a word of any length.
+
+82
+00:05:00,190 --> 00:05:03,790
+Backslash w plus will
+match a word of any length.
+
+83
+00:05:03,790 --> 00:05:05,920
+And then adding
+parentheses around that
+
+84
+00:05:05,920 --> 00:05:07,860
+will capture that value.
+
+85
+00:05:07,860 --> 00:05:13,340
+And then we can send it as
+a parameter to our view.
+
+86
+00:05:13,340 --> 00:05:16,990
+In that view, we'll now have
+two parameters, the request
+
+87
+00:05:16,990 --> 00:05:19,140
+and the username.
+
+88
+00:05:19,140 --> 00:05:23,220
+We can use get to look up the
+user object in the user model
+
+89
+00:05:23,220 --> 00:05:28,140
+by its username and checking if
+it matches the passed in user
+
+90
+00:05:28,140 --> 00:05:29,530
+name.
+
+91
+00:05:29,530 --> 00:05:32,070
+The next step is to get
+all of the treasures that
+
+92
+00:05:32,070 --> 00:05:35,690
+belong to that user.
+
+93
+00:05:35,690 --> 00:05:38,820
+We can use a filter
+on treasure.objects
+
+94
+00:05:38,820 --> 00:05:43,246
+with that new user object to get
+all of that user's treasures.
+
+95
+00:05:47,300 --> 00:05:51,400
+And finally, we'll pass that
+username and treasures list
+
+96
+00:05:51,400 --> 00:05:53,756
+to our profile
+template for rendering.
+
+97
+00:05:58,360 --> 00:06:00,970
+Then we'll create the
+profile template, which
+
+98
+00:06:00,970 --> 00:06:04,930
+will look almost identical
+to our index template,
+
+99
+00:06:04,930 --> 00:06:08,630
+to display the
+username as a title,
+
+100
+00:06:08,630 --> 00:06:11,310
+and then display all of
+the treasures that belong
+
+101
+00:06:11,310 --> 00:06:13,249
+to that user in a for loop.
+
+102
+00:06:19,960 --> 00:06:22,360
+We can see that the
+user profile page is
+
+103
+00:06:22,360 --> 00:06:24,880
+working for our Indiana user.
+
+104
+00:06:24,880 --> 00:06:29,390
+But we can only get to this page
+by manually typing in the URL.
+
+105
+00:06:29,390 --> 00:06:32,500
+So we want to link to this
+page from the home page.
+
+106
+00:06:35,870 --> 00:06:39,100
+We'll need to add an anchor
+tag underneath our title,
+
+107
+00:06:39,100 --> 00:06:44,100
+which will link to
+/user/treasure.user.username.
+
+108
+00:06:44,800 --> 00:06:47,780
+And the text will
+just be the username.
+
+109
+00:06:47,780 --> 00:06:51,140
+Then to link to our
+detail page now,
+
+110
+00:06:51,140 --> 00:06:54,530
+we'll add an anchor tag
+inside of the panel body
+
+111
+00:06:54,530 --> 00:06:56,380
+around the treasure photo.
+
+112
+00:06:56,380 --> 00:06:58,230
+So when you click on
+the treasure photo,
+
+113
+00:06:58,230 --> 00:07:00,120
+you'll now go to
+the detail page.
+
+114
+00:07:04,590 --> 00:07:08,056
+Finally we can see our home
+page linking to our new profile
+
+115
+00:07:08,056 --> 00:07:08,556
+page.
+
+116
+00:07:13,940 --> 00:07:16,280
+That's it for
+level 4, section 1.
+
+117
+00:07:16,280 --> 00:07:18,460
+Good luck in the challenges.
+

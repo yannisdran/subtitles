@@ -1,0 +1,296 @@
+﻿1
+00:00:02,790 --> 00:00:05,400
+Welcome back to
+level 4, section 2
+
+2
+00:00:05,400 --> 00:00:07,476
+where we'll cover
+user authentication.
+
+3
+00:00:12,640 --> 00:00:16,250
+Now that we have users
+that can create treasures,
+
+4
+00:00:16,250 --> 00:00:20,840
+we'd like to add the ability
+for only logged in users
+
+5
+00:00:20,840 --> 00:00:23,180
+to be able to create treasures.
+
+6
+00:00:23,180 --> 00:00:26,130
+So we'd like to add
+login and logout
+
+7
+00:00:26,130 --> 00:00:28,162
+functionality to our app.
+
+8
+00:00:31,120 --> 00:00:33,350
+We'll start by
+adding a login page.
+
+9
+00:00:33,350 --> 00:00:36,160
+And the plan for doing
+that is the same as usual
+
+10
+00:00:36,160 --> 00:00:39,940
+with adding a URL,
+view, and template,
+
+11
+00:00:39,940 --> 00:00:44,260
+but we'll want to add one more
+step for adding a login form.
+
+12
+00:00:48,040 --> 00:00:53,680
+We'll start again with adding
+our URL that matches /login
+
+13
+00:00:53,680 --> 00:00:58,740
+and goes to our view login_view.
+
+14
+00:00:58,740 --> 00:01:01,280
+We can't name our view
+login because there's
+
+15
+00:01:01,280 --> 00:01:03,975
+a built in login function
+we'll be using later.
+
+16
+00:01:08,020 --> 00:01:11,300
+Now we'll want to
+create our login form.
+
+17
+00:01:11,300 --> 00:01:15,650
+It will inherit from forms.Form
+and will have two fields
+
+18
+00:01:15,650 --> 00:01:18,830
+for the username and password.
+
+19
+00:01:18,830 --> 00:01:23,490
+The username will be a CharField
+with a label for username
+
+20
+00:01:23,490 --> 00:01:26,190
+and a max length of 64.
+
+21
+00:01:26,190 --> 00:01:28,480
+The password will
+also be a CharField,
+
+22
+00:01:28,480 --> 00:01:31,020
+but we'll use that
+password input widget
+
+23
+00:01:31,020 --> 00:01:32,400
+that we talked about earlier.
+
+24
+00:01:36,530 --> 00:01:38,740
+Now we'll go to
+creating our login view.
+
+25
+00:01:38,740 --> 00:01:42,950
+But first we'll need to import
+our login form we just created
+
+26
+00:01:42,950 --> 00:01:49,660
+and the built in login, logout,
+and authenticate functions.
+
+27
+00:01:49,660 --> 00:01:53,320
+Because we want the option
+to either POST our submitted
+
+28
+00:01:53,320 --> 00:01:59,010
+log in form data or simply
+display the login form,
+
+29
+00:01:59,010 --> 00:02:02,120
+we'll check if the
+request was a POST,
+
+30
+00:02:02,120 --> 00:02:04,980
+and then authenticate
+from there.
+
+31
+00:02:04,980 --> 00:02:09,620
+Otherwise we'll
+display the login form.
+
+32
+00:02:09,620 --> 00:02:11,150
+This is a little
+different than how
+
+33
+00:02:11,150 --> 00:02:16,590
+we handle POSTing a new treasure
+form because in our index view,
+
+34
+00:02:16,590 --> 00:02:20,980
+we were displaying the form, and
+then in our POST treasure view,
+
+35
+00:02:20,980 --> 00:02:25,210
+we were processing the form
+data in those separate views.
+
+36
+00:02:25,210 --> 00:02:27,752
+And now we're doing
+that in just one view.
+
+37
+00:02:30,620 --> 00:02:33,160
+First we'll create
+our login form,
+
+38
+00:02:33,160 --> 00:02:38,140
+check that the form is valid,
+get our username and password
+
+39
+00:02:38,140 --> 00:02:41,990
+from the form, and
+then authenticate
+
+40
+00:02:41,990 --> 00:02:44,240
+with that username and
+password, which will
+
+41
+00:02:44,240 --> 00:02:46,350
+return the authenticated user.
+
+42
+00:02:51,010 --> 00:02:54,570
+We'll first want to check
+that the user is not None
+
+43
+00:02:54,570 --> 00:02:57,530
+and the user.is_active,
+and then we'll
+
+44
+00:02:57,530 --> 00:03:01,010
+login the user with
+request and user
+
+45
+00:03:01,010 --> 00:03:03,750
+using that built
+in login function.
+
+46
+00:03:03,750 --> 00:03:05,858
+And then we'll redirect
+to the home page.
+
+47
+00:03:10,630 --> 00:03:13,360
+We can also provide feedback
+with else statements
+
+48
+00:03:13,360 --> 00:03:16,480
+by printing out whether the
+account has been disabled
+
+49
+00:03:16,480 --> 00:03:19,070
+or the username and
+password were incorrect,
+
+50
+00:03:19,070 --> 00:03:20,690
+and we'll just print
+those statements
+
+51
+00:03:20,690 --> 00:03:22,072
+to the console for now.
+
+52
+00:03:27,230 --> 00:03:30,390
+Finally, we'll create
+the login template
+
+53
+00:03:30,390 --> 00:03:35,110
+by simply displaying the
+form inside of form tags.
+
+54
+00:03:35,110 --> 00:03:37,730
+And we'll still
+need that csrf_token
+
+55
+00:03:37,730 --> 00:03:40,920
+we used before for POSTing.
+
+56
+00:03:40,920 --> 00:03:45,020
+You can see the method
+is POST, and the action
+
+57
+00:03:45,020 --> 00:03:48,230
+means that we're just submitting
+back to this same URL.
+
+58
+00:03:56,610 --> 00:04:00,108
+Now you can see our login form
+working on our login page.
+
+59
+00:04:04,190 --> 00:04:06,170
+That's it for
+level 4, section 2.
+
+60
+00:04:06,170 --> 00:04:07,990
+Now it's time for
+you to practice
+
+61
+00:04:07,990 --> 00:04:11,060
+with user authentication
+in the challenges.
+

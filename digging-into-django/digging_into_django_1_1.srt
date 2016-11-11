@@ -1,0 +1,440 @@
+1
+00:00:00,000 --> 00:00:02,240
+[SINGING] Deep
+within the jungle
+
+2
+00:00:02,240 --> 00:00:05,704
+lie treasures most unknown.
+
+3
+00:00:05,704 --> 00:00:12,062
+To track what we uncover,
+we'll need to use Django.
+
+4
+00:00:12,062 --> 00:00:18,386
+AJAX, forms, and grids,
+we'll cross the pyramids.
+
+5
+00:00:18,386 --> 00:00:21,308
+Dust off your old durangos -
+
+6
+00:00:24,034 --> 00:00:27,930
+we're Digging Into Django.
+
+7
+00:00:32,720 --> 00:00:33,220
+Hi.
+
+8
+00:00:33,220 --> 00:00:34,730
+I'm Sarah Holderness,
+
+9
+00:00:34,730 --> 00:00:37,530
+and this is Digging into Django.
+
+10
+00:00:37,530 --> 00:00:41,840
+This course builds upon the
+concepts taught in Try Django.
+
+11
+00:00:41,840 --> 00:00:44,030
+And for Django in general,
+it's helpful to know
+
+12
+00:00:44,030 --> 00:00:49,030
+basic Python, HTML, and database
+concepts which you can brush up
+
+13
+00:00:49,030 --> 00:00:50,220
+on in these courses.
+
+14
+00:00:53,020 --> 00:00:56,220
+In Try Django, we created
+the Treasure Gram site
+
+15
+00:00:56,220 --> 00:00:59,910
+which displayed a list of
+the treasures we've collected
+
+16
+00:00:59,910 --> 00:01:02,690
+along our expeditions.
+
+17
+00:01:02,690 --> 00:01:05,850
+In this course, we'd like to
+add the following new features
+
+18
+00:01:05,850 --> 00:01:08,920
+to our Treasure Gram app.
+
+19
+00:01:08,920 --> 00:01:14,450
+A grid layout, a
+detail page, a form
+
+20
+00:01:14,450 --> 00:01:25,630
+for adding treasures, image
+uploads, user authentication,
+
+21
+00:01:25,630 --> 00:01:31,125
+user profile pages, and
+a Like button with Ajax.
+
+22
+00:01:34,470 --> 00:01:38,090
+To start, let's look at
+creating a new look for our app
+
+23
+00:01:38,090 --> 00:01:39,243
+with a grid layout.
+
+24
+00:01:44,150 --> 00:01:47,150
+So the plan here is
+to use Bootstrap,
+
+25
+00:01:47,150 --> 00:01:52,360
+so we can create a grid
+with columns of width four,
+
+26
+00:01:52,360 --> 00:01:55,566
+and then we can create a new
+row every three treasures.
+
+27
+00:01:59,010 --> 00:02:02,960
+If we look at the current
+code in index.html,
+
+28
+00:02:02,960 --> 00:02:05,520
+we'll want to start by
+getting rid of the table that
+
+29
+00:02:05,520 --> 00:02:08,594
+stored our treasures details,
+like the value, material,
+
+30
+00:02:08,594 --> 00:02:10,229
+and location.
+
+31
+00:02:10,229 --> 00:02:13,310
+Since those will now
+be on the detail page.
+
+32
+00:02:13,310 --> 00:02:16,515
+And we'll want to keep the home
+page simple with just images.
+
+33
+00:02:19,350 --> 00:02:21,580
+Then if we look at the
+remaining code in our
+
+34
+00:02:21,580 --> 00:02:24,330
+for loop that displays
+each treasure,
+
+35
+00:02:24,330 --> 00:02:26,620
+we have a panel
+with the heading,
+
+36
+00:02:26,620 --> 00:02:28,910
+and the image displayed.
+
+37
+00:02:28,910 --> 00:02:30,990
+That whole piece of
+code is what we'll
+
+38
+00:02:30,990 --> 00:02:33,325
+want to put in each of
+our rows and columns.
+
+39
+00:02:37,210 --> 00:02:39,610
+We've collapse the code
+for displaying the treasure
+
+40
+00:02:39,610 --> 00:02:42,320
+to make it a little
+easier to read.
+
+41
+00:02:42,320 --> 00:02:46,440
+But what we've done is add a
+row outside of the for loop
+
+42
+00:02:46,440 --> 00:02:49,120
+and a column inside
+of the for loop.
+
+43
+00:02:52,630 --> 00:02:54,840
+If we take a look at
+our grid right now,
+
+44
+00:02:54,840 --> 00:02:58,300
+we can see there's a good
+start with the column set up,
+
+45
+00:02:58,300 --> 00:03:00,680
+but there are a few problems.
+
+46
+00:03:00,680 --> 00:03:04,350
+The problem is since some of our
+images have different heights,
+
+47
+00:03:04,350 --> 00:03:07,650
+letting the columns overflow
+doesn't really work.
+
+48
+00:03:07,650 --> 00:03:12,660
+To fix this, we can create a
+new row every three treasures.
+
+49
+00:03:12,660 --> 00:03:14,690
+But how would we do that?
+
+50
+00:03:14,690 --> 00:03:18,690
+We can check and see how many
+iterations of the for loop
+
+51
+00:03:18,690 --> 00:03:22,730
+we've done, and see if that
+number is divisible by three.
+
+52
+00:03:22,730 --> 00:03:25,185
+Then we know we want
+to create a new row.
+
+53
+00:03:29,410 --> 00:03:32,050
+To see the number of
+iterations of the for loop,
+
+54
+00:03:32,050 --> 00:03:36,310
+we can use this special
+variable inside of the for loop.
+
+55
+00:03:36,310 --> 00:03:41,910
+Forloop.counter will give us
+the number of iterations so far.
+
+56
+00:03:41,910 --> 00:03:45,870
+So for the first iteration,
+we'll have one as the counter,
+
+57
+00:03:45,870 --> 00:03:49,080
+then two, then three.
+
+58
+00:03:49,080 --> 00:03:52,260
+Then we want to check if the
+counter is divisible by three.
+
+59
+00:03:52,260 --> 00:03:56,110
+And Django provides special
+filters that we can use.
+
+60
+00:03:56,110 --> 00:04:01,950
+You use a filter by writing
+the value on the left, pipe,
+
+61
+00:04:01,950 --> 00:04:06,010
+then the filter name, which
+here it's divisible by,
+
+62
+00:04:06,010 --> 00:04:08,740
+and the argument,
+which is three.
+
+63
+00:04:08,740 --> 00:04:11,920
+This will return true or false,
+depending on whether it's
+
+64
+00:04:11,920 --> 00:04:14,530
+divisible by three or not.
+
+65
+00:04:14,530 --> 00:04:17,260
+So if we put this all
+together in an if statement,
+
+66
+00:04:17,260 --> 00:04:20,200
+we end up with something
+that looks like this.
+
+67
+00:04:20,200 --> 00:04:24,720
+An inside if it is divisible by
+three, will end the current row
+
+68
+00:04:24,720 --> 00:04:26,010
+and start a new row.
+
+69
+00:04:29,770 --> 00:04:31,450
+And now we have
+this piece of code
+
+70
+00:04:31,450 --> 00:04:33,900
+we just wrote inside
+of our template, which
+
+71
+00:04:33,900 --> 00:04:38,210
+is going to end the last
+row every three columns,
+
+72
+00:04:38,210 --> 00:04:39,563
+and then start a new one.
+
+73
+00:04:43,310 --> 00:04:46,150
+And now we can see our grid
+is working even if we have
+
+74
+00:04:46,150 --> 00:04:47,660
+images of different heights.
+
+75
+00:04:50,804 --> 00:04:52,220
+In case you are
+wondering, there's
+
+76
+00:04:52,220 --> 00:04:54,630
+some other for loop
+variables we can use.
+
+77
+00:04:54,630 --> 00:04:56,900
+We already saw .counter.
+
+78
+00:04:56,900 --> 00:05:00,660
+.counter0 will start
+counting at zero.
+
+79
+00:05:00,660 --> 00:05:05,810
+And .first and .last will
+return true or false if this is
+
+80
+00:05:05,810 --> 00:05:08,740
+the first iteration of the
+loop or the last iteration
+
+81
+00:05:08,740 --> 00:05:10,370
+of the loop.
+
+82
+00:05:10,370 --> 00:05:13,870
+There are also a lot more
+filters available to us.
+
+83
+00:05:13,870 --> 00:05:17,480
+For example, for
+add you can do pipe,
+
+84
+00:05:17,480 --> 00:05:22,030
+add, and a number, and that
+will return the value plus 2.
+
+85
+00:05:22,030 --> 00:05:24,780
+You can add pipe
+lower after a string,
+
+86
+00:05:24,780 --> 00:05:27,910
+and that will return that
+string in lower case.
+
+87
+00:05:27,910 --> 00:05:30,310
+And you can even
+chain multiple filters
+
+88
+00:05:30,310 --> 00:05:32,440
+to get different results.
+
+89
+00:05:32,440 --> 00:05:34,700
+There are many more
+Django template filters
+
+90
+00:05:34,700 --> 00:05:36,984
+which you can read
+about in the docs here.
+
+91
+00:05:40,400 --> 00:05:43,020
+That's it for level
+one, section one.
+
+92
+00:05:43,020 --> 00:05:45,180
+Good luck in the challenges.
+
+93
+00:05:45,180 --> 00:05:46,440
+

@@ -1,0 +1,674 @@
+﻿1
+00:00:00,832 --> 00:00:06,190
+[SINGING] Deep within the jungle
+lie treasures most unknown.
+
+2
+00:00:06,190 --> 00:00:12,054
+To track what we uncover,
+we'll need to use Django.
+
+3
+00:00:12,054 --> 00:00:17,860
+AJAX, forms and grids,
+we'll cross the pyramids.
+
+4
+00:00:17,860 --> 00:00:22,360
+Dust off your old durangos -
+
+5
+00:00:23,820 --> 00:00:29,280
+we're Digging Into Django.
+
+6
+00:00:32,280 --> 00:00:34,450
+Welcome back to
+Digging Into Django.
+
+7
+00:00:34,450 --> 00:00:38,420
+This is level five, section one,
+where we'll be going over Ajax.
+
+8
+00:00:43,140 --> 00:00:45,700
+We'd like to add a like
+button to keep track
+
+9
+00:00:45,700 --> 00:00:48,650
+of the number of likes
+for each treasure,
+
+10
+00:00:48,650 --> 00:00:52,810
+whether you're on the home
+page or the detail page.
+
+11
+00:00:52,810 --> 00:00:55,980
+We'll also want to use
+AJAX for the requests
+
+12
+00:00:55,980 --> 00:00:59,210
+so that the page will display
+the new number of likes
+
+13
+00:00:59,210 --> 00:01:02,330
+without having to refresh
+the entire page again.
+
+14
+00:01:05,170 --> 00:01:08,210
+So it's probably pretty
+familiar to you by now,
+
+15
+00:01:08,210 --> 00:01:12,380
+but we'll want to create
+a URL, view and template.
+
+16
+00:01:12,380 --> 00:01:14,920
+So the plan for creating
+this like button
+
+17
+00:01:14,920 --> 00:01:20,800
+will be to create a URL
+at localhost/like_treasure
+
+18
+00:01:20,800 --> 00:01:24,170
+that will go to our like_treasure
+view, which will then
+
+19
+00:01:24,170 --> 00:01:29,180
+calculate the total number of
+likes and update the database.
+
+20
+00:01:29,180 --> 00:01:32,850
+And then our index
+and detail templates
+
+21
+00:01:32,850 --> 00:01:37,180
+will display the like button
+and the updated number of likes.
+
+22
+00:01:37,180 --> 00:01:40,300
+And then we'll add
+these two extra steps,
+
+23
+00:01:40,300 --> 00:01:43,650
+add AJAX to process
+our request, and we'll
+
+24
+00:01:43,650 --> 00:01:45,900
+add a like field to
+the treasure model
+
+25
+00:01:45,900 --> 00:01:49,850
+so it can save a
+treasure's likes.
+
+26
+00:01:49,850 --> 00:01:52,390
+Let's tackle our model
+first since we'll
+
+27
+00:01:52,390 --> 00:01:55,475
+need to access the likes in
+the view and the templates.
+
+28
+00:01:59,540 --> 00:02:02,550
+We'll add likes as
+an integer field
+
+29
+00:02:02,550 --> 00:02:04,808
+and we'll set its
+default to be zero.
+
+30
+00:02:08,449 --> 00:02:11,310
+We can then migrate this
+change to the database
+
+31
+00:02:11,310 --> 00:02:15,780
+by running python manage.py
+makemigrations followed
+
+32
+00:02:15,780 --> 00:02:18,330
+by python manage.py migrate.
+
+33
+00:02:22,200 --> 00:02:25,940
+Then, in both of our templates,
+at the bottom of the treasure
+
+34
+00:02:25,940 --> 00:02:29,390
+panel, we'll add a Like button.
+
+35
+00:02:29,390 --> 00:02:35,110
+This will use bootstraps button
+class as well as glyphicon
+
+36
+00:02:35,110 --> 00:02:37,600
+to display a heart.
+
+37
+00:02:37,600 --> 00:02:40,120
+And for showing the
+number of likes,
+
+38
+00:02:40,120 --> 00:02:43,040
+we'll check if the likes
+are greater than zero
+
+39
+00:02:43,040 --> 00:02:45,150
+and then display them.
+
+40
+00:02:45,150 --> 00:02:48,246
+Otherwise, we won't show
+anything except the heart icon.
+
+41
+00:02:52,130 --> 00:02:54,340
+Before we look at
+updating the view,
+
+42
+00:02:54,340 --> 00:02:56,930
+let's look at this
+process without using
+
+43
+00:02:56,930 --> 00:03:01,950
+AJAX or the process
+that we're used to.
+
+44
+00:03:01,950 --> 00:03:03,770
+Let's look at the
+process for when
+
+45
+00:03:03,770 --> 00:03:06,470
+a user requests the home page.
+
+46
+00:03:06,470 --> 00:03:09,720
+The URL dispatcher will
+then send that request
+
+47
+00:03:09,720 --> 00:03:11,540
+to the index view,
+which will look up
+
+48
+00:03:11,540 --> 00:03:14,150
+all of the treasures
+in the database,
+
+49
+00:03:14,150 --> 00:03:16,240
+and then we'll
+render the template
+
+50
+00:03:16,240 --> 00:03:19,140
+with all of those
+treasures and generate
+
+51
+00:03:19,140 --> 00:03:21,970
+the corresponding HTML.
+
+52
+00:03:21,970 --> 00:03:24,990
+Then, any clicked
+links within that page
+
+53
+00:03:24,990 --> 00:03:29,140
+will go through the
+URL dispatcher again.
+
+54
+00:03:29,140 --> 00:03:31,680
+So if we want to
+add AJAX to prevent
+
+55
+00:03:31,680 --> 00:03:35,130
+the page from refreshing when
+we click the Like button,
+
+56
+00:03:35,130 --> 00:03:38,580
+things are going
+to change a bit.
+
+57
+00:03:38,580 --> 00:03:40,920
+Parts of this process
+will still be the same.
+
+58
+00:03:40,920 --> 00:03:44,250
+We're still going to
+load the index.html file.
+
+59
+00:03:44,250 --> 00:03:46,240
+But when the Like
+button is clicked,
+
+60
+00:03:46,240 --> 00:03:50,280
+the JavaScript is going to
+intercept this click event.
+
+61
+00:03:50,280 --> 00:03:53,850
+The JavaScript will then get
+the ID of the treasure that
+
+62
+00:03:53,850 --> 00:03:58,400
+was clicked and pass it
+through the URL dispatcher
+
+63
+00:03:58,400 --> 00:04:01,190
+to our new like_treasure view.
+
+64
+00:04:01,190 --> 00:04:05,740
+Our like_treasure view will then
+look up the treasure by its ID
+
+65
+00:04:05,740 --> 00:04:08,930
+and save the new
+number of likes.
+
+66
+00:04:08,930 --> 00:04:11,500
+It will then take
+that number of likes
+
+67
+00:04:11,500 --> 00:04:15,030
+and send that back
+to our JavaScript.
+
+68
+00:04:15,030 --> 00:04:17,890
+Our JavaScript will then
+update the Like button
+
+69
+00:04:17,890 --> 00:04:19,507
+with the new number of likes.
+
+70
+00:04:23,130 --> 00:04:26,140
+We could write this AJAX
+in standard JavaScript,
+
+71
+00:04:26,140 --> 00:04:28,440
+but we're going to
+use jQuery to help us
+
+72
+00:04:28,440 --> 00:04:32,280
+because it has a lot of
+AJAX built-in functions.
+
+73
+00:04:32,280 --> 00:04:35,610
+So we'll download the latest
+version of jQuery and put it
+
+74
+00:04:35,610 --> 00:04:39,250
+in our main_app/static/js
+folder.
+
+75
+00:04:39,250 --> 00:04:42,330
+And then we'll also
+create our main.js
+
+76
+00:04:42,330 --> 00:04:46,740
+for writing our application's
+specific AJAX code.
+
+77
+00:04:46,740 --> 00:04:48,610
+We're going to show
+you all the jQuery you
+
+78
+00:04:48,610 --> 00:04:51,890
+need to work with Django, but
+if you want to find out more,
+
+79
+00:04:51,890 --> 00:04:54,050
+you can check out
+our jQuery courses.
+
+80
+00:04:58,880 --> 00:05:01,110
+To include these new
+JavaScript files,
+
+81
+00:05:01,110 --> 00:05:04,100
+we'll want to add
+them to base.html,
+
+82
+00:05:04,100 --> 00:05:06,580
+and then they'll be available
+to all the templates
+
+83
+00:05:06,580 --> 00:05:07,880
+that inherit from base.
+
+84
+00:05:12,010 --> 00:05:15,740
+In our main.js file, we'll
+start by adding a button click
+
+85
+00:05:15,740 --> 00:05:17,390
+listener.
+
+86
+00:05:17,390 --> 00:05:19,490
+And when that button
+is clicked, we'll
+
+87
+00:05:19,490 --> 00:05:22,410
+prevent the default
+action and we'll capture
+
+88
+00:05:22,410 --> 00:05:23,890
+that button in a variable.
+
+89
+00:05:28,560 --> 00:05:32,710
+We'll then add a
+jQuery AJAX function,
+
+90
+00:05:32,710 --> 00:05:35,490
+which takes in the
+parameters URL, which will
+
+91
+00:05:35,490 --> 00:05:38,220
+go to our like treasure URL.
+
+92
+00:05:38,220 --> 00:05:41,510
+We'll use a GET request.
+
+93
+00:05:41,510 --> 00:05:45,520
+And the data is any information
+we want to pass to the view.
+
+94
+00:05:48,190 --> 00:05:50,420
+We want to get the
+treasure_id, and we
+
+95
+00:05:50,420 --> 00:05:54,530
+can get that by looking
+up the data-id attribute
+
+96
+00:05:54,530 --> 00:05:57,170
+of the clicked button.
+
+97
+00:05:57,170 --> 00:05:59,010
+You might have missed
+it, but we created
+
+98
+00:05:59,010 --> 00:06:03,570
+this data-id attribute inside
+our button in the index
+
+99
+00:06:03,570 --> 00:06:06,190
+template.
+
+100
+00:06:06,190 --> 00:06:09,880
+So now we can see in our diagram
+that we just got the treasure_id
+
+101
+00:06:09,880 --> 00:06:12,920
+and sent it to our URL.
+
+102
+00:06:12,920 --> 00:06:15,720
+Now we'll need to actually
+create that like_treasure
+
+103
+00:06:15,720 --> 00:06:17,670
+URL in the corresponding view.
+
+104
+00:06:21,680 --> 00:06:24,670
+Our new URL will
+be like_treasure
+
+105
+00:06:24,670 --> 00:06:26,510
+and we'll go to the
+like_treasure view.
+
+106
+00:06:29,050 --> 00:06:30,960
+In our new like
+treasure view, we'll
+
+107
+00:06:30,960 --> 00:06:34,950
+start by getting our
+treasure_id from the request.
+
+108
+00:06:34,950 --> 00:06:39,990
+Then, we'll initialize a local
+likes variable set to zero.
+
+109
+00:06:39,990 --> 00:06:42,570
+Then we'll check if our
+treasure_id was actually
+
+110
+00:06:42,570 --> 00:06:46,180
+received from the get
+request, and if it was,
+
+111
+00:06:46,180 --> 00:06:50,480
+we'll look up the treasure
+that corresponds to that id.
+
+112
+00:06:50,480 --> 00:06:53,250
+So then if that
+treasure is not none,
+
+113
+00:06:53,250 --> 00:06:55,270
+we'll look up its
+number of likes,
+
+114
+00:06:55,270 --> 00:06:57,560
+and increase them by
+one, and save that
+
+115
+00:06:57,560 --> 00:07:00,420
+into our local likes variable.
+
+116
+00:07:00,420 --> 00:07:03,630
+We'll then update that
+treasures number of likes
+
+117
+00:07:03,630 --> 00:07:06,680
+and save it to the database.
+
+118
+00:07:06,680 --> 00:07:10,980
+Finally, we'll return our
+likes as an HTTP response,
+
+119
+00:07:10,980 --> 00:07:13,470
+since that's what our
+AJAX is expecting.
+
+120
+00:07:16,520 --> 00:07:18,330
+If we look at our
+diagram again, we
+
+121
+00:07:18,330 --> 00:07:23,510
+can see we now got the
+treasure by its id in our view,
+
+122
+00:07:23,510 --> 00:07:27,150
+and then saved its number
+of likes to the database.
+
+123
+00:07:27,150 --> 00:07:30,580
+And then we returned that
+new number of likes back
+
+124
+00:07:30,580 --> 00:07:31,465
+to our AJAX.
+
+125
+00:07:35,570 --> 00:07:37,790
+Back in our AJAX,
+we need to capture
+
+126
+00:07:37,790 --> 00:07:40,520
+that returned number
+of likes, and we can do
+
+127
+00:07:40,520 --> 00:07:44,090
+that in the success function.
+
+128
+00:07:44,090 --> 00:07:46,940
+We'll then update
+our button element
+
+129
+00:07:46,940 --> 00:07:50,230
+with the new number of likes.
+
+130
+00:07:50,230 --> 00:07:54,100
+Notice that number of likes
+that got sent from the view
+
+131
+00:07:54,100 --> 00:07:57,158
+is captured in this variable
+that we called response.
+
+132
+00:08:00,370 --> 00:08:02,720
+So if we look at our
+AJAX diagram again,
+
+133
+00:08:02,720 --> 00:08:05,830
+we can see we completed
+our final step
+
+134
+00:08:05,830 --> 00:08:09,180
+of updating the like button
+with the new number of likes.
+
+135
+00:08:12,460 --> 00:08:15,680
+And now we can see our new
+fancy like button in action.
+
+136
+00:08:15,680 --> 00:08:20,520
+It instantaneously updates
+without refreshing the page.
+
+137
+00:08:20,520 --> 00:08:23,940
+And if we click into the detail
+view, the number of likes
+
+138
+00:08:23,940 --> 00:08:24,803
+is still correct.
+
+139
+00:08:32,130 --> 00:08:34,250
+Now it's time for
+you to add AJAX
+
+140
+00:08:34,250 --> 00:08:37,010
+to your app in the challenges.
+

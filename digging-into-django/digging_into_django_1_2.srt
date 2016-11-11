@@ -1,0 +1,419 @@
+﻿1
+00:00:02,020 --> 00:00:03,050
+Welcome back.
+
+2
+00:00:03,050 --> 00:00:05,615
+In this section, we'll
+be adding a detail page.
+
+3
+00:00:08,710 --> 00:00:10,630
+Now that our home
+page is displaying
+
+4
+00:00:10,630 --> 00:00:13,590
+a grid of just images,
+we'd like to be
+
+5
+00:00:13,590 --> 00:00:15,860
+able to click on
+one of those images,
+
+6
+00:00:15,860 --> 00:00:17,800
+and be brought to
+the detail page
+
+7
+00:00:17,800 --> 00:00:19,902
+to show more details
+about our treasures.
+
+8
+00:00:22,740 --> 00:00:25,160
+The URL for the
+detail page will be
+
+9
+00:00:25,160 --> 00:00:29,620
+localhost/id of the
+treasure we're displaying.
+
+10
+00:00:29,620 --> 00:00:33,800
+For example, here
+we have localhost/15
+
+11
+00:00:33,800 --> 00:00:37,840
+which is the id of the
+golden monkey displayed.
+
+12
+00:00:37,840 --> 00:00:39,720
+For the new detail
+page we'll need
+
+13
+00:00:39,720 --> 00:00:43,690
+to create this new
+URL in urls.py.
+
+14
+00:00:43,690 --> 00:00:47,080
+Create a detail
+view in views.py.
+
+15
+00:00:47,080 --> 00:00:50,772
+And create a
+detail.html template.
+
+16
+00:00:53,430 --> 00:00:56,620
+We'll start by adding
+our details URL.
+
+17
+00:00:56,620 --> 00:01:01,560
+This URL will capture any
+number, save that number,
+
+18
+00:01:01,560 --> 00:01:05,330
+and then send it
+to the detail view.
+
+19
+00:01:05,330 --> 00:01:08,060
+This regular expression
+is a little more complex
+
+20
+00:01:08,060 --> 00:01:09,900
+than the one we saw before.
+
+21
+00:01:09,900 --> 00:01:11,220
+So let's break it down.
+
+22
+00:01:14,120 --> 00:01:18,790
+In our existing index URL,
+we're not checking for any path.
+
+23
+00:01:18,790 --> 00:01:22,220
+Which means, it would
+just match local host.
+
+24
+00:01:22,220 --> 00:01:24,770
+But now we want to
+capture a number.
+
+25
+00:01:24,770 --> 00:01:26,770
+And how we do that
+is with square
+
+26
+00:01:26,770 --> 00:01:30,020
+brackets 0 through 9 plus.
+
+27
+00:01:30,020 --> 00:01:32,390
+And that will match any number.
+
+28
+00:01:32,390 --> 00:01:35,150
+So then we just add
+parenthesis and that
+
+29
+00:01:35,150 --> 00:01:38,940
+will capture that number, which
+means it will then be passed
+
+30
+00:01:38,940 --> 00:01:41,980
+as a parameter to the detail view.
+
+31
+00:01:41,980 --> 00:01:45,360
+For instance, localhost/0.
+
+32
+00:01:45,360 --> 00:01:49,020
+That 0 would be captured, and
+then passed to the detail view
+
+33
+00:01:49,020 --> 00:01:51,380
+as a parameter.
+
+34
+00:01:51,380 --> 00:01:53,060
+We're going to show
+you all the regex
+
+35
+00:01:53,060 --> 00:01:57,280
+you need to create this app, and
+to go through the challenges.
+
+36
+00:01:57,280 --> 00:01:59,810
+But if you're really
+interested in knowing more,
+
+37
+00:01:59,810 --> 00:02:01,740
+you can check out
+our Breaking the Ice
+
+38
+00:02:01,740 --> 00:02:03,496
+with Regular Expressions course.
+
+39
+00:02:07,300 --> 00:02:11,510
+So we said that this number
+would be captured by the URL
+
+40
+00:02:11,510 --> 00:02:13,460
+and passed to the detail view.
+
+41
+00:02:13,460 --> 00:02:15,120
+So when we create
+our detail view,
+
+42
+00:02:15,120 --> 00:02:17,040
+we'll have two parameters.
+
+43
+00:02:17,040 --> 00:02:20,650
+Request and then whatever
+we name that number,
+
+44
+00:02:20,650 --> 00:02:24,890
+and we're going to
+call it treasure ID.
+
+45
+00:02:24,890 --> 00:02:28,140
+Now we want to get the treasure
+that corresponds to that ID.
+
+46
+00:02:28,140 --> 00:02:31,710
+So we can do
+treasure.objects.get
+
+47
+00:02:31,710 --> 00:02:36,910
+and then check if that ID
+is equal to treasure ID.
+
+48
+00:02:36,910 --> 00:02:38,760
+You may be wondering
+where this ID
+
+49
+00:02:38,760 --> 00:02:40,488
+field came from in the model.
+
+50
+00:02:44,000 --> 00:02:49,640
+Because if we look at our
+model, there is no ID field.
+
+51
+00:02:49,640 --> 00:02:52,975
+So how did we look up
+a treasure by its ID?
+
+52
+00:02:56,690 --> 00:02:59,790
+By default, Django
+automatically provides us
+
+53
+00:02:59,790 --> 00:03:04,160
+with an auto-incrementing
+primary key field.
+
+54
+00:03:04,160 --> 00:03:07,870
+That means we can look up a
+specific treasure with this ID
+
+55
+00:03:07,870 --> 00:03:12,956
+field, and every treasure is
+guaranteed to have a unique ID.
+
+56
+00:03:16,190 --> 00:03:19,470
+Back in the detail view,
+we can pass the template
+
+57
+00:03:19,470 --> 00:03:21,694
+the treasure we just looked up.
+
+58
+00:03:24,860 --> 00:03:27,430
+Now that we have the
+URL and view set up,
+
+59
+00:03:27,430 --> 00:03:31,350
+the last step is to put
+together our template.
+
+60
+00:03:31,350 --> 00:03:34,780
+This is a new template
+called detail.html.
+
+61
+00:03:34,780 --> 00:03:37,550
+And because we passed
+in the treasure object,
+
+62
+00:03:37,550 --> 00:03:42,890
+we can access all of its fields,
+like name, image URL, value,
+
+63
+00:03:42,890 --> 00:03:44,250
+and location.
+
+64
+00:03:44,250 --> 00:03:47,670
+We haven't added any style yet
+just to see that it's working.
+
+65
+00:03:51,230 --> 00:03:53,330
+To add some style
+to our page we'll
+
+66
+00:03:53,330 --> 00:03:57,310
+basically copy the same styles
+we added to the home page,
+
+67
+00:03:57,310 --> 00:03:59,720
+but we don't need a for
+loop because we're only
+
+68
+00:03:59,720 --> 00:04:03,460
+displaying one single treasure.
+
+69
+00:04:03,460 --> 00:04:06,590
+I know we've added a lot
+of HTML and CSS here,
+
+70
+00:04:06,590 --> 00:04:10,550
+but it's specific to the design
+we've created for our page.
+
+71
+00:04:10,550 --> 00:04:12,520
+And you don't have to
+memorize it or anything
+
+72
+00:04:12,520 --> 00:04:16,347
+because each app you create
+will have its own HTML and CSS
+
+73
+00:04:16,347 --> 00:04:16,847
+elements.
+
+74
+00:04:21,560 --> 00:04:25,150
+So now we have all of the pieces
+to our detail view in place.
+
+75
+00:04:25,150 --> 00:04:29,040
+The URL, the view, and
+the detail template.
+
+76
+00:04:29,040 --> 00:04:31,050
+But we're missing one part.
+
+77
+00:04:31,050 --> 00:04:33,340
+We need a link
+from the home page
+
+78
+00:04:33,340 --> 00:04:35,738
+to get to the detail
+page of each treasure.
+
+79
+00:04:38,800 --> 00:04:43,060
+We can do this by wrapping the
+entire panel in an anchor tag
+
+80
+00:04:43,060 --> 00:04:46,510
+that links to /treasure.id.
+
+81
+00:04:46,510 --> 00:04:49,100
+That way if you click
+anywhere on the panel,
+
+82
+00:04:49,100 --> 00:04:52,102
+you'll be taken to that
+treasures detail page.
+
+83
+00:04:55,580 --> 00:04:57,900
+Now we can see this
+in action by clicking
+
+84
+00:04:57,900 --> 00:05:00,410
+on a treasure on the home
+page, and being taken
+
+85
+00:05:00,410 --> 00:05:02,276
+to that treasures detail page.
+
+86
+00:05:08,590 --> 00:05:10,930
+Now it's time for you to
+create your own detail
+
+87
+00:05:10,930 --> 00:05:12,780
+page in the challenges.
+
+88
+00:05:12,780 --> 00:05:14,338
+Good luck.
+

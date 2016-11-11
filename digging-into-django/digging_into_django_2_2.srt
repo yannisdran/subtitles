@@ -1,0 +1,184 @@
+﻿1
+00:00:02,660 --> 00:00:05,600
+Welcome back to level
+2, section 2
+
+2
+00:00:05,600 --> 00:00:09,570
+where we'll look at creating
+our forms in a smarter way using
+
+3
+00:00:09,570 --> 00:00:11,740
+Meta classes.
+
+4
+00:00:11,740 --> 00:00:13,530
+We'll end up with
+a form that has
+
+5
+00:00:13,530 --> 00:00:16,490
+the exact same
+functionality as before,
+
+6
+00:00:16,490 --> 00:00:18,022
+but with a lot less code.
+
+7
+00:00:21,710 --> 00:00:24,540
+If we compare to our
+original form code,
+
+8
+00:00:24,540 --> 00:00:27,180
+there will be a few differences.
+
+9
+00:00:27,180 --> 00:00:29,930
+First, we'll need to
+import our treasure model
+
+10
+00:00:29,930 --> 00:00:32,170
+since we'll be referencing it.
+
+11
+00:00:32,170 --> 00:00:34,210
+And our treasure
+form class will now
+
+12
+00:00:34,210 --> 00:00:37,970
+inherit from
+forms.ModelForm, which
+
+13
+00:00:37,970 --> 00:00:42,620
+is the first step to
+linking a form with a model.
+
+14
+00:00:42,620 --> 00:00:44,980
+Notice we don't have to
+create any of the fields
+
+15
+00:00:44,980 --> 00:00:45,890
+as we did before.
+
+16
+00:00:50,610 --> 00:00:54,610
+Instead, we'll just use
+this class called Meta.
+
+17
+00:00:54,610 --> 00:00:57,390
+The name of this class
+will always be Meta,
+
+18
+00:00:57,390 --> 00:01:00,010
+and we'll use it to
+link our new form
+
+19
+00:01:00,010 --> 00:01:03,710
+to our already created model.
+
+20
+00:01:03,710 --> 00:01:06,150
+Inside the class we'll
+specify that our model
+
+21
+00:01:06,150 --> 00:01:07,335
+will be Treasure.
+
+22
+00:01:10,430 --> 00:01:14,450
+And the fields will be a list
+of all of the model fields
+
+23
+00:01:14,450 --> 00:01:16,420
+we want to show up on our form.
+
+24
+00:01:20,810 --> 00:01:23,680
+Now that we've changed our
+form to be a model form,
+
+25
+00:01:23,680 --> 00:01:27,190
+we'll go and update our view.
+
+26
+00:01:27,190 --> 00:01:30,380
+We can replace all of the code
+we had before for manually
+
+27
+00:01:30,380 --> 00:01:34,049
+creating a treasure and
+saving it with this one line,
+
+28
+00:01:34,049 --> 00:01:37,090
+form.save(commit = True).
+
+29
+00:01:37,670 --> 00:01:40,490
+And in this single step,
+we're reading all of the data
+
+30
+00:01:40,490 --> 00:01:44,230
+from the form fields and
+saving it to the database.
+
+31
+00:01:44,230 --> 00:01:46,890
+Even though we're
+doing save on the form,
+
+32
+00:01:46,890 --> 00:01:49,730
+this is actually creating
+a treasure object for us
+
+33
+00:01:49,730 --> 00:01:54,940
+because the form is linked
+to the treasure model.
+
+34
+00:01:54,940 --> 00:01:57,600
+Afterwards we'll still
+redirect to the home page.
+
+35
+00:02:01,890 --> 00:02:04,810
+Now you can see that our
+form is working exactly
+
+36
+00:02:04,810 --> 00:02:08,146
+as it was before, but
+with a lot less form code.
+
+37
+00:02:11,560 --> 00:02:13,040
+Now it's time for
+you to practice
+
+38
+00:02:13,040 --> 00:02:16,130
+with ModelForms and Meta
+classes in the challenges.
+
+39
+00:02:16,130 --> 00:02:17,810
+Good luck.
+
