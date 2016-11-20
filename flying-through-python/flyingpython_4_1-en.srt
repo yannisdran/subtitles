@@ -148,7 +148,7 @@ with our strings written to it.
 32
 00:01:53,320 --> 00:01:56,660
 If the file doesn't exist
-for a right or an append,
+for a write or an append,
 
 33
 00:01:56,660 --> 00:01:58,980
